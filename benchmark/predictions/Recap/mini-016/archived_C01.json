@@ -1,0 +1,312 @@
+{
+  "assignments": [
+    {
+      "id": "F001",
+      "path": [
+        "Remote",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F002",
+      "path": [
+        "Office",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F003",
+      "path": [
+        "Office",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F004",
+      "path": [
+        "Office",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F005",
+      "path": [
+        "Remote",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F006",
+      "path": [
+        "Remote",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F007",
+      "path": [
+        "Office",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F008",
+      "path": [
+        "Office",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F009",
+      "path": [
+        "Office",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F010",
+      "path": [
+        "Remote",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F011",
+      "path": [
+        "Office",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F012",
+      "path": [
+        "Remote",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F013",
+      "path": [
+        "Remote",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F014",
+      "path": [
+        "Office",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F015",
+      "path": [
+        "Office",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F016",
+      "path": [
+        "Remote",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F017",
+      "path": [
+        "Remote",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F018",
+      "path": [
+        "Office",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F019",
+      "path": [
+        "Office",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F020",
+      "path": [
+        "Remote",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F021",
+      "path": [
+        "Remote",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F022",
+      "path": [
+        "Remote",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F023",
+      "path": [
+        "Office",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F024",
+      "path": [
+        "Office",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F025",
+      "path": [
+        "Remote",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F026",
+      "path": [
+        "Office",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F027",
+      "path": [
+        "Office",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F028",
+      "path": [
+        "Office",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F029",
+      "path": [
+        "Office",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F030",
+      "path": [
+        "Remote",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F031",
+      "path": [
+        "Office",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F032",
+      "path": [
+        "Office",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F033",
+      "path": [
+        "Office",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F034",
+      "path": [
+        "Remote",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F035",
+      "path": [
+        "Office",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F036",
+      "path": [
+        "Remote",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F037",
+      "path": [
+        "Office",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F038",
+      "path": [
+        "Office",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F039",
+      "path": [
+        "Office",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F040",
+      "path": [
+        "Office",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F041",
+      "path": [
+        "Office",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F042",
+      "path": [
+        "Remote",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F043",
+      "path": [
+        "Remote",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F044",
+      "path": [
+        "Remote",
+        "Decisions"
+      ]
+    }
+  ]
+}

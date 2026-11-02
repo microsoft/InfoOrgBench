@@ -1,0 +1,354 @@
+{
+  "assignments": [
+    {
+      "id": "F001",
+      "path": [
+        "Remote-evaluation",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F002",
+      "path": [
+        "Remote-evaluation",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F003",
+      "path": [
+        "Movie-selection",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F004",
+      "path": [
+        "Remote-features",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F005",
+      "path": [
+        "Remote-features",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F006",
+      "path": [
+        "Remote-features",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F007",
+      "path": [
+        "Remote-evaluation",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F008",
+      "path": [
+        "Remote-features",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F009",
+      "path": [
+        "Movie-selection",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F010",
+      "path": [
+        "Remote-features",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F011",
+      "path": [
+        "Remote-evaluation",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F012",
+      "path": [
+        "Remote-evaluation",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F013",
+      "path": [
+        "Remote-features",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F014",
+      "path": [
+        "Remote-evaluation",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F015",
+      "path": [
+        "Remote-features",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F016",
+      "path": [
+        "Remote-features",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F017",
+      "path": [
+        "Remote-features",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F018",
+      "path": [
+        "Remote-features",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F019",
+      "path": [
+        "Remote-evaluation",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F020",
+      "path": [
+        "Movie-selection",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F021",
+      "path": [
+        "Movie-selection",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F022",
+      "path": [
+        "Remote-features",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F023",
+      "path": [
+        "Remote-features",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F024",
+      "path": [
+        "Remote-features",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F025",
+      "path": [
+        "Remote-features",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F026",
+      "path": [
+        "Remote-evaluation",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F027",
+      "path": [
+        "Remote-evaluation",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F028",
+      "path": [
+        "Remote-features",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F029",
+      "path": [
+        "Remote-evaluation",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F030",
+      "path": [
+        "Remote-features",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F031",
+      "path": [
+        "Remote-evaluation",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F032",
+      "path": [
+        "Remote-features",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F033",
+      "path": [
+        "Remote-evaluation",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F034",
+      "path": [
+        "Movie-selection",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F035",
+      "path": [
+        "Movie-selection",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F036",
+      "path": [
+        "Remote-evaluation",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F037",
+      "path": [
+        "Remote-features",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F038",
+      "path": [
+        "Remote-evaluation",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F039",
+      "path": [
+        "Remote-features",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F040",
+      "path": [
+        "Remote-evaluation",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F041",
+      "path": [
+        "Remote-features",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F042",
+      "path": [
+        "Movie-selection",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F043",
+      "path": [
+        "Remote-features",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F044",
+      "path": [
+        "Remote-evaluation",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F045",
+      "path": [
+        "Movie-selection",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F046",
+      "path": [
+        "Remote-evaluation",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F047",
+      "path": [
+        "Remote-evaluation",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F048",
+      "path": [
+        "Movie-selection",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F049",
+      "path": [
+        "Movie-selection",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F050",
+      "path": [
+        "Remote-features",
+        "Decisions"
+      ]
+    }
+  ]
+}

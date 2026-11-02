@@ -1,0 +1,366 @@
+{
+  "task_id": "mini-049",
+  "records": [
+    {
+      "id": "F001",
+      "path": [
+        "sig-storage",
+        "1432-volume-health-monitor"
+      ],
+      "content_sha256": "2ca96bbbbe53ef17c42a944ab9b663820292e76e1cb18d8b0560b4cecc52b548",
+      "source_native_id": "keps/sig-storage/1432-volume-health-monitor#excerpt-1",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F002",
+      "path": [
+        "sig-api-machinery",
+        "2161-apiserver-default-labels"
+      ],
+      "content_sha256": "0476bd2f9559b5b32e5eb25ee932fe1e0ce4cc89d56fef88c5f23f1a547ccff5",
+      "source_native_id": "keps/sig-api-machinery/2161-apiserver-default-labels#excerpt-3",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F003",
+      "path": [
+        "sig-api-machinery",
+        "5793-manifest-based-admission-control-config"
+      ],
+      "content_sha256": "d554f00093d33b31f8e4fff980dcd57a9e27f5b6010db523e959fc40f027f11d",
+      "source_native_id": "keps/sig-api-machinery/5793-manifest-based-admission-control-config#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F004",
+      "path": [
+        "sig-api-machinery",
+        "2161-apiserver-default-labels"
+      ],
+      "content_sha256": "9941157d60cd33e68e03dbb22eab63a455407eb6e459424201eb001b920926e8",
+      "source_native_id": "keps/sig-api-machinery/2161-apiserver-default-labels#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F005",
+      "path": [
+        "sig-storage",
+        "5538-csi-sa-tokens-secrets-field"
+      ],
+      "content_sha256": "5258ea85d7eb53c06b4077bfdfe26a6e0baf42a94419fc8f3a3da7b71209aed1",
+      "source_native_id": "keps/sig-storage/5538-csi-sa-tokens-secrets-field#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F006",
+      "path": [
+        "sig-storage",
+        "1495-volume-populators"
+      ],
+      "content_sha256": "84acbbb5b9c10c9d93abd33e17491feb0144a9756c923d0abf66ba7a72d42535",
+      "source_native_id": "keps/sig-storage/1495-volume-populators#excerpt-3",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F007",
+      "path": [
+        "sig-node",
+        "5855-noexec-emptyDir"
+      ],
+      "content_sha256": "dd75464dc945db71c58ea1bc9e9285a9d2a9f91c1021db9dad6e6f99e0813859",
+      "source_native_id": "keps/sig-node/5855-noexec-emptyDir#excerpt-3",
+      "source_heading": "non-goals"
+    },
+    {
+      "id": "F008",
+      "path": [
+        "sig-auth",
+        "1393-oidc-discovery"
+      ],
+      "content_sha256": "95979bfd036967e23425ce0bfc9e71cd9e3ecedd12fbdceea6a2e1aa1d4a6bee",
+      "source_native_id": "keps/sig-auth/1393-oidc-discovery#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F009",
+      "path": [
+        "sig-node",
+        "585-runtime-class"
+      ],
+      "content_sha256": "69adff6224914d9b4aff85da242473a8f228f13726bd73a989ce7f99e3ac3f7e",
+      "source_native_id": "keps/sig-node/585-runtime-class#excerpt-1",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F010",
+      "path": [
+        "sig-node",
+        "3386-kubelet-evented-pleg"
+      ],
+      "content_sha256": "b7672216b3c929ff1ea3e7bee3388e65b6d9047c91658c92fcb078c340477b61",
+      "source_native_id": "keps/sig-node/3386-kubelet-evented-pleg#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F011",
+      "path": [
+        "sig-api-machinery",
+        "5793-manifest-based-admission-control-config"
+      ],
+      "content_sha256": "7a6ce548846fa8844d4b779d41feadfcfa109a10ae3e7a2e3eec2a34795fda7f",
+      "source_native_id": "keps/sig-api-machinery/5793-manifest-based-admission-control-config#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F012",
+      "path": [
+        "sig-auth",
+        "3221-structured-authorization-configuration"
+      ],
+      "content_sha256": "45e8978bf5f1ff4ca60cfadfade72563d9a8e49cf126fed8c77e122a5105897a",
+      "source_native_id": "keps/sig-auth/3221-structured-authorization-configuration#excerpt-2",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F013",
+      "path": [
+        "sig-storage",
+        "1495-volume-populators"
+      ],
+      "content_sha256": "823c15fcfda2d2e34599e2840219fd6ce73023165fa2b0601c16fe8374b27e1d",
+      "source_native_id": "keps/sig-storage/1495-volume-populators#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F014",
+      "path": [
+        "sig-storage",
+        "1432-volume-health-monitor"
+      ],
+      "content_sha256": "9dcaccea5e1c267d17cc9b391f76a73f39933430708fba67f2e2384861a86706",
+      "source_native_id": "keps/sig-storage/1432-volume-health-monitor#excerpt-2",
+      "source_heading": "non-goals"
+    },
+    {
+      "id": "F015",
+      "path": [
+        "sig-storage",
+        "5538-csi-sa-tokens-secrets-field"
+      ],
+      "content_sha256": "54a4c6202060213767996ba0a26b311c8ff3b648105fea73f0d32fb97a12f8ab",
+      "source_native_id": "keps/sig-storage/5538-csi-sa-tokens-secrets-field#excerpt-3",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F016",
+      "path": [
+        "sig-auth",
+        "740-service-account-external-signing"
+      ],
+      "content_sha256": "b98dfe02e06bae68e111b56bb22c6d14df0a219d38e3f62b95f154892ed98263",
+      "source_native_id": "keps/sig-auth/740-service-account-external-signing#excerpt-3",
+      "source_heading": "risks and mitigations"
+    },
+    {
+      "id": "F017",
+      "path": [
+        "sig-node",
+        "3386-kubelet-evented-pleg"
+      ],
+      "content_sha256": "097f7b63d601bccb4a02fa4f01ed128a129ab623a9ccbbb6f733cf6923628fdb",
+      "source_native_id": "keps/sig-node/3386-kubelet-evented-pleg#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F018",
+      "path": [
+        "sig-auth",
+        "740-service-account-external-signing"
+      ],
+      "content_sha256": "47971c0a6f554d9ab709d73f0d7ffb3c1fff502e22d75408590e28c66d72905b",
+      "source_native_id": "keps/sig-auth/740-service-account-external-signing#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F019",
+      "path": [
+        "sig-auth",
+        "1393-oidc-discovery"
+      ],
+      "content_sha256": "2c2891219a7641a9398343f4492b0467a42cbeeec55c7223bdfc6870b8bb6dc5",
+      "source_native_id": "keps/sig-auth/1393-oidc-discovery#excerpt-3",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F020",
+      "path": [
+        "sig-node",
+        "5855-noexec-emptyDir"
+      ],
+      "content_sha256": "71224faace3d49813969f2e7b7183ee19f09cfca5a4781695f1c54ca1d679df9",
+      "source_native_id": "keps/sig-node/5855-noexec-emptyDir#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F021",
+      "path": [
+        "sig-api-machinery",
+        "3488-cel-admission-control"
+      ],
+      "content_sha256": "3b61e8b7d171ad0d2143259585cb2962b93edd0a4af9517b9a16a00ae946da9a",
+      "source_native_id": "keps/sig-api-machinery/3488-cel-admission-control#excerpt-3",
+      "source_heading": "non-goals"
+    },
+    {
+      "id": "F022",
+      "path": [
+        "sig-node",
+        "3386-kubelet-evented-pleg"
+      ],
+      "content_sha256": "03a067187f40c5c747270737d7c14f0b1a472cea63bcd4dcc894556c8f22fd8b",
+      "source_native_id": "keps/sig-node/3386-kubelet-evented-pleg#excerpt-3",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F023",
+      "path": [
+        "sig-node",
+        "5855-noexec-emptyDir"
+      ],
+      "content_sha256": "385cc7c849063cf7383fdea2b66c4680eadd807fda181fbff6c49531040af9f0",
+      "source_native_id": "keps/sig-node/5855-noexec-emptyDir#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F024",
+      "path": [
+        "sig-api-machinery",
+        "3488-cel-admission-control"
+      ],
+      "content_sha256": "18b1ba988603bdb5e0dbcf7520dda86a04dea27ba9f1e1ffe5d96197f7f3ce79",
+      "source_native_id": "keps/sig-api-machinery/3488-cel-admission-control#excerpt-2",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F025",
+      "path": [
+        "sig-node",
+        "585-runtime-class"
+      ],
+      "content_sha256": "ef61a4b24050e8b615944712f97651b416f26426c518412b3cc1e7fe46878f18",
+      "source_native_id": "keps/sig-node/585-runtime-class#excerpt-3",
+      "source_heading": "risks and mitigations"
+    },
+    {
+      "id": "F026",
+      "path": [
+        "sig-storage",
+        "5538-csi-sa-tokens-secrets-field"
+      ],
+      "content_sha256": "d75e5b7d7d42e06f2c0e465c0fcb7b6615d4d5e77f056c9064c8e09b8b7d0ffa",
+      "source_native_id": "keps/sig-storage/5538-csi-sa-tokens-secrets-field#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F027",
+      "path": [
+        "sig-api-machinery",
+        "5793-manifest-based-admission-control-config"
+      ],
+      "content_sha256": "d89efe5b8db53d219c0d50748c662151b2a5cee95e22d65ca180387345f2ab21",
+      "source_native_id": "keps/sig-api-machinery/5793-manifest-based-admission-control-config#excerpt-3",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F028",
+      "path": [
+        "sig-storage",
+        "1495-volume-populators"
+      ],
+      "content_sha256": "f8689ec57448b4acad2b6d65267d3bf802646ee47bb7c97dae39d4e0bf7be570",
+      "source_native_id": "keps/sig-storage/1495-volume-populators#excerpt-2",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F029",
+      "path": [
+        "sig-auth",
+        "1393-oidc-discovery"
+      ],
+      "content_sha256": "b83998d51ce4ee1d26014e262a3ad4ff654d7428f44ebec4595b3995c8b507d3",
+      "source_native_id": "keps/sig-auth/1393-oidc-discovery#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F030",
+      "path": [
+        "sig-auth",
+        "740-service-account-external-signing"
+      ],
+      "content_sha256": "a8c7a98fdb232c99beb6e09d5db656495e9afc5745c208c4c3c769bc84b9c71a",
+      "source_native_id": "keps/sig-auth/740-service-account-external-signing#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F031",
+      "path": [
+        "sig-auth",
+        "3221-structured-authorization-configuration"
+      ],
+      "content_sha256": "1198f880b5d4d62bfeed414d9f51b9f202977cdcf1e2bd479c155c820790d4f0",
+      "source_native_id": "keps/sig-auth/3221-structured-authorization-configuration#excerpt-3",
+      "source_heading": "non-goals"
+    },
+    {
+      "id": "F032",
+      "path": [
+        "sig-auth",
+        "3221-structured-authorization-configuration"
+      ],
+      "content_sha256": "a95d03b7b3e291dc64addf8e974f62a16a936f17db8f39191112a05085ba75dc",
+      "source_native_id": "keps/sig-auth/3221-structured-authorization-configuration#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F033",
+      "path": [
+        "sig-api-machinery",
+        "2161-apiserver-default-labels"
+      ],
+      "content_sha256": "2205985746fd960351c5931258797eee8ab73c36288c3ee9ed6123b84cd32629",
+      "source_native_id": "keps/sig-api-machinery/2161-apiserver-default-labels#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F034",
+      "path": [
+        "sig-storage",
+        "1432-volume-health-monitor"
+      ],
+      "content_sha256": "85c00e42a09f130ab18d45be7394a654e51b2397f944ccbf162be3fe8d2d4c54",
+      "source_native_id": "keps/sig-storage/1432-volume-health-monitor#excerpt-3",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F035",
+      "path": [
+        "sig-api-machinery",
+        "3488-cel-admission-control"
+      ],
+      "content_sha256": "90cd975d5bbd4ef05ed58a0fe59f1d1fba08bdb5238688f7b6c45d3ae2b6332a",
+      "source_native_id": "keps/sig-api-machinery/3488-cel-admission-control#excerpt-1",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F036",
+      "path": [
+        "sig-node",
+        "585-runtime-class"
+      ],
+      "content_sha256": "3d5b140d4d81f35ee93b8096fd09f65baaa9080f5616dd25fc2c4c0a7247f5cf",
+      "source_native_id": "keps/sig-node/585-runtime-class#excerpt-2",
+      "source_heading": "user stories"
+    }
+  ],
+  "reference_scope": "Source-derived group/proposal hierarchy for a development-only difficulty and cost pilot."
+}

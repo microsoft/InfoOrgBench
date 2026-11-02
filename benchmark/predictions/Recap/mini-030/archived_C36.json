@@ -1,0 +1,417 @@
+{
+  "assignments": [
+    {
+      "id": "F001",
+      "path": [
+        "Project Kickoff",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F002",
+      "path": [
+        "Project Kickoff",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F003",
+      "path": [
+        "Final Evaluation",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F004",
+      "path": [
+        "Concept Design",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F005",
+      "path": [
+        "Project Kickoff",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F006",
+      "path": [
+        "Concept Design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F007",
+      "path": [
+        "Final Evaluation",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F008",
+      "path": [
+        "Final Evaluation",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F009",
+      "path": [
+        "Project Kickoff",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F010",
+      "path": [
+        "Concept Design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F011",
+      "path": [
+        "Final Evaluation",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F012",
+      "path": [
+        "Project Kickoff",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F013",
+      "path": [
+        "Project Kickoff",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F014",
+      "path": [
+        "Final Evaluation",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F015",
+      "path": [
+        "Final Evaluation",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F016",
+      "path": [
+        "Project Kickoff",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F017",
+      "path": [
+        "Concept Design",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F018",
+      "path": [
+        "Project Kickoff",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F019",
+      "path": [
+        "Final Evaluation",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F020",
+      "path": [
+        "Concept Design",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F021",
+      "path": [
+        "Final Evaluation",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F022",
+      "path": [
+        "Final Evaluation",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F023",
+      "path": [
+        "Final Evaluation",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F024",
+      "path": [
+        "Concept Design",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F025",
+      "path": [
+        "Project Kickoff",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F026",
+      "path": [
+        "Final Evaluation",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F027",
+      "path": [
+        "Concept Design",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F028",
+      "path": [
+        "Project Kickoff",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F029",
+      "path": [
+        "Project Kickoff",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F030",
+      "path": [
+        "Project Kickoff",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F031",
+      "path": [
+        "Concept Design",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F032",
+      "path": [
+        "Concept Design",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F033",
+      "path": [
+        "Final Evaluation",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F034",
+      "path": [
+        "Project Kickoff",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F035",
+      "path": [
+        "Final Evaluation",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F036",
+      "path": [
+        "Final Evaluation",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F037",
+      "path": [
+        "Concept Design",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F038",
+      "path": [
+        "Concept Design",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F039",
+      "path": [
+        "Final Evaluation",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F040",
+      "path": [
+        "Final Evaluation",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F041",
+      "path": [
+        "Concept Design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F042",
+      "path": [
+        "Project Kickoff",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F043",
+      "path": [
+        "Final Evaluation",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F044",
+      "path": [
+        "Final Evaluation",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F045",
+      "path": [
+        "Concept Design",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F046",
+      "path": [
+        "Project Kickoff",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F047",
+      "path": [
+        "Project Kickoff",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F048",
+      "path": [
+        "Project Kickoff",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F049",
+      "path": [
+        "Final Evaluation",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F050",
+      "path": [
+        "Final Evaluation",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F051",
+      "path": [
+        "Final Evaluation",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F052",
+      "path": [
+        "Concept Design",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F053",
+      "path": [
+        "Concept Design",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F054",
+      "path": [
+        "Project Kickoff",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F055",
+      "path": [
+        "Project Kickoff",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F056",
+      "path": [
+        "Concept Design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F057",
+      "path": [
+        "Concept Design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F058",
+      "path": [
+        "Final Evaluation",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F059",
+      "path": [
+        "Project Kickoff",
+        "Overview"
+      ]
+    }
+  ]
+}

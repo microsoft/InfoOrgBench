@@ -1,0 +1,354 @@
+{
+  "assignments": [
+    {
+      "id": "F001",
+      "path": [
+        "Banana-prototype",
+        "decisions"
+      ]
+    },
+    {
+      "id": "F002",
+      "path": [
+        "Banana-prototype",
+        "decisions"
+      ]
+    },
+    {
+      "id": "F003",
+      "path": [
+        "LCD-planning",
+        "issues"
+      ]
+    },
+    {
+      "id": "F004",
+      "path": [
+        "LCD-planning",
+        "decisions"
+      ]
+    },
+    {
+      "id": "F005",
+      "path": [
+        "Banana-prototype",
+        "decisions"
+      ]
+    },
+    {
+      "id": "F006",
+      "path": [
+        "LCD-planning",
+        "overview"
+      ]
+    },
+    {
+      "id": "F007",
+      "path": [
+        "LCD-planning",
+        "decisions"
+      ]
+    },
+    {
+      "id": "F008",
+      "path": [
+        "LCD-planning",
+        "decisions"
+      ]
+    },
+    {
+      "id": "F009",
+      "path": [
+        "Banana-prototype",
+        "overview"
+      ]
+    },
+    {
+      "id": "F010",
+      "path": [
+        "Banana-prototype",
+        "decisions"
+      ]
+    },
+    {
+      "id": "F011",
+      "path": [
+        "Banana-prototype",
+        "overview"
+      ]
+    },
+    {
+      "id": "F012",
+      "path": [
+        "Banana-prototype",
+        "decisions"
+      ]
+    },
+    {
+      "id": "F013",
+      "path": [
+        "LCD-planning",
+        "overview"
+      ]
+    },
+    {
+      "id": "F014",
+      "path": [
+        "Banana-prototype",
+        "overview"
+      ]
+    },
+    {
+      "id": "F015",
+      "path": [
+        "LCD-planning",
+        "decisions"
+      ]
+    },
+    {
+      "id": "F016",
+      "path": [
+        "LCD-planning",
+        "decisions"
+      ]
+    },
+    {
+      "id": "F017",
+      "path": [
+        "LCD-planning",
+        "decisions"
+      ]
+    },
+    {
+      "id": "F018",
+      "path": [
+        "LCD-planning",
+        "decisions"
+      ]
+    },
+    {
+      "id": "F019",
+      "path": [
+        "Banana-prototype",
+        "decisions"
+      ]
+    },
+    {
+      "id": "F020",
+      "path": [
+        "LCD-planning",
+        "issues"
+      ]
+    },
+    {
+      "id": "F021",
+      "path": [
+        "Banana-prototype",
+        "decisions"
+      ]
+    },
+    {
+      "id": "F022",
+      "path": [
+        "Banana-prototype",
+        "decisions"
+      ]
+    },
+    {
+      "id": "F023",
+      "path": [
+        "Banana-prototype",
+        "overview"
+      ]
+    },
+    {
+      "id": "F024",
+      "path": [
+        "LCD-planning",
+        "decisions"
+      ]
+    },
+    {
+      "id": "F025",
+      "path": [
+        "Banana-prototype",
+        "overview"
+      ]
+    },
+    {
+      "id": "F026",
+      "path": [
+        "Banana-prototype",
+        "overview"
+      ]
+    },
+    {
+      "id": "F027",
+      "path": [
+        "LCD-planning",
+        "issues"
+      ]
+    },
+    {
+      "id": "F028",
+      "path": [
+        "LCD-planning",
+        "issues"
+      ]
+    },
+    {
+      "id": "F029",
+      "path": [
+        "LCD-planning",
+        "decisions"
+      ]
+    },
+    {
+      "id": "F030",
+      "path": [
+        "LCD-planning",
+        "overview"
+      ]
+    },
+    {
+      "id": "F031",
+      "path": [
+        "LCD-planning",
+        "issues"
+      ]
+    },
+    {
+      "id": "F032",
+      "path": [
+        "LCD-planning",
+        "overview"
+      ]
+    },
+    {
+      "id": "F033",
+      "path": [
+        "LCD-planning",
+        "issues"
+      ]
+    },
+    {
+      "id": "F034",
+      "path": [
+        "LCD-planning",
+        "issues"
+      ]
+    },
+    {
+      "id": "F035",
+      "path": [
+        "Banana-prototype",
+        "overview"
+      ]
+    },
+    {
+      "id": "F036",
+      "path": [
+        "Banana-prototype",
+        "decisions"
+      ]
+    },
+    {
+      "id": "F037",
+      "path": [
+        "Banana-prototype",
+        "decisions"
+      ]
+    },
+    {
+      "id": "F038",
+      "path": [
+        "LCD-planning",
+        "issues"
+      ]
+    },
+    {
+      "id": "F039",
+      "path": [
+        "LCD-planning",
+        "decisions"
+      ]
+    },
+    {
+      "id": "F040",
+      "path": [
+        "Banana-prototype",
+        "overview"
+      ]
+    },
+    {
+      "id": "F041",
+      "path": [
+        "Banana-prototype",
+        "decisions"
+      ]
+    },
+    {
+      "id": "F042",
+      "path": [
+        "LCD-planning",
+        "decisions"
+      ]
+    },
+    {
+      "id": "F043",
+      "path": [
+        "LCD-planning",
+        "decisions"
+      ]
+    },
+    {
+      "id": "F044",
+      "path": [
+        "LCD-planning",
+        "decisions"
+      ]
+    },
+    {
+      "id": "F045",
+      "path": [
+        "LCD-planning",
+        "decisions"
+      ]
+    },
+    {
+      "id": "F046",
+      "path": [
+        "Banana-prototype",
+        "overview"
+      ]
+    },
+    {
+      "id": "F047",
+      "path": [
+        "LCD-planning",
+        "overview"
+      ]
+    },
+    {
+      "id": "F048",
+      "path": [
+        "Banana-prototype",
+        "decisions"
+      ]
+    },
+    {
+      "id": "F049",
+      "path": [
+        "Banana-prototype",
+        "overview"
+      ]
+    },
+    {
+      "id": "F050",
+      "path": [
+        "LCD-planning",
+        "decisions"
+      ]
+    }
+  ]
+}

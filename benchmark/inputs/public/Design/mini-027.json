@@ -1,0 +1,185 @@
+{
+  "task_id": "mini-027",
+  "records": [
+    {
+      "id": "F001",
+      "format": "text",
+      "text": "In version 1.31 of kubectl we will implement warnings, such that all users of `kubectl kustomize` will be informed that the subcommand is deprecated and they will be directed to use standalone kustomize, or switch to kustomize plugin. Users of `--kustomize` flag will be informed that the flag is deprecated, and will be directed to use standalone kustomize.\n\nThe above warnings will be implemented behind a `KUBECTL_LEGACY_KUSTOMIZE` environment variable which starting from v1.31 will be on by default. Users interested in trying out kubectl without kustomize will be able to disable the aforementioned environment variable.\n\nIn version 1.34 we will disable the environment variable, disabling access to kustomize by default in kubectl. At this point in time users will still have the option to enable this mechanism back using `KUBECTL_LEGACY_KUSTOMIZE`.\n\nIn version 1.36 lock `KUBECTL_LEGACY_KUSTOMIZE` to off by default, but leaving the kustomize code base in kubectl for one more release.\n\nFinally, in version 1.37 entirely drop kustomize from kubectl."
+    },
+    {
+      "id": "F002",
+      "format": "text",
+      "text": "With Dynamic Resource Allocation (DRA), DRA drivers publish information about the devices that they manage in ResourceSlices. This information is used by the scheduler when selecting devices for user requests in ResourceClaims.\n\nThis KEP adds a Kubernetes API that privileged users, typically cluster administrators or control plane controllers, can use to override or extend that information. This can be permanent as part of the installation of a DRA driver to adapt the driver to the cluster or temporary as part of cluster maintenance. An extension of the API adds taints."
+    },
+    {
+      "id": "F003",
+      "format": "text",
+      "text": "Kustomize's extension story MUST be consistent between standalone Kustomize and kustomize-in-kubectl. For example, if any flags are used to enable or configure Kustomize, the usage of those flags must be identical in both the standalone and embedded distributions. Plugin configuration MUST be fully declarative. Plugin usage MUST NOT require out-of-band imperative installation steps. Kustomize SHOULD support declarative configuration of a set of trusted plugins. (See the [Catalog KEP]) Kustomize SHOULD provide an API that enables plugins to be orchestrated on equal footing with built-in transformers, including with respect to ordering. (See the [Composition KEP]) Kustomize SHOULD provide an API that facilitates sane layering in plugin-centric workflows where the plugin configuration itself must be manipulated. (See the [Composition KEP]) As a measure of plugin UX, Kustomize itself SHOULD be able to convert existing transformers (e.g. the Helm transformer) to \"official\" plugins without significantly degrading the user experience."
+    },
+    {
+      "id": "F004",
+      "format": "text",
+      "text": "Showing the users what authorization conditions that they are subject to through `SelfSubjectAccessReview` means that badly-written access control policies which follow the pattern of [Security Through Obscurity] would be \"broken\". For example, if a user can only `create pods` conditioned on `metadata.labels.foo == \"42\"`, the latter condition would be returned in the SelfSAR, whereas without this information the user would need to \"blindly\" guess the number. However, these kind of practices are highly discouraged, as they rarely are effective in practice. For example, if the user could `list pods` otherwise (which in that case would be a reasonable permission to have), they could most likely reverse-engineer the conditions they are subject to, by seeing data that \"got through\".\n\nThis risk could be mitigated by the authorizer returning opaque conditions (which could not be efficiently evaluated in the API server), instead of transparent (e.g. CEL) ones. It is up to the authorizer's discretion to know whether conditions are \"secret\" or can be shown to the user. For clarity to the user, it is recommended that conditions are shown when possible and reasonable.\n\nSecurity Through Obscurity"
+    },
+    {
+      "id": "F005",
+      "format": "text",
+      "text": "A user may expand a PersistentVolumeClaim(PVC) to a size which may not be supported by underlying storage provider. In which case - typically expansion controller forever tries to expand the volume and keeps failing. We want to make it easier for users to recover from expansion failures, so that user can retry volume expansion with values that may succeed.\n\nTo enable recovery, this proposal relaxes API validation for PVC objects to allow reduction in requested size. This KEP also adds a new field called `pvc.Status.AllocatedResources` to allow resource quota to be tracked accurately if user reduces size of their PVCs."
+    },
+    {
+      "id": "F006",
+      "format": "text",
+      "text": "This design is centered around generating a new UID for each envelope operation similar to UID generation in admission review requests here:\n\nA new UID field will be added to the `EncryptRequest` and `DecryptRequest` structs in the kms-plugin interface. The field is a pointer to a string. If the feature gate is disabled, the UID field will be nil and this results in byte equivalent data on the wire when compared to a 1.23 API server.\n\nThe UID generated in the kube-apiserver will be used: For logging in the kube-apiserver. All envelope operations to the kms-plugin will be logged with the corresponding UID. The UID will be logged using a wrapper in the kube-apiserver to ensure that the UID is logged in the same format and is always logged. In addition to the UID, the kube-apiserver will also log non-sensitive metadata such as name, namespace and GroupVersionResource of the object that triggered the envelope operation. Sent to the kms-plugin as part of the `EncryptRequest` and `DecryptRequest` structs."
+    },
+    {
+      "id": "F007",
+      "format": "text",
+      "text": "Avoid any kind of installation process (no additional config, users drop an executable in their `PATH`, for example, and they are then able to use that plugin with `kubectl`). No additional configuration is needed, only the plugin executable. A plugin's filename determines the plugin's intention, such as which path in the command tree it applies to: `/usr/bin/kubectl-educate-dolphins` would, for example be invoked under the command `kubectl educate dolphins --flag1 --flag2`. It is up to a plugin to parse any arguments and flags given to it. A plugin decides when an argument is a subcommand, as well as any limitations or constraints that its flags should have. Relay all information given to `kubectl` (via command line args) to plugins as-is. Plugins receive all arguments and flags provided by users and are responsible for adjusting their behavior accordingly. Provide a way to limit which command paths can and cannot be overridden by plugins in the command tree."
+    },
+    {
+      "id": "F008",
+      "format": "text",
+      "text": "The DRA Structured Parameters feature has added the ability to make requests for very specific types of devices using a `ResourceClaim`. However, the current API does not allow the user to indicate any priority when multiple types or configurations of devices may meet the needs of the workload. This feature allows the user to specify alternative requests that statisfy the workloads need, giving the scheduler more flexiblity in scheduling the workload. This can increase the change that their workloads will get scheduled, although it doesn't guarantee that the optimal set of devices will be allocated. Scoring will improve this once implemented."
+    },
+    {
+      "id": "F009",
+      "format": "text",
+      "text": "To achieve the above mentioned goals, at a high level, the following changes are proposed: The `authorizer.Authorizer` interface and `SubjectAccessReview` API are extended to support: The client indicating it supports conditional authorization The authorizer returning, in addition to existing unconditional `Allow`, `Deny` or `NoOpinion` decisions, a set of conditions The `WithAuthorization` HTTP filter lets a supported request proceed in the request chain if the decision is: A unconditional `Allow`, just like before, or A ConditionSet *which can evaluate* to `Allow` A new, always-on `k8s.io/apiserver`-built-in `AuthorizationConditionsEnforcer` validating admission plugin (ordered before other validating webhooks) which enforces that the set of conditions (if any) evaluate into `Allow`, or denies the request."
+    },
+    {
+      "id": "F010",
+      "format": "text",
+      "text": "Allow workload authors, when specifying a `ResourceClaim`, to provide a list of ways to satisfy the claim, with a preference ranking. Enable schedulers to evaluate those preferences and allocate devices for the claim based on them. Enable cluster autoscalers to evaluate those preferences and make scaling choices based on them. Provide some measure of ResourceQuota controls when users utilize claims with these types of requests."
+    },
+    {
+      "id": "F011",
+      "format": "text",
+      "text": "The only way to correlate a successful/failed envelope operation today is to use the approximate timestamp of the operation to check events in kube-apiserver, kms-plugin and KMS. There is no guarantee that the timestamp of the operation is the same as the timestamp of the corresponding event in KMS. This KEP proposes extending the signature of the kms-plugin interface to include the transaction ID (to be generated by the kube-apiserver), which kms-plugin could pass to KMS. This transaction ID will be logged with additional metadata such a secret name and namespace for the envelope operation. Similarly, the transaction ID will be logged in the kms-plugin and optionally passed to KMS."
+    },
+    {
+      "id": "F012",
+      "format": "text",
+      "text": "Kustomize was brought into kubectl shortly after its initial release. The main motivation back then was to expand declarative support for kubernetes objects. Over the past decade of kubernetes existence multiple, various tools for customization and templating has been development. Given that, current kubectl maintainers feel that promoting one tool over the other should not be the role of the project.\n\nMoreover, decoupling both projects will allow them to move at separate pace. The current kubernetes release cycle doesn't match that of kustomize, oftentimes risking users of kubectl to work with outdated version of kustomize.\n\nLastly, some of the kustomize dependencies has already been problematic to the core kubernetes project, so removing kustomize will allow us to minimize the dependency graph and the size of kubectl binary."
+    },
+    {
+      "id": "F013",
+      "format": "text",
+      "text": "\"Obtainability\" of certain types of scarce resources is a primary concern of many AI/ML users. GPUs are in high demand, particularly the latest models. This means that workloads that use DRA to specify a need for particular types of GPUs may fail to schedule. In practice, a workload that needs a GPU can be written such that it can discover the GPUs available to it, and work with what it is given. A user may have a preference for the latest model, but would like to run the workload even if only an older model is available.\n\nSimilarly, packaged workload authors may wish to configure a workload such that it will work well in the widest selection of available clusters. That is, a distributor of shared workload definitions would like to be able to specify alternative types of devices with which their workload will function, without requiring the user to modify the manifests."
+    },
+    {
+      "id": "F014",
+      "format": "text",
+      "text": "Heterogenous clusters, i.e. clusters where access to storage is limited only to some nodes. Existing `PV.spec.nodeAffinity` handling, not modified by this KEP, will filter out nodes that don't have access to the storage, so predicates changed in this KEP don't need to worry about storage topology and can be simpler. Multiple plugins sharing the same volume limits. We expect that every CSI driver will have its own limits, not shared with other CSI drivers. In this KEP we support only in-tree volume plugins sharing its limits with one hard-coded CSI driver each. Multiple \"units\" per single volume. Each volume used on a node takes exactly 1 unit from `allocatable.volumes`, regardless of the volume size, its replica count, number of connections to remote servers or other underlying resources needed to use the volume. For example, multipath iSCSI volume with three paths (and thus three iSCSI connections to three different servers) still takes 1 unit from `CSINode.spec.drivers[xyz].allocatable.volumes`. Maximum capacity per node. Some cloud environments limit both number of attached volumes (covered in this KEP) and total capacity of attached volumes (not covered in this KEP). For example, this KEP will ensure that scheduler puts max. 128 GCE PD volumes to a typical GCE node, but it won't ensure that the total capacity of the volumes is less than 64 TB. Volume limits does not yet integrate with cluster autoscaler if all nodes in the cluster are running at maximum volume limits."
+    },
+    {
+      "id": "F015",
+      "format": "text",
+      "text": "Sometimes a user may expand a PVC to a size which may not be supported by underlying storage provider. Lets say PVC size was 10GB and user expanded it to 500GB but underlying storage provider can not support 500GB volume for some reason. We want to make it easier for user to retry re-sizing by requesting more reasonable value say - 100GB.\n\nProblem in allowing users to reduce size is - a malicious user can use this feature to abuse the quota system. They can do so by rapidly expanding and then shrinking the PVC. In general - both CSI and in-tree volume plugins have been designed to never perform actual shrink on underlying volume, but it can fool the quota system in believing the user is using less storage than he/she actually is.\n\nTo solve this problem - we propose that although users are allowed to reduce size of their PVC (as long as requested size > `pvc.Status.Capacity`), quota calculation will use `max(pvc.Spec.Capacity, pvc.Status.AllocatedResources)` and reduction in `pvc.Status.AllocatedResources` is only done by resize-controller after previously issued expansion has failed with some kind of terminal failure."
+    },
+    {
+      "id": "F016",
+      "format": "text",
+      "text": "The main motivation behind a plugin system for `kubectl` stems from being able to provide users with a way to extend the functionality of `kubectl`, beyond what is offered by its core commands.\n\nBy picturing the core commands provided by `kubectl` as essential building blocks for interacting with a Kubernetes cluster, we can begin to think of plugins as a means of using these building blocks to provide more complex functionality. A new command, `kubectl set-ns`, for example, could take advantage of the rudimentary functionality already provided by the `kubectl config` command, and build on top of it to provide users with a powerful, yet easy-to-use way of switching to a new namespace.\n\nFor example, the user experience for switching namespaces could go from:\n\nto:\n\nwhere `set-ns` would be a user-provided plugin which would call the initial `kubectl config set-context ...` command and set the namespace flag according to the value provided as the plugin's first parameter.\n\nThe `set-ns` command above could have multiple variations, or be expanded to support subcommands with relative ease. Since plugins would be distributed by their authors, independent from the core Kubernetes repository, plugins could release updates and changes at their own pace."
+    },
+    {
+      "id": "F017",
+      "format": "text",
+      "text": "Many kubernetes users still misconfigure their cluster by creating RoleBindings and ClusterRoleBindings to powerful rules in their cluster. This KubeCon talk covers a real world example of a production kubernetes cluster where a ClusterRoleBinding was created that bound the `cluster-admin` ClusterRole to the `system:anonymous` user, allowing for full cluster takeover.\n\nOne of the mitigations would be to disable anonymous authentication by setting the `kube-apiserver` flag `--anonymous-auth` to `false`, but this is not possible for many deployments that depend on unauthenticated requests (from clients like load balancers or the kubelet) to check health endpoints of a kubernetes cluster (`healthz`, `livez` and `readyz`). In order to allow these health checks a cluster admin has to enable anonymous requests opening the door for misconfigurations."
+    },
+    {
+      "id": "F018",
+      "format": "text",
+      "text": "Number of volumes of certain type that can be attached to a node should be configurable easily and should be based on node type. This proposal implements dynamic attachable volume limits on a per-node basis rather than cluster global defaults that exist today. This proposal also implements a way of configuring volume limits for CSI volumes.\n\nThis proposal replaces #730 and integrates volume limits for in-tree volumes (AWS EBS, GCE PD, AZURE DD, OpenStack Cinder) and CSI into one predicate. As result, in-tree volumes and corresponding CSI driver can share the same volume limit."
+    },
+    {
+      "id": "F019",
+      "format": "text",
+      "text": "The most popular and the most convinient way of consuming Secrets and ConfigMaps by Pods is consuming it as a file. However, any update to a Secret or ConfigMap object is quickly (roughly within a minute) reflected in updates of the file mounted for *all* Pods consuming them. That means, that a bad update (push) of Secret and/or ConfigMap can very quickly break the whole appplication.\n\nThe recommended approach for upgrading applications are obviously rolling upgrades. For Secrets/ConfigMaps this is translating to creating a new object and updating PodTemplate with the reference to it. However, that doesn't protect users from outages caused by accidental bad updates of existing Secrets and/or ConfigMaps.\n\nMoreover, the feature of updating Secrets/ConfigMaps for running Pods is also expensive from scalability/performance point of view. Every Kubelet has to watch (default) or periodically poll every unique Secret and ConfigMap referenced by any of the Pods it is running."
+    },
+    {
+      "id": "F020",
+      "format": "text",
+      "text": "In this KEP, we are proposing to introduce an ability to specify that contents of a particular Secret/ConfigMap should be immutable for its whole lifetime. For those Secrets/ConfigMap, Kubelets will not be trying to watch/poll for changes to updated mounts for their Pods. Given there are a lot of users not really taking advantage of automatic updates of Secrets/ConfigMaps due to consequences described above, this will allow them to: protect themselves better for accidental bad updates that could cause outages of their applications achieve better performance of their cluster thanks to significant reduction of load on apiserver"
+    },
+    {
+      "id": "F021",
+      "format": "text",
+      "text": "The new plugin mechanism will not be a \"plugin installer\" or wizard. It will not have specific or baked-in knowledge regarding a plugin's location or composition, nor will it provide a way to download or unpack plugins in a correct location. Plugin discovery is not a main focus of this mechanism. As such, it will not attempt to collect data about every plugin that exists in an environment. Plugin management is out of the scope of this design. A mechanism for updating and managing lifecycle of existing plugins should be covered as a separate design (See Provide a standard package of common cli utilities that is consumed by `kubectl` and plugins alike. This should be done as an independent effort of this plugin mechanism."
+    },
+    {
+      "id": "F022",
+      "format": "text",
+      "text": "Following the official kubernetes deprecation policy it is required to keep a generally available element of user-facing component to be available at minimum 12 months or 2 releases. We're proposing to proceed with the deprecation and removal of kustomize in the following stages: v1.31 (alpha) - announce the deprecation of `kubectl kustomize` subcommand, `--kustomize` flag from all the subcommands using it, and from `kubectl version` output. v1.31 - v1.33 - gather feedback from users, and publish kustomize in krew index. v1.34 - v1.35 (beta) - disable kustomize by default from kubectl. Entirely remove kustomize in v1.36 (planned as first release of 2026)."
+    },
+    {
+      "id": "F023",
+      "format": "text",
+      "text": "We will update the `kube-apiserver` AuthenticationConfiguration with a field that allows a user to configure anonymous authentication as shown below. Using the structure described above a user will be able to do the following: Disable Anonymous Auth. Note: This is the same as setting `--anonymous-auth` flag to `false`. Enable Anonymous Auth. Note: This is the same as setting `--anonymous-auth` flag to `true`."
+    },
+    {
+      "id": "F024",
+      "format": "text",
+      "text": "This document describes the Kubernetes Scheduling Framework. The scheduling framework is a new set of \"plugin\" APIs being added to the existing Kubernetes Scheduler. Plugins are compiled into the scheduler, and these APIs allow many scheduling features to be implemented as plugins, while keeping the scheduling \"core\" simple and maintainable.\n\n*Note: Previous versions of this document proposed replacing the existing scheduler with a new implementation.*"
+    },
+    {
+      "id": "F025",
+      "format": "text",
+      "text": "As part of this KEP we do not intend to actually support shrinking of underlying volume. As part of this KEP when user intends to recover from volume expansion failures, they must recover to a size slightly larger than original size of the volume. For example - if user expanded a volume from `10Gi` to `100Gi` and expansion to `100Gi` is failing, then we only permit recovery to a size greater than `10Gi`, for example - `11Gi` or anything higher than `10Gi`."
+    },
+    {
+      "id": "F026",
+      "format": "text",
+      "text": "By default, requests to the `kube-apiserver` that are not rejected by configured authentication methods are treated as anonymous requests, and given a username of `system:anonymous` and a group of `system:unauthenticated`.\n\nThis behavior is can be toggled on or off by using the `--anonymous-auth` boolean flag. By default `anonymous-auth` is set to `true`.\n\nWe propose that kubernetes should allow users to configure which endpoints can be accessed anonymously and disable anonymous auth for all other endpoints."
+    },
+    {
+      "id": "F027",
+      "format": "text",
+      "text": "We propose to extend `ConfigMap` and `Secret` types with an additional field:\n\nIf unset or set to false, all updates (including the change of the value of Immutable field itself) remain possible.\n\nIf set to true, the machinery in apiserver will reject: any updates explicitly changing keys and/or values stored in Secrets and/or ConfigMaps any updates explicitly changing the value of `Immutable` field itself (marking Secret/ConfigMap as immutable cannot be reverted)\n\nNote that mutating ObjectMetadata will remain to be possible independently of the value of Immutable field to: not break object lifeycle (e.g. by introducing a deadlock if Finalizers are set) allow rotating certificates used for encryption at rest\n\nBased on the value of `Immutable` field Kubelet will or will not: start a watch (or periodic polling) of a given Secret/ConfigMap perform updates of files mounted to a Pod based on updates of the Kubernetes object"
+    },
+    {
+      "id": "F028",
+      "format": "text",
+      "text": "The Scheduling Framework defines new extension points and Go APIs in the Kubernetes Scheduler for use by \"plugins\". Plugins add scheduling behaviors to the scheduler, and are included at compile time. The scheduler's ComponentConfig will allow plugins to be enabled, disabled, and reordered. Custom schedulers can write their plugins \"out-of-tree\" and compile a scheduler binary with their own plugins included."
+    },
+    {
+      "id": "F029",
+      "format": "text",
+      "text": "Many features are being added to the Kubernetes Scheduler. They keep making the code larger and the logic more complex. A more complex scheduler is harder to maintain, its bugs are harder to find and fix, and those users running a custom scheduler have a hard time catching up and integrating new changes. The current Kubernetes scheduler provides [webhooks to extend][] its functionality. However, these are limited in a few ways:\n\n[webhooks to extend]: The number of extension points are limited: \"Filter\" extenders are called after default predicate functions."
+    },
+    {
+      "id": "F030",
+      "format": "text",
+      "text": "This KEP proposes converging Kustomize's various alpha extension mechanisms into a single KRM-driven feature that has an enhanced story around plugin distribution, discovery and trust. A central goal of this KEP is to equip Kustomize with an extension story that will be acceptable for full inclusion in `kubectl kustomize`. This KEP provides an overarching vision that ties together several existing proposals that go into more detail on specific features this KEP considers important to plugin graduation."
+    },
+    {
+      "id": "F031",
+      "format": "text",
+      "text": "Creating a ResourceSlicePatch is racing with on-going scheduling attempts. This is unavoidable. Removing a device from a ResourceSlice has the same problem: updates need to reach the scheduler before it can consider them. Evaluating a patch on the client-side instead of having a controller update slices mitigates this risk by shortening the time window where updates must be sent to the scheduler.\n\nFrom a security perspective, permission to patch device attributes is expected to be limited to privileged users who already have the ability to add or remove DRA drivers, so there won't be a substantial difference.\n\nPerformance in the scheduler could be an issue. This will be mitigated by caching the patched devices and (re-)applying patches only when they or the device definitions change, which should be rare.\n\nPatching directly in the informer event handlers may be fast enough. If it turns out to slow down those handlers too much, then a workqueue with workers may be needed to decouple updating the cache from the events which trigger updating and to avoid slowing down the informers.\n\nThe scheduler's \"slice changed\" cluster events must be driven by that cache, not the original informers, otherwise a ResourceSlice or ResourceSlicePatch change could trigger a pod scheduling attempt before the slice cache is up-to-date again."
+    },
+    {
+      "id": "F032",
+      "format": "text",
+      "text": "Current scheduler predicates for scheduling of pods with volumes is based on `node.status.capacity` and `node.status.allocatable`. It works well for hardcoded predicates for volume limits on AWS (`MaxEBSVolumeCount`), GCE(`MaxGCEPDVolumeCount`), Azure (`MaxAzureDiskVolumeCount`) and OpenStack (`MaxCinderVolumeCount`).\n\nIt is problematic for CSI (`MaxCSIVolumeCountPred`) outlined in #730 `ResourceName` is limited to 63 characters. We must prefix `ResourceName` with unique string (such as `attachable-volumes-csi-<driver name>`) so it cannot collide with existing resources like `cpu` or `memory`. But `<driver name>` itself is up to 63 character long, so we ended up with using SHA-sums of driver name to keep the `ResourceName` unique, which is not user readable. CSI driver cannot share its limits with in-tree volume plugin e.g. when running pods with AWS EBS in-tree volumes and `ebs.csi.aws.com` CSI driver on the same node."
+    },
+    {
+      "id": "F033",
+      "format": "text",
+      "text": "Provide a way for an authorizer (and by extension, policy author) to only authorize certain write[^2] operations, when the payload or stored object satisfies some specific conditions Let users discover what conditions they are subject to through `(Self)SubjectAccessReview` Initially support enforcement of write and connect requests in the `k8s.io/apiserver` `WithAuthorization` HTTP filter, with options to expand coverage to read[^2] and impersonate verbs later."
+    },
+    {
+      "id": "F034",
+      "format": "text",
+      "text": "We considered using the AuditID from the kube-apiserver request that generated the envelope operation. This approach has the following drawbacks: AuditID can be configured by the user with the `Audit-ID` header in the API server request. Multiple requests can be sent to the kube-apiserver with the same Audit-ID. Not all API server requests will generate an envelope operation. The API server caches DEKs and for the DEK that's available in the cache, the kube-apiserver will not generate an envelope operation. Since not all calls to the KMS correspond to an audit log, using audit ID is not complete for correlating calls from kube-apiserver->kms-plugin->KMS."
+    },
+    {
+      "id": "F035",
+      "format": "text",
+      "text": "Make any change to the Configuration Functions Specification, a low-level spec shared with other orchestrators such as kpt. No such changes are required by this KEP. Create a catalog of \"official\" plugins. Although such a thing would be a natural extension to this KEP, it is out of scope. Convert currently compiled in transformers to plugins. Although this KEP should make this possible, the work to do so is out of scope."
+    },
+    {
+      "id": "F036",
+      "format": "text",
+      "text": "The intent to patch device attributes must be recorded persistently so that it is preserved even when a ResourceSlice gets removed or updated. To achieve this, a new cluster-scoped ResourceSlicePatch type gets added. A single ResourceSlicePatch object specifies device attributes that apply to all devices matching a CEL expression (i.e. the same way as users select devices in a ResourceClaim) and/or some additional criteria (device class, driver/pool/device name).\n\nThe scheduler must merge these additional attributes with the ones provided by the DRA drivers on-the-fly while it gathers information about available devices."
+    }
+  ]
+}

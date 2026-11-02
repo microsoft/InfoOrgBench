@@ -1,0 +1,366 @@
+{
+  "task_id": "mini-015",
+  "records": [
+    {
+      "id": "F001",
+      "path": [
+        "sig-multicluster",
+        "5313-placement-decision-api"
+      ],
+      "content_sha256": "a5fdf1154c65c348415f747e75d2384b66cd503725dddcd52f107fcc04bd7fee",
+      "source_native_id": "keps/sig-multicluster/5313-placement-decision-api#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F002",
+      "path": [
+        "sig-cli",
+        "2380-data-driven-commands-for-kubectl"
+      ],
+      "content_sha256": "edd515c7243a090c828f3b053bf44e2720245248621464b3b7109ab1db5c1810",
+      "source_native_id": "keps/sig-cli/2380-data-driven-commands-for-kubectl#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F003",
+      "path": [
+        "sig-node",
+        "3721-support-for-env-files"
+      ],
+      "content_sha256": "067872d0735c2f64952ad5479f7181b6eb2977477bd04c6c5e0fde4b130a576e",
+      "source_native_id": "keps/sig-node/3721-support-for-env-files#excerpt-2",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F004",
+      "path": [
+        "sig-multicluster",
+        "5339-clusterprofile-plugin-credentials"
+      ],
+      "content_sha256": "f3915e3d55ac7cc95b999b041a2d096b61f8da8feab43faae4c8c2e9ae72963e",
+      "source_native_id": "keps/sig-multicluster/5339-clusterprofile-plugin-credentials#excerpt-2",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F005",
+      "path": [
+        "sig-multicluster",
+        "5339-clusterprofile-plugin-credentials"
+      ],
+      "content_sha256": "bbeb4e1de76922efde3da4ac2da8be2ea9fbb971bc7dcab6cd454eaaa0d8e12a",
+      "source_native_id": "keps/sig-multicluster/5339-clusterprofile-plugin-credentials#excerpt-3",
+      "source_heading": "risks and mitigations"
+    },
+    {
+      "id": "F006",
+      "path": [
+        "sig-cli",
+        "2379-kubectl-plugins"
+      ],
+      "content_sha256": "0b4a49fab3f0697caad0e895c372dcd1e5618756332461ac60c061b02537e619",
+      "source_native_id": "keps/sig-cli/2379-kubectl-plugins#excerpt-1",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F007",
+      "path": [
+        "sig-cli",
+        "2379-kubectl-plugins"
+      ],
+      "content_sha256": "d93ba5af3fb737c6c0c5af09dc0629e3570533bce309c4b7fe71a6ceea209033",
+      "source_native_id": "keps/sig-cli/2379-kubectl-plugins#excerpt-3",
+      "source_heading": "non-goals"
+    },
+    {
+      "id": "F008",
+      "path": [
+        "sig-multicluster",
+        "5313-placement-decision-api"
+      ],
+      "content_sha256": "1bb2a41f00603b31f81162ddbe61ebc28b6924cc2c16d9bb440786c433c2ddcf",
+      "source_native_id": "keps/sig-multicluster/5313-placement-decision-api#excerpt-3",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F009",
+      "path": [
+        "sig-cli",
+        "2379-kubectl-plugins"
+      ],
+      "content_sha256": "483752cc7a89ab1c3c022675a5597458459163075be63109c90ebe86593dcfb9",
+      "source_native_id": "keps/sig-cli/2379-kubectl-plugins#excerpt-2",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F010",
+      "path": [
+        "sig-multicluster",
+        "5313-placement-decision-api"
+      ],
+      "content_sha256": "2111b532757b73d83318a5cbf5283d9cf42ae5d941bc0a2c00d95bd0f9b3b18a",
+      "source_native_id": "keps/sig-multicluster/5313-placement-decision-api#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F011",
+      "path": [
+        "sig-node",
+        "3721-support-for-env-files"
+      ],
+      "content_sha256": "a43f32fbaaa1eac301b1f6fc89508861ed369eaff1f19c55ae2cde49b5ea2362",
+      "source_native_id": "keps/sig-node/3721-support-for-env-files#excerpt-1",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F012",
+      "path": [
+        "sig-apps",
+        "2232-suspend-jobs"
+      ],
+      "content_sha256": "7d86c65d1e998cdbceb984aef848091571fdfc04d152d4fb160e0f6b6348c733",
+      "source_native_id": "keps/sig-apps/2232-suspend-jobs#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F013",
+      "path": [
+        "sig-apps",
+        "2232-suspend-jobs"
+      ],
+      "content_sha256": "b99187255e73d1c776ad6616f7dbe09ed70582c1aaf14b9ddd560a91a4d5634a",
+      "source_native_id": "keps/sig-apps/2232-suspend-jobs#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F014",
+      "path": [
+        "sig-node",
+        "1967-size-memory-backed-volumes"
+      ],
+      "content_sha256": "1ff67deed89d154628484030fcf8de4085720ebc9302b2ca823a165b3649ccbf",
+      "source_native_id": "keps/sig-node/1967-size-memory-backed-volumes#excerpt-2",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F015",
+      "path": [
+        "sig-multicluster",
+        "5339-clusterprofile-plugin-credentials"
+      ],
+      "content_sha256": "9dfb2842493fe50b0ab50293a8c8979482f6e12a681697293f913455b1ec6902",
+      "source_native_id": "keps/sig-multicluster/5339-clusterprofile-plugin-credentials#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F016",
+      "path": [
+        "sig-apps",
+        "2232-suspend-jobs"
+      ],
+      "content_sha256": "c052eeb07d27c40c8cd3802313265ddf4cb4a456ea86778ab04b1c6608507197",
+      "source_native_id": "keps/sig-apps/2232-suspend-jobs#excerpt-3",
+      "source_heading": "non-goals"
+    },
+    {
+      "id": "F017",
+      "path": [
+        "sig-apps",
+        "3541-add-recreate-strategy-to-statefulset"
+      ],
+      "content_sha256": "d398b298e05958bf0c70386c7e80cc65fdae671d5895dbf475927f02da965ae0",
+      "source_native_id": "keps/sig-apps/3541-add-recreate-strategy-to-statefulset#excerpt-2",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F018",
+      "path": [
+        "sig-node",
+        "1967-size-memory-backed-volumes"
+      ],
+      "content_sha256": "9622a9fc9a7b7cfa5104caa99966441151719f11cef057293d093dec1810d4b3",
+      "source_native_id": "keps/sig-node/1967-size-memory-backed-volumes#excerpt-3",
+      "source_heading": "risks and mitigations"
+    },
+    {
+      "id": "F019",
+      "path": [
+        "sig-apps",
+        "3939-allow-replacement-when-fully-terminated"
+      ],
+      "content_sha256": "8a15c845a563e55cadc64b85bd1d8b7aa638e2655b23ce5f6bee30c76790b744",
+      "source_native_id": "keps/sig-apps/3939-allow-replacement-when-fully-terminated#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F020",
+      "path": [
+        "sig-cli",
+        "2382-kustomize-exec-secret-generator"
+      ],
+      "content_sha256": "403c4719a273b62042e63740f6fc2dd854d7e1b2814887840027398d0df8320d",
+      "source_native_id": "keps/sig-cli/2382-kustomize-exec-secret-generator#excerpt-3",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F021",
+      "path": [
+        "sig-apps",
+        "3541-add-recreate-strategy-to-statefulset"
+      ],
+      "content_sha256": "429a815a1358e56745ae617b8a91f907ea3f5451b500cc623ec5385b964ea460",
+      "source_native_id": "keps/sig-apps/3541-add-recreate-strategy-to-statefulset#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F022",
+      "path": [
+        "sig-cli",
+        "2380-data-driven-commands-for-kubectl"
+      ],
+      "content_sha256": "70acea5f8be8253c5c71490ffa31053bcf675571ef9dbfb5628302b7fc60525e",
+      "source_native_id": "keps/sig-cli/2380-data-driven-commands-for-kubectl#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F023",
+      "path": [
+        "sig-apps",
+        "3939-allow-replacement-when-fully-terminated"
+      ],
+      "content_sha256": "92fb00ed07e19bbce684c70671c9116f58d781e8a0784db618758d180c72398c",
+      "source_native_id": "keps/sig-apps/3939-allow-replacement-when-fully-terminated#excerpt-3",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F024",
+      "path": [
+        "sig-node",
+        "4742-node-topology-downward-api"
+      ],
+      "content_sha256": "098eb5610d41b26b7d887375ec1383c3aa5a77dc9ef7f94dd3d5b52fba0b4908",
+      "source_native_id": "keps/sig-node/4742-node-topology-downward-api#excerpt-3",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F025",
+      "path": [
+        "sig-node",
+        "1967-size-memory-backed-volumes"
+      ],
+      "content_sha256": "d2f9ec68a9cad72ee6320734f78ccdb6aa4f4600f547014d614a7c038e6ae87b",
+      "source_native_id": "keps/sig-node/1967-size-memory-backed-volumes#excerpt-1",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F026",
+      "path": [
+        "sig-cli",
+        "2382-kustomize-exec-secret-generator"
+      ],
+      "content_sha256": "3d690bc843ebb05afffe2aaca2359b90e8f43a4d8f5a58efff4bc249032c92a1",
+      "source_native_id": "keps/sig-cli/2382-kustomize-exec-secret-generator#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F027",
+      "path": [
+        "sig-cli",
+        "2380-data-driven-commands-for-kubectl"
+      ],
+      "content_sha256": "3ca4a5cce1641e05521ca1469f5111d45930a3d6bfc9b3aec1c2df802e5741c2",
+      "source_native_id": "keps/sig-cli/2380-data-driven-commands-for-kubectl#excerpt-3",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F028",
+      "path": [
+        "sig-apps",
+        "3541-add-recreate-strategy-to-statefulset"
+      ],
+      "content_sha256": "aef18140a4e983e9d5020ce104426d4c3dcd7347b56216800217b48f08552d94",
+      "source_native_id": "keps/sig-apps/3541-add-recreate-strategy-to-statefulset#excerpt-3",
+      "source_heading": "non-goals"
+    },
+    {
+      "id": "F029",
+      "path": [
+        "sig-cli",
+        "2382-kustomize-exec-secret-generator"
+      ],
+      "content_sha256": "c56d0f1e223ae81af8974d996f121faa1871ef4865fd740342ebec3976ea55d5",
+      "source_native_id": "keps/sig-cli/2382-kustomize-exec-secret-generator#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F030",
+      "path": [
+        "sig-node",
+        "4742-node-topology-downward-api"
+      ],
+      "content_sha256": "3ba6a1001c44c6b8debb49d17caa15a2373f1f1c177d275772914cc7e5d47322",
+      "source_native_id": "keps/sig-node/4742-node-topology-downward-api#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F031",
+      "path": [
+        "sig-node",
+        "4742-node-topology-downward-api"
+      ],
+      "content_sha256": "d32c4993cfa20fea864e51e047e12d53c62f1a63540d20f46f2c8fa8fad190a0",
+      "source_native_id": "keps/sig-node/4742-node-topology-downward-api#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F032",
+      "path": [
+        "sig-multicluster",
+        "1645-multi-cluster-services-api"
+      ],
+      "content_sha256": "d9984ace7fc4158fe3ffd1ceca8f41911c97c8f0043a30d758ac43634c6acc50",
+      "source_native_id": "keps/sig-multicluster/1645-multi-cluster-services-api#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F033",
+      "path": [
+        "sig-apps",
+        "3939-allow-replacement-when-fully-terminated"
+      ],
+      "content_sha256": "c79bd40720f847aa92b287305005d6a4085c3a241b518924cfc2e2c98a4885c3",
+      "source_native_id": "keps/sig-apps/3939-allow-replacement-when-fully-terminated#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F034",
+      "path": [
+        "sig-multicluster",
+        "1645-multi-cluster-services-api"
+      ],
+      "content_sha256": "27f209577e47e77cca54f174ef791798e9593988801abcff7096057509357f51",
+      "source_native_id": "keps/sig-multicluster/1645-multi-cluster-services-api#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F035",
+      "path": [
+        "sig-node",
+        "3721-support-for-env-files"
+      ],
+      "content_sha256": "1d054a8342df1f05608b8c89008cacf881f8706c55c868c5b22ae9a99f401920",
+      "source_native_id": "keps/sig-node/3721-support-for-env-files#excerpt-3",
+      "source_heading": "non-goals"
+    },
+    {
+      "id": "F036",
+      "path": [
+        "sig-multicluster",
+        "1645-multi-cluster-services-api"
+      ],
+      "content_sha256": "fa56d6103dd7304968e573207ea43453f532f1ac5e399ce16558edfe8a3d7b76",
+      "source_native_id": "keps/sig-multicluster/1645-multi-cluster-services-api#excerpt-3",
+      "source_heading": "goals"
+    }
+  ],
+  "reference_scope": "Source-derived group/proposal hierarchy for a development-only difficulty and cost pilot."
+}

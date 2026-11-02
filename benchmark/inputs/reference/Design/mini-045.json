@@ -1,0 +1,366 @@
+{
+  "task_id": "mini-045",
+  "records": [
+    {
+      "id": "F001",
+      "path": [
+        "sig-network",
+        "1880-multiple-service-cidrs"
+      ],
+      "content_sha256": "d6c25d819ffd6b6b254867dfd02e1c859f0d8258c7f7cd0a652c6ccd7f9ead05",
+      "source_native_id": "keps/sig-network/1880-multiple-service-cidrs#excerpt-3",
+      "source_heading": "drawbacks"
+    },
+    {
+      "id": "F002",
+      "path": [
+        "sig-network",
+        "2433-topology-aware-hints"
+      ],
+      "content_sha256": "43ede57e48887492cf5b8fa9a180cbba0c944924dc789f4d20cb137d48fdcb73",
+      "source_native_id": "keps/sig-network/2433-topology-aware-hints#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F003",
+      "path": [
+        "sig-network",
+        "2433-topology-aware-hints"
+      ],
+      "content_sha256": "09f968fa80ad877b820ee046ccbe56e40d7f9fb5efed8eef8514e77431fca8ef",
+      "source_native_id": "keps/sig-network/2433-topology-aware-hints#excerpt-3",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F004",
+      "path": [
+        "sig-scheduling",
+        "3902-decoupled-taint-manager"
+      ],
+      "content_sha256": "9d9ca21207523c9d9cd7ec9d9e9da1a37b23f32fe7b598ad39d35d735d0df589",
+      "source_native_id": "keps/sig-scheduling/3902-decoupled-taint-manager#excerpt-3",
+      "source_heading": "risks and mitigations"
+    },
+    {
+      "id": "F005",
+      "path": [
+        "sig-node",
+        "5855-noexec-emptyDir"
+      ],
+      "content_sha256": "dd75464dc945db71c58ea1bc9e9285a9d2a9f91c1021db9dad6e6f99e0813859",
+      "source_native_id": "keps/sig-node/5855-noexec-emptyDir#excerpt-3",
+      "source_heading": "non-goals"
+    },
+    {
+      "id": "F006",
+      "path": [
+        "sig-cloud-provider",
+        "2395-removing-in-tree-cloud-providers"
+      ],
+      "content_sha256": "183d91f7e9093af5e74cd29faa364b95922d679146a125b1f2a08a4be7f4b844",
+      "source_native_id": "keps/sig-cloud-provider/2395-removing-in-tree-cloud-providers#excerpt-2",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F007",
+      "path": [
+        "sig-network",
+        "1880-multiple-service-cidrs"
+      ],
+      "content_sha256": "db18b99025b4ab7eb552bb7bad93604b0a58bf46fb6016945c51e809b95cf47d",
+      "source_native_id": "keps/sig-network/1880-multiple-service-cidrs#excerpt-1",
+      "source_heading": "non-goals"
+    },
+    {
+      "id": "F008",
+      "path": [
+        "sig-network",
+        "1880-multiple-service-cidrs"
+      ],
+      "content_sha256": "07f2fc29b2045e55e81e1a1a00be70a64ac2a1bd52e939a93efd8fc32a041842",
+      "source_native_id": "keps/sig-network/1880-multiple-service-cidrs#excerpt-2",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F009",
+      "path": [
+        "sig-cloud-provider",
+        "2699-add-webhook-hosting-to-ccm"
+      ],
+      "content_sha256": "1f96e8f3492e757842785262ebfe43e9a57b7f775eb246419100a8544aac1e74",
+      "source_native_id": "keps/sig-cloud-provider/2699-add-webhook-hosting-to-ccm#excerpt-1",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F010",
+      "path": [
+        "sig-scheduling",
+        "902-non-preempting-priorityclass"
+      ],
+      "content_sha256": "2e9b981de413d330f5657c3c10325559ebea039eea8b2e43ba9ce4fe8edbd3ad",
+      "source_native_id": "keps/sig-scheduling/902-non-preempting-priorityclass#excerpt-3",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F011",
+      "path": [
+        "sig-cloud-provider",
+        "2395-removing-in-tree-cloud-providers"
+      ],
+      "content_sha256": "790d482dc10d22d832adf496c76daef11ea8fe3912b49d2de0ad9acdce6dea7c",
+      "source_native_id": "keps/sig-cloud-provider/2395-removing-in-tree-cloud-providers#excerpt-1",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F012",
+      "path": [
+        "sig-scheduling",
+        "5229-asynchronous-api-calls-during-scheduling"
+      ],
+      "content_sha256": "4a2029c21a0d5ff206dbc9dc93b60bc8bb535a4b9cb0d371e2d115a1edb35076",
+      "source_native_id": "keps/sig-scheduling/5229-asynchronous-api-calls-during-scheduling#excerpt-1",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F013",
+      "path": [
+        "sig-scheduling",
+        "5229-asynchronous-api-calls-during-scheduling"
+      ],
+      "content_sha256": "32cb6f684cfdead139cfa01cb17e51fb3675dfa434d30d315374950f11077374",
+      "source_native_id": "keps/sig-scheduling/5229-asynchronous-api-calls-during-scheduling#excerpt-2",
+      "source_heading": "non-goals"
+    },
+    {
+      "id": "F014",
+      "path": [
+        "sig-scheduling",
+        "3902-decoupled-taint-manager"
+      ],
+      "content_sha256": "33faedd0b51e8aa285b6d78097c2a6188651833e65775d7a62d07e3877211949",
+      "source_native_id": "keps/sig-scheduling/3902-decoupled-taint-manager#excerpt-2",
+      "source_heading": "non-goals"
+    },
+    {
+      "id": "F015",
+      "path": [
+        "sig-node",
+        "6035-exec-session-identity"
+      ],
+      "content_sha256": "f1ed250549df67941e32704be5d3cfc68f9cc0f33c02f5d31c3f9275e12f54f3",
+      "source_native_id": "keps/sig-node/6035-exec-session-identity#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F016",
+      "path": [
+        "sig-cloud-provider",
+        "2699-add-webhook-hosting-to-ccm"
+      ],
+      "content_sha256": "8efa54178e6c8c46f7071f9dde4ec2f2eb8aba351cfbe8f94262fdd86719b90b",
+      "source_native_id": "keps/sig-cloud-provider/2699-add-webhook-hosting-to-ccm#excerpt-2",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F017",
+      "path": [
+        "sig-network",
+        "2200-externalips-admission"
+      ],
+      "content_sha256": "2ee8b0d3e7307e15f9a6296018ae027cb1618f7fd8828ee92cdfcbabf2a26853",
+      "source_native_id": "keps/sig-network/2200-externalips-admission#excerpt-3",
+      "source_heading": "design details"
+    },
+    {
+      "id": "F018",
+      "path": [
+        "sig-node",
+        "5855-noexec-emptyDir"
+      ],
+      "content_sha256": "385cc7c849063cf7383fdea2b66c4680eadd807fda181fbff6c49531040af9f0",
+      "source_native_id": "keps/sig-node/5855-noexec-emptyDir#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F019",
+      "path": [
+        "sig-cloud-provider",
+        "1179-building-without-in-tree-providers"
+      ],
+      "content_sha256": "bec6897fe06486e8f97f57c771f5fa71a95bc1339ce69d38c6045a60f4e6a418",
+      "source_native_id": "keps/sig-cloud-provider/1179-building-without-in-tree-providers#excerpt-1",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F020",
+      "path": [
+        "sig-node",
+        "6035-exec-session-identity"
+      ],
+      "content_sha256": "bedb0a919052f95aa646db1733050a5e98dc385d85aaea66af7766a7b8a6ece7",
+      "source_native_id": "keps/sig-node/6035-exec-session-identity#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F021",
+      "path": [
+        "sig-node",
+        "5855-noexec-emptyDir"
+      ],
+      "content_sha256": "71224faace3d49813969f2e7b7183ee19f09cfca5a4781695f1c54ca1d679df9",
+      "source_native_id": "keps/sig-node/5855-noexec-emptyDir#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F022",
+      "path": [
+        "sig-scheduling",
+        "902-non-preempting-priorityclass"
+      ],
+      "content_sha256": "322450bd50131e4d00b9f74a0c73e5562411cf117b4ddd30003872848b7323b0",
+      "source_native_id": "keps/sig-scheduling/902-non-preempting-priorityclass#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F023",
+      "path": [
+        "sig-node",
+        "4216-image-pull-per-runtime-class"
+      ],
+      "content_sha256": "a97087ae6c2cf8f0dd51d9f980961a9c9ff69df2f5cafcfca47bc04b52623f74",
+      "source_native_id": "keps/sig-node/4216-image-pull-per-runtime-class#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F024",
+      "path": [
+        "sig-scheduling",
+        "902-non-preempting-priorityclass"
+      ],
+      "content_sha256": "24b2d8b668d01505e87ebd7ce3cee7149124e46e4aa146dba3d9a93c39d95820",
+      "source_native_id": "keps/sig-scheduling/902-non-preempting-priorityclass#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F025",
+      "path": [
+        "sig-cloud-provider",
+        "2395-removing-in-tree-cloud-providers"
+      ],
+      "content_sha256": "57a1a80c6711063310cff006591c72447abf4e8a7ba8b306e80f778c148bd388",
+      "source_native_id": "keps/sig-cloud-provider/2395-removing-in-tree-cloud-providers#excerpt-3",
+      "source_heading": "drawbacks"
+    },
+    {
+      "id": "F026",
+      "path": [
+        "sig-scheduling",
+        "5229-asynchronous-api-calls-during-scheduling"
+      ],
+      "content_sha256": "db1326947ac333e486bba94997248ceafcc9d1aa71d647d1d6b443550edcefec",
+      "source_native_id": "keps/sig-scheduling/5229-asynchronous-api-calls-during-scheduling#excerpt-3",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F027",
+      "path": [
+        "sig-cloud-provider",
+        "1179-building-without-in-tree-providers"
+      ],
+      "content_sha256": "20a3d348b641608fbd860c716b4159dd5c55409311ed16c5387954de77643007",
+      "source_native_id": "keps/sig-cloud-provider/1179-building-without-in-tree-providers#excerpt-3",
+      "source_heading": "risks and mitigations"
+    },
+    {
+      "id": "F028",
+      "path": [
+        "sig-scheduling",
+        "3902-decoupled-taint-manager"
+      ],
+      "content_sha256": "8dac264aa90cf9445e58b9633037349f2af0418a4dc50f3b636b15d84760b5ee",
+      "source_native_id": "keps/sig-scheduling/3902-decoupled-taint-manager#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F029",
+      "path": [
+        "sig-cloud-provider",
+        "1179-building-without-in-tree-providers"
+      ],
+      "content_sha256": "e31f004233fe20b3c996bfa8c0a4ddd69b054ae0f936a585a0013fd861879abd",
+      "source_native_id": "keps/sig-cloud-provider/1179-building-without-in-tree-providers#excerpt-2",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F030",
+      "path": [
+        "sig-network",
+        "2433-topology-aware-hints"
+      ],
+      "content_sha256": "6b37f14fa031fb89a00a2206c586517a6f02a2f7ca6cc816ff2c798fb3677230",
+      "source_native_id": "keps/sig-network/2433-topology-aware-hints#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F031",
+      "path": [
+        "sig-node",
+        "4216-image-pull-per-runtime-class"
+      ],
+      "content_sha256": "ab6b2ab9d4debdc80836a598af61afdf94aaebff2154be86211bdc205270e49b",
+      "source_native_id": "keps/sig-node/4216-image-pull-per-runtime-class#excerpt-3",
+      "source_heading": "non-goals"
+    },
+    {
+      "id": "F032",
+      "path": [
+        "sig-node",
+        "6035-exec-session-identity"
+      ],
+      "content_sha256": "31bf67808401b2493200e5fe4b915bda74438cc26b370e837e785daae4fecc10",
+      "source_native_id": "keps/sig-node/6035-exec-session-identity#excerpt-3",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F033",
+      "path": [
+        "sig-network",
+        "2200-externalips-admission"
+      ],
+      "content_sha256": "95dd9c69d73df0af558fc0f6702c536d84109818e047fa14c6a5bd6b10056366",
+      "source_native_id": "keps/sig-network/2200-externalips-admission#excerpt-2",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F034",
+      "path": [
+        "sig-network",
+        "2200-externalips-admission"
+      ],
+      "content_sha256": "e1aea7a6a045e18b3a4417c82470ce4caf44c79732cd6965c53c8f69e7ae53d4",
+      "source_native_id": "keps/sig-network/2200-externalips-admission#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F035",
+      "path": [
+        "sig-node",
+        "4216-image-pull-per-runtime-class"
+      ],
+      "content_sha256": "e804d4b5c31e767dcdd7d123dba5e6f415a7a64d0798f6792e3072ceb8f75b5f",
+      "source_native_id": "keps/sig-node/4216-image-pull-per-runtime-class#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F036",
+      "path": [
+        "sig-cloud-provider",
+        "2699-add-webhook-hosting-to-ccm"
+      ],
+      "content_sha256": "d01dd3224807d7003a4b4c1d3cd2d8cfe5b4b444154ed07f3bbfba99df278de9",
+      "source_native_id": "keps/sig-cloud-provider/2699-add-webhook-hosting-to-ccm#excerpt-3",
+      "source_heading": "design details"
+    }
+  ],
+  "reference_scope": "Source-derived group/proposal hierarchy for a development-only difficulty and cost pilot."
+}

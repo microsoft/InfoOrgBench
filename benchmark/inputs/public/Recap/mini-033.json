@@ -1,0 +1,230 @@
+{
+  "task_id": "ami/mini-033",
+  "records": [
+    {
+      "id": "F001",
+      "format": "text",
+      "text": "The group discussed how to incorporate a locator function."
+    },
+    {
+      "id": "F002",
+      "format": "text",
+      "text": "He gave his preferences on energy sources and senders."
+    },
+    {
+      "id": "F003",
+      "format": "text",
+      "text": "All participants will continue working on the remote functions."
+    },
+    {
+      "id": "F004",
+      "format": "text",
+      "text": "They cannot make a device that works on the whole house- will need a focus."
+    },
+    {
+      "id": "F005",
+      "format": "text",
+      "text": "The project manager steps in and informs them that they have instructions to eliminate the teletext idea because it is too complicated, and also said they must maintain the corporate image by using corporate designs and colors."
+    },
+    {
+      "id": "F006",
+      "format": "text",
+      "text": "He suggested incorporating a menu and an LCD screen to satisfy these requirements."
+    },
+    {
+      "id": "F007",
+      "format": "text",
+      "text": "The Project Manager reminded the group to limit the number of complicated features due to the project's time constraints."
+    },
+    {
+      "id": "F008",
+      "format": "text",
+      "text": "They close the meeting deciding to do more research on the plastic cases."
+    },
+    {
+      "id": "F009",
+      "format": "text",
+      "text": "The Project Manager gave the group new requirements on product features."
+    },
+    {
+      "id": "F010",
+      "format": "text",
+      "text": "They will maintain the corporate image by using the proper designs and colors."
+    },
+    {
+      "id": "F011",
+      "format": "text",
+      "text": "They discuss giving the control different shapes to suit both adults and children, making the buttons various shapes, and putting a display clock on the control."
+    },
+    {
+      "id": "F012",
+      "format": "text",
+      "text": "The Project Manager discussed the projected production cost and price point for the device."
+    },
+    {
+      "id": "F013",
+      "format": "text",
+      "text": "He presented all the necessary internal components and how they operate together."
+    },
+    {
+      "id": "F014",
+      "format": "text",
+      "text": "The group introduced themselves and their roles to each other."
+    },
+    {
+      "id": "F015",
+      "format": "text",
+      "text": "The remote will feature a locator function that responds to clapping."
+    },
+    {
+      "id": "F016",
+      "format": "text",
+      "text": "The meeting begins and the marketing expert starts her presentation promptly, telling them that her research shows they need a focus- it is not possible to make a device that works on the whole house."
+    },
+    {
+      "id": "F017",
+      "format": "text",
+      "text": "They discuss their target group and the possibility of removable plastic cases."
+    },
+    {
+      "id": "F018",
+      "format": "text",
+      "text": "The Industrial Deigner will prepare the working design."
+    },
+    {
+      "id": "F019",
+      "format": "text",
+      "text": "The User Interface Designer will research technical functions."
+    },
+    {
+      "id": "F020",
+      "format": "text",
+      "text": "The remote will feature a panel that hides complicated functions on the back of the device."
+    },
+    {
+      "id": "F021",
+      "format": "text",
+      "text": "The group discussed making their remote more user-friendly; they proposed eliminating rarely-used buttons and making it easier to skip through channels."
+    },
+    {
+      "id": "F022",
+      "format": "text",
+      "text": "The User Interface Designer presented the necessary functions of the remote, then compared the interfaces of two existing remotes."
+    },
+    {
+      "id": "F023",
+      "format": "text",
+      "text": "They do not know if their budget will allow them to include all the features they would like to such as a light emitter, clock, alarm clock, and child lock."
+    },
+    {
+      "id": "F024",
+      "format": "text",
+      "text": "The group discussed the function of the prototype and decided that they should restrict the remote to television for the time being."
+    },
+    {
+      "id": "F025",
+      "format": "text",
+      "text": "They are concerned about making the control marketable to a wide range of age groups, and have discussed making removable plastic covers so that the look is changeable."
+    },
+    {
+      "id": "F026",
+      "format": "text",
+      "text": "The group had a discussion to decide on product features."
+    },
+    {
+      "id": "F027",
+      "format": "text",
+      "text": "The group acquainted themselves with the meeting-room equipment by drawing on the whiteboard."
+    },
+    {
+      "id": "F028",
+      "format": "text",
+      "text": "The group began a discussion about their own experiences with using remote controls and about usability features to be included in the design."
+    },
+    {
+      "id": "F029",
+      "format": "text",
+      "text": "The group discussed the function of the prototype and decided that they should restrict the remote to television for the time being instead of allowing it to control multiple devices."
+    },
+    {
+      "id": "F030",
+      "format": "text",
+      "text": "The marketing expert resumes, talking about how remotes often get lost and that a light emitter might be useful."
+    },
+    {
+      "id": "F031",
+      "format": "text",
+      "text": "The Project Manager instructed the Industrial Designer to prepare the working design, the User Interface Designer to research technical functions, and the Marketing Expert to prepare the user requirement specification."
+    },
+    {
+      "id": "F032",
+      "format": "text",
+      "text": "The Marketing Expert will prepare the user requirement specification."
+    },
+    {
+      "id": "F033",
+      "format": "text",
+      "text": "Complicated functions will be hidden in a back panel."
+    },
+    {
+      "id": "F034",
+      "format": "text",
+      "text": "The industrial designer gives her presentation, talking about components, materials, and energy sources."
+    },
+    {
+      "id": "F035",
+      "format": "text",
+      "text": "Buttons to adjust picture quality, channel tuning, and other settings will be hidden in this panel; the number pad, the channel- and volume-changing and power buttons will remain on the main interface."
+    },
+    {
+      "id": "F036",
+      "format": "text",
+      "text": "The Industrial Designer gave a presentation on the working design of the device."
+    },
+    {
+      "id": "F037",
+      "format": "text",
+      "text": "Their target group is basically everybody who owns a TV."
+    },
+    {
+      "id": "F038",
+      "format": "text",
+      "text": "However, they need to do more research on this topic."
+    },
+    {
+      "id": "F039",
+      "format": "text",
+      "text": "They will eliminate teletext."
+    },
+    {
+      "id": "F040",
+      "format": "text",
+      "text": "They decided to include a clapping locator function and a device that allows the user to enter two numbers separately to get a two-digit number."
+    },
+    {
+      "id": "F041",
+      "format": "text",
+      "text": "The Marketing Expert discussed user requirements with the group and showed that users wanted a fancier, less complicated remote that would not be easily lost."
+    },
+    {
+      "id": "F042",
+      "format": "text",
+      "text": "There will be a device that allows the user to enter two numbers separately to get a two-digit number in order to reduce the overall number of buttons."
+    },
+    {
+      "id": "F043",
+      "format": "text",
+      "text": "The Project Manager introduced the project aim and agenda to the group."
+    },
+    {
+      "id": "F044",
+      "format": "text",
+      "text": "The group had difficulties finding a balance between adding more features and finishing the project quickly."
+    },
+    {
+      "id": "F045",
+      "format": "text",
+      "text": "The interface designer presents, talking about the features users like on a remote and suggesting that they make the remote a T-shape and add an alarm clock function."
+    }
+  ]
+}

@@ -1,0 +1,347 @@
+{
+  "assignments": [
+    {
+      "id": "F001",
+      "path": [
+        "Office_Space",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F002",
+      "path": [
+        "Remote_Design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F003",
+      "path": [
+        "Remote_Design",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F004",
+      "path": [
+        "Office_Space",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F005",
+      "path": [
+        "Remote_Design",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F006",
+      "path": [
+        "Office_Space",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F007",
+      "path": [
+        "Office_Space",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F008",
+      "path": [
+        "Office_Space",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F009",
+      "path": [
+        "Office_Space",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F010",
+      "path": [
+        "Remote_Design",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F011",
+      "path": [
+        "Office_Space",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F012",
+      "path": [
+        "Remote_Design",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F013",
+      "path": [
+        "Remote_Design",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F014",
+      "path": [
+        "Office_Space",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F015",
+      "path": [
+        "Remote_Design",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F016",
+      "path": [
+        "Office_Space",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F017",
+      "path": [
+        "Remote_Design",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F018",
+      "path": [
+        "Remote_Design",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F019",
+      "path": [
+        "Office_Space",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F020",
+      "path": [
+        "Office_Space",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F021",
+      "path": [
+        "Office_Space",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F022",
+      "path": [
+        "Office_Space",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F023",
+      "path": [
+        "Office_Space",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F024",
+      "path": [
+        "Remote_Design",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F025",
+      "path": [
+        "Office_Space",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F026",
+      "path": [
+        "Remote_Design",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F027",
+      "path": [
+        "Remote_Design",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F028",
+      "path": [
+        "Remote_Design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F029",
+      "path": [
+        "Office_Space",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F030",
+      "path": [
+        "Remote_Design",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F031",
+      "path": [
+        "Remote_Design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F032",
+      "path": [
+        "Office_Space",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F033",
+      "path": [
+        "Office_Space",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F034",
+      "path": [
+        "Office_Space",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F035",
+      "path": [
+        "Office_Space",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F036",
+      "path": [
+        "Remote_Design",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F037",
+      "path": [
+        "Office_Space",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F038",
+      "path": [
+        "Remote_Design",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F039",
+      "path": [
+        "Remote_Design",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F040",
+      "path": [
+        "Remote_Design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F041",
+      "path": [
+        "Remote_Design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F042",
+      "path": [
+        "Office_Space",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F043",
+      "path": [
+        "Remote_Design",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F044",
+      "path": [
+        "Office_Space",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F045",
+      "path": [
+        "Office_Space",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F046",
+      "path": [
+        "Remote_Design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F047",
+      "path": [
+        "Office_Space",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F048",
+      "path": [
+        "Remote_Design",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F049",
+      "path": [
+        "Remote_Design",
+        "Overview"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,366 @@
+{
+  "task_id": "mini-023",
+  "records": [
+    {
+      "id": "F001",
+      "path": [
+        "sig-windows",
+        "1981-windows-privileged-container-support"
+      ],
+      "content_sha256": "ed04593f2b179a73f8ba6cd24bac44bc032c17feac2c7b6192b52ace8ba7e5c5",
+      "source_native_id": "keps/sig-windows/1981-windows-privileged-container-support#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F002",
+      "path": [
+        "sig-auth",
+        "4193-bound-service-account-token-improvements"
+      ],
+      "content_sha256": "2b720bf847976ee1994ad35d7c604b04f30b6f40169ff8641f01cf8341e39683",
+      "source_native_id": "keps/sig-auth/4193-bound-service-account-token-improvements#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F003",
+      "path": [
+        "sig-scheduling",
+        "2249-pod-affinity-namespace-selector"
+      ],
+      "content_sha256": "4d1ce8161c9b73d4a94dbcb43bd2755d7d1e989056c027aeb613793f6bc31624",
+      "source_native_id": "keps/sig-scheduling/2249-pod-affinity-namespace-selector#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F004",
+      "path": [
+        "sig-apps",
+        "2214-indexed-job"
+      ],
+      "content_sha256": "32df314e424e6bc876aa72dbbc93174eadec63a6d4c01fdee01ca114a793ce26",
+      "source_native_id": "keps/sig-apps/2214-indexed-job#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F005",
+      "path": [
+        "sig-apps",
+        "2360-optional-service-environment-variables"
+      ],
+      "content_sha256": "dc0620d7ee2683ab0087d0c665123c82f8b87cfd630347bd025bb62187ceb722",
+      "source_native_id": "keps/sig-apps/2360-optional-service-environment-variables#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F006",
+      "path": [
+        "sig-apps",
+        "981-poddisruptionbudget-for-custom-resources"
+      ],
+      "content_sha256": "fcc04dd4b2cad2f0a4f08438572d4b41ff5f33bfca979bb57d25919ebd445e22",
+      "source_native_id": "keps/sig-apps/981-poddisruptionbudget-for-custom-resources#excerpt-3",
+      "source_heading": "risks and mitigations"
+    },
+    {
+      "id": "F007",
+      "path": [
+        "sig-windows",
+        "1122-windows-csi-support"
+      ],
+      "content_sha256": "5a79f0a8072e0f241ab9609d0de0a39381862a0ec20d6752fb7a88831dd9d5f4",
+      "source_native_id": "keps/sig-windows/1122-windows-csi-support#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F008",
+      "path": [
+        "sig-windows",
+        "1043-windows-security-context"
+      ],
+      "content_sha256": "d665b373c0ccc7140993b6c767c549e0047b70cd956bc05e316bfba347353230",
+      "source_native_id": "keps/sig-windows/1043-windows-security-context#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F009",
+      "path": [
+        "sig-auth",
+        "1393-oidc-discovery"
+      ],
+      "content_sha256": "2c2891219a7641a9398343f4492b0467a42cbeeec55c7223bdfc6870b8bb6dc5",
+      "source_native_id": "keps/sig-auth/1393-oidc-discovery#excerpt-3",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F010",
+      "path": [
+        "sig-auth",
+        "1393-oidc-discovery"
+      ],
+      "content_sha256": "b83998d51ce4ee1d26014e262a3ad4ff654d7428f44ebec4595b3995c8b507d3",
+      "source_native_id": "keps/sig-auth/1393-oidc-discovery#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F011",
+      "path": [
+        "sig-windows",
+        "1043-windows-security-context"
+      ],
+      "content_sha256": "821343aafc8af703b61411064ee67b61940f94f945b41cd311c0c31e46e1eab6",
+      "source_native_id": "keps/sig-windows/1043-windows-security-context#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F012",
+      "path": [
+        "sig-apps",
+        "2360-optional-service-environment-variables"
+      ],
+      "content_sha256": "1adc06beba02561435368a4cc05b9e225d14365f93734dcf24993bd2b499a247",
+      "source_native_id": "keps/sig-apps/2360-optional-service-environment-variables#excerpt-3",
+      "source_heading": "user stories"
+    },
+    {
+      "id": "F013",
+      "path": [
+        "sig-windows",
+        "1981-windows-privileged-container-support"
+      ],
+      "content_sha256": "ef16d2622bae955988023ed69c04cca63ddbf06f4d413a966c14966cb80d0827",
+      "source_native_id": "keps/sig-windows/1981-windows-privileged-container-support#excerpt-3",
+      "source_heading": "non-goals"
+    },
+    {
+      "id": "F014",
+      "path": [
+        "sig-scheduling",
+        "5491-dra-list-types-for-attributes"
+      ],
+      "content_sha256": "3dd8afb0b513ba766d4eb83c07c5ef67a888f21d11c1e9339782a64874f88915",
+      "source_native_id": "keps/sig-scheduling/5491-dra-list-types-for-attributes#excerpt-3",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F015",
+      "path": [
+        "sig-windows",
+        "1981-windows-privileged-container-support"
+      ],
+      "content_sha256": "b69c47f651dbcc72b210d5de2cdd89e888db36648aaa9b1d5b08b395cf1987bb",
+      "source_native_id": "keps/sig-windows/1981-windows-privileged-container-support#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F016",
+      "path": [
+        "sig-scheduling",
+        "5007-device-attach-before-pod-scheduled"
+      ],
+      "content_sha256": "aa7b92f419c1d6251860bf8046b45841d5b17dfec1ec1aac0a409d5287a33fed",
+      "source_native_id": "keps/sig-scheduling/5007-device-attach-before-pod-scheduled#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F017",
+      "path": [
+        "sig-auth",
+        "2579-psp-replacement"
+      ],
+      "content_sha256": "a1ac8dd1cf5e753a87467f6948725e8a5d5d3b62158260d1a1f3fdcbf106a477",
+      "source_native_id": "keps/sig-auth/2579-psp-replacement#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F018",
+      "path": [
+        "sig-auth",
+        "2579-psp-replacement"
+      ],
+      "content_sha256": "a10333184affaaf1f21e9f2d06f4b48ac5169a3c27985a370b276054d8618fb1",
+      "source_native_id": "keps/sig-auth/2579-psp-replacement#excerpt-3",
+      "source_heading": "risks and mitigations"
+    },
+    {
+      "id": "F019",
+      "path": [
+        "sig-windows",
+        "1043-windows-security-context"
+      ],
+      "content_sha256": "029ddf4b318d252b725e2ebf862dee0e0efa4658bfd6c80958dfce807a42fef5",
+      "source_native_id": "keps/sig-windows/1043-windows-security-context#excerpt-3",
+      "source_heading": "non-goals"
+    },
+    {
+      "id": "F020",
+      "path": [
+        "sig-apps",
+        "2360-optional-service-environment-variables"
+      ],
+      "content_sha256": "08cb83a29cf107a569ed7b7468a2f5dfd98458f46e2d576b9629f0ff892dd920",
+      "source_native_id": "keps/sig-apps/2360-optional-service-environment-variables#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F021",
+      "path": [
+        "sig-windows",
+        "1122-windows-csi-support"
+      ],
+      "content_sha256": "26e83b19e077b471b452feef49360ce84e92b219c20d37bfdbadd01e60f350b5",
+      "source_native_id": "keps/sig-windows/1122-windows-csi-support#excerpt-3",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F022",
+      "path": [
+        "sig-auth",
+        "2579-psp-replacement"
+      ],
+      "content_sha256": "87a7eb54961a0fbdfae5e983eddf1fef23b4701569da638119481a7454c7d765",
+      "source_native_id": "keps/sig-auth/2579-psp-replacement#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F023",
+      "path": [
+        "sig-scheduling",
+        "5007-device-attach-before-pod-scheduled"
+      ],
+      "content_sha256": "fa917cc5724211d3d6a5c6001b9c88c4b117a4858be7733ebfb49f0d40d2f580",
+      "source_native_id": "keps/sig-scheduling/5007-device-attach-before-pod-scheduled#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F024",
+      "path": [
+        "sig-apps",
+        "2214-indexed-job"
+      ],
+      "content_sha256": "88845628fd2b49e8e7d17cfdc6fa0b2956ce635b95cd40f1c4ed8a88638fd6b2",
+      "source_native_id": "keps/sig-apps/2214-indexed-job#excerpt-3",
+      "source_heading": "risks and mitigations"
+    },
+    {
+      "id": "F025",
+      "path": [
+        "sig-scheduling",
+        "5491-dra-list-types-for-attributes"
+      ],
+      "content_sha256": "003826137ea7d93f4396079785e0d9c1e96181d2918dfa04b32a9373bd1b5bbf",
+      "source_native_id": "keps/sig-scheduling/5491-dra-list-types-for-attributes#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F026",
+      "path": [
+        "sig-apps",
+        "981-poddisruptionbudget-for-custom-resources"
+      ],
+      "content_sha256": "6c20780b3dd3f7e59b8c9b5b146fc2b626984f5205473105802ce3e08938ca1c",
+      "source_native_id": "keps/sig-apps/981-poddisruptionbudget-for-custom-resources#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F027",
+      "path": [
+        "sig-auth",
+        "4193-bound-service-account-token-improvements"
+      ],
+      "content_sha256": "df9b49d53001c67f0454563c40d5710bd220940a3f23c3516b056c24e95a7fe5",
+      "source_native_id": "keps/sig-auth/4193-bound-service-account-token-improvements#excerpt-3",
+      "source_heading": "non-goals"
+    },
+    {
+      "id": "F028",
+      "path": [
+        "sig-auth",
+        "4193-bound-service-account-token-improvements"
+      ],
+      "content_sha256": "7ed7c2c16c36c991afd0ed09ed945e0cd88df75e172a487318996c281669a030",
+      "source_native_id": "keps/sig-auth/4193-bound-service-account-token-improvements#excerpt-2",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F029",
+      "path": [
+        "sig-scheduling",
+        "2249-pod-affinity-namespace-selector"
+      ],
+      "content_sha256": "ea965296e30a91e2a1bda5431bb2f0a1a9a9d6c31d09fd0da9fa4a488f66be09",
+      "source_native_id": "keps/sig-scheduling/2249-pod-affinity-namespace-selector#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F030",
+      "path": [
+        "sig-apps",
+        "2214-indexed-job"
+      ],
+      "content_sha256": "0e34c71801176e7668afced19550be2527382fea8f8987e7863915c1a5b7a2c4",
+      "source_native_id": "keps/sig-apps/2214-indexed-job#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F031",
+      "path": [
+        "sig-scheduling",
+        "5491-dra-list-types-for-attributes"
+      ],
+      "content_sha256": "98e0a412aaed33393dd7b47c5fb6e9b6e28d70908bb7e9c94f95a88514b5cd10",
+      "source_native_id": "keps/sig-scheduling/5491-dra-list-types-for-attributes#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F032",
+      "path": [
+        "sig-auth",
+        "1393-oidc-discovery"
+      ],
+      "content_sha256": "95979bfd036967e23425ce0bfc9e71cd9e3ecedd12fbdceea6a2e1aa1d4a6bee",
+      "source_native_id": "keps/sig-auth/1393-oidc-discovery#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F033",
+      "path": [
+        "sig-windows",
+        "1122-windows-csi-support"
+      ],
+      "content_sha256": "569926051e6d97e1487823f8aaa40fb6d4012db00645a02c6893cbb51113969d",
+      "source_native_id": "keps/sig-windows/1122-windows-csi-support#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F034",
+      "path": [
+        "sig-apps",
+        "981-poddisruptionbudget-for-custom-resources"
+      ],
+      "content_sha256": "75a83432d7366a1df46e6920f3f69b85ae28784f86bf64e3f1057f529f5373d6",
+      "source_native_id": "keps/sig-apps/981-poddisruptionbudget-for-custom-resources#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F035",
+      "path": [
+        "sig-scheduling",
+        "2249-pod-affinity-namespace-selector"
+      ],
+      "content_sha256": "d5e5c67519241fb938f3c3aa7c61b1f4513f3d559803691b1eec413b9c965d92",
+      "source_native_id": "keps/sig-scheduling/2249-pod-affinity-namespace-selector#excerpt-3",
+      "source_heading": "design details"
+    },
+    {
+      "id": "F036",
+      "path": [
+        "sig-scheduling",
+        "5007-device-attach-before-pod-scheduled"
+      ],
+      "content_sha256": "646a44268d059faaaad9d9b59fca55ba187aac4436dee7a90013e41c56a4bb27",
+      "source_native_id": "keps/sig-scheduling/5007-device-attach-before-pod-scheduled#excerpt-3",
+      "source_heading": "goals"
+    }
+  ],
+  "reference_scope": "Source-derived group/proposal hierarchy for a development-only difficulty and cost pilot."
+}

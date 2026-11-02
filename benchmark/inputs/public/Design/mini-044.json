@@ -1,0 +1,185 @@
+{
+  "task_id": "mini-044",
+  "records": [
+    {
+      "id": "F001",
+      "format": "text",
+      "text": "Specify how data is written to the block volume in the first place. > *The volume could be attached to a pod with either `Block` or `Filesystem` volume modes.* Provide an API to retrieve the data blocks of a snapshot. > *It is assumed that a snapshot's data blocks can be retrieved by creating a PersistentVolume for the snapshot, launching a pod with this volume attached in `Block` volume mode, and then reading the individual blocks from the raw block device.* Support of file changed list tracking for network file shares is not addressed by this proposal."
+    },
+    {
+      "id": "F002",
+      "format": "text",
+      "text": "The Job controller gets a list of active pods. Active pods are pods that don't have a terminal phase (`Succeeded` or `Failed`) and are not terminating (have a `deletionTimestamp`) In this KEP, we will consider terminating pods to be separate from active and failed. As an opt-in behavior, the job controller can use the active and terminating pods to determine whether replacement Pods are needed.\n\nWe propose two new API fields: A field in Spec that allows for opt-in behavior of whether to wait for terminating pods to finish before creating replacement pods. A new field in Status for tracking the number of terminating pods."
+    },
+    {
+      "id": "F003",
+      "format": "text",
+      "text": "**Metric cardinality**\n\nIn the past, we have had problems with unbounded metric labels increasing cardinality of metrics and causing significant memory/storage use. Limiting these metrics to bounded values (API group, version, resource, subresource, target removal release) and omitting unbounded values (resource instance name, client username, etc), metric cardinality is controlled.\n\nAnnotating audit events for the deprecated API requests allows an administrator to locate the particular client making deprecated requests when metrics indicate an investigation is needed.\n\n**Additional stderr / warning output**\n\nAdditional warning messages may be unexpected by kubectl or client-go consumers. However, kubectl and client-go already output warning messages to stderr or via `klog.Warn`. client-go consumers can programmatically modify or suppress the warning output at a per-process or per-client level.\n\n**Header size**\n\nThe possibility of accumulating excessive numbers of warnings increases once extension mechanisms can contribute warnings. This is mitigated by: Documented guidance on what types of issues should be surfaced as warnings Documented guidance on message length A warning recorder implementation that limits the individual and total length of warnings returned to a client"
+    },
+    {
+      "id": "F004",
+      "format": "text",
+      "text": "We propose to extend `ConfigMap` and `Secret` types with an additional field:\n\nIf unset or set to false, all updates (including the change of the value of Immutable field itself) remain possible.\n\nIf set to true, the machinery in apiserver will reject: any updates explicitly changing keys and/or values stored in Secrets and/or ConfigMaps any updates explicitly changing the value of `Immutable` field itself (marking Secret/ConfigMap as immutable cannot be reverted)\n\nNote that mutating ObjectMetadata will remain to be possible independently of the value of Immutable field to: not break object lifeycle (e.g. by introducing a deadlock if Finalizers are set) allow rotating certificates used for encryption at rest\n\nBased on the value of `Immutable` field Kubelet will or will not: start a watch (or periodic polling) of a given Secret/ConfigMap perform updates of files mounted to a Pod based on updates of the Kubernetes object"
+    },
+    {
+      "id": "F005",
+      "format": "text",
+      "text": "With Pod Topology Spread, workload authors can define spreading rules for their loads based on the topology of the clusters. The spreading rules are defined in the `PodSpec`, thus they are tied to the pod.\n\nWe propose the introduction of configurable default spreading constraints, i.e. constraints that can be defined at the cluster level and are applied to pods that don't explicitly define spreading constraints. This way, all pods can be spread according to (likely better informed) constraints set by a cluster operator. Workload authors don't need to know the topology of the cluster they will be running on to have their pods spread. But if they do, they can still set their own spreading constraints if they have specific needs."
+    },
+    {
+      "id": "F006",
+      "format": "text",
+      "text": "Tighten validation on `VolumeSnapshot` and `VolumeSnapshotContent` by updating the CRD validation schema and providing a webhook server to enforce immutability.\n\nThis KEP will list the new validation rules. It will also provide the release plan to ensure backwards compatibility. As well, it will outline the deployment plan of the webhook server. The webhook server is deployed separately from the snapshot controller.\n\nThis tightening of the validation on volume snapshot objects is considered a change to the volume snapshot API. Choosing not to install the webhook server and participate in the 2-phase release process can cause future problems when upgrading from v1beta1 to V1 volumesnapshot API if there are currently persisted objects which fail the new stricter validation. Potential impacts include being unable to delete invalid snapshot objects. It should be possible to downgrade the CRD definition as a workaround."
+    },
+    {
+      "id": "F007",
+      "format": "text",
+      "text": "Cluster operators can define default spreading constraints for pods that don't provide any `pod.spec.topologySpreadConstraints`. Workloads are spread with the default constraints if they belong to the same service, replication controller, replica set or stateful set, and if they don't define `pod.spec.topologySpreadConstraints`. Provide a k8s default for `topologySpreadConstraints` that produces a priority equivalent to `DefaultPodTopologySpread`, so that this plugin can be deprecated in the future."
+    },
+    {
+      "id": "F008",
+      "format": "text",
+      "text": "Support for validation formats, immutability or unions. These are all valuable improvements but can be addressed orthogonally in separate KEPs. Eliminate the need for webhooks entirely. Webhooks will still be needed for some use cases. For example, if a validation check requires making a network request to some other system, it will still need to be implemented in a webhook. Support all validation done on native Kubernetes types. For example, CRD structural schemas has complex validation rules that we CEL cannot support due to the lask of support for arbitrarily deeply nested terms (CEL cannot support recursive data types). Change how Kubernetes built-in types are validated, defaulted and converted. We are, however, interested in admission control support for build-in types. See future work for more details."
+    },
+    {
+      "id": "F009",
+      "format": "text",
+      "text": "This KEP proposes enhancing the Kubernetes scheduler to update a Pod's status with a descriptive message when a `PreEnqueue` plugin rejects it. When a Pod is rejected at this early stage, it currently remains in a generic `Pending` state with no direct feedback in its status, making observability and debugging difficult. By reflecting the rejection reason in the Pod's status (and emitting a corresponding event), cluster administrators and users will gain immediate insight into why a Pod is not being scheduled."
+    },
+    {
+      "id": "F010",
+      "format": "text",
+      "text": "Tighten the validation on Volume Snapshot objects. Please see the tables below for detailed information. Due to backwards compatibility concerns, the tightening will occur in three phases. The first phase is webhook-only, and will use ratcheting validation. It will be the user's responsibility to clean up invalid objects which already existed before the webhook was enabled. Invalid objects are those which fail the new, stricter validation."
+    },
+    {
+      "id": "F011",
+      "format": "text",
+      "text": "This document proposes to add new field to StatefulSet's RollingUpdate configuration settings (`.spec.updateStrategy.rollingUpdate`) called `maxUnavailable`, which will allow setting the maximum number of pods that can be unavailable during the update. This new field can be an absolute, positive number (eg. `5`) or a percentage of desired pods (ex: `10%`). When the field is not specified, it will default to 1 to maintain previous behavior of rolling one pod at a time."
+    },
+    {
+      "id": "F012",
+      "format": "text",
+      "text": "We propose enhancements to the Kubernetes API to support **Server-Side Watch Sharding**. This allows clients to request a filtered stream of events based on a consistent hashing strategy determined by the client. Clients specify a new `selector` parameter utilizing specific grammar (e.g., `selector=shardRange(object.metadata.uid, start, end)`) in their `ListOptions`. The API server computes the hash of the target field for each object and only dispatches events that fall within the requested range. This enables efficient horizontal scaling of controllers by ensuring each replica only processes the data it owns, reducing network ingress and deserialization overhead."
+    },
+    {
+      "id": "F013",
+      "format": "text",
+      "text": "Update a Pod's `.status.conditions` with a descriptive reason and message when a `PreEnqueue` plugin rejects the Pod. Utilize the existing asynchronous API calls feature to perform these status updates without impacting scheduler performance. Provide a mechanism for existing `PreEnqueue` use cases (like `DynamicResources` plugin) to adopt this new status reporting. Investigate migrating the responsibility for setting the `SchedulingGated` condition from the kube-apiserver to the kube-scheduler for consistency."
+    },
+    {
+      "id": "F014",
+      "format": "text",
+      "text": "One of the original use-cases for Dynamic Resource Allocation (DRA) was the ability to dynamically allocate partitions of a full device (in addition to the full device itself). Whereas the traditional device plugin API forces users to statically partition devices ahead of time, DRA was designed to allow those partitions to be created on demand. This leads to increased resource utilization as the size of each partitioned device can be matched in real-time to the workload requesting it."
+    },
+    {
+      "id": "F015",
+      "format": "text",
+      "text": "Consider the following scenarios: My containers publish metrics to a time series system. If I am using a Deployment, each rolling update creates a new pod name and hence the metrics published by this new pod starts a new time series which makes tracking metrics for the application difficult. While this could be mitigated, it requires some tricks on the time series collection side. It would be so much better, If we could use a StatefulSet object so my object names doesnt change and hence all metrics goes to a single time series."
+    },
+    {
+      "id": "F016",
+      "format": "text",
+      "text": "Kubernetes has many deprecations in flight at any given moment, in various stages, with various time horizons. Keeping track of all of them is difficult, and has historically required careful reading of release notes, and manually sweeping for use of deprecated features.\n\nGaps in API validation which allow problematic API data have also been discovered post-release (see examples). Tightening validation to reject previously accepted API requests is generally avoided for backwards compatibility, but surfacing warnings to clients submitting problematic data would help them discover problems earlier."
+    },
+    {
+      "id": "F017",
+      "format": "text",
+      "text": "CRDs need direct support for non-trivial validation. While admission webhooks do support CRDs validation, they significantly complicate the development and operability of CRDs.\n\nThis KEP proposes that an inline expression language be integrated directly into CRDs such that a much larger portion of validation use cases can be solved without the use of webhooks.\n\nThis KEP proposes the adoption of Common Expression Language (CEL). It is sufficiently lightweight and safe to be run directly in the kube-apiserver (since CRD creation is a privileged operation), has a straight-forward and unsurprising grammar, and supports pre-parsing and typechecking of expressions, allowing syntax and type errors to be caught at CRD registration time.\n\nCEL might be used in Kubernetes for extensibility beyond CRD validation. The future plans section of this KEP explains how CEL might be used for general admission control, defaulting and conversion. This KEP aims to prove the utility of CEL for both the immediate use case (CRD validation) and these future use cases. This KEP also aims to use CEL in a way that is congruent with these future use cases."
+    },
+    {
+      "id": "F018",
+      "format": "text",
+      "text": "The Jobs API allows users to create Pods using the Job controller with specific requirements such as Pod-level parallelism, completing a certain number of executions, and restart policies.\n\nThis KEP proposes an enhancement that will allow suspending and resuming Jobs. Suspending a Job will delete all active Pods owned by that Job and also instruct the controller manager to not create new Pods until the Job is resumed. Users will also be able to create Jobs in the suspended state, thereby delaying Pod creation indefinitely."
+    },
+    {
+      "id": "F019",
+      "format": "text",
+      "text": "The Job controller tracks and manages all Jobs within Kubernetes. When a new Job is created by the user, the Job controller will immediately begin creating pods to satisfy the requirements of the Job until the Job is complete.\n\nHowever, there are use-cases that require a Job to be suspended in the middle of its execution. Currently, this is impossible; as a workaround, users can delete and re-create the Job, but this will also delete Job metadata such as the list of successful/failed Pods and logs. Therefore, it is desirable to suspend Jobs and resume them later when convenient."
+    },
+    {
+      "id": "F020",
+      "format": "text",
+      "text": "We have several motivating examples for supporting partitionable devices with DRA, with the first two described in detail in this document. Additional details of the other use-cases can be found here. Partitioning a single GPU into smaller partitions. Multi-host scheduling of interconnected TPUs. SR-IOV Multi-host logical groupings to avoid deadlocks in LeaderWorkSet scheduling Single-host allocations of multiple TPUs in valid topologies Single-host allocations of multiple Inferentia and Trainium device in valid topologies"
+    },
+    {
+      "id": "F021",
+      "format": "text",
+      "text": "The purpose of this enhancement is to implement maxUnavailable for StatefulSet during RollingUpdate. When a StatefulSet’s `.spec.updateStrategy.type` is set to `RollingUpdate`, the StatefulSet controller will delete and recreate each Pod in the StatefulSet. The updating of each Pod currently happens one at a time. With support for `maxUnavailable`, the updating will proceed `maxUnavailable` number of pods at a time."
+    },
+    {
+      "id": "F022",
+      "format": "text",
+      "text": "The `PreEnqueue` extension point in the scheduler framework is an important gate that performs preliminary checks before a Pod is allowed into the scheduling cycle. This prevents the scheduler from wasting cycles on Pods that cannot be scheduled due to fundamental issues. This extension point is already utilized by some features like Scheduling Gates and Dynamic Resource Allocation (DRA). Moreover, it is a planned integration point for future capabilities such as Deferred ResourceQuota Enforcement and advanced Gang Scheduling implementations."
+    },
+    {
+      "id": "F023",
+      "format": "text",
+      "text": "In this KEP, we are proposing to introduce an ability to specify that contents of a particular Secret/ConfigMap should be immutable for its whole lifetime. For those Secrets/ConfigMap, Kubelets will not be trying to watch/poll for changes to updated mounts for their Pods. Given there are a lot of users not really taking advantage of automatic updates of Secrets/ConfigMaps due to consequences described above, this will allow them to: protect themselves better for accidental bad updates that could cause outages of their applications achieve better performance of their cluster thanks to significant reduction of load on apiserver"
+    },
+    {
+      "id": "F024",
+      "format": "text",
+      "text": "Existing Issues: Job Creates Replacement Pods as soon as Pod is marked for deletion Kueue: Account for terminating pods when doing preemption\n\nMany common machine learning frameworks, such as Tensorflow and JAX, require unique pods per Index. Currently, if a pod enters a terminating state (due to preemption, eviction or other external factors), a replacement pod is created and immediately fail to start.\n\nHaving a replacement Pod before the previous one fully terminates can also cause problems in clusters with scarce resources or with tight budgets. These resources can be difficult to obtain so pods can take a long time to find resources and they may only be able to find nodes once the existing pods have been terminated. If cluster autoscaler is enabled, the replacement Pods might produce undesired scale ups.\n\nOn the other hand, if a replacement Pod is not immediately created, the Job status would show that the number of active pods doesn't match the desired parallelism. To provide better visibility, the job status can have a new field to track the number of Pods currently terminating.\n\nThis new field can also be used by queueing controllers, such as Kueue, to track the number of terminating pods to calculate quotas."
+    },
+    {
+      "id": "F025",
+      "format": "text",
+      "text": "Introduce the ability for \"structured parameters\" DRA to allocate both full devices and fixed-size partitions of full devices (across multiple dimensions). Both full devices and their valid set of partitions must be explicitly listed in a ResourceSlice for the scheduler to consider them for allocation. Keep the user-facing mechanism to request a full device or one of its partitions the same. In 1.31, it is already possible to select a device partition via a `Resourceclaim`, so long as the device vendor has pre-partitioned its devices and advertised them in a `ResourceSlice`. The user-facing mechanism to select these devices shouldn't change -- only the ability for the vendor to advertise \"overlapping\" partitions, such that the scheduler will never allocate conflicting ones at the same time."
+    },
+    {
+      "id": "F026",
+      "format": "text",
+      "text": "In order for a workload (pod) to use `.spec.topologySpreadConstraints` (known as`PodTopologySpread` plugin or `EvenPodsSpreadPriority` in the old Policy API): Authors have to have an idea of the underlying topology. PodSpecs become less portable if their spreading constraints are tailored to a specific topology.\n\nOn the other hand, cluster operators know the underlying topology of the cluster, which makes them suitable to provide default spreading constraints for all workloads in their cluster."
+    },
+    {
+      "id": "F027",
+      "format": "text",
+      "text": "This KEP proposes new CSI API that can be used to identify the list of changed blocks between pairs of CSI volume snapshots. CSI drivers can implement this API to expose their changed block tracking (CBT) services to enable efficient and reliable differential backup of data stored in CSI volumes.\n\nKubernetes backup applications directly use this API to stream changed block information, bypassing and posing no additional load on the Kubernetes API server. The mechanism that enables this direct access utilizes a proxy service sidecar to shield the CSI drivers from managing the individual Kubernetes clients."
+    },
+    {
+      "id": "F028",
+      "format": "text",
+      "text": "When a user makes a request to a deprecated API, present them with a warning that includes the target removal release and any replacement API Allow a cluster administrator to programatically determine if deprecated APIs are being used: Filtered to particular APIs Filtered to particular operations (e.g. get, list, create, update) Filtered to APIs targeting removal in particular releases Allow a cluster administrator to programatically identify particular clients using deprecated APIs Allow in-process validation mechanisms (API validation, admission, etc) to contribute warnings Allow extension mechanisms (CustomResourceDefinitions, admission webhooks) to contribute warnings"
+    },
+    {
+      "id": "F029",
+      "format": "text",
+      "text": "**Coordination**: This proposal does not implement the coordination logic for clients. Clients are still responsible for determining their shard ranges. **Resharding**: The API server does not manage shard rebalancing strategies; By providing the raw hash ranges, clients can implement their own consistent hashing strategies if needed. This is future work that we are interested in, but is out of scope for this KEP. **Sharding KCM**: Sharding KCM is a complex topic that is outside the scope of this KEP. We are working on the fundamental building blocks that can enable sharding for KCM in the future. We want to eventually move towards a full sharding system, and this KEP acts as the initial step."
+    },
+    {
+      "id": "F030",
+      "format": "text",
+      "text": "Provide an updated CRD schema to validate fields Prevent: Invalid VolumeSnapshot/VolumeSnapshotContent from creation and update Invalid updates on immutable fields, i.e., VolumeSnapshot.Spec.Source Provide a pre-built image which can be used to deploy the webhook server Provide a way to deploy the webhook server in cluster Provide a way to authenticate the webhook server to the API server via TLS Provide a release process to safely tighten the validation and move towards the ideal state of using builtin CRD validation while maintaining backwards compatibility"
+    },
+    {
+      "id": "F031",
+      "format": "text",
+      "text": "Changed block tracking (CBT) techniques have been used by commercial backup systems to efficiently back up large amount of data in block volumes. They identify block-level changes between two arbitrary pair of snapshots of the same block volume, and selectively back up what has changed between the two checkpoints. This type of differential backup approach is a lot more efficient than backing up the entire volume.\n\nThis KEP proposes a design to extend the Kubernetes CSI framework to utilize these CBT features to bring efficient, cloud-native data protection to Kubernetes users."
+    },
+    {
+      "id": "F032",
+      "format": "text",
+      "text": "An inline expression language like Common Expression Language (CEL) would be an excellent supplement to the current validation mechanism because it is sufficiently expressive to satisfy a large set of remaining uses cases that none of the above can solve. For example, cross-field validation use cases can only be solved using expressions or webhooks. `x-kubernetes-validations` extension will be added to CRD structural schemas to allow CEL validation expressions."
+    },
+    {
+      "id": "F033",
+      "format": "text",
+      "text": "The most popular and the most convinient way of consuming Secrets and ConfigMaps by Pods is consuming it as a file. However, any update to a Secret or ConfigMap object is quickly (roughly within a minute) reflected in updates of the file mounted for *all* Pods consuming them. That means, that a bad update (push) of Secret and/or ConfigMap can very quickly break the whole appplication.\n\nThe recommended approach for upgrading applications are obviously rolling upgrades. For Secrets/ConfigMaps this is translating to creating a new object and updating PodTemplate with the reference to it. However, that doesn't protect users from outages caused by accidental bad updates of existing Secrets and/or ConfigMaps.\n\nMoreover, the feature of updating Secrets/ConfigMaps for running Pods is also expensive from scalability/performance point of view. Every Kubelet has to watch (default) or periodically poll every unique Secret and ConfigMap referenced by any of the Pods it is running."
+    },
+    {
+      "id": "F034",
+      "format": "text",
+      "text": "Being able to suspending and resume jobs makes Job preemption, all-or-nothing scheduling, and Job queueing possible. However, we don't propose to create such higher-level controllers as a part of this KEP. It might be useful to restrict who can set/modify the `suspend` flag. However, we don't propose to create the validating and/or mutating webhooks necessary to achieve that as a part of this KEP."
+    },
+    {
+      "id": "F035",
+      "format": "text",
+      "text": "As Kubernetes clusters grow, the volume of events for core resources like `Pods` increases significantly due to high churn. Many controllers need to scale to handle this load.\n\nHistorically, most controllers choose to scale vertically (e.g., `kube-controller-manager`), as there is no native support for sharding or partitioning the watch stream. Some specialized controllers (e.g., `kube-state-metrics`) have implemented their own client-side horizontal sharding to distribute work.\n\nHowever, client-side sharding has a critical limitation: it does not reduce the incoming event volume per replica. Every replica still receives the full stream of events, paying the CPU and network cost to deserialize everything, only to discard items not belonging to their shard. Functionally, this makes horizontal scaling of the watch stream impossible. This results in: Wasted network bandwidth and overhead (N replicas * Full Stream). Wasted CPU and Memory on clients for processing irrelevant events.\n\nThe goal of this proposal is to address this bottleneck. By moving filtering to the API server, we provide the primitive needed to: Allow vertically scaled controllers to eventually adopt sharded architectures. Enable existing horizontally scalable controllers to scale efficiently without the \"full stream\" penalty.\n\nWe propose moving the filtering logic \"upstream\" to the Kubernetes API Server. By filtering events at the source, we ensure that each controller replica receives only the data it is responsible for."
+    },
+    {
+      "id": "F036",
+      "format": "text",
+      "text": "Currently, Jobs start replacement Pods as soon as previously created Pods are terminating (have a `deletionTimestamp`) or fail (`phase=Failed`). Terminating pods are currently counted as failed in the Job status. However, terminating pods are actually in a transitory state where they are neither active nor really fully terminated. This KEP proposes a new field for the Job API that allows for users to specify if they want replacement Pods as soon as the previous Pods are terminating (existing behavior) or only once the existing pods are fully terminated (new behavior)."
+    }
+  ]
+}

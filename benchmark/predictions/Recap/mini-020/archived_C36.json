@@ -1,0 +1,410 @@
+{
+  "assignments": [
+    {
+      "id": "F001",
+      "path": [
+        "Concept-design",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F002",
+      "path": [
+        "Prototype-review",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F003",
+      "path": [
+        "Prototype-review",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F004",
+      "path": [
+        "Cost-refinement",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F005",
+      "path": [
+        "Prototype-review",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F006",
+      "path": [
+        "Prototype-review",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F007",
+      "path": [
+        "Concept-design",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F008",
+      "path": [
+        "Prototype-review",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F009",
+      "path": [
+        "Concept-design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F010",
+      "path": [
+        "Concept-design",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F011",
+      "path": [
+        "Concept-design",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F012",
+      "path": [
+        "Requirements",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F013",
+      "path": [
+        "Concept-design",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F014",
+      "path": [
+        "Requirements",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F015",
+      "path": [
+        "Concept-design",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F016",
+      "path": [
+        "Cost-refinement",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F017",
+      "path": [
+        "Requirements",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F018",
+      "path": [
+        "Concept-design",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F019",
+      "path": [
+        "Concept-design",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F020",
+      "path": [
+        "Cost-refinement",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F021",
+      "path": [
+        "Concept-design",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F022",
+      "path": [
+        "Concept-design",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F023",
+      "path": [
+        "Prototype-review",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F024",
+      "path": [
+        "Prototype-review",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F025",
+      "path": [
+        "Prototype-review",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F026",
+      "path": [
+        "Prototype-review",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F027",
+      "path": [
+        "Requirements",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F028",
+      "path": [
+        "Cost-refinement",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F029",
+      "path": [
+        "Concept-design",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F030",
+      "path": [
+        "Cost-refinement",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F031",
+      "path": [
+        "Requirements",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F032",
+      "path": [
+        "Requirements",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F033",
+      "path": [
+        "Cost-refinement",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F034",
+      "path": [
+        "Concept-design",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F035",
+      "path": [
+        "Concept-design",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F036",
+      "path": [
+        "Cost-refinement",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F037",
+      "path": [
+        "Prototype-review",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F038",
+      "path": [
+        "Concept-design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F039",
+      "path": [
+        "Concept-design",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F040",
+      "path": [
+        "Concept-design",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F041",
+      "path": [
+        "Concept-design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F042",
+      "path": [
+        "Cost-refinement",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F043",
+      "path": [
+        "Cost-refinement",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F044",
+      "path": [
+        "Requirements",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F045",
+      "path": [
+        "Cost-refinement",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F046",
+      "path": [
+        "Cost-refinement",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F047",
+      "path": [
+        "Cost-refinement",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F048",
+      "path": [
+        "Requirements",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F049",
+      "path": [
+        "Cost-refinement",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F050",
+      "path": [
+        "Requirements",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F051",
+      "path": [
+        "Requirements",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F052",
+      "path": [
+        "Requirements",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F053",
+      "path": [
+        "Cost-refinement",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F054",
+      "path": [
+        "Requirements",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F055",
+      "path": [
+        "Requirements",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F056",
+      "path": [
+        "Requirements",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F057",
+      "path": [
+        "Requirements",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F058",
+      "path": [
+        "Cost-refinement",
+        "Overview"
+      ]
+    }
+  ]
+}

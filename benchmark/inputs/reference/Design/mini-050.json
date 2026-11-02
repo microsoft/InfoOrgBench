@@ -1,0 +1,366 @@
+{
+  "task_id": "mini-050",
+  "records": [
+    {
+      "id": "F001",
+      "path": [
+        "sig-node",
+        "4603-tune-crashloopbackoff"
+      ],
+      "content_sha256": "f308d6d9bb8dfe346ed471db24581ac3f232c495dc20e5488887db17a6578d01",
+      "source_native_id": "keps/sig-node/4603-tune-crashloopbackoff#excerpt-3",
+      "source_heading": "non-goals"
+    },
+    {
+      "id": "F002",
+      "path": [
+        "sig-instrumentation",
+        "1209-metrics-stability"
+      ],
+      "content_sha256": "de9efc0abbdc00eed4bdf3e1ac79a5c5aba06d9812bf137159afd40cc942fc0e",
+      "source_native_id": "keps/sig-instrumentation/1209-metrics-stability#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F003",
+      "path": [
+        "sig-storage",
+        "5943-topology-for-volume-snapshot"
+      ],
+      "content_sha256": "1cf79e07f07d4aeaafa1e36595207bd23daddf50ea5ea6620438f45e0bcec4e2",
+      "source_native_id": "keps/sig-storage/5943-topology-for-volume-snapshot#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F004",
+      "path": [
+        "sig-api-machinery",
+        "692-crd-openapi-schema"
+      ],
+      "content_sha256": "e382a268dff45952280536eefbd186f3e18cc586427f436d0c09bdc87b1d32b7",
+      "source_native_id": "keps/sig-api-machinery/692-crd-openapi-schema#excerpt-2",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F005",
+      "path": [
+        "sig-storage",
+        "5943-topology-for-volume-snapshot"
+      ],
+      "content_sha256": "4c578b933373099494fecf7fdd72bc3918acf98e6840c86f7cbe0606073ca1d7",
+      "source_native_id": "keps/sig-storage/5943-topology-for-volume-snapshot#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F006",
+      "path": [
+        "sig-api-machinery",
+        "4460-per-request-deadline"
+      ],
+      "content_sha256": "4eaf8170d3358909c7668d84847e6c7353baca6b66f0d72667db4f4ea3a59d26",
+      "source_native_id": "keps/sig-api-machinery/4460-per-request-deadline#excerpt-3",
+      "source_heading": "risks and mitigations"
+    },
+    {
+      "id": "F007",
+      "path": [
+        "sig-node",
+        "5607-hostnetwork-userns"
+      ],
+      "content_sha256": "ac329c27a094a8e5b02489557058774a2aa4f4b6c26eb224789f9b461159c49c",
+      "source_native_id": "keps/sig-node/5607-hostnetwork-userns#excerpt-3",
+      "source_heading": "design details"
+    },
+    {
+      "id": "F008",
+      "path": [
+        "sig-instrumentation",
+        "5207-metrics-k8s-io-api-definition"
+      ],
+      "content_sha256": "5bad8236bf94677813c998d1c987df3461920984eed3434eaafeae31dd070ae7",
+      "source_native_id": "keps/sig-instrumentation/5207-metrics-k8s-io-api-definition#excerpt-3",
+      "source_heading": "design details"
+    },
+    {
+      "id": "F009",
+      "path": [
+        "sig-storage",
+        "695-skip-permission-change"
+      ],
+      "content_sha256": "fe9f8c28b25b66236cf5dea5bad29e437ff46f0c206acc68d840c61faffd3c77",
+      "source_native_id": "keps/sig-storage/695-skip-permission-change#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F010",
+      "path": [
+        "sig-node",
+        "2400-node-swap"
+      ],
+      "content_sha256": "3e38b741d75f370a185d3177de6341e07931cb95af2aa3f7c7a76d57f4836fe9",
+      "source_native_id": "keps/sig-node/2400-node-swap#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F011",
+      "path": [
+        "sig-node",
+        "2400-node-swap"
+      ],
+      "content_sha256": "a0046a417610f27298f08d6a60a09aa5bffad9f13871c055b39b7c83dac7f8e8",
+      "source_native_id": "keps/sig-node/2400-node-swap#excerpt-2",
+      "source_heading": "non-goals"
+    },
+    {
+      "id": "F012",
+      "path": [
+        "sig-api-machinery",
+        "555-server-side-apply"
+      ],
+      "content_sha256": "4c7ede5894424a50d214ec7640f2e737ae0b73f8945e3924d0fe1968437af869",
+      "source_native_id": "keps/sig-api-machinery/555-server-side-apply#excerpt-3",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F013",
+      "path": [
+        "sig-node",
+        "4603-tune-crashloopbackoff"
+      ],
+      "content_sha256": "e44a7f03a615692a2b6f14f2e96086dedb6b1a37671a0a2487fd5977f2a89f13",
+      "source_native_id": "keps/sig-node/4603-tune-crashloopbackoff#excerpt-1",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F014",
+      "path": [
+        "sig-instrumentation",
+        "3077-contextual-logging"
+      ],
+      "content_sha256": "94763c52a16c97133083e04181396b4f7fc8023943fbdff9e198c95cfaad26b0",
+      "source_native_id": "keps/sig-instrumentation/3077-contextual-logging#excerpt-3",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F015",
+      "path": [
+        "sig-instrumentation",
+        "5207-metrics-k8s-io-api-definition"
+      ],
+      "content_sha256": "103f2b6a5fcaf36f3ec15cb5080239ed18947b3ea78cd090ca362174e9f68fb5",
+      "source_native_id": "keps/sig-instrumentation/5207-metrics-k8s-io-api-definition#excerpt-2",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F016",
+      "path": [
+        "sig-api-machinery",
+        "692-crd-openapi-schema"
+      ],
+      "content_sha256": "a976c232983ae5ce1ae267a6e670090484847ed192997228d157619d2539db8f",
+      "source_native_id": "keps/sig-api-machinery/692-crd-openapi-schema#excerpt-3",
+      "source_heading": "risks and mitigations"
+    },
+    {
+      "id": "F017",
+      "path": [
+        "sig-instrumentation",
+        "3077-contextual-logging"
+      ],
+      "content_sha256": "3df2b85d3815f252b8a676095e0277dcd1747dc49f233a63056da3ce21725bae",
+      "source_native_id": "keps/sig-instrumentation/3077-contextual-logging#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F018",
+      "path": [
+        "sig-api-machinery",
+        "555-server-side-apply"
+      ],
+      "content_sha256": "cbcf7defcd0a4664acfdb0c3f7b0d01714bb3f1cb12a6b136b2de2e2d666a00a",
+      "source_native_id": "keps/sig-api-machinery/555-server-side-apply#excerpt-2",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F019",
+      "path": [
+        "sig-storage",
+        "5943-topology-for-volume-snapshot"
+      ],
+      "content_sha256": "386e8869d7877db2888355bf19cf389501ed95c61445821c0cf38e32bc16a755",
+      "source_native_id": "keps/sig-storage/5943-topology-for-volume-snapshot#excerpt-3",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F020",
+      "path": [
+        "sig-storage",
+        "5541-pvc-last-used-time-status-field"
+      ],
+      "content_sha256": "320dbb318a29fc7972a32cf67e3ebde1bc122461377e757cb03c40f92c4bf2fe",
+      "source_native_id": "keps/sig-storage/5541-pvc-last-used-time-status-field#excerpt-2",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F021",
+      "path": [
+        "sig-api-machinery",
+        "4460-per-request-deadline"
+      ],
+      "content_sha256": "4a2bea533a475787df98831bace82e59a66e7bf9c2043216091af20c98845fce",
+      "source_native_id": "keps/sig-api-machinery/4460-per-request-deadline#excerpt-1",
+      "source_heading": "non-goals"
+    },
+    {
+      "id": "F022",
+      "path": [
+        "sig-node",
+        "4603-tune-crashloopbackoff"
+      ],
+      "content_sha256": "7bdcde4f0c5fa9973a34af1c9d5d8fbd805cdc20bc33e6279d98fb7695537c42",
+      "source_native_id": "keps/sig-node/4603-tune-crashloopbackoff#excerpt-2",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F023",
+      "path": [
+        "sig-api-machinery",
+        "4460-per-request-deadline"
+      ],
+      "content_sha256": "9aead0ce1486b1b246e54b69fe04a9920f81d728f3f007df0103465faf1d38e1",
+      "source_native_id": "keps/sig-api-machinery/4460-per-request-deadline#excerpt-2",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F024",
+      "path": [
+        "sig-instrumentation",
+        "1209-metrics-stability"
+      ],
+      "content_sha256": "f0ff6ab9f27f49c10814b3b1c14daeb50008c97cf7f880ddb4abc1e9a4e581e7",
+      "source_native_id": "keps/sig-instrumentation/1209-metrics-stability#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F025",
+      "path": [
+        "sig-instrumentation",
+        "3077-contextual-logging"
+      ],
+      "content_sha256": "8ec2f4a32402596808031376d83a86489407f3bdd8b4caeb577c8579c19ac194",
+      "source_native_id": "keps/sig-instrumentation/3077-contextual-logging#excerpt-2",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F026",
+      "path": [
+        "sig-storage",
+        "695-skip-permission-change"
+      ],
+      "content_sha256": "0032fddbaabf7524026b84247782859e84017ca56ec9933e24dc5a44ef36a266",
+      "source_native_id": "keps/sig-storage/695-skip-permission-change#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F027",
+      "path": [
+        "sig-storage",
+        "5541-pvc-last-used-time-status-field"
+      ],
+      "content_sha256": "93d8f3f31edd8ac230618811a9b45c0732830d000ebeaa0cc5d9c9204821724f",
+      "source_native_id": "keps/sig-storage/5541-pvc-last-used-time-status-field#excerpt-1",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F028",
+      "path": [
+        "sig-storage",
+        "695-skip-permission-change"
+      ],
+      "content_sha256": "4f05778077a0fe52edc0164fde780e8014bb236cef29052b8738fdb34b4dcb0e",
+      "source_native_id": "keps/sig-storage/695-skip-permission-change#excerpt-3",
+      "source_heading": "non-goals"
+    },
+    {
+      "id": "F029",
+      "path": [
+        "sig-instrumentation",
+        "5207-metrics-k8s-io-api-definition"
+      ],
+      "content_sha256": "22944853aafd5d86a125a02553fa94df96b22f5a492fd8cc5a1fb8176bb3c2b8",
+      "source_native_id": "keps/sig-instrumentation/5207-metrics-k8s-io-api-definition#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F030",
+      "path": [
+        "sig-storage",
+        "5541-pvc-last-used-time-status-field"
+      ],
+      "content_sha256": "8035296423f7327fc987f5641f9abeb1ab8d19a810af2788d788fe08bc3f4238",
+      "source_native_id": "keps/sig-storage/5541-pvc-last-used-time-status-field#excerpt-3",
+      "source_heading": "design details"
+    },
+    {
+      "id": "F031",
+      "path": [
+        "sig-node",
+        "5607-hostnetwork-userns"
+      ],
+      "content_sha256": "96f1be31915302b152d2c2bf7cc436a6bccab526b7c2681b4a7e7d5140bc6d7b",
+      "source_native_id": "keps/sig-node/5607-hostnetwork-userns#excerpt-2",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F032",
+      "path": [
+        "sig-node",
+        "2400-node-swap"
+      ],
+      "content_sha256": "8d43b81ef98078b413ea9dd0327ce8eb2dc0e35ca118ebcaeb3d5ba3a3397dad",
+      "source_native_id": "keps/sig-node/2400-node-swap#excerpt-3",
+      "source_heading": "design details"
+    },
+    {
+      "id": "F033",
+      "path": [
+        "sig-node",
+        "5607-hostnetwork-userns"
+      ],
+      "content_sha256": "6e1a8d101c24f8c91a1fc0290d436b70a1c6308c2fa7c336b0715c03b6f53881",
+      "source_native_id": "keps/sig-node/5607-hostnetwork-userns#excerpt-1",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F034",
+      "path": [
+        "sig-instrumentation",
+        "1209-metrics-stability"
+      ],
+      "content_sha256": "f56111cb8f00c3b74f6d3c953a629a44dde3f78fd5323bc9b7d2c7bc86e51fc1",
+      "source_native_id": "keps/sig-instrumentation/1209-metrics-stability#excerpt-3",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F035",
+      "path": [
+        "sig-api-machinery",
+        "555-server-side-apply"
+      ],
+      "content_sha256": "5cea7b3ba4aaf217611c95086f4602eae4dea83e11639d7439a0e72ee7e8c571",
+      "source_native_id": "keps/sig-api-machinery/555-server-side-apply#excerpt-1",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F036",
+      "path": [
+        "sig-api-machinery",
+        "692-crd-openapi-schema"
+      ],
+      "content_sha256": "ba05a0a1025fb89f2a1058aa4e48f3ce865334fa0437d9aa982a0df0125ddf19",
+      "source_native_id": "keps/sig-api-machinery/692-crd-openapi-schema#excerpt-1",
+      "source_heading": "summary"
+    }
+  ],
+  "reference_scope": "Source-derived group/proposal hierarchy for a development-only difficulty and cost pilot."
+}

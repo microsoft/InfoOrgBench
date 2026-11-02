@@ -1,0 +1,305 @@
+{
+  "assignments": [
+    {
+      "id": "F001",
+      "path": [
+        "ABFS improvements",
+        "Delegation token tests"
+      ]
+    },
+    {
+      "id": "F002",
+      "path": [
+        "ABFS improvements",
+        "Delegation token tests"
+      ]
+    },
+    {
+      "id": "F003",
+      "path": [
+        "S3A improvements",
+        "Upload listing metadata"
+      ]
+    },
+    {
+      "id": "F004",
+      "path": [
+        "ABFS improvements",
+        "Default blocksize"
+      ]
+    },
+    {
+      "id": "F005",
+      "path": [
+        "S3A improvements",
+        "HEAD response metadata"
+      ]
+    },
+    {
+      "id": "F006",
+      "path": [
+        "ABFS improvements",
+        "Delegation token tests"
+      ]
+    },
+    {
+      "id": "F007",
+      "path": [
+        "S3A improvements",
+        "Upload listing metadata"
+      ]
+    },
+    {
+      "id": "F008",
+      "path": [
+        "ABFS improvements",
+        "Default blocksize"
+      ]
+    },
+    {
+      "id": "F009",
+      "path": [
+        "ABFS improvements",
+        "Delegation token tests"
+      ]
+    },
+    {
+      "id": "F010",
+      "path": [
+        "ABFS improvements",
+        "Delegation token tests"
+      ]
+    },
+    {
+      "id": "F011",
+      "path": [
+        "ABFS improvements",
+        "Delegation token tests"
+      ]
+    },
+    {
+      "id": "F012",
+      "path": [
+        "ABFS improvements",
+        "Parallel contract tests"
+      ]
+    },
+    {
+      "id": "F013",
+      "path": [
+        "ABFS improvements",
+        "Delegation token tests"
+      ]
+    },
+    {
+      "id": "F014",
+      "path": [
+        "S3A improvements",
+        "Remove HDFS dependency"
+      ]
+    },
+    {
+      "id": "F015",
+      "path": [
+        "ABFS improvements",
+        "Default blocksize"
+      ]
+    },
+    {
+      "id": "F016",
+      "path": [
+        "S3A improvements",
+        "Read failure handling"
+      ]
+    },
+    {
+      "id": "F017",
+      "path": [
+        "ABFS improvements",
+        "Connection timeout backoff"
+      ]
+    },
+    {
+      "id": "F018",
+      "path": [
+        "S3A improvements",
+        "Remove HDFS dependency"
+      ]
+    },
+    {
+      "id": "F019",
+      "path": [
+        "S3A improvements",
+        "Read failure handling"
+      ]
+    },
+    {
+      "id": "F020",
+      "path": [
+        "S3A improvements",
+        "Public bucket encryption tests"
+      ]
+    },
+    {
+      "id": "F021",
+      "path": [
+        "ABFS improvements",
+        "Default blocksize"
+      ]
+    },
+    {
+      "id": "F022",
+      "path": [
+        "ABFS improvements",
+        "SharedKey namespace test"
+      ]
+    },
+    {
+      "id": "F023",
+      "path": [
+        "S3A improvements",
+        "Remove HDFS dependency"
+      ]
+    },
+    {
+      "id": "F024",
+      "path": [
+        "S3A improvements",
+        "Upload listing metadata"
+      ]
+    },
+    {
+      "id": "F025",
+      "path": [
+        "S3A improvements",
+        "Credential provider token tests"
+      ]
+    },
+    {
+      "id": "F026",
+      "path": [
+        "S3A improvements",
+        "HEAD response metadata"
+      ]
+    },
+    {
+      "id": "F027",
+      "path": [
+        "ABFS improvements",
+        "SharedKey namespace test"
+      ]
+    },
+    {
+      "id": "F028",
+      "path": [
+        "ABFS improvements",
+        "Delegation token tests"
+      ]
+    },
+    {
+      "id": "F029",
+      "path": [
+        "ABFS improvements",
+        "Default blocksize"
+      ]
+    },
+    {
+      "id": "F030",
+      "path": [
+        "ABFS improvements",
+        "Parallel contract tests"
+      ]
+    },
+    {
+      "id": "F031",
+      "path": [
+        "S3A improvements",
+        "Credential provider token tests"
+      ]
+    },
+    {
+      "id": "F032",
+      "path": [
+        "ABFS improvements",
+        "Connection timeout backoff"
+      ]
+    },
+    {
+      "id": "F033",
+      "path": [
+        "ABFS improvements",
+        "Common retry policy"
+      ]
+    },
+    {
+      "id": "F034",
+      "path": [
+        "ABFS improvements",
+        "Connection timeout backoff"
+      ]
+    },
+    {
+      "id": "F035",
+      "path": [
+        "S3A improvements",
+        "Assumed role credential chain"
+      ]
+    },
+    {
+      "id": "F036",
+      "path": [
+        "ABFS improvements",
+        "Default blocksize"
+      ]
+    },
+    {
+      "id": "F037",
+      "path": [
+        "ABFS improvements",
+        "Common retry policy"
+      ]
+    },
+    {
+      "id": "F038",
+      "path": [
+        "S3A improvements",
+        "Credential provider token tests"
+      ]
+    },
+    {
+      "id": "F039",
+      "path": [
+        "ABFS improvements",
+        "Default blocksize"
+      ]
+    },
+    {
+      "id": "F040",
+      "path": [
+        "ABFS improvements",
+        "Delegation token tests"
+      ]
+    },
+    {
+      "id": "F041",
+      "path": [
+        "S3A improvements",
+        "Iceberg bulk delete validation"
+      ]
+    },
+    {
+      "id": "F042",
+      "path": [
+        "ABFS improvements",
+        "Connection timeout backoff"
+      ]
+    },
+    {
+      "id": "F043",
+      "path": [
+        "ABFS improvements",
+        "Default blocksize"
+      ]
+    }
+  ]
+}

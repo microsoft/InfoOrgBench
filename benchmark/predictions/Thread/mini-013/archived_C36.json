@@ -1,0 +1,368 @@
+{
+  "assignments": [
+    {
+      "id": "F001",
+      "path": [
+        "ABFS connector",
+        "China authentication"
+      ]
+    },
+    {
+      "id": "F002",
+      "path": [
+        "ABFS connector",
+        "OAuth test coverage"
+      ]
+    },
+    {
+      "id": "F003",
+      "path": [
+        "ABFS connector",
+        "China authentication"
+      ]
+    },
+    {
+      "id": "F004",
+      "path": [
+        "ABFS connector",
+        "Trace logging"
+      ]
+    },
+    {
+      "id": "F005",
+      "path": [
+        "ABFS connector",
+        "Retry count backport"
+      ]
+    },
+    {
+      "id": "F006",
+      "path": [
+        "ABFS connector",
+        "Random read performance"
+      ]
+    },
+    {
+      "id": "F007",
+      "path": [
+        "ABFS connector",
+        "Input stream unbuffer"
+      ]
+    },
+    {
+      "id": "F008",
+      "path": [
+        "ABFS connector",
+        "OAuth test coverage"
+      ]
+    },
+    {
+      "id": "F009",
+      "path": [
+        "ABFS connector",
+        "Input stream unbuffer"
+      ]
+    },
+    {
+      "id": "F010",
+      "path": [
+        "ABFS connector",
+        "Test client authentication"
+      ]
+    },
+    {
+      "id": "F011",
+      "path": [
+        "ABFS connector",
+        "Retry count backport"
+      ]
+    },
+    {
+      "id": "F012",
+      "path": [
+        "ABFS connector",
+        "Input stream unbuffer"
+      ]
+    },
+    {
+      "id": "F013",
+      "path": [
+        "ABFS connector",
+        "Parallel contract tests"
+      ]
+    },
+    {
+      "id": "F014",
+      "path": [
+        "ABFS connector",
+        "Retry count backport"
+      ]
+    },
+    {
+      "id": "F015",
+      "path": [
+        "ABFS connector",
+        "Random read performance"
+      ]
+    },
+    {
+      "id": "F016",
+      "path": [
+        "ABFS connector",
+        "Rename failure logging"
+      ]
+    },
+    {
+      "id": "F017",
+      "path": [
+        "ABFS connector",
+        "Random read performance"
+      ]
+    },
+    {
+      "id": "F018",
+      "path": [
+        "ABFS connector",
+        "Trace logging"
+      ]
+    },
+    {
+      "id": "F019",
+      "path": [
+        "ABFS connector",
+        "Trace logging"
+      ]
+    },
+    {
+      "id": "F020",
+      "path": [
+        "ABFS connector",
+        "OAuth test coverage"
+      ]
+    },
+    {
+      "id": "F021",
+      "path": [
+        "ABFS connector",
+        "Rename failure logging"
+      ]
+    },
+    {
+      "id": "F022",
+      "path": [
+        "ABFS connector",
+        "China authentication"
+      ]
+    },
+    {
+      "id": "F023",
+      "path": [
+        "ABFS connector",
+        "HTTP operation timing"
+      ]
+    },
+    {
+      "id": "F024",
+      "path": [
+        "ABFS connector",
+        "Trace logging"
+      ]
+    },
+    {
+      "id": "F025",
+      "path": [
+        "ABFS connector",
+        "OAuth test coverage"
+      ]
+    },
+    {
+      "id": "F026",
+      "path": [
+        "ABFS connector",
+        "Test client authentication"
+      ]
+    },
+    {
+      "id": "F027",
+      "path": [
+        "ABFS connector",
+        "Random read performance"
+      ]
+    },
+    {
+      "id": "F028",
+      "path": [
+        "ABFS connector",
+        "Random read performance"
+      ]
+    },
+    {
+      "id": "F029",
+      "path": [
+        "ABFS connector",
+        "Input stream unbuffer"
+      ]
+    },
+    {
+      "id": "F030",
+      "path": [
+        "ABFS connector",
+        "Input stream unbuffer"
+      ]
+    },
+    {
+      "id": "F031",
+      "path": [
+        "ABFS connector",
+        "Test client authentication"
+      ]
+    },
+    {
+      "id": "F032",
+      "path": [
+        "ABFS connector",
+        "Test client authentication"
+      ]
+    },
+    {
+      "id": "F033",
+      "path": [
+        "ABFS connector",
+        "Trace logging"
+      ]
+    },
+    {
+      "id": "F034",
+      "path": [
+        "ABFS connector",
+        "Input stream unbuffer"
+      ]
+    },
+    {
+      "id": "F035",
+      "path": [
+        "ABFS connector",
+        "Input stream unbuffer"
+      ]
+    },
+    {
+      "id": "F036",
+      "path": [
+        "ABFS connector",
+        "Shared retry policy"
+      ]
+    },
+    {
+      "id": "F037",
+      "path": [
+        "ABFS connector",
+        "Parallel contract tests"
+      ]
+    },
+    {
+      "id": "F038",
+      "path": [
+        "ABFS connector",
+        "Trace logging"
+      ]
+    },
+    {
+      "id": "F039",
+      "path": [
+        "ABFS connector",
+        "OAuth test coverage"
+      ]
+    },
+    {
+      "id": "F040",
+      "path": [
+        "ABFS connector",
+        "China authentication"
+      ]
+    },
+    {
+      "id": "F041",
+      "path": [
+        "ABFS connector",
+        "Test client authentication"
+      ]
+    },
+    {
+      "id": "F042",
+      "path": [
+        "ABFS connector",
+        "HTTP operation timing"
+      ]
+    },
+    {
+      "id": "F043",
+      "path": [
+        "ABFS connector",
+        "Random read performance"
+      ]
+    },
+    {
+      "id": "F044",
+      "path": [
+        "ABFS connector",
+        "OAuth test coverage"
+      ]
+    },
+    {
+      "id": "F045",
+      "path": [
+        "ABFS connector",
+        "OAuth test coverage"
+      ]
+    },
+    {
+      "id": "F046",
+      "path": [
+        "ABFS connector",
+        "Rename failure logging"
+      ]
+    },
+    {
+      "id": "F047",
+      "path": [
+        "ABFS connector",
+        "China authentication"
+      ]
+    },
+    {
+      "id": "F048",
+      "path": [
+        "ABFS connector",
+        "HTTP operation timing"
+      ]
+    },
+    {
+      "id": "F049",
+      "path": [
+        "ABFS connector",
+        "Input stream unbuffer"
+      ]
+    },
+    {
+      "id": "F050",
+      "path": [
+        "ABFS connector",
+        "OAuth test coverage"
+      ]
+    },
+    {
+      "id": "F051",
+      "path": [
+        "ABFS connector",
+        "Trace logging"
+      ]
+    },
+    {
+      "id": "F052",
+      "path": [
+        "ABFS connector",
+        "HTTP operation timing"
+      ]
+    }
+  ]
+}

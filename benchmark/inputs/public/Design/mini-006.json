@@ -1,0 +1,185 @@
+{
+  "task_id": "mini-006",
+  "records": [
+    {
+      "id": "F001",
+      "format": "text",
+      "text": "Since this feature is for diagnosing problems with the Kube-API Server, it is targeted at Cluster Operators and Cloud Vendors that manage kubernetes control-planes.\n\nFor the following use-cases, I can deploy an OpenTelemetry collector as a sidecar to the API Server. I can use the API Server's `--opentelemetry-config-file` flag with the default URL to make the API Server send its spans to the sidecar collector. Alternatively, I can point the API Server at an OpenTelemetry collector listening on a different port or URL if I need to."
+    },
+    {
+      "id": "F002",
+      "format": "text",
+      "text": "Replace existing monitoring solutions: metrics, logs, traces To provide a general-purpose extension mechanism for other components (e.g., container runtime, CNI, device plugins) to expose their own information through z-pages Provide information about components that are not directly accessible due to network restrictions **Report the status of internal sub-components or external dependencies.** Many Kubernetes components, such as the `kube-controller-manager` (with its multiple controller loops) or the `kube-apiserver` (with its dependency on etcd), are complex. Surfacing the status of all these individual pieces is a significantly more complex problem that this KEP does not aim to solve. This endpoint is intentionally limited to reporting the status of the main serving binary itself. A separate KEP would be required to address aggregated or detailed dependency status."
+    },
+    {
+      "id": "F003",
+      "format": "text",
+      "text": "When creating objects with `kubectl apply`, it is frequently desired to make changes to the config that remove objects and then re-apply and have those objects deleted. Since Kubernetes v1.5, an alpha-stage `--prune` flag exists to support this workflow: it deletes objects previously applied that no longer exist in the source config. However, the current implementation has fundamental design flaws that limit its performance and lead to surprising behaviours. This KEP proposes a safer and more performant implementation for this feature as a second, independent alpha. The new implementation is based on a low-level concept called \"ApplySet\" that other, higher-level ecosystem tooling can build on top of to enhance their own higher-level object groupings with improved interoperability."
+    },
+    {
+      "id": "F004",
+      "format": "text",
+      "text": "Today, the certificates.k8s.io API group provides a flexible, pluggable mechanism for workloads running within the cluster to request certificates. However, certificates only have meaning in relation to a trust anchor set. Most signers in a Kubernetes cluster don't issue publicly-trusted certificates, but Kubernetes lacks a standardized mechanism for signers to distribute their trust anchors to workloads."
+    },
+    {
+      "id": "F005",
+      "format": "text",
+      "text": "MUST use a pruning set identification algorithm that remains accurate regardless of what has changed between the previous and current sets MUST use a pruning set identification algorithm that scales to thousands of resources across hundreds of types MUST natively support custom resources MUST provide a way to accurately preview which objects will be deleted MUST support namespaced and non-namespaced resources; SHOULD support them within the same operation SHOULD use a low-level \"plumbing\" object grouping mechanism over which more sophisticated abstractions can be built by \"porcelain\" tooling. SHOULD allow for listing of grouping objects themselves"
+    },
+    {
+      "id": "F006",
+      "format": "text",
+      "text": "The iptables implementation of kube-proxy today references the cluster CIDR for pods in three places for the following reasons. Masquerade off cluster traffic to services by node IP Redirecting pods traffic to external loadbalancer VIP to cluster IP Accepting traffic after first packet, after being accepted by kubernetes rules\n\nIn addition, the ipvs implementation also references it in two places for similar purposes Masquerade off cluster traffic to services by node IP Accepting traffic after first packet, after being accepted by kubernetes\n\nThis enhancement proposes ways to achieve similar goals without tracking the pod cluster CIDR to do so."
+    },
+    {
+      "id": "F007",
+      "format": "text",
+      "text": "Provide a Kubernetes data type that holds X.509 trust anchors for use wherever a set of X.509 trust anchors is needed. Make it easy for signer implementations (certificates/v1 or otherwise) to publish their relevant trust anchors for use within the cluster. Make it easy for workloads that need access to the trust anchors that back a particular certificates/v1 signer to access them within the container filesystem."
+    },
+    {
+      "id": "F008",
+      "format": "text",
+      "text": "Structured config for OIDC authentication: noted in various contexts over the past few years. We want to migrate away from a flag-based config that is growing without bounds to a proper versioned config format. This would allow us to better support various features that have been requested. Support multiple ClientIDs Identify user by more JWT claims than just a single one Allow any claim from an ID token to be mapped to user info extra attributes Fail authentication unless user is a member of a specific set of groups Required claims does not support arrays Forward audiences to authorization via user info extra attributes"
+    },
+    {
+      "id": "F009",
+      "format": "text",
+      "text": "Any entity with service network access can send requests to an admission webhook endpoint. If the webhook does not authenticate the caller, an attacker can probe for policy information, trigger unintended side effects, or exploit the webhook's own privileges within the cluster. Opt-in mechanisms for authenticating the kube-apiserver to webhooks exist (client certs, bearer tokens, or basic auth via a kubeconfig file configured through `--admission-control-config-file`), but they require manual credential management and an API server restart to change."
+    },
+    {
+      "id": "F010",
+      "format": "text",
+      "text": "`kube-apiserver` authenticates itself to admission webhooks by default, without requiring manual credential configuration. Aggregated API servers can authenticate themselves to admission webhooks using the same mechanism. Minimal manual setup involved, both for webhook maintainers and cluster administrators. The KEP authors believe firmly that friction prevents adoption. The default behavior of webhook authentication clients is to procure a token and provide it to webhooks. The design does not break webhooks that have not yet adopted token verification. `kube-apiserver` authorizes webhook authentication clients at token issuance, and will refuse to provide a token to unauthorized principals. Setting up the requisite permissions for token acquisition should be simple and easy. The token is scoped to a subset of resources about which its bearer may contact the webhook. Tokens may alternatively be scoped per-webhook (by audience). The design is backward compatible: existing kubeconfig-based webhook authentication setups continue to work without modification. Defining the webhook-side verification go library. Supporting both `client-go` and `controller-runtime`. Tokens must be reviewable by `TokenReview`, although the webhook library **WILL NOT** use `TokenReview` by default to avoid unnecessary round trips."
+    },
+    {
+      "id": "F011",
+      "format": "text",
+      "text": "Kustomize users want to generate Kubernetes Secret objects from general key:value (KV) pairs where the value is supposed to be a secret. Users want to generate these pairs through integration with secret management tools (e.g. see comments on [692][execRemoval]).\n\nCurrently Kustomize only supports reading secret values from local files which raises security concerns about file lifetime and access. Reading secret values from the execution of arbitrary \"commands\" in a kustomization.yaml file introduces concerns in a world where kustomization files can be used directly from the internet when a user runs `kustomize build`. This proposal describes the syntax for a new key:value generator plugin framework supporting an arbitrary number of plugin types to generate key:value pairs."
+    },
+    {
+      "id": "F012",
+      "format": "text",
+      "text": "The current API of `SecretGenerator` looks like this:\n\nThe proposed API would look like this:\n\nThe `kvSources` specified with `pluginType: builtin` are reformulations of existing key:value generators currently invoked by the existing `dataSources` specification.\n\nA `kvSource` with `pluginType: Go` and `name: myplugin` would attempt to load the file\n\nand access the loaded plugin via the interface\n\nThis clearly describes how the plugin must be formulated.\n\nThe loading implementation would look something like this:\n\nAn example plugin would look like this:\n\nA developer - not an end user - would compile the goplugin and main program like this:\n\nthen bake the build artifacts into a container image for use by an end user or continuous delivery bot."
+    },
+    {
+      "id": "F013",
+      "format": "text",
+      "text": "Add the staging repository (`staging/src/k8s.io/endpointslice`) to `kubernetes/kubernetes` by following the steps in the [staging directory README][staging-readme]. Move the reconciler submodule and it’s dependencies to the staging directory and update imports in `pkg/controller/endpointslice`. This should be a single atomic change. Some methods need to be made public to allow for reconciler code to be used as a library (at least `NewReconciler` and `Reconcile`). Allow for the value of the `endpointslice.kubernetes.io/managed-by` label to be configurable by adding `managedBy` as an argument to `NewReconciler`. Split computing the diff (EndpointSlices to create, update, and delete) and applying the diff into separate methods. This allows for controllers to easily add metadata to the managed EndpointSlices (e.g. adding an annotation).\n\n[staging-readme]: \"External Repository Staging Area\""
+    },
+    {
+      "id": "F014",
+      "format": "text",
+      "text": "CLIs are highly desired, for their speed, ease of sharing and scripting, and generally not getting in the way of development and operational tasks. However, visualizations, even simple ones, can go a long way with assisting in common kubernetes tasks.\n\nToday, the `kubectl` CLI and its plugins exist separately from the visual experience provided by browser-based consoles. You must chose to inhabit (using, and extending) one world or the other.\n\nWe believe it is possible to bring the two closer together. So that, as a tool user, transitions from a terminal world into a graphical world are fast, and only at my choosing; and, as a tool developer, I can enhance the world of CLIs, in a way that can be reused, if needed, in a browser context: a framework for CLI-driven graphical tools."
+    },
+    {
+      "id": "F015",
+      "format": "text",
+      "text": "In the `GeneratorArgs` section of a kustomization file, a user may specify a plugin type, and a specific instance of that type, for generating key:value pairs. The specification will allow for any number of plugin types, and any number of instances of those types. The first type supported will be goplugins, to enable kustomize source code contributors to add custom KV generators without the need to maintain a kustomize source code fork.\n\nKustomize maintainers expect developers who use a goplugin to understand that a kustomize binary and any goplugins expected to work with it must be compiled on the same machine with the same compiler against the same set of (transitive) libraries. _It's the developers responsibility to bundle the binary and shared libraries together in a container image for actual use._ Other kinds of plugins, e.g. an _execute this binary_ plugin, should be subsequently easy to add, and could be appropriate for end user use (but would require consideration in a KEP first)."
+    },
+    {
+      "id": "F016",
+      "format": "text",
+      "text": "Originating at Google and embedded by default in many internal servers, z-pages have proven invaluable for real-time monitoring and debugging of complex distributed systems. Recognizing the power and utility of this aggregated interface, we aim to extend its benefits to the broader open source community.\n\nWith statusz, we envision the following advantages Consolidated and precise information: Presenting critical build data in a clear, concise format, eliminates the need to dig through logs or configurations to gather this essential information. Z-pages offer a distinct advantage over external monitoring solutions by providing insights from within the server itself. This inherent integration eliminates the need for complex external setups like manual inspection of logs, configuration files, or running external scripts that may be subject to potential network latency issues Streamlined troubleshooting and debugging: Immediate access to crucial build information like binary version, Go version and compatibility details enables better understanding of the component's state. We hope this interface makes it easier to identify version mismatches or incompatibilities that might contribute to issues, accelerating troubleshooting and debugging efforts"
+    },
+    {
+      "id": "F017",
+      "format": "text",
+      "text": "In the absence of a standard mechanism for trust distribution, a few different approaches have emerged: The trust anchors necessary for connecting to kube-apiserver are distributed using a ConfigMap that is automatically injected into every namespace. Kubernetes webhooks and aggregated API servers are configured with a static trust anchor set embedded in their config (which complicates rotation). At least one signer implementation uses a cluster-scoped CRD to distribute trust anchors to workloads.\n\nEach of these approaches has downsides: Creating a ConfigMap in every namespace requires granting over-broad permissions to the responsible controller (create ConfigMaps in **all** namespaces). Static trust anchor sets embedded directly in configuration complicate the job of rotating the backing CA's roots of trust. CRDs work well, but are inappropriate for use by core APIs.\n\nEach of these approaches would be simplified by an in-tree mechanism for distributing trust anchor sets."
+    },
+    {
+      "id": "F018",
+      "format": "text",
+      "text": "Users might expect compatibility to be maintained for the library’s public API. This is a risk for all staging repositories, and the current mitigation strategy has been to clearly document that there are no compatibility guarantees in the README:\n\n> There are NO compatibility guarantees for this repository. It is in direct > support of Kubernetes, so branches will track Kubernetes and be compatible > with that repo. As we more cleanly separate the layers, we will review the > compatibility guarantee."
+    },
+    {
+      "id": "F019",
+      "format": "text",
+      "text": "The idea that makes kubernetes networking model unique and powerful is the concept of each pod having its own IP, with all the pod IPs being natively routable within the cluster. The service chains in iptable rules depend on this capability by assuming that they can treat all the endpoints of a cluster as being equivalent and load balance service traffic across all the endpoints, by just translating destination to the pod IP address.\n\nWhile this is powerful, it also means pod IP addresses are in many cases the constraining resource for cluster creation and scale. It would be valuable for implementations to have different strategies for managing pod IP addresses that can adapt to different environment needs.\n\nSome examples of use cases: Creating a cluster out of many disjoint ranges instead of a single range. Expanding a cluster with more disjoint ranges after initial creation.\n\nNot having to depend on the cluster pod CIDR for routing service traffic would effectively de-couple pod IP management and allocation strategies from service management and routing. Which in turn would mean that it would be far cheaper to evolve the IP allocation schemes while sharing the same service implementation, thus significantly lowering the bar for adoption of alternate schemes.\n\nAlternate implementations that don’t use iptables could also adopt this same reasoning to not have to track the cluster CIDR for routing cluster traffic."
+    },
+    {
+      "id": "F020",
+      "format": "text",
+      "text": "Moving the EndpointSlice reconciler to staging has several benefits: The reconciler logic can be reused by custom EndpointSlice controllers. The fanout behavior is difficult to implement correctly and the current reconciler code has gone through several iterations to reach its currently level of robustness. There are cases where reconciler code has either been forked or rewritten, both of which are problematic from a supportability perspective. It reduces the burden of fully migrating from Endpoints to EndpointSlices. It’s relatively easy to write a custom Endpoints controller, but less so with EndpointSlices. So, the migration path is unclear for pre-existing custom Endpoints controllers. Having a library that handles the more difficult aspects of managing EndpointSlices would mitigate some of the risk in migrating these controllers. It would help to realize one of the design goals of EndpointSlices: that other controllers would exist to manage EndpointSlices, which is why the `endpointslice.kubernetes.io/managed-by` annotation was added."
+    },
+    {
+      "id": "F021",
+      "format": "text",
+      "text": "Along with metrics and logs, traces are a useful form of telemetry to aid with debugging incoming requests. The API Server currently uses a poor-man's form of tracing (see github.com/kubernetes/utils/trace), but we can make use of distributed tracing to improve the ease of use and enable easier analysis of trace data. Trace data is structured, providing the detail necessary to debug requests, and context propagation allows plugins, such as admission webhooks, to add to API Server requests."
+    },
+    {
+      "id": "F022",
+      "format": "text",
+      "text": "There are features users want to tune. We need to provide customization of the following: *Claims validation rules*: current OIDC provider supports only audience claim validation and only by exact values. *Claim mappings*: it is only possible to pick a single value from a single claim and prefix groups. This also serves to support the use of nested claims (i.e. not at the top level) *Use more than one OIDC provider*: the only option, for now, is to use an external OIDC provider that handles multiplexing support for multiple providers. This also serves to support the use of more than one client ID Change authenticator settings without restarting kube-apiserver. Support validation rules on the final user info object to allow infra providers to safely expose this functionality to customers Easy migration from existing OIDC flags Note: we intend to drop the `--oidc-signing-algs` flag because this configuration provides no benefit (we will always allow all asymmetric algorithms)"
+    },
+    {
+      "id": "F023",
+      "format": "text",
+      "text": "We propose to enhance the observability, troubleshooting, and debugging capabilities of core Kubernetes components by implementing a statusz endpoint for all components. By exposing standardized, real-time data about a component's basic information, health status, and key metrics in a low-overhead manner, this enhancement empowers users with deeper insights into the behavior and performance of each component."
+    },
+    {
+      "id": "F024",
+      "format": "text",
+      "text": "The primary risk associated with distributed tracing is DDOS. A user that can send a large number of sampled requests can cause the server to generate a large number of spans. This is mitigated by allowing respecting the incoming trace context for privileged (`system:master` and `system:monitoring` groups) users and by configuring the to `SamplingRatePerMillion` to a low value.\n\nThere is also a risk of memory usage incurred by storing spans prior to export. This is mitigated by limiting the number of spans that can be queued for export, and dropping spans if necessary to stay under that limit."
+    },
+    {
+      "id": "F025",
+      "format": "text",
+      "text": "Today, `kube-apiserver` does not authenticate itself to admission webhooks by default. Any entity with service network access can send requests to a webhook endpoint and impersonate `kube-apiserver`. CVE-2025-1974 demonstrated real-world consequences of this class of vulnerability.\n\nThe introduction of the capability to authenticate API Servers consists of three main additions. First, webhook authentication clients will be updated to request a service account token from `kube-apiserver`, and to present the credential to the admission webhook. Second, `kube-apiserver` will be updated to dispense those tokens to authenticated and authorized principals. Third, a token verification library will be introduced for use by webhook maintainers.\n\nThis KEP augments the `TokenRequest` API to allow for the client to request claims in the JWT token to which `kube-apiserver` attests. In addition, tokens intended for admission webhooks will be bound to an webhook configuration object (either validating or mutating). The specifics of these changes are discussed in detail in the design details section.\n\nA list of terms is provided below for disambiguation, and to prevent awkward sentence constructions."
+    },
+    {
+      "id": "F026",
+      "format": "text",
+      "text": "Add SCTP support to Kubernetes ContainerPort, Service and NetworkPolicy, so applications running in pods can use the native kube-dns based service discovery for SCTP based services, and their communication can be controlled via the native NetworkPolicy way.\n\nIt is also a goal to enable ingress SCTP connections from clients outside the Kubernetes cluster, and to enable egress SCTP connections to servers outside the Kubernetes cluster."
+    },
+    {
+      "id": "F027",
+      "format": "text",
+      "text": "MUST NOT formalize the grouping of objects under management as an \"application\" or other high-level construct MUST NOT require users to manually/independently construct the grouping, which would be a significant reduction in UX compared to the current alpha MUST NOT require any particular CRDs to be installed MAY still have limited performance when used to manage thousands of resources of hundreds of types in a single operation (MUST NOT be expected to overcome performance limitations of issuing many individual deletion requests, for example)"
+    },
+    {
+      "id": "F028",
+      "format": "text",
+      "text": "The goal of the SCTP support feature is to enable the usage of the SCTP protocol in Kubernetes [Service], [NetworkPolicy], and [ContainerPort] as an additional protocol value option beside the current TCP and UDP options. SCTP is an IETF protocol specified in [RFC4960], and it is used widely in telecommunications network stacks. Once SCTP support is added as a new protocol option those applications that require SCTP as L4 protocol on their interfaces can be deployed on Kubernetes clusters on a more straightforward way. For example they can use the native kube-dns based service discovery, and their communication can be controlled in the native NetworkPolicy way.\n\n[Service]: [NetworkPolicy]:\n\n[ContainerPort]: [RFC4960]:"
+    },
+    {
+      "id": "F029",
+      "format": "text",
+      "text": "It is not a goal here to add SCTP support to load balancers that are provided by cloud providers. The Kubernetes side implementation will not restrict the usage of SCTP as the protocol for the Services with type=LoadBalancer, but we do not implement the support of SCTP into the cloud specific load balancer implementations.\n\nIt is not a goal to support multi-homed SCTP associations. Such a support also depends on the ability to manage multiple IP addresses for a pod, and in the case of Services with ClusterIP or NodePort the support of multi-homed associations would also require the support of NAT for multihomed associations in the SCTP related NF conntrack modules."
+    },
+    {
+      "id": "F030",
+      "format": "text",
+      "text": "Remove direct log calls through the `k8s.io/klog` API and the hard dependency on the klog logging implementation from all packages. Grant the caller of a function control over logging inside that function, either by passing a logger into the function or by configuring the object that a method belongs to. Provide documentation and helper code for setting up logging in unit tests. Change as few exported APIs as possible."
+    },
+    {
+      "id": "F031",
+      "format": "text",
+      "text": "We limit the scope such that graphical plugins and the required framework are installed and used with the discretion of our users. In particular, there is no need to replace existing non-graphical `kubectl` plugins that work well with purely textual output. We desire no mandates for radical updates or parallel constructs to `krew` in order to support graphical plugins. We will base any krew-focused work on the goal of minimal perturbation."
+    },
+    {
+      "id": "F032",
+      "format": "text",
+      "text": "This enhancement proposal covers adding structured authentication configuration to the Kubernetes API server. Initially, only a `jwt` configuration will be supported, which will serve as the next iteration of the existing OIDC authenticator. OIDC authentication is an important part of Kubernetes, yet it has limitations in its current state. Below we will discuss that limitation and propose solutions."
+    },
+    {
+      "id": "F033",
+      "format": "text",
+      "text": "Contextual logging replaces the global logger by passing a `logr.Logger` instance into functions via a `context.Context` or an explicit parameter, building on top of structured logging.\n\nIt enables the caller to: attach key/value pairs that get included in all log messages add names that describe which component or operation triggered a log messages reduce the amount of log messages emitted by a callee by changing the verbosity\n\nThis works without having to pass any additional information into the callees because the additional information or settings are stored in the modified logger instance that is passed to it.\n\nThird-party components that use Kubernetes packages like client-go are no longer forced to use klog. They can choose an arbitrary implementation of `logr.Logger` and configure it as desired.\n\nDuring unit testing, each test case can use its own logger to ensure that log output is associated with the test case."
+    },
+    {
+      "id": "F034",
+      "format": "text",
+      "text": "As stated above, the goal is to re-implement the functionality called out in the summary, but in a way that does not depend on a pod cluster CIDR. The essence of the proposal is that for the first two cases in iptables implementation and first case in ipvs, we can replace the `-s proxier.clusterCIDR` with some notion of node local pod traffic.\n\nThe core logic in these cases is “how to determine” cluster originated traffic from non-cluster originated ones. The proposal is that tracking pod traffic generated from within the node is sufficient to determine cluster originated traffic. For the first two use cases in iptables and first use case in ipvs, we provide alternatives to using proxier.clusterCIDR in one of the following ways to determine cluster originated traffic `-s node.podCIDR` (where node podCIDR is used for allocating pod IPs within the node) `--in-interface prefix+` (where all pod interfaces start with same prefix, or where all pod traffic appears to come from a single bridge or other interface) `-m physdev --physdev-is-in` (for kubenet if we don’t want to depend on node podCIDR)\n\nNote the above are equivalent definitions, when considering only pod traffic originating from within the node.\n\nGiven that this kep only addresses usage of the cluster CIDR (for pods), and that pods with hostNetwork are not impacted by this, the assumption is that hostNetwork pod behavior will continue to work as is.\n\nFor the last use case, note above, in iptables and ipvs, the proposal is to drop the reference to the cluster CIDR.\n\nThe reasoning behind why this works are as follows."
+    },
+    {
+      "id": "F035",
+      "format": "text",
+      "text": "The proposal is to extend the scope of the on-going conversion of logging calls to structured logging by removing the dependency on the global klog logger. Like the conversion to structured logging, this activity can convert code incrementally over as many Kubernetes releases as necessary without affecting the usage of Kubernetes in the meantime. Log calls that were already converted to structured logging need to be updated to use a logger that gets passed into the function in one of two ways: as explicit parameter attached to a `context.Context`\n\nWhen a function already accepts a context parameter, then that will be used instead of adding a separate parameter."
+    },
+    {
+      "id": "F036",
+      "format": "text",
+      "text": "1) Deliver a `kui` plugin for kubectl that has graphical popups that enhance the user experience 2) Deliver a `kui-core` framework with a well defined API to facilitate development of plugins such as `kui`. 3) Deliver a `kui-template` repository that plugin developers can opt to use as a starting point for developing their own graphical plugins. 4) That such graphical plugins can leverage `krew` for installation"
+    }
+  ]
+}

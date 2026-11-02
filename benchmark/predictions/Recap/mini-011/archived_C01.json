@@ -1,0 +1,361 @@
+{
+  "assignments": [
+    {
+      "id": "F001",
+      "path": [
+        "Meeting2_InitialDesign",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F002",
+      "path": [
+        "Meeting2_InitialDesign",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F003",
+      "path": [
+        "Meeting2_InitialDesign",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F004",
+      "path": [
+        "Meeting2_InitialDesign",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F005",
+      "path": [
+        "Meeting2_InitialDesign",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F006",
+      "path": [
+        "Meeting2_InitialDesign",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F007",
+      "path": [
+        "Meeting2_InitialDesign",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F008",
+      "path": [
+        "Meeting2_InitialDesign",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F009",
+      "path": [
+        "Meeting2_InitialDesign",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F010",
+      "path": [
+        "Meeting1_Kickoff",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F011",
+      "path": [
+        "Meeting2_InitialDesign",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F012",
+      "path": [
+        "Meeting2_InitialDesign",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F013",
+      "path": [
+        "Meeting2_InitialDesign",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F014",
+      "path": [
+        "Meeting2_InitialDesign",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F015",
+      "path": [
+        "Meeting1_Kickoff",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F016",
+      "path": [
+        "Meeting2_InitialDesign",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F017",
+      "path": [
+        "Meeting4_Refinement",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F018",
+      "path": [
+        "Meeting2_InitialDesign",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F019",
+      "path": [
+        "Meeting2_InitialDesign",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F020",
+      "path": [
+        "Meeting2_InitialDesign",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F021",
+      "path": [
+        "Meeting2_InitialDesign",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F022",
+      "path": [
+        "Meeting3_CostAnalysis",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F023",
+      "path": [
+        "Meeting1_Kickoff",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F024",
+      "path": [
+        "Meeting3_CostAnalysis",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F025",
+      "path": [
+        "Meeting2_InitialDesign",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F026",
+      "path": [
+        "Meeting2_InitialDesign",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F027",
+      "path": [
+        "Meeting2_InitialDesign",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F028",
+      "path": [
+        "Meeting2_InitialDesign",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F029",
+      "path": [
+        "Meeting2_InitialDesign",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F030",
+      "path": [
+        "Meeting2_InitialDesign",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F031",
+      "path": [
+        "Meeting4_Refinement",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F032",
+      "path": [
+        "Meeting4_Refinement",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F033",
+      "path": [
+        "Meeting1_Kickoff",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F034",
+      "path": [
+        "Meeting1_Kickoff",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F035",
+      "path": [
+        "Meeting3_CostAnalysis",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F036",
+      "path": [
+        "Meeting4_Refinement",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F037",
+      "path": [
+        "Meeting4_Refinement",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F038",
+      "path": [
+        "Meeting4_Refinement",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F039",
+      "path": [
+        "Meeting4_Refinement",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F040",
+      "path": [
+        "Meeting3_CostAnalysis",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F041",
+      "path": [
+        "Meeting2_InitialDesign",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F042",
+      "path": [
+        "Meeting4_Refinement",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F043",
+      "path": [
+        "Meeting4_Refinement",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F044",
+      "path": [
+        "Meeting2_InitialDesign",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F045",
+      "path": [
+        "Meeting1_Kickoff",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F046",
+      "path": [
+        "Meeting4_Refinement",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F047",
+      "path": [
+        "Meeting4_Refinement",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F048",
+      "path": [
+        "Meeting1_Kickoff",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F049",
+      "path": [
+        "Meeting2_InitialDesign",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F050",
+      "path": [
+        "Meeting4_Refinement",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F051",
+      "path": [
+        "Meeting2_InitialDesign",
+        "Overview"
+      ]
+    }
+  ]
+}

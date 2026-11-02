@@ -1,0 +1,185 @@
+{
+  "task_id": "mini-045",
+  "records": [
+    {
+      "id": "F001",
+      "format": "text",
+      "text": "The number of etcd objects required scales at O(N) where N is the number of services. That seems reasonable (the largest number of services today is limited by the bitmap size ~32k). etcd memory use is proportional to the number of keys, but there are other objects like Pods and Secrets that use a much higher number of objects. 1-2 million keys in etcd is a reasonable upper bound in a cluster, and this has not a big impact (<10%). The objects described here are smaller than most other Kube objects (especially pods), so the etcd storage size is still reasonable.\n\nxref: Clayton Coleman"
+    },
+    {
+      "id": "F002",
+      "format": "text",
+      "text": "Kubernetes clusters are increasingly deployed in multi-zone environments. Network traffic is routed randomly to any endpoint matching a Service. Some users might want the traffic to stay in the same zone for the following reasons: Cost savings: Keeping traffic within a zone can limit cross-zone networking costs. Performance: Traffic within a zone usually has less latency and bandwidth constraints, having a better performance than traffic leaving the zone.\n\nIn this KEP we are going to focus on avoiding cross-zone traffic when in-zone endpoints would suffice. We're attempting to provide a simple and more automatic approach to topology aware routing. This API will still allow users to indicate that they prefer to keep traffic in the same zone if there's sufficient capacity. With this approach users won't have to configure anything by default for most use cases."
+    },
+    {
+      "id": "F003",
+      "format": "text",
+      "text": "Provide a simple way for users to indicate their preference for keeping traffic in zone. Use the standard topology label `topology.kubernetes.io/zone` to derive the zones of nodes and endpoints. Use EndpointSlice hints as the primary mechanism for topology aware routing. Minimize churn of EndpointSlices while doing topology aware distribution. Minimize the number of new EndpointSlices required. Provide a simple API that requires minimal configuration for most users."
+    },
+    {
+      "id": "F004",
+      "format": "text",
+      "text": "Compared with a single combined controller, the risks of using two separate controllers include the following. Slightly increase the communication overhead from applying node taints to performing pod eviction. Make cancellation of pod eviction and un-tainting nodes harder.\n\nHowever, the performance overhead of the split controllers is expected to be small, and pod eviction cancellation and un-tainting nodes are not common use cases. Splitting `NodeLifecycleController` is more beneficial by promoting a cleaner design and enhancing the overall maintainability and extensibility in the long term."
+    },
+    {
+      "id": "F005",
+      "format": "text",
+      "text": "Extending the allowed set of bind options beyond `noexec`, `nodev`, and `nosuid` in this KEP. Adding a new permitted value is an API and validation change and would require a separate KEP. Supporting this feature on platforms that don't support Unix-style mount flags. Replacing or modifying the existing `mountOptions` field on PersistentVolume specs (which controls filesystem-level mount options applied by CSI drivers at the storage layer). Deprecating or replacing the existing `ReadOnly` boolean on `VolumeMount`. While `ro` is conceptually a bind mount option, unifying it into `bindMountOptions` is out of scope for this KEP."
+    },
+    {
+      "id": "F006",
+      "format": "text",
+      "text": "In order to remove cloud provider code from `k8s.io/kubernetes`. A 4 phase approach will be taken. Move all code in `k8s.io/kubernetes/pkg/cloudprovider/providers/<provider>` to `k8s.io/kubernetes/staging/src/k8s.io/legacy-cloud-providers/<provider>/`. This requires removing all internal dependencies in each cloud provider to `k8s.io/kubernetes`. Begin to build/release the CCM from external repos (`k8s.io/cloud-provider-<provider>`) with the option to import the legacy providers from `k8s.io/legacy-cloud-providers/<provider>`. This allows the cloud-controller-manager to opt into legacy behavior in-tree (for compatibility reasons) or build new implementations of the provider. Development for cloud providers in-tree is still done in `k8s.io/kubernetes/staging/src/k8s.io/legacy-cloud-providers/<provider>` during this phase. Migrate all code in `k8s.io/kubernetes/staging/src/k8s.io/legacy-cloud-providers` and shift main development to `k8s.io/cloud-provider-<provider>`. External cloud provider repos can optionally still import `k8s.io/legacy-cloud-providers` but it will no longer be imported from core components in `k8s.io/kubernetes`. Changes to `k8s.io/kubernetes/staging/src/k8s.io/legacy-cloud-providers` are no longer accepted unless they are critical or security-related. Disable in-tree providers and set the `DisableCloudProviders` and `DisableKubeletCloudCredentialProvider` feature gates to true by default. This will enable external CCM behavior by default in Kubernetes."
+    },
+    {
+      "id": "F007",
+      "format": "text",
+      "text": "Any change unrelated to Services Any generalization of the API model that can evolve onto something different, like an IPAM API, or collide with existing APIs like Ingress and GatewayAPI. NodePorts use the same allocation model than ClusterIPs, but it is totally out of scope of this KEP. However, this KEP can be a proof that a similar model will work for NodePorts too. Change the default IPFamily used for Services IP allocation, the defaulting depends on the services.spec.IPFamily and services.spec.IPFamilyPolicy, a simple webhook or an admission plugin can set this fields to the desired default, so the allocation logic doesn't have to handle it. Removing the apiserver flags that define the service IP CIDRs, though that may be possible in the future. Any admin or cluster wide process related to Services, like automating the default Service CIDR range, though, this KEP will implement the behaviours and primitives necessaries to perform those kind of operations automatically."
+    },
+    {
+      "id": "F008",
+      "format": "text",
+      "text": "The proposal is to implement a new allocator logic that uses 2 new API Objects: ServiceCIDR and IPAddress, and allow users to dynamically increase the number of Services IPs available by creating new ServiceCIDRs. The new allocator will be able to \"automagically\" consume IPs from any ServiceCIDR available, we can think about this model, as the same as adding more disks to a Storage system to increase the capacity."
+    },
+    {
+      "id": "F009",
+      "format": "text",
+      "text": "Our immediate goal is to allow in tree Cloud Providers to stop using the existing PVL admission controller and do so using the framework. However we want to build a framework which wil be usable by similar solutions to problems. This KEP is about the framework needed to support the PVL webhook and not the webhook itself. The frameworks default listener for the webhook should use existing Kubernetes mechanism (secure serving, authz, authn) to secure itself and validate the client. It should be possible to then easily change that configuration to any other Kubernetes supported options for a webhook."
+    },
+    {
+      "id": "F010",
+      "format": "text",
+      "text": "Add a Preempting field to both PodSpec and PriorityClass. This field will default to true, for backwards compatibility.\n\nIf Preempting is true for a pod, the scheduler will preempt lower priority pods to schedule this pod, as is current behavior.\n\nIf Preempting is false, a pod of that priority will not preempt other pods.\n\nSetting the Preempting field in PriorityClass provides a straightforward interface, and allows ResourceQuotas to restrict preemption.\n\nPriorityClass type example:\n\nThe Preempting field in PodSpec will be populated during pod admission, similarly to how the PriorityClass Value is populated. Storing the Preempting field in the pod spec has several benefits: The scheduler does not need to be aware of PiorityClasses, as all relevant information is in the pod. Mutating PriorityClass objects does not impact existing pods. Kubelets can set Preempting on static pods.\n\nPodSpec type example:\n\nThis feature should be gated in alpha, provisionally under the gate `NonPreemptingPriority`.\n\nDocumentation must be updated to reflect the new feature, and changes to PriorityClass/PodSpec fields."
+    },
+    {
+      "id": "F011",
+      "format": "text",
+      "text": "Motiviation behind this effort is to allow cloud providers to develop and make releases independent from the core Kubernetes release cycle. The de-coupling of cloud provider code allows for separation of concern between \"Kubernetes core\" and the cloud providers within the ecosystem. In addition, this ensures all cloud providers in the ecosystem are integrating with Kubernetes in a consistent and extendable way.\n\nHaving all cloud providers developed/released in their own external repos/modules will result in the following benefits: The core pieces of Kubernetes (kubelet, kube-apiserver, kube-controller-manager, etc) will no longer depend on cloud provider specific APIs (and their dependencies). This results in smaller binaries and lowers the chance of security vulnerabilities via external dependencies. Each cloud provider is free to release features/bug fixes at their own schedule rather than relying on the core Kubernetes release cycle."
+    },
+    {
+      "id": "F012",
+      "format": "text",
+      "text": "Scheduling performance is crucial. One of the bottlenecks is the API calls done during the scheduling cycle. The binding cycle is already asynchronous, but it would still be beneficial to re-evaluate whether the current model of busy-waiting goroutines is good long-term.\n\nMaking one universal approach for handling API calls in the kube-scheduler could allow these calls to be consistent and better control the number of dispatched goroutines. Already asynchronous calls could also be migrated to this approach."
+    },
+    {
+      "id": "F013",
+      "format": "text",
+      "text": "Prioritize high-importance updates (like binding) over low-importance ones if updates to the kube-apiserver get throttled. Change how the already asynchronous procedures, such as the binding cycle or asynchronous preemption goroutines, actually work. They should remain asynchronous and continue to wait for the API calls to finish before proceeding. Any further refinements to these stages could be added in future revisions of this KEP or in the separate ones."
+    },
+    {
+      "id": "F014",
+      "format": "text",
+      "text": "The main focus of the KEP is on the separation of concerns between `NodeLifecycleController` and `TaintEvictionController`, which will improve code organization and enable future extensions to `TaintEvictionController`. While it is true that the separation allows cluster operators to build custom `TaintEvictionController` and disable the default `TaintEvictionController`, this is a side-effect of the change rather than the main goal. the KEP emphasizes the benefits of the separation of concerns and briefly mention the option to disable the default TaintEvictionController as a potential side-effect.\n\nThe non-goals are the following. Introduce extra maintenance burden or regression after the code reorganization Introduce incompatible behavior of `NodeLifecycleController` or `TaintEvictionController` Extend and enhance the current built-in APIs for customization of node taint-based eviction, including additional fields, more flexible communication protocols, webhooks and CRD references, etc. Actual extension and enhancement of the current `TaintEvictionController`."
+    },
+    {
+      "id": "F015",
+      "format": "text",
+      "text": "Kubernetes audit logs record who opened an exec session and when. Runtime security agents (such as Falco or Tetragon) record what commands and syscalls are executed inside containers. Today, there is no reliable mechanism to link these two sources of information. The gap is structural: the `ExecRequest` protobuf message in the CRI specification contains only six fields (`container_id`, `cmd`, `tty`, `stdin`, `stdout`, `stderr`)."
+    },
+    {
+      "id": "F016",
+      "format": "text",
+      "text": "We will start by adding extension hooks which can be registered in the cmd/cloud-controller-manager/main.go. This would be similar to the mechanism we already use to register new controllers. The existing sample shows this with a sample of registering the nodeipamcontroller which is not a normally installed controller in the cloud controller manager. In a similar way we will have a sample of integrating a PVL mutating webhook into the sample CCM."
+    },
+    {
+      "id": "F017",
+      "format": "text",
+      "text": "One simple admission controller should be enough to disable this misfeature. Unfortunately it can not be on by default (that would be breaking).\n\nThis means that platform-providers may need to expose an option to control this. While we generally try to avoid mixing knobs that cluster-users would set with knobs that cluster-providers own, it seems reasonable to close this as soon as possible and consider better answers when we have more cases to generalize from. See \"Alternatives\" below for more.\n\nSee \"Proposal\" above."
+    },
+    {
+      "id": "F018",
+      "format": "text",
+      "text": "The primary goal of this KEP is to increase the security of Kubernetes workloads by allowing security-related bind mount options on volume mounts. Currently, volumes are bind-mounted into containers without `noexec`, `nosuid`, or `nodev` flags. This default can undermine security, for example, with `noexec` missing, an attacker can use any writable volume (emptyDir, PersistentVolume, projected, etc.) to download, `chmod +x`, and execute arbitrary binaries even when the container has a read-only root filesystem (`readOnlyRootFilesystem: true`). Supporting `noexec`, `nodev`, and `nosuid` gives users a native way to harden volume mounts to match security benchmarks and policy.\n\nThe gap is most visible with emptyDir volumes, which are the most common writable volume type and have been the subject of multiple security findings: Issue #48912: Recognized security gap - the inability to set mount options on `emptyDir` was flagged in an audit but remains unresolved as of 2026. Issue #119627: Kubernetes 1.24 Security Audit (Finding NCC-E003660-7HM) - external auditors specifically noted that the inability to mount `emptyDir` with `noexec` represents a security failure.\n\nHowever, the same gap applies to all volume types. PersistentVolumes have a `mountOptions` field, but those options are filesystem-level flags applied by the CSI driver at the node - they do not reliably translate into bind mount flags inside the container. There is currently no mechanism to set `noexec`, `nosuid`, or `nodev` on the bind mount that the container runtime creates for any volume type."
+    },
+    {
+      "id": "F019",
+      "format": "text",
+      "text": "The in tree cloud-provider implementations are being removed in the future, this involves a large amount of code that is used in many places in tree. In order to prepare for this eventuality it would be helpful to see what that removal entails exactly and verify that Kubernetes will continue to function correctly. Doing so is a bit tricky without ensuring that the in-tree provider code is not being used via some unexpected side-channel (such as `init()` methods). Building binaries without the in-tree cloud provider packages would allow us to verify this and additionally provide experimentally smaller / cheaper binaries for parties interested in out of tree provider or no provider based clusters."
+    },
+    {
+      "id": "F020",
+      "format": "text",
+      "text": "When a user runs `kubectl exec`, the API server authenticates the caller and records their identity in the audit log, but this information is never forwarded to the kubelet or the container runtime. This makes it impossible for runtime security tooling to attribute in-container activity to the Kubernetes user who initiated the session. This KEP proposes propagating the API server's audit request ID, a UUID generated per-request and recorded in the audit log, through the kubelet and into each exec session, so that runtime security agents can correlate in-container process activity with the originating request. Raw user credentials (such as usernames or tokens) are not transmitted to the node.\n\nDelivering the audit ID into the exec'd process requires a reliable CRI-level mechanism for environment variable injection. The existing workaround of prepending the exec command with the `env` binary is unreliable: it fails silently on distroless or minimal images, and carries no runtime contract. This KEP therefore also adds a `repeated KeyValue envs` field to `ExecRequest` in the CRI protobuf, establishing a contract that the runtime must inject the provided key-value pairs into the OCI process spec before handing off to the low-level runtime."
+    },
+    {
+      "id": "F021",
+      "format": "text",
+      "text": "This KEP introduces a `bindMountOptions` field on `volumeMounts` in the pod spec so users can apply security-related bind mount flags such as `noexec`, `nodev`, and `nosuid` to any volume type. Today, volume mounts inside containers do not carry `noexec`, `nosuid`, or `nodev` flags by default, which can undermine security for containers that rely on read-only root filesystems or need to meet hardening standards. By adding configurable (opt-in) `bindMountOptions` to volume mounts, users can restrict a mount to be writable for data only (e.g. `noexec`), block setuid/setgid binaries (`nosuid`), and prevent use of device files (`nodev`), in any combination, in a native and declarative way. Because the field is on `volumeMounts`, it applies to all volume types (emptyDir, PersistentVolumes, CSI, projected, etc.) and provides per-container granularity, i.e., different containers in the same pod can mount the same volume with different options."
+    },
+    {
+      "id": "F022",
+      "format": "text",
+      "text": "Allowing PriorityClasses to be non-preempting is important for running batch workloads.\n\nBatch workloads typically have a backlog of work, with unscheduled pods. Higher-priority workloads can be assigned a higher priority via a PriorityClass, but this may result in pods with partially-completed work being preempted. Adding the non-preempting option allows users to prioritize the scheduling queue, without discarding incomplete work."
+    },
+    {
+      "id": "F023",
+      "format": "text",
+      "text": "Currently, the windows platform matcher looks for an exact OS version match between the host and guest while pulling images. This behavior is not accurate for hyperV isolation as the UVM/sandbox OS version could be different from the host OS version.\n\nFor example, a user might want to pull an image like python (a manifest list) on a WS2022 host with an intent of running it in on a WS2019 hyperV isolated UVM. But unfortunately, the current windows platform matcher behavior only forces the WS2022 version of the python image to be pulled (due to the exact version match between host and guest). If a manifest list does not have a version that matches the host OS version, then the image pull fails. Extending image pulls to specify an optional runtime class would greatly help to extend windows platform matcher behavior to pull different manifests from the image index depending on what runtime class is used. For example, we could have one runtime class pull one version of python image while another runtime class could be used to pull a completely different version of the same image. Additionally, having support to pull images per runtime class might also help projects like supporting different snapshotters with different runtimes as well."
+    },
+    {
+      "id": "F024",
+      "format": "text",
+      "text": "PriorityClasses are a GA feature as on 1.14, which impact the scheduling and eviction of pods. Pods are be scheduled according to descending priority. If a pod cannot be scheduled due to insufficient resources, lower-priority pods will be preempted to make room.\n\nThis proposal makes the preempting behavior optional for a PriorityClass, by adding a new field to PriorityClasses, which in turn populates PodSpec. If a pod is waiting to be scheduled, and it does not have preemption enabled, it will not trigger preemption of other pods."
+    },
+    {
+      "id": "F025",
+      "format": "text",
+      "text": "A drawback of this proposal is the complexity involved with doing this type of change in the Kubernetes community. It will necessarily require an increased level of turbulence for developers and users as they learn about the changes to the `kubelet`, `kube-apiserver`, and `kube-controller-manager` processes, and the changes necessary to operate the external CCMs. Users will need to adapt their practices and automation to include the changes to command line flags and manifests to enable external cloud providers."
+    },
+    {
+      "id": "F026",
+      "format": "text",
+      "text": "There are a few ways to make API calls asynchronous. They are introduced below to facilitate discussion and identify the most suitable solution.\n\nThese questions have to be answered: 1) How to handle Pod rescheduling while waiting for the API call to complete 2) What component should handle the API calls\n\nAlso, races (collisions) between multiple API calls for a single object should be mitigated by the design.\n\nNote that this KEP focuses on making individual API calls asynchronous. Some procedures, such as the binding cycle or asynchronous preemption, will still be separate goroutines with the ability to wait for the (async) API calls to finish. This way, dependencies between calls that rely on each other won't need to be implemented."
+    },
+    {
+      "id": "F027",
+      "format": "text",
+      "text": "This is only developer facing, however we will need to ensure that these tags stay up to date if we want this build mode to continue to work (the normal build mode should work by default without any additional maintenance).\n\nTo ensure this continues to work we can mitigate by: verify in CI that the cloud provider packages have boilerplate including the build constraints build in this mode in CI to ensure that the build succeeds"
+    },
+    {
+      "id": "F028",
+      "format": "text",
+      "text": "In Kubernetes, `NodeLifecycleController` applies predefined `NoExecute` taints (e.g., `Unreachable`, `NotReady`) when the nodes are determined to be unhealthy. After the nodes get tainted, `TaintManager` does its due diligence to start deleting running pods on those nodes based on `NoExecute` taints, which can be added by anyone.\n\nIn this KEP, we propose to decouple `TaintManager` that performs taint-based pod eviction from `NodeLifecycleController` and make them two separate controllers: `NodeLifecycleController` to add taints to unhealthy nodes and `TaintEvictionController` to perform pod deletion on nodes tainted with NoExecute effect.\n\nThis separation not only improves code organization but also makes it easier to improve `TaintEvictionController` or build custom implementations of the taint based eviction."
+    },
+    {
+      "id": "F029",
+      "format": "text",
+      "text": "We will add a build constraints to the cloud provider code for a pseudo \"build tag\" specifying not to include any in-tree provider code. This will allow compiling the binaries as normal today and simulating the removal of this code by specifying the tag at build time and triggering the build constraints on the files in these packages.\n\nSome small adjustments may be necessary to the code base to ensure that the other packages can build without depending on these packages.\n\nA prototype is available in kubernetes/kubernetes#80353.\n\nTo ensure that this continues to function we will add CI building in this mode, and CI running end to end tests against it (see the test plan)."
+    },
+    {
+      "id": "F030",
+      "format": "text",
+      "text": "Kubernetes clusters are increasingly deployed in multi-zone environments but unfortunately network routing has not caught up with that. This KEP proposes an automatic topology aware hinting mechanism that would provide a way for EndpointSlice producers to indicate where consumers should use specific endpoints. Even in scenarios where endpoints are not balanced evenly across zones, EndpointSlice producers could use these hints to allocate endpoints from zones with extra endpoints to zones with insufficient endpoints.\n\nThis would enable EndpointSlice consumers such as Kube-Proxy to implement simple topology aware routing. This proposal is currently focused on topology aware routing at zone level but could be expanded to include region.\n\nIn the short term, this is taking the place of two closely related KEPs that were never implemented. These KEPs relate to EndpointSlice subsetting and are still relevant, just deferred to a later point in time. This doc has more info on this transition."
+    },
+    {
+      "id": "F031",
+      "format": "text",
+      "text": "This KEP only addresses the changes needed on kubelet and CRI. It does not go over the changes needed on container runtimes like containerd, CRI-O etc to support this feature. The implementation details should be handled by the respective container runtimes.\n\nAlso, this KEP does not intend to address snapshotter per runtime class. It is different from image pull per runtime class and would need a separate KEP to address it."
+    },
+    {
+      "id": "F032",
+      "format": "text",
+      "text": "Add `repeated KeyValue envs` to `ExecRequest` in the CRI protobuf, establishing a clear runtime contract for environment variable injection at exec time. Add `Env []EnvVar` to `PodExecOptions` as the Kubernetes API surface for this capability, allowing user agents (such as `kubectl exec --env`) to reliably inject environment variables into exec'd processes without depending on any binary or shell being present inside the container image. Propagate the API server audit request ID, not raw user identity, end-to-end as the first consumer of the CRI primitive. Enable runtime security agents to correlate in-container process activity with the originating exec request, using the audit ID as a join key against the API server audit log."
+    },
+    {
+      "id": "F033",
+      "format": "text",
+      "text": "This KEP proposes to add a built-in admission controller \"DenyServiceExternalIPs\", which rejects any CREATE or UPDATE operation which adds a new value to `Service.spec.externalIPs`. Existing values will be tolerated and may be removed.\n\nThe number of rejected operations will be exposed by the standard admission metrics (`apiserver_admission_controller_admission_duration_seconds_bucket{name=\"DenyServiceExternalIPs\",rejected=\"true\", ...}`)."
+    },
+    {
+      "id": "F034",
+      "format": "text",
+      "text": "This proposal is in response to CVE-2020-8554: \"Man in the middle using LoadBalancer or ExternalIPs\".\n\nFundamentally the `Service.spec.externalIPs[]` feature is bad. It predates `Service.spec.type=LoadBalancer` and, now that we have that, has very few use-cases. In short an unprivileged user can hijack an IP address via a Service spec. In contrast, `type=LoadBalancer` uses Service status, which most normal users should not be allowed to write.\n\nThis KEP proposes to block the use of ExternalIPs via a built-in admission controller. The justification for this, as opposed to a webhook, is that 99% of users will never use this feature, and making them ALL run a webhook seems terrible."
+    },
+    {
+      "id": "F035",
+      "format": "text",
+      "text": "Today, container images in container runtimes are identified by the image name (aka. image reference) and/or image digest (usually a SHA256 cryptographic hash of the content). The content of the image referenced is either an image manifest or an image index manifest. The image index is typically arranged to contain a list of image manifests by platform (linux, windows,...). When the reference is to an image index, platform matching logic is used to identify and pull the appropriately matching image manifest from the index for the platform that the container is being asked to run on."
+    },
+    {
+      "id": "F036",
+      "format": "text",
+      "text": "A sample of how the Builder pattern might look is:\n\nThis will not alter the existing extension hooks in the controller manager framework, as they are critical for backward compatibility. The builders are meant to be an abstraction layer on top to make the extensions easier to use. So for the existing controller manager code you might see changes like:\n\nThe handler in this case is likely to be of type ControllerInitFuncConstructor."
+    }
+  ]
+}

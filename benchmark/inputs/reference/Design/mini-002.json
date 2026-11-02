@@ -1,0 +1,366 @@
+{
+  "task_id": "mini-002",
+  "records": [
+    {
+      "id": "F001",
+      "path": [
+        "sig-windows",
+        "1981-windows-privileged-container-support"
+      ],
+      "content_sha256": "ef16d2622bae955988023ed69c04cca63ddbf06f4d413a966c14966cb80d0827",
+      "source_native_id": "keps/sig-windows/1981-windows-privileged-container-support#excerpt-3",
+      "source_heading": "non-goals"
+    },
+    {
+      "id": "F002",
+      "path": [
+        "sig-apps",
+        "2360-optional-service-environment-variables"
+      ],
+      "content_sha256": "08cb83a29cf107a569ed7b7468a2f5dfd98458f46e2d576b9629f0ff892dd920",
+      "source_native_id": "keps/sig-apps/2360-optional-service-environment-variables#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F003",
+      "path": [
+        "sig-scheduling",
+        "1258-default-pod-topology-spread"
+      ],
+      "content_sha256": "1f85c2dbc6a00688fa9a1a82aa91e8978ecfa7eeb0e739319cf740f5cd77cb02",
+      "source_native_id": "keps/sig-scheduling/1258-default-pod-topology-spread#excerpt-3",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F004",
+      "path": [
+        "sig-scheduling",
+        "5941-dra-shared-consumable-capacity"
+      ],
+      "content_sha256": "fc693f33d8b40d4bcdfd5b7a8c29c42adeb61152ba32996ecee9ef28e5de1051",
+      "source_native_id": "keps/sig-scheduling/5941-dra-shared-consumable-capacity#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F005",
+      "path": [
+        "sig-windows",
+        "5100-windows-dsr-and-overlay-support"
+      ],
+      "content_sha256": "c4b204086a075c78f014e3a9f682d921294e30e276cf3219694422dfca52ad04",
+      "source_native_id": "keps/sig-windows/5100-windows-dsr-and-overlay-support#excerpt-3",
+      "source_heading": "risks and mitigations"
+    },
+    {
+      "id": "F006",
+      "path": [
+        "sig-scheduling",
+        "1258-default-pod-topology-spread"
+      ],
+      "content_sha256": "4344421e52a33c6c0051a7713570bd84c762f4b607095722bed56e3515a6e986",
+      "source_native_id": "keps/sig-scheduling/1258-default-pod-topology-spread#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F007",
+      "path": [
+        "sig-node",
+        "5996-default-pod-sysctls"
+      ],
+      "content_sha256": "8b11939f3d62a869347d0c06b982b563b949453c36744338b18fa3d2b1a81dc3",
+      "source_native_id": "keps/sig-node/5996-default-pod-sysctls#excerpt-3",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F008",
+      "path": [
+        "sig-apps",
+        "2185-random-pod-select-on-replicaset-downscale"
+      ],
+      "content_sha256": "97aad51c0013121fba4816894e9beb61a6727ab78afed0da52c4de556b935626",
+      "source_native_id": "keps/sig-apps/2185-random-pod-select-on-replicaset-downscale#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F009",
+      "path": [
+        "sig-apps",
+        "4017-pod-index-label"
+      ],
+      "content_sha256": "62362fb3b6064be7bcfb2443a17cd60672cff1f739883916fcf872e37e36fa8c",
+      "source_native_id": "keps/sig-apps/4017-pod-index-label#excerpt-2",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F010",
+      "path": [
+        "sig-windows",
+        "116-windows-node-support"
+      ],
+      "content_sha256": "2b2dce9d8e625a28cf769d6bf56cb4ad6dc8fd5db20057ce4dd53897a7f4dfd6",
+      "source_native_id": "keps/sig-windows/116-windows-node-support#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F011",
+      "path": [
+        "sig-node",
+        "5996-default-pod-sysctls"
+      ],
+      "content_sha256": "144963b2e7f7e3d87ad496c226a531b710d10d6825300f18505b19fb39cf1d5a",
+      "source_native_id": "keps/sig-node/5996-default-pod-sysctls#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F012",
+      "path": [
+        "sig-scheduling",
+        "5836-scheduler-preemption-for-ippr"
+      ],
+      "content_sha256": "52982a73cc678966d7f61280839c780040f4fe3e76bbd30788d75e69e7481e37",
+      "source_native_id": "keps/sig-scheduling/5836-scheduler-preemption-for-ippr#excerpt-3",
+      "source_heading": "non-goals"
+    },
+    {
+      "id": "F013",
+      "path": [
+        "sig-apps",
+        "2360-optional-service-environment-variables"
+      ],
+      "content_sha256": "dc0620d7ee2683ab0087d0c665123c82f8b87cfd630347bd025bb62187ceb722",
+      "source_native_id": "keps/sig-apps/2360-optional-service-environment-variables#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F014",
+      "path": [
+        "sig-scheduling",
+        "5836-scheduler-preemption-for-ippr"
+      ],
+      "content_sha256": "b5615a2fae498e7c9c099f84ea086a5311ff709819cda19083753555e3f4b366",
+      "source_native_id": "keps/sig-scheduling/5836-scheduler-preemption-for-ippr#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F015",
+      "path": [
+        "sig-scheduling",
+        "5941-dra-shared-consumable-capacity"
+      ],
+      "content_sha256": "7f1f4951299a93aab2e2a01db79971e4e81ad25c5d4402416fe8a3a9aed4e3ae",
+      "source_native_id": "keps/sig-scheduling/5941-dra-shared-consumable-capacity#excerpt-3",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F016",
+      "path": [
+        "sig-scheduling",
+        "5941-dra-shared-consumable-capacity"
+      ],
+      "content_sha256": "e17f609561d04287e7c8e97310a6eb3c83caa0fb2da04cbc81248df70fd99efa",
+      "source_native_id": "keps/sig-scheduling/5941-dra-shared-consumable-capacity#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F017",
+      "path": [
+        "sig-node",
+        "1287-in-place-update-pod-resources"
+      ],
+      "content_sha256": "fb40028567459dde08e40c688d3ca076ce531ceba2a2a76adb3064a8153f7540",
+      "source_native_id": "keps/sig-node/1287-in-place-update-pod-resources#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F018",
+      "path": [
+        "sig-windows",
+        "5100-windows-dsr-and-overlay-support"
+      ],
+      "content_sha256": "debb8c43696a3854334b773361a6e8b4a0f3bdaabd4d94f0cad40922be1bb5af",
+      "source_native_id": "keps/sig-windows/5100-windows-dsr-and-overlay-support#excerpt-2",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F019",
+      "path": [
+        "sig-windows",
+        "1981-windows-privileged-container-support"
+      ],
+      "content_sha256": "b69c47f651dbcc72b210d5de2cdd89e888db36648aaa9b1d5b08b395cf1987bb",
+      "source_native_id": "keps/sig-windows/1981-windows-privileged-container-support#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F020",
+      "path": [
+        "sig-node",
+        "1287-in-place-update-pod-resources"
+      ],
+      "content_sha256": "02e43644d91bde5b9617377c0ba560f1102c79db5e8c738082333f6d76df37ef",
+      "source_native_id": "keps/sig-node/1287-in-place-update-pod-resources#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F021",
+      "path": [
+        "sig-apps",
+        "2360-optional-service-environment-variables"
+      ],
+      "content_sha256": "1adc06beba02561435368a4cc05b9e225d14365f93734dcf24993bd2b499a247",
+      "source_native_id": "keps/sig-apps/2360-optional-service-environment-variables#excerpt-3",
+      "source_heading": "user stories"
+    },
+    {
+      "id": "F022",
+      "path": [
+        "sig-node",
+        "1287-in-place-update-pod-resources"
+      ],
+      "content_sha256": "c6a7f21390ffe122132ff4d354d6923cc3d8a02cb0d46f0eb0e1d5afdfe61d47",
+      "source_native_id": "keps/sig-node/1287-in-place-update-pod-resources#excerpt-3",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F023",
+      "path": [
+        "sig-windows",
+        "1981-windows-privileged-container-support"
+      ],
+      "content_sha256": "ed04593f2b179a73f8ba6cd24bac44bc032c17feac2c7b6192b52ace8ba7e5c5",
+      "source_native_id": "keps/sig-windows/1981-windows-privileged-container-support#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F024",
+      "path": [
+        "sig-apps",
+        "2185-random-pod-select-on-replicaset-downscale"
+      ],
+      "content_sha256": "d140ddbc6ed5c3f30bbe8d357ce11d65d2fcbd8ea3088dfeff1fe34c3eb4a5dc",
+      "source_native_id": "keps/sig-apps/2185-random-pod-select-on-replicaset-downscale#excerpt-3",
+      "source_heading": "risks and mitigations"
+    },
+    {
+      "id": "F025",
+      "path": [
+        "sig-windows",
+        "116-windows-node-support"
+      ],
+      "content_sha256": "ad3b2f7d72f656595a1b0ae927fad4183a0fb6351e8449e68cecff461f7a9074",
+      "source_native_id": "keps/sig-windows/116-windows-node-support#excerpt-3",
+      "source_heading": "risks and mitigations"
+    },
+    {
+      "id": "F026",
+      "path": [
+        "sig-node",
+        "5823-pod-level-checkpoint-restore"
+      ],
+      "content_sha256": "a53767dbaae382f442fde9835864a445bc39b1eb2e319cb52aa16c70813d6633",
+      "source_native_id": "keps/sig-node/5823-pod-level-checkpoint-restore#excerpt-3",
+      "source_heading": "drawbacks"
+    },
+    {
+      "id": "F027",
+      "path": [
+        "sig-windows",
+        "116-windows-node-support"
+      ],
+      "content_sha256": "2b143bb4a17aabe6592a628d1c1c6daaa6fead9747a65cd9ec59c2d62cc58545",
+      "source_native_id": "keps/sig-windows/116-windows-node-support#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F028",
+      "path": [
+        "sig-apps",
+        "2185-random-pod-select-on-replicaset-downscale"
+      ],
+      "content_sha256": "f91d1261a1dc3d0a338e264eff51814d18a1c6436891571354194db04f9c597d",
+      "source_native_id": "keps/sig-apps/2185-random-pod-select-on-replicaset-downscale#excerpt-2",
+      "source_heading": "design details"
+    },
+    {
+      "id": "F029",
+      "path": [
+        "sig-scheduling",
+        "5836-scheduler-preemption-for-ippr"
+      ],
+      "content_sha256": "1a8ba0f46a9c99c466f30e6266f5bd096754ebef68aff67475d8874ded4e0e61",
+      "source_native_id": "keps/sig-scheduling/5836-scheduler-preemption-for-ippr#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F030",
+      "path": [
+        "sig-node",
+        "5823-pod-level-checkpoint-restore"
+      ],
+      "content_sha256": "7cdb6fa1e78b09e93ca8294a08fb8a230ce638d6a4d3b850031687a7ece5b0f4",
+      "source_native_id": "keps/sig-node/5823-pod-level-checkpoint-restore#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F031",
+      "path": [
+        "sig-scheduling",
+        "1258-default-pod-topology-spread"
+      ],
+      "content_sha256": "886f15504a06dd9e2acd7721418748d1e4917f573e7be048d37ce4570547d881",
+      "source_native_id": "keps/sig-scheduling/1258-default-pod-topology-spread#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F032",
+      "path": [
+        "sig-apps",
+        "4017-pod-index-label"
+      ],
+      "content_sha256": "afcb25c0585a603e4ae6f17cf8e71a33ffc5e99c43fa1f162867192f16cc2433",
+      "source_native_id": "keps/sig-apps/4017-pod-index-label#excerpt-1",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F033",
+      "path": [
+        "sig-apps",
+        "4017-pod-index-label"
+      ],
+      "content_sha256": "ad5c464be98386c355bd482bc2615e3729f84500ccc52db6ce09e9b3b6d8b735",
+      "source_native_id": "keps/sig-apps/4017-pod-index-label#excerpt-3",
+      "source_heading": "design details"
+    },
+    {
+      "id": "F034",
+      "path": [
+        "sig-node",
+        "5823-pod-level-checkpoint-restore"
+      ],
+      "content_sha256": "37d0e462b3cdcc7bffd7fca3c86375683d3bbad13746755070fa95ab32f4d224",
+      "source_native_id": "keps/sig-node/5823-pod-level-checkpoint-restore#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F035",
+      "path": [
+        "sig-node",
+        "5996-default-pod-sysctls"
+      ],
+      "content_sha256": "cd876215d68385f67abc85ff7c8a79d567e3fad28b94910a1eed479fa95d6598",
+      "source_native_id": "keps/sig-node/5996-default-pod-sysctls#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F036",
+      "path": [
+        "sig-windows",
+        "5100-windows-dsr-and-overlay-support"
+      ],
+      "content_sha256": "9e58349a8b2e7cda417a3096ae8829bbc200eb7deb890ec5e41bb001aa587d22",
+      "source_native_id": "keps/sig-windows/5100-windows-dsr-and-overlay-support#excerpt-1",
+      "source_heading": "motivation"
+    }
+  ],
+  "reference_scope": "Source-derived group/proposal hierarchy for a development-only difficulty and cost pilot."
+}

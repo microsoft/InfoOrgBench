@@ -1,0 +1,361 @@
+{
+  "assignments": [
+    {
+      "id": "F001",
+      "path": [
+        "Rate-Limiting-ABFS-Manifest",
+        "PR-6596-Discussion"
+      ]
+    },
+    {
+      "id": "F002",
+      "path": [
+        "Rate-Limiting-ABFS-Manifest",
+        "PR-6596-Discussion"
+      ]
+    },
+    {
+      "id": "F003",
+      "path": [
+        "ABFS-Client-Auth-Fix",
+        "Integration"
+      ]
+    },
+    {
+      "id": "F004",
+      "path": [
+        "ABFS-Blocksize-Change",
+        "Comments"
+      ]
+    },
+    {
+      "id": "F005",
+      "path": [
+        "ABFS-Blocksize-Change",
+        "Comments"
+      ]
+    },
+    {
+      "id": "F006",
+      "path": [
+        "ABFS-Blocksize-Change",
+        "Comments"
+      ]
+    },
+    {
+      "id": "F007",
+      "path": [
+        "Rate-Limiting-ABFS-Manifest",
+        "PR-6596-Discussion"
+      ]
+    },
+    {
+      "id": "F008",
+      "path": [
+        "ABFS-Blocksize-Change",
+        "Comments"
+      ]
+    },
+    {
+      "id": "F009",
+      "path": [
+        "ABFS-Blocksize-Change",
+        "Test-Results"
+      ]
+    },
+    {
+      "id": "F010",
+      "path": [
+        "Rate-Limiting-ABFS-Manifest",
+        "PR-6596-Discussion"
+      ]
+    },
+    {
+      "id": "F011",
+      "path": [
+        "ABFS-Blocksize-Change",
+        "Bulk-Update"
+      ]
+    },
+    {
+      "id": "F012",
+      "path": [
+        "General-Maintenance",
+        "Bulk-Update-3.2"
+      ]
+    },
+    {
+      "id": "F013",
+      "path": [
+        "Rate-Limiting-ABFS-Manifest",
+        "Issue-Description"
+      ]
+    },
+    {
+      "id": "F014",
+      "path": [
+        "ABFS-Blocksize-Change",
+        "Issue-Description"
+      ]
+    },
+    {
+      "id": "F015",
+      "path": [
+        "S3A-Skip-Lazy-Seek",
+        "PR-3927-Discussion"
+      ]
+    },
+    {
+      "id": "F016",
+      "path": [
+        "Rate-Limiting-ABFS-Manifest",
+        "PR-6596-Discussion"
+      ]
+    },
+    {
+      "id": "F017",
+      "path": [
+        "ABFS-Blocksize-Change",
+        "Test-Results"
+      ]
+    },
+    {
+      "id": "F018",
+      "path": [
+        "ABFS-Client-Auth-Fix",
+        "Integration"
+      ]
+    },
+    {
+      "id": "F019",
+      "path": [
+        "S3A-Skip-Lazy-Seek",
+        "PR-3927-Discussion"
+      ]
+    },
+    {
+      "id": "F020",
+      "path": [
+        "Rate-Limiting-ABFS-Manifest",
+        "PR-6596-Discussion"
+      ]
+    },
+    {
+      "id": "F021",
+      "path": [
+        "General-Maintenance",
+        "Version-Update-3.2.3"
+      ]
+    },
+    {
+      "id": "F022",
+      "path": [
+        "ABFS-Random-Read-Performance",
+        "API-Discussion"
+      ]
+    },
+    {
+      "id": "F023",
+      "path": [
+        "Rate-Limiting-ABFS-Manifest",
+        "PR-6596-Discussion"
+      ]
+    },
+    {
+      "id": "F024",
+      "path": [
+        "S3A-Skip-Lazy-Seek",
+        "PR-3927-Discussion"
+      ]
+    },
+    {
+      "id": "F025",
+      "path": [
+        "Rate-Limiting-ABFS-Manifest",
+        "PR-6596-Discussion"
+      ]
+    },
+    {
+      "id": "F026",
+      "path": [
+        "ABFS-Blocksize-Change",
+        "Permissions"
+      ]
+    },
+    {
+      "id": "F027",
+      "path": [
+        "Rate-Limiting-ABFS-Manifest",
+        "PR-6596-Discussion"
+      ]
+    },
+    {
+      "id": "F028",
+      "path": [
+        "ABFS-Random-Read-Performance",
+        "Comments"
+      ]
+    },
+    {
+      "id": "F029",
+      "path": [
+        "ABFS-SharedKey-Auth",
+        "Comments"
+      ]
+    },
+    {
+      "id": "F030",
+      "path": [
+        "ABFS-Random-Read-Performance",
+        "Issue-Description"
+      ]
+    },
+    {
+      "id": "F031",
+      "path": [
+        "General-Maintenance",
+        "Bulk-Update-3.3"
+      ]
+    },
+    {
+      "id": "F032",
+      "path": [
+        "Rate-Limiting-ABFS-Manifest",
+        "Test-Errors"
+      ]
+    },
+    {
+      "id": "F033",
+      "path": [
+        "Rate-Limiting-ABFS-Manifest",
+        "PR-6596-Discussion"
+      ]
+    },
+    {
+      "id": "F034",
+      "path": [
+        "Rate-Limiting-ABFS-Manifest",
+        "PR-6596-Discussion"
+      ]
+    },
+    {
+      "id": "F035",
+      "path": [
+        "S3A-Skip-Lazy-Seek",
+        "PR-3927-Discussion"
+      ]
+    },
+    {
+      "id": "F036",
+      "path": [
+        "ABFS-Contract-Tests",
+        "Issue-Description"
+      ]
+    },
+    {
+      "id": "F037",
+      "path": [
+        "Rate-Limiting-ABFS-Manifest",
+        "PR-6596-Discussion"
+      ]
+    },
+    {
+      "id": "F038",
+      "path": [
+        "Rate-Limiting-ABFS-Manifest",
+        "PR-6596-Discussion"
+      ]
+    },
+    {
+      "id": "F039",
+      "path": [
+        "S3A-Skip-Lazy-Seek",
+        "PR-3927-Discussion"
+      ]
+    },
+    {
+      "id": "F040",
+      "path": [
+        "ABFS-Retry-Policy",
+        "Issue-Description"
+      ]
+    },
+    {
+      "id": "F041",
+      "path": [
+        "General-Maintenance",
+        "Bulk-Update-3.4"
+      ]
+    },
+    {
+      "id": "F042",
+      "path": [
+        "ABFS-Random-Read-Performance",
+        "Strategy"
+      ]
+    },
+    {
+      "id": "F043",
+      "path": [
+        "ABFS-SharedKey-Auth",
+        "Issue-Description"
+      ]
+    },
+    {
+      "id": "F044",
+      "path": [
+        "ABFS-Blocksize-Change",
+        "Test-Results"
+      ]
+    },
+    {
+      "id": "F045",
+      "path": [
+        "ABFS-Client-Auth-Fix",
+        "Idempotency-Discussion"
+      ]
+    },
+    {
+      "id": "F046",
+      "path": [
+        "Rate-Limiting-ABFS-Manifest",
+        "PR-6596-Discussion"
+      ]
+    },
+    {
+      "id": "F047",
+      "path": [
+        "ABFS-Random-Read-Performance",
+        "Discussion"
+      ]
+    },
+    {
+      "id": "F048",
+      "path": [
+        "General-Maintenance",
+        "Meeting-Notes"
+      ]
+    },
+    {
+      "id": "F049",
+      "path": [
+        "S3A-Skip-Lazy-Seek",
+        "Issue-Description"
+      ]
+    },
+    {
+      "id": "F050",
+      "path": [
+        "Rate-Limiting-ABFS-Manifest",
+        "PR-6596-Discussion"
+      ]
+    },
+    {
+      "id": "F051",
+      "path": [
+        "Rate-Limiting-ABFS-Manifest",
+        "PR-6596-Discussion"
+      ]
+    }
+  ]
+}

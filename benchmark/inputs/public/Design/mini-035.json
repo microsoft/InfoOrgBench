@@ -1,0 +1,185 @@
+{
+  "task_id": "mini-035",
+  "records": [
+    {
+      "id": "F001",
+      "format": "text",
+      "text": "Introduce a new feature gate named RelaxedServiceNameValidation, which is disabled by default in alpha.\n\nWhen enabled, the feature gate will use the NameIsDNSLabel validation for new Services.\n\nSince the relaxed check allows previously invalid values, care must be taken to support cluster downgrades safely. To accomplish this, the validation will distinguish between new resources and updates to existing resources:\n\nWhen the feature gate is disabled: Creation of Services will use the previous `NameIsDNS1035Label()` validation for `.metadata.name` Updates of Services will no longer validate `metadata.name`, since the field is immutable, so the existing value can be assumed to be valid. Creation of Ingress will use the previous `NameIsDNS1035Label()` validation for `.spec.rules[].http.paths[].backend.service.name` Updates of Ingress will use the previous `NameIsDNS1035Label()` validation for `.spec.rules[].http.paths[].backend.service.name` if that field changes, otherwise, there is no validation\n\nWhen the feature gate is enabled: Creation of Services will use new `NameIsDNSLabel()` validation for `.metadata.name` Creation and update of Ingress will use the new `NameIsDNSLabel()` validation for `.spec.rules[].http.paths[].backend.service.name`"
+    },
+    {
+      "id": "F002",
+      "format": "text",
+      "text": "Aligning cloud provider HCs for `eTP:Cluster` services. Cloud providers like Azure/AWS do not configure their HCs to point to the service proxy. Instead they connect to the `NodePort` defined for the service. As to have them benefit from the proposals of this KEP, they would need to change their implementation. That Kube-proxy includes its `healthz` state AND its current answer w.r.t the local endpoints, when it answers to the HC for `eTP:Local` services. Kube-proxy is currently defined as \"unhealthy\" when `2 * syncPeriod` passes in which it knows that it needs to update the data plane (iptables/ipvs), but has not actually done so. Not including the `healthz` state can cause Kube-proxy to indicate to a load balancer that it should send traffic to a Node simply because the endpoint is scheduled there, even though Kube-proxy might not be healthy and successfully managed to write the rules required for actually being able to forward traffic to the endpoint. This has however been agreed is a bug and will be treated as such, as opposed to following the KEP cycle for it."
+    },
+    {
+      "id": "F003",
+      "format": "text",
+      "text": "This KEP proposes enhancements to the Kubelet to report the readiness to start containers of a pod (immediately following successful pod sandbox creation) as a new pod condition with type: `PodReadyToStartContainers`. Metric collection and monitoring services can use the fields associated with the `PodReadyToStartContainers` condition to report sandbox creation state and latency either at a per-pod cardinality or aggregate the data based on various properties of the pod: number of volumes, storage class of PVCs, runtime class, custom annotations for CNI and IPAM plugins, arbitrary labels and annotations on pods, etc. Certain pod controllers can use the pod sandbox conditions to determine an optimal reconciliation strategy for pods and associated resources (like PVCs)."
+    },
+    {
+      "id": "F004",
+      "format": "text",
+      "text": "User story 1: Julia, the operator of a deployment called \"backend\" that generates some stack traces locally. Her environment uses Service Mesh, and because of this, every time she tries to copy those stack traces she gets an error because the file does not exist, and this happens because kubectl cp points to the service mesh sidecar as the first container.\n\nStory 2: John, a developer of a PHP application always needs to run a command inside the application Pod. Because of the way John structured the Pod (a Container with NGINX and the other with php_fpm) every time he wants to execute this command on the php_fpm but he forgets to use the flag --container, and this way the command gets executed in the wrong container."
+    },
+    {
+      "id": "F005",
+      "format": "text",
+      "text": "Today our scheduling algorithm is O(num pods x num nodes). As the size of clusters and jobs continue to increase, this leads to low performance when scheduling or rescheduling large jobs. This increases user cost and slows down user jobs, both unpleasant impacts. Optimizations like this one have the potential to dramatically reduce the cost of scheduling in these scenarios. Gang scheduling and other multi-pod scheduling mechanisms require a way to consider multiple pods at the same time."
+    },
+    {
+      "id": "F006",
+      "format": "text",
+      "text": "Improve the performance of scheduling large jobs on large clusters where the constraints are simple. Begin building infrastructure to support gang scheduling and other \"multi-pod\" scheduling mechanisms. Ensure that the infrastructure we build is maintainable as we update, add and remove plugins. Reduce per-cycle scheduling cost for both one-pod-per-node and multi-pod-per-node workloads. Provide a path where we can expand batching to apply to most or all workloads over the next few releases. Allow users to continue to use out-of-tree plugins. For this KEP we need to ensure that out-of- tree plugins continue to work without requiring edits, although they may not be able to take advantage of the new feature without some edits."
+    },
+    {
+      "id": "F007",
+      "format": "text",
+      "text": "At time of writing, Service name validation is stricter than most of the other Kubernetes resource names. By losening the validation of Services, it simplifies the Kubernetes code base slightly, by removing the `apimachineryvalidation.NameIsDNS1035Label` validation, which is only used by Service names.\n\nAdditionally, this change also allows users to name their Services with the same conventions as other of their resources, ie: Service names can now start with a digit."
+    },
+    {
+      "id": "F008",
+      "format": "text",
+      "text": "Pods are composed of one or more containers. This leads to an extra effort by the operators when they need to run a command on a Pod that needs to target a specific container.\n\nIt gets worse because aside from a warning, this couples the default exec container to the container order.\n\nAs an example, with Service Mesh now a Pod can always have two containers: the main application and the sidecar. The container startup order impacts on which is the \"default\" container nowadays, leading to command executions against wrong containers.\n\nWe don't have a general default container name attribute for pod, and this would change pod spec and is not acceptable.\n\nHaving a well-known annotation that specifies what's the default container of that Pod reduces operation efforts and improves the user experience.\n\n> However, it gets worse because aside from a warning, this couples the default exec container to the container order. > The container ordering also happens to have an impact on container startup order. We have started offering an option > to inject our sidecar as the first container (previously, it was the last one), which has resulted in users running > kubectl exec and getting the \"wrong\" container.\n\nQuoted from kubernetes #96986 opened by @howardjohn"
+    },
+    {
+      "id": "F009",
+      "format": "text",
+      "text": "Tracking the terminating state of endpoints poses some scalability concerns as each terminating endpoint adds additional writes to the API. Today, a terminating pod results in 1 write in Endpoints (removing the endpoint). With the proposed changes, each terminating endpoint could result in at least 2 writes (ready -> terminating -> removed) and possibly more depending on how many times readiness changes during termination."
+    },
+    {
+      "id": "F010",
+      "format": "text",
+      "text": "Kustomize provides an intuitive way to manage Kubernetes applications in a purely declarative manner. However, it seems to struggle with applications that mix multiple, optional features on demand, affecting different aspects of a base configuration.\n\nThis enhancement proposal introduces components, a new kind of Kustomization that allows users to define reusable kustomizations. Components can be included from higher-level overlays to create variants of an application, with a subset of its features enabled.\n\nThe community has shown strong interest in this feature and has been actively discussing it in"
+    },
+    {
+      "id": "F011",
+      "format": "text",
+      "text": "By design, the variant system of Kustomize is based on an inheritance model and suggests that a base application is parameterized by stacking overlays on top of it. While intuitive at first sight, this approach falls short of deploying multivariate applications, i.e., ones that: ship with numerous opt-in features and corresponding configuration options target dissimilar audiences with different needs and scopes (developers, admins, customers, testers etc.) run on multiple cloud platforms (on-prem, Minikube, GKE, EKS, AKS, etc.)\n\nThe problem is that modular applications cannot always be expressed in a tall hierarchy while preserving all combinations of available features."
+    },
+    {
+      "id": "F012",
+      "format": "text",
+      "text": "This proposal adds to Kubernetes a mechanism to run a container with a temporary duration that executes within namespaces of an existing pod. Ephemeral Containers are initiated by a user and intended to observe the state of other pods and containers for troubleshooting and debugging purposes.\n\nEphemeral Containers unlock the possibility for a new command, `kubectl debug`, which parallels the existing, `kubectl exec`. Whereas `kubectl exec` runs a _process_ in a _container_, `kubectl debug` could run a _container_ in a _pod_.\n\nFor example, the following command would attach to a newly created container in a pod:"
+    },
+    {
+      "id": "F013",
+      "format": "text",
+      "text": "This KEP proposes a standardized set of reusable API building blocks (`scheduling.k8s.io`), integration guidelines, and shared libraries to simplify how workload controllers (e.g., `JobSet`, `TrainJob`, `RayJob`, `LWS`, as well as core workloads like `Job`) integrate with Workload-aware Scheduling (WAS).\n\nBy providing common API primitives (such as topology constraints and disruption policies) and a shared library to handle boilerplate resource generation, we enable controller developers to easily expose WAS features natively within their APIs without reinventing the wheel, while ensuring a consistent user experience across the Kubernetes ecosystem."
+    },
+    {
+      "id": "F014",
+      "format": "text",
+      "text": "This KEP proposes an opportunistic batching mechanism in the scheduler to improve performance of scheduling many compatible pods at once, and to begin building the infrastructure required for gang scheduling. To implement this mechanism we propose the following additions: **Pod scheduling signature:** A signature that captures the properties of a pod that impact scoring and feasibility. **Batching mechanism:** A mechanism to reuse the scheduling output from one pod to provide node hints for multiple subsequent pods with matching scheduling signatures. **Opportunistic batching:** Transparent inclusion of the batching mechanism in the scheduler to improve the performance of targeted workloads that could benefit from it. **Rescoring:** An extension to the batching mechanism that removes the one-pod-per-node limitation: when the last chosen node is still feasible, it is rescored in-place rather than flushing the batch."
+    },
+    {
+      "id": "F015",
+      "format": "text",
+      "text": "The feature gate `SeccompDefault` will ensure that the API graduation can be done in the standard Kubernetes way. The implementation will be mainly a switch from `Unconfined` to `RuntimeDefault`. This will only apply if the corresponding kubelet configuration `SeccompDefault` or the new CLI flag `--seccomp-default` is enabled together with the feature gate.\n\nDocumentation around the feature will be added to the k/website seccomp section."
+    },
+    {
+      "id": "F016",
+      "format": "text",
+      "text": "The motivation for each change is: Nodes used as intermediate nexthop for `eTP:Cluster` services would allow all connections passing through the node while it is being terminated, to gracefully shutdown. Adding this new `/livez` path will allow vendors / users of Kube-proxy to specify a `livenessProbe` which isn't impacted by any node termination indicator. It will indicate Kube-proxy health, only, just as is the case today. This is a low-hanging fruit which requires modifying the Kube-proxy DeamonSet spec to opt-in on. Cloud providers have very different ways of ascertaining if a load balancer should target a specific node for `eTP:Cluster` services. We would like to highlight the benefits of certain methods and pitfalls of others, in a formal document, so that this is known. The hope is that this allows the information to act as a source of knowledge for how to adapt their implementations to the mechanics of a Kubernetes cluster."
+    },
+    {
+      "id": "F017",
+      "format": "text",
+      "text": "Create a new kustomization type called `Component`, and a new kustomization field called `components`.\n\nA kustomization that is marked as a `Component` has basically the same capabilities as a normal kustomization. The main distinction is that they are evaluated **after** the resources of the parent kustomization (overlay or component) have been accumulated, and **on top** of them. This means that: A component with transformers can transform the resources that an overlay has previously specified in the `resources` field. Components with patches do not have to include the target resource in their `resources` field. Multiple components can extend and transform the same set of resources **sequentially**. This is in contrast to overlays, which cannot alter the same base resources, because they clone and extend them **in parallel**.\n\nIn order to create a component, a user can add the following to its `kustomization.yaml`:\n\nIn order to use a component, the user can refer to it in their `kustomization.yaml` via the `components` field:\n\nNote that a component cannot be added to the `resources:` list, and a resource/`Kustomization` cannot be added to the `components:` list."
+    },
+    {
+      "id": "F018",
+      "format": "text",
+      "text": "Services are responsible for creating DNS records (ie: `<service-name>.<namespace>.svc.cluster.local>`). To confirm that downstream systems will support the new validation, we will conduct compatibility testing by: Verifying that DNS providers used in Kubernetes clusters can handle the new service name format. Running integration tests to ensure that dependent components such as Ingress controllers and service discovery mechanisms function correctly with the updated validation. The Ingress resource references Service and will also need a relaxed validation on its reference to the Service Downstream applications may perform validation on fields relating to Service names (ie: ingress-nginx and will also need updating."
+    },
+    {
+      "id": "F019",
+      "format": "text",
+      "text": "Even though this proposal makes reference to a `kubectl debug`, implementation of this user-level command is out of scope. This KEP focuses on the API and kubelet changes required to enable such a debugging experience.\n\nA method for debugging using Ephemeral Containers should be proposed in a separate KEP or implemented via `kubectl` plugins.\n\nPods running on Windows Server 2019 will not have feature parity and support all the user stories described here. Only the network troubleshooting user story detailed under Operations would be feasible."
+    },
+    {
+      "id": "F020",
+      "format": "text",
+      "text": "Define reusable API primitives (e.g., Scheduling Policies, Topology Constraints, Disruption Modes) under `scheduling.k8s.io` to be consumed by real-workload controllers. Provide a shared library (workloadbuilder) to handle the boilerplate of constructing underlying scheduling objects (`Workload`, `PodGroup`, or `CompositePodGroup`) from controller-specific intents. Establish architectural guidelines for workload controllers to expose WAS features consistently. Integrate these building blocks and the translation library with the core `Job` API (`batch/v1`) to ensure we are not designing in a vacuum. Standard `Job` is the natural candidate to \"blaze the path\" for other workload controllers; it initially integrated with WAS in v1.36 in alpha, but intentionally bypassed the user-facing scheduling API aspect. Under this KEP, the core `Job` integration remains in **Alpha** in v1.37, but is enriched to give users the ability to express explicit scheduling intent, resolving usability gaps from the initial v1.36 alpha. Provide reference integration examples demonstrating how complex, multi-level composite controllers (such as `JobSet`) can adopt WAS Controller APIs. Since standard `Job` serves as the production single-level implementation, we focus our reference designs purely on demonstrating multi-level hierarchical patterns."
+    },
+    {
+      "id": "F021",
+      "format": "text",
+      "text": "Readiness to start the containers in a pod, marked by successful pod sandbox creation, is a critical phase in a pod's lifecycle that the kubelet orchestrates across multiple components: in-tree volume plugins (ConfigMap, Secret, EmptyDir, etc), CSI plugins and container runtime (which in turn invokes a runtime handler and CNI plugins). Completion of all these phases puts the pod sandbox in a state where the containers in a pod can be started. This KEP proposes a `PodReadyToStartContainers` condition in pod status to indicate a pod has reached a state where it's containers are ready to be started. The `PodReadyToStartContainers` condition will mark an important milestone in the pod's lifecycle similar to `ContainersReady` and the overall `Ready` conditions in pod status today. An alternate name like `SandboxReady` is avoided since Kubernetes does not directly surface low level sandbox related concepts to all users."
+    },
+    {
+      "id": "F022",
+      "format": "text",
+      "text": "The kubectl command provides a cli for: accessing the Kubernetes apis through json or yaml configuration porcelain commands for generating and transforming configuration off of command line flags.\n\nExamples: Generate a configmap or secret from a text or binary file `kubectl create configmap`, `kubectl create secret` Users can manage their configmaps and secrets text and binary files Create or update fields that cut across other fields and objects `kubectl label`, `kubectl annotate` Users can add and update labels for all objects composing an application Transform an existing declarative configuration without forking it `kubectl patch` Users may generate multiple variations of the same workload Transform live resources arbitrarily without auditing `kubectl edit`\n\nTo create a Secret from a binary file, users must first base64 encode the binary file and then create a Secret yaml config from the resulting data. Because the source of truth is actually the binary file, not the config, users must write scripting and tooling to keep the 2 sources consistent.\n\nInstead, users should be able to access the simple, but necessary, functionality available in the imperative kubectl commands from their declarative workflow."
+    },
+    {
+      "id": "F023",
+      "format": "text",
+      "text": "This KEP proposes to keep \"terminating\" pods in the set of endpoints in EndpointSlice with additions to the API to indicate whether a given endpoint is terminating or not. If consumers of the API (e.g. kube-proxy) are required to treat terminating endpoints differently, they may do so by checking this condition.\n\nThe criteria for a ready endpoint (pod phase + readiness probe) will not change based on the terminating state of pods, but consumers of the API may choose to prefer endpoints that are both ready and not terminating."
+    },
+    {
+      "id": "F024",
+      "format": "text",
+      "text": "Declarative support for defining ConfigMaps and Secrets generated from binary and text files Declarative support for adding or updating cross-cutting fields labels & selectors annotations names (as transformation of the original name) Declarative support for applying patches to transform arbitrary fields use strategic-merge-patch format Ease of integration with CICD systems that maintain configuration in a version control repository as a single source of truth, and take action (build, test, deploy, etc.) when that truth changes (gitops)."
+    },
+    {
+      "id": "F025",
+      "format": "text",
+      "text": "The `PreEnqueue` extension point in the scheduler framework is an important gate that performs preliminary checks before a Pod is allowed into the scheduling cycle. This prevents the scheduler from wasting cycles on Pods that cannot be scheduled due to fundamental issues. This extension point is already utilized by some features like Scheduling Gates and Dynamic Resource Allocation (DRA). Moreover, it is a planned integration point for future capabilities such as Deferred ResourceQuota Enforcement and advanced Gang Scheduling implementations."
+    },
+    {
+      "id": "F026",
+      "format": "text",
+      "text": "Update a Pod's `.status.conditions` with a descriptive reason and message when a `PreEnqueue` plugin rejects the Pod. Utilize the existing asynchronous API calls feature to perform these status updates without impacting scheduler performance. Provide a mechanism for existing `PreEnqueue` use cases (like `DynamicResources` plugin) to adopt this new status reporting. Investigate migrating the responsibility for setting the `SchedulingGated` condition from the kube-apiserver to the kube-scheduler for consistency."
+    },
+    {
+      "id": "F027",
+      "format": "text",
+      "text": "Some workloads that may be running without seccomp may break with seccomp enabled by default. All workloads would have to be tested in a staging/test environment to ensure there are no breakages. Seccomp could either be turned off or custom profiles could be created for such workloads.\n\nThe configuration possibilities of container runtimes differ in conjunction with seccomp. For example: **containerd** can only use the internal default profile for `RuntimeDefault` can use a different profile for empty (unconfined) workloads via the `unset_seccomp_profile` option **CRI-O** can specify a different `RuntimeDefault` profile via the `seccomp_profile` option can use `RuntimeDefault` for empty (unconfined) workloads via `seccomp_use_default_when_empty`\n\nThis can result in a behavioral change when doing cluster upgrades while runtime administrates may have to take action if they enable the feature."
+    },
+    {
+      "id": "F028",
+      "format": "text",
+      "text": "Declarative specification of Kubernetes objects is the recommended way to manage Kubernetes production workloads, however gaps in the kubectl tooling force users to write their own scripting and tooling to augment the declarative tools with preprocessing transformations. While most of these transformations already exist as imperative kubectl commands, they are not natively accessible from a declarative workflow.\n\nThis KEP describes how `kustomize` addresses this problem by providing a declarative format for users to access the imperative kubectl commands they are already familiar natively from declarative workflows."
+    },
+    {
+      "id": "F029",
+      "format": "text",
+      "text": "**Publishing Data:**\n\nAlpha: default container annotation Define a well known annotation `kubectl.kubernetes.io/default-container` in a Pod to provide a way to consumers (CLI, operators) to know which is the default Container. Define a global function GetDefaultContainerName for kubectl that uses this annotation like below -- 1. if the command is `logs` check `--all-containers` flag at first: if it is specified, ignore container flag or annotations; if not, next step."
+    },
+    {
+      "id": "F030",
+      "format": "text",
+      "text": "To track whether an endpoint is terminating, a `terminating` and `serving` field would be added as part of the `EndpointCondition` type in the EndpointSlice API.\n\nNOTE: A nil value for `Terminating` indicates that the endpoint is not terminating.\n\nUpdates to endpointslice controller: include pods with a deletion timestamp in endpointslice any pod with a deletion timestamp will have condition.terminating = true any terminating pod must have condition.ready = false. the new `serving` condition is set based on pod readiness regardless of terminating state."
+    },
+    {
+      "id": "F031",
+      "format": "text",
+      "text": "The service controller in the Kubernetes cloud controller manager (KCCM) configures the load balancer and its corresponding health check (HC) following service related events. The configured health check is then used by the load balancer as to determine which instances are candidates for traffic load balancing. For certain cloud providers (GCP): the KCCM configures the HC to target the Kubernetes service proxy for this information."
+    },
+    {
+      "id": "F032",
+      "format": "text",
+      "text": "This KEP proposes enhancing the Kubernetes scheduler to update a Pod's status with a descriptive message when a `PreEnqueue` plugin rejects it. When a Pod is rejected at this early stage, it currently remains in a generic `Pending` state with no direct feedback in its status, making observability and debugging difficult. By reflecting the rejection reason in the Pod's status (and emitting a corresponding event), cluster administrators and users will gain immediate insight into why a Pod is not being scheduled."
+    },
+    {
+      "id": "F033",
+      "format": "text",
+      "text": "In order to support the debugging use case, Ephemeral Containers must: allow access to namespaces and the file systems of individual containers fetch container images at run time rather than at the time of pod or image creation respect admission controllers and audit logging be discoverable via the API support arbitrary runtimes via the CRI (possibly with reduced feature set) require no administrative access to the node have no _inherent_ side effects to the running container image define a v1.Container available for inspection by admission controllers"
+    },
+    {
+      "id": "F034",
+      "format": "text",
+      "text": "We introduce a feature gate as well as corresponding kubelet flag that enables a seccomp for all workloads by default. There are a few options for what should be the default seccomp profile.\n\nThe most preferred solution is to promote the `RuntimeDefault` profile (previously the `runtime/default` annotation) to the new default one.\n\nContainer runtimes already have their own defined default profiles, which get referenced via the `RuntimeDefault` one. This means we now promote this profile to the new default. Every workload created will then get the `RuntimeDefault` (`SeccompProfileTypeRuntimeDefault`) as `SeccompProfile.type` value for the `PodSecurityContext` as well as the `SecurityContext` for every container.\n\nThe advantages of using the `RuntimeDefault` profiles are that there is no need for shipping an additional seccomp profile. The overall version skew handling in conjunction with runtime versions and the kubelet is easier, because container runtimes already support `RuntimeDefault` from the introduction of the seccomp feature.\n\nFor alternative proposals please refer to the Alternatives section."
+    },
+    {
+      "id": "F035",
+      "format": "text",
+      "text": "Define a single, mandatory and rigid scheduling API struct for all Kubernetes workload controllers. Implement the actual integration of these new API blocks into other complex composite controllers (such as `JobSet`, `LeaderWorkerSet`, or Kubeflow `TrainJob`) as part of this KEP. While this KEP establishes the design guidelines and shared library for their integration, the implementation PRs for these out-of-tree controllers will be pursued independently in their respective repositories. Create or manage the lifecycle of `Workload`, `PodGroup`, or `CompositePodGroup`."
+    },
+    {
+      "id": "F036",
+      "format": "text",
+      "text": "Today, the scheduler surfaces a specific pod condition: `PodScheduled` that clearly identifies whether a pod got scheduled by the scheduler and when scheduling completed. However, no specific conditions around initialization of successfully scheduled pods from the perspective of completion of pod sandbox creation is surfaced to cluster administrators in a scoped and consumable fashion. There is an existing pod condition: `Initialized` that tracks execution of init containers."
+    }
+  ]
+}

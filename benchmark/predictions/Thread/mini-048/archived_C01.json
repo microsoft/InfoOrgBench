@@ -1,0 +1,375 @@
+{
+  "assignments": [
+    {
+      "id": "F001",
+      "path": [
+        "Rate Limiting",
+        "PR 6596 Discussion"
+      ]
+    },
+    {
+      "id": "F002",
+      "path": [
+        "Rate Limiting",
+        "PR 6596 Discussion"
+      ]
+    },
+    {
+      "id": "F003",
+      "path": [
+        "Rate Limiting",
+        "Status Updates"
+      ]
+    },
+    {
+      "id": "F004",
+      "path": [
+        "Auth Provider Tests",
+        "Credentials Provider Fixes"
+      ]
+    },
+    {
+      "id": "F005",
+      "path": [
+        "Rate Limiting",
+        "Test Results"
+      ]
+    },
+    {
+      "id": "F006",
+      "path": [
+        "Rate Limiting",
+        "Design Discussion"
+      ]
+    },
+    {
+      "id": "F007",
+      "path": [
+        "Unbuffer Support",
+        "Review Comments"
+      ]
+    },
+    {
+      "id": "F008",
+      "path": [
+        "Unbuffer Support",
+        "Backports"
+      ]
+    },
+    {
+      "id": "F009",
+      "path": [
+        "Rate Limiting",
+        "Test Results"
+      ]
+    },
+    {
+      "id": "F010",
+      "path": [
+        "Rate Limiting",
+        "PR 6596 Discussion"
+      ]
+    },
+    {
+      "id": "F011",
+      "path": [
+        "Auth Tests",
+        "Related Issues"
+      ]
+    },
+    {
+      "id": "F012",
+      "path": [
+        "Rate Limiting",
+        "PR 6596 Discussion"
+      ]
+    },
+    {
+      "id": "F013",
+      "path": [
+        "Retry Policy",
+        "Refactor ABFS Retry"
+      ]
+    },
+    {
+      "id": "F014",
+      "path": [
+        "Rate Limiting",
+        "PR 6596 Discussion"
+      ]
+    },
+    {
+      "id": "F015",
+      "path": [
+        "Documentation",
+        "ABFS Configuration"
+      ]
+    },
+    {
+      "id": "F016",
+      "path": [
+        "S3A Connection",
+        "Connection Timeout"
+      ]
+    },
+    {
+      "id": "F017",
+      "path": [
+        "Auth Tests",
+        "SharedKey Tests"
+      ]
+    },
+    {
+      "id": "F018",
+      "path": [
+        "Rate Limiting",
+        "PR 6596 Discussion"
+      ]
+    },
+    {
+      "id": "F019",
+      "path": [
+        "Rate Limiting",
+        "PR 6596 Discussion"
+      ]
+    },
+    {
+      "id": "F020",
+      "path": [
+        "Rate Limiting",
+        "Side Issues"
+      ]
+    },
+    {
+      "id": "F021",
+      "path": [
+        "S3A Connection",
+        "Connection Timeout"
+      ]
+    },
+    {
+      "id": "F022",
+      "path": [
+        "Namespace Check",
+        "Logging Fix"
+      ]
+    },
+    {
+      "id": "F023",
+      "path": [
+        "S3A SSL",
+        "SSL Handshake Issues"
+      ]
+    },
+    {
+      "id": "F024",
+      "path": [
+        "Unbuffer Support",
+        "PR 1847 Discussion"
+      ]
+    },
+    {
+      "id": "F025",
+      "path": [
+        "Rate Limiting",
+        "PR 6596 Discussion"
+      ]
+    },
+    {
+      "id": "F026",
+      "path": [
+        "Retry Policy",
+        "Backports"
+      ]
+    },
+    {
+      "id": "F027",
+      "path": [
+        "Auth Tests",
+        "Related Issues"
+      ]
+    },
+    {
+      "id": "F028",
+      "path": [
+        "Rate Limiting",
+        "PR 6596 Discussion"
+      ]
+    },
+    {
+      "id": "F029",
+      "path": [
+        "Unbuffer Support",
+        "PR 1847 Discussion"
+      ]
+    },
+    {
+      "id": "F030",
+      "path": [
+        "Rate Limiting",
+        "PR 6596 Discussion"
+      ]
+    },
+    {
+      "id": "F031",
+      "path": [
+        "S3A SSL",
+        "SSL Handshake Issues"
+      ]
+    },
+    {
+      "id": "F032",
+      "path": [
+        "Auth Provider Tests",
+        "Credentials Provider Fixes"
+      ]
+    },
+    {
+      "id": "F033",
+      "path": [
+        "Manifest Committer",
+        "Design Decisions"
+      ]
+    },
+    {
+      "id": "F034",
+      "path": [
+        "Rate Limiting",
+        "Status Updates"
+      ]
+    },
+    {
+      "id": "F035",
+      "path": [
+        "Rate Limiting",
+        "PR 6596 Discussion"
+      ]
+    },
+    {
+      "id": "F036",
+      "path": [
+        "Unbuffer Support",
+        "PR 1847 Discussion"
+      ]
+    },
+    {
+      "id": "F037",
+      "path": [
+        "Unbuffer Support",
+        "PR 1847 Discussion"
+      ]
+    },
+    {
+      "id": "F038",
+      "path": [
+        "Rate Limiting",
+        "PR 6596 Discussion"
+      ]
+    },
+    {
+      "id": "F039",
+      "path": [
+        "Throttling",
+        "Auth Error Handling"
+      ]
+    },
+    {
+      "id": "F040",
+      "path": [
+        "Unbuffer Support",
+        "PR 1847 Discussion"
+      ]
+    },
+    {
+      "id": "F041",
+      "path": [
+        "Unbuffer Support",
+        "Status Updates"
+      ]
+    },
+    {
+      "id": "F042",
+      "path": [
+        "Unbuffer Support",
+        "Unbuffer Implementation"
+      ]
+    },
+    {
+      "id": "F043",
+      "path": [
+        "Rate Limiting",
+        "Status Updates"
+      ]
+    },
+    {
+      "id": "F044",
+      "path": [
+        "Unbuffer Support",
+        "PR 1847 Discussion"
+      ]
+    },
+    {
+      "id": "F045",
+      "path": [
+        "Rate Limiting",
+        "Test Planning"
+      ]
+    },
+    {
+      "id": "F046",
+      "path": [
+        "S3A SSL",
+        "SSL Handshake Issues"
+      ]
+    },
+    {
+      "id": "F047",
+      "path": [
+        "Rate Limiting",
+        "PR 6596 Discussion"
+      ]
+    },
+    {
+      "id": "F048",
+      "path": [
+        "Retry Policy",
+        "Backports"
+      ]
+    },
+    {
+      "id": "F049",
+      "path": [
+        "Idempotency",
+        "SharedKey Fixes"
+      ]
+    },
+    {
+      "id": "F050",
+      "path": [
+        "Idempotency",
+        "Backport Requests"
+      ]
+    },
+    {
+      "id": "F051",
+      "path": [
+        "S3A SSL",
+        "SSL Handshake Issues"
+      ]
+    },
+    {
+      "id": "F052",
+      "path": [
+        "Dependencies",
+        "Remove HDFS Transient"
+      ]
+    },
+    {
+      "id": "F053",
+      "path": [
+        "Rate Limiting",
+        "PR 6596 Discussion"
+      ]
+    }
+  ]
+}

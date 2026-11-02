@@ -1,0 +1,326 @@
+{
+  "assignments": [
+    {
+      "id": "F001",
+      "path": [
+        "S3A_test_issues",
+        "parallel_rename_timeout"
+      ]
+    },
+    {
+      "id": "F002",
+      "path": [
+        "S3A_read_retry",
+        "no_retry_on_read_failure"
+      ]
+    },
+    {
+      "id": "F003",
+      "path": [
+        "S3A_test_issues",
+        "parallel_rename_timeout"
+      ]
+    },
+    {
+      "id": "F004",
+      "path": [
+        "S3A_dot_buckets",
+        "ssl_certificate_issues"
+      ]
+    },
+    {
+      "id": "F005",
+      "path": [
+        "S3A_credentials",
+        "credentials_provider_tests"
+      ]
+    },
+    {
+      "id": "F006",
+      "path": [
+        "S3A_credentials",
+        "credentials_provider_tests"
+      ]
+    },
+    {
+      "id": "F007",
+      "path": [
+        "S3A_dot_buckets",
+        "ssl_certificate_issues"
+      ]
+    },
+    {
+      "id": "F008",
+      "path": [
+        "FS_capabilities",
+        "capability_interface"
+      ]
+    },
+    {
+      "id": "F009",
+      "path": [
+        "ABFS_auth_tests",
+        "shared_key_auth_failure"
+      ]
+    },
+    {
+      "id": "F010",
+      "path": [
+        "FS_capabilities",
+        "capability_interface"
+      ]
+    },
+    {
+      "id": "F011",
+      "path": [
+        "ABFS_unbuffer",
+        "add_unbuffer_support"
+      ]
+    },
+    {
+      "id": "F012",
+      "path": [
+        "ABFS_unbuffer",
+        "add_unbuffer_support"
+      ]
+    },
+    {
+      "id": "F013",
+      "path": [
+        "S3A_test_issues",
+        "parallel_rename_timeout"
+      ]
+    },
+    {
+      "id": "F014",
+      "path": [
+        "ABFS_auth_tests",
+        "shared_key_auth_failure"
+      ]
+    },
+    {
+      "id": "F015",
+      "path": [
+        "FS_capabilities",
+        "capability_interface"
+      ]
+    },
+    {
+      "id": "F016",
+      "path": [
+        "S3A_credentials",
+        "credentials_provider_tests"
+      ]
+    },
+    {
+      "id": "F017",
+      "path": [
+        "S3A_credentials",
+        "credentials_provider_tests"
+      ]
+    },
+    {
+      "id": "F018",
+      "path": [
+        "FS_distcp",
+        "xattr_preservation"
+      ]
+    },
+    {
+      "id": "F019",
+      "path": [
+        "S3A_test_issues",
+        "parallel_rename_timeout"
+      ]
+    },
+    {
+      "id": "F020",
+      "path": [
+        "FS_capabilities",
+        "capability_interface"
+      ]
+    },
+    {
+      "id": "F021",
+      "path": [
+        "ABFS_delegation_tokens",
+        "npe_setup_teardown"
+      ]
+    },
+    {
+      "id": "F022",
+      "path": [
+        "S3A_dot_buckets",
+        "ssl_certificate_issues"
+      ]
+    },
+    {
+      "id": "F023",
+      "path": [
+        "S3A_dot_buckets",
+        "ssl_certificate_issues"
+      ]
+    },
+    {
+      "id": "F024",
+      "path": [
+        "ABFS_delegation_tokens",
+        "npe_setup_teardown"
+      ]
+    },
+    {
+      "id": "F025",
+      "path": [
+        "ABFS_delegation_tokens",
+        "npe_setup_teardown"
+      ]
+    },
+    {
+      "id": "F026",
+      "path": [
+        "ABFS_unbuffer",
+        "add_unbuffer_support"
+      ]
+    },
+    {
+      "id": "F027",
+      "path": [
+        "FS_capabilities",
+        "capability_interface"
+      ]
+    },
+    {
+      "id": "F028",
+      "path": [
+        "FS_capabilities",
+        "capability_interface"
+      ]
+    },
+    {
+      "id": "F029",
+      "path": [
+        "S3A_read_retry",
+        "no_retry_on_read_failure"
+      ]
+    },
+    {
+      "id": "F030",
+      "path": [
+        "FS_capabilities",
+        "capability_interface"
+      ]
+    },
+    {
+      "id": "F031",
+      "path": [
+        "S3A_dot_buckets",
+        "ssl_certificate_issues"
+      ]
+    },
+    {
+      "id": "F032",
+      "path": [
+        "FS_distcp",
+        "xattr_preservation"
+      ]
+    },
+    {
+      "id": "F033",
+      "path": [
+        "ABFS_unbuffer",
+        "add_unbuffer_support"
+      ]
+    },
+    {
+      "id": "F034",
+      "path": [
+        "S3A_dot_buckets",
+        "ssl_certificate_issues"
+      ]
+    },
+    {
+      "id": "F035",
+      "path": [
+        "FS_capabilities",
+        "capability_interface"
+      ]
+    },
+    {
+      "id": "F036",
+      "path": [
+        "ABFS_delegation_tokens",
+        "npe_setup_teardown"
+      ]
+    },
+    {
+      "id": "F037",
+      "path": [
+        "FS_capabilities",
+        "capability_interface"
+      ]
+    },
+    {
+      "id": "F038",
+      "path": [
+        "ABFS_auth_tests",
+        "shared_key_auth_failure"
+      ]
+    },
+    {
+      "id": "F039",
+      "path": [
+        "ABFS_auth_tests",
+        "shared_key_auth_failure"
+      ]
+    },
+    {
+      "id": "F040",
+      "path": [
+        "ABFS_rename_debug",
+        "add_debug_log"
+      ]
+    },
+    {
+      "id": "F041",
+      "path": [
+        "FS_capabilities",
+        "capability_interface"
+      ]
+    },
+    {
+      "id": "F042",
+      "path": [
+        "ABFS_unbuffer",
+        "add_unbuffer_support"
+      ]
+    },
+    {
+      "id": "F043",
+      "path": [
+        "ABFS_unbuffer",
+        "add_unbuffer_support"
+      ]
+    },
+    {
+      "id": "F044",
+      "path": [
+        "FS_capabilities",
+        "capability_interface"
+      ]
+    },
+    {
+      "id": "F045",
+      "path": [
+        "FS_capabilities",
+        "capability_interface"
+      ]
+    },
+    {
+      "id": "F046",
+      "path": [
+        "S3A_dot_buckets",
+        "ssl_certificate_issues"
+      ]
+    }
+  ]
+}

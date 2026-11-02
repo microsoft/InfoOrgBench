@@ -1,0 +1,256 @@
+{
+  "assignments": [
+    {
+      "id": "F001",
+      "path": [
+        "topic-001",
+        "cluster-001"
+      ]
+    },
+    {
+      "id": "F002",
+      "path": [
+        "topic-006",
+        "cluster-010"
+      ]
+    },
+    {
+      "id": "F003",
+      "path": [
+        "topic-006",
+        "cluster-014"
+      ]
+    },
+    {
+      "id": "F004",
+      "path": [
+        "topic-001",
+        "cluster-005"
+      ]
+    },
+    {
+      "id": "F005",
+      "path": [
+        "topic-002",
+        "cluster-002"
+      ]
+    },
+    {
+      "id": "F006",
+      "path": [
+        "topic-001",
+        "cluster-009"
+      ]
+    },
+    {
+      "id": "F007",
+      "path": [
+        "topic-001",
+        "cluster-001"
+      ]
+    },
+    {
+      "id": "F008",
+      "path": [
+        "topic-003",
+        "cluster-008"
+      ]
+    },
+    {
+      "id": "F009",
+      "path": [
+        "topic-006",
+        "cluster-011"
+      ]
+    },
+    {
+      "id": "F010",
+      "path": [
+        "topic-001",
+        "cluster-009"
+      ]
+    },
+    {
+      "id": "F011",
+      "path": [
+        "topic-003",
+        "cluster-006"
+      ]
+    },
+    {
+      "id": "F012",
+      "path": [
+        "topic-001",
+        "cluster-013"
+      ]
+    },
+    {
+      "id": "F013",
+      "path": [
+        "topic-003",
+        "cluster-003"
+      ]
+    },
+    {
+      "id": "F014",
+      "path": [
+        "topic-006",
+        "cluster-010"
+      ]
+    },
+    {
+      "id": "F015",
+      "path": [
+        "topic-003",
+        "cluster-003"
+      ]
+    },
+    {
+      "id": "F016",
+      "path": [
+        "topic-006",
+        "cluster-014"
+      ]
+    },
+    {
+      "id": "F017",
+      "path": [
+        "topic-003",
+        "cluster-008"
+      ]
+    },
+    {
+      "id": "F018",
+      "path": [
+        "topic-003",
+        "cluster-003"
+      ]
+    },
+    {
+      "id": "F019",
+      "path": [
+        "topic-005",
+        "cluster-012"
+      ]
+    },
+    {
+      "id": "F020",
+      "path": [
+        "topic-002",
+        "cluster-002"
+      ]
+    },
+    {
+      "id": "F021",
+      "path": [
+        "topic-001",
+        "cluster-001"
+      ]
+    },
+    {
+      "id": "F022",
+      "path": [
+        "topic-004",
+        "cluster-004"
+      ]
+    },
+    {
+      "id": "F023",
+      "path": [
+        "topic-001",
+        "cluster-005"
+      ]
+    },
+    {
+      "id": "F024",
+      "path": [
+        "topic-004",
+        "cluster-004"
+      ]
+    },
+    {
+      "id": "F025",
+      "path": [
+        "topic-001",
+        "cluster-005"
+      ]
+    },
+    {
+      "id": "F026",
+      "path": [
+        "topic-006",
+        "cluster-010"
+      ]
+    },
+    {
+      "id": "F027",
+      "path": [
+        "topic-003",
+        "cluster-006"
+      ]
+    },
+    {
+      "id": "F028",
+      "path": [
+        "topic-006",
+        "cluster-011"
+      ]
+    },
+    {
+      "id": "F029",
+      "path": [
+        "topic-004",
+        "cluster-004"
+      ]
+    },
+    {
+      "id": "F030",
+      "path": [
+        "topic-006",
+        "cluster-014"
+      ]
+    },
+    {
+      "id": "F031",
+      "path": [
+        "topic-005",
+        "cluster-007"
+      ]
+    },
+    {
+      "id": "F032",
+      "path": [
+        "topic-003",
+        "cluster-008"
+      ]
+    },
+    {
+      "id": "F033",
+      "path": [
+        "topic-006",
+        "cluster-011"
+      ]
+    },
+    {
+      "id": "F034",
+      "path": [
+        "topic-003",
+        "cluster-006"
+      ]
+    },
+    {
+      "id": "F035",
+      "path": [
+        "topic-005",
+        "cluster-007"
+      ]
+    },
+    {
+      "id": "F036",
+      "path": [
+        "topic-002",
+        "cluster-002"
+      ]
+    }
+  ]
+}

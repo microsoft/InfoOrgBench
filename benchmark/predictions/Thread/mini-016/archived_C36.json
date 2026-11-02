@@ -1,0 +1,326 @@
+{
+  "assignments": [
+    {
+      "id": "F001",
+      "path": [
+        "ABFS improvements",
+        "Namespace detection"
+      ]
+    },
+    {
+      "id": "F002",
+      "path": [
+        "ABFS improvements",
+        "Unbuffer support"
+      ]
+    },
+    {
+      "id": "F003",
+      "path": [
+        "S3A improvements",
+        "Remove HDFS client dependency"
+      ]
+    },
+    {
+      "id": "F004",
+      "path": [
+        "S3A improvements",
+        "YARN log collection"
+      ]
+    },
+    {
+      "id": "F005",
+      "path": [
+        "ABFS improvements",
+        "China authentication"
+      ]
+    },
+    {
+      "id": "F006",
+      "path": [
+        "S3A improvements",
+        "YARN log collection"
+      ]
+    },
+    {
+      "id": "F007",
+      "path": [
+        "ABFS improvements",
+        "Analytical metrics"
+      ]
+    },
+    {
+      "id": "F008",
+      "path": [
+        "ABFS improvements",
+        "China authentication"
+      ]
+    },
+    {
+      "id": "F009",
+      "path": [
+        "ABFS improvements",
+        "Default block size"
+      ]
+    },
+    {
+      "id": "F010",
+      "path": [
+        "ABFS improvements",
+        "Default block size"
+      ]
+    },
+    {
+      "id": "F011",
+      "path": [
+        "ABFS improvements",
+        "Analytical metrics"
+      ]
+    },
+    {
+      "id": "F012",
+      "path": [
+        "ABFS improvements",
+        "Configuration documentation"
+      ]
+    },
+    {
+      "id": "F013",
+      "path": [
+        "S3A improvements",
+        "Delegation token credential tests"
+      ]
+    },
+    {
+      "id": "F014",
+      "path": [
+        "ABFS improvements",
+        "Unbuffer support"
+      ]
+    },
+    {
+      "id": "F015",
+      "path": [
+        "S3A improvements",
+        "Delegation token credential tests"
+      ]
+    },
+    {
+      "id": "F016",
+      "path": [
+        "ABFS improvements",
+        "Unbuffer support"
+      ]
+    },
+    {
+      "id": "F017",
+      "path": [
+        "ABFS improvements",
+        "Rename failure logging"
+      ]
+    },
+    {
+      "id": "F018",
+      "path": [
+        "ABFS improvements",
+        "Unbuffer support"
+      ]
+    },
+    {
+      "id": "F019",
+      "path": [
+        "S3A improvements",
+        "Remove HDFS client dependency"
+      ]
+    },
+    {
+      "id": "F020",
+      "path": [
+        "ABFS improvements",
+        "Configuration documentation"
+      ]
+    },
+    {
+      "id": "F021",
+      "path": [
+        "ABFS improvements",
+        "Default block size"
+      ]
+    },
+    {
+      "id": "F022",
+      "path": [
+        "ABFS improvements",
+        "Default block size"
+      ]
+    },
+    {
+      "id": "F023",
+      "path": [
+        "S3A improvements",
+        "Parallel rename timeout"
+      ]
+    },
+    {
+      "id": "F024",
+      "path": [
+        "ABFS improvements",
+        "China authentication"
+      ]
+    },
+    {
+      "id": "F025",
+      "path": [
+        "ABFS improvements",
+        "Unbuffer support"
+      ]
+    },
+    {
+      "id": "F026",
+      "path": [
+        "ABFS improvements",
+        "Default block size"
+      ]
+    },
+    {
+      "id": "F027",
+      "path": [
+        "S3A improvements",
+        "Delegation token credential tests"
+      ]
+    },
+    {
+      "id": "F028",
+      "path": [
+        "ABFS improvements",
+        "Default block size"
+      ]
+    },
+    {
+      "id": "F029",
+      "path": [
+        "S3A improvements",
+        "Remove HDFS client dependency"
+      ]
+    },
+    {
+      "id": "F030",
+      "path": [
+        "ABFS improvements",
+        "China authentication"
+      ]
+    },
+    {
+      "id": "F031",
+      "path": [
+        "ABFS improvements",
+        "Default block size"
+      ]
+    },
+    {
+      "id": "F032",
+      "path": [
+        "S3A improvements",
+        "Remove HDFS client dependency"
+      ]
+    },
+    {
+      "id": "F033",
+      "path": [
+        "ABFS improvements",
+        "Default block size"
+      ]
+    },
+    {
+      "id": "F034",
+      "path": [
+        "ABFS improvements",
+        "Namespace detection"
+      ]
+    },
+    {
+      "id": "F035",
+      "path": [
+        "ABFS improvements",
+        "Default block size"
+      ]
+    },
+    {
+      "id": "F036",
+      "path": [
+        "ABFS improvements",
+        "Unbuffer support"
+      ]
+    },
+    {
+      "id": "F037",
+      "path": [
+        "S3A improvements",
+        "Parallel rename timeout"
+      ]
+    },
+    {
+      "id": "F038",
+      "path": [
+        "S3A improvements",
+        "Parallel rename timeout"
+      ]
+    },
+    {
+      "id": "F039",
+      "path": [
+        "S3A improvements",
+        "Assumed role credential chain"
+      ]
+    },
+    {
+      "id": "F040",
+      "path": [
+        "ABFS improvements",
+        "Default block size"
+      ]
+    },
+    {
+      "id": "F041",
+      "path": [
+        "ABFS improvements",
+        "China authentication"
+      ]
+    },
+    {
+      "id": "F042",
+      "path": [
+        "S3A improvements",
+        "Assumed role credential chain"
+      ]
+    },
+    {
+      "id": "F043",
+      "path": [
+        "ABFS improvements",
+        "Unbuffer support"
+      ]
+    },
+    {
+      "id": "F044",
+      "path": [
+        "S3A improvements",
+        "Iceberg bulk delete validation"
+      ]
+    },
+    {
+      "id": "F045",
+      "path": [
+        "ABFS improvements",
+        "Default block size"
+      ]
+    },
+    {
+      "id": "F046",
+      "path": [
+        "ABFS improvements",
+        "Default block size"
+      ]
+    }
+  ]
+}

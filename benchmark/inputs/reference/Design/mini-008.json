@@ -1,0 +1,366 @@
+{
+  "task_id": "mini-008",
+  "records": [
+    {
+      "id": "F001",
+      "path": [
+        "sig-storage",
+        "1900-volume-snapshot-validation-webhook"
+      ],
+      "content_sha256": "937d51ff5589e4a560e8296c6e968e448785099c091d6ab99e4b65530239d13a",
+      "source_native_id": "keps/sig-storage/1900-volume-snapshot-validation-webhook#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F002",
+      "path": [
+        "sig-cli",
+        "4292-kubectl-debug-custom-profile"
+      ],
+      "content_sha256": "f674e2bf6daad9188aa5f812709a707728fef09672e28408a817b6903b026711",
+      "source_native_id": "keps/sig-cli/4292-kubectl-debug-custom-profile#excerpt-2",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F003",
+      "path": [
+        "sig-cli",
+        "4292-kubectl-debug-custom-profile"
+      ],
+      "content_sha256": "9bcb401bb35a7d0b1529e9c36a48e6f007775b443a19dd806f3323d031e536b6",
+      "source_native_id": "keps/sig-cli/4292-kubectl-debug-custom-profile#excerpt-3",
+      "source_heading": "design details"
+    },
+    {
+      "id": "F004",
+      "path": [
+        "sig-api-machinery",
+        "3352-aggregated-discovery"
+      ],
+      "content_sha256": "42ef3df6a50f3e1dc60e01d1fcfa53080c4f7936ba82cc1d01d25c4911cc71d3",
+      "source_native_id": "keps/sig-api-machinery/3352-aggregated-discovery#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F005",
+      "path": [
+        "sig-architecture",
+        "1618-conformance-profiles"
+      ],
+      "content_sha256": "3ddf6ba6a066cd3e596d978925ce439bd49222bb3293d5b6770ed3965d1fa5ce",
+      "source_native_id": "keps/sig-architecture/1618-conformance-profiles#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F006",
+      "path": [
+        "sig-architecture",
+        "1333-conformance-without-beta"
+      ],
+      "content_sha256": "6de8c5cf604e67f92b4838c344076aad44dbf7628b0fd2c6e3cabd8f1c99ad7e",
+      "source_native_id": "keps/sig-architecture/1333-conformance-without-beta#excerpt-1",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F007",
+      "path": [
+        "sig-cli",
+        "2906-kustomize-function-catalog"
+      ],
+      "content_sha256": "b90814c9297117dfcab868ddc0cc26c96d377ad33192a88fcd740aa0d4cde725",
+      "source_native_id": "keps/sig-cli/2906-kustomize-function-catalog#excerpt-3",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F008",
+      "path": [
+        "sig-storage",
+        "1495-volume-populators"
+      ],
+      "content_sha256": "f8689ec57448b4acad2b6d65267d3bf802646ee47bb7c97dae39d4e0bf7be570",
+      "source_native_id": "keps/sig-storage/1495-volume-populators#excerpt-2",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F009",
+      "path": [
+        "sig-cli",
+        "2906-kustomize-function-catalog"
+      ],
+      "content_sha256": "28df1b5429fb57a57f9e41b79f76caf4e7f9cb61c9472d76f8d4475056143d33",
+      "source_native_id": "keps/sig-cli/2906-kustomize-function-catalog#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F010",
+      "path": [
+        "sig-api-machinery",
+        "4420-retry-generate-name"
+      ],
+      "content_sha256": "e77f268fc138026ea22bdc1a038f14ceff7eb667a096042234262d33a329c407",
+      "source_native_id": "keps/sig-api-machinery/4420-retry-generate-name#excerpt-3",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F011",
+      "path": [
+        "sig-cli",
+        "2206-openapi-features-in-kustomize"
+      ],
+      "content_sha256": "ccee7dca4d944fe915a47db42220f42d867fbbeeef9fbd25867b275a735b88d9",
+      "source_native_id": "keps/sig-cli/2206-openapi-features-in-kustomize#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F012",
+      "path": [
+        "sig-cli",
+        "2206-openapi-features-in-kustomize"
+      ],
+      "content_sha256": "69bc8389dbb45c809d0860e1a43dacabdef79b3893020075f47bb8701f009dfc",
+      "source_native_id": "keps/sig-cli/2206-openapi-features-in-kustomize#excerpt-3",
+      "source_heading": "design details"
+    },
+    {
+      "id": "F013",
+      "path": [
+        "sig-storage",
+        "1900-volume-snapshot-validation-webhook"
+      ],
+      "content_sha256": "c87dac86c32d98fefa90c75e29b964712a17e74684c9e7fa950d7a22279b54b4",
+      "source_native_id": "keps/sig-storage/1900-volume-snapshot-validation-webhook#excerpt-2",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F014",
+      "path": [
+        "sig-storage",
+        "1900-volume-snapshot-validation-webhook"
+      ],
+      "content_sha256": "492164332c8877fb6f8a4c38a498c417ceeb785fb9d8b01fdf263d2b19b6c842",
+      "source_native_id": "keps/sig-storage/1900-volume-snapshot-validation-webhook#excerpt-3",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F015",
+      "path": [
+        "sig-architecture",
+        "1659-standard-topology-labels"
+      ],
+      "content_sha256": "0f6a7c4a0f48ef311fb0ebb7a59113480e9e1c9cc7b35171aeb9e123ccd8b75f",
+      "source_native_id": "keps/sig-architecture/1659-standard-topology-labels#excerpt-3",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F016",
+      "path": [
+        "sig-api-machinery",
+        "3352-aggregated-discovery"
+      ],
+      "content_sha256": "e83b094da0ace1497ff449696982eaf507bb9f35012fb057bd4d82e96e323bde",
+      "source_native_id": "keps/sig-api-machinery/3352-aggregated-discovery#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F017",
+      "path": [
+        "sig-storage",
+        "5936-atomic-write-volume-user-fields"
+      ],
+      "content_sha256": "e958365ceb7efad98d23c3a1b7cbed9dafe3701e35e0cc9cf356db4ba2767993",
+      "source_native_id": "keps/sig-storage/5936-atomic-write-volume-user-fields#excerpt-2",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F018",
+      "path": [
+        "sig-storage",
+        "1495-volume-populators"
+      ],
+      "content_sha256": "823c15fcfda2d2e34599e2840219fd6ce73023165fa2b0601c16fe8374b27e1d",
+      "source_native_id": "keps/sig-storage/1495-volume-populators#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F019",
+      "path": [
+        "sig-api-machinery",
+        "2335-vanilla-crd-openapi-subset-structural-schemas"
+      ],
+      "content_sha256": "4084ea6c3855ff49058577d56b165fdae0411bacbe7ab8905017c2eea3219142",
+      "source_native_id": "keps/sig-api-machinery/2335-vanilla-crd-openapi-subset-structural-schemas#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F020",
+      "path": [
+        "sig-api-machinery",
+        "2335-vanilla-crd-openapi-subset-structural-schemas"
+      ],
+      "content_sha256": "e54eeb16d2a9be7e823200b1b10a7e93b8a3e24b7243595f7e60e3577dd01813",
+      "source_native_id": "keps/sig-api-machinery/2335-vanilla-crd-openapi-subset-structural-schemas#excerpt-3",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F021",
+      "path": [
+        "sig-api-machinery",
+        "3352-aggregated-discovery"
+      ],
+      "content_sha256": "0ff46e890a06d81538abe6abda021157deef835d98bebef5ec6e1eeef9714613",
+      "source_native_id": "keps/sig-api-machinery/3352-aggregated-discovery#excerpt-3",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F022",
+      "path": [
+        "sig-api-machinery",
+        "2335-vanilla-crd-openapi-subset-structural-schemas"
+      ],
+      "content_sha256": "3216b67b5412a106ea524673288013e3772dfde42d3763c67814736d5b8c87b4",
+      "source_native_id": "keps/sig-api-machinery/2335-vanilla-crd-openapi-subset-structural-schemas#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F023",
+      "path": [
+        "sig-architecture",
+        "1659-standard-topology-labels"
+      ],
+      "content_sha256": "fd256709e65fa47df9bbc2fb95b44283d4b3769677b3ab8fe04fded65f3f0857",
+      "source_native_id": "keps/sig-architecture/1659-standard-topology-labels#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F024",
+      "path": [
+        "sig-architecture",
+        "1618-conformance-profiles"
+      ],
+      "content_sha256": "81305f07ad0bc117bb52273a846e6fd81085b04cf67fc47eb7a94d0aed1233a6",
+      "source_native_id": "keps/sig-architecture/1618-conformance-profiles#excerpt-3",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F025",
+      "path": [
+        "sig-architecture",
+        "1333-conformance-without-beta"
+      ],
+      "content_sha256": "cbc103d0b23b89766b5f15b38844b8f52e2cb7efefa16b77e9f8214f301bd5cd",
+      "source_native_id": "keps/sig-architecture/1333-conformance-without-beta#excerpt-3",
+      "source_heading": "design details"
+    },
+    {
+      "id": "F026",
+      "path": [
+        "sig-architecture",
+        "1659-standard-topology-labels"
+      ],
+      "content_sha256": "8966c7ea541aa9953abbb70d6e93d3d363cdb4ee602d0b410e37146efa92f988",
+      "source_native_id": "keps/sig-architecture/1659-standard-topology-labels#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F027",
+      "path": [
+        "sig-cli",
+        "2906-kustomize-function-catalog"
+      ],
+      "content_sha256": "75e73da8a27bc41b56469735c4f955628cfc993069ea2d0fd1cc07664ef02408",
+      "source_native_id": "keps/sig-cli/2906-kustomize-function-catalog#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F028",
+      "path": [
+        "sig-storage",
+        "5936-atomic-write-volume-user-fields"
+      ],
+      "content_sha256": "2b7e302d4831bace16c2d0879c09fa2de1d1e103f2e9a2e181f630e724d2e729",
+      "source_native_id": "keps/sig-storage/5936-atomic-write-volume-user-fields#excerpt-3",
+      "source_heading": "drawbacks"
+    },
+    {
+      "id": "F029",
+      "path": [
+        "sig-architecture",
+        "1618-conformance-profiles"
+      ],
+      "content_sha256": "bb18174f80cb52850f7c0fb484138bc14ab5bc4536444474f7b0582e7baacfaf",
+      "source_native_id": "keps/sig-architecture/1618-conformance-profiles#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F030",
+      "path": [
+        "sig-cli",
+        "2206-openapi-features-in-kustomize"
+      ],
+      "content_sha256": "46b0676f6c6cf7509665ed6e8f39bf90226bb21762df31a95e7b108d5403ede9",
+      "source_native_id": "keps/sig-cli/2206-openapi-features-in-kustomize#excerpt-2",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F031",
+      "path": [
+        "sig-api-machinery",
+        "4420-retry-generate-name"
+      ],
+      "content_sha256": "16505eeced276d56a111077413ec7dde83585529ff8f6a80cbf1003fcf59c4f7",
+      "source_native_id": "keps/sig-api-machinery/4420-retry-generate-name#excerpt-2",
+      "source_heading": "non-goals"
+    },
+    {
+      "id": "F032",
+      "path": [
+        "sig-storage",
+        "5936-atomic-write-volume-user-fields"
+      ],
+      "content_sha256": "728d925b8ce0801143bf108c15419f02bd2b5f5532c6af195b45d18391804789",
+      "source_native_id": "keps/sig-storage/5936-atomic-write-volume-user-fields#excerpt-1",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F033",
+      "path": [
+        "sig-api-machinery",
+        "4420-retry-generate-name"
+      ],
+      "content_sha256": "8af0d08d612ad0d28fb0ff6530efd4b77c989b62460fd73f7d94dd8b8d27d244",
+      "source_native_id": "keps/sig-api-machinery/4420-retry-generate-name#excerpt-1",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F034",
+      "path": [
+        "sig-architecture",
+        "1333-conformance-without-beta"
+      ],
+      "content_sha256": "fd5302a8cc081251540d524502cd480d3326ae3d07aae02461aec8e86e0c6021",
+      "source_native_id": "keps/sig-architecture/1333-conformance-without-beta#excerpt-2",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F035",
+      "path": [
+        "sig-storage",
+        "1495-volume-populators"
+      ],
+      "content_sha256": "84acbbb5b9c10c9d93abd33e17491feb0144a9756c923d0abf66ba7a72d42535",
+      "source_native_id": "keps/sig-storage/1495-volume-populators#excerpt-3",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F036",
+      "path": [
+        "sig-cli",
+        "4292-kubectl-debug-custom-profile"
+      ],
+      "content_sha256": "62b5218e49405d5aa68cf0f0a5ba14dc2ae973e9e48bdc771b19f48e433c1314",
+      "source_native_id": "keps/sig-cli/4292-kubectl-debug-custom-profile#excerpt-1",
+      "source_heading": "motivation"
+    }
+  ],
+  "reference_scope": "Source-derived group/proposal hierarchy for a development-only difficulty and cost pilot."
+}

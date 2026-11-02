@@ -1,0 +1,368 @@
+{
+  "assignments": [
+    {
+      "id": "F001",
+      "path": [
+        "vegetable-design",
+        "overview"
+      ]
+    },
+    {
+      "id": "F002",
+      "path": [
+        "curved-design",
+        "decisions"
+      ]
+    },
+    {
+      "id": "F003",
+      "path": [
+        "vegetable-design",
+        "decisions"
+      ]
+    },
+    {
+      "id": "F004",
+      "path": [
+        "curved-design",
+        "overview"
+      ]
+    },
+    {
+      "id": "F005",
+      "path": [
+        "curved-design",
+        "decisions"
+      ]
+    },
+    {
+      "id": "F006",
+      "path": [
+        "curved-design",
+        "overview"
+      ]
+    },
+    {
+      "id": "F007",
+      "path": [
+        "curved-design",
+        "overview"
+      ]
+    },
+    {
+      "id": "F008",
+      "path": [
+        "curved-design",
+        "issues"
+      ]
+    },
+    {
+      "id": "F009",
+      "path": [
+        "curved-design",
+        "actions"
+      ]
+    },
+    {
+      "id": "F010",
+      "path": [
+        "curved-design",
+        "issues"
+      ]
+    },
+    {
+      "id": "F011",
+      "path": [
+        "vegetable-design",
+        "actions"
+      ]
+    },
+    {
+      "id": "F012",
+      "path": [
+        "vegetable-design",
+        "overview"
+      ]
+    },
+    {
+      "id": "F013",
+      "path": [
+        "vegetable-design",
+        "actions"
+      ]
+    },
+    {
+      "id": "F014",
+      "path": [
+        "curved-design",
+        "overview"
+      ]
+    },
+    {
+      "id": "F015",
+      "path": [
+        "curved-design",
+        "decisions"
+      ]
+    },
+    {
+      "id": "F016",
+      "path": [
+        "vegetable-design",
+        "actions"
+      ]
+    },
+    {
+      "id": "F017",
+      "path": [
+        "vegetable-design",
+        "decisions"
+      ]
+    },
+    {
+      "id": "F018",
+      "path": [
+        "vegetable-design",
+        "decisions"
+      ]
+    },
+    {
+      "id": "F019",
+      "path": [
+        "curved-design",
+        "decisions"
+      ]
+    },
+    {
+      "id": "F020",
+      "path": [
+        "vegetable-design",
+        "overview"
+      ]
+    },
+    {
+      "id": "F021",
+      "path": [
+        "curved-design",
+        "decisions"
+      ]
+    },
+    {
+      "id": "F022",
+      "path": [
+        "curved-design",
+        "actions"
+      ]
+    },
+    {
+      "id": "F023",
+      "path": [
+        "curved-design",
+        "overview"
+      ]
+    },
+    {
+      "id": "F024",
+      "path": [
+        "curved-design",
+        "issues"
+      ]
+    },
+    {
+      "id": "F025",
+      "path": [
+        "vegetable-design",
+        "overview"
+      ]
+    },
+    {
+      "id": "F026",
+      "path": [
+        "curved-design",
+        "overview"
+      ]
+    },
+    {
+      "id": "F027",
+      "path": [
+        "curved-design",
+        "overview"
+      ]
+    },
+    {
+      "id": "F028",
+      "path": [
+        "curved-design",
+        "decisions"
+      ]
+    },
+    {
+      "id": "F029",
+      "path": [
+        "vegetable-design",
+        "overview"
+      ]
+    },
+    {
+      "id": "F030",
+      "path": [
+        "curved-design",
+        "overview"
+      ]
+    },
+    {
+      "id": "F031",
+      "path": [
+        "curved-design",
+        "overview"
+      ]
+    },
+    {
+      "id": "F032",
+      "path": [
+        "vegetable-design",
+        "overview"
+      ]
+    },
+    {
+      "id": "F033",
+      "path": [
+        "vegetable-design",
+        "decisions"
+      ]
+    },
+    {
+      "id": "F034",
+      "path": [
+        "vegetable-design",
+        "decisions"
+      ]
+    },
+    {
+      "id": "F035",
+      "path": [
+        "curved-design",
+        "overview"
+      ]
+    },
+    {
+      "id": "F036",
+      "path": [
+        "vegetable-design",
+        "overview"
+      ]
+    },
+    {
+      "id": "F037",
+      "path": [
+        "curved-design",
+        "issues"
+      ]
+    },
+    {
+      "id": "F038",
+      "path": [
+        "curved-design",
+        "issues"
+      ]
+    },
+    {
+      "id": "F039",
+      "path": [
+        "curved-design",
+        "issues"
+      ]
+    },
+    {
+      "id": "F040",
+      "path": [
+        "vegetable-design",
+        "overview"
+      ]
+    },
+    {
+      "id": "F041",
+      "path": [
+        "vegetable-design",
+        "decisions"
+      ]
+    },
+    {
+      "id": "F042",
+      "path": [
+        "curved-design",
+        "overview"
+      ]
+    },
+    {
+      "id": "F043",
+      "path": [
+        "vegetable-design",
+        "actions"
+      ]
+    },
+    {
+      "id": "F044",
+      "path": [
+        "curved-design",
+        "overview"
+      ]
+    },
+    {
+      "id": "F045",
+      "path": [
+        "curved-design",
+        "decisions"
+      ]
+    },
+    {
+      "id": "F046",
+      "path": [
+        "vegetable-design",
+        "overview"
+      ]
+    },
+    {
+      "id": "F047",
+      "path": [
+        "curved-design",
+        "actions"
+      ]
+    },
+    {
+      "id": "F048",
+      "path": [
+        "curved-design",
+        "decisions"
+      ]
+    },
+    {
+      "id": "F049",
+      "path": [
+        "curved-design",
+        "decisions"
+      ]
+    },
+    {
+      "id": "F050",
+      "path": [
+        "vegetable-design",
+        "overview"
+      ]
+    },
+    {
+      "id": "F051",
+      "path": [
+        "curved-design",
+        "issues"
+      ]
+    },
+    {
+      "id": "F052",
+      "path": [
+        "vegetable-design",
+        "actions"
+      ]
+    }
+  ]
+}

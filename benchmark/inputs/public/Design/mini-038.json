@@ -1,0 +1,185 @@
+{
+  "task_id": "mini-038",
+  "records": [
+    {
+      "id": "F001",
+      "format": "text",
+      "text": "As AI and ML workloads become increasingly common in Kubernetes environments, the demand for high-performance computing resources continues to grow. At the same time, energy efficiency and flexible infrastructure utilization are becoming critical for sustainable operations. Composable Disaggregated Infrastructure (CDI) has emerged as a promising approach to address these needs. In CDI, hardware resources such as CPUs, memory, and GPUs are disaggregated and pooled, allowing them to be dynamically composed into custom server configurations."
+    },
+    {
+      "id": "F002",
+      "format": "text",
+      "text": "**Risks:** File Descriptor Exhaustion (nofile) Risk: Each container can request up to 1,048,576 file descriptors (FDs). Many containers with high nofile values can exhaust the kernel FD table. Symptom: Node-wide \"too many open files\" errors, potentially affecting system services. Reference: As discussed in moby/moby#45534, setting RLIMIT_NOFILE to effectively infinite can lead to excessive memory consumption or crashes. Process Table Exhaustion (nproc) Risk: The nproc limit is applied per-UID on the host, not per-container. User namespaces do not affect this behavior, as the nproc limit is enforced based on the host UID. For example, 10 containers running as UID 1000 with nproc=1000 share a single pool of 1000 processes. Symptom: Fork failures may occur even if individual containers are under their specified limits. Reference: For more details, see LWN article on user namespaces and resource limits. Memory Exhaustion (memlock) Risk: High memlock values can exhaust physical RAM. Symptom: Out-of-memory (OOM) kills and node instability.\n\n**Mitigations:** Validation and Limits: Validation caps nofile at 1,048,576 to prevent excessive file descriptor usage in the Pod API validation layer. Documentation and Warnings: Documentation includes warnings against setting unnecessarily high values for ulimits."
+    },
+    {
+      "id": "F003",
+      "format": "text",
+      "text": "Change the way how individual pods (not being part of workloads) are preempted Provide the most optimal preemption algorithm from day 1 Address arbitrary preemption policies (more preemption policies will be needed, but these should be added in a followup KEPs) Introduce workload-awareness for handling different kinds of disruptions (e.g. caused by hardware failures) including kubelet eviction Design rescheduling for workloads that will be preempted (rescheduling will be addressed in a separate dedicated KEP) Change the preemption principle of avoiding preemption if a workload/pod can be scheduled without it. If we decide to change that it will be addressed in a dedicated KEP. Propose any tradeoff between preemption and cluster scale-up. Design workload-level preemption triggered by external schedulers Handling non-uniform priorities across PodGroups Full support for Topology Aware Scheduling. This will be provided in TAS KEP."
+    },
+    {
+      "id": "F004",
+      "format": "text",
+      "text": "The proposal aims to mitigate this issue by modifying the `VolumeSnapshotContent` API spec as well as the control flows of `snapshot-controller` and `external-provisioner`. `VolumeSnapshotContent` API will include a field that denotes the volume mode of the volume that the snapshot was created from. This proposal also introduces a new annotation on the `VolumeSnapshotContent` resource that a trusted user (like a backup software) needs to apply on a VolumeSnapshot.\n\nBy introducing these changes, we will leverage existing user access rights to determine whether the volume mode of a volume can be altered when a `PVC` is being created from a `VolumeSnapshot`."
+    },
+    {
+      "id": "F005",
+      "format": "text",
+      "text": "Users might expect compatibility to be maintained for the library’s public API. This is a risk for all staging repositories, and the current mitigation strategy has been to clearly document that there are no compatibility guarantees in the README:\n\n> There are NO compatibility guarantees for this repository. It is in direct > support of Kubernetes, so branches will track Kubernetes and be compatible > with that repo. As we more cleanly separate the layers, we will review the > compatibility guarantee."
+    },
+    {
+      "id": "F006",
+      "format": "text",
+      "text": "**Enhanced User Control:** Provide users with a knob to specify a preference that MAY influence the traffic routing of a Kubernetes Service. **Guidance for Implementations:** Offer standard routing preference values that implementations can choose to recognize and support, promoting a degree of commonality. **Flexibility:** Allow implementations to interpret and support standard heuristics in a manner that aligns with their capabilities and design. **Extensibility:** Enable Kubernetes implementations to introduce and support innovative routing strategies (for example, those based on topology, latency, or other custom heuristics) that can evolve alongside users needs and infrastructure capabilities."
+    },
+    {
+      "id": "F007",
+      "format": "text",
+      "text": "Introduce a new field on PVCs called `DataSourceRef`. This new field operates like `DataSource` except that it never ignores input -- contents are always accepted or the entire PVC is rejected if the contents are deemed invalid. Deprecate the `DataSource` field once `DataSourceRef` reaches GA, but continue to support it in a backwards-compatible way, never removing it. In particular: If `DataSource` and `DataSourceRef` are both unset; accept If `DataSource` is set valid (PVC or VolumeSnapshot) AND `DataSourceRef` is not set; set `DataSourceRef` from `DataSource` If `DataSource` is set valid AND `DataSourceRef` is set the same; accept If `DataSource` is set valid AND `DataSourceRef` is set differently; reject If `DataSource` is set invalid (anything but PVC or VolumeSnapshot) and `DataSourceRef` is not set; wipe `DataSource` (as today) If `DataSource` is set invalid and `DataSourceRef` is set; reject If `DataSource` is not set and `DataSourceRef` is set invalid (any core object other than PVC); reject If `DataSource` is not set and `DataSourceRef` is set valid (PVC or any non-core object); set `DataSource` from `DataSourceRef` and accept\n\nNote that in the last case, we allow setting the CRD data sources, which enables volume populators to work."
+    },
+    {
+      "id": "F008",
+      "format": "text",
+      "text": "**API Changes**\n\nWe introduce the `Ulimit` struct in core v1 and add it to `SecurityContext`:\n\n**CRI Changes**\n\nWe update the `LinuxContainerSecurityContext` in the CRI API:\n\n**Validation Logic:**\n\nWe will enforce a strict allowlist of ulimit names in the API validation layer to prevent passing arbitrary or unsafe strings to the kernel. Only the following ulimit options will be supported:\n\nAny other ulimit options will result in a Pod creation rejection."
+    },
+    {
+      "id": "F009",
+      "format": "text",
+      "text": "In Kubernetes 1.12, we added the `DataSource` field to the PVC spec. The field was implemented as a `TypedLocalObjectReference` to give flexibility in the future about what objects could be data sources for new volumes. Since then, we have allowed only two things to be the source of a new volume -- existing PVCs (indicating a user's intent to clone the volume) and snapshots (indicating the user's intent to restore a snapshot)."
+    },
+    {
+      "id": "F010",
+      "format": "text",
+      "text": "Addressing non-Linux operating systems. Swap support will only be available for Linux. Provisioning swap. Swap must already be available on the system. Setting [swappiness]. This can already be set on a system-wide level outside of Kubernetes. Allocating swap on a per-workload basis with accounting (e.g. pod-level specification of swap), and/or APIs to customize and control the way kubelet calculates swap limits, grants swap access, etc. If desired, this should be designed and implemented as part of a follow-up KEP. This KEP is a prerequisite for that work. Hence, swap will be an overcommitted resource in the context of this KEP. Supporting zram, zswap, or other memory types like SGX EPC. These could be addressed in a follow-up KEP, and are out of scope. Use of swap for cgroupsv1. Add pod-level APIs to control swap configuration on a per-pod basis. Add scheduling mechanisms to target nodes with swap enabled/disabled or a certain swap configuration. Make the eviction manager swap-aware. The existing eviction hierarchy based on QoS tiers is preserved to ensure introduction of swap does not fundamentally change how Kubernetes handles node-pressure eviction.\n\n[swappiness]:"
+    },
+    {
+      "id": "F011",
+      "format": "text",
+      "text": "Malicious users may expose a vulnerability in the kernel by exploiting this gap. Here is an example of how a malicious user can exploit this gap to crash the kernel. User creates a `PVC` with `volumeMode: Block` and runs a pod with it. User writes malformed ext4 data to it (simple dd) User takes snapshot of this volume. User creates a `PVC` with `volumeMode: Filesystem` from the above snapshot. User uses this `PVC` in a pod."
+    },
+    {
+      "id": "F012",
+      "format": "text",
+      "text": "Users can leverage the `VolumeSnapshot` feature, which GA'd in Kubernetes 1.20, to create a `PersistentVolumeClaim` or `PVC` from a previously taken VolumeSnapshot. This is done by pointing the `Spec.dataSource` parameter of the `PVC` to an existing `VolumeSnapshot` instance. There is no logic that validates whether the original volume mode of the `PVC`, whose snapshot was taken, matches the volume mode of the newly created `PVC` that is being created from the existing `VolumeSnapshot`. This KEP proposes a solution to prevent unauthorized conversion of the volume mode during such an operation."
+    },
+    {
+      "id": "F013",
+      "format": "text",
+      "text": "This KEP introduces BindingConditions, a mechanism that defers Pod binding until external resources (e.g., fabric-attached GPUs, FPGAs) are confirmed ready. Unlike current scheduling, which assumes immediate readiness, this feature prevents premature binding and improves reliability for asynchronous or failure-prone resources.\n\nWhile the original motivation for this KEP was to support fabric-attached devices in composable disaggregated infrastructure, the proposed mechanism is designed to be broadly applicable. BindingConditions enable the scheduler to defer Pod binding until external resources (such as attachable devices, remote accelerators, or programmable hardware) are confirmed to be ready. This allows for more deterministic scheduling and avoids premature binding that could lead to Pod failures or manual intervention.\n\nThe mechanism is not tied to any specific hardware model or infrastructure. It can support a wide range of use cases, including: Fabric-attached GPUs that require dynamic attachment via PCIe or CXL switches FPGAs that need time-consuming reprogramming before use\n\nIf device preparation fails (e.g., due to contention or hardware error), the scheduler may clear the allocation and allow the Pod to be reconsidered for scheduling. This fallback behavior is part of error handling, but the primary goal is to enable more robust and predictable scheduling by explicitly modeling readiness before binding."
+    },
+    {
+      "id": "F014",
+      "format": "text",
+      "text": "Kubernetes clusters are increasingly deployed in multi-zone environments. Network traffic is routed randomly to any endpoint matching a Service. Some users might want the traffic to stay in the same zone for the following reasons: Cost savings: Keeping traffic within a zone can limit cross-zone networking costs. Performance: Traffic within a zone usually has less latency and bandwidth constraints, having a better performance than traffic leaving the zone.\n\nIn this KEP we are going to focus on avoiding cross-zone traffic when in-zone endpoints would suffice. We're attempting to provide a simple and more automatic approach to topology aware routing. This API will still allow users to indicate that they prefer to keep traffic in the same zone if there's sufficient capacity. With this approach users won't have to configure anything by default for most use cases."
+    },
+    {
+      "id": "F015",
+      "format": "text",
+      "text": "**Strict Routing Guarantees:** The `trafficDistribution` field will not enforce deterministic routing paths. It serves as a mechanism for expressing hints and preferences that implementations can consider when making routing decisions. **Replacement of Traffic Policies:** The new field is complementary to `internalTrafficPolicy` and `externalTrafficPolicy`. It does not aim to substitute their role in enforcing strict traffic locality. **Immediate Support for All Possible Heuristics:** The initial implementation focuses on a core set of heuristics. Addition of new heuristics (like `Local` for Node local preference) could be explored in future refinements. (See"
+    },
+    {
+      "id": "F016",
+      "format": "text",
+      "text": "Extensibility - it's obvious that what is proposed in this KEP will not be a final step and we will be evolving it. How can we ensure that we will not put ourselves into a corner.\n\nMitigation: We enumerate potential extensions after the detailed design and briefly sketch how the proposed design can be extended to accommodate these. Incompatible scheduler profiles - different scheduling profiles may enable different sets of plugins and if only subset of profiles enable `GangScheduling` plugin (responsible also for workload-aware preemption), we may break the expectations.\n\nMitigation: We will document that `GangScheduling` plugin has to be enabled in all profiles or the logic will need to be reimplemented by other custom plugins. Eventually we may consider builtin validation, but we make it out of scope for this KEP. Scalability - finding the optimal set of pod groups/pods to preempt is computationally expensive problem, however we need to ensure it can be used even in the largest Kubernetes clusters.\n\nMitigation: We propose a simplified algorithm that is computationally feasible at the cost of providing \"reasonably good\" preemption victim candidates."
+    },
+    {
+      "id": "F017",
+      "format": "text",
+      "text": "Add a new field, `trafficDistribution`, to the Service specification. This field will serve as preference or hint for the underlying implementation to consider while making routing decisions. It does not offer strict routing guarantees.\n\nThe field will support the following initial values: `PreferClose`: Indicates a preference for routing traffic to endpoints in the same zone as the client.\n\n(For background on the name `PreferClose` and its definition, see the \"An alternative definition of PreferClose\" section)\n\nThe absence of a value indicates no specific routing preference. In this case, the user delegates the routing decision to the implementation, allowing it to apply its best-effort strategy.\n\nImplementations SHOULD support the standard values. While some flexibility in interpretation is permitted, implementations should aim to align their behavior with the described intent of these preferences as closely as possible."
+    },
+    {
+      "id": "F018",
+      "format": "text",
+      "text": "**Enable Readiness-Aware Binding**: Introduce a mechanism (`BindingConditions`) that allows the scheduler to defer Pod binding until external resources are confirmed to be ready. This improves scheduling reliability and avoids premature binding in environments where resource preparation is asynchronous or failure-prone. **Define Binding and Failure Conditions Explicitly**: Allow device providers to specify `BindingConditions` and `BindingFailureConditions` that the scheduler can evaluate during the PreBind phase. **Prioritize Devices Based on Readiness**: When multiple candidate devices are available, the scheduler should prefer devices in the following order: Devices without any `BindingConditions` (i.e., immediately usable) Devices with `BindingConditions` (i.e., require preparation)\n\nThis prioritization naturally favors node-local devices over fabric-attached ones, assuming the latter require preparation."
+    },
+    {
+      "id": "F019",
+      "format": "text",
+      "text": "Currently, Users cannot configure ulimits for individual containers. Ulimits are typically inherited from the container runtime (e.g., crio, containerd), which in turn inherit them from the host operating system or systemd configuration.\n\nWhen running workloads with specific resource requirements, fine-grained control over ulimits is often necessary to optimize performance, ensure stability, or meet application needs. For instance, databases such as Elasticsearch or high-concurrency servers may require higher limits for open files or processes than the runtime defaults. Without native support, users are forced to resort to workarounds such as modifying host ulimits, setting ulimits through additional entrypoint scripts, or patching container runtime configurations—all of which lack portability, security, and scalability in multi-tenant clusters."
+    },
+    {
+      "id": "F020",
+      "format": "text",
+      "text": "Kubernetes currently does not support the use of swap memory on Linux, as it is difficult to provide guarantees and account for pod memory utilization when swap is involved. As part of Kubernetes’ earlier design, swap support was considered out of scope. However, there are a number of use cases that would benefit from Kubernetes nodes supporting swap. Hence, this proposal aims to add swap support to nodes in a controlled, predictable manner so that Kubernetes users can perform testing and provide data to continue building cluster capabilities on top of swap."
+    },
+    {
+      "id": "F021",
+      "format": "text",
+      "text": "The CSIDriver objects will need to be redeployed after this field is introduced if the desired behavior is modified. If a cluster enables the `CSIVolumeFSGroupPolicy` feature gate and then this feature gate is disabled, such as due to an upgrade or downgrade, then the cluster will revert to the current behavior of examining volumes and attempting to apply volume ownerships and permissions based on the defined `fsGroup`."
+    },
+    {
+      "id": "F022",
+      "format": "text",
+      "text": "Moving the EndpointSlice reconciler to staging has several benefits: The reconciler logic can be reused by custom EndpointSlice controllers. The fanout behavior is difficult to implement correctly and the current reconciler code has gone through several iterations to reach its currently level of robustness. There are cases where reconciler code has either been forked or rewritten, both of which are problematic from a supportability perspective. It reduces the burden of fully migrating from Endpoints to EndpointSlices. It’s relatively easy to write a custom Endpoints controller, but less so with EndpointSlices. So, the migration path is unclear for pre-existing custom Endpoints controllers. Having a library that handles the more difficult aspects of managing EndpointSlices would mitigate some of the risk in migrating these controllers. It would help to realize one of the design goals of EndpointSlices: that other controllers would exist to manage EndpointSlices, which is why the `endpointslice.kubernetes.io/managed-by` annotation was added."
+    },
+    {
+      "id": "F023",
+      "format": "text",
+      "text": "This document describes the Kubernetes Scheduling Framework. The scheduling framework is a new set of \"plugin\" APIs being added to the existing Kubernetes Scheduler. Plugins are compiled into the scheduler, and these APIs allow many scheduling features to be implemented as plugins, while keeping the scheduling \"core\" simple and maintainable.\n\n*Note: Previous versions of this document proposed replacing the existing scheduler with a new implementation.*"
+    },
+    {
+      "id": "F024",
+      "format": "text",
+      "text": "Many features are being added to the Kubernetes Scheduler. They keep making the code larger and the logic more complex. A more complex scheduler is harder to maintain, its bugs are harder to find and fix, and those users running a custom scheduler have a hard time catching up and integrating new changes. The current Kubernetes scheduler provides [webhooks to extend][] its functionality. However, these are limited in a few ways:\n\n[webhooks to extend]: The number of extension points are limited: \"Filter\" extenders are called after default predicate functions."
+    },
+    {
+      "id": "F025",
+      "format": "text",
+      "text": "do nothing (leave it as-is) relax the rule, but with a long beta period where the existing rule remains the default. Ensure that the beta period doesn't end until ValidatingAdmissionPolicy is GA and has been for 2 minor releases. *Clearly* document how to use a ValidatingAdmissionPolicy to get behavior equivalent to the legacy checking, and signpost people to these docs when graduating the looser validation to be the Kubernetes default. define a label or annotation for each namespace that controls how Pod environment variables are validated in that namespace [more complex!] add an API kind to specify the validation rules for Pods\n\nCreate a new API kind, eg PodValidationRule. It's **namespaced**. Within the `.spec` of each object, define: a Pod selector an optional CEL validation rule for environment variable keys an optional CEL validation rule for environment variable values\n\nIf any of the selected validation rules don't pass for a Pod, reject it at admission time. Set up a defaulting mechanism to Also, define how Pod templates interact with this new API (eg: you get a `Warning:` when you create a Deployment where the PodTemplate inside the Deployment wouldn't pass validation)"
+    },
+    {
+      "id": "F026",
+      "format": "text",
+      "text": "Don't break any existing behavior, even obviously unintentional behavior that currently works. Enable users to create pre-populated volumes in a manner consistent with current practice Enable developers to innovate with new an interesting data sources Minimize change to existing workflows and breaking existing tools with new behavior Ensure that users continue to get accurate error messages and feedback about volume creation progress, whether using existing methods of volume creation or specifying a data source associated with a volume populator. Maintain existing pattern of allowing things to happen out of order. As long as there's a chance things will succeed in the future, just provide a status update and retry again later."
+    },
+    {
+      "id": "F027",
+      "format": "text",
+      "text": "A feature gate name `RelaxedEnvironmentVariableValidation` controlling the loosening of the envvar name validation, initially in alpha state and defaulting to false Two sets of validation logic for envvar names: Strict validation Strict validation follows the current design, which only allows envvar names passed the regular expression `[-._a-zA-Z][-._a-zA-Z0-9]*`. Relaxed validation Relaxed verification allows all ASCII characters in the range 32-126 as envvar name, and its regular expression is `^[ -<>-~]+$`, matches a string containing ASCII characters from `space` to `<` and from `>` to `~`, ignore `=`, and has a length of at least 1. Everywhere we validate envvar names in API objects, plumbing a parameter whether we want the strict or relaxed validation At the top level validation method when validating API create requests, use the strict validation if the feature gate is off At the top level validation method when validating API update requests, use the strict validation if the feature gate is off and the old object passes strict envvar name validation"
+    },
+    {
+      "id": "F028",
+      "format": "text",
+      "text": "Currently before bind mounting a CSI volume for a Pod, we use imprecise heuristics, such as presence of fsType on the PVC to determine if the volume supports fsGroup based permission change. These heuristics are known to be fragile, and cause problems with different storage types.\n\nTo solve this issue we will add a new field called `CSIDriver.Spec.FSGroupPolicy` that allows the driver to define if it supports volume ownership modifications via fsGroup."
+    },
+    {
+      "id": "F029",
+      "format": "text",
+      "text": "If the envvar name character set is extended, all the things currently consuming and using envvar names from the API will have an impact and may break or be unsafe.\n\nFor example: If a third party uses an envvar name as a filename and assumes that it is currently safe, then if it contains characters that cannot be used as a filename (like `:`) or characters that break the assumptions of a flat directory structure (like `/`), then unexpected results will occur."
+    },
+    {
+      "id": "F030",
+      "format": "text",
+      "text": "We summarize the implementation plan as following: Add a feature gate `NodeSwap` to enable swap support. Leave the default value of kubelet flag `--fail-on-swap` to `true`, to avoid changing default behaviour. Introduce a new kubelet config parameter, `MemorySwap`, which configures how much swap Kubernetes workloads can use on the node. Introduce a new CRI parameter, `memory_swap_limit_in_bytes`. Ensure container runtimes are updated so they can make use of the new CRI configuration. Based on the behaviour set in the kubelet config, the kubelet will instruct the CRI on the amount of swap to allocate to each container. The container runtime will then write the swap settings to the container level cgroup. Add node stats to report swap usage."
+    },
+    {
+      "id": "F031",
+      "format": "text",
+      "text": "Add the staging repository (`staging/src/k8s.io/endpointslice`) to `kubernetes/kubernetes` by following the steps in the [staging directory README][staging-readme]. Move the reconciler submodule and it’s dependencies to the staging directory and update imports in `pkg/controller/endpointslice`. This should be a single atomic change. Some methods need to be made public to allow for reconciler code to be used as a library (at least `NewReconciler` and `Reconcile`). Allow for the value of the `endpointslice.kubernetes.io/managed-by` label to be configurable by adding `managedBy` as an argument to `NewReconciler`. Split computing the diff (EndpointSlices to create, update, and delete) and applying the diff into separate methods. This allows for controllers to easily add metadata to the managed EndpointSlices (e.g. adding an annotation).\n\n[staging-readme]: \"External Repository Staging Area\""
+    },
+    {
+      "id": "F032",
+      "format": "text",
+      "text": "The Scheduling Framework defines new extension points and Go APIs in the Kubernetes Scheduler for use by \"plugins\". Plugins add scheduling behaviors to the scheduler, and are included at compile time. The scheduler's ComponentConfig will allow plugins to be enabled, disabled, and reordered. Custom schedulers can write their plugins \"out-of-tree\" and compile a scheduler binary with their own plugins included."
+    },
+    {
+      "id": "F033",
+      "format": "text",
+      "text": "Currently volume permission and ownership change is examined for every volume. If the PodSecurityPolicy's `fsGroup` is defined, `fsType` is defined, and the PersistentVolumes's `accessModes` is RWO, then we will attempt to modify the volume ownership and permissions.\n\nAs part of this proposal we will change the algorithm that modifies volume ownership and permissions for CSIDrivers to check the new field, and skip volume ownership modifications if it is found to be `None`.\n\nWhen defining a `CSIDriver`, we propose that `CSIDriver.Spec` be expanded to include a new field entitled `CSIVolumeFSGroupPolicy` which can have following possible values: `ReadWriteOnceWithFSType` --> Current behavior. Attempt to modify the volume ownership and permissions to the defined `fsGroup` when the volume is mounted if accessModes is RWO. `None` --> New behavior. Attach the volume without attempting to modify volume ownership or permissions. `File` --> New behavior. Always attempt to apply the defined fsGroup to modify volume ownership and permissions regardless of fstype or access mode."
+    },
+    {
+      "id": "F034",
+      "format": "text",
+      "text": "Kubernetes clusters are increasingly deployed in multi-zone environments but unfortunately network routing has not caught up with that. This KEP proposes an automatic topology aware hinting mechanism that would provide a way for EndpointSlice producers to indicate where consumers should use specific endpoints. Even in scenarios where endpoints are not balanced evenly across zones, EndpointSlice producers could use these hints to allocate endpoints from zones with extra endpoints to zones with insufficient endpoints.\n\nThis would enable EndpointSlice consumers such as Kube-Proxy to implement simple topology aware routing. This proposal is currently focused on topology aware routing at zone level but could be expanded to include region.\n\nIn the short term, this is taking the place of two closely related KEPs that were never implemented. These KEPs relate to EndpointSlice subsetting and are still relevant, just deferred to a later point in time. This doc has more info on this transition."
+    },
+    {
+      "id": "F035",
+      "format": "text",
+      "text": "Provide a simple way for users to indicate their preference for keeping traffic in zone. Use the standard topology label `topology.kubernetes.io/zone` to derive the zones of nodes and endpoints. Use EndpointSlice hints as the primary mechanism for topology aware routing. Minimize churn of EndpointSlices while doing topology aware distribution. Minimize the number of new EndpointSlices required. Provide a simple API that requires minimal configuration for most users."
+    },
+    {
+      "id": "F036",
+      "format": "text",
+      "text": "One alternative considered as a short-term workaround for unnecessary preemption was the introduction of \"delayed preemption\". The proposed delayed preemption mechanism was structured as follows: Modify the `DefaultPreemption` plugin to just compute preemptions, without actuating them. Extend the `PostFilterResult` to include a set of victims (in addition to the existing `NominationInfo`). This will allows to clearly decouple the computation from actuation."
+    }
+  ]
+}

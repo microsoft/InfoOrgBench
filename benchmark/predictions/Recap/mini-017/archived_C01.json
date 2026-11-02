@@ -1,0 +1,326 @@
+{
+  "assignments": [
+    {
+      "id": "F001",
+      "path": [
+        "Design_Development",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F002",
+      "path": [
+        "Design_Development",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F003",
+      "path": [
+        "Design_Kickoff",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F004",
+      "path": [
+        "Design_Kickoff",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F005",
+      "path": [
+        "Design_Kickoff",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F006",
+      "path": [
+        "Design_Kickoff",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F007",
+      "path": [
+        "Design_Kickoff",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F008",
+      "path": [
+        "Design_Kickoff",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F009",
+      "path": [
+        "Design_Development",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F010",
+      "path": [
+        "Design_Kickoff",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F011",
+      "path": [
+        "Design_Kickoff",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F012",
+      "path": [
+        "Design_Development",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F013",
+      "path": [
+        "Design_Development",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F014",
+      "path": [
+        "Design_Development",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F015",
+      "path": [
+        "Design_Kickoff",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F016",
+      "path": [
+        "Design_Development",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F017",
+      "path": [
+        "Design_Kickoff",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F018",
+      "path": [
+        "Design_Development",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F019",
+      "path": [
+        "Design_Development",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F020",
+      "path": [
+        "Design_Development",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F021",
+      "path": [
+        "Design_Development",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F022",
+      "path": [
+        "Design_Development",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F023",
+      "path": [
+        "Design_Development",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F024",
+      "path": [
+        "Design_Development",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F025",
+      "path": [
+        "Design_Development",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F026",
+      "path": [
+        "Design_Kickoff",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F027",
+      "path": [
+        "Design_Kickoff",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F028",
+      "path": [
+        "Design_Development",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F029",
+      "path": [
+        "Design_Kickoff",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F030",
+      "path": [
+        "Design_Kickoff",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F031",
+      "path": [
+        "Design_Kickoff",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F032",
+      "path": [
+        "Design_Kickoff",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F033",
+      "path": [
+        "Design_Development",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F034",
+      "path": [
+        "Design_Development",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F035",
+      "path": [
+        "Design_Development",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F036",
+      "path": [
+        "Design_Kickoff",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F037",
+      "path": [
+        "Design_Development",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F038",
+      "path": [
+        "Design_Development",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F039",
+      "path": [
+        "Design_Development",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F040",
+      "path": [
+        "Design_Development",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F041",
+      "path": [
+        "Design_Development",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F042",
+      "path": [
+        "Design_Development",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F043",
+      "path": [
+        "Design_Kickoff",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F044",
+      "path": [
+        "Design_Kickoff",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F045",
+      "path": [
+        "Design_Development",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F046",
+      "path": [
+        "Design_Kickoff",
+        "Overview"
+      ]
+    }
+  ]
+}

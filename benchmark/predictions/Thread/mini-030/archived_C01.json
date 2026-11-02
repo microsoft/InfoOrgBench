@@ -1,0 +1,354 @@
+{
+  "assignments": [
+    {
+      "id": "F001",
+      "path": [
+        "ABFS fileSystemExists Fix",
+        "Backport to Branch-2"
+      ]
+    },
+    {
+      "id": "F002",
+      "path": [
+        "ABFS Metrics",
+        "Enhancement"
+      ]
+    },
+    {
+      "id": "F003",
+      "path": [
+        "Rate Limiting in Manifest",
+        "Load Testing"
+      ]
+    },
+    {
+      "id": "F004",
+      "path": [
+        "XAttr Root Path Fix",
+        "Related"
+      ]
+    },
+    {
+      "id": "F005",
+      "path": [
+        "Rate Limiting in Manifest",
+        "Load Testing"
+      ]
+    },
+    {
+      "id": "F006",
+      "path": [
+        "Rate Limiting in Manifest",
+        "Load Testing"
+      ]
+    },
+    {
+      "id": "F007",
+      "path": [
+        "Rate Limiting in Manifest",
+        "Load Testing"
+      ]
+    },
+    {
+      "id": "F008",
+      "path": [
+        "Release Preparation",
+        "Target Version Update"
+      ]
+    },
+    {
+      "id": "F009",
+      "path": [
+        "XAttr Root Path Fix",
+        "Review Discussion"
+      ]
+    },
+    {
+      "id": "F010",
+      "path": [
+        "IsNamespaceEnabled",
+        "Exception Handling"
+      ]
+    },
+    {
+      "id": "F011",
+      "path": [
+        "Related Issues",
+        "Side Notes"
+      ]
+    },
+    {
+      "id": "F012",
+      "path": [
+        "Rate Limiting in Manifest",
+        "Load Testing"
+      ]
+    },
+    {
+      "id": "F013",
+      "path": [
+        "Random Read Performance",
+        "Investigation"
+      ]
+    },
+    {
+      "id": "F014",
+      "path": [
+        "XAttr Root Path Fix",
+        "Review Discussion"
+      ]
+    },
+    {
+      "id": "F015",
+      "path": [
+        "XAttr Root Path Fix",
+        "Review Discussion"
+      ]
+    },
+    {
+      "id": "F016",
+      "path": [
+        "XAttr Root Path Fix",
+        "Review Discussion"
+      ]
+    },
+    {
+      "id": "F017",
+      "path": [
+        "Random Read Performance",
+        "Discussion"
+      ]
+    },
+    {
+      "id": "F018",
+      "path": [
+        "XAttr Root Path Fix",
+        "Review Discussion"
+      ]
+    },
+    {
+      "id": "F019",
+      "path": [
+        "Related Issues",
+        "Decision"
+      ]
+    },
+    {
+      "id": "F020",
+      "path": [
+        "Random Read Performance",
+        "Discussion"
+      ]
+    },
+    {
+      "id": "F021",
+      "path": [
+        "ABFS fileSystemExists Fix",
+        "Backport to Branch-2"
+      ]
+    },
+    {
+      "id": "F022",
+      "path": [
+        "Rate Limiting in Manifest",
+        "Load Testing"
+      ]
+    },
+    {
+      "id": "F023",
+      "path": [
+        "XAttr Root Path Fix",
+        "Review Discussion"
+      ]
+    },
+    {
+      "id": "F024",
+      "path": [
+        "Random Read Performance",
+        "Discussion"
+      ]
+    },
+    {
+      "id": "F025",
+      "path": [
+        "Rate Limiting in Manifest",
+        "Load Testing"
+      ]
+    },
+    {
+      "id": "F026",
+      "path": [
+        "XAttr Root Path Fix",
+        "Review Discussion"
+      ]
+    },
+    {
+      "id": "F027",
+      "path": [
+        "Rate Limiting in Manifest",
+        "Load Testing"
+      ]
+    },
+    {
+      "id": "F028",
+      "path": [
+        "XAttr Root Path Fix",
+        "Review Discussion"
+      ]
+    },
+    {
+      "id": "F029",
+      "path": [
+        "XAttr Root Path Fix",
+        "Review Discussion"
+      ]
+    },
+    {
+      "id": "F030",
+      "path": [
+        "Documentation",
+        "Configuration"
+      ]
+    },
+    {
+      "id": "F031",
+      "path": [
+        "XAttr Root Path Fix",
+        "Review Discussion"
+      ]
+    },
+    {
+      "id": "F032",
+      "path": [
+        "Rate Limiting in Manifest",
+        "Load Testing"
+      ]
+    },
+    {
+      "id": "F033",
+      "path": [
+        "Rate Limiting in Manifest",
+        "Load Testing"
+      ]
+    },
+    {
+      "id": "F034",
+      "path": [
+        "Rate Limiting in Manifest",
+        "Load Testing"
+      ]
+    },
+    {
+      "id": "F035",
+      "path": [
+        "IsNamespaceEnabled",
+        "Test Results"
+      ]
+    },
+    {
+      "id": "F036",
+      "path": [
+        "IsNamespaceEnabled",
+        "Coordination"
+      ]
+    },
+    {
+      "id": "F037",
+      "path": [
+        "IsNamespaceEnabled",
+        "Coordination"
+      ]
+    },
+    {
+      "id": "F038",
+      "path": [
+        "XAttr Root Path Fix",
+        "Task"
+      ]
+    },
+    {
+      "id": "F039",
+      "path": [
+        "XAttr Root Path Fix",
+        "Review Discussion"
+      ]
+    },
+    {
+      "id": "F040",
+      "path": [
+        "XAttr Root Path Fix",
+        "Review Discussion"
+      ]
+    },
+    {
+      "id": "F041",
+      "path": [
+        "XAttr Root Path Fix",
+        "Review Discussion"
+      ]
+    },
+    {
+      "id": "F042",
+      "path": [
+        "Rate Limiting in Manifest",
+        "Load Testing"
+      ]
+    },
+    {
+      "id": "F043",
+      "path": [
+        "Rate Limiting in Manifest",
+        "Load Testing"
+      ]
+    },
+    {
+      "id": "F044",
+      "path": [
+        "Retry Policy",
+        "Refactoring"
+      ]
+    },
+    {
+      "id": "F045",
+      "path": [
+        "IsNamespaceEnabled",
+        "Test Results"
+      ]
+    },
+    {
+      "id": "F046",
+      "path": [
+        "Rate Limiting in Manifest",
+        "Load Testing"
+      ]
+    },
+    {
+      "id": "F047",
+      "path": [
+        "Rate Limiting in Manifest",
+        "Load Testing"
+      ]
+    },
+    {
+      "id": "F048",
+      "path": [
+        "Random Read Performance",
+        "Discussion"
+      ]
+    },
+    {
+      "id": "F049",
+      "path": [
+        "Debug Logging",
+        "Rename Failures"
+      ]
+    },
+    {
+      "id": "F050",
+      "path": [
+        "Random Read Performance",
+        "Discussion"
+      ]
+    }
+  ]
+}

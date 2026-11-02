@@ -1,0 +1,215 @@
+{
+  "task_id": "ami/mini-005",
+  "records": [
+    {
+      "id": "F001",
+      "format": "text",
+      "text": "She discussed including only the most basic functions in the interface."
+    },
+    {
+      "id": "F002",
+      "format": "text",
+      "text": "There will be no buttons for controlling a VCR or other device; the interface will feature only channel and volume up/down buttons, a number pad, and a menu button to access the menu functions on a television."
+    },
+    {
+      "id": "F003",
+      "format": "text",
+      "text": "The device will be marketed to all age groups, and made simple for those with less technical skills."
+    },
+    {
+      "id": "F004",
+      "format": "text",
+      "text": "She suggested integrating an extra lightbulb that lit up when the remote was communicating with the television."
+    },
+    {
+      "id": "F005",
+      "format": "text",
+      "text": "The LCD screen will appear only in black and white."
+    },
+    {
+      "id": "F006",
+      "format": "text",
+      "text": "The Industrial Designer presented the prototype and discussed its look, its internal components, and its interface."
+    },
+    {
+      "id": "F007",
+      "format": "text",
+      "text": "The Marketing Expert will prepare a trendwatching report."
+    },
+    {
+      "id": "F008",
+      "format": "text",
+      "text": "The group decided to remove speech recognition but to propose to the management that it  remain in the design."
+    },
+    {
+      "id": "F009",
+      "format": "text",
+      "text": "All members felt that they interacted well and that they felt they could be creative."
+    },
+    {
+      "id": "F010",
+      "format": "text",
+      "text": "The Project Manager instructed the Industrial Designer to prepare the components concept, the User Interface Designer to prepare the interface concept, and the Marketing Expert to prepare a trendwatching report."
+    },
+    {
+      "id": "F011",
+      "format": "text",
+      "text": "The interface will contain larger buttons."
+    },
+    {
+      "id": "F012",
+      "format": "text",
+      "text": "The remote will include the company color and logo in its design."
+    },
+    {
+      "id": "F013",
+      "format": "text",
+      "text": "The User Interface Designer presented the basic functions of the device and discussed the designs of two existing products, showing an example of the simple design that the group wants to implement."
+    },
+    {
+      "id": "F014",
+      "format": "text",
+      "text": "All members will fill out a final evaluation questionnaire."
+    },
+    {
+      "id": "F015",
+      "format": "text",
+      "text": "The company logo will appear on the inside of the device when opened."
+    },
+    {
+      "id": "F016",
+      "format": "text",
+      "text": "The group discussed marketing the product to a wide range of customers."
+    },
+    {
+      "id": "F017",
+      "format": "text",
+      "text": "The group then discussed their effectiveness as a team."
+    },
+    {
+      "id": "F018",
+      "format": "text",
+      "text": "The Project Manager went over decisions from the previous meeting."
+    },
+    {
+      "id": "F019",
+      "format": "text",
+      "text": "The group then decided that enough of this criteria had been satisfied for the project to continue."
+    },
+    {
+      "id": "F020",
+      "format": "text",
+      "text": "The Industrial Designer presented her internal design of the device and discussed the processor chip and the energy sources that will be integrated."
+    },
+    {
+      "id": "F021",
+      "format": "text",
+      "text": "They discussed integrating the company's yellow color and logo into the design, and decreasing the number of buttons in the main interface."
+    },
+    {
+      "id": "F022",
+      "format": "text",
+      "text": "The group decided that the device fulfilled enough of the project's initial goals to continue in production."
+    },
+    {
+      "id": "F023",
+      "format": "text",
+      "text": "There was a lack of cost information at the beginning of the project."
+    },
+    {
+      "id": "F024",
+      "format": "text",
+      "text": "The group did not know how much the features made available to them actually cost until the prototype was constructed; their prototype design may have been different had this information been available at the beginning."
+    },
+    {
+      "id": "F025",
+      "format": "text",
+      "text": "It was decided that the speech recognition component seemed feasible, so it was added to the prototype design to provide a device locator function."
+    },
+    {
+      "id": "F026",
+      "format": "text",
+      "text": "The User Interface Designer will prepare the interface concept for the device."
+    },
+    {
+      "id": "F027",
+      "format": "text",
+      "text": "The remote will feature a smart processor chip to accomodate all of the remote's functions."
+    },
+    {
+      "id": "F028",
+      "format": "text",
+      "text": "The Industrial Designer will prepare the components concept for the device."
+    },
+    {
+      "id": "F029",
+      "format": "text",
+      "text": "The group will suggest to the management that speech recognition remain in the product design."
+    },
+    {
+      "id": "F030",
+      "format": "text",
+      "text": "The Project Manager gave the group new requirements for the product design."
+    },
+    {
+      "id": "F031",
+      "format": "text",
+      "text": "It was removed when the project exceeded its initial budget, but it will be suggested to the management that the speech recognition should remain in the product design."
+    },
+    {
+      "id": "F032",
+      "format": "text",
+      "text": "The group will consider including speech recognition and a locator function in the functional design."
+    },
+    {
+      "id": "F033",
+      "format": "text",
+      "text": "The remote will feature mainly basic functions, such as channel changing and volume adjustments, so that the interface will have less buttons."
+    },
+    {
+      "id": "F034",
+      "format": "text",
+      "text": "The remote will feature an extra lightbulb that will light up when the remote is communicating with the television."
+    },
+    {
+      "id": "F035",
+      "format": "text",
+      "text": "The Marketing Expert presented feedback from users, showing that users want a simple but fancy-looking remote control and that young users want speech recognition."
+    },
+    {
+      "id": "F036",
+      "format": "text",
+      "text": "The group did express, however, that the budget was overly constraining."
+    },
+    {
+      "id": "F037",
+      "format": "text",
+      "text": "They had a discussion about possibly including a locator function and speech recognition."
+    },
+    {
+      "id": "F038",
+      "format": "text",
+      "text": "The Marketing Expert evaluated the product according to the initial product goals."
+    },
+    {
+      "id": "F039",
+      "format": "text",
+      "text": "The Project Manager presented the final cost of the device which exceeded the initial projected price point."
+    },
+    {
+      "id": "F040",
+      "format": "text",
+      "text": "The plastic case will be a neutral color, and the changeable rubber cases will be available in vibrant, fruit colors."
+    },
+    {
+      "id": "F041",
+      "format": "text",
+      "text": "The Marketing Expert felt that the market-research based approach would help the project's success with consumers."
+    },
+    {
+      "id": "F042",
+      "format": "text",
+      "text": "The Project Manager instructed the group to fill out a final evaluation questionnaire."
+    }
+  ]
+}

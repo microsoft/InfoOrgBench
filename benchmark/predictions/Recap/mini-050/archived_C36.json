@@ -1,0 +1,424 @@
+{
+  "assignments": [
+    {
+      "id": "F001",
+      "path": [
+        "Functional-Requirements",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F002",
+      "path": [
+        "Component-and-Interface-Design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F003",
+      "path": [
+        "Component-and-Interface-Design",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F004",
+      "path": [
+        "Component-and-Interface-Design",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F005",
+      "path": [
+        "Functional-Requirements",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F006",
+      "path": [
+        "Functional-Requirements",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F007",
+      "path": [
+        "Project-Kickoff",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F008",
+      "path": [
+        "Project-Kickoff",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F009",
+      "path": [
+        "Project-Kickoff",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F010",
+      "path": [
+        "Functional-Requirements",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F011",
+      "path": [
+        "Functional-Requirements",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F012",
+      "path": [
+        "Project-Kickoff",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F013",
+      "path": [
+        "Remote-Feature-Design",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F014",
+      "path": [
+        "Functional-Requirements",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F015",
+      "path": [
+        "Project-Kickoff",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F016",
+      "path": [
+        "Project-Kickoff",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F017",
+      "path": [
+        "Project-Kickoff",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F018",
+      "path": [
+        "Remote-Feature-Design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F019",
+      "path": [
+        "Functional-Requirements",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F020",
+      "path": [
+        "Functional-Requirements",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F021",
+      "path": [
+        "Component-and-Interface-Design",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F022",
+      "path": [
+        "Remote-Feature-Design",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F023",
+      "path": [
+        "Component-and-Interface-Design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F024",
+      "path": [
+        "Project-Kickoff",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F025",
+      "path": [
+        "Component-and-Interface-Design",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F026",
+      "path": [
+        "Component-and-Interface-Design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F027",
+      "path": [
+        "Functional-Requirements",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F028",
+      "path": [
+        "Remote-Feature-Design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F029",
+      "path": [
+        "Remote-Feature-Design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F030",
+      "path": [
+        "Component-and-Interface-Design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F031",
+      "path": [
+        "Functional-Requirements",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F032",
+      "path": [
+        "Remote-Feature-Design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F033",
+      "path": [
+        "Functional-Requirements",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F034",
+      "path": [
+        "Component-and-Interface-Design",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F035",
+      "path": [
+        "Project-Kickoff",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F036",
+      "path": [
+        "Project-Kickoff",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F037",
+      "path": [
+        "Remote-Feature-Design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F038",
+      "path": [
+        "Functional-Requirements",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F039",
+      "path": [
+        "Project-Kickoff",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F040",
+      "path": [
+        "Functional-Requirements",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F041",
+      "path": [
+        "Project-Kickoff",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F042",
+      "path": [
+        "Component-and-Interface-Design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F043",
+      "path": [
+        "Remote-Feature-Design",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F044",
+      "path": [
+        "Component-and-Interface-Design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F045",
+      "path": [
+        "Functional-Requirements",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F046",
+      "path": [
+        "Project-Kickoff",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F047",
+      "path": [
+        "Functional-Requirements",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F048",
+      "path": [
+        "Project-Kickoff",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F049",
+      "path": [
+        "Functional-Requirements",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F050",
+      "path": [
+        "Functional-Requirements",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F051",
+      "path": [
+        "Project-Kickoff",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F052",
+      "path": [
+        "Functional-Requirements",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F053",
+      "path": [
+        "Component-and-Interface-Design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F054",
+      "path": [
+        "Functional-Requirements",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F055",
+      "path": [
+        "Functional-Requirements",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F056",
+      "path": [
+        "Remote-Feature-Design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F057",
+      "path": [
+        "Functional-Requirements",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F058",
+      "path": [
+        "Functional-Requirements",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F059",
+      "path": [
+        "Functional-Requirements",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F060",
+      "path": [
+        "Functional-Requirements",
+        "Decisions"
+      ]
+    }
+  ]
+}

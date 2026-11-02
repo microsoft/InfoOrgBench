@@ -1,0 +1,361 @@
+{
+  "assignments": [
+    {
+      "id": "F001",
+      "path": [
+        "Prototype-evaluation",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F002",
+      "path": [
+        "Prototype-evaluation",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F003",
+      "path": [
+        "Project-kickoff",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F004",
+      "path": [
+        "Prototype-evaluation",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F005",
+      "path": [
+        "Prototype-evaluation",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F006",
+      "path": [
+        "Prototype-evaluation",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F007",
+      "path": [
+        "Prototype-evaluation",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F008",
+      "path": [
+        "Prototype-evaluation",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F009",
+      "path": [
+        "Project-kickoff",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F010",
+      "path": [
+        "Prototype-evaluation",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F011",
+      "path": [
+        "Prototype-evaluation",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F012",
+      "path": [
+        "Prototype-evaluation",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F013",
+      "path": [
+        "Banana-design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F014",
+      "path": [
+        "Prototype-evaluation",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F015",
+      "path": [
+        "Project-kickoff",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F016",
+      "path": [
+        "Banana-design",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F017",
+      "path": [
+        "Prototype-evaluation",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F018",
+      "path": [
+        "Project-kickoff",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F019",
+      "path": [
+        "Banana-design",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F020",
+      "path": [
+        "Banana-design",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F021",
+      "path": [
+        "Banana-design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F022",
+      "path": [
+        "Project-kickoff",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F023",
+      "path": [
+        "Banana-design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F024",
+      "path": [
+        "Banana-design",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F025",
+      "path": [
+        "Prototype-evaluation",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F026",
+      "path": [
+        "Banana-design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F027",
+      "path": [
+        "Prototype-evaluation",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F028",
+      "path": [
+        "Project-kickoff",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F029",
+      "path": [
+        "Prototype-evaluation",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F030",
+      "path": [
+        "Prototype-evaluation",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F031",
+      "path": [
+        "Project-kickoff",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F032",
+      "path": [
+        "Banana-design",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F033",
+      "path": [
+        "Project-kickoff",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F034",
+      "path": [
+        "Prototype-evaluation",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F035",
+      "path": [
+        "Banana-design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F036",
+      "path": [
+        "Project-kickoff",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F037",
+      "path": [
+        "Prototype-evaluation",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F038",
+      "path": [
+        "Banana-design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F039",
+      "path": [
+        "Prototype-evaluation",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F040",
+      "path": [
+        "Banana-design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F041",
+      "path": [
+        "Prototype-evaluation",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F042",
+      "path": [
+        "Banana-design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F043",
+      "path": [
+        "Banana-design",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F044",
+      "path": [
+        "Prototype-evaluation",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F045",
+      "path": [
+        "Banana-design",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F046",
+      "path": [
+        "Prototype-evaluation",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F047",
+      "path": [
+        "Banana-design",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F048",
+      "path": [
+        "Prototype-evaluation",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F049",
+      "path": [
+        "Project-kickoff",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F050",
+      "path": [
+        "Banana-design",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F051",
+      "path": [
+        "Project-kickoff",
+        "Actions"
+      ]
+    }
+  ]
+}

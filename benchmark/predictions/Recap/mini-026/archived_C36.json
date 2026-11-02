@@ -1,0 +1,347 @@
+{
+  "assignments": [
+    {
+      "id": "F001",
+      "path": [
+        "Concept-Design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F002",
+      "path": [
+        "Kickoff",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F003",
+      "path": [
+        "Concept-Design",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F004",
+      "path": [
+        "Prototype-Review",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F005",
+      "path": [
+        "Prototype-Review",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F006",
+      "path": [
+        "Concept-Design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F007",
+      "path": [
+        "Kickoff",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F008",
+      "path": [
+        "Concept-Design",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F009",
+      "path": [
+        "Concept-Design",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F010",
+      "path": [
+        "Prototype-Review",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F011",
+      "path": [
+        "Prototype-Review",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F012",
+      "path": [
+        "Prototype-Review",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F013",
+      "path": [
+        "Prototype-Review",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F014",
+      "path": [
+        "Kickoff",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F015",
+      "path": [
+        "Concept-Design",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F016",
+      "path": [
+        "Concept-Design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F017",
+      "path": [
+        "Kickoff",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F018",
+      "path": [
+        "Prototype-Review",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F019",
+      "path": [
+        "Concept-Design",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F020",
+      "path": [
+        "Prototype-Review",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F021",
+      "path": [
+        "Concept-Design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F022",
+      "path": [
+        "Prototype-Review",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F023",
+      "path": [
+        "Concept-Design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F024",
+      "path": [
+        "Concept-Design",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F025",
+      "path": [
+        "Prototype-Review",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F026",
+      "path": [
+        "Prototype-Review",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F027",
+      "path": [
+        "Concept-Design",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F028",
+      "path": [
+        "Kickoff",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F029",
+      "path": [
+        "Prototype-Review",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F030",
+      "path": [
+        "Concept-Design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F031",
+      "path": [
+        "Concept-Design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F032",
+      "path": [
+        "Prototype-Review",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F033",
+      "path": [
+        "Concept-Design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F034",
+      "path": [
+        "Kickoff",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F035",
+      "path": [
+        "Concept-Design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F036",
+      "path": [
+        "Kickoff",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F037",
+      "path": [
+        "Concept-Design",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F038",
+      "path": [
+        "Kickoff",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F039",
+      "path": [
+        "Concept-Design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F040",
+      "path": [
+        "Kickoff",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F041",
+      "path": [
+        "Kickoff",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F042",
+      "path": [
+        "Concept-Design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F043",
+      "path": [
+        "Kickoff",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F044",
+      "path": [
+        "Concept-Design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F045",
+      "path": [
+        "Kickoff",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F046",
+      "path": [
+        "Prototype-Review",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F047",
+      "path": [
+        "Kickoff",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F048",
+      "path": [
+        "Concept-Design",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F049",
+      "path": [
+        "Prototype-Review",
+        "Overview"
+      ]
+    }
+  ]
+}

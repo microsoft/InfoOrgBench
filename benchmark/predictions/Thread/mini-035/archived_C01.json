@@ -1,0 +1,298 @@
+{
+  "assignments": [
+    {
+      "id": "F001",
+      "path": [
+        "Version-management",
+        "release-updates"
+      ]
+    },
+    {
+      "id": "F002",
+      "path": [
+        "Branch-backport",
+        "branch-2.10"
+      ]
+    },
+    {
+      "id": "F003",
+      "path": [
+        "ABFS-random-read",
+        "performance-improvement"
+      ]
+    },
+    {
+      "id": "F004",
+      "path": [
+        "Branch-backport",
+        "branch-2.10"
+      ]
+    },
+    {
+      "id": "F005",
+      "path": [
+        "ABFS-retry-policy",
+        "exponential-retry-config"
+      ]
+    },
+    {
+      "id": "F006",
+      "path": [
+        "S3AInputStream.skip",
+        "skip-lazy-seek"
+      ]
+    },
+    {
+      "id": "F007",
+      "path": [
+        "ABFS-contracts",
+        "parallel-tests"
+      ]
+    },
+    {
+      "id": "F008",
+      "path": [
+        "ABFS-debug-logs",
+        "trace-logging"
+      ]
+    },
+    {
+      "id": "F009",
+      "path": [
+        "ABFS-random-read",
+        "performance-improvement"
+      ]
+    },
+    {
+      "id": "F010",
+      "path": [
+        "S3A-SSL-retry",
+        "ssl-handshake-timeout"
+      ]
+    },
+    {
+      "id": "F011",
+      "path": [
+        "ABFS-contracts",
+        "parallel-tests"
+      ]
+    },
+    {
+      "id": "F012",
+      "path": [
+        "S3AInputStream.skip",
+        "skip-lazy-seek"
+      ]
+    },
+    {
+      "id": "F013",
+      "path": [
+        "S3A-SSL-retry",
+        "ssl-handshake-timeout"
+      ]
+    },
+    {
+      "id": "F014",
+      "path": [
+        "Version-management",
+        "release-updates"
+      ]
+    },
+    {
+      "id": "F015",
+      "path": [
+        "ABFS-debug-logs",
+        "trace-logging"
+      ]
+    },
+    {
+      "id": "F016",
+      "path": [
+        "ABFS-debug-logs",
+        "trace-logging"
+      ]
+    },
+    {
+      "id": "F017",
+      "path": [
+        "ABFS-random-read",
+        "performance-improvement"
+      ]
+    },
+    {
+      "id": "F018",
+      "path": [
+        "Version-management",
+        "release-updates"
+      ]
+    },
+    {
+      "id": "F019",
+      "path": [
+        "Version-management",
+        "release-updates"
+      ]
+    },
+    {
+      "id": "F020",
+      "path": [
+        "S3AInputStream.skip",
+        "skip-lazy-seek"
+      ]
+    },
+    {
+      "id": "F021",
+      "path": [
+        "S3AInputStream.skip",
+        "skip-lazy-seek"
+      ]
+    },
+    {
+      "id": "F022",
+      "path": [
+        "ABFS-retry-policy",
+        "exponential-retry-config"
+      ]
+    },
+    {
+      "id": "F023",
+      "path": [
+        "ABFS-random-read",
+        "performance-improvement"
+      ]
+    },
+    {
+      "id": "F024",
+      "path": [
+        "YARN-log-collect",
+        "s3a-destination"
+      ]
+    },
+    {
+      "id": "F025",
+      "path": [
+        "ABFS-random-read",
+        "performance-improvement"
+      ]
+    },
+    {
+      "id": "F026",
+      "path": [
+        "S3A-SSL-retry",
+        "ssl-handshake-timeout"
+      ]
+    },
+    {
+      "id": "F027",
+      "path": [
+        "ABFS-random-read",
+        "performance-improvement"
+      ]
+    },
+    {
+      "id": "F028",
+      "path": [
+        "Version-management",
+        "release-updates"
+      ]
+    },
+    {
+      "id": "F029",
+      "path": [
+        "ABFS-debug-logs",
+        "trace-logging"
+      ]
+    },
+    {
+      "id": "F030",
+      "path": [
+        "ABFS-config-namespace",
+        "hns-enabled"
+      ]
+    },
+    {
+      "id": "F031",
+      "path": [
+        "ABFS-debug-logs",
+        "trace-logging"
+      ]
+    },
+    {
+      "id": "F032",
+      "path": [
+        "S3A-SSL-retry",
+        "ssl-handshake-timeout"
+      ]
+    },
+    {
+      "id": "F033",
+      "path": [
+        "ABFS-config-namespace",
+        "hns-enabled"
+      ]
+    },
+    {
+      "id": "F034",
+      "path": [
+        "Version-management",
+        "release-updates"
+      ]
+    },
+    {
+      "id": "F035",
+      "path": [
+        "S3AInputStream.skip",
+        "skip-lazy-seek"
+      ]
+    },
+    {
+      "id": "F036",
+      "path": [
+        "ABFS-retry-policy",
+        "exponential-retry-config"
+      ]
+    },
+    {
+      "id": "F037",
+      "path": [
+        "Version-management",
+        "release-updates"
+      ]
+    },
+    {
+      "id": "F038",
+      "path": [
+        "ABFS-config-namespace",
+        "hns-enabled"
+      ]
+    },
+    {
+      "id": "F039",
+      "path": [
+        "S3A-bulk-delete",
+        "iceberg-validation"
+      ]
+    },
+    {
+      "id": "F040",
+      "path": [
+        "Version-management",
+        "release-updates"
+      ]
+    },
+    {
+      "id": "F041",
+      "path": [
+        "S3AInputStream.skip",
+        "skip-lazy-seek"
+      ]
+    },
+    {
+      "id": "F042",
+      "path": [
+        "S3A-SSL-retry",
+        "ssl-handshake-timeout"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,333 @@
+{
+  "assignments": [
+    {
+      "id": "F001",
+      "path": [
+        "Voice_Solar_Review",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F002",
+      "path": [
+        "Voice_Solar_Review",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F003",
+      "path": [
+        "Banana_Design_Review",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F004",
+      "path": [
+        "Banana_Design_Review",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F005",
+      "path": [
+        "Voice_Solar_Review",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F006",
+      "path": [
+        "Voice_Solar_Review",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F007",
+      "path": [
+        "Banana_Design_Review",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F008",
+      "path": [
+        "Voice_Solar_Review",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F009",
+      "path": [
+        "Voice_Solar_Review",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F010",
+      "path": [
+        "Banana_Design_Review",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F011",
+      "path": [
+        "Voice_Solar_Review",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F012",
+      "path": [
+        "Voice_Solar_Review",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F013",
+      "path": [
+        "Banana_Design_Review",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F014",
+      "path": [
+        "Voice_Solar_Review",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F015",
+      "path": [
+        "Banana_Design_Review",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F016",
+      "path": [
+        "Banana_Design_Review",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F017",
+      "path": [
+        "Voice_Solar_Review",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F018",
+      "path": [
+        "Voice_Solar_Review",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F019",
+      "path": [
+        "Voice_Solar_Review",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F020",
+      "path": [
+        "Banana_Design_Review",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F021",
+      "path": [
+        "Banana_Design_Review",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F022",
+      "path": [
+        "Voice_Solar_Review",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F023",
+      "path": [
+        "Voice_Solar_Review",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F024",
+      "path": [
+        "Voice_Solar_Review",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F025",
+      "path": [
+        "Banana_Design_Review",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F026",
+      "path": [
+        "Banana_Design_Review",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F027",
+      "path": [
+        "Banana_Design_Review",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F028",
+      "path": [
+        "Banana_Design_Review",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F029",
+      "path": [
+        "Banana_Design_Review",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F030",
+      "path": [
+        "Voice_Solar_Review",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F031",
+      "path": [
+        "Voice_Solar_Review",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F032",
+      "path": [
+        "Banana_Design_Review",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F033",
+      "path": [
+        "Voice_Solar_Review",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F034",
+      "path": [
+        "Voice_Solar_Review",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F035",
+      "path": [
+        "Banana_Design_Review",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F036",
+      "path": [
+        "Banana_Design_Review",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F037",
+      "path": [
+        "Banana_Design_Review",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F038",
+      "path": [
+        "Voice_Solar_Review",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F039",
+      "path": [
+        "Banana_Design_Review",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F040",
+      "path": [
+        "Voice_Solar_Review",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F041",
+      "path": [
+        "Banana_Design_Review",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F042",
+      "path": [
+        "Banana_Design_Review",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F043",
+      "path": [
+        "Banana_Design_Review",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F044",
+      "path": [
+        "Banana_Design_Review",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F045",
+      "path": [
+        "Voice_Solar_Review",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F046",
+      "path": [
+        "Voice_Solar_Review",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F047",
+      "path": [
+        "Voice_Solar_Review",
+        "Issues"
+      ]
+    }
+  ]
+}

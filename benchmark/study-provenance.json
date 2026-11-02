@@ -1,0 +1,16 @@
+{
+  "study": "completion-20261020",
+  "protocol_sha256": "8bdcacaaadf66b4622115f389909759830ce16a7fc8dba1beed1cb3c37ac1693",
+  "pre_result_commit": "16b3001f0ba694fba4207d7624d9150d314506fb",
+  "scorer_commit": "6e5af354790109f8b85e691da289edec6b3f110f",
+  "source_bundles": {
+    "Recap": "B04",
+    "Design": "B03"
+  },
+  "source_rights": {
+    "Recap": "AMI manual annotations release 1.7, CC BY 4.0; selected source summary sentences.",
+    "Design": "Kubernetes Enhancement Proposals, Apache-2.0; selected proposal excerpts."
+  },
+  "publication": "Local review only. Original code license, source-attribution completeness and publication approval remain unresolved.",
+  "scope": "100 existing exposed tasks. Saved-output replay does not reconstruct historical model inference or certify source access."
+}

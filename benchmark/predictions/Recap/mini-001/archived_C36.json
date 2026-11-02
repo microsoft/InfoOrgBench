@@ -1,0 +1,361 @@
+{
+  "assignments": [
+    {
+      "id": "F001",
+      "path": [
+        "Project kickoff",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F002",
+      "path": [
+        "Concept design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F003",
+      "path": [
+        "Project kickoff",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F004",
+      "path": [
+        "Concept design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F005",
+      "path": [
+        "Project kickoff",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F006",
+      "path": [
+        "Prototype evaluation",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F007",
+      "path": [
+        "Concept design",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F008",
+      "path": [
+        "Project kickoff",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F009",
+      "path": [
+        "Prototype evaluation",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F010",
+      "path": [
+        "Concept design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F011",
+      "path": [
+        "Concept design",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F012",
+      "path": [
+        "Prototype evaluation",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F013",
+      "path": [
+        "Concept design",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F014",
+      "path": [
+        "Prototype evaluation",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F015",
+      "path": [
+        "Concept design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F016",
+      "path": [
+        "Concept design",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F017",
+      "path": [
+        "Concept design",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F018",
+      "path": [
+        "Concept design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F019",
+      "path": [
+        "Prototype evaluation",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F020",
+      "path": [
+        "Concept design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F021",
+      "path": [
+        "Project kickoff",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F022",
+      "path": [
+        "Concept design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F023",
+      "path": [
+        "Project kickoff",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F024",
+      "path": [
+        "Concept design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F025",
+      "path": [
+        "Concept design",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F026",
+      "path": [
+        "Project kickoff",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F027",
+      "path": [
+        "Prototype evaluation",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F028",
+      "path": [
+        "Project kickoff",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F029",
+      "path": [
+        "Concept design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F030",
+      "path": [
+        "Project kickoff",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F031",
+      "path": [
+        "Project kickoff",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F032",
+      "path": [
+        "Prototype evaluation",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F033",
+      "path": [
+        "Concept design",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F034",
+      "path": [
+        "Concept design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F035",
+      "path": [
+        "Project kickoff",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F036",
+      "path": [
+        "Project kickoff",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F037",
+      "path": [
+        "Concept design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F038",
+      "path": [
+        "Prototype evaluation",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F039",
+      "path": [
+        "Prototype evaluation",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F040",
+      "path": [
+        "Concept design",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F041",
+      "path": [
+        "Project kickoff",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F042",
+      "path": [
+        "Project kickoff",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F043",
+      "path": [
+        "Concept design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F044",
+      "path": [
+        "Concept design",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F045",
+      "path": [
+        "Project kickoff",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F046",
+      "path": [
+        "Project kickoff",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F047",
+      "path": [
+        "Prototype evaluation",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F048",
+      "path": [
+        "Project kickoff",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F049",
+      "path": [
+        "Prototype evaluation",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F050",
+      "path": [
+        "Concept design",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F051",
+      "path": [
+        "Project kickoff",
+        "Overview"
+      ]
+    }
+  ]
+}

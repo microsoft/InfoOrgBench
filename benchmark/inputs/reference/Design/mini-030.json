@@ -1,0 +1,366 @@
+{
+  "task_id": "mini-030",
+  "records": [
+    {
+      "id": "F001",
+      "path": [
+        "sig-auth",
+        "740-service-account-external-signing"
+      ],
+      "content_sha256": "a8c7a98fdb232c99beb6e09d5db656495e9afc5745c208c4c3c769bc84b9c71a",
+      "source_native_id": "keps/sig-auth/740-service-account-external-signing#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F002",
+      "path": [
+        "sig-network",
+        "2200-externalips-admission"
+      ],
+      "content_sha256": "95dd9c69d73df0af558fc0f6702c536d84109818e047fa14c6a5bd6b10056366",
+      "source_native_id": "keps/sig-network/2200-externalips-admission#excerpt-2",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F003",
+      "path": [
+        "sig-network",
+        "4858-ip-cidr-validation"
+      ],
+      "content_sha256": "a5dc821422ababec9688c2acababaca899434a3434ea3d6d42e99aa2dc9efc8c",
+      "source_native_id": "keps/sig-network/4858-ip-cidr-validation#excerpt-3",
+      "source_heading": "non-goals"
+    },
+    {
+      "id": "F004",
+      "path": [
+        "sig-auth",
+        "2784-csr-duration"
+      ],
+      "content_sha256": "75ec2a31bff7ce08f7c8f954813ad1d07dcfeed7f83cc978ede63ebea2272414",
+      "source_native_id": "keps/sig-auth/2784-csr-duration#excerpt-2",
+      "source_heading": "design details"
+    },
+    {
+      "id": "F005",
+      "path": [
+        "sig-network",
+        "4858-ip-cidr-validation"
+      ],
+      "content_sha256": "f45a3e9ae5e2fe5ee59937b130b4db1a863b7fe5531cf686af534d1b437daed9",
+      "source_native_id": "keps/sig-network/4858-ip-cidr-validation#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F006",
+      "path": [
+        "sig-auth",
+        "2579-psp-replacement"
+      ],
+      "content_sha256": "87a7eb54961a0fbdfae5e983eddf1fef23b4701569da638119481a7454c7d765",
+      "source_native_id": "keps/sig-auth/2579-psp-replacement#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F007",
+      "path": [
+        "sig-testing",
+        "714-break-test-tarball"
+      ],
+      "content_sha256": "cfa9cee35dd7e23c6477faf13dae3ca463fdc3e7b75f8f2a2cb1312e22814549",
+      "source_native_id": "keps/sig-testing/714-break-test-tarball#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F008",
+      "path": [
+        "sig-node",
+        "5607-hostnetwork-userns"
+      ],
+      "content_sha256": "96f1be31915302b152d2c2bf7cc436a6bccab526b7c2681b4a7e7d5140bc6d7b",
+      "source_native_id": "keps/sig-node/5607-hostnetwork-userns#excerpt-2",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F009",
+      "path": [
+        "sig-auth",
+        "740-service-account-external-signing"
+      ],
+      "content_sha256": "47971c0a6f554d9ab709d73f0d7ffb3c1fff502e22d75408590e28c66d72905b",
+      "source_native_id": "keps/sig-auth/740-service-account-external-signing#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F010",
+      "path": [
+        "sig-testing",
+        "2291-presubmit-config-inside-the-tested-repo"
+      ],
+      "content_sha256": "c31568a4ba6403721bdc2a47de52678f78a35e9486b7b4d771384ad57f5f3874",
+      "source_native_id": "keps/sig-testing/2291-presubmit-config-inside-the-tested-repo#excerpt-2",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F011",
+      "path": [
+        "sig-testing",
+        "2291-presubmit-config-inside-the-tested-repo"
+      ],
+      "content_sha256": "92cbeafed5006ed215fa664ba89e242989235120c2c4a5c40fc903888ef21c33",
+      "source_native_id": "keps/sig-testing/2291-presubmit-config-inside-the-tested-repo#excerpt-3",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F012",
+      "path": [
+        "sig-network",
+        "3836-kube-proxy-improved-ingress-connectivity-reliability"
+      ],
+      "content_sha256": "6e2d69797a50fd16d4c13008487b8adb6e83498245e5fa97e06a9c824f355728",
+      "source_native_id": "keps/sig-network/3836-kube-proxy-improved-ingress-connectivity-reliability#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F013",
+      "path": [
+        "sig-testing",
+        "714-break-test-tarball"
+      ],
+      "content_sha256": "df6cbf5e5902540ca509451bebc189b276c7838afc770d1517631679851b43c1",
+      "source_native_id": "keps/sig-testing/714-break-test-tarball#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F014",
+      "path": [
+        "sig-auth",
+        "2784-csr-duration"
+      ],
+      "content_sha256": "d704ced5df820753cb3b797053e9c16fcb5c40b8fbff00c45f613910e4f8221f",
+      "source_native_id": "keps/sig-auth/2784-csr-duration#excerpt-1",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F015",
+      "path": [
+        "sig-network",
+        "3836-kube-proxy-improved-ingress-connectivity-reliability"
+      ],
+      "content_sha256": "568e654c4350d695890a7aaff1aba90504b85725b3831984be926c37c861c08d",
+      "source_native_id": "keps/sig-network/3836-kube-proxy-improved-ingress-connectivity-reliability#excerpt-3",
+      "source_heading": "non-goals"
+    },
+    {
+      "id": "F016",
+      "path": [
+        "sig-auth",
+        "740-service-account-external-signing"
+      ],
+      "content_sha256": "b98dfe02e06bae68e111b56bb22c6d14df0a219d38e3f62b95f154892ed98263",
+      "source_native_id": "keps/sig-auth/740-service-account-external-signing#excerpt-3",
+      "source_heading": "risks and mitigations"
+    },
+    {
+      "id": "F017",
+      "path": [
+        "sig-node",
+        "5607-hostnetwork-userns"
+      ],
+      "content_sha256": "6e1a8d101c24f8c91a1fc0290d436b70a1c6308c2fa7c336b0715c03b6f53881",
+      "source_native_id": "keps/sig-node/5607-hostnetwork-userns#excerpt-1",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F018",
+      "path": [
+        "sig-network",
+        "2200-externalips-admission"
+      ],
+      "content_sha256": "2ee8b0d3e7307e15f9a6296018ae027cb1618f7fd8828ee92cdfcbabf2a26853",
+      "source_native_id": "keps/sig-network/2200-externalips-admission#excerpt-3",
+      "source_heading": "design details"
+    },
+    {
+      "id": "F019",
+      "path": [
+        "sig-network",
+        "2200-externalips-admission"
+      ],
+      "content_sha256": "e1aea7a6a045e18b3a4417c82470ce4caf44c79732cd6965c53c8f69e7ae53d4",
+      "source_native_id": "keps/sig-network/2200-externalips-admission#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F020",
+      "path": [
+        "sig-testing",
+        "2420-reducing-kubernetes-build-maintenance"
+      ],
+      "content_sha256": "fd1495d6729c332a4ed61cbaaf8ab97dc9710b4fa9457842335a09209cf90f12",
+      "source_native_id": "keps/sig-testing/2420-reducing-kubernetes-build-maintenance#excerpt-1",
+      "source_heading": "non-goals"
+    },
+    {
+      "id": "F021",
+      "path": [
+        "sig-node",
+        "1547-building-kubelet-without-docker"
+      ],
+      "content_sha256": "a76894d44a42e45bf3dca1ae5caf8bb879a5020edb6b787799446e1e220c1932",
+      "source_native_id": "keps/sig-node/1547-building-kubelet-without-docker#excerpt-2",
+      "source_heading": "risks and mitigations"
+    },
+    {
+      "id": "F022",
+      "path": [
+        "sig-node",
+        "3983-drop-in-configuration"
+      ],
+      "content_sha256": "fbdc8a482364ebf1b4e6f01349d1f6cdc1e3b1ce4b89fff5a45902096255bdb2",
+      "source_native_id": "keps/sig-node/3983-drop-in-configuration#excerpt-3",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F023",
+      "path": [
+        "sig-testing",
+        "2420-reducing-kubernetes-build-maintenance"
+      ],
+      "content_sha256": "d62cfbddceeff87a93084322d8a29b34fd07ee35f303d97a98f9e02503a86af9",
+      "source_native_id": "keps/sig-testing/2420-reducing-kubernetes-build-maintenance#excerpt-3",
+      "source_heading": "drawbacks"
+    },
+    {
+      "id": "F024",
+      "path": [
+        "sig-node",
+        "3983-drop-in-configuration"
+      ],
+      "content_sha256": "36d179a0bd043931bba08699e7c12c014637ad3ebf2a557bf0882951a8327afb",
+      "source_native_id": "keps/sig-node/3983-drop-in-configuration#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F025",
+      "path": [
+        "sig-auth",
+        "2579-psp-replacement"
+      ],
+      "content_sha256": "a1ac8dd1cf5e753a87467f6948725e8a5d5d3b62158260d1a1f3fdcbf106a477",
+      "source_native_id": "keps/sig-auth/2579-psp-replacement#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F026",
+      "path": [
+        "sig-node",
+        "5607-hostnetwork-userns"
+      ],
+      "content_sha256": "ac329c27a094a8e5b02489557058774a2aa4f4b6c26eb224789f9b461159c49c",
+      "source_native_id": "keps/sig-node/5607-hostnetwork-userns#excerpt-3",
+      "source_heading": "design details"
+    },
+    {
+      "id": "F027",
+      "path": [
+        "sig-auth",
+        "2579-psp-replacement"
+      ],
+      "content_sha256": "a10333184affaaf1f21e9f2d06f4b48ac5169a3c27985a370b276054d8618fb1",
+      "source_native_id": "keps/sig-auth/2579-psp-replacement#excerpt-3",
+      "source_heading": "risks and mitigations"
+    },
+    {
+      "id": "F028",
+      "path": [
+        "sig-testing",
+        "2291-presubmit-config-inside-the-tested-repo"
+      ],
+      "content_sha256": "93dd2ddf5faa92a6eafd6e77f6bf20f818e93084a93d105cd7f5d9380080035e",
+      "source_native_id": "keps/sig-testing/2291-presubmit-config-inside-the-tested-repo#excerpt-1",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F029",
+      "path": [
+        "sig-auth",
+        "2784-csr-duration"
+      ],
+      "content_sha256": "df2b8c96abe271ccafe9e47d3f935011b00d0cc1806da0b540c7648e62fe3b69",
+      "source_native_id": "keps/sig-auth/2784-csr-duration#excerpt-3",
+      "source_heading": "alternatives"
+    },
+    {
+      "id": "F030",
+      "path": [
+        "sig-testing",
+        "2420-reducing-kubernetes-build-maintenance"
+      ],
+      "content_sha256": "fc6d6e1cbbfcffa8e21dbe141962ec686edcccaf6b282408cec0b2e576757668",
+      "source_native_id": "keps/sig-testing/2420-reducing-kubernetes-build-maintenance#excerpt-2",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F031",
+      "path": [
+        "sig-testing",
+        "714-break-test-tarball"
+      ],
+      "content_sha256": "9c4bb35d46bea71bc9bc1c0b8e90f01702019a1b9bba61bc8ac63d0c651ba8b1",
+      "source_native_id": "keps/sig-testing/714-break-test-tarball#excerpt-3",
+      "source_heading": "non-goals"
+    },
+    {
+      "id": "F032",
+      "path": [
+        "sig-node",
+        "1547-building-kubelet-without-docker"
+      ],
+      "content_sha256": "5aafd5c511fef2356f6b8f2a81950d0e3e194cb8e46191d0a8c784dc0dafef0b",
+      "source_native_id": "keps/sig-node/1547-building-kubelet-without-docker#excerpt-1",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F033",
+      "path": [
+        "sig-network",
+        "3836-kube-proxy-improved-ingress-connectivity-reliability"
+      ],
+      "content_sha256": "1aa18174cbd0dfbc9e7e5762ad1a39dbf1679a8029b42536ac09dc7db9930172",
+      "source_native_id": "keps/sig-network/3836-kube-proxy-improved-ingress-connectivity-reliability#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F034",
+      "path": [
+        "sig-node",
+        "1547-building-kubelet-without-docker"
+      ],
+      "content_sha256": "513e210a9ac557ba7e5a3d989903b754fbaaae0d17fbfd71a9207ed99e9e3221",
+      "source_native_id": "keps/sig-node/1547-building-kubelet-without-docker#excerpt-3",
+      "source_heading": "alternatives"
+    },
+    {
+      "id": "F035",
+      "path": [
+        "sig-network",
+        "4858-ip-cidr-validation"
+      ],
+      "content_sha256": "68d77e6f60aeceb0e05a4de6306ac89089ecf137a77c26959b74887a94fb9ec6",
+      "source_native_id": "keps/sig-network/4858-ip-cidr-validation#excerpt-2",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F036",
+      "path": [
+        "sig-node",
+        "3983-drop-in-configuration"
+      ],
+      "content_sha256": "7dcb9374457e72ddd594d04ce79f13b58f5fb16f49dc60669146286683e6cd3b",
+      "source_native_id": "keps/sig-node/3983-drop-in-configuration#excerpt-2",
+      "source_heading": "motivation"
+    }
+  ],
+  "reference_scope": "Source-derived group/proposal hierarchy for a development-only difficulty and cost pilot."
+}

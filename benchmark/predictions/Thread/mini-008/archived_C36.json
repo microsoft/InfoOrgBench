@@ -1,0 +1,319 @@
+{
+  "assignments": [
+    {
+      "id": "F001",
+      "path": [
+        "ABFS improvements",
+        "Root xattr rollback"
+      ]
+    },
+    {
+      "id": "F002",
+      "path": [
+        "ABFS improvements",
+        "HTTP timing logs"
+      ]
+    },
+    {
+      "id": "F003",
+      "path": [
+        "DistCp blobstore compatibility",
+        "Attribute preservation"
+      ]
+    },
+    {
+      "id": "F004",
+      "path": [
+        "DistCp blobstore compatibility",
+        "Attribute preservation"
+      ]
+    },
+    {
+      "id": "F005",
+      "path": [
+        "DistCp blobstore compatibility",
+        "Attribute preservation"
+      ]
+    },
+    {
+      "id": "F006",
+      "path": [
+        "DistCp blobstore compatibility",
+        "Attribute preservation"
+      ]
+    },
+    {
+      "id": "F007",
+      "path": [
+        "DistCp blobstore compatibility",
+        "Attribute preservation"
+      ]
+    },
+    {
+      "id": "F008",
+      "path": [
+        "ABFS improvements",
+        "Namespace detection"
+      ]
+    },
+    {
+      "id": "F009",
+      "path": [
+        "S3A SDK v2 migration",
+        "Parallel rename timeout"
+      ]
+    },
+    {
+      "id": "F010",
+      "path": [
+        "DistCp blobstore compatibility",
+        "Attribute preservation"
+      ]
+    },
+    {
+      "id": "F011",
+      "path": [
+        "S3A connection reliability",
+        "Unrecoverable SSL retries"
+      ]
+    },
+    {
+      "id": "F012",
+      "path": [
+        "ABFS improvements",
+        "Root xattr rollback"
+      ]
+    },
+    {
+      "id": "F013",
+      "path": [
+        "DistCp blobstore compatibility",
+        "Attribute preservation"
+      ]
+    },
+    {
+      "id": "F014",
+      "path": [
+        "ABFS improvements",
+        "Root xattr rollback"
+      ]
+    },
+    {
+      "id": "F015",
+      "path": [
+        "S3A connection reliability",
+        "Unrecoverable SSL retries"
+      ]
+    },
+    {
+      "id": "F016",
+      "path": [
+        "ABFS improvements",
+        "Root xattr rollback"
+      ]
+    },
+    {
+      "id": "F017",
+      "path": [
+        "ABFS improvements",
+        "HTTP timing logs"
+      ]
+    },
+    {
+      "id": "F018",
+      "path": [
+        "ABFS improvements",
+        "Root xattr rollback"
+      ]
+    },
+    {
+      "id": "F019",
+      "path": [
+        "DistCp blobstore compatibility",
+        "Attribute preservation"
+      ]
+    },
+    {
+      "id": "F020",
+      "path": [
+        "S3A connection reliability",
+        "Unrecoverable SSL retries"
+      ]
+    },
+    {
+      "id": "F021",
+      "path": [
+        "ABFS improvements",
+        "Root xattr rollback"
+      ]
+    },
+    {
+      "id": "F022",
+      "path": [
+        "ABFS improvements",
+        "Root xattr rollback"
+      ]
+    },
+    {
+      "id": "F023",
+      "path": [
+        "S3A SDK v2 migration",
+        "Parallel rename timeout"
+      ]
+    },
+    {
+      "id": "F024",
+      "path": [
+        "ABFS improvements",
+        "Namespace detection"
+      ]
+    },
+    {
+      "id": "F025",
+      "path": [
+        "DistCp blobstore compatibility",
+        "Attribute preservation"
+      ]
+    },
+    {
+      "id": "F026",
+      "path": [
+        "ABFS improvements",
+        "HTTP timing logs"
+      ]
+    },
+    {
+      "id": "F027",
+      "path": [
+        "S3A connection reliability",
+        "Unrecoverable SSL retries"
+      ]
+    },
+    {
+      "id": "F028",
+      "path": [
+        "ABFS improvements",
+        "HTTP timing logs"
+      ]
+    },
+    {
+      "id": "F029",
+      "path": [
+        "DistCp blobstore compatibility",
+        "Attribute preservation"
+      ]
+    },
+    {
+      "id": "F030",
+      "path": [
+        "S3A connection reliability",
+        "Unrecoverable SSL retries"
+      ]
+    },
+    {
+      "id": "F031",
+      "path": [
+        "ABFS improvements",
+        "Root xattr rollback"
+      ]
+    },
+    {
+      "id": "F032",
+      "path": [
+        "DistCp blobstore compatibility",
+        "Attribute preservation"
+      ]
+    },
+    {
+      "id": "F033",
+      "path": [
+        "DistCp blobstore compatibility",
+        "Attribute preservation"
+      ]
+    },
+    {
+      "id": "F034",
+      "path": [
+        "ABFS improvements",
+        "Root xattr rollback"
+      ]
+    },
+    {
+      "id": "F035",
+      "path": [
+        "ABFS improvements",
+        "Root xattr rollback"
+      ]
+    },
+    {
+      "id": "F036",
+      "path": [
+        "DistCp blobstore compatibility",
+        "Attribute preservation"
+      ]
+    },
+    {
+      "id": "F037",
+      "path": [
+        "S3A connection reliability",
+        "Unrecoverable SSL retries"
+      ]
+    },
+    {
+      "id": "F038",
+      "path": [
+        "ABFS improvements",
+        "Root xattr rollback"
+      ]
+    },
+    {
+      "id": "F039",
+      "path": [
+        "ABFS improvements",
+        "Root xattr rollback"
+      ]
+    },
+    {
+      "id": "F040",
+      "path": [
+        "ABFS improvements",
+        "Root xattr rollback"
+      ]
+    },
+    {
+      "id": "F041",
+      "path": [
+        "S3A SDK v2 migration",
+        "Public bucket encryption tests"
+      ]
+    },
+    {
+      "id": "F042",
+      "path": [
+        "DistCp blobstore compatibility",
+        "Attribute preservation"
+      ]
+    },
+    {
+      "id": "F043",
+      "path": [
+        "S3A SDK v2 migration",
+        "Parallel rename timeout"
+      ]
+    },
+    {
+      "id": "F044",
+      "path": [
+        "S3A SDK v2 migration",
+        "HEAD metadata headers"
+      ]
+    },
+    {
+      "id": "F045",
+      "path": [
+        "ABFS improvements",
+        "Root xattr rollback"
+      ]
+    }
+  ]
+}

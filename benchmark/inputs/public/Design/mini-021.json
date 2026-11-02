@@ -1,0 +1,185 @@
+{
+  "task_id": "mini-021",
+  "records": [
+    {
+      "id": "F001",
+      "format": "text",
+      "text": "See: [Metrics Stability Framework#Proposal] [Metrics Stability Migration#General Migration Strategy] [Metrics Validation and Verification#Proposal] [Metrics Stability to Beta#Proposal]\n\n[Metrics Stability Framework#Proposal]: kubernetes-control-plane-metrics-stability.md#proposal [Metrics Stability Migration#General Migration Strategy]: metrics-stability-migration.md#general-migration-strategy [Metrics Validation and Verification#Proposal]: metrics-validation-and-verification.md#proposal [Metrics Stability to Beta#Proposal]: metrics-stability-to-beta.md#proposal"
+    },
+    {
+      "id": "F002",
+      "format": "text",
+      "text": "Make the infrastructure generic and simple enough to be easily handed off to the CNCF Choose a Packages as a Service solution (e.g. Open Build Service...) or build the infrastructure manually. In case we build the infrastructure manually, we need at least: Storage buckets (to store the staged/released packages) or anything similar DNS entries (e.g. apt.kubernetes.io, ...) Package mirror (e.g. a self hosted aptly/artifactory/... or as a service) have multiple channels, e.g. `stable`, `dev`, `nightly` Run the package builds as part of [krel stage and release] Have a safe way to store the signing key and make it available to the release team and release tooling Making key available to the Release Team/Managers is not a requirement if using 'as a service' solution Automatically sign the repository and packages Automatically build and publish packages on a nightly basis (not required)\n\n[krel stage and release]:"
+    },
+    {
+      "id": "F003",
+      "format": "text",
+      "text": "We propose a new policy for running Indexed Jobs in which the backoff limit controls the number of retries per index. When the new policy is used all indexes execute until their success or failure. We also propose a new API field to control the number of failed indexes.\n\nAdditionally, we propose a new action in PodFailurePolicy, called FailIndex, to short-circuit failing of the index before the backoff limit per index is reached."
+    },
+    {
+      "id": "F004",
+      "format": "text",
+      "text": "We propose a way to mitigate staleness within Kubernetes controllers, particularly the ones located in `kube-controller-manager` (KCM). When operating at a large scale, controllers can fall behind the state of the apiserver, leading to decisions based on outdated information. This proposal introduces a generalized mechanism for controllers to detect how stale their local cache is and prevent reconciliation until the cache catches up to provide consistency."
+    },
+    {
+      "id": "F005",
+      "format": "text",
+      "text": "Bazel's removal will leverage existing project dependencies (Docker and Golang) to manage binary and container builds. Since Make is already relied upon for triggering specific behaviors, these targets will be be implemented with a function replacement for their existing Bazel function.\n\nFor example:\n\ncan be substituted for:\n\nIn addition, go's dependency management system (go modules) is already setup within the project. This can relieve the need for Gazelle to generate and update existing Bazel BUILD files.\n\nFor containerization, Docker's CLI is more than capable to script the required image bundles previously defined in BUILD files. Existing make targets can trigger docker directly to pull, build, or push CIP images. End-to-end tests, which rely on static image definitions, can utilize local archives committed to source control. When testing begins, docker will load these images from tarbal, removing the need to build images with Bazel all together."
+    },
+    {
+      "id": "F006",
+      "format": "text",
+      "text": "This KEP does not aim to propose concrete technical implementation details or process improvements to achieve each SLSA level. As a framework, SLSA provides an incomplete roadmap to guide our implementation while it leaves the rest to the project. Some of these changes need a discussion and KEP by themselves, and we will be working on them as we advance.\n\nThe changes that need to be conducted include technical improvements (signing of artifacts, metadata generation, etc), setting up cryptographic key management systems and policy, VCS (GitHub) management, code review practices, and more. None of those concrete enhancements are under the scope of this document."
+    },
+    {
+      "id": "F007",
+      "format": "text",
+      "text": "Improve performance - The execution of e2e tests, building of containers or code does not need to speed up. Perceived or measured performance gains from proposed solutions is not a focus of this project.\n\nComplicate e2e test behavior - The behavior of e2e tests should change as little as possible when removing Bazel. Although deterministic image digests are required, desirable solutions must avoid adding complexity to the setup of e2e tests."
+    },
+    {
+      "id": "F008",
+      "format": "text",
+      "text": "Prow jobs must remain stable - While replacing existing Bazel infrastructure, it's important that any changes do not affect any Prow jobs. More specifically, the presubmit, postsubmit, and periodic jobs defined for CIP in kubernetes/test-infra are required for CI/CD. Any proposed solution should avoid interfering with these existing operations, and are crucial for future development and deployment.\n\nPreserving functionality of e2e tests - It’s important when removing Bazel to preserve the business logic of the e2e tests. However, both tests rely on the predictability of Docker digests when verifying image promotions. Therefore, proposed solutions must maintain static golden image digests. This may warrant the adoption of another technology which mimic’s Bazel’s behavior, or avoid image building altogether. Either way, both e2e tests must remain unaffected.\n\nCompletely remove Bazel from CIP - The result of this project must remove all references of Bazel. Therefore, machines running the CIP source code, such as existing Prow jobs, should no longer require the installation of Bazel for compilation or execution. Since reducing build maintenance is the primary reason behind removing Bazel, adding additional tools to the build process should be avoided."
+    },
+    {
+      "id": "F009",
+      "format": "text",
+      "text": "This feature is motivated by the use case of orchestrating the migration of a StatefulSet across a namespace or a Kubernetes cluster without disruption. Existing approaches to this problem include: Backup and restore: This approach takes a backup of an application (StatefulSet, underlying storage), and re-creates it in a different location. This introduces application downtime, the duration of time between old StatefulSet termination and new StatefulSet recreation."
+    },
+    {
+      "id": "F010",
+      "format": "text",
+      "text": "The controller offers a number of improvements over Kube State Metrics' Custom Resource State API, while maintaining a [3x faster] round trip time for metric generation. At its core, the controller relies on its managed resource, `ResourceMetricsMonitor` to fetch the metric generation configuration. Parts of the configuration may be defined using different `resolver`s, such as `unstructured` or `CEL`."
+    },
+    {
+      "id": "F011",
+      "format": "text",
+      "text": "Provide an alternative to mutating webhooks for the vast majority of mutating admission use cases. Provide the in-tree extensions needed to build policy frameworks for Kubernetes, again without requiring webhooks for the vast majority of use cases. Provide an out-of-tree implementation of this enhancement (using a webhook) that is supported by the Kubernetes org to provide this enhancement functionality to Kubernetes versions where this enhancement is not available. Provide core functionality as a library so that use cases like GitOps, CI/CD pipelines, and auditing can run the same CEL validation checks that the API server does."
+    },
+    {
+      "id": "F012",
+      "format": "text",
+      "text": "StatefulSets, similar to Indexed Jobs, assign a pod ordinal to each of their pods (this is analogous to the pod completion index for Indexed Jobs).\n\nIndexed Jobs set the pod index as an annotation, which means it can be utilized by the downward API, however, it cannot easily be used for selecting pods based on their index or filtering metrics/logs, or for doing things like routing network traffic to a pod with a specific index (e.g., index 0).\n\nStatefulSets include the pod index as part of the pod name. This means that the only way for a StatefulSet pod to know its own index is to parse the pod name, which is somewhat hacky solution. Furthermore, the pod index cannot be utilized by the downward API, nor used for use cases such as filtering metrics/logs or routing traffic to a pod with a specific index.\n\nTo address these issues, we propose to set the pod index as a **label** on pods for both StatefulSets and Indexed Jobs. This will allow the pod index to be utilized via the downward API, so StatefulSet pods can easily know their own index. In addition, this will allow metrics and logs to more easily be filtered by pod index, for both StatefulSets and Indexed Jobs."
+    },
+    {
+      "id": "F013",
+      "format": "text",
+      "text": "Risks include users upgrading Kubernetes, but not updating their usage of Kubernetes exposed metrics in alerting and dashboarding potentially causing incidents to go unnoticed.\n\nTo prevent this, we will implement recording rules for Prometheus that allow best effort backward compatibility as well as update uses of breaking metric usages in the Kubernetes monitoring mixin, a widely used collection of Prometheus alerts and Grafana dashboards for Kubernetes."
+    },
+    {
+      "id": "F014",
+      "format": "text",
+      "text": "The KEP targets a controller which allows for: Custom Resource metrics generation based on their schemata, using admission webhooks to avoid ingesting conflicting or bad configuration from managed resources, defining cluster-scoped managed resources (`ResourceMetricsMonitor`) that allows defining the collection configuration for generating metrics on-the-fly, accommodating for multiple configuration parsing techniques and expressions using turing-incomplete (or turing-complete if Go-bindings are available) languages, conforming to, improving on, and eventually deprecating the existing Custom Resource State API offered by Kube State Metrics without hindering the maintainability and the scalability of the controller."
+    },
+    {
+      "id": "F015",
+      "format": "text",
+      "text": "This Kubernetes Enhancement Proposal (KEP) outlines the changes planned in the scope of an overhaul of all metrics instrumented in the main kubernetes/kubernetes repository. This is a living document and as existing metrics, that are planned to change are added to the scope, they will be added to this document. As this initiative is going to affect all current users of Kubernetes metrics, this document will also be a source for migration documentation coming out of this effort.\n\nThis KEP is targeted to land in Kubernetes 1.14. The aim is to get all changes into one Kubernetes minor release, to have only a migration be necessary. We are preparing a number of changes, but intend to only start merging them once the 1.14 development window opens."
+    },
+    {
+      "id": "F016",
+      "format": "text",
+      "text": "A large proportion of mutating admission needs are for relatively simple operations such as setting a label, setting a field, or adding a sidecar container to a pod. These mutations can be expressed trivially in only a few lines of CEL, eliminating the developmental and operational complexity of a webhook.\n\nOffering CEL based mutation also has other fundamental advantages over webhooks. CEL mutations can be declared in a way that allows the kube-apiserver to introspect the mutation and extract useful information about which fields the mutation operation reads and writes. This information can be leveraged to do things like finding order for mutating admission policies that minimizes the need for reinvocation. Also, in-process mutation is sufficiently fast, especially when compared with webhooks, that it is reasonable to re-run mutations to do things like validate that multiple muation policy is still applied after all other mutating admission operations have been applied."
+    },
+    {
+      "id": "F017",
+      "format": "text",
+      "text": "See: [Metrics Stability Framework#Motivation] [Metrics Stability Migration#Motivation] [Metrics Validation and Verification#Motivation] [Metrics Stability to Beta#Motivation]\n\n[Metrics Stability Framework#Motivation]: kubernetes-control-plane-metrics-stability.md#motivation [Metrics Stability Migration#Motivation]: metrics-stability-migration.md#motivation [Metrics Validation and Verification#Motivation]: metrics-validation-and-verification.md#motivation [Metrics Stability to Beta#Motivation]: metrics-stability-to-beta.md#motivation"
+    },
+    {
+      "id": "F018",
+      "format": "text",
+      "text": "Before getting into all the individual fields and capabilities, let's look at the general \"shape\" of the API. Very similar to what we have in ValidatingAdmissionPolicy, this API separates policy definition from policy configuration by splitting responsibilities across resources. The resources involved are: Policy definitions (MutatingAdmissionPolicy) Policy bindings (MutatingAdmissionPolicyBinding) Policy param resources (custom resources or config maps)\n\nThe idea is to leverage the CEL power of the object construction and allow users to define how they want to mutate the admission request through CEL expression."
+    },
+    {
+      "id": "F019",
+      "format": "text",
+      "text": "**StatefulSet Spec Changes**\n\nA new struct is introduced to the `StatefulSetSpec`. In this KEP, the field only has a single field `Start`. A struct is added (rather than putting `start` directly into `spec`) to allow for the ordinals struct to change over time. If future use cases of StatefulSet require further ordinal controls (eg: ordinal numbering based on failure domains), new fields related to the numbering and grouping of StatefulSet ordinals can be added to this struct.\n\n**Control Loop Changes**\n\nIn the main control loop, StatefulSet will attempt to create pod replicas `[k, N+k-1]` When scaling up pods: If ordinal `i` in range `[k, N+k-1]` does not exist, pod `i` will be created. When scaling down pods: If ordinal `j` exists but is not in range `[k, N+k-1]`), pod `j` will be terminated. **RollingUpdate Partition Changes**\n\nSince `ordinals.start` changes the offset of the replica ordinals, this affects the `partition` field used for RollingUpdate. As `partition` specifies an ordinal index, the partition field must be in the range `[k, N+k-1]`, to be valid."
+    },
+    {
+      "id": "F020",
+      "format": "text",
+      "text": "Currently: Only Googlers can publish packages. The packages get published on Google infrastructure. After publishing a new release but before sending out the release notification emails the process needs to be paused. Googlers need to build and publish the deb and rpm packages before the branch manager can continue and send the release announcement. We can only publish packages for stable releases right now. We use different packages in CI then we officially release.\n\nThis all prolongs the release process, it is a hard dependency on a small group of people from one company (and its infrastructure), and we only ever publish and test packages very late in the release process."
+    },
+    {
+      "id": "F021",
+      "format": "text",
+      "text": "The main goal of this KEP is to define the highest possible SLSA compliance as final objective in enhancing the Kubernetes release process. While providing a roadmap this KEP can be considered complete when a SLSA level is deemed as not implementable by the community at large (see Graduation Criteria).\n\nIt is also the goal of this KEP to produce full documentation about changes to technical and human processes, tooling, and all artifacts produced as of the compliance effort. The documentation effort shall include complete specifications of provenance attestations and software bill of materials as well as handbook updates for contributors to follow."
+    },
+    {
+      "id": "F022",
+      "format": "text",
+      "text": "The proposal targets the incubation and incorporation of a controller capable of essentially doing all that Kube State Metrics' Custom Resource State API offers, in addition to various benefits of its own owing to the controller lifecycle it is based upon.\n\nThe controller aims to replace the existing Kube State Metrics' Custom Resource State feature-set and be significantly much more maintainable and scalable than its predecessor while enabling the community the freedom to extend the supported set of DSLs to parse the configuration in a language that they are familiar with, instead of forcing them up a steep learning-curve for a self-defined DSL that they have to live with, as is the case with Kube State Metrics' Custom Resource State feature-set."
+    },
+    {
+      "id": "F023",
+      "format": "text",
+      "text": "Every controller operates on a local cache that is populated by watching for changes from the apiserver. By its nature, this watch stream is eventually consistent and provides no guarantee of how far behind the \"live\" state of the apiserver it is. A change event might arrive within milliseconds, or under other circumstances, could be delayed by seconds or even minutes. This means every controller, at all times, is operating on a potentially outdated view of the cluster's state.\n\nThe issue this KEP addresses is that operators currently have no visibility into this lag. It's impossible to distinguish between normal delays and a controller that has fallen dangerously out of sync. A controller may continue trying to enact its desired state based on an outdated view of the world, causing spurious reconciles that do not reflect the desired intentions of the user.\n\nThis proposal aims to provide solutions to mitigate issues that may arise out of the controller falling behind. With the ability to compare resource version we now have the ability to have the idea of the \"age\" of a resource and run operations with that in mind."
+    },
+    {
+      "id": "F024",
+      "format": "text",
+      "text": "The goal of this feature is to allow a StatefulSet to be migrated (cross namespace, cross cluster, split into segments) without disrupting the underlying application.\n\nA StatefulSet of `N` replicas implicitly numbers pods from ordinal `0` to `N-1`. The end ordinal (`N-1`) can be controlled with the `replicas` field. The goal of this feature is to allow a StatefulSet’s first ordinal to start from any natural number `k`. This enables StatefulSet ordinals from `k` to `N+k-1`"
+    },
+    {
+      "id": "F025",
+      "format": "text",
+      "text": "We introduce a new Job API field, called `.spec.backoffLimitPerIndex`. When set it limits the number of retries, counted independently for all indexes.\n\nAdditionally, we propose the `.spec.maxFailedIndexes` to control the maximal number of failed indexes. Once the number is exceeded the entire Job is marked Failed and its execution is terminated.\n\nWe also propose to extend the PodFailurePolicy with a new action, called `FailIndex` to allow an index to fail fast before reaching the backoff limit per index."
+    },
+    {
+      "id": "F026",
+      "format": "text",
+      "text": "_Risk_: The OBS installation provided by SUSE is unable to serve the load generated by the Kubernetes project _Mitigation_: We can host our own mirrors and take some load from SUSE (e.g. on Equinix Metal) _Risk_: Building all the packages for all the distributions and their version takes too long to be done nightly or via cutting the release _Mitigation_: We do not deliver nightly packages or wait for packages to be published in the release pipeline."
+    },
+    {
+      "id": "F027",
+      "format": "text",
+      "text": "Introduce an Opinionated Deletion Order: Implement a mechanism while namespace deletion to prioritize the deletion of certain resource types before others based on logical dependencies and security considerations (e.g., Pods deleted before NetworkPolicies).2 Maintain Predictability and Consistency: Provide a more deterministic deletion process to improve user confidence and debugging during namespace cleanup. Integrate with Existing Kubernetes Concepts: Build on the namespace deletion’s current architecture without introducing breaking changes to existing APIs or workflows. Be safe - don’t introduce unresolvable deadlocks. Make the most common dependency - workloads and the policies that govern them - safe by default for all types of policies, including CRDs, unless specifically opted out."
+    },
+    {
+      "id": "F028",
+      "format": "text",
+      "text": "This proposal covers the implementation of metrics stability in the kubernetes/kubernetes repo (and anywhere else that consumes `component-base/metrics`).\n\nHistorically, the implementation was split into four documents: Metrics Stability Framework Metrics Stability Migration Metrics Validation and Verification Metrics Stability to Beta\n\nThis document is not net new and ties the four together in order to document the lifecycle of this feature.\n\n[Metrics Stability Framework]: kubernetes-control-plane-metrics-stability.md [Metrics Stability Migration]: metrics-stability-migration.md [Metrics Validation and Verification]: metrics-validation-and-verification.md [Metrics Stability to Beta]: metrics-stability-to-beta.md"
+    },
+    {
+      "id": "F029",
+      "format": "text",
+      "text": "This kep introduces an opinionated deletion process in the Kubernetes namespace deletion to ensure secure deletion of resources within a namespace. The current deletion process is semi-random, which may lead to security gaps or unintended behavior, such as Pods persisting after the deletion of their associated NetworkPolicies. By implementing an opinionated deletion mechanism, the Pods will be deleted before other resources with respects logical and security dependencies. This design enhances the security and reliability of Kubernetes by mitigating risks arising from the non-deterministic deletion order."
+    },
+    {
+      "id": "F030",
+      "format": "text",
+      "text": "The existing random deletion process for resources in a namespace poses significant challenges, particularly in environments with strict security requirements. One critical issue is the potential for a Pod to remain active after its associated NetworkPolicy has been deleted, leaving it exposed to unrestricted network access. This creates a security vulnerability during the cleanup process.\n\nAdditionally, the lack of a defined deletion order can lead to operational inconsistencies, where any sort of safety guard resources (not just NetworkPolicy) are deleted before their guarded resources (e.g., Pods), resulting in unnecessary disruptions or errors.\n\nBy introducing an opinionated deletion process, this proposal aims to: Enhance Security: Ensure resources like NetworkPolicies remain in effect until all dependent resources have been safely terminated. Increase Predictability: Provide a consistent and logical cleanup process for namespace deletion, reducing unintended side effects.\n\nThis opinionated deletion approach aligns with Kubernetes' principles of reliability, security, and extensibility, providing a solid foundation for managing resource cleanup in complex environments."
+    },
+    {
+      "id": "F031",
+      "format": "text",
+      "text": "The StatefulSet controller will only need a minor update to the newStatefulSetPod function, to set the pod ordinal as the label `apps.kubernetes.io/pod-index`. This call is downstream from the newVersionedStatefulSetPod call, which generates the StatefulSet pods before creating them as necessary in CreateStatefulPod.\n\nSimilarly, the Job controller would need to add the completion index as a label here where it adds the corresponding annotation."
+    },
+    {
+      "id": "F032",
+      "format": "text",
+      "text": "We propose to work on SLSA compliance in a predictable manner. As we move up the SLSA hardening levels, more and more stakeholders will be required to weigh in and to provide perspective about the required enhancements. Starting with SLSA 1, which is mostly a documentation effort, we plan to start having the discussions and presenting the necessary KEPs to work our way up.\n\nThe ideal outcome of this KEP would be to have a Kubernetes release process that complies with SLSA Level 4, meaning it is shielded from the most common threats to software supply chains. However, changes to reach level 4 may not be feasible.\n\nIf the changes that need to be conducted are deemed too disruptive or even destructive to other areas of the project (development velocity, contributor experience, policy, etc), the community may declare a specific SLSA level to be unimplementable. In that scenario, we would work on the rest of the SLSA requirements and consider this KEP complete."
+    },
+    {
+      "id": "F033",
+      "format": "text",
+      "text": "At a high level, the proposal is to modify the StatefulSet and Job controllers to set the pod index as a pod label at pod creation time (for jobs, this would only apply to jobs in Indexed completion mode). The details of this are outlined in the Design Details section below. StatefulSet pod label: `apps.kubernetes.io/pod-index` IndexedJob pod label: `batch.kubernetes.io/job-completion-index` (same as existing annotation)"
+    },
+    {
+      "id": "F034",
+      "format": "text",
+      "text": "Currently, the indexes of an indexed job share a single backoff limit. When the job reaches this shared backoff limit, the job controller marks the entire job as failed, and the resources are cleaned up, including indexes that have yet to run to completion.\n\nAs a result, the current implementation does not cover the situation where the workload is truly embarrassingly parallel and each index is independent of other indexes.\n\nFor instance, if indexed jobs were used as the basis for a suite of long-running integration tests, then each test run would only be able to find a single test failure.\n\nOther popular batch services like AWS Batch use a separate backoff limit for each index, showing that this is a common use case that should be supported by Kubernetes."
+    },
+    {
+      "id": "F035",
+      "format": "text",
+      "text": "A number of metrics that Kubernetes is instrumented with do not follow the official Kubernetes instrumentation guidelines. This is for a number of reasons, such as the metrics having been created before the instrumentation guidelines were put in place (around two years ago), and just missing it in code reviews. Beyond the Kubernetes instrumentation guidelines, there are several violations of the Prometheus instrumentation best practices."
+    },
+    {
+      "id": "F036",
+      "format": "text",
+      "text": "We propose the ability for controllers to be able to view whether their own writes have made it into the apiserver. This will allow for the controller to skip reconciling an object until it knows whether or not the previous write has been propogated to its cache. We will do this by adding plumbing to the underlying cached informer and adding the ability for controllers to know the resource version of objects they subscribe to.\n\nOnce this is added, we will onboard certain controllers to be able to use the newly exposed resource versions and skip reconciling and requeue until certain objects they write to are updated in their cache."
+    }
+  ]
+}

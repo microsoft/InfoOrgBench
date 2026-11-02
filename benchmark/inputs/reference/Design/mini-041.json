@@ -1,0 +1,366 @@
+{
+  "task_id": "mini-041",
+  "records": [
+    {
+      "id": "F001",
+      "path": [
+        "sig-node",
+        "6063-pod-pid-limit"
+      ],
+      "content_sha256": "f32ab0bf93039b60eba9907e63c60a3cc9c6d8bfa951102116322c1f72c0f73d",
+      "source_native_id": "keps/sig-node/6063-pod-pid-limit#excerpt-1",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F002",
+      "path": [
+        "sig-network",
+        "1864-disable-lb-node-ports"
+      ],
+      "content_sha256": "3aaf60bbb63a94555f207a7c9546fddd367b85796e0f0c11e45bc50eb2f126c9",
+      "source_native_id": "keps/sig-network/1864-disable-lb-node-ports#excerpt-1",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F003",
+      "path": [
+        "sig-instrumentation",
+        "647-apiserver-tracing"
+      ],
+      "content_sha256": "a65464560f90a275bc3cee57a2b28e1a81ab4d9397e60d1d85665292d22d6709",
+      "source_native_id": "keps/sig-instrumentation/647-apiserver-tracing#excerpt-3",
+      "source_heading": "risks and mitigations"
+    },
+    {
+      "id": "F004",
+      "path": [
+        "sig-scheduling",
+        "3280-guarantee-pdb-when-preemption-happens"
+      ],
+      "content_sha256": "faa36cb3bbc38f123e80b56d73e0867b265a054b581db442718b380d4f3d09a7",
+      "source_native_id": "keps/sig-scheduling/3280-guarantee-pdb-when-preemption-happens#excerpt-3",
+      "source_heading": "design details"
+    },
+    {
+      "id": "F005",
+      "path": [
+        "sig-scheduling",
+        "5732-topology-aware-workload-scheduling"
+      ],
+      "content_sha256": "0bd5676d074c79ff06b047656002abf1521d5b276bf1c4c31ec24cdf4e685268",
+      "source_native_id": "keps/sig-scheduling/5732-topology-aware-workload-scheduling#excerpt-1",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F006",
+      "path": [
+        "sig-network",
+        "2449-move-externalDNS-out-of-kubernetes-incubator"
+      ],
+      "content_sha256": "9dba5d706aef4773577e0be453fdc85aff880f2efff08770590bd6cf7142fe22",
+      "source_native_id": "keps/sig-network/2449-move-externalDNS-out-of-kubernetes-incubator#excerpt-2",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F007",
+      "path": [
+        "sig-instrumentation",
+        "647-apiserver-tracing"
+      ],
+      "content_sha256": "90e75e8540e87ddd1079b66f64997085316a28821aecd1e470597358386e8dbd",
+      "source_native_id": "keps/sig-instrumentation/647-apiserver-tracing#excerpt-2",
+      "source_heading": "user stories"
+    },
+    {
+      "id": "F008",
+      "path": [
+        "sig-network",
+        "2449-move-externalDNS-out-of-kubernetes-incubator"
+      ],
+      "content_sha256": "394cb61ad441ca0530fe9b3f11d47bc6d01dbb72bcb956853f564461e271f110",
+      "source_native_id": "keps/sig-network/2449-move-externalDNS-out-of-kubernetes-incubator#excerpt-1",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F009",
+      "path": [
+        "sig-scheduling",
+        "3280-guarantee-pdb-when-preemption-happens"
+      ],
+      "content_sha256": "72de538b016bf2927ee9dc1c47490c7acfa6f47741006959e2adb8697c67dc5c",
+      "source_native_id": "keps/sig-scheduling/3280-guarantee-pdb-when-preemption-happens#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F010",
+      "path": [
+        "sig-node",
+        "6063-pod-pid-limit"
+      ],
+      "content_sha256": "8bd93bd554673767354b49a4a6a4a9cbdcd2e45788ea860532b9feb71560d86b",
+      "source_native_id": "keps/sig-node/6063-pod-pid-limit#excerpt-3",
+      "source_heading": "risks and mitigations"
+    },
+    {
+      "id": "F011",
+      "path": [
+        "sig-instrumentation",
+        "2831-kubelet-tracing"
+      ],
+      "content_sha256": "1cb4c980c4f552a10b37383d7682fb7c52c507f6150a33e5d334ff0ef7759bfa",
+      "source_native_id": "keps/sig-instrumentation/2831-kubelet-tracing#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F012",
+      "path": [
+        "sig-scheduling",
+        "4671-gang-scheduling"
+      ],
+      "content_sha256": "b61f5aa48004499ca2c459aac03181746a8ad318df30c35996bb35d0ffbde80e",
+      "source_native_id": "keps/sig-scheduling/4671-gang-scheduling#excerpt-3",
+      "source_heading": "non-goals"
+    },
+    {
+      "id": "F013",
+      "path": [
+        "sig-scheduling",
+        "5732-topology-aware-workload-scheduling"
+      ],
+      "content_sha256": "fa3f5dccf3815aec86359bd7b5af88a81e26cc42bc490b304e3d18c348b32b3b",
+      "source_native_id": "keps/sig-scheduling/5732-topology-aware-workload-scheduling#excerpt-3",
+      "source_heading": "drawbacks"
+    },
+    {
+      "id": "F014",
+      "path": [
+        "sig-network",
+        "1864-disable-lb-node-ports"
+      ],
+      "content_sha256": "4797bf156726fdf282718443b1de7ba78187044711c29bc6bf6c9de42798c458",
+      "source_native_id": "keps/sig-network/1864-disable-lb-node-ports#excerpt-3",
+      "source_heading": "design details"
+    },
+    {
+      "id": "F015",
+      "path": [
+        "sig-node",
+        "585-runtime-class"
+      ],
+      "content_sha256": "69adff6224914d9b4aff85da242473a8f228f13726bd73a989ce7f99e3ac3f7e",
+      "source_native_id": "keps/sig-node/585-runtime-class#excerpt-1",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F016",
+      "path": [
+        "sig-scheduling",
+        "3280-guarantee-pdb-when-preemption-happens"
+      ],
+      "content_sha256": "3c45b07de82d9b7f5825217e684a5674538b52458a3399ba231610217c52a092",
+      "source_native_id": "keps/sig-scheduling/3280-guarantee-pdb-when-preemption-happens#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F017",
+      "path": [
+        "sig-network",
+        "2449-move-externalDNS-out-of-kubernetes-incubator"
+      ],
+      "content_sha256": "a7d40dfb5a1564862d553db149960259770aedc268664ebf5635667b3f9da3c9",
+      "source_native_id": "keps/sig-network/2449-move-externalDNS-out-of-kubernetes-incubator#excerpt-3",
+      "source_heading": "risks and mitigations"
+    },
+    {
+      "id": "F018",
+      "path": [
+        "sig-instrumentation",
+        "647-apiserver-tracing"
+      ],
+      "content_sha256": "62a875cce57515d6ee82dcddab97382efbc00d1c9296041c5bc00d0da25a9a7c",
+      "source_native_id": "keps/sig-instrumentation/647-apiserver-tracing#excerpt-1",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F019",
+      "path": [
+        "sig-node",
+        "589-efficient-node-heartbeats"
+      ],
+      "content_sha256": "b09ab8df453bf390175dc59223417061a317f1af06c6381f6f9fe3f5d474b898",
+      "source_native_id": "keps/sig-node/589-efficient-node-heartbeats#excerpt-3",
+      "source_heading": "risks and mitigations"
+    },
+    {
+      "id": "F020",
+      "path": [
+        "sig-scheduling",
+        "5732-topology-aware-workload-scheduling"
+      ],
+      "content_sha256": "af7facd5ef69caffd5e38702952a97edf84fff73ec38356a78ddd3674f45d59f",
+      "source_native_id": "keps/sig-scheduling/5732-topology-aware-workload-scheduling#excerpt-2",
+      "source_heading": "risks and mitigations"
+    },
+    {
+      "id": "F021",
+      "path": [
+        "sig-node",
+        "589-efficient-node-heartbeats"
+      ],
+      "content_sha256": "c83858d938c166cea3e2715c84cd418df96d41be1258dda59339a32b6eefa27d",
+      "source_native_id": "keps/sig-node/589-efficient-node-heartbeats#excerpt-1",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F022",
+      "path": [
+        "sig-node",
+        "589-efficient-node-heartbeats"
+      ],
+      "content_sha256": "4334c396ebe4090bc52faab2fe2dbdbbe01da1bda78dd40aff30227e71e1c271",
+      "source_native_id": "keps/sig-node/589-efficient-node-heartbeats#excerpt-2",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F023",
+      "path": [
+        "sig-scheduling",
+        "4671-gang-scheduling"
+      ],
+      "content_sha256": "0694d7f28686a009fd2ea18e8cf8c680ba57d4140b07512a6f6aaa4e11931cad",
+      "source_native_id": "keps/sig-scheduling/4671-gang-scheduling#excerpt-2",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F024",
+      "path": [
+        "sig-instrumentation",
+        "5207-metrics-k8s-io-api-definition"
+      ],
+      "content_sha256": "22944853aafd5d86a125a02553fa94df96b22f5a492fd8cc5a1fb8176bb3c2b8",
+      "source_native_id": "keps/sig-instrumentation/5207-metrics-k8s-io-api-definition#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F025",
+      "path": [
+        "sig-node",
+        "585-runtime-class"
+      ],
+      "content_sha256": "3d5b140d4d81f35ee93b8096fd09f65baaa9080f5616dd25fc2c4c0a7247f5cf",
+      "source_native_id": "keps/sig-node/585-runtime-class#excerpt-2",
+      "source_heading": "user stories"
+    },
+    {
+      "id": "F026",
+      "path": [
+        "sig-node",
+        "585-runtime-class"
+      ],
+      "content_sha256": "ef61a4b24050e8b615944712f97651b416f26426c518412b3cc1e7fe46878f18",
+      "source_native_id": "keps/sig-node/585-runtime-class#excerpt-3",
+      "source_heading": "risks and mitigations"
+    },
+    {
+      "id": "F027",
+      "path": [
+        "sig-network",
+        "4858-ip-cidr-validation"
+      ],
+      "content_sha256": "f45a3e9ae5e2fe5ee59937b130b4db1a863b7fe5531cf686af534d1b437daed9",
+      "source_native_id": "keps/sig-network/4858-ip-cidr-validation#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F028",
+      "path": [
+        "sig-instrumentation",
+        "2831-kubelet-tracing"
+      ],
+      "content_sha256": "dc2be1db7a58cbf962d7efad7e2360e8974d914fe8a20e6940d3cba560407441",
+      "source_native_id": "keps/sig-instrumentation/2831-kubelet-tracing#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F029",
+      "path": [
+        "sig-network",
+        "4858-ip-cidr-validation"
+      ],
+      "content_sha256": "a5dc821422ababec9688c2acababaca899434a3434ea3d6d42e99aa2dc9efc8c",
+      "source_native_id": "keps/sig-network/4858-ip-cidr-validation#excerpt-3",
+      "source_heading": "non-goals"
+    },
+    {
+      "id": "F030",
+      "path": [
+        "sig-instrumentation",
+        "5207-metrics-k8s-io-api-definition"
+      ],
+      "content_sha256": "103f2b6a5fcaf36f3ec15cb5080239ed18947b3ea78cd090ca362174e9f68fb5",
+      "source_native_id": "keps/sig-instrumentation/5207-metrics-k8s-io-api-definition#excerpt-2",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F031",
+      "path": [
+        "sig-node",
+        "6063-pod-pid-limit"
+      ],
+      "content_sha256": "f8aa99d9b9e816cb4330280cc2648de725adbdcd16b4c0e0df62ac871545363c",
+      "source_native_id": "keps/sig-node/6063-pod-pid-limit#excerpt-2",
+      "source_heading": "non-goals"
+    },
+    {
+      "id": "F032",
+      "path": [
+        "sig-network",
+        "1864-disable-lb-node-ports"
+      ],
+      "content_sha256": "3587ff39cc386b9d518a2c520d6a26f9f96c4293b82269425a3a11d6d63d19b7",
+      "source_native_id": "keps/sig-network/1864-disable-lb-node-ports#excerpt-2",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F033",
+      "path": [
+        "sig-instrumentation",
+        "2831-kubelet-tracing"
+      ],
+      "content_sha256": "f9fc9e18b549734a9445283b7f8be2be221f3c3a146e3721df6e7f6ef8e19e80",
+      "source_native_id": "keps/sig-instrumentation/2831-kubelet-tracing#excerpt-3",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F034",
+      "path": [
+        "sig-network",
+        "4858-ip-cidr-validation"
+      ],
+      "content_sha256": "68d77e6f60aeceb0e05a4de6306ac89089ecf137a77c26959b74887a94fb9ec6",
+      "source_native_id": "keps/sig-network/4858-ip-cidr-validation#excerpt-2",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F035",
+      "path": [
+        "sig-instrumentation",
+        "5207-metrics-k8s-io-api-definition"
+      ],
+      "content_sha256": "5bad8236bf94677813c998d1c987df3461920984eed3434eaafeae31dd070ae7",
+      "source_native_id": "keps/sig-instrumentation/5207-metrics-k8s-io-api-definition#excerpt-3",
+      "source_heading": "design details"
+    },
+    {
+      "id": "F036",
+      "path": [
+        "sig-scheduling",
+        "4671-gang-scheduling"
+      ],
+      "content_sha256": "94c881c6a3302406b1dca91db2609d33b6ca803f4f8e878a3345d4d6931a1389",
+      "source_native_id": "keps/sig-scheduling/4671-gang-scheduling#excerpt-1",
+      "source_heading": "summary"
+    }
+  ],
+  "reference_scope": "Source-derived group/proposal hierarchy for a development-only difficulty and cost pilot."
+}

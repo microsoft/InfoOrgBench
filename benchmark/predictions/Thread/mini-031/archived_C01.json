@@ -1,0 +1,291 @@
+{
+  "assignments": [
+    {
+      "id": "F001",
+      "path": [
+        "HADOOP-16163",
+        "namespace-test-failure"
+      ]
+    },
+    {
+      "id": "F002",
+      "path": [
+        "HADOOP-16578",
+        "filesystem-exists-api"
+      ]
+    },
+    {
+      "id": "F003",
+      "path": [
+        "HADOOP-16163",
+        "namespace-test-failure"
+      ]
+    },
+    {
+      "id": "F004",
+      "path": [
+        "HADOOP-16578",
+        "filesystem-exists-api"
+      ]
+    },
+    {
+      "id": "F005",
+      "path": [
+        "HADOOP-16163",
+        "delegation-token-npe"
+      ]
+    },
+    {
+      "id": "F006",
+      "path": [
+        "HADOOP-16859",
+        "unbuffer-support"
+      ]
+    },
+    {
+      "id": "F007",
+      "path": [
+        "HADOOP-16578",
+        "filesystem-exists-api"
+      ]
+    },
+    {
+      "id": "F008",
+      "path": [
+        "HADOOP-16859",
+        "unbuffer-support"
+      ]
+    },
+    {
+      "id": "F009",
+      "path": [
+        "HADOOP-16859",
+        "unbuffer-support"
+      ]
+    },
+    {
+      "id": "F010",
+      "path": [
+        "HADOOP-DT",
+        "kerberos-dt-binding"
+      ]
+    },
+    {
+      "id": "F011",
+      "path": [
+        "HADOOP-16163",
+        "delegation-token-npe"
+      ]
+    },
+    {
+      "id": "F012",
+      "path": [
+        "fs-shell-trash",
+        "rm-trash"
+      ]
+    },
+    {
+      "id": "F013",
+      "path": [
+        "HADOOP-16859",
+        "unbuffer-support"
+      ]
+    },
+    {
+      "id": "F014",
+      "path": [
+        "HADOOP-16859",
+        "unbuffer-support"
+      ]
+    },
+    {
+      "id": "F015",
+      "path": [
+        "HADOOP-16163",
+        "namespace-test-failure"
+      ]
+    },
+    {
+      "id": "F016",
+      "path": [
+        "HADOOP-16859",
+        "unbuffer-support"
+      ]
+    },
+    {
+      "id": "F017",
+      "path": [
+        "HADOOP-16163",
+        "delegation-token-npe"
+      ]
+    },
+    {
+      "id": "F018",
+      "path": [
+        "HADOOP-METRICS",
+        "abfs-metrics-iostats"
+      ]
+    },
+    {
+      "id": "F019",
+      "path": [
+        "HADOOP-16163",
+        "delegation-token-npe"
+      ]
+    },
+    {
+      "id": "F020",
+      "path": [
+        "HADOOP-16578",
+        "filesystem-exists-api"
+      ]
+    },
+    {
+      "id": "F021",
+      "path": [
+        "HADOOP-16859",
+        "unbuffer-support"
+      ]
+    },
+    {
+      "id": "F022",
+      "path": [
+        "HADOOP-13786",
+        "hdfs-client-dependency"
+      ]
+    },
+    {
+      "id": "F023",
+      "path": [
+        "HADOOP-16859",
+        "unbuffer-support"
+      ]
+    },
+    {
+      "id": "F024",
+      "path": [
+        "HADOOP-RELEASE",
+        "version-3.3.0"
+      ]
+    },
+    {
+      "id": "F025",
+      "path": [
+        "HADOOP-RELEASE",
+        "version-3.3.0"
+      ]
+    },
+    {
+      "id": "F026",
+      "path": [
+        "HADOOP-16163",
+        "namespace-test-failure"
+      ]
+    },
+    {
+      "id": "F027",
+      "path": [
+        "HADOOP-DT",
+        "kerberos-dt-binding"
+      ]
+    },
+    {
+      "id": "F028",
+      "path": [
+        "HADOOP-16660",
+        "retry-policy-config"
+      ]
+    },
+    {
+      "id": "F029",
+      "path": [
+        "HADOOP-16163",
+        "namespace-test-failure"
+      ]
+    },
+    {
+      "id": "F030",
+      "path": [
+        "HADOOP-METRICS",
+        "abfs-metrics-iostats"
+      ]
+    },
+    {
+      "id": "F031",
+      "path": [
+        "HADOOP-16163",
+        "namespace-test-failure"
+      ]
+    },
+    {
+      "id": "F032",
+      "path": [
+        "HADOOP-METRICS",
+        "http-metrics"
+      ]
+    },
+    {
+      "id": "F033",
+      "path": [
+        "HADOOP-18759",
+        "connection-timeout-retry"
+      ]
+    },
+    {
+      "id": "F034",
+      "path": [
+        "HADOOP-13786",
+        "hdfs-client-dependency"
+      ]
+    },
+    {
+      "id": "F035",
+      "path": [
+        "HADOOP-METRICS",
+        "http-metrics"
+      ]
+    },
+    {
+      "id": "F036",
+      "path": [
+        "HADOOP-18759",
+        "connection-timeout-retry"
+      ]
+    },
+    {
+      "id": "F037",
+      "path": [
+        "HADOOP-RELEASE",
+        "version-3.4.0"
+      ]
+    },
+    {
+      "id": "F038",
+      "path": [
+        "HADOOP-18759",
+        "connection-timeout-retry"
+      ]
+    },
+    {
+      "id": "F039",
+      "path": [
+        "HADOOP-RELEASE",
+        "version-3.4.0"
+      ]
+    },
+    {
+      "id": "F040",
+      "path": [
+        "HADOOP-METRICS",
+        "http-metrics"
+      ]
+    },
+    {
+      "id": "F041",
+      "path": [
+        "HADOOP-CONTRACT",
+        "parallel-tests"
+      ]
+    }
+  ]
+}

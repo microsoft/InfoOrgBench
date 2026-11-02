@@ -1,0 +1,366 @@
+{
+  "task_id": "mini-019",
+  "records": [
+    {
+      "id": "F001",
+      "path": [
+        "sig-storage",
+        "5943-topology-for-volume-snapshot"
+      ],
+      "content_sha256": "1cf79e07f07d4aeaafa1e36595207bd23daddf50ea5ea6620438f45e0bcec4e2",
+      "source_native_id": "keps/sig-storage/5943-topology-for-volume-snapshot#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F002",
+      "path": [
+        "sig-cli",
+        "2299-kustomize-plugin-composition"
+      ],
+      "content_sha256": "dee7ca443b2a6efc846a4911d567389d6111a2f422dbcf7eae0447e5c813ca8d",
+      "source_native_id": "keps/sig-cli/2299-kustomize-plugin-composition#excerpt-3",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F003",
+      "path": [
+        "sig-auth",
+        "3130-kms-observability"
+      ],
+      "content_sha256": "008688e235b386925b3a6449d7fb85af0288b1aedd96df89129ed7373b8f2283",
+      "source_native_id": "keps/sig-auth/3130-kms-observability#excerpt-2",
+      "source_heading": "design details"
+    },
+    {
+      "id": "F004",
+      "path": [
+        "sig-release",
+        "1498-kubernetes-yearly-support-period"
+      ],
+      "content_sha256": "eee88de55c9c45c846c7d3c106a0031804306caf5f9af5609166abf112c2b6f6",
+      "source_native_id": "keps/sig-release/1498-kubernetes-yearly-support-period#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F005",
+      "path": [
+        "sig-storage",
+        "1845-prioritization-on-volume-capacity"
+      ],
+      "content_sha256": "dff8eafdc3d83692647bd104461a8bf1c1aa9f5d38d3b2d95196b8efbc59844a",
+      "source_native_id": "keps/sig-storage/1845-prioritization-on-volume-capacity#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F006",
+      "path": [
+        "sig-cli",
+        "1802-kustomize-components"
+      ],
+      "content_sha256": "3531e6928a649939d084218b7072f1046a69b4f47218648fd166e1ca8d45a796",
+      "source_native_id": "keps/sig-cli/1802-kustomize-components#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F007",
+      "path": [
+        "sig-auth",
+        "3130-kms-observability"
+      ],
+      "content_sha256": "19183210bfbd6c8182939041fd6bd5a9e4d5f242a56d35d2be374cd6ecfbb688",
+      "source_native_id": "keps/sig-auth/3130-kms-observability#excerpt-3",
+      "source_heading": "alternatives"
+    },
+    {
+      "id": "F008",
+      "path": [
+        "sig-release",
+        "3720-freezing-k8s-gcr-io"
+      ],
+      "content_sha256": "3996ff0cd791254afaaa066fc8b4755dcc32cbccf36306e2c20d921b76e7c9e7",
+      "source_native_id": "keps/sig-release/3720-freezing-k8s-gcr-io#excerpt-1",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F009",
+      "path": [
+        "sig-release",
+        "3720-freezing-k8s-gcr-io"
+      ],
+      "content_sha256": "4206f98c05ede9d8a13d30d082f8d27f21e02e7507489d87c23bb4b26c1d1b49",
+      "source_native_id": "keps/sig-release/3720-freezing-k8s-gcr-io#excerpt-2",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F010",
+      "path": [
+        "sig-release",
+        "1498-kubernetes-yearly-support-period"
+      ],
+      "content_sha256": "571ad90060f399994079f43cc42c5da1b97a42c22a28523012d63e9eb5bab203",
+      "source_native_id": "keps/sig-release/1498-kubernetes-yearly-support-period#excerpt-3",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F011",
+      "path": [
+        "sig-release",
+        "1498-kubernetes-yearly-support-period"
+      ],
+      "content_sha256": "1dbca75c6ee4207aaa1cdcd05c4908eb41b12840fe17e6d4fded6a2d5c6806f2",
+      "source_native_id": "keps/sig-release/1498-kubernetes-yearly-support-period#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F012",
+      "path": [
+        "sig-cli",
+        "2386-kustomize-subcommand-integration"
+      ],
+      "content_sha256": "f2bb34293c34fbab1c7a0eaf284f5997d984d37d750f02d6f99ab11963007735",
+      "source_native_id": "keps/sig-cli/2386-kustomize-subcommand-integration#excerpt-3",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F013",
+      "path": [
+        "sig-storage",
+        "1845-prioritization-on-volume-capacity"
+      ],
+      "content_sha256": "26de40018aaed30b9a0e950820ccfcc1e142ecb35a66d1970de134eb1f4cf76d",
+      "source_native_id": "keps/sig-storage/1845-prioritization-on-volume-capacity#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F014",
+      "path": [
+        "sig-auth",
+        "5284-constrained-impersonation"
+      ],
+      "content_sha256": "2fd9182a713d1c1515268a2c24c3dab72bf4032f45c44a76512f10ca9bc1aa55",
+      "source_native_id": "keps/sig-auth/5284-constrained-impersonation#excerpt-3",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F015",
+      "path": [
+        "sig-cli",
+        "2386-kustomize-subcommand-integration"
+      ],
+      "content_sha256": "88dc63dc9d7efc435abec0d9f74023b1194e24aa227e3cbd184593c6577b29c0",
+      "source_native_id": "keps/sig-cli/2386-kustomize-subcommand-integration#excerpt-2",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F016",
+      "path": [
+        "sig-cli",
+        "2386-kustomize-subcommand-integration"
+      ],
+      "content_sha256": "30e52b4321ceee4f88a35e5fde87078f904c4931f856dbdeb7b9af2efcfb891d",
+      "source_native_id": "keps/sig-cli/2386-kustomize-subcommand-integration#excerpt-1",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F017",
+      "path": [
+        "sig-release",
+        "1731-publishing-packages"
+      ],
+      "content_sha256": "dcf4bd98c28885646b2be29c47cc34fc2a5bf02cd5e86bfd55f26e1bce212611",
+      "source_native_id": "keps/sig-release/1731-publishing-packages#excerpt-3",
+      "source_heading": "risks and mitigations"
+    },
+    {
+      "id": "F018",
+      "path": [
+        "sig-auth",
+        "3130-kms-observability"
+      ],
+      "content_sha256": "c508f986f148a9b3cc5c1ca3578f41cda5b13923f3a45c35fd8810c128e00ff2",
+      "source_native_id": "keps/sig-auth/3130-kms-observability#excerpt-1",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F019",
+      "path": [
+        "sig-release",
+        "1731-publishing-packages"
+      ],
+      "content_sha256": "0a1308f4fc0e60d8cc953076c15d2371ba0cd8b8260b771299052b45598f2866",
+      "source_native_id": "keps/sig-release/1731-publishing-packages#excerpt-2",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F020",
+      "path": [
+        "sig-storage",
+        "1845-prioritization-on-volume-capacity"
+      ],
+      "content_sha256": "bf86d755e477237438bf912c1c6d0ef33ed3efecc9155bfd1735107855e71ce4",
+      "source_native_id": "keps/sig-storage/1845-prioritization-on-volume-capacity#excerpt-3",
+      "source_heading": "design details"
+    },
+    {
+      "id": "F021",
+      "path": [
+        "sig-release",
+        "3720-freezing-k8s-gcr-io"
+      ],
+      "content_sha256": "d171b18f809ab753d885eef6a5822d6cf6a4fc76210964ba888c51e7040cf7ce",
+      "source_native_id": "keps/sig-release/3720-freezing-k8s-gcr-io#excerpt-3",
+      "source_heading": "design details"
+    },
+    {
+      "id": "F022",
+      "path": [
+        "sig-release",
+        "1731-publishing-packages"
+      ],
+      "content_sha256": "2eac306ffd5fd8456ace52968182c2ae0a7e1ca14cc054d05a830cd54782600d",
+      "source_native_id": "keps/sig-release/1731-publishing-packages#excerpt-1",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F023",
+      "path": [
+        "sig-auth",
+        "789-harden-default-discover-bindings"
+      ],
+      "content_sha256": "53e1f678b0bba6a8da0f73d331de835ea650878865f802d8c6a85ee00710cf2d",
+      "source_native_id": "keps/sig-auth/789-harden-default-discover-bindings#excerpt-3",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F024",
+      "path": [
+        "sig-storage",
+        "5943-topology-for-volume-snapshot"
+      ],
+      "content_sha256": "4c578b933373099494fecf7fdd72bc3918acf98e6840c86f7cbe0606073ca1d7",
+      "source_native_id": "keps/sig-storage/5943-topology-for-volume-snapshot#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F025",
+      "path": [
+        "sig-cli",
+        "1802-kustomize-components"
+      ],
+      "content_sha256": "153b1e1baccd7bc3c06e24e37e444aaa78174e20b11a6a832a0ee1aed672e6c8",
+      "source_native_id": "keps/sig-cli/1802-kustomize-components#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F026",
+      "path": [
+        "sig-storage",
+        "5943-topology-for-volume-snapshot"
+      ],
+      "content_sha256": "386e8869d7877db2888355bf19cf389501ed95c61445821c0cf38e32bc16a755",
+      "source_native_id": "keps/sig-storage/5943-topology-for-volume-snapshot#excerpt-3",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F027",
+      "path": [
+        "sig-auth",
+        "5284-constrained-impersonation"
+      ],
+      "content_sha256": "71c92781b29a10c182d2ab769e30d4a8a1262e63a9d16df23f79fb8a197acc4f",
+      "source_native_id": "keps/sig-auth/5284-constrained-impersonation#excerpt-1",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F028",
+      "path": [
+        "sig-storage",
+        "989-extend-datasource"
+      ],
+      "content_sha256": "909a9b42bacee2aa564767b19df92f8be97823e5742aa5d882e463cc96189c35",
+      "source_native_id": "keps/sig-storage/989-extend-datasource#excerpt-3",
+      "source_heading": "non-goals"
+    },
+    {
+      "id": "F029",
+      "path": [
+        "sig-storage",
+        "989-extend-datasource"
+      ],
+      "content_sha256": "41430ff4328a117d19ae28487c774ec513b70767773cf7b4f433f23701081eec",
+      "source_native_id": "keps/sig-storage/989-extend-datasource#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F030",
+      "path": [
+        "sig-auth",
+        "789-harden-default-discover-bindings"
+      ],
+      "content_sha256": "9647ecff4bda00fe6fe5b9c206eb97cbec61078ccd1dd1f9a9ab0771a74cd61a",
+      "source_native_id": "keps/sig-auth/789-harden-default-discover-bindings#excerpt-1",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F031",
+      "path": [
+        "sig-cli",
+        "2299-kustomize-plugin-composition"
+      ],
+      "content_sha256": "d0c356656484847198151483695d9f64261c2705ee4193ae3a35d62b0f92ef6e",
+      "source_native_id": "keps/sig-cli/2299-kustomize-plugin-composition#excerpt-2",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F032",
+      "path": [
+        "sig-cli",
+        "1802-kustomize-components"
+      ],
+      "content_sha256": "7986d8093cd9a4e24a35fa879346a2950801adbb5d724411686eb5f56b54435b",
+      "source_native_id": "keps/sig-cli/1802-kustomize-components#excerpt-3",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F033",
+      "path": [
+        "sig-storage",
+        "989-extend-datasource"
+      ],
+      "content_sha256": "7c533d975239cb432603b2a001890193d41de51f0516ecd48d369f1332252c2a",
+      "source_native_id": "keps/sig-storage/989-extend-datasource#excerpt-2",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F034",
+      "path": [
+        "sig-auth",
+        "789-harden-default-discover-bindings"
+      ],
+      "content_sha256": "504cebf4fd408d3fcd1ecf834806d167b9bd4658df33c5f72448ce3afdd5e666",
+      "source_native_id": "keps/sig-auth/789-harden-default-discover-bindings#excerpt-2",
+      "source_heading": "non-goals"
+    },
+    {
+      "id": "F035",
+      "path": [
+        "sig-auth",
+        "5284-constrained-impersonation"
+      ],
+      "content_sha256": "ed76126f9eec1acd1c4d63f1b65cc5d2aabf7bb654f86bdec60168f294fd9700",
+      "source_native_id": "keps/sig-auth/5284-constrained-impersonation#excerpt-2",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F036",
+      "path": [
+        "sig-cli",
+        "2299-kustomize-plugin-composition"
+      ],
+      "content_sha256": "fd2c2b2c5b2e9d3383fda7da00d8574d7037e302edbbfb6caca1201023e886d8",
+      "source_native_id": "keps/sig-cli/2299-kustomize-plugin-composition#excerpt-1",
+      "source_heading": "motivation"
+    }
+  ],
+  "reference_scope": "Source-derived group/proposal hierarchy for a development-only difficulty and cost pilot."
+}

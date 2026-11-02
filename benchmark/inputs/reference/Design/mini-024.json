@@ -1,0 +1,366 @@
+{
+  "task_id": "mini-024",
+  "records": [
+    {
+      "id": "F001",
+      "path": [
+        "sig-api-machinery",
+        "4153-declarative-validation"
+      ],
+      "content_sha256": "bbb83913b9f051195d73afaa079ad6da254c090f6e61eaceb61d2e63c9c85bb7",
+      "source_native_id": "keps/sig-api-machinery/4153-declarative-validation#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F002",
+      "path": [
+        "sig-network",
+        "1880-multiple-service-cidrs"
+      ],
+      "content_sha256": "d6c25d819ffd6b6b254867dfd02e1c859f0d8258c7f7cd0a652c6ccd7f9ead05",
+      "source_native_id": "keps/sig-network/1880-multiple-service-cidrs#excerpt-3",
+      "source_heading": "drawbacks"
+    },
+    {
+      "id": "F003",
+      "path": [
+        "sig-release",
+        "1729-rebase-images-to-distroless"
+      ],
+      "content_sha256": "84fa7e900004df2e659f685866cd1c731793a16cff4bf48607affdc4948e1a6f",
+      "source_native_id": "keps/sig-release/1729-rebase-images-to-distroless#excerpt-3",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F004",
+      "path": [
+        "sig-release",
+        "1729-rebase-images-to-distroless"
+      ],
+      "content_sha256": "4b51a3153f1c7c8882735d34d90f2ee61aca9d25aca12ce829125f47a5e14e23",
+      "source_native_id": "keps/sig-release/1729-rebase-images-to-distroless#excerpt-1",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F005",
+      "path": [
+        "sig-release",
+        "3027-slsa-compliance"
+      ],
+      "content_sha256": "2981ad02b1199f186526659e0490e08b436e7f27881f6a0e23427279a068b82a",
+      "source_native_id": "keps/sig-release/3027-slsa-compliance#excerpt-1",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F006",
+      "path": [
+        "sig-release",
+        "1732-artifact-management"
+      ],
+      "content_sha256": "58756197c3ae15b855a86bc092aa5f97041849647dcd067cbe04d7edf0d8f526",
+      "source_native_id": "keps/sig-release/1732-artifact-management#excerpt-1",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F007",
+      "path": [
+        "sig-api-machinery",
+        "4153-declarative-validation"
+      ],
+      "content_sha256": "fb3bebb99bd39a8870d8ec533d144174cc3280c8940fed0fd5cdae4677d762d8",
+      "source_native_id": "keps/sig-api-machinery/4153-declarative-validation#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F008",
+      "path": [
+        "sig-scheduling",
+        "3902-decoupled-taint-manager"
+      ],
+      "content_sha256": "33faedd0b51e8aa285b6d78097c2a6188651833e65775d7a62d07e3877211949",
+      "source_native_id": "keps/sig-scheduling/3902-decoupled-taint-manager#excerpt-2",
+      "source_heading": "non-goals"
+    },
+    {
+      "id": "F009",
+      "path": [
+        "sig-network",
+        "2595-expanded-dns-config"
+      ],
+      "content_sha256": "2a79845f4058e81c8ebf95f9c89374eae11afc595e4fb61b30652e40d476b4dc",
+      "source_native_id": "keps/sig-network/2595-expanded-dns-config#excerpt-3",
+      "source_heading": "design details"
+    },
+    {
+      "id": "F010",
+      "path": [
+        "sig-api-machinery",
+        "1965-kube-apiserver-identity"
+      ],
+      "content_sha256": "65667cd09491a678f97bd660a1bf0cd329c656c4aacc8d29bfba5fc94400ea55",
+      "source_native_id": "keps/sig-api-machinery/1965-kube-apiserver-identity#excerpt-3",
+      "source_heading": "design details"
+    },
+    {
+      "id": "F011",
+      "path": [
+        "sig-scheduling",
+        "3902-decoupled-taint-manager"
+      ],
+      "content_sha256": "8dac264aa90cf9445e58b9633037349f2af0418a4dc50f3b636b15d84760b5ee",
+      "source_native_id": "keps/sig-scheduling/3902-decoupled-taint-manager#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F012",
+      "path": [
+        "sig-api-machinery",
+        "4153-declarative-validation"
+      ],
+      "content_sha256": "daddda712bd3a2ca69172199bed8053b720897149d12d0c57e3964bedd279075",
+      "source_native_id": "keps/sig-api-machinery/4153-declarative-validation#excerpt-3",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F013",
+      "path": [
+        "sig-release",
+        "3027-slsa-compliance"
+      ],
+      "content_sha256": "d5325fe41c7234bb90f3c9d1f6b71d6d3969ec5364d41470a9185e1d07c0d3e4",
+      "source_native_id": "keps/sig-release/3027-slsa-compliance#excerpt-3",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F014",
+      "path": [
+        "sig-scheduling",
+        "5027-dra-admin-controlled-device-attributes"
+      ],
+      "content_sha256": "62d1c9af17e32bb5df9eecb6cdbb24e5b2446f2d3be39860cc74c826c325c66a",
+      "source_native_id": "keps/sig-scheduling/5027-dra-admin-controlled-device-attributes#excerpt-3",
+      "source_heading": "risks and mitigations"
+    },
+    {
+      "id": "F015",
+      "path": [
+        "sig-release",
+        "3027-slsa-compliance"
+      ],
+      "content_sha256": "e831511de60fd17e6608a25c0f201903fc9c9eca765720d128bf8dab85ab058e",
+      "source_native_id": "keps/sig-release/3027-slsa-compliance#excerpt-2",
+      "source_heading": "non-goals"
+    },
+    {
+      "id": "F016",
+      "path": [
+        "sig-network",
+        "2595-expanded-dns-config"
+      ],
+      "content_sha256": "28acc9aad48c571806df51ac83a1fee25ea2f0a6baaddef79dade5eb417f2e80",
+      "source_native_id": "keps/sig-network/2595-expanded-dns-config#excerpt-1",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F017",
+      "path": [
+        "sig-network",
+        "1880-multiple-service-cidrs"
+      ],
+      "content_sha256": "07f2fc29b2045e55e81e1a1a00be70a64ac2a1bd52e939a93efd8fc32a041842",
+      "source_native_id": "keps/sig-network/1880-multiple-service-cidrs#excerpt-2",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F018",
+      "path": [
+        "sig-api-machinery",
+        "5504-comparable-resource-version"
+      ],
+      "content_sha256": "bc70dcdb5dac8f50caf0cb47808e87bd1367c301f3e3fd1a7643abaf51a6fca8",
+      "source_native_id": "keps/sig-api-machinery/5504-comparable-resource-version#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F019",
+      "path": [
+        "sig-api-machinery",
+        "5504-comparable-resource-version"
+      ],
+      "content_sha256": "30f6a89b6627336b67c8872d25af6a9dd5ef1bd899e8e6c364dfaf3d4e79040e",
+      "source_native_id": "keps/sig-api-machinery/5504-comparable-resource-version#excerpt-2",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F020",
+      "path": [
+        "sig-network",
+        "2595-expanded-dns-config"
+      ],
+      "content_sha256": "984ed15612afe5514eb0afe4803c29e084ddca998ff12d3a6c8ca2bcce95b571",
+      "source_native_id": "keps/sig-network/2595-expanded-dns-config#excerpt-2",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F021",
+      "path": [
+        "sig-release",
+        "1729-rebase-images-to-distroless"
+      ],
+      "content_sha256": "02264680882787a61acaf3be55eefb1d36d1540987027cd02d5acefdeefdd31e",
+      "source_native_id": "keps/sig-release/1729-rebase-images-to-distroless#excerpt-2",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F022",
+      "path": [
+        "sig-api-machinery",
+        "1965-kube-apiserver-identity"
+      ],
+      "content_sha256": "cff8f629573fdc7125206dfe47a5b3db92567b89a6b198791615ce17331468ac",
+      "source_native_id": "keps/sig-api-machinery/1965-kube-apiserver-identity#excerpt-2",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F023",
+      "path": [
+        "sig-scheduling",
+        "5710-workload-aware-preemption"
+      ],
+      "content_sha256": "0f81755062c6430114817e8eedfc68cb0cca456d055296e33ca4fbe28a40b071",
+      "source_native_id": "keps/sig-scheduling/5710-workload-aware-preemption#excerpt-2",
+      "source_heading": "risks and mitigations"
+    },
+    {
+      "id": "F024",
+      "path": [
+        "sig-scheduling",
+        "3902-decoupled-taint-manager"
+      ],
+      "content_sha256": "9d9ca21207523c9d9cd7ec9d9e9da1a37b23f32fe7b598ad39d35d735d0df589",
+      "source_native_id": "keps/sig-scheduling/3902-decoupled-taint-manager#excerpt-3",
+      "source_heading": "risks and mitigations"
+    },
+    {
+      "id": "F025",
+      "path": [
+        "sig-api-machinery",
+        "1965-kube-apiserver-identity"
+      ],
+      "content_sha256": "fa85025532ce9cbe900f2bf213d839dc71c45a64a78ef5e70f763de0eeb2ed54",
+      "source_native_id": "keps/sig-api-machinery/1965-kube-apiserver-identity#excerpt-1",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F026",
+      "path": [
+        "sig-scheduling",
+        "5710-workload-aware-preemption"
+      ],
+      "content_sha256": "26eb7c5cee399d5353e8158746b5e938c8b908bfda8e9bfe82bb0a5808dc3fbc",
+      "source_native_id": "keps/sig-scheduling/5710-workload-aware-preemption#excerpt-1",
+      "source_heading": "non-goals"
+    },
+    {
+      "id": "F027",
+      "path": [
+        "sig-scheduling",
+        "5027-dra-admin-controlled-device-attributes"
+      ],
+      "content_sha256": "80bf0414b355b2e5c8b062827ced14b9cb9a0434102f1a694f628a4f48c0b24a",
+      "source_native_id": "keps/sig-scheduling/5027-dra-admin-controlled-device-attributes#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F028",
+      "path": [
+        "sig-scheduling",
+        "5027-dra-admin-controlled-device-attributes"
+      ],
+      "content_sha256": "1b6f95e66ab3be7066a92b0733a922cbf6f0530194eaf9b20699eb496584dca7",
+      "source_native_id": "keps/sig-scheduling/5027-dra-admin-controlled-device-attributes#excerpt-2",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F029",
+      "path": [
+        "sig-api-machinery",
+        "5504-comparable-resource-version"
+      ],
+      "content_sha256": "428084f7ec41ad27d8127d0ca58f813574e52579da51341ed86951319334410b",
+      "source_native_id": "keps/sig-api-machinery/5504-comparable-resource-version#excerpt-3",
+      "source_heading": "risks and mitigations"
+    },
+    {
+      "id": "F030",
+      "path": [
+        "sig-release",
+        "1732-artifact-management"
+      ],
+      "content_sha256": "b4efcbfd413daa4dae95f46119e6fff9d43065c75ce43b5b9b28e2d0e569ce01",
+      "source_native_id": "keps/sig-release/1732-artifact-management#excerpt-2",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F031",
+      "path": [
+        "sig-network",
+        "2091-admin-network-policy"
+      ],
+      "content_sha256": "455c17548a8aca7a1a2aec86f05732f38121dde9c467fcc5cb4333373b1fd5d1",
+      "source_native_id": "keps/sig-network/2091-admin-network-policy#excerpt-1",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F032",
+      "path": [
+        "sig-network",
+        "2091-admin-network-policy"
+      ],
+      "content_sha256": "e733cb18859e29d87ce2d66c7e33d1df8cb72dcd1e182e04366b0d726e1c8849",
+      "source_native_id": "keps/sig-network/2091-admin-network-policy#excerpt-2",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F033",
+      "path": [
+        "sig-network",
+        "2091-admin-network-policy"
+      ],
+      "content_sha256": "5f2684c7ab4a13fb38c03b26dd805656e3207a02bcc266d8b8d64eb6a26382d9",
+      "source_native_id": "keps/sig-network/2091-admin-network-policy#excerpt-3",
+      "source_heading": "non-goals"
+    },
+    {
+      "id": "F034",
+      "path": [
+        "sig-scheduling",
+        "5710-workload-aware-preemption"
+      ],
+      "content_sha256": "0ce75dc2f91bfbeeb08fa1e358207bc98a587aea1fcc4e2f26c0f687f166e1b5",
+      "source_native_id": "keps/sig-scheduling/5710-workload-aware-preemption#excerpt-3",
+      "source_heading": "alternatives"
+    },
+    {
+      "id": "F035",
+      "path": [
+        "sig-network",
+        "1880-multiple-service-cidrs"
+      ],
+      "content_sha256": "db18b99025b4ab7eb552bb7bad93604b0a58bf46fb6016945c51e809b95cf47d",
+      "source_native_id": "keps/sig-network/1880-multiple-service-cidrs#excerpt-1",
+      "source_heading": "non-goals"
+    },
+    {
+      "id": "F036",
+      "path": [
+        "sig-release",
+        "1732-artifact-management"
+      ],
+      "content_sha256": "d2c0978e04ab9ecadaf0ef191f23186451303514e919e6b8daa8d07cf9601b5b",
+      "source_native_id": "keps/sig-release/1732-artifact-management#excerpt-3",
+      "source_heading": "proposal"
+    }
+  ],
+  "reference_scope": "Source-derived group/proposal hierarchy for a development-only difficulty and cost pilot."
+}

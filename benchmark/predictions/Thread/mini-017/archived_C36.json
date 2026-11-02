@@ -1,0 +1,347 @@
+{
+  "assignments": [
+    {
+      "id": "F001",
+      "path": [
+        "ABFS improvements",
+        "Delegation token test setup"
+      ]
+    },
+    {
+      "id": "F002",
+      "path": [
+        "S3A improvements",
+        "Dotted bucket SSL retries"
+      ]
+    },
+    {
+      "id": "F003",
+      "path": [
+        "S3A improvements",
+        "Object store trash"
+      ]
+    },
+    {
+      "id": "F004",
+      "path": [
+        "ABFS improvements",
+        "Verbose debug logging"
+      ]
+    },
+    {
+      "id": "F005",
+      "path": [
+        "ABFS improvements",
+        "SharedKey namespace test"
+      ]
+    },
+    {
+      "id": "F006",
+      "path": [
+        "S3A improvements",
+        "Lazy seek skip"
+      ]
+    },
+    {
+      "id": "F007",
+      "path": [
+        "S3A improvements",
+        "Read failure propagation"
+      ]
+    },
+    {
+      "id": "F008",
+      "path": [
+        "ABFS improvements",
+        "Delegation token test setup"
+      ]
+    },
+    {
+      "id": "F009",
+      "path": [
+        "ABFS improvements",
+        "HTTP operation timings"
+      ]
+    },
+    {
+      "id": "F010",
+      "path": [
+        "S3A improvements",
+        "Delegation credential provider tests"
+      ]
+    },
+    {
+      "id": "F011",
+      "path": [
+        "S3A improvements",
+        "Lazy seek skip"
+      ]
+    },
+    {
+      "id": "F012",
+      "path": [
+        "S3A improvements",
+        "Dotted bucket SSL retries"
+      ]
+    },
+    {
+      "id": "F013",
+      "path": [
+        "ABFS improvements",
+        "Verbose debug logging"
+      ]
+    },
+    {
+      "id": "F014",
+      "path": [
+        "S3A improvements",
+        "Public bucket encryption tests"
+      ]
+    },
+    {
+      "id": "F015",
+      "path": [
+        "S3A improvements",
+        "Lazy seek skip"
+      ]
+    },
+    {
+      "id": "F016",
+      "path": [
+        "S3A improvements",
+        "Dotted bucket SSL retries"
+      ]
+    },
+    {
+      "id": "F017",
+      "path": [
+        "S3A improvements",
+        "Read failure propagation"
+      ]
+    },
+    {
+      "id": "F018",
+      "path": [
+        "ABFS improvements",
+        "Verbose debug logging"
+      ]
+    },
+    {
+      "id": "F019",
+      "path": [
+        "S3A improvements",
+        "Public bucket encryption tests"
+      ]
+    },
+    {
+      "id": "F020",
+      "path": [
+        "S3A improvements",
+        "Lazy seek skip"
+      ]
+    },
+    {
+      "id": "F021",
+      "path": [
+        "S3A improvements",
+        "Dotted bucket SSL retries"
+      ]
+    },
+    {
+      "id": "F022",
+      "path": [
+        "ABFS improvements",
+        "Delegation token test setup"
+      ]
+    },
+    {
+      "id": "F023",
+      "path": [
+        "ABFS improvements",
+        "Configuration documentation"
+      ]
+    },
+    {
+      "id": "F024",
+      "path": [
+        "ABFS improvements",
+        "Delegation token test setup"
+      ]
+    },
+    {
+      "id": "F025",
+      "path": [
+        "ABFS improvements",
+        "Delegation token test setup"
+      ]
+    },
+    {
+      "id": "F026",
+      "path": [
+        "S3A improvements",
+        "Dotted bucket SSL retries"
+      ]
+    },
+    {
+      "id": "F027",
+      "path": [
+        "S3A improvements",
+        "Dotted bucket SSL retries"
+      ]
+    },
+    {
+      "id": "F028",
+      "path": [
+        "S3A improvements",
+        "Read failure propagation"
+      ]
+    },
+    {
+      "id": "F029",
+      "path": [
+        "ABFS improvements",
+        "Verbose debug logging"
+      ]
+    },
+    {
+      "id": "F030",
+      "path": [
+        "ABFS improvements",
+        "Container API branch-two backport"
+      ]
+    },
+    {
+      "id": "F031",
+      "path": [
+        "S3A improvements",
+        "Dotted bucket SSL retries"
+      ]
+    },
+    {
+      "id": "F032",
+      "path": [
+        "S3A improvements",
+        "Lazy seek skip"
+      ]
+    },
+    {
+      "id": "F033",
+      "path": [
+        "S3A improvements",
+        "Delegation credential provider tests"
+      ]
+    },
+    {
+      "id": "F034",
+      "path": [
+        "ABFS improvements",
+        "Verbose debug logging"
+      ]
+    },
+    {
+      "id": "F035",
+      "path": [
+        "S3A improvements",
+        "Lazy seek skip"
+      ]
+    },
+    {
+      "id": "F036",
+      "path": [
+        "S3A improvements",
+        "Dotted bucket SSL retries"
+      ]
+    },
+    {
+      "id": "F037",
+      "path": [
+        "S3A improvements",
+        "Delegation credential provider tests"
+      ]
+    },
+    {
+      "id": "F038",
+      "path": [
+        "S3A improvements",
+        "Dotted bucket SSL retries"
+      ]
+    },
+    {
+      "id": "F039",
+      "path": [
+        "ABFS improvements",
+        "Configuration documentation"
+      ]
+    },
+    {
+      "id": "F040",
+      "path": [
+        "S3A improvements",
+        "Dotted bucket SSL retries"
+      ]
+    },
+    {
+      "id": "F041",
+      "path": [
+        "S3A improvements",
+        "Lazy seek skip"
+      ]
+    },
+    {
+      "id": "F042",
+      "path": [
+        "ABFS improvements",
+        "SharedKey namespace test"
+      ]
+    },
+    {
+      "id": "F043",
+      "path": [
+        "ABFS improvements",
+        "Verbose debug logging"
+      ]
+    },
+    {
+      "id": "F044",
+      "path": [
+        "ABFS improvements",
+        "Container API branch-two backport"
+      ]
+    },
+    {
+      "id": "F045",
+      "path": [
+        "ABFS improvements",
+        "Delegation token test setup"
+      ]
+    },
+    {
+      "id": "F046",
+      "path": [
+        "ABFS improvements",
+        "HTTP operation timings"
+      ]
+    },
+    {
+      "id": "F047",
+      "path": [
+        "ABFS improvements",
+        "HTTP operation timings"
+      ]
+    },
+    {
+      "id": "F048",
+      "path": [
+        "ABFS improvements",
+        "Container API branch-two backport"
+      ]
+    },
+    {
+      "id": "F049",
+      "path": [
+        "ABFS improvements",
+        "HTTP operation timings"
+      ]
+    }
+  ]
+}

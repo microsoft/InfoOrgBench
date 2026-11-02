@@ -1,0 +1,245 @@
+{
+  "task_id": "ami/mini-022",
+  "records": [
+    {
+      "id": "F001",
+      "format": "text",
+      "text": "The remote will be easy to find."
+    },
+    {
+      "id": "F002",
+      "format": "text",
+      "text": "The industrial designer will work on components."
+    },
+    {
+      "id": "F003",
+      "format": "text",
+      "text": "The project manager briefed the team on some new requirements to abide by."
+    },
+    {
+      "id": "F004",
+      "format": "text",
+      "text": "The industrial designer discussed the interior workings of a remote and then the team discussed the option to include speech recognition in their design."
+    },
+    {
+      "id": "F005",
+      "format": "text",
+      "text": "The remote will look appealing."
+    },
+    {
+      "id": "F006",
+      "format": "text",
+      "text": "How to accommodate left-handed people with an ergonomic design that fits right-handed people."
+    },
+    {
+      "id": "F007",
+      "format": "text",
+      "text": "The marketing expert presented research on user preferences and tendencies with remote controls."
+    },
+    {
+      "id": "F008",
+      "format": "text",
+      "text": "The interface specialist will work on the user interface."
+    },
+    {
+      "id": "F009",
+      "format": "text",
+      "text": "The industrial designer will work on the component concept."
+    },
+    {
+      "id": "F010",
+      "format": "text",
+      "text": "The marketing expert will work on trend-watching."
+    },
+    {
+      "id": "F011",
+      "format": "text",
+      "text": "They talk about the budget limitations on features and then the project manager summarizes decisios made and closes the meeting by teeling each group member what he should work on."
+    },
+    {
+      "id": "F012",
+      "format": "text",
+      "text": "The remote will have a minimal number of buttons."
+    },
+    {
+      "id": "F013",
+      "format": "text",
+      "text": "He suggests they name the project and they come up with \"mando\", meaning \"control\" in Spanish."
+    },
+    {
+      "id": "F014",
+      "format": "text",
+      "text": "The remote will have buttons for numbers, volume up and down, channel up and down, power, mute, and a menu."
+    },
+    {
+      "id": "F015",
+      "format": "text",
+      "text": "Because of budget restrictions, they cannot do speech recognition technologies."
+    },
+    {
+      "id": "F016",
+      "format": "text",
+      "text": "The project manager recapped the events and decisions of the previous meeting."
+    },
+    {
+      "id": "F017",
+      "format": "text",
+      "text": "The remote control will be for television only."
+    },
+    {
+      "id": "F018",
+      "format": "text",
+      "text": "They find that the budget is restricting their capabilities, and mentioned increasing the price of the remote control."
+    },
+    {
+      "id": "F019",
+      "format": "text",
+      "text": "The corporate color and slogan must be incorporated into the design."
+    },
+    {
+      "id": "F020",
+      "format": "text",
+      "text": "To target towards young people will bring in new technology."
+    },
+    {
+      "id": "F021",
+      "format": "text",
+      "text": "The marketing expert will examine trend watching reports"
+    },
+    {
+      "id": "F022",
+      "format": "text",
+      "text": "He says Internet capability might be necessary for an LCD and then brings up button size, suggesting having a flip-open door with extra buttons under it."
+    },
+    {
+      "id": "F023",
+      "format": "text",
+      "text": "The corporate slogan will appear on the bottom of the remote."
+    },
+    {
+      "id": "F024",
+      "format": "text",
+      "text": "The project manager opens the meeting stating that they will address the functional design of the remote and saying they are still undecided about whether it should be universal or specific."
+    },
+    {
+      "id": "F025",
+      "format": "text",
+      "text": "They discuss voice recognition again, and then the interface specialist presents."
+    },
+    {
+      "id": "F026",
+      "format": "text",
+      "text": "The remote will include a scroll action."
+    },
+    {
+      "id": "F027",
+      "format": "text",
+      "text": "The industrial designer presents, showing examples of existing products and suggesting they add a scroll wheel for channel-changing."
+    },
+    {
+      "id": "F028",
+      "format": "text",
+      "text": "The remote control should be fancy, a good shape, and not too small or too big."
+    },
+    {
+      "id": "F029",
+      "format": "text",
+      "text": "Although the project manager clearly does not favor the idea because of budget costs and the possible requirement of internet connection, others are pushing for it."
+    },
+    {
+      "id": "F030",
+      "format": "text",
+      "text": "The reliability of speech recognition."
+    },
+    {
+      "id": "F031",
+      "format": "text",
+      "text": "Whether to include speech recognition."
+    },
+    {
+      "id": "F032",
+      "format": "text",
+      "text": "The remote will be rounded in shape such that it fits comfortably in the hand."
+    },
+    {
+      "id": "F033",
+      "format": "text",
+      "text": "The remote will be simple."
+    },
+    {
+      "id": "F034",
+      "format": "text",
+      "text": "A wheel should be used to navigate."
+    },
+    {
+      "id": "F035",
+      "format": "text",
+      "text": "The team will not work with teletext."
+    },
+    {
+      "id": "F036",
+      "format": "text",
+      "text": "The research also indicated that younger users were interested speech recognition."
+    },
+    {
+      "id": "F037",
+      "format": "text",
+      "text": "He suggests they have two types of user interfaces and brings up that voice recognition would increase production price."
+    },
+    {
+      "id": "F038",
+      "format": "text",
+      "text": "The marketing expert presents some research done on user opinions of remotes."
+    },
+    {
+      "id": "F039",
+      "format": "text",
+      "text": "They have not yet decided whether to include an LCD screen."
+    },
+    {
+      "id": "F040",
+      "format": "text",
+      "text": "The team will explore the option of a two-piece remote."
+    },
+    {
+      "id": "F041",
+      "format": "text",
+      "text": "The user interface designer spoke on the option to have a universal remote, presented two differently designed remotes available on the market, and described some features a user-centered remote should include."
+    },
+    {
+      "id": "F042",
+      "format": "text",
+      "text": "The remote will be yellow with black or gray buttons."
+    },
+    {
+      "id": "F043",
+      "format": "text",
+      "text": "The research indicated that users want remotes to be more attractive, to match the behavior of the user, to be easier to locate when misplaced, and not to cause RSI."
+    },
+    {
+      "id": "F044",
+      "format": "text",
+      "text": "He suggests the use of using voice recognition or an LCD, which they discuss despite concerns about budget limitation."
+    },
+    {
+      "id": "F045",
+      "format": "text",
+      "text": "The user interface designer will explore how well a rounded, ergonomic remote and a two-piece remote work with the user."
+    },
+    {
+      "id": "F046",
+      "format": "text",
+      "text": "The team then discussed the option to include a recharger with a locater button in their design, the appearance of their remote, buttons, how to make an ergonomic remote, and the option to have a two-piece remote."
+    },
+    {
+      "id": "F047",
+      "format": "text",
+      "text": "Corporate logo will be clearly displayed on product."
+    },
+    {
+      "id": "F048",
+      "format": "text",
+      "text": "The remote will only be used for televisions."
+    }
+  ]
+}

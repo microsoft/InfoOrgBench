@@ -1,0 +1,235 @@
+{
+  "task_id": "ami/mini-039",
+  "records": [
+    {
+      "id": "F001",
+      "format": "text",
+      "text": "The marketing expert will find out what the most universally appealing remote control on the market is."
+    },
+    {
+      "id": "F002",
+      "format": "text",
+      "text": "The group discussed what functions to include and the layout of the remote, and the marketing expert drew a possible design on the board."
+    },
+    {
+      "id": "F003",
+      "format": "text",
+      "text": "The industrial designer described how a remote works, and explained that his presentation was incomplete because he had not received the necessary information in time."
+    },
+    {
+      "id": "F004",
+      "format": "text",
+      "text": "The project manager opened the meeting and had the team members introduce themselves and describe their roles in the upcoming project."
+    },
+    {
+      "id": "F005",
+      "format": "text",
+      "text": "The team discussed universal usage, how to find remotes when misplaced, shapes and colors, ball shaped remotes, marketing strategies, keyboards on remotes, and remote sizes."
+    },
+    {
+      "id": "F006",
+      "format": "text",
+      "text": "The remote will feature the corporate logo and colour."
+    },
+    {
+      "id": "F007",
+      "format": "text",
+      "text": "A teletext option will not be included."
+    },
+    {
+      "id": "F008",
+      "format": "text",
+      "text": "Having hinges on a ball shaped remote."
+    },
+    {
+      "id": "F009",
+      "format": "text",
+      "text": "The group then began a discussion about features of remote controls and their own  experiences with them."
+    },
+    {
+      "id": "F010",
+      "format": "text",
+      "text": "The remote will sell for 25 Euro."
+    },
+    {
+      "id": "F011",
+      "format": "text",
+      "text": "The stability of a ball shaped remote."
+    },
+    {
+      "id": "F012",
+      "format": "text",
+      "text": "Audio settings are rarely used, and the power, channel and volume buttons are used most often."
+    },
+    {
+      "id": "F013",
+      "format": "text",
+      "text": "The team will not create a ball shaped remote."
+    },
+    {
+      "id": "F014",
+      "format": "text",
+      "text": "Some people had problems using the computers."
+    },
+    {
+      "id": "F015",
+      "format": "text",
+      "text": "They discussed making the remote universally compatible and ergonomically-designed, and types of batteries to use."
+    },
+    {
+      "id": "F016",
+      "format": "text",
+      "text": "The remote will have an LCD screen and speech recognition."
+    },
+    {
+      "id": "F017",
+      "format": "text",
+      "text": "The Industrial Designer will work on the internal working design."
+    },
+    {
+      "id": "F018",
+      "format": "text",
+      "text": "The Project Manager instructed the Industrial Designer to work on the internal working design of the device."
+    },
+    {
+      "id": "F019",
+      "format": "text",
+      "text": "They also discussed the project budget and which features they would like to see in the remote control they are to create."
+    },
+    {
+      "id": "F020",
+      "format": "text",
+      "text": "What shape the remote should be."
+    },
+    {
+      "id": "F021",
+      "format": "text",
+      "text": "The marketing expert will research user preferences"
+    },
+    {
+      "id": "F022",
+      "format": "text",
+      "text": "The industrial designer did not receive the necessary information in time to prepare his presentation according to instructions, so his presentation was based on his own ideas."
+    },
+    {
+      "id": "F023",
+      "format": "text",
+      "text": "There will be LEDs under the buttons so that buttons in use will light up."
+    },
+    {
+      "id": "F024",
+      "format": "text",
+      "text": "The marketing expert and project manager described the new requirements that the target group is users under 40, the remote should not include teletext, should be only for TV, and should feature the corporate logo."
+    },
+    {
+      "id": "F025",
+      "format": "text",
+      "text": "The group decided to use an LCD screen and speech recognition."
+    },
+    {
+      "id": "F026",
+      "format": "text",
+      "text": "The remote should be user-friendly and have a good look and feel."
+    },
+    {
+      "id": "F027",
+      "format": "text",
+      "text": "The remote will be for TV only."
+    },
+    {
+      "id": "F028",
+      "format": "text",
+      "text": "The team then discussed their experiences with remote controls."
+    },
+    {
+      "id": "F029",
+      "format": "text",
+      "text": "They also discussed what buttons would be needed to navigate the menu on the LCD screen."
+    },
+    {
+      "id": "F030",
+      "format": "text",
+      "text": "The Project Manager introduced the project to the group and gave an agenda for the project as a whole."
+    },
+    {
+      "id": "F031",
+      "format": "text",
+      "text": "The advanced functions such as audio settings, contrast and channel programming will be accessed through the screen."
+    },
+    {
+      "id": "F032",
+      "format": "text",
+      "text": "The Project Manager then presented the project budget to the group and presented the projected profit aim, the production cost, and the price point of the device."
+    },
+    {
+      "id": "F033",
+      "format": "text",
+      "text": "The user interface designer will work on the layout of the remote and the LCD screen menu."
+    },
+    {
+      "id": "F034",
+      "format": "text",
+      "text": "The User Interface Designer was told to work on the technical function design, and the Marketing Expert was instructed to research the needs of users."
+    },
+    {
+      "id": "F035",
+      "format": "text",
+      "text": "There was some confusion about the the roles of the user interface designer and the industrial designer."
+    },
+    {
+      "id": "F036",
+      "format": "text",
+      "text": "The project manager will write up the meeting minutes."
+    },
+    {
+      "id": "F037",
+      "format": "text",
+      "text": "The industrial designer will work on the functional aspects of the remote."
+    },
+    {
+      "id": "F038",
+      "format": "text",
+      "text": "She then introduced a tool training exercise to acquaint the group with the meeting-room tools and to help them get to know each other."
+    },
+    {
+      "id": "F039",
+      "format": "text",
+      "text": "The Marketing Expert will research user requirements."
+    },
+    {
+      "id": "F040",
+      "format": "text",
+      "text": "The user interface designer showed examples of two contrasting remotes, recommending that they should use the best features of both."
+    },
+    {
+      "id": "F041",
+      "format": "text",
+      "text": "They decided to have buttons for the basic functions and make the advanced functions accessible through the screen."
+    },
+    {
+      "id": "F042",
+      "format": "text",
+      "text": "The screen and microphone will be at the top of the remote."
+    },
+    {
+      "id": "F043",
+      "format": "text",
+      "text": "The target group will be aged 16-40."
+    },
+    {
+      "id": "F044",
+      "format": "text",
+      "text": "The User Interface Designer will work on the technical function design."
+    },
+    {
+      "id": "F045",
+      "format": "text",
+      "text": "The marketing expert reported on research which shows that users think most remotes are ugly, easily lost and bad for RSI."
+    },
+    {
+      "id": "F046",
+      "format": "text",
+      "text": "The project manager then described the upcoming project."
+    }
+  ]
+}

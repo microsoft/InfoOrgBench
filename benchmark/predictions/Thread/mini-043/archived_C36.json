@@ -1,0 +1,298 @@
+{
+  "assignments": [
+    {
+      "id": "F001",
+      "path": [
+        "S3A improvements",
+        "Iceberg bulk delete"
+      ]
+    },
+    {
+      "id": "F002",
+      "path": [
+        "ABFS improvements",
+        "HNS account configuration"
+      ]
+    },
+    {
+      "id": "F003",
+      "path": [
+        "S3A improvements",
+        "Lazy skip"
+      ]
+    },
+    {
+      "id": "F004",
+      "path": [
+        "S3A improvements",
+        "Lazy skip"
+      ]
+    },
+    {
+      "id": "F005",
+      "path": [
+        "ABFS improvements",
+        "HTTP timing logs"
+      ]
+    },
+    {
+      "id": "F006",
+      "path": [
+        "S3A improvements",
+        "Lazy skip"
+      ]
+    },
+    {
+      "id": "F007",
+      "path": [
+        "S3A improvements",
+        "Upload listing details"
+      ]
+    },
+    {
+      "id": "F008",
+      "path": [
+        "ABFS improvements",
+        "Rename idempotency"
+      ]
+    },
+    {
+      "id": "F009",
+      "path": [
+        "ABFS improvements",
+        "HTTP timing logs"
+      ]
+    },
+    {
+      "id": "F010",
+      "path": [
+        "S3A improvements",
+        "Lazy skip"
+      ]
+    },
+    {
+      "id": "F011",
+      "path": [
+        "ABFS improvements",
+        "Test client authentication"
+      ]
+    },
+    {
+      "id": "F012",
+      "path": [
+        "ABFS improvements",
+        "HNS account configuration"
+      ]
+    },
+    {
+      "id": "F013",
+      "path": [
+        "ABFS improvements",
+        "Test client authentication"
+      ]
+    },
+    {
+      "id": "F014",
+      "path": [
+        "S3A improvements",
+        "Lazy skip"
+      ]
+    },
+    {
+      "id": "F015",
+      "path": [
+        "S3A improvements",
+        "Parallel rename timeout"
+      ]
+    },
+    {
+      "id": "F016",
+      "path": [
+        "ABFS improvements",
+        "HNS account configuration"
+      ]
+    },
+    {
+      "id": "F017",
+      "path": [
+        "ABFS improvements",
+        "Test client authentication"
+      ]
+    },
+    {
+      "id": "F018",
+      "path": [
+        "ABFS improvements",
+        "HNS account configuration"
+      ]
+    },
+    {
+      "id": "F019",
+      "path": [
+        "ABFS improvements",
+        "HTTP timing logs"
+      ]
+    },
+    {
+      "id": "F020",
+      "path": [
+        "ABFS improvements",
+        "Parallel contract paths"
+      ]
+    },
+    {
+      "id": "F021",
+      "path": [
+        "ABFS improvements",
+        "Driver trace logs"
+      ]
+    },
+    {
+      "id": "F022",
+      "path": [
+        "ABFS improvements",
+        "Common retry policy"
+      ]
+    },
+    {
+      "id": "F023",
+      "path": [
+        "ABFS improvements",
+        "HNS account configuration"
+      ]
+    },
+    {
+      "id": "F024",
+      "path": [
+        "S3A improvements",
+        "Lazy skip"
+      ]
+    },
+    {
+      "id": "F025",
+      "path": [
+        "S3A improvements",
+        "Lazy skip"
+      ]
+    },
+    {
+      "id": "F026",
+      "path": [
+        "ABFS improvements",
+        "Auth throttling classification"
+      ]
+    },
+    {
+      "id": "F027",
+      "path": [
+        "S3A improvements",
+        "Parallel rename timeout"
+      ]
+    },
+    {
+      "id": "F028",
+      "path": [
+        "S3A improvements",
+        "Upload listing details"
+      ]
+    },
+    {
+      "id": "F029",
+      "path": [
+        "ABFS improvements",
+        "Driver trace logs"
+      ]
+    },
+    {
+      "id": "F030",
+      "path": [
+        "ABFS improvements",
+        "Auth throttling classification"
+      ]
+    },
+    {
+      "id": "F031",
+      "path": [
+        "S3A improvements",
+        "Lazy skip"
+      ]
+    },
+    {
+      "id": "F032",
+      "path": [
+        "S3A improvements",
+        "Upload listing details"
+      ]
+    },
+    {
+      "id": "F033",
+      "path": [
+        "ABFS improvements",
+        "HTTP timing logs"
+      ]
+    },
+    {
+      "id": "F034",
+      "path": [
+        "ABFS improvements",
+        "Parallel contract paths"
+      ]
+    },
+    {
+      "id": "F035",
+      "path": [
+        "ABFS improvements",
+        "Driver trace logs"
+      ]
+    },
+    {
+      "id": "F036",
+      "path": [
+        "S3A improvements",
+        "Lazy skip"
+      ]
+    },
+    {
+      "id": "F037",
+      "path": [
+        "ABFS improvements",
+        "Rename idempotency"
+      ]
+    },
+    {
+      "id": "F038",
+      "path": [
+        "ABFS improvements",
+        "Driver trace logs"
+      ]
+    },
+    {
+      "id": "F039",
+      "path": [
+        "S3A improvements",
+        "Parallel rename timeout"
+      ]
+    },
+    {
+      "id": "F040",
+      "path": [
+        "S3A improvements",
+        "Upload listing details"
+      ]
+    },
+    {
+      "id": "F041",
+      "path": [
+        "ABFS improvements",
+        "Driver trace logs"
+      ]
+    },
+    {
+      "id": "F042",
+      "path": [
+        "ABFS improvements",
+        "Test client authentication"
+      ]
+    }
+  ]
+}

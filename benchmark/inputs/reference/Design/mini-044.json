@@ -1,0 +1,366 @@
+{
+  "task_id": "mini-044",
+  "records": [
+    {
+      "id": "F001",
+      "path": [
+        "sig-storage",
+        "3314-csi-changed-block-tracking"
+      ],
+      "content_sha256": "333056edb4232470024f03599a61b0d612d94b950c7deb793b8bd6d21134e54c",
+      "source_native_id": "keps/sig-storage/3314-csi-changed-block-tracking#excerpt-3",
+      "source_heading": "non-goals"
+    },
+    {
+      "id": "F002",
+      "path": [
+        "sig-apps",
+        "3939-allow-replacement-when-fully-terminated"
+      ],
+      "content_sha256": "92fb00ed07e19bbce684c70671c9116f58d781e8a0784db618758d180c72398c",
+      "source_native_id": "keps/sig-apps/3939-allow-replacement-when-fully-terminated#excerpt-3",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F003",
+      "path": [
+        "sig-api-machinery",
+        "1693-warnings"
+      ],
+      "content_sha256": "f5a94480c7d58721b3d3e4832001a4f4bc1e2101c2a2ec92a9b6e4784791ee5f",
+      "source_native_id": "keps/sig-api-machinery/1693-warnings#excerpt-3",
+      "source_heading": "risks and mitigations"
+    },
+    {
+      "id": "F004",
+      "path": [
+        "sig-storage",
+        "1412-immutable-secrets-and-configmaps"
+      ],
+      "content_sha256": "84e0698c8046609f65876fca62fc98b8755b9401468e068a8d7435c3d794f62d",
+      "source_native_id": "keps/sig-storage/1412-immutable-secrets-and-configmaps#excerpt-3",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F005",
+      "path": [
+        "sig-scheduling",
+        "1258-default-pod-topology-spread"
+      ],
+      "content_sha256": "4344421e52a33c6c0051a7713570bd84c762f4b607095722bed56e3515a6e986",
+      "source_native_id": "keps/sig-scheduling/1258-default-pod-topology-spread#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F006",
+      "path": [
+        "sig-storage",
+        "1900-volume-snapshot-validation-webhook"
+      ],
+      "content_sha256": "937d51ff5589e4a560e8296c6e968e448785099c091d6ab99e4b65530239d13a",
+      "source_native_id": "keps/sig-storage/1900-volume-snapshot-validation-webhook#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F007",
+      "path": [
+        "sig-scheduling",
+        "1258-default-pod-topology-spread"
+      ],
+      "content_sha256": "1f85c2dbc6a00688fa9a1a82aa91e8978ecfa7eeb0e739319cf740f5cd77cb02",
+      "source_native_id": "keps/sig-scheduling/1258-default-pod-topology-spread#excerpt-3",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F008",
+      "path": [
+        "sig-api-machinery",
+        "2876-crd-validation-expression-language"
+      ],
+      "content_sha256": "3fac6d9b3b4d029246c011c819c7aa1f5102ea3b6f6cc1caa835bf22f4b15f31",
+      "source_native_id": "keps/sig-api-machinery/2876-crd-validation-expression-language#excerpt-2",
+      "source_heading": "non-goals"
+    },
+    {
+      "id": "F009",
+      "path": [
+        "sig-scheduling",
+        "5501-reflect-preenqueue-rejections-in-pod-status"
+      ],
+      "content_sha256": "644a96e7c4bc9eb96d0f151c91eba655fd962fc7ea81aafed1311d46b3562ee0",
+      "source_native_id": "keps/sig-scheduling/5501-reflect-preenqueue-rejections-in-pod-status#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F010",
+      "path": [
+        "sig-storage",
+        "1900-volume-snapshot-validation-webhook"
+      ],
+      "content_sha256": "492164332c8877fb6f8a4c38a498c417ceeb785fb9d8b01fdf263d2b19b6c842",
+      "source_native_id": "keps/sig-storage/1900-volume-snapshot-validation-webhook#excerpt-3",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F011",
+      "path": [
+        "sig-apps",
+        "961-maxunavailable-for-statefulset"
+      ],
+      "content_sha256": "2c331e3a7186dfb6356855fcd8c9dcf1ed1e6fbefe8be8ceaabb0f4fff8e2515",
+      "source_native_id": "keps/sig-apps/961-maxunavailable-for-statefulset#excerpt-3",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F012",
+      "path": [
+        "sig-api-machinery",
+        "5866-server-side-sharded-list-and-watch"
+      ],
+      "content_sha256": "927f7f5b7b69cb6a486ece29b1486144026f4e01a390ef98e634960a33fbf903",
+      "source_native_id": "keps/sig-api-machinery/5866-server-side-sharded-list-and-watch#excerpt-3",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F013",
+      "path": [
+        "sig-scheduling",
+        "5501-reflect-preenqueue-rejections-in-pod-status"
+      ],
+      "content_sha256": "05d494c1759cd6376ca487366e4b483a96331d4c9b44239ea8d9f38ed60fdf7d",
+      "source_native_id": "keps/sig-scheduling/5501-reflect-preenqueue-rejections-in-pod-status#excerpt-3",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F014",
+      "path": [
+        "sig-scheduling",
+        "4815-dra-partitionable-devices"
+      ],
+      "content_sha256": "a19779bc1651ec3748faa1f40fec6130fb1dbbe463f00de487ebc4f33b191072",
+      "source_native_id": "keps/sig-scheduling/4815-dra-partitionable-devices#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F015",
+      "path": [
+        "sig-apps",
+        "961-maxunavailable-for-statefulset"
+      ],
+      "content_sha256": "25e652177fc356546d939c2673c8fef3b4704d46f33662d3c409165c65ee1ae9",
+      "source_native_id": "keps/sig-apps/961-maxunavailable-for-statefulset#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F016",
+      "path": [
+        "sig-api-machinery",
+        "1693-warnings"
+      ],
+      "content_sha256": "aeb26d0e4babef5cbc384eff1ba03e9d1973f877b851346ea51a5e87013a84da",
+      "source_native_id": "keps/sig-api-machinery/1693-warnings#excerpt-1",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F017",
+      "path": [
+        "sig-api-machinery",
+        "2876-crd-validation-expression-language"
+      ],
+      "content_sha256": "31d1766a166f112a36b5f39889730987e6cf0397a048c4067751787cd2371263",
+      "source_native_id": "keps/sig-api-machinery/2876-crd-validation-expression-language#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F018",
+      "path": [
+        "sig-apps",
+        "2232-suspend-jobs"
+      ],
+      "content_sha256": "b99187255e73d1c776ad6616f7dbe09ed70582c1aaf14b9ddd560a91a4d5634a",
+      "source_native_id": "keps/sig-apps/2232-suspend-jobs#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F019",
+      "path": [
+        "sig-apps",
+        "2232-suspend-jobs"
+      ],
+      "content_sha256": "7d86c65d1e998cdbceb984aef848091571fdfc04d152d4fb160e0f6b6348c733",
+      "source_native_id": "keps/sig-apps/2232-suspend-jobs#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F020",
+      "path": [
+        "sig-scheduling",
+        "4815-dra-partitionable-devices"
+      ],
+      "content_sha256": "b3332827f67a95ab2c0f43d388e713b774bfad3b627f83e838611a07de6483a7",
+      "source_native_id": "keps/sig-scheduling/4815-dra-partitionable-devices#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F021",
+      "path": [
+        "sig-apps",
+        "961-maxunavailable-for-statefulset"
+      ],
+      "content_sha256": "7b821872af2e739718bbfd6b1c0a4adaaf78af265abc7807e6ac897d853e849c",
+      "source_native_id": "keps/sig-apps/961-maxunavailable-for-statefulset#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F022",
+      "path": [
+        "sig-scheduling",
+        "5501-reflect-preenqueue-rejections-in-pod-status"
+      ],
+      "content_sha256": "f517ff53afbe3f7ed9487c8de5378ff79d485f25b55c40962ab605171db5438e",
+      "source_native_id": "keps/sig-scheduling/5501-reflect-preenqueue-rejections-in-pod-status#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F023",
+      "path": [
+        "sig-storage",
+        "1412-immutable-secrets-and-configmaps"
+      ],
+      "content_sha256": "b06315eaf971c897c4d70fe73cbb3a654bd209330426784fb4351170779ae90d",
+      "source_native_id": "keps/sig-storage/1412-immutable-secrets-and-configmaps#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F024",
+      "path": [
+        "sig-apps",
+        "3939-allow-replacement-when-fully-terminated"
+      ],
+      "content_sha256": "8a15c845a563e55cadc64b85bd1d8b7aa638e2655b23ce5f6bee30c76790b744",
+      "source_native_id": "keps/sig-apps/3939-allow-replacement-when-fully-terminated#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F025",
+      "path": [
+        "sig-scheduling",
+        "4815-dra-partitionable-devices"
+      ],
+      "content_sha256": "2284bdcb6f48dd36592f61b612fe4498bb0e6f80b23c1551f9f20e3932a8ae17",
+      "source_native_id": "keps/sig-scheduling/4815-dra-partitionable-devices#excerpt-3",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F026",
+      "path": [
+        "sig-scheduling",
+        "1258-default-pod-topology-spread"
+      ],
+      "content_sha256": "886f15504a06dd9e2acd7721418748d1e4917f573e7be048d37ce4570547d881",
+      "source_native_id": "keps/sig-scheduling/1258-default-pod-topology-spread#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F027",
+      "path": [
+        "sig-storage",
+        "3314-csi-changed-block-tracking"
+      ],
+      "content_sha256": "6ce70bcf7d64eedd6c067aa7602bccf24db5bf7d902bb96d1c4fbc31b352aef7",
+      "source_native_id": "keps/sig-storage/3314-csi-changed-block-tracking#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F028",
+      "path": [
+        "sig-api-machinery",
+        "1693-warnings"
+      ],
+      "content_sha256": "5534fb45c355b93525b82e0bce2dbcbb0643aae0345d3e1c2adb30c7ab7760f9",
+      "source_native_id": "keps/sig-api-machinery/1693-warnings#excerpt-2",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F029",
+      "path": [
+        "sig-api-machinery",
+        "5866-server-side-sharded-list-and-watch"
+      ],
+      "content_sha256": "14325e8184d75bf30a9079aee0e10f4ebda2335965eb9143bb63d0dd9f38742b",
+      "source_native_id": "keps/sig-api-machinery/5866-server-side-sharded-list-and-watch#excerpt-2",
+      "source_heading": "non-goals"
+    },
+    {
+      "id": "F030",
+      "path": [
+        "sig-storage",
+        "1900-volume-snapshot-validation-webhook"
+      ],
+      "content_sha256": "c87dac86c32d98fefa90c75e29b964712a17e74684c9e7fa950d7a22279b54b4",
+      "source_native_id": "keps/sig-storage/1900-volume-snapshot-validation-webhook#excerpt-2",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F031",
+      "path": [
+        "sig-storage",
+        "3314-csi-changed-block-tracking"
+      ],
+      "content_sha256": "6c137464ffcb6683fe137600911afe493246d4a715ef69359ee41fab719bac14",
+      "source_native_id": "keps/sig-storage/3314-csi-changed-block-tracking#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F032",
+      "path": [
+        "sig-api-machinery",
+        "2876-crd-validation-expression-language"
+      ],
+      "content_sha256": "8dce8eb5b4c4cb54ac31e0249b13e1981af83fd9b4da7f5b4ff90559ae388ebf",
+      "source_native_id": "keps/sig-api-machinery/2876-crd-validation-expression-language#excerpt-3",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F033",
+      "path": [
+        "sig-storage",
+        "1412-immutable-secrets-and-configmaps"
+      ],
+      "content_sha256": "f6a78db8ef63880370fb3d149cd40d51bf62263a68c4747fc43800146fe2ccca",
+      "source_native_id": "keps/sig-storage/1412-immutable-secrets-and-configmaps#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F034",
+      "path": [
+        "sig-apps",
+        "2232-suspend-jobs"
+      ],
+      "content_sha256": "c052eeb07d27c40c8cd3802313265ddf4cb4a456ea86778ab04b1c6608507197",
+      "source_native_id": "keps/sig-apps/2232-suspend-jobs#excerpt-3",
+      "source_heading": "non-goals"
+    },
+    {
+      "id": "F035",
+      "path": [
+        "sig-api-machinery",
+        "5866-server-side-sharded-list-and-watch"
+      ],
+      "content_sha256": "ecb39c527a5430eed22f2cc8fa03c3f2d5e3cb61ac02a0810e77009f7b3a84d4",
+      "source_native_id": "keps/sig-api-machinery/5866-server-side-sharded-list-and-watch#excerpt-1",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F036",
+      "path": [
+        "sig-apps",
+        "3939-allow-replacement-when-fully-terminated"
+      ],
+      "content_sha256": "c79bd40720f847aa92b287305005d6a4085c3a241b518924cfc2e2c98a4885c3",
+      "source_native_id": "keps/sig-apps/3939-allow-replacement-when-fully-terminated#excerpt-1",
+      "source_heading": "summary"
+    }
+  ],
+  "reference_scope": "Source-derived group/proposal hierarchy for a development-only difficulty and cost pilot."
+}

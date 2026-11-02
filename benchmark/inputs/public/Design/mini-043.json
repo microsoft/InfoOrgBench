@@ -1,0 +1,185 @@
+{
+  "task_id": "mini-043",
+  "records": [
+    {
+      "id": "F001",
+      "format": "text",
+      "text": "Motiviation behind this effort is to allow cloud providers to develop and make releases independent from the core Kubernetes release cycle. The de-coupling of cloud provider code allows for separation of concern between \"Kubernetes core\" and the cloud providers within the ecosystem. In addition, this ensures all cloud providers in the ecosystem are integrating with Kubernetes in a consistent and extendable way.\n\nHaving all cloud providers developed/released in their own external repos/modules will result in the following benefits: The core pieces of Kubernetes (kubelet, kube-apiserver, kube-controller-manager, etc) will no longer depend on cloud provider specific APIs (and their dependencies). This results in smaller binaries and lowers the chance of security vulnerabilities via external dependencies. Each cloud provider is free to release features/bug fixes at their own schedule rather than relying on the core Kubernetes release cycle."
+    },
+    {
+      "id": "F002",
+      "format": "text",
+      "text": "The primary motivation for this KEP is to solve scheduling and validation problems that arise from version skew. When a new feature is enabled on the control plane, a mismatch often occurs because nodes are upgraded gradually or are simply running older Kubelet versions, as is permitted by the Kubernetes version skew policy. This creates a window where the scheduler might place a pod requiring a new feature onto a node that does not support it.\n\nBy making the scheduler aware of the features on the node, this proposal ensures that incompatibilities are handled correctly and proactively instead of failing later with a runtime error or a Kubelet admission failure on the node. A pod without a matching node remains `Pending` with an event that details the unmet feature requirement, providing actionable user feedback (slack discussion)."
+    },
+    {
+      "id": "F003",
+      "format": "text",
+      "text": "In its first implementation the risks are low as it tries to be a CRI API change with minimal changes to the kubelet and it is gated by the feature gate `ContainerCheckpoint`.\n\nOne possible risk that was identified during Alpha is that the disk of the node requesting the checkpoints could fill up if too many checkpoints are created and the node will be marked as bot healthy. One approach to solve this was some kind of garbage collection of checkpoint archives. A pull request to implement garbage collection was opened (#115888) but during review it became clear that the kubelet might not be the right place to implement checkpoint archive garbage collection and the pull request was closed again. Currently the most likely solution seems to be to implement the garbage collection in an operator. Garbage collection via an operator could clean up the checkpoint directory and the node would stay healthy. Currently manual cleanup might be required to ensure the node does not run out of disk space and stays healthy. Especially in situation where checkpoint creation requests are triggered automatically and not manually. As service that requests many checkpoints should ensure to remove the requested checkpoints as soon as possible."
+    },
+    {
+      "id": "F004",
+      "format": "text",
+      "text": "DRA currently relies on exact literal matching of device attributes across requests (`matchAttributes`). While performant, literal matching is rigid for end users. Workloads needing to pair devices across complex boundaries— such as extracting a PCI or NUMA ID from a topology string—cannot express these requirements inline.\n\nThis KEP introduces `derivedAttributes` to `.devices.requests`. It allows users to synthesize virtual grouping keys on the fly using scoped, per-device CEL expressions. The scheduler's constraint engine then evaluates these derived keys exactly like static attributes."
+    },
+    {
+      "id": "F005",
+      "format": "text",
+      "text": "The `ResourceSlice` API allows users to attach scalar attributes to devices. These can be used to allocate devices that share common topology within the node. For certain types of topological relationships, scalar values are insufficient. For example, a CPU may have adjacency to multiple PCIe roots. This enhancement proposes allowing attributes to be lists. The semantics of the `MatchAttribute` and `DistinctAttribute` constraints must adapt to the possibility of lists. For example, rather than defining an attribute \"match\" as equality, it would be defined as a non-empty intersection, treating scalars as single-element lists. Conversely, \"distinct\" attributes for lists would be defined as an empty intersection."
+    },
+    {
+      "id": "F006",
+      "format": "text",
+      "text": "Provide an updated CRD schema to validate fields Prevent: Invalid VolumeSnapshot/VolumeSnapshotContent from creation and update Invalid updates on immutable fields, i.e., VolumeSnapshot.Spec.Source Provide a pre-built image which can be used to deploy the webhook server Provide a way to deploy the webhook server in cluster Provide a way to authenticate the webhook server to the API server via TLS Provide a release process to safely tighten the validation and move towards the ideal state of using builtin CRD validation while maintaining backwards compatibility"
+    },
+    {
+      "id": "F007",
+      "format": "text",
+      "text": "Today we have many external (a.k.a out-of-tree) cloud providers, each responsible for managing releases for components such as cloud-controller-manger, but possibly others. Thus far there has been no standard on how providers should be semantically versioning their releases. Likewise, there has been no version skew policy indicating what versions of Kubernetes is supported by a version of a cloud-controller-manager (though it is assumed based on the vendored version of k8s.io/kubernetes). This KEP proposes to standardize all external cloud providers on a semantic versioning policy that ensures the vendored version of the cloud-controller-manager library is likely to match the version of the Kubernetes control plane. More concretely, releases for external cloud providers should track the major and minor versions of the Kubernetes version they intend to support. Patch releases are not required to match. For example, release v1.18.X of cloud-controller-manager for provider Foo should support Kubernetes clusters on v1.18.X."
+    },
+    {
+      "id": "F008",
+      "format": "text",
+      "text": "Introduce a new field to Service `spec.loadBalancerClass`.\n\nIf the field `spec.loadBalancerClass` is not set, the existing cloud provider will assume ownership of the Service Type=LoadBalancer resource. This is required to not break existing clusters that assume Service Type=LoadBalancer is always managed by the cloud provider.\n\nRequired API changes: `loadBalancerClass` will be immutable when the Service type is `LoadBalancer`, this way existing and future implementations do not have to worry about handling Services that change the class name. The class name is mutable only when the type is not LoadBalancer and must be cleared when the type changes. `loadBalancerClass` will be validated against label-style format. the `loadBalancerClass` field will be feature gated. The field will be dropped during API strategy unless the feature gate is enabled. all external implementations of Service LoadBalancer using a non-empty class name should use the finalizer `service.kubernetes.io/load-balancer-cleanup` to ensure proper garbage collection of external resources.\n\nRequired updates to service controller: if the class field is NOT set for a Service, allow the cloud provider to reconcile the load balancer. if the class field IS set for a Service, skip reconciliation of the Service from the cloud provider."
+    },
+    {
+      "id": "F009",
+      "format": "text",
+      "text": "Support typed-list in device attribute values. Extends(redefine) the semantics of `ResourceClaim`'s `constraints[].{matchAttribute,distinctAttribute}` fields as below so that it can work with list-type attribute values `matchAttribute`: it is defined as non-empty intersection `distinctAttribute`: it is defined as pairwise disjoint note: scalar values are treated as single-element lists Keep _monotonicity_ in constraint. Currently `Allocator`'s algorithm assumes _monotonic_ constraints only. Monotonic means that once a constraint returns false, adding more devices will never cause it to return true. This allows to bound the computational complexity for searching device combinations which satisfies the specified constraints. This KEP focuses to keep monotonicity of `matchAttribute/distinctAttribute` semantics. Maintain backward compatibility and inter-operability for scalar-only attributes. `matchAttribute/distinctAttribute`: existing constraint can work because scalar values are treated as single-value list CEL expressions in device selectors: when the attribute type is updated, existing CEL won't failed to compile. But, we will provide some type-agnostic helper function to achieve easier migration for users/DRA driver developers."
+    },
+    {
+      "id": "F010",
+      "format": "text",
+      "text": "Tighten validation on `VolumeSnapshot` and `VolumeSnapshotContent` by updating the CRD validation schema and providing a webhook server to enforce immutability.\n\nThis KEP will list the new validation rules. It will also provide the release plan to ensure backwards compatibility. As well, it will outline the deployment plan of the webhook server. The webhook server is deployed separately from the snapshot controller.\n\nThis tightening of the validation on volume snapshot objects is considered a change to the volume snapshot API. Choosing not to install the webhook server and participate in the 2-phase release process can cause future problems when upgrading from v1beta1 to V1 volumesnapshot API if there are currently persisted objects which fail the new stricter validation. Potential impacts include being unable to delete invalid snapshot objects. It should be possible to downgrade the CRD definition as a workaround."
+    },
+    {
+      "id": "F011",
+      "format": "text",
+      "text": "This document describes the Kubernetes Scheduling Framework. The scheduling framework is a new set of \"plugin\" APIs being added to the existing Kubernetes Scheduler. Plugins are compiled into the scheduler, and these APIs allow many scheduling features to be implemented as plugins, while keeping the scheduling \"core\" simple and maintainable.\n\n*Note: Previous versions of this document proposed replacing the existing scheduler with a new implementation.*"
+    },
+    {
+      "id": "F012",
+      "format": "text",
+      "text": "When Service Type=LoadBalancer is enabled by a Kubernetes cloud provider, it is a global configuration that applies for all Service Type=LoadBalancer resources in a given cluster. This becomes problematic if users want to leverage multiple Service Type=LoadBalancer implementations in a cluster.\n\nThe new Services APIs addresses this already with the GatewayClass resource. However, until Gateway/GatewayClass APIs become mature, we should support similar functionality for Services of Type=LoadBalancer. Introducing a new resource like `ServiceClass` is probably not worthwhile given that there are new APIs already in development. This KEP proposes a light-weight approach for Service Type=LoadBalancer by introducing a Service field `service.spec.loadBalancerClass`."
+    },
+    {
+      "id": "F013",
+      "format": "text",
+      "text": "The Scheduling Framework defines new extension points and Go APIs in the Kubernetes Scheduler for use by \"plugins\". Plugins add scheduling behaviors to the scheduler, and are included at compile time. The scheduler's ComponentConfig will allow plugins to be enabled, disabled, and reordered. Custom schedulers can write their plugins \"out-of-tree\" and compile a scheduler binary with their own plugins included."
+    },
+    {
+      "id": "F014",
+      "format": "text",
+      "text": "Currently, ResourceClaimTemplate is namespace-scoped. Administrators managing clusters with specialized hardware (GPUs, FPGAs, high-performance network devices) must deploy and synchronize identical ResourceClaimTemplate resources across all active namespaces. This namespace pollution makes cluster management complex, especially in dynamic, multi-tenant clusters. Cluster-scoped templates solve this by allowing a single central template definition."
+    },
+    {
+      "id": "F015",
+      "format": "text",
+      "text": "improve discovery of version supportability across Kubernetes and external cloud providers. promote using the latest cloud-controller-manager library based on the Kubernetes version of the cluster prevent wide version skew of Kubernetes control plane and cloud-controller-manager. reduce chances of incompatibility issues that occur when a cloud-controller-manager vendoring a really old version of Kubernetes is running on a much newer version of Kubernetes."
+    },
+    {
+      "id": "F016",
+      "format": "text",
+      "text": "A drawback of this proposal is the complexity involved with doing this type of change in the Kubernetes community. It will necessarily require an increased level of turbulence for developers and users as they learn about the changes to the `kubelet`, `kube-apiserver`, and `kube-controller-manager` processes, and the changes necessary to operate the external CCMs. Users will need to adapt their practices and automation to include the changes to command line flags and manifests to enable external cloud providers."
+    },
+    {
+      "id": "F017",
+      "format": "text",
+      "text": "Many features are being added to the Kubernetes Scheduler. They keep making the code larger and the logic more complex. A more complex scheduler is harder to maintain, its bugs are harder to find and fix, and those users running a custom scheduler have a hard time catching up and integrating new changes. The current Kubernetes scheduler provides [webhooks to extend][] its functionality. However, these are limited in a few ways:\n\n[webhooks to extend]: The number of extension points are limited: \"Filter\" extenders are called after default predicate functions."
+    },
+    {
+      "id": "F018",
+      "format": "text",
+      "text": "This KEP proposes a **Node Declared Features** framework for nodes to declare the availability of specific, feature-gated Kubernetes features. This would then be used by control plane components (such as the kube-scheduler, admission controllers, or the API server itself) to make informed decisions, primarily to manage version skew. For scheduling, the kube-scheduler would utilize these declared features to ensure pods are only placed on nodes that possess the necessary features to run them successfully. For API request validation, admission controllers would prevent operations on nodes that lack the required feature support. The intent is to streamline cluster operations by reducing the reliance on manual configurations like taints, tolerations, and complex node labeling schemes."
+    },
+    {
+      "id": "F019",
+      "format": "text",
+      "text": "Increase the availability of stateful workloads when a node is shutdown, or in other non-recoverable cases such as the hardware failure or broken OS. Requires user intervention to detect node shutdown/failure cases, because currently there is no good way of detecting whether node is in the middle of restarting. Once the feature in this KEP is developed and tested, we plan to work on automatic way of detecting and fencing node for shutdown/failure use cases and re-evaluating some approaches listed in the Alternatives section."
+    },
+    {
+      "id": "F020",
+      "format": "text",
+      "text": "**Reduce administrative overhead**: Eliminate the need to replicate and synchronize identical DRA templates across multiple namespaces. **Simplify workload configuration**: Allow Pods and PodGroups in any namespace to easily consume centrally managed hardware templates. **Preserve namespace isolation**: Ensure cluster-scoped templates do not introduce privilege escalation or cross-namespace risks."
+    },
+    {
+      "id": "F021",
+      "format": "text",
+      "text": "Tighten the validation on Volume Snapshot objects. Please see the tables below for detailed information. Due to backwards compatibility concerns, the tightening will occur in three phases. The first phase is webhook-only, and will use ratcheting validation. It will be the user's responsibility to clean up invalid objects which already existed before the webhook was enabled. Invalid objects are those which fail the new, stricter validation."
+    },
+    {
+      "id": "F022",
+      "format": "text",
+      "text": "**Risk**: A new CEL expression needs to be evaluated for each candidate device (in addition to any CEL expressions evaluated for device selectors). **Mitigation**: To prevent redundant evaluations of the same expression on a single device (which may be evaluated multiple times or against multiple requests), the scheduler plugin caches both the compiled CEL ASTs and the evaluated derived attribute values for each candidate device. Evaluation happens exactly once per candidate device per scheduling cycle, making the latency overhead strictly linear O(N) with the number of candidate devices."
+    },
+    {
+      "id": "F023",
+      "format": "text",
+      "text": "Container checkpointing provides the functionality to take a snapshot of a running container. The checkpointed container can be transferred to another node and the original container will never know that it was checkpointed.\n\nRestoring the container in a sandboxed environment provides a mean to forensically analyse a copy of the container to understand if it might have been a possible threat. As the analysis is happening on a copy of the original container a possible attacker of the original container will not be aware of any sandboxed analysis."
+    },
+    {
+      "id": "F024",
+      "format": "text",
+      "text": "The main use-case for this feature is being able to support multiple Service Type=LoadBalancer implementations in a cluster, as different workloads may want to leverage different loadbalancer providers based on efficiency, availability, cost and other factors.\n\nFor example, a cluster admin may want to use a public load balancer from a cloud provider for workloads that must be assigned a publically routable address, but they may want to enable a lower-cost solution for workloads that are only internally accessible."
+    },
+    {
+      "id": "F025",
+      "format": "text",
+      "text": "Some users have experienced data loss when using `Delete` retain policy and reverted to a safer `Retain` policy. With `Retain` policy all volumes that are retained and left unclaimed have their phase is set to `Released`. As the released volumes pile up over time admins want to perform manual cleanup based on the time when the volume was last used, which is when the volume transitioned to `Released` phase.\n\nWe can approach the solution in a more generic way and record a timestamp of when the volume transitioned to any phase, not just to `Released` phase. This allows anyone, including our perf tests, to measure time e.g. between a PV `Pending` and `Bound`. This can be also useful for providing metrics and SLOs."
+    },
+    {
+      "id": "F026",
+      "format": "text",
+      "text": "In order to remove cloud provider code from `k8s.io/kubernetes`. A 4 phase approach will be taken. Move all code in `k8s.io/kubernetes/pkg/cloudprovider/providers/<provider>` to `k8s.io/kubernetes/staging/src/k8s.io/legacy-cloud-providers/<provider>/`. This requires removing all internal dependencies in each cloud provider to `k8s.io/kubernetes`. Begin to build/release the CCM from external repos (`k8s.io/cloud-provider-<provider>`) with the option to import the legacy providers from `k8s.io/legacy-cloud-providers/<provider>`. This allows the cloud-controller-manager to opt into legacy behavior in-tree (for compatibility reasons) or build new implementations of the provider. Development for cloud providers in-tree is still done in `k8s.io/kubernetes/staging/src/k8s.io/legacy-cloud-providers/<provider>` during this phase. Migrate all code in `k8s.io/kubernetes/staging/src/k8s.io/legacy-cloud-providers` and shift main development to `k8s.io/cloud-provider-<provider>`. External cloud provider repos can optionally still import `k8s.io/legacy-cloud-providers` but it will no longer be imported from core components in `k8s.io/kubernetes`. Changes to `k8s.io/kubernetes/staging/src/k8s.io/legacy-cloud-providers` are no longer accepted unless they are critical or security-related. Disable in-tree providers and set the `DisableCloudProviders` and `DisableKubeletCloudCredentialProvider` feature gates to true by default. This will enable external CCM behavior by default in Kubernetes."
+    },
+    {
+      "id": "F027",
+      "format": "text",
+      "text": "To analyze unusual activities in a container, the container should be checkpointed without stopping the container or without the container knowing it was checkpointed. Using checkpointing it is possible to take a copy of a running container for forensic analysis. The container will continue to run without knowing a copy was created. This copy can then be restored in another (sandboxed) environment in the context of another container engine for detailed analysis of a possible attack."
+    },
+    {
+      "id": "F028",
+      "format": "text",
+      "text": "We propose introducing a new cluster-scoped API resource, ClusterResourceClaimTemplate, to allow cluster administrators to define standard Dynamic Resource Allocation (DRA) templates once at the cluster level. Any workload (via Pod or PodGroup) in any namespace can reference these templates. During Pod or PodGroup scheduling/admission, the control plane's resource claim controller resolves the cluster template and automatically generates a namespace-local ResourceClaim under the Pod's or PodGroup's namespace."
+    },
+    {
+      "id": "F029",
+      "format": "text",
+      "text": "Semantic versioning used by external cloud providers should track the major and minor releases of the supported Kubernetes version in that release. Patch releases are not required to match. For example, release v1.18.X of the cloud-controller-manager for provider Foo should support Kubernetes v1.18.X. The benefits of this versioning policy include but are not limited to: the desired version of the cloud-controller-manager is explicit based on the Kubernetes version of the cluster resolves incompatibility issues occurring wbsfrom vendoring a really old version of k8s.io/kubernetes ensures the vendored version of the cloud-controller-manager is up-to-date"
+    },
+    {
+      "id": "F030",
+      "format": "text",
+      "text": "Allow `.devices.requests` to define virtual grouping keys via scoped, per-device CEL expressions (`derivedAttributes`). Enable co-allocation of heterogeneous hardware across differing vendor attribute schemas without prior human coordination or schema standardization. Preserve the early-pruning performance of the scheduler's constraint engine by scoping CEL evaluation to individual candidate devices."
+    },
+    {
+      "id": "F031",
+      "format": "text",
+      "text": "The Device Resource Assignment (DRA) API currently allows scalar attribute values to describe device characteristics. However, many real-world device topologies require representing sets of relationships (e.g., multiple PCIe roots, NUMA nodes). This KEP introduces support for list-typed attributes in `ResourceSlice` and extends(redefine) `ResourceClaim`'s `constraints[].{matchAttribute, distinctAttribute}` semantics to fit both list-type attributes and primitive attributes supported previously."
+    },
+    {
+      "id": "F032",
+      "format": "text",
+      "text": "We need to update API server to support the newly proposed field and set a value of the new timestamp field when a volume transitions to a different phase. The timestamp field must be set to current time also for newly created volumes.\n\nThe value of the field is not intended for use by any other Kubernetes components at this point and should be used only as a convenience feature for cluster admins. Cluster admins should be able to list and sort PersistentVolumes based on a timestamp which indicates when the volume transitioned to a different state."
+    },
+    {
+      "id": "F033",
+      "format": "text",
+      "text": "Define a standard mechanism for nodes to declare features that are tied to the lifecycle of new Kubernetes features to manage version skew. Introduce a shared library to encapsulate the logic for inferring a pod's feature requirements and matching them against a node's declared features, ensuring consistency between control plane components that depend on this mechanism. Enhance the kube-scheduler to filter nodes based on the pod's requirements. Enable API admission controllers to validate requests for operations against a node's actual feature support. Enable Kubelet admission plugin to check if the Pod is compatible with the node's features. Provide an API in the shared library for autoscalers (Eg: Cluster Autoscaler, Karpenter) to deterministically resolve node declared features based on static node configuration."
+    },
+    {
+      "id": "F034",
+      "format": "text",
+      "text": "Node/control plane partitioning other than a node shutdown is not covered by the proposal, but will be addressed in the future and built on top of this design. We do not have a way to determine whether it is safe to detach in the case of node partitioning. In the Alternatives section, we discussed the node fencing approach and explained why that is not selected for this KEP but will be considered after this KEP is implemented. Implement in-cluster logic to handle node/control plane partitioning."
+    },
+    {
+      "id": "F035",
+      "format": "text",
+      "text": "The Graceful Node Shutdown KEP introduced a way to detect a node shutdown and handle it gracefully. However, a node shutdown action may not be detected by Kubelet's Node Shutdown Mananger, either because the command does not trigger the inhibitor locks mechanism used by Kubelet or because of a user error, i.e., the ShutdownGracePeriod and ShutdownGracePeriodCriticalPods are not configured properly."
+    },
+    {
+      "id": "F036",
+      "format": "text",
+      "text": "Changes required for this KEP: kube-apiserver extend PersistentVolumeStatus type with `LastPhaseTransitionTime` field: update the timestamp whenever PV transitions to a different phase (`pv.Status.Phase`) allow `LastPhaseTransitionTime` to be updated by users if needed reset the timestamp in `LastPhaseTransitionTime` to `nil` only when feature gate is disabled and `LastPhaseTransitionTime` is not initialized (time is zero)"
+    }
+  ]
+}

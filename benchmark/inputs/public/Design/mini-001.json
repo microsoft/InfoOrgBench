@@ -1,0 +1,185 @@
+{
+  "task_id": "mini-001",
+  "records": [
+    {
+      "id": "F001",
+      "format": "text",
+      "text": "Kubernetes provides the NetworkPolicy resource to control traffic within a cluster. NetworkPolicy focuses on expressing a developer's intent to secure their applications. However, it was not intended to be used for cluster scoped administrative traffic control, which is reflected by its design: NetworkPolicy uses a \"implicit isolation\" model, which means that once a policy is applied to certain workloads, they are automatically isolated (in the direction specified by the policy) and anything allowed needs to be explicitly called out. It has no concept of explicit \"deny\" rules, because the application deployer can simply refrain from allowing the things they want to deny. The commutative nature of NetworkPolicy can make certain filtering intents difficult to express. Thus, in order to satisfy the needs of a cluster admin, we propose to introduce a new API that captures the administrator's intent."
+    },
+    {
+      "id": "F002",
+      "format": "text",
+      "text": "The kubectl command provides a cli for: accessing the Kubernetes apis through json or yaml configuration porcelain commands for generating and transforming configuration off of command line flags.\n\nExamples: Generate a configmap or secret from a text or binary file `kubectl create configmap`, `kubectl create secret` Users can manage their configmaps and secrets text and binary files Create or update fields that cut across other fields and objects `kubectl label`, `kubectl annotate` Users can add and update labels for all objects composing an application Transform an existing declarative configuration without forking it `kubectl patch` Users may generate multiple variations of the same workload Transform live resources arbitrarily without auditing `kubectl edit`\n\nTo create a Secret from a binary file, users must first base64 encode the binary file and then create a Secret yaml config from the resulting data. Because the source of truth is actually the binary file, not the config, users must write scripting and tooling to keep the 2 sources consistent.\n\nInstead, users should be able to access the simple, but necessary, functionality available in the imperative kubectl commands from their declarative workflow."
+    },
+    {
+      "id": "F003",
+      "format": "text",
+      "text": "kube-proxy is a component, that is present in almost all Kubernetes clusters in existence. Historically speaking, kube-proxy's configuration was supplied by a set of command line flags. Over time, the number of flags grew, and they became unwieldy to use and support. Thus, kube-proxy gained component config. Initially this was just a large flat object, that was representing the command line flags. However, over time new features were added to it, all while staying as v1alpha1.\n\nThis resulted in a configuration format, that had various different options grouped together in ways, that made them hard to specify and understand. For example: Instance local options (such as hostnameOverride, bindAddress, etc.) are in the same flat object as shared between instances options (such as clusterCIDR, configSyncPeriod, etc.). Platform specific options are marked as generic options (eg. conntrack, oomScoreAdj). Backend agnostic options are marked as backed specific options (eg. syncPeriod, minSyncPeriod). Options specific to a backend are used by other backends (eg. masqueradeBit and masqueradeAll).\n\nkubernetes/issues/117909 captures all the misconfigurations in details.\n\nClearly, this made the configuration both hard to use and to maintain. Therefore, a plan to restructure and stabilize the config format is needed."
+    },
+    {
+      "id": "F004",
+      "format": "text",
+      "text": "Declarative specification of Kubernetes objects is the recommended way to manage Kubernetes production workloads, however gaps in the kubectl tooling force users to write their own scripting and tooling to augment the declarative tools with preprocessing transformations. While most of these transformations already exist as imperative kubectl commands, they are not natively accessible from a declarative workflow.\n\nThis KEP describes how `kustomize` addresses this problem by providing a declarative format for users to access the imperative kubectl commands they are already familiar natively from declarative workflows."
+    },
+    {
+      "id": "F005",
+      "format": "text",
+      "text": "Define a minimal API to support service discovery and consumption across clusters. Consume a service in another cluster. Consume a service deployed in multiple clusters as a single service. When a service is consumed from another cluster its behavior should be predictable and consistent with how it would be consumed within its own cluster. Allow gradual rollout of changes in a multi-cluster environment. Create building blocks for multi-cluster tooling. Support multiple implementations. Leave room for future extension and new use cases."
+    },
+    {
+      "id": "F006",
+      "format": "text",
+      "text": "The following are non-goals of this KEP: Solving use cases outside of the above-mentioned client authentication workflows. Implementing a specific flavor of request signing (like SigV4), or adding support for any hardware security module protocol directly in the Kubernetes client libraries. Defining any new mechanisms for validating request signatures server-side. This is because they can be validated by a front-proxy, which is already a feature of Kubernetes."
+    },
+    {
+      "id": "F007",
+      "format": "text",
+      "text": "Security considerations are the same with executing other external plugins and there is no additional risk.\n\nIn terms of risk considerations, users may adopt external plugins that do not exist as subcommand(e.g. `kubectl create foo`) but afterwards built-in subcommand with the same name might be added. This brings about a risk about breaking users' scripts which rely on external plugins. To overcome that problem, there should be a some form of forcing mechanism to select external plugin instead built-in subcommand. `KUBECTL_ENABLE_CMD_SHADOW` flag can also be used also for that purpose in later stages to provide a way to the users always using external plugin instead built-in subcommand."
+    },
+    {
+      "id": "F008",
+      "format": "text",
+      "text": "Update the validation of all IP-valued and CIDR-valued API fields in core (`k8s.io/api`) types to require stricter validation, to avoid potential security problems with ambiguously-parsable IPs/CIDRs. Don't require pre-existing invalid fields to be fixed on unrelated updates. E.g., if an existing Service has `clusterIP: 172.030.099.099`, allow a user to change the Service's `selector` without being forced to fix the bad `clusterIP` at the same time. This will initially be behind a feature gate. Before that, do a few releases where IP/CIDR values that would be invalid according to the new rules cause apiserver warnings. (This is [already done for IPs and CIDRs in Service].) For all new IP/CIDR-valued API fields, require that IPv6 addresses be in canonical form (e.g., `\"fc99::123\"`, not `\"FC99:0:0::0123\"`). (\"New fields\" here effectively means \"since v1.27\", because all of the IP/CIDR-valued fields added since then already had that validation requirement anyway.) For \"legacy\" fields, add apiserver warnings for IPv6 addresses in non-canonical form. Update the [CEL IP/CIDR validation helpers] to use the same code as the new core API validation. (The CEL helpers already have the correct semantics; this is just about not having two separate implementations.)\n\n[already done for IPs and CIDRs in Service]: [CEL IP/CIDR validation helpers]:"
+    },
+    {
+      "id": "F009",
+      "format": "text",
+      "text": "Kubernetes's validation of IP addresses and CIDR strings (e.g. \"`192.168.0.0/24`\") in API fields has historically been too lax, accepting any string accepted by the underlying functions (`net.ParseIP` and `net.ParseCIDR`) even though in some cases these strings had ambiguous meanings that could lead to security problems. After [golang 1.17 changed the handling of IP addresses with leading \"0\"s] to avoid [CVE-2021-29923], there was consensus that we should eventually update API validation to be stricter as well, but we did not do this right away, because we didn't want to retroactively invalidate existing API objects. This KEP sets forth the plan for finally moving forward on that.\n\n[golang 1.17 changed the handling of IP addresses with leading \"0\"s]: [CVE-2021-29923]:"
+    },
+    {
+      "id": "F010",
+      "format": "text",
+      "text": "The proposed approach to obtaining credentials is to leverage plugins for retrieving the credentials from an issuer recognized by the target cluster. The controller using ClusterProfile would use a library to run a local executable which would retrieve the credentials for the current controller and a given clusterprofile. It is expected that plugins would leverage elements local to the controller to help assert the identity of the controller (environment variables, config files, KSA, the local IP, etc...) to retrieve credentials that are valid on the target cluster. Plugins would be exec'ed by the controller so that they don't need be built-in the binary, allowing flexibility into writing their own credential plugins and still leveraging multicluster controllers written by the community. In addition, we propose to reuse the exec approach and protocol used for external credentials in Kubeconfig (but not the configuration part of kubeconfig). Finally, in order to retrieve the endpoint for the cluster, we standardize the property names that are used in ClusterProfile."
+    },
+    {
+      "id": "F011",
+      "format": "text",
+      "text": "This is a follow up to KEP Kustomize Subcommand Integration\n\nKustomize was introduced as subcommand of kubectl to allow users to build their kustomizations directly. However users need to pipe the kustomize output to other commands in order to use the kustomizations.\n\nThis KEP proposes integrating the kustomization libraries into the cli-runtime file processing libraries. Doing so will provide a cleaner, simpler UX and provide a path for addressing issues around error handling and messaging."
+    },
+    {
+      "id": "F012",
+      "format": "text",
+      "text": "Updating/replacing `netutils.ParseIPSloppy` and `netutils.ParseCIDRSloppy`. (There is a separate plan for this.) Providing `netip.Addr`/`netip.Prefix`-based utilities or increasing the usage of those types. (There is a separate plan for this.) Adding cluster-level warnings/logs/events when invalid IP/CIDR values are seen in old objects, so admins can ensure that they eventually get fixed. (This was originally listed as a Goal, but was not implemented.) Allowing immutable fields to be fixed if they are invalid."
+    },
+    {
+      "id": "F013",
+      "format": "text",
+      "text": "There is currently no standard way to connect or even think about Kubernetes services beyond the cluster boundary, but we increasingly see users deploy applications across multiple clusters designed to work in concert. This KEP proposes a new API to extend the service concept across multiple clusters. It aims for minimal additional configuration, making multi-cluster services as easy to use as in-cluster services, and leaves room for multiple implementations.\n\n*Converted from this original proposal doc.*"
+    },
+    {
+      "id": "F014",
+      "format": "text",
+      "text": "The idea is to conduct the process of graduation to beta in small steps in the span of at least one Kubernetes release cycle. This will be done by creating one or more alpha versions of the config with the last alpha version being copied as v1beta1 after the community is happy with it. Each of the subsections below can result in a separate alpha version release, although it will be better for users to have no more than a couple of alpha versions past v1alpha1."
+    },
+    {
+      "id": "F015",
+      "format": "text",
+      "text": "Provide a standard reference implementation. Define specific implementation details beyond general API behavior. Offering functionalities related to multi-cluster orchestration. Define the Consumer registration API Define the mechanism for shipping plugins to be used by the controllers and their delivery in the controller image/pod. Design plugin or a library for plugins Mandate Federated workload identity / OIDC frameworks (though they are recommended)"
+    },
+    {
+      "id": "F016",
+      "format": "text",
+      "text": "It is capable of removing friction that requires deeper integration - such as producing errors referencing line numbers of the original files (rather than the output files) and exiting with the right error code if kustomization fails. It works for tools that wrap and exec kubectl or vendor kubectl without additional steps It is more consistent with the UX workflow of other commands and flags (other commands don't require pipes) It has a cleaner and simpler UX than requiring a pipe - fewer characters to type It is clear which commands it that support it - apply, get, delete, etc. It can be more clear in the documentation when running `--help` (e.g. the -k flag is shown)"
+    },
+    {
+      "id": "F017",
+      "format": "text",
+      "text": "Replace path to kubeconfig file for webhooks by allowing auth configuration within the new file structure Allow ordering of super user authorizer (always allow user group; `system:masters`) so that it can be moved from the beginning of the auth chain. Deciding whether ABAC should be continued to be used by the users.\n\n> Note: The above may be revisited in future alpha iterations of this KEP or as a separate KEP (for e.g., the superuser authorizer)"
+    },
+    {
+      "id": "F018",
+      "format": "text",
+      "text": "Define required permission rules for the impersonator to impersonate on certain resource/verb. Provide clear example on what permission the impersonator and user should have for the impersonator to impersonate user's certain verbs on certain resources. This is an opt-in feature and existing impersonation flows keep working as-is. Client side semantics of impersonation is unchanged, the existing impersonation headers are re-used and no new headers are added."
+    },
+    {
+      "id": "F019",
+      "format": "text",
+      "text": "Introduce a set of verbs with prefix of `impersonate-on:<mode>:`, e.g. `impersonate-on:user-info:create` and `impersonate-on:arbitrary-node:get`. The impersonator needs to have these verbs with certain resources to impersonate. Introduce verbs in the `impersonate:<mode>` format: `impersonate:user-info` limits the impersonator to impersonate \"generic\" users. The resources must be `users`/`uids`/`groups`/`userextras` and the user must not be a node (username with a prefix of `system:node:`) and the user must not be a service account (username with a prefix of `system:serviceaccount:`)."
+    },
+    {
+      "id": "F020",
+      "format": "text",
+      "text": "Client authentication in Kubernetes can be achieved via one of a handful of mechanisms: by passing a bearer token directly to kubectl using the `--token` flag, by inserting a bearer token into the kubeconfig, by inserting a client certificate and key into the kubeconfig, or by defining an exec-based token plugin in the kubeconfig which supports calling an arbitrary binary which is expected to return a bearer token and/or client certificate/key. The client exec proxy adds an extension point for additional authentication mechanisms that are difficult to set up with the current architecture. Client request signing, and an external TLS certificate authenticator are two use cases that would benefit from this proposal."
+    },
+    {
+      "id": "F021",
+      "format": "text",
+      "text": "The goals of this KEP include: Defining a specification which enables Kubernetes clients to do arbitrary request modification before sending the request to the API server, via an extensible mechanism to support the following use cases: Client request signing. Using hardware protected keys for request signing or mTLS. Adding or manipulating arbitrary headers to the request. Defining a specification which would provide the ability for the client-side proxy server to be executed and communicated with according to configuration solely contained in a kubeconfig file. Defining a specification which is interoperable with an existing client-side proxy setup, e.g. a proxy configured with the HTTP_PROXY environment variable. Defining a specification for a client-side proxy server that is easy to secure without taking additional setup steps, by: Using a unix domain socket for the communication between the client and the proxy, secured with file permissions and TLS."
+    },
+    {
+      "id": "F022",
+      "format": "text",
+      "text": "To clean up the existing config format. To provide config structure, that is easier for users to understand and use. To distinguish between instance local and shared settings. To allow for the persistence of settings for different platforms (such as Linux and Windows) in a manner that reduces confusion and the possibility of an error. To allow for easier introduction of new proxy backends. To provide users with flexibility, especially in regard to the config source."
+    },
+    {
+      "id": "F023",
+      "format": "text",
+      "text": "Today an impersonator can impersonate another user if the impersonator has the permission of\n\nHowever, current impersonation mechanism is the \"unrestricted impersonation\" (or \"legacy impersonation\"), the impersonator can get more power through impersonation. And because of this, it is strongly suggested not to allow the controller to impersonate. More detailed discussion is in this issue\n\nThere are use cases that needs a controller to be able to impersonate: A controller impersonates a node the controller is running on. This happens when per-node agents (CNI plugins for instance), want to read pods on a given node instead of unrestricted pod access. A controller runs as a deputy, receives request from the user, and impersonates the user to start/stop virtual machine or access vm console managed by kubevirt.\n\nThis proposal is to introduce additional permissions for impersonation, so that any impersonator can impersonate in a more restricted way."
+    },
+    {
+      "id": "F024",
+      "format": "text",
+      "text": "To manage an Inventory of Clusters, a platform admin can rely on having the cluster manager output ClusterProfile CRs that point to the clusters. Those CRs are key for multicluster controllers that want to operate on the clusters. However, there isn't a single way to obtain credentials to reach those clusters. This KEP provides a standardized way to obtain credentials for Clusters when using ClusterProfile and makes it pluggable to allow the diverse ecosystem to support the multitude of ways to obtain credentials. It also reuses part of the Kubeconfig external provider semantics to make implementation easier."
+    },
+    {
+      "id": "F025",
+      "format": "text",
+      "text": "When user executes a subcommand of a built-in command, instead returning an \"unknown command\" error, `kubectl` will search this subcommand in external plugins with the name structure similar to current plugin search mechanism(e.g. `kubectl-create-foo`).\n\nIf `kubectl` finds a match for the subcommand, it will execute this external plugin how it already does for external plugins currently.\n\nBecause of starting as alpha and this is an explicitly opted-in feature, shadowing functionality will be hidden behind the environment variable and will only be used after exporting;"
+    },
+    {
+      "id": "F026",
+      "format": "text",
+      "text": "Define a configuration file format for configuring Kubernetes API Server Authorization chain. Allow ordered definition of authorization modes. Allow definition of multiple webhooks in the authorization chain while all other types of authorizers should at most be specified once. Allow resource/user based pre-filtering of webhooks using CEL to prevent unnecessary invocations. Enable user to define the policy when a webhook can't be reached due to network errors etc. Enable automatic reload of the configuration."
+    },
+    {
+      "id": "F027",
+      "format": "text",
+      "text": "Our mission is to solve the most common use cases that cluster admins have. That is, we don't want to solve for every possible policy permutation a user can think of. Instead, we want to design an API that addresses 90-95% use cases while keeping the mental model easy to understand and use. The focus of this KEP is on cluster scoped controls for east-west traffic within a cluster, meaning that an AdminNetworkPolicyPeer is _always_ defined as a set of in cluster objects. Cluster scoped controls for north-south traffic may be addressed via future versions of the api resources introduced in this or other future KEPs. For the time being, the AdminNetworkPolicy resource introduced by this KEP will never affect north-south traffic, and thus also don't override or bypass NetworkPolicies with ipBlock rules that select external traffic."
+    },
+    {
+      "id": "F028",
+      "format": "text",
+      "text": "The goals for this KEP are to satisfy the following key user stories: As a cluster administrator, I want to enforce irrevocable in-cluster guardrails that all workloads must adhere to in order to guarantee the safety of my clusters. In particular I want to enforce certain network level access controls that are cluster scoped and cannot be overridden or bypassed by namespace scoped NetworkPolicies."
+    },
+    {
+      "id": "F029",
+      "format": "text",
+      "text": "Today, `kube-apiserver` allows one to configure the authorization chain using a set of command line flags of the format `--authorization-*`. And cluster administrators can only enable one webhook as a part of the authorization chain using the `--authorization-modes` flag. This limits admins from creating authorization chains with multiple webhooks that validate requests in a certain order. This proposal makes the case for a more structured config to define the authorization chain for `kube-apiserver` and allowing multiple webhooks with well-defined parameters and enabling fine grained control like explicit Deny authorizer."
+    },
+    {
+      "id": "F030",
+      "format": "text",
+      "text": "Establish a standardized ClusterProfile API to represent clusters. Lay the groundwork for multi-cluster tooling by providing a foundational component. Accommodate multiple implementations to encourage flexibility and adoption. Allow for future extensions and new use cases by leaving room for further development and enhancements. A unified API, such as this one, is most effective when platform extension authors can use it as a foundational tool to create extensions compatible with multiple providers. Allow cluster managers of different types to create ClusterProfiles in the same inventory. Provide a library for controllers to obtain credentials for a cluster represented by a ClusterProfile Allow cluster managers to provide a method to obtain credentials that doesn't require to be embedded into the controller code and recompiling. Be a secure mechanism for credential obtention and storage."
+    },
+    {
+      "id": "F031",
+      "format": "text",
+      "text": "Declarative support for defining ConfigMaps and Secrets generated from binary and text files Declarative support for adding or updating cross-cutting fields labels & selectors annotations names (as transformation of the original name) Declarative support for applying patches to transform arbitrary fields use strategic-merge-patch format Ease of integration with CICD systems that maintain configuration in a version control repository as a single source of truth, and take action (build, test, deploy, etc.) when that truth changes (gitops)."
+    },
+    {
+      "id": "F032",
+      "format": "text",
+      "text": "Integrate kustomize directly into libraries that enable file processing for cli-runtime (e.g. resource builder). Kubectl commands taking the common flags (`-f`, `--filename`, `-R`, `--recursive`) will support `kustomization.yaml` files through a new flag `-k` or `--kustomize`.\n\nCli-runtime will add the flags `-k, --kustomize`, which will be registered along side the other file processing flags. If the `-k` flag is provided to a command, the experience will be similar to if the user had piped kustomize to stdin - e.g. `kubectl kustomize <value> | kubectl <command> -f -`. It will differ in that it provides improved error handling and messaging.\n\nExample: `kubectl apply -k <dir-containing-kustomization>`\n\nTools outside kubectl that use the cli-runtime to register file processing flags and build resources will get the `-k` by default, but can opt-out if they do not want the functionality."
+    },
+    {
+      "id": "F033",
+      "format": "text",
+      "text": "Alternative of the proposed mechanism to overcome this request is to propose a new flag `--use-plugin`. User can pass this flag when they want to explicitly use the external plugin. Thanks to that, user also can shadow already existing subcommands. For example `kubectl create job` executes built-in `job` subcommand, on the other hand `kubectl create job --use-plugin` executes custom `kubectl-create-job` plugin.\n\nHowever, downside of this alternative is that usability hurts without any gain; Everytime user has to pass a new flag to execute external plugin. This flag can not be passed to external plugins and this makes `--use-plugin` flag a special flag. There is no clear use case allowing plugins for already existed subcommands which means that we want to disable this deliberately instead providing as a feature."
+    },
+    {
+      "id": "F034",
+      "format": "text",
+      "text": "the API proposed by this KEP aims to Provide a reliable, consistent, and automated approach for any multi-cluster application (framework, toolset) to discover available clusters and take actions accordingly, in a way similar to service discovery works in a microservice architecture. Through the inventory, the application can query for a list of clusters to access, or watch for an ever-flowing stream of cluster lifecycle events which the application can act upon timely, such as auto-scaling, upgrades, failures, and connectivity issues. Provide a simple, clear interface for human operators to understand clusters under management. Provide a standardized, pluggable mechanism for obtaining credentials to access clusters represented by ClusterProfile objects. The proposed approach is to leverage plugins for retrieving the credentials from an issuer recognized by the target cluster. The controller using ClusterProfile would use a library to run a local executable which would retrieve the credentials for the current controller and a given clusterprofile. Plugins would be exec'ed by the controller so that they don't need be built-in the binary, allowing flexibility into writing their own access plugins and still leveraging multicluster controllers written by the community. We propose to reuse the exec approach and protocol used for external credentials in Kubeconfig (but not the configuration part of kubeconfig). Finally, in order to retrieve the endpoint for the cluster, we standardize the property names that are used in ClusterProfile."
+    },
+    {
+      "id": "F035",
+      "format": "text",
+      "text": "There are many reasons why a K8s user may want to split their deployments across multiple clusters, but still retain mutual dependencies between workloads running in those clusters. Today the cluster is a hard boundary, and a service is opaque to a remote K8s consumer that would otherwise be able to make use of metadata (e.g. endpoint topology) to better direct traffic. To support failover or temporarily during migration, users may want to consume services spread across clusters, but today that requires non-trivial bespoke solutions.\n\nThe Multi-Cluster Services API aims to fix these problems."
+    },
+    {
+      "id": "F036",
+      "format": "text",
+      "text": "Because of its interaction with authentication and credentials, particular attention in this design must be paid to security: credentials leak: ClusterProfile, Controller configuration and Plugin configuration should never contain sensitive information Plugin poisoning: supporting credentials provider plugins in a controller relies on trusting the plugin itself and its path in the filesystem. Particular attention must be provided by the user deploying a controller to make sure the plugin that they install are from trusted source as they will have access to the controller's identity. In addition, the path of the plugin may be edited or hijacked by an attacker which would then sit in lieu of the normal plugin, allowing process execution by the controller's process. This risk is mitigated by the assumption that the pod's filesystem is private to it and that no lower-privileged (or separate) processes are able to access it.\n\nAnother risk is around AuthZ. This design doesn't cover the distribution of RBAC to multiple clusters and identifying what principal a controller can be identified as. This setup is currently left to the responsibility of the platform admin setting up the different clusters and controllers."
+    }
+  ]
+}

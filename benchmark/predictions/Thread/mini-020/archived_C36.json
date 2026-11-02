@@ -1,0 +1,305 @@
+{
+  "assignments": [
+    {
+      "id": "F001",
+      "path": [
+        "ABFS improvements",
+        "Random reads"
+      ]
+    },
+    {
+      "id": "F002",
+      "path": [
+        "ABFS improvements",
+        "Random reads"
+      ]
+    },
+    {
+      "id": "F003",
+      "path": [
+        "S3A improvements",
+        "Dotted bucket SSL failures"
+      ]
+    },
+    {
+      "id": "F004",
+      "path": [
+        "ABFS improvements",
+        "Rename failure logging"
+      ]
+    },
+    {
+      "id": "F005",
+      "path": [
+        "ABFS improvements",
+        "Random reads"
+      ]
+    },
+    {
+      "id": "F006",
+      "path": [
+        "ABFS improvements",
+        "Retry configuration backport"
+      ]
+    },
+    {
+      "id": "F007",
+      "path": [
+        "ABFS improvements",
+        "HNS account configuration"
+      ]
+    },
+    {
+      "id": "F008",
+      "path": [
+        "S3A improvements",
+        "SSL protocol failure retries"
+      ]
+    },
+    {
+      "id": "F009",
+      "path": [
+        "ABFS improvements",
+        "HTTP operation timing"
+      ]
+    },
+    {
+      "id": "F010",
+      "path": [
+        "ABFS improvements",
+        "Retry configuration backport"
+      ]
+    },
+    {
+      "id": "F011",
+      "path": [
+        "S3A improvements",
+        "SSL protocol failure retries"
+      ]
+    },
+    {
+      "id": "F012",
+      "path": [
+        "S3A improvements",
+        "Dotted bucket SSL failures"
+      ]
+    },
+    {
+      "id": "F013",
+      "path": [
+        "S3A improvements",
+        "Dotted bucket SSL failures"
+      ]
+    },
+    {
+      "id": "F014",
+      "path": [
+        "ABFS improvements",
+        "Retry configuration backport"
+      ]
+    },
+    {
+      "id": "F015",
+      "path": [
+        "S3A improvements",
+        "Dotted bucket SSL failures"
+      ]
+    },
+    {
+      "id": "F016",
+      "path": [
+        "ABFS improvements",
+        "Random reads"
+      ]
+    },
+    {
+      "id": "F017",
+      "path": [
+        "ABFS improvements",
+        "Random reads"
+      ]
+    },
+    {
+      "id": "F018",
+      "path": [
+        "S3A improvements",
+        "SSL protocol failure retries"
+      ]
+    },
+    {
+      "id": "F019",
+      "path": [
+        "S3A improvements",
+        "Dotted bucket SSL failures"
+      ]
+    },
+    {
+      "id": "F020",
+      "path": [
+        "S3A improvements",
+        "SSL protocol failure retries"
+      ]
+    },
+    {
+      "id": "F021",
+      "path": [
+        "S3A improvements",
+        "Remove HDFS dependency"
+      ]
+    },
+    {
+      "id": "F022",
+      "path": [
+        "S3A improvements",
+        "Dotted bucket SSL failures"
+      ]
+    },
+    {
+      "id": "F023",
+      "path": [
+        "ABFS improvements",
+        "HTTP operation timing"
+      ]
+    },
+    {
+      "id": "F024",
+      "path": [
+        "S3A improvements",
+        "Dotted bucket SSL failures"
+      ]
+    },
+    {
+      "id": "F025",
+      "path": [
+        "ABFS improvements",
+        "Rename failure logging"
+      ]
+    },
+    {
+      "id": "F026",
+      "path": [
+        "S3A improvements",
+        "SSL protocol failure retries"
+      ]
+    },
+    {
+      "id": "F027",
+      "path": [
+        "ABFS improvements",
+        "HNS account configuration"
+      ]
+    },
+    {
+      "id": "F028",
+      "path": [
+        "ABFS improvements",
+        "Rename failure logging"
+      ]
+    },
+    {
+      "id": "F029",
+      "path": [
+        "S3A improvements",
+        "Dotted bucket SSL failures"
+      ]
+    },
+    {
+      "id": "F030",
+      "path": [
+        "S3A improvements",
+        "Iceberg bulk delete validation"
+      ]
+    },
+    {
+      "id": "F031",
+      "path": [
+        "S3A improvements",
+        "Remove HDFS dependency"
+      ]
+    },
+    {
+      "id": "F032",
+      "path": [
+        "ABFS improvements",
+        "HTTP operation timing"
+      ]
+    },
+    {
+      "id": "F033",
+      "path": [
+        "S3A improvements",
+        "Dotted bucket SSL failures"
+      ]
+    },
+    {
+      "id": "F034",
+      "path": [
+        "ABFS improvements",
+        "HTTP operation timing"
+      ]
+    },
+    {
+      "id": "F035",
+      "path": [
+        "S3A improvements",
+        "SSL protocol failure retries"
+      ]
+    },
+    {
+      "id": "F036",
+      "path": [
+        "ABFS improvements",
+        "Retry configuration backport"
+      ]
+    },
+    {
+      "id": "F037",
+      "path": [
+        "ABFS improvements",
+        "Random reads"
+      ]
+    },
+    {
+      "id": "F038",
+      "path": [
+        "S3A improvements",
+        "Dotted bucket SSL failures"
+      ]
+    },
+    {
+      "id": "F039",
+      "path": [
+        "S3A improvements",
+        "Remove HDFS dependency"
+      ]
+    },
+    {
+      "id": "F040",
+      "path": [
+        "S3A improvements",
+        "Remove HDFS dependency"
+      ]
+    },
+    {
+      "id": "F041",
+      "path": [
+        "ABFS improvements",
+        "HNS account configuration"
+      ]
+    },
+    {
+      "id": "F042",
+      "path": [
+        "ABFS improvements",
+        "HNS account configuration"
+      ]
+    },
+    {
+      "id": "F043",
+      "path": [
+        "ABFS improvements",
+        "HNS account configuration"
+      ]
+    }
+  ]
+}

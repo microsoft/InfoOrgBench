@@ -1,0 +1,375 @@
+{
+  "assignments": [
+    {
+      "id": "F001",
+      "path": [
+        "HADOOP-15825",
+        "enable-namespace-tests"
+      ]
+    },
+    {
+      "id": "F002",
+      "path": [
+        "HADOOP-15825",
+        "enable-namespace-tests"
+      ]
+    },
+    {
+      "id": "F003",
+      "path": [
+        "HADOOP-17002",
+        "hns-config"
+      ]
+    },
+    {
+      "id": "F004",
+      "path": [
+        "HADOOP-17002",
+        "hns-config"
+      ]
+    },
+    {
+      "id": "F005",
+      "path": [
+        "HADOOP-17003",
+        "token-retry"
+      ]
+    },
+    {
+      "id": "F006",
+      "path": [
+        "HADOOP-15825",
+        "enable-namespace-tests"
+      ]
+    },
+    {
+      "id": "F007",
+      "path": [
+        "HADOOP-15777",
+        "config-docs"
+      ]
+    },
+    {
+      "id": "F008",
+      "path": [
+        "HADOOP-16281",
+        "rename-debug"
+      ]
+    },
+    {
+      "id": "F009",
+      "path": [
+        "HADOOP-17000",
+        "static-retry"
+      ]
+    },
+    {
+      "id": "F010",
+      "path": [
+        "HADOOP-17002",
+        "hns-config"
+      ]
+    },
+    {
+      "id": "F011",
+      "path": [
+        "HADOOP-16001",
+        "timing-info"
+      ]
+    },
+    {
+      "id": "F012",
+      "path": [
+        "HADOOP-17002",
+        "hns-config"
+      ]
+    },
+    {
+      "id": "F013",
+      "path": [
+        "HADOOP-16001",
+        "timing-info"
+      ]
+    },
+    {
+      "id": "F014",
+      "path": [
+        "HADOOP-14707",
+        "stream-capabilities"
+      ]
+    },
+    {
+      "id": "F015",
+      "path": [
+        "HADOOP-15825",
+        "enable-namespace-tests"
+      ]
+    },
+    {
+      "id": "F016",
+      "path": [
+        "HADOOP-16578",
+        "distcp-encrypt"
+      ]
+    },
+    {
+      "id": "F017",
+      "path": [
+        "HADOOP-16578",
+        "distcp-attr"
+      ]
+    },
+    {
+      "id": "F018",
+      "path": [
+        "HADOOP-15825",
+        "enable-namespace-tests"
+      ]
+    },
+    {
+      "id": "F019",
+      "path": [
+        "HADOOP-16001",
+        "timing-info"
+      ]
+    },
+    {
+      "id": "F020",
+      "path": [
+        "S3A-Issues",
+        "header-process"
+      ]
+    },
+    {
+      "id": "F021",
+      "path": [
+        "HADOOP-14707",
+        "stream-capabilities"
+      ]
+    },
+    {
+      "id": "F022",
+      "path": [
+        "HADOOP-15825",
+        "enable-namespace-tests"
+      ]
+    },
+    {
+      "id": "F023",
+      "path": [
+        "HADOOP-15825",
+        "enable-namespace-tests"
+      ]
+    },
+    {
+      "id": "F024",
+      "path": [
+        "HADOOP-14707",
+        "stream-capabilities"
+      ]
+    },
+    {
+      "id": "F025",
+      "path": [
+        "HADOOP-16001",
+        "timing-info"
+      ]
+    },
+    {
+      "id": "F026",
+      "path": [
+        "HADOOP-15825",
+        "enable-namespace-tests"
+      ]
+    },
+    {
+      "id": "F027",
+      "path": [
+        "S3A-Issues",
+        "header-process"
+      ]
+    },
+    {
+      "id": "F028",
+      "path": [
+        "HADOOP-16001",
+        "timing-info"
+      ]
+    },
+    {
+      "id": "F029",
+      "path": [
+        "HADOOP-17003",
+        "token-retry"
+      ]
+    },
+    {
+      "id": "F030",
+      "path": [
+        "HADOOP-14707",
+        "stream-capabilities"
+      ]
+    },
+    {
+      "id": "F031",
+      "path": [
+        "HADOOP-17000",
+        "static-retry"
+      ]
+    },
+    {
+      "id": "F032",
+      "path": [
+        "HADOOP-18759",
+        "contract-tests"
+      ]
+    },
+    {
+      "id": "F033",
+      "path": [
+        "HADOOP-16001",
+        "timing-info"
+      ]
+    },
+    {
+      "id": "F034",
+      "path": [
+        "HADOOP-15825",
+        "enable-namespace-tests"
+      ]
+    },
+    {
+      "id": "F035",
+      "path": [
+        "HADOOP-14707",
+        "stream-capabilities"
+      ]
+    },
+    {
+      "id": "F036",
+      "path": [
+        "HADOOP-14707",
+        "stream-capabilities"
+      ]
+    },
+    {
+      "id": "F037",
+      "path": [
+        "HADOOP-17004",
+        "avoid-hns-calls"
+      ]
+    },
+    {
+      "id": "F038",
+      "path": [
+        "HADOOP-16001",
+        "timing-info"
+      ]
+    },
+    {
+      "id": "F039",
+      "path": [
+        "S3A-Issues",
+        "header-process"
+      ]
+    },
+    {
+      "id": "F040",
+      "path": [
+        "HADOOP-15825",
+        "enable-namespace-tests"
+      ]
+    },
+    {
+      "id": "F041",
+      "path": [
+        "HADOOP-14707",
+        "stream-capabilities"
+      ]
+    },
+    {
+      "id": "F042",
+      "path": [
+        "HADOOP-17004",
+        "avoid-hns-calls"
+      ]
+    },
+    {
+      "id": "F043",
+      "path": [
+        "HADOOP-16578",
+        "container-api"
+      ]
+    },
+    {
+      "id": "F044",
+      "path": [
+        "HADOOP-14707",
+        "stream-capabilities"
+      ]
+    },
+    {
+      "id": "F045",
+      "path": [
+        "HADOOP-17000",
+        "static-retry"
+      ]
+    },
+    {
+      "id": "F046",
+      "path": [
+        "HADOOP-15825",
+        "enable-namespace-tests"
+      ]
+    },
+    {
+      "id": "F047",
+      "path": [
+        "HADOOP-14707",
+        "stream-capabilities"
+      ]
+    },
+    {
+      "id": "F048",
+      "path": [
+        "S3A-Issues",
+        "header-process"
+      ]
+    },
+    {
+      "id": "F049",
+      "path": [
+        "HADOOP-17003",
+        "token-retry"
+      ]
+    },
+    {
+      "id": "F050",
+      "path": [
+        "HADOOP-14707",
+        "stream-capabilities"
+      ]
+    },
+    {
+      "id": "F051",
+      "path": [
+        "S3A-Issues",
+        "header-process"
+      ]
+    },
+    {
+      "id": "F052",
+      "path": [
+        "HADOOP-15825",
+        "enable-namespace-tests"
+      ]
+    },
+    {
+      "id": "F053",
+      "path": [
+        "HADOOP-17003",
+        "token-retry"
+      ]
+    }
+  ]
+}

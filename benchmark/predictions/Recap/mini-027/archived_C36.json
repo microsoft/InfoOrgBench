@@ -1,0 +1,333 @@
+{
+  "assignments": [
+    {
+      "id": "F001",
+      "path": [
+        "Conceptual-design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F002",
+      "path": [
+        "Conceptual-design",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F003",
+      "path": [
+        "Conceptual-design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F004",
+      "path": [
+        "Conceptual-design",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F005",
+      "path": [
+        "Functional-design",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F006",
+      "path": [
+        "Conceptual-design",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F007",
+      "path": [
+        "Conceptual-design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F008",
+      "path": [
+        "Functional-design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F009",
+      "path": [
+        "Conceptual-design",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F010",
+      "path": [
+        "Conceptual-design",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F011",
+      "path": [
+        "Conceptual-design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F012",
+      "path": [
+        "Conceptual-design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F013",
+      "path": [
+        "Conceptual-design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F014",
+      "path": [
+        "Functional-design",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F015",
+      "path": [
+        "Conceptual-design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F016",
+      "path": [
+        "Conceptual-design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F017",
+      "path": [
+        "Functional-design",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F018",
+      "path": [
+        "Conceptual-design",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F019",
+      "path": [
+        "Conceptual-design",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F020",
+      "path": [
+        "Conceptual-design",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F021",
+      "path": [
+        "Functional-design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F022",
+      "path": [
+        "Functional-design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F023",
+      "path": [
+        "Functional-design",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F024",
+      "path": [
+        "Functional-design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F025",
+      "path": [
+        "Functional-design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F026",
+      "path": [
+        "Conceptual-design",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F027",
+      "path": [
+        "Conceptual-design",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F028",
+      "path": [
+        "Functional-design",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F029",
+      "path": [
+        "Functional-design",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F030",
+      "path": [
+        "Conceptual-design",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F031",
+      "path": [
+        "Functional-design",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F032",
+      "path": [
+        "Functional-design",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F033",
+      "path": [
+        "Conceptual-design",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F034",
+      "path": [
+        "Functional-design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F035",
+      "path": [
+        "Functional-design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F036",
+      "path": [
+        "Functional-design",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F037",
+      "path": [
+        "Conceptual-design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F038",
+      "path": [
+        "Conceptual-design",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F039",
+      "path": [
+        "Functional-design",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F040",
+      "path": [
+        "Conceptual-design",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F041",
+      "path": [
+        "Conceptual-design",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F042",
+      "path": [
+        "Conceptual-design",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F043",
+      "path": [
+        "Functional-design",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F044",
+      "path": [
+        "Functional-design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F045",
+      "path": [
+        "Conceptual-design",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F046",
+      "path": [
+        "Conceptual-design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F047",
+      "path": [
+        "Conceptual-design",
+        "Decisions"
+      ]
+    }
+  ]
+}

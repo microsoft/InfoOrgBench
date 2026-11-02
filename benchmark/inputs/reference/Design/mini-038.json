@@ -1,0 +1,366 @@
+{
+  "task_id": "mini-038",
+  "records": [
+    {
+      "id": "F001",
+      "path": [
+        "sig-scheduling",
+        "5007-device-attach-before-pod-scheduled"
+      ],
+      "content_sha256": "fa917cc5724211d3d6a5c6001b9c88c4b117a4858be7733ebfb49f0d40d2f580",
+      "source_native_id": "keps/sig-scheduling/5007-device-attach-before-pod-scheduled#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F002",
+      "path": [
+        "sig-node",
+        "5758-per-container-ulimits-configuration"
+      ],
+      "content_sha256": "f0e11a4dd325d4877ec73fecab4f1840308a0344a5ed9098b4cd17f9ea6ea19b",
+      "source_native_id": "keps/sig-node/5758-per-container-ulimits-configuration#excerpt-3",
+      "source_heading": "risks and mitigations"
+    },
+    {
+      "id": "F003",
+      "path": [
+        "sig-scheduling",
+        "5710-workload-aware-preemption"
+      ],
+      "content_sha256": "26eb7c5cee399d5353e8158746b5e938c8b908bfda8e9bfe82bb0a5808dc3fbc",
+      "source_native_id": "keps/sig-scheduling/5710-workload-aware-preemption#excerpt-1",
+      "source_heading": "non-goals"
+    },
+    {
+      "id": "F004",
+      "path": [
+        "sig-storage",
+        "3141-prevent-volume-mode-conversion"
+      ],
+      "content_sha256": "d228ccbe8cb58360f384ee1dbab81e913e73a83d4958924688b0a6b3b827317f",
+      "source_native_id": "keps/sig-storage/3141-prevent-volume-mode-conversion#excerpt-3",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F005",
+      "path": [
+        "sig-network",
+        "3685-endpointslice-reconciler-to-staging"
+      ],
+      "content_sha256": "602d6308cf041c130a85deb0cf11d8deb85c3b1a043241b11967c30303e2c8e2",
+      "source_native_id": "keps/sig-network/3685-endpointslice-reconciler-to-staging#excerpt-3",
+      "source_heading": "risks and mitigations"
+    },
+    {
+      "id": "F006",
+      "path": [
+        "sig-network",
+        "4444-service-traffic-distribution"
+      ],
+      "content_sha256": "29671607798a4b0b1e4e1ba0fb57fc2cd1457c914abe571771d86f0b38dee5e0",
+      "source_native_id": "keps/sig-network/4444-service-traffic-distribution#excerpt-1",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F007",
+      "path": [
+        "sig-storage",
+        "1495-volume-populators"
+      ],
+      "content_sha256": "84acbbb5b9c10c9d93abd33e17491feb0144a9756c923d0abf66ba7a72d42535",
+      "source_native_id": "keps/sig-storage/1495-volume-populators#excerpt-3",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F008",
+      "path": [
+        "sig-node",
+        "5758-per-container-ulimits-configuration"
+      ],
+      "content_sha256": "4e5852d2a04d4195fff159b714be8e893418eb7f6ce234b49947d1e08a691c78",
+      "source_native_id": "keps/sig-node/5758-per-container-ulimits-configuration#excerpt-2",
+      "source_heading": "design details"
+    },
+    {
+      "id": "F009",
+      "path": [
+        "sig-storage",
+        "1495-volume-populators"
+      ],
+      "content_sha256": "823c15fcfda2d2e34599e2840219fd6ce73023165fa2b0601c16fe8374b27e1d",
+      "source_native_id": "keps/sig-storage/1495-volume-populators#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F010",
+      "path": [
+        "sig-node",
+        "2400-node-swap"
+      ],
+      "content_sha256": "a0046a417610f27298f08d6a60a09aa5bffad9f13871c055b39b7c83dac7f8e8",
+      "source_native_id": "keps/sig-node/2400-node-swap#excerpt-2",
+      "source_heading": "non-goals"
+    },
+    {
+      "id": "F011",
+      "path": [
+        "sig-storage",
+        "3141-prevent-volume-mode-conversion"
+      ],
+      "content_sha256": "35fc1748d6ce011f709a94b3ab2065d720fabfe202dbe4466181bf19360f71f5",
+      "source_native_id": "keps/sig-storage/3141-prevent-volume-mode-conversion#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F012",
+      "path": [
+        "sig-storage",
+        "3141-prevent-volume-mode-conversion"
+      ],
+      "content_sha256": "11bca210b39fbcf3e2a7c4055dfd5e74b64388dbf31ce4a8edb4d630c57f177c",
+      "source_native_id": "keps/sig-storage/3141-prevent-volume-mode-conversion#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F013",
+      "path": [
+        "sig-scheduling",
+        "5007-device-attach-before-pod-scheduled"
+      ],
+      "content_sha256": "aa7b92f419c1d6251860bf8046b45841d5b17dfec1ec1aac0a409d5287a33fed",
+      "source_native_id": "keps/sig-scheduling/5007-device-attach-before-pod-scheduled#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F014",
+      "path": [
+        "sig-network",
+        "2433-topology-aware-hints"
+      ],
+      "content_sha256": "43ede57e48887492cf5b8fa9a180cbba0c944924dc789f4d20cb137d48fdcb73",
+      "source_native_id": "keps/sig-network/2433-topology-aware-hints#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F015",
+      "path": [
+        "sig-network",
+        "4444-service-traffic-distribution"
+      ],
+      "content_sha256": "4fa18f3b0d850bd3423c5e0febfb9526ccc3e2db7f2582e7dff2ab6c7cfd9c77",
+      "source_native_id": "keps/sig-network/4444-service-traffic-distribution#excerpt-2",
+      "source_heading": "non-goals"
+    },
+    {
+      "id": "F016",
+      "path": [
+        "sig-scheduling",
+        "5710-workload-aware-preemption"
+      ],
+      "content_sha256": "0f81755062c6430114817e8eedfc68cb0cca456d055296e33ca4fbe28a40b071",
+      "source_native_id": "keps/sig-scheduling/5710-workload-aware-preemption#excerpt-2",
+      "source_heading": "risks and mitigations"
+    },
+    {
+      "id": "F017",
+      "path": [
+        "sig-network",
+        "4444-service-traffic-distribution"
+      ],
+      "content_sha256": "9867b8d7d1cc7413986b51314ef91927f861b61d97f58d4ba1d3cabec1b45a43",
+      "source_native_id": "keps/sig-network/4444-service-traffic-distribution#excerpt-3",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F018",
+      "path": [
+        "sig-scheduling",
+        "5007-device-attach-before-pod-scheduled"
+      ],
+      "content_sha256": "646a44268d059faaaad9d9b59fca55ba187aac4436dee7a90013e41c56a4bb27",
+      "source_native_id": "keps/sig-scheduling/5007-device-attach-before-pod-scheduled#excerpt-3",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F019",
+      "path": [
+        "sig-node",
+        "5758-per-container-ulimits-configuration"
+      ],
+      "content_sha256": "50a3b0703866c975159703a78459ab7bac879ef1eac8c3bb96975d48857dfedc",
+      "source_native_id": "keps/sig-node/5758-per-container-ulimits-configuration#excerpt-1",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F020",
+      "path": [
+        "sig-node",
+        "2400-node-swap"
+      ],
+      "content_sha256": "3e38b741d75f370a185d3177de6341e07931cb95af2aa3f7c7a76d57f4836fe9",
+      "source_native_id": "keps/sig-node/2400-node-swap#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F021",
+      "path": [
+        "sig-storage",
+        "1682-csi-driver-skip-permission"
+      ],
+      "content_sha256": "20dc7e3210064750cc658ebf7298a92c386cfc8c1191dcffa0be3065d56fa810",
+      "source_native_id": "keps/sig-storage/1682-csi-driver-skip-permission#excerpt-3",
+      "source_heading": "risks and mitigations"
+    },
+    {
+      "id": "F022",
+      "path": [
+        "sig-network",
+        "3685-endpointslice-reconciler-to-staging"
+      ],
+      "content_sha256": "e508c32fd39a95f8ec617e0ea703d013b8445a61275b5abccc3da5ce43e951a8",
+      "source_native_id": "keps/sig-network/3685-endpointslice-reconciler-to-staging#excerpt-1",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F023",
+      "path": [
+        "sig-scheduling",
+        "624-scheduling-framework"
+      ],
+      "content_sha256": "03fb7cf046188d6d16b22481320099f5e07a42fbddaa01712a3d45a00deea5e7",
+      "source_native_id": "keps/sig-scheduling/624-scheduling-framework#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F024",
+      "path": [
+        "sig-scheduling",
+        "624-scheduling-framework"
+      ],
+      "content_sha256": "3c55fd9855f2469b857ca4cd5e058b41ff02c2cb60133a5e6ed8860b10140666",
+      "source_native_id": "keps/sig-scheduling/624-scheduling-framework#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F025",
+      "path": [
+        "sig-node",
+        "4369-allow-special-characters-environment-variable"
+      ],
+      "content_sha256": "b2df08aa719e4aa7e31cb7d1047c7046f8f89f5e4ee5db12cec6f24a536d1737",
+      "source_native_id": "keps/sig-node/4369-allow-special-characters-environment-variable#excerpt-3",
+      "source_heading": "alternatives"
+    },
+    {
+      "id": "F026",
+      "path": [
+        "sig-storage",
+        "1495-volume-populators"
+      ],
+      "content_sha256": "f8689ec57448b4acad2b6d65267d3bf802646ee47bb7c97dae39d4e0bf7be570",
+      "source_native_id": "keps/sig-storage/1495-volume-populators#excerpt-2",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F027",
+      "path": [
+        "sig-node",
+        "4369-allow-special-characters-environment-variable"
+      ],
+      "content_sha256": "7cd3d1286c8005d193c36cd8c430ac682d23500135ea04b0addfe04e59704216",
+      "source_native_id": "keps/sig-node/4369-allow-special-characters-environment-variable#excerpt-1",
+      "source_heading": "design details"
+    },
+    {
+      "id": "F028",
+      "path": [
+        "sig-storage",
+        "1682-csi-driver-skip-permission"
+      ],
+      "content_sha256": "cecd7c44190f9147f441beb802ef62abb4e21ea3ffc761d92547626c5c9b76a4",
+      "source_native_id": "keps/sig-storage/1682-csi-driver-skip-permission#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F029",
+      "path": [
+        "sig-node",
+        "4369-allow-special-characters-environment-variable"
+      ],
+      "content_sha256": "88bcf2663472527c067c56cc6baa2e26639fb26712dfea5862a87661dfd12777",
+      "source_native_id": "keps/sig-node/4369-allow-special-characters-environment-variable#excerpt-2",
+      "source_heading": "drawbacks"
+    },
+    {
+      "id": "F030",
+      "path": [
+        "sig-node",
+        "2400-node-swap"
+      ],
+      "content_sha256": "8d43b81ef98078b413ea9dd0327ce8eb2dc0e35ca118ebcaeb3d5ba3a3397dad",
+      "source_native_id": "keps/sig-node/2400-node-swap#excerpt-3",
+      "source_heading": "design details"
+    },
+    {
+      "id": "F031",
+      "path": [
+        "sig-network",
+        "3685-endpointslice-reconciler-to-staging"
+      ],
+      "content_sha256": "23b5af9691aafbc48b9ce92cd5a23000ec49102fa8734100264dc9ef07d3f204",
+      "source_native_id": "keps/sig-network/3685-endpointslice-reconciler-to-staging#excerpt-2",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F032",
+      "path": [
+        "sig-scheduling",
+        "624-scheduling-framework"
+      ],
+      "content_sha256": "e86a8ce1436149d1dd873d609dad4d83b1297472037ad353ba7515d6f1c4131d",
+      "source_native_id": "keps/sig-scheduling/624-scheduling-framework#excerpt-3",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F033",
+      "path": [
+        "sig-storage",
+        "1682-csi-driver-skip-permission"
+      ],
+      "content_sha256": "fa296d3a04844672271bb9bca112956d3c20d70d936d360f25dc20c934e62522",
+      "source_native_id": "keps/sig-storage/1682-csi-driver-skip-permission#excerpt-2",
+      "source_heading": "design details"
+    },
+    {
+      "id": "F034",
+      "path": [
+        "sig-network",
+        "2433-topology-aware-hints"
+      ],
+      "content_sha256": "6b37f14fa031fb89a00a2206c586517a6f02a2f7ca6cc816ff2c798fb3677230",
+      "source_native_id": "keps/sig-network/2433-topology-aware-hints#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F035",
+      "path": [
+        "sig-network",
+        "2433-topology-aware-hints"
+      ],
+      "content_sha256": "09f968fa80ad877b820ee046ccbe56e40d7f9fb5efed8eef8514e77431fca8ef",
+      "source_native_id": "keps/sig-network/2433-topology-aware-hints#excerpt-3",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F036",
+      "path": [
+        "sig-scheduling",
+        "5710-workload-aware-preemption"
+      ],
+      "content_sha256": "0ce75dc2f91bfbeeb08fa1e358207bc98a587aea1fcc4e2f26c0f687f166e1b5",
+      "source_native_id": "keps/sig-scheduling/5710-workload-aware-preemption#excerpt-3",
+      "source_heading": "alternatives"
+    }
+  ],
+  "reference_scope": "Source-derived group/proposal hierarchy for a development-only difficulty and cost pilot."
+}

@@ -1,0 +1,366 @@
+{
+  "task_id": "mini-036",
+  "records": [
+    {
+      "id": "F001",
+      "path": [
+        "sig-storage",
+        "989-extend-datasource"
+      ],
+      "content_sha256": "41430ff4328a117d19ae28487c774ec513b70767773cf7b4f433f23701081eec",
+      "source_native_id": "keps/sig-storage/989-extend-datasource#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F002",
+      "path": [
+        "sig-storage",
+        "1432-volume-health-monitor"
+      ],
+      "content_sha256": "9dcaccea5e1c267d17cc9b391f76a73f39933430708fba67f2e2384861a86706",
+      "source_native_id": "keps/sig-storage/1432-volume-health-monitor#excerpt-2",
+      "source_heading": "non-goals"
+    },
+    {
+      "id": "F003",
+      "path": [
+        "sig-storage",
+        "989-extend-datasource"
+      ],
+      "content_sha256": "909a9b42bacee2aa564767b19df92f8be97823e5742aa5d882e463cc96189c35",
+      "source_native_id": "keps/sig-storage/989-extend-datasource#excerpt-3",
+      "source_heading": "non-goals"
+    },
+    {
+      "id": "F004",
+      "path": [
+        "sig-cli",
+        "2381-future-of-kubectl-cp"
+      ],
+      "content_sha256": "b6fb4d880ea100550b0b6b562139d9ca80f2798f5cb008b378ee68ffe90ca878",
+      "source_native_id": "keps/sig-cli/2381-future-of-kubectl-cp#excerpt-3",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F005",
+      "path": [
+        "sig-cli",
+        "2381-future-of-kubectl-cp"
+      ],
+      "content_sha256": "8a7aafcdc150c520f79073dd721d54aaec1014c6eabfcdd985f5b2077804bf63",
+      "source_native_id": "keps/sig-cli/2381-future-of-kubectl-cp#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F006",
+      "path": [
+        "sig-storage",
+        "1432-volume-health-monitor"
+      ],
+      "content_sha256": "85c00e42a09f130ab18d45be7394a654e51b2397f944ccbf162be3fe8d2d4c54",
+      "source_native_id": "keps/sig-storage/1432-volume-health-monitor#excerpt-3",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F007",
+      "path": [
+        "sig-api-machinery",
+        "4080-generic-controlplane"
+      ],
+      "content_sha256": "f3f5eedd29e5faa7a3fbfac7f762dc1d4087f28a57453391192a1e65690fdfa6",
+      "source_native_id": "keps/sig-api-machinery/4080-generic-controlplane#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F008",
+      "path": [
+        "sig-api-machinery",
+        "4358-custom-resource-field-selectors"
+      ],
+      "content_sha256": "c12b12f5dd1270d709881111a4d63c5471d1254e4c421f83e27494035bcf7120",
+      "source_native_id": "keps/sig-api-machinery/4358-custom-resource-field-selectors#excerpt-2",
+      "source_heading": "non-goals"
+    },
+    {
+      "id": "F009",
+      "path": [
+        "sig-scheduling",
+        "5941-dra-shared-consumable-capacity"
+      ],
+      "content_sha256": "7f1f4951299a93aab2e2a01db79971e4e81ad25c5d4402416fe8a3a9aed4e3ae",
+      "source_native_id": "keps/sig-scheduling/5941-dra-shared-consumable-capacity#excerpt-3",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F010",
+      "path": [
+        "sig-api-machinery",
+        "4080-generic-controlplane"
+      ],
+      "content_sha256": "7e6e84b39e3ae6cefac01cc3200a6e63c00ce93b828780d06fb8c01a1d100efe",
+      "source_native_id": "keps/sig-api-machinery/4080-generic-controlplane#excerpt-3",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F011",
+      "path": [
+        "sig-api-machinery",
+        "2896-openapi-v3"
+      ],
+      "content_sha256": "4b4a3fd5ff33f334a774bb669b2edc9494a839a693e56a3428f15ecd72f1b58c",
+      "source_native_id": "keps/sig-api-machinery/2896-openapi-v3#excerpt-3",
+      "source_heading": "risks and mitigations"
+    },
+    {
+      "id": "F012",
+      "path": [
+        "sig-cli",
+        "2381-future-of-kubectl-cp"
+      ],
+      "content_sha256": "32165044c2a362f908b8d388ca5785374080a13e31398886218343250d510c63",
+      "source_native_id": "keps/sig-cli/2381-future-of-kubectl-cp#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F013",
+      "path": [
+        "sig-scheduling",
+        "1258-default-pod-topology-spread"
+      ],
+      "content_sha256": "4344421e52a33c6c0051a7713570bd84c762f4b607095722bed56e3515a6e986",
+      "source_native_id": "keps/sig-scheduling/1258-default-pod-topology-spread#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F014",
+      "path": [
+        "sig-storage",
+        "1790-recover-resize-failure"
+      ],
+      "content_sha256": "dadb1de3e1196dac90d855ba2f80eb1fc067183c1fd02574789ab94750e5cd0e",
+      "source_native_id": "keps/sig-storage/1790-recover-resize-failure#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F015",
+      "path": [
+        "sig-scheduling",
+        "5732-topology-aware-workload-scheduling"
+      ],
+      "content_sha256": "0bd5676d074c79ff06b047656002abf1521d5b276bf1c4c31ec24cdf4e685268",
+      "source_native_id": "keps/sig-scheduling/5732-topology-aware-workload-scheduling#excerpt-1",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F016",
+      "path": [
+        "sig-cli",
+        "2385-kustomize-secret-generator-plugins"
+      ],
+      "content_sha256": "f0d378d38d667e39785ea1ee310771a7e25bd8c356fc6827bf8724c64fe2ee0b",
+      "source_native_id": "keps/sig-cli/2385-kustomize-secret-generator-plugins#excerpt-2",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F017",
+      "path": [
+        "sig-scheduling",
+        "5941-dra-shared-consumable-capacity"
+      ],
+      "content_sha256": "e17f609561d04287e7c8e97310a6eb3c83caa0fb2da04cbc81248df70fd99efa",
+      "source_native_id": "keps/sig-scheduling/5941-dra-shared-consumable-capacity#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F018",
+      "path": [
+        "sig-storage",
+        "1790-recover-resize-failure"
+      ],
+      "content_sha256": "a5e85f49b439783daff87dda77890509deade68c44f679086a0d449ff22eeedc",
+      "source_native_id": "keps/sig-storage/1790-recover-resize-failure#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F019",
+      "path": [
+        "sig-storage",
+        "1790-recover-resize-failure"
+      ],
+      "content_sha256": "7af3bfe4c3d068670ff1c9afc848f092f72e0afe4b07cefdd3d949a23d10a154",
+      "source_native_id": "keps/sig-storage/1790-recover-resize-failure#excerpt-3",
+      "source_heading": "non-goals"
+    },
+    {
+      "id": "F020",
+      "path": [
+        "sig-cli",
+        "2385-kustomize-secret-generator-plugins"
+      ],
+      "content_sha256": "de2730260add77fde4b7f2a14521c4b5e16327b005157851e6283858d1898038",
+      "source_native_id": "keps/sig-cli/2385-kustomize-secret-generator-plugins#excerpt-3",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F021",
+      "path": [
+        "sig-api-machinery",
+        "2896-openapi-v3"
+      ],
+      "content_sha256": "6fff966290636780a94f5a52092c45fd04ca1bb9f680965118edac89e72b9e84",
+      "source_native_id": "keps/sig-api-machinery/2896-openapi-v3#excerpt-2",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F022",
+      "path": [
+        "sig-scheduling",
+        "1258-default-pod-topology-spread"
+      ],
+      "content_sha256": "1f85c2dbc6a00688fa9a1a82aa91e8978ecfa7eeb0e739319cf740f5cd77cb02",
+      "source_native_id": "keps/sig-scheduling/1258-default-pod-topology-spread#excerpt-3",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F023",
+      "path": [
+        "sig-api-machinery",
+        "4358-custom-resource-field-selectors"
+      ],
+      "content_sha256": "c1e7540632dbed5a7cb7a76804358550a64754bd458cdb50f48d9fc0ba42b3c7",
+      "source_native_id": "keps/sig-api-machinery/4358-custom-resource-field-selectors#excerpt-1",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F024",
+      "path": [
+        "sig-cli",
+        "2299-kustomize-plugin-composition"
+      ],
+      "content_sha256": "dee7ca443b2a6efc846a4911d567389d6111a2f422dbcf7eae0447e5c813ca8d",
+      "source_native_id": "keps/sig-cli/2299-kustomize-plugin-composition#excerpt-3",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F025",
+      "path": [
+        "sig-scheduling",
+        "5732-topology-aware-workload-scheduling"
+      ],
+      "content_sha256": "af7facd5ef69caffd5e38702952a97edf84fff73ec38356a78ddd3674f45d59f",
+      "source_native_id": "keps/sig-scheduling/5732-topology-aware-workload-scheduling#excerpt-2",
+      "source_heading": "risks and mitigations"
+    },
+    {
+      "id": "F026",
+      "path": [
+        "sig-api-machinery",
+        "2896-openapi-v3"
+      ],
+      "content_sha256": "dc1e6eaa2d35015d8f847b7f3549fb9d30021b3055371cf19a11a7d34efcc141",
+      "source_native_id": "keps/sig-api-machinery/2896-openapi-v3#excerpt-1",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F027",
+      "path": [
+        "sig-cli",
+        "2299-kustomize-plugin-composition"
+      ],
+      "content_sha256": "d0c356656484847198151483695d9f64261c2705ee4193ae3a35d62b0f92ef6e",
+      "source_native_id": "keps/sig-cli/2299-kustomize-plugin-composition#excerpt-2",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F028",
+      "path": [
+        "sig-cli",
+        "2299-kustomize-plugin-composition"
+      ],
+      "content_sha256": "fd2c2b2c5b2e9d3383fda7da00d8574d7037e302edbbfb6caca1201023e886d8",
+      "source_native_id": "keps/sig-cli/2299-kustomize-plugin-composition#excerpt-1",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F029",
+      "path": [
+        "sig-scheduling",
+        "1258-default-pod-topology-spread"
+      ],
+      "content_sha256": "886f15504a06dd9e2acd7721418748d1e4917f573e7be048d37ce4570547d881",
+      "source_native_id": "keps/sig-scheduling/1258-default-pod-topology-spread#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F030",
+      "path": [
+        "sig-api-machinery",
+        "4358-custom-resource-field-selectors"
+      ],
+      "content_sha256": "0a1308a91bd2cca6b719907999ea8db24ee9b0049e14fb94f745ca0230e2bca4",
+      "source_native_id": "keps/sig-api-machinery/4358-custom-resource-field-selectors#excerpt-3",
+      "source_heading": "user stories"
+    },
+    {
+      "id": "F031",
+      "path": [
+        "sig-api-machinery",
+        "4080-generic-controlplane"
+      ],
+      "content_sha256": "eef7fba722c2ccd82e5de36474cdfef98c891973eed4958fd0f357380e9e6597",
+      "source_native_id": "keps/sig-api-machinery/4080-generic-controlplane#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F032",
+      "path": [
+        "sig-cli",
+        "2385-kustomize-secret-generator-plugins"
+      ],
+      "content_sha256": "5b8fa24694c8c8feb691c5af3f3fdf88839f9ebb6d84a783886a79c584a735c8",
+      "source_native_id": "keps/sig-cli/2385-kustomize-secret-generator-plugins#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F033",
+      "path": [
+        "sig-storage",
+        "1432-volume-health-monitor"
+      ],
+      "content_sha256": "2ca96bbbbe53ef17c42a944ab9b663820292e76e1cb18d8b0560b4cecc52b548",
+      "source_native_id": "keps/sig-storage/1432-volume-health-monitor#excerpt-1",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F034",
+      "path": [
+        "sig-storage",
+        "989-extend-datasource"
+      ],
+      "content_sha256": "7c533d975239cb432603b2a001890193d41de51f0516ecd48d369f1332252c2a",
+      "source_native_id": "keps/sig-storage/989-extend-datasource#excerpt-2",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F035",
+      "path": [
+        "sig-scheduling",
+        "5941-dra-shared-consumable-capacity"
+      ],
+      "content_sha256": "fc693f33d8b40d4bcdfd5b7a8c29c42adeb61152ba32996ecee9ef28e5de1051",
+      "source_native_id": "keps/sig-scheduling/5941-dra-shared-consumable-capacity#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F036",
+      "path": [
+        "sig-scheduling",
+        "5732-topology-aware-workload-scheduling"
+      ],
+      "content_sha256": "fa3f5dccf3815aec86359bd7b5af88a81e26cc42bc490b304e3d18c348b32b3b",
+      "source_native_id": "keps/sig-scheduling/5732-topology-aware-workload-scheduling#excerpt-3",
+      "source_heading": "drawbacks"
+    }
+  ],
+  "reference_scope": "Source-derived group/proposal hierarchy for a development-only difficulty and cost pilot."
+}

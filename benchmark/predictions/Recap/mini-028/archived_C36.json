@@ -1,0 +1,424 @@
+{
+  "assignments": [
+    {
+      "id": "F001",
+      "path": [
+        "Functional-design",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F002",
+      "path": [
+        "Conventional-remote-design",
+        "Open-issues"
+      ]
+    },
+    {
+      "id": "F003",
+      "path": [
+        "Conventional-remote-design",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F004",
+      "path": [
+        "Functional-design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F005",
+      "path": [
+        "Conventional-remote-design",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F006",
+      "path": [
+        "Functional-design",
+        "Open-issues"
+      ]
+    },
+    {
+      "id": "F007",
+      "path": [
+        "Functional-design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F008",
+      "path": [
+        "Conventional-remote-design",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F009",
+      "path": [
+        "Conventional-remote-design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F010",
+      "path": [
+        "Conventional-remote-design",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F011",
+      "path": [
+        "Functional-design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F012",
+      "path": [
+        "Conventional-remote-design",
+        "Open-issues"
+      ]
+    },
+    {
+      "id": "F013",
+      "path": [
+        "Conventional-remote-design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F014",
+      "path": [
+        "Functional-design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F015",
+      "path": [
+        "Conventional-remote-design",
+        "Open-issues"
+      ]
+    },
+    {
+      "id": "F016",
+      "path": [
+        "Functional-design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F017",
+      "path": [
+        "Functional-design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F018",
+      "path": [
+        "Kinetic-remote-design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F019",
+      "path": [
+        "Kinetic-remote-design",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F020",
+      "path": [
+        "Conventional-remote-design",
+        "Open-issues"
+      ]
+    },
+    {
+      "id": "F021",
+      "path": [
+        "Functional-design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F022",
+      "path": [
+        "Functional-design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F023",
+      "path": [
+        "Kinetic-remote-design",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F024",
+      "path": [
+        "Conventional-remote-design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F025",
+      "path": [
+        "Kinetic-remote-design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F026",
+      "path": [
+        "Kinetic-remote-design",
+        "Open-issues"
+      ]
+    },
+    {
+      "id": "F027",
+      "path": [
+        "Functional-design",
+        "Open-issues"
+      ]
+    },
+    {
+      "id": "F028",
+      "path": [
+        "Kinetic-remote-design",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F029",
+      "path": [
+        "Kinetic-remote-design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F030",
+      "path": [
+        "Kinetic-remote-design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F031",
+      "path": [
+        "Kinetic-remote-design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F032",
+      "path": [
+        "Conventional-remote-design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F033",
+      "path": [
+        "Functional-design",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F034",
+      "path": [
+        "Kinetic-remote-design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F035",
+      "path": [
+        "Kinetic-remote-design",
+        "Open-issues"
+      ]
+    },
+    {
+      "id": "F036",
+      "path": [
+        "Conventional-remote-design",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F037",
+      "path": [
+        "Kinetic-remote-design",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F038",
+      "path": [
+        "Functional-design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F039",
+      "path": [
+        "Conventional-remote-design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F040",
+      "path": [
+        "Conventional-remote-design",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F041",
+      "path": [
+        "Conventional-remote-design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F042",
+      "path": [
+        "Functional-design",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F043",
+      "path": [
+        "Kinetic-remote-design",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F044",
+      "path": [
+        "Conventional-remote-design",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F045",
+      "path": [
+        "Functional-design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F046",
+      "path": [
+        "Conventional-remote-design",
+        "Open-issues"
+      ]
+    },
+    {
+      "id": "F047",
+      "path": [
+        "Functional-design",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F048",
+      "path": [
+        "Kinetic-remote-design",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F049",
+      "path": [
+        "Kinetic-remote-design",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F050",
+      "path": [
+        "Conventional-remote-design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F051",
+      "path": [
+        "Conventional-remote-design",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F052",
+      "path": [
+        "Kinetic-remote-design",
+        "Open-issues"
+      ]
+    },
+    {
+      "id": "F053",
+      "path": [
+        "Kinetic-remote-design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F054",
+      "path": [
+        "Functional-design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F055",
+      "path": [
+        "Conventional-remote-design",
+        "Open-issues"
+      ]
+    },
+    {
+      "id": "F056",
+      "path": [
+        "Conventional-remote-design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F057",
+      "path": [
+        "Conventional-remote-design",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F058",
+      "path": [
+        "Functional-design",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F059",
+      "path": [
+        "Conventional-remote-design",
+        "Open-issues"
+      ]
+    },
+    {
+      "id": "F060",
+      "path": [
+        "Kinetic-remote-design",
+        "Open-issues"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,185 @@
+{
+  "task_id": "mini-047",
+  "records": [
+    {
+      "id": "F001",
+      "format": "text",
+      "text": "IMPORTANT: THIS KEP HAS BEEN DEFERRED UNTIL HTTP/3 IS SUPPORTED BY THE GOLANG STANDARD LIBRARY\n\nOne of the main advantages of HTTP/3 is increased performance, specifically around fetching multiple objects simultaneously. With HTTP/2, any interruption (packet loss) in the TCP connection blocks all streams (Head of line blocking).\n\nIn addition, HTTP/3 offers 0-RTT support, which means that subsequent connections can start up much faster by eliminating the TLS acknowledgement from the server when setting up the connection. This means the client can start requesting data much faster than with a full TLS negotiation."
+    },
+    {
+      "id": "F002",
+      "format": "text",
+      "text": "The reason for this KEP is that restarting sidecar containers during Pod termination requires fundamental changes to the Pod lifecycle, and such changes cannot be introduced in beta (enabled by default) without risking disruption to users.\n\nOn the other hand, the code for sidecar containers is already well tested, and we are confident that many use cases will benefit from them even without the restart during Pod termination.\n\nFor this reason, we are introducing a separate feature gate for the sidecar containers KEP to decouple the two features and allow users to use sidecar containers without the refactoring required for the restart during Pod termination."
+    },
+    {
+      "id": "F003",
+      "format": "text",
+      "text": "We propose to enhance the observability, troubleshooting, and debugging capabilities of core Kubernetes components by implementing a statusz endpoint for all components. By exposing standardized, real-time data about a component's basic information, health status, and key metrics in a low-overhead manner, this enhancement empowers users with deeper insights into the behavior and performance of each component."
+    },
+    {
+      "id": "F004",
+      "format": "text",
+      "text": "Kubernetes clusters defaulted to HTTP/2 for the control plane communications to solve all the performance and reliability problems caused by the previous protocol HTTP/1. However, there are some notable exceptions: communication between apiserver and webhooks. communication that use SPDY or websockets\n\nHTTP/3 solves some of the HTTP/2 problems, mainly the Head of Line Blocking problem because it uses QUIC RFC9000 for the transport layer, improving the performance and the resilience of the control plane.\n\nDespite the HTTP/3 protocol, as January 2022, is still an Internet Draft, it is already supported by 73% of running web browsers, and there is also a golang implementation that is being used by known projects and companies.\n\nHaving support for HTTP/3 will allow the project to have early feedback, and the possibility to influence it."
+    },
+    {
+      "id": "F005",
+      "format": "text",
+      "text": "Our plan is to add functionality to our static analysis framework which is hosted in the main `k8s/k8s` repo, under `test/instrumentation`. Specifically, we will need to support: parsing variables multi-line strings evaluating buckets buckets which are defined via variables and consts evaluation of simple consts evaluation of simple variables\n\nWe will not attempt to parse metrics which: are constructed dynamically, i.e. through function calls which use function arguments as parameters in metric definitions, since some of those cannot be resolved until runtime. are constructed using custom prometheus collectors, for the same reasons as above.\n\nAs an aside, much of this work has already been done, but is stashed in a local repo."
+    },
+    {
+      "id": "F006",
+      "format": "text",
+      "text": "**Metric cardinality**\n\nIn the past, we have had problems with unbounded metric labels increasing cardinality of metrics and causing significant memory/storage use. Limiting these metrics to bounded values (API group, version, resource, subresource, target removal release) and omitting unbounded values (resource instance name, client username, etc), metric cardinality is controlled.\n\nAnnotating audit events for the deprecated API requests allows an administrator to locate the particular client making deprecated requests when metrics indicate an investigation is needed.\n\n**Additional stderr / warning output**\n\nAdditional warning messages may be unexpected by kubectl or client-go consumers. However, kubectl and client-go already output warning messages to stderr or via `klog.Warn`. client-go consumers can programmatically modify or suppress the warning output at a per-process or per-client level.\n\n**Header size**\n\nThe possibility of accumulating excessive numbers of warnings increases once extension mechanisms can contribute warnings. This is mitigated by: Documented guidance on what types of issues should be surfaced as warnings Documented guidance on message length A warning recorder implementation that limits the individual and total length of warnings returned to a client"
+    },
+    {
+      "id": "F007",
+      "format": "text",
+      "text": "In the `openapi` field of a kustomization file, a user may specify a path to an OpenAPI schema file to use instead of whatever version was compiled in to kustomize. Add a `kustomize openapi fetch` command that will fetch the OpenAPI schema from the user’s current cluster Create the necessary conditions to merge open API data - e.g. read one large file containing the full kubernetes native type set, and one or more relatively small files containing custom resource data (this would eliminate the need to first load CRDs into an API server then fetch everything back as one large blow)."
+    },
+    {
+      "id": "F008",
+      "format": "text",
+      "text": "Develop an API (`kind`) for Kustomize that is focused on plugin-based workflows.\n\nA successful implementation of this API should have the following characteristics: It must be easy to recursively compose and modify lists of plugins in a way that yields an overall configuration structure that reflects the user's intent. Plugin orchestration must be central to the new API format. Built-in and plugin transformer config should be treated the same way in the new API. The new API must cleanly integrate with the existing Kustomize tool (i.e. `kustomize build`) as well as existing Kustomize kinds."
+    },
+    {
+      "id": "F009",
+      "format": "text",
+      "text": "The `Kustomization` API was designed around built-in Kustomize transformer, generator and validator operations applied to Kustomize bases. While plugin transformers can be invoked via the appropriate field, `Kustomization` is suboptimal for workflows that are primarily composed of Kustomize plugins. Challenges with the current approach include: **Sequencing of built-in and plugin transformers is static**."
+    },
+    {
+      "id": "F010",
+      "format": "text",
+      "text": "This is a follow up to KEP Kustomize Subcommand Integration\n\nKustomize was introduced as subcommand of kubectl to allow users to build their kustomizations directly. However users need to pipe the kustomize output to other commands in order to use the kustomizations.\n\nThis KEP proposes integrating the kustomization libraries into the cli-runtime file processing libraries. Doing so will provide a cleaner, simpler UX and provide a path for addressing issues around error handling and messaging."
+    },
+    {
+      "id": "F011",
+      "format": "text",
+      "text": "The main risk of this proposal is that the lifecycle of sidecar containers will be changed, which could potentially break existing behavior. To mitigate this risk, we will introduce several e2e tests and peer review to ensure that the changes are safe.\n\nThere is no security impact of this proposal.\n\nThe UX impact of this proposal is minimal, as it adds an expected behavior to the lifecycle of sidecar containers."
+    },
+    {
+      "id": "F012",
+      "format": "text",
+      "text": "When kustomize applies a strategic merge patch, it makes use of the kyaml merging libraries. First, it uses the kyaml walker code, which utilizes the kustomize/kyaml/openapi library. With the openapi library, it does two things:\n\n1) Makes a call to `openapi.initSchema()`, which loads the builtin kubernetes OpenAPI schema into a global schema variable for all other functions to use 2) Retrieves the patch strategy and merge keys from the schema (`openapi.GetPatchStrategyAndKeyList()`)\n\nInstead of loading the builtin schema, `openapi.initSchema()` should read the schema from a file if specified (and default to the builtin schema if there is no file specified). The kustomize/kyaml/openapi library already has a function `openapi.SchemaFromFile(path string)` that can load in an OpenAPI schema from a file.\n\nKustomize would have to make the kustomization’s openapi/path field available to `openapi.initSchema()` so that it can load the schema from the specified file.\n\nAdditional logic would be added to handle overlays; as kustomize recursively processes kustomizations, the schema would have to be reinitialized at each step to account for potentially different schemas in each kustomization.\n\nThe `kustomize openapi fetch` command (to fetch OpenAPI data from the user’s current cluster) should be implemented mostly in cli-utils so that any other programs that want to have a similar command can share the underlying code."
+    },
+    {
+      "id": "F013",
+      "format": "text",
+      "text": "The following behaviors should be maintained during pod termination: sidecar containers restarting liveness, readiness and startup probing container lifecycle hooks running service account token rotation secret and configmap volume updates\n\nAlso, container termination should be non-blocking, which will fix issue #121398 a container cannot restart when there is any terminating container in the same pod."
+    },
+    {
+      "id": "F014",
+      "format": "text",
+      "text": "Kubernetes#57291, with over 250 positive reactions and in the top five upvoted issues in k/k, covers a range of suggestions to change the rate of decay for the backoff delay or the criteria to restart the backoff counter, in some cases requesting to make this behavior tunable per node, per container, and/or per exit code. Anecdotally, there are use cases representative of some of Kubernetes' most rapidly growing workload types like gaming and AI/ML that would benefit from this behavior being different for varying types of containers."
+    },
+    {
+      "id": "F015",
+      "format": "text",
+      "text": "Integrate kustomize directly into libraries that enable file processing for cli-runtime (e.g. resource builder). Kubectl commands taking the common flags (`-f`, `--filename`, `-R`, `--recursive`) will support `kustomization.yaml` files through a new flag `-k` or `--kustomize`.\n\nCli-runtime will add the flags `-k, --kustomize`, which will be registered along side the other file processing flags. If the `-k` flag is provided to a command, the experience will be similar to if the user had piped kustomize to stdin - e.g. `kubectl kustomize <value> | kubectl <command> -f -`. It will differ in that it provides improved error handling and messaging.\n\nExample: `kubectl apply -k <dir-containing-kustomization>`\n\nTools outside kubectl that use the cli-runtime to register file processing flags and build resources will get the `-k` by default, but can opt-out if they do not want the functionality."
+    },
+    {
+      "id": "F016",
+      "format": "text",
+      "text": "It is capable of removing friction that requires deeper integration - such as producing errors referencing line numbers of the original files (rather than the output files) and exiting with the right error code if kustomization fails. It works for tools that wrap and exec kubectl or vendor kubectl without additional steps It is more consistent with the UX workflow of other commands and flags (other commands don't require pipes) It has a cleaner and simpler UX than requiring a pipe - fewer characters to type It is clear which commands it that support it - apply, get, delete, etc. It can be more clear in the documentation when running `--help` (e.g. the -k flag is shown)"
+    },
+    {
+      "id": "F017",
+      "format": "text",
+      "text": "Risks include users upgrading Kubernetes, but not updating their usage of Kubernetes exposed metrics in alerting and dashboarding potentially causing incidents to go unnoticed.\n\nTo prevent this, we will implement recording rules for Prometheus that allow best effort backward compatibility as well as update uses of breaking metric usages in the Kubernetes monitoring mixin, a widely used collection of Prometheus alerts and Grafana dashboards for Kubernetes."
+    },
+    {
+      "id": "F018",
+      "format": "text",
+      "text": "This KEP proposes providing an option to cluster operators to configure a lower maximum backoff for all containers on a specific Node, down to 1s. By default, the backoff delay starts at 10s and doubles with each retry up to a maximum of 5 minutes (300s). Configuring a maximum backoff less than the 10s initial delay will lower the initial delay to match the maximum, allowing for more rapid container restarts.\n\nThe upper limit of the configuration will be 5 minutes (300s). With this value, existing behavior remains unchanged.\n\nThis proposal will NOT change: backoff behavior for Pods transitioning from the \"Success\" state differently from those transitioning from a \"Failed\" state -- see here in Alternatives Considered the ImagePullBackoff -- out of scope, see Design Details changes that address 'late recovery', or modifications to backoff behavior once the maximum backoff has been reached -- see Alternatives\n\n!A graph showing the change in elapsed time for observed restarts with the CrashLoopBackOffBehavior of today vs the proposed minimum for per node configuration\n\nWhile the complete information is saved for Design Details, its expedient to see the exact config proposed here:"
+    },
+    {
+      "id": "F019",
+      "format": "text",
+      "text": "Kubernetes has many deprecations in flight at any given moment, in various stages, with various time horizons. Keeping track of all of them is difficult, and has historically required careful reading of release notes, and manually sweeping for use of deprecated features.\n\nGaps in API validation which allow problematic API data have also been discovered post-release (see examples). Tightening validation to reject previously accepted API requests is generally avoided for backwards compatibility, but surfacing warnings to clients submitting problematic data would help them discover problems earlier."
+    },
+    {
+      "id": "F020",
+      "format": "text",
+      "text": "Ensure that a request for built-in resources is handled by an apiserver that is capable of serving that resource (if one exists) In the failure case (e.g. network not routable between apiservers), ensure that unreachable resources are served 503 and not 404. Ensure discovery reports the same set of resources everywhere (not just group versions, as it does today) Ensure that every resource in discovery can be accessed successfully"
+    },
+    {
+      "id": "F021",
+      "format": "text",
+      "text": "Originating at Google and embedded by default in many internal servers, z-pages have proven invaluable for real-time monitoring and debugging of complex distributed systems. Recognizing the power and utility of this aggregated interface, we aim to extend its benefits to the broader open source community.\n\nWith statusz, we envision the following advantages Consolidated and precise information: Presenting critical build data in a clear, concise format, eliminates the need to dig through logs or configurations to gather this essential information. Z-pages offer a distinct advantage over external monitoring solutions by providing insights from within the server itself. This inherent integration eliminates the need for complex external setups like manual inspection of logs, configuration files, or running external scripts that may be subject to potential network latency issues Streamlined troubleshooting and debugging: Immediate access to crucial build information like binary version, Go version and compatibility details enables better understanding of the component's state. We hope this interface makes it easier to identify version mismatches or incompatibilities that might contribute to issues, accelerating troubleshooting and debugging efforts"
+    },
+    {
+      "id": "F022",
+      "format": "text",
+      "text": "When an upgrade or downgrade is performed on a cluster, for some period of time the apiservers are at differing versions and are able to serve different sets of built-in resources (different groups, versions, and resources are all possible).\n\nIn an ideal world, clients would be able to know about the entire set of available resources and perform operations on those resources without regard to which apiserver they happened to connect to. Currently this is not the case.\n\nToday, these things potentially differ: Resources available somewhere in the cluster Resources known by a client (i.e. read from discovery from some apiserver) Resources that can be actuated by a client\n\nThis can have serious consequences, such as namespace deletion being blocked incorrectly or objects being garbage collected mistakenly."
+    },
+    {
+      "id": "F023",
+      "format": "text",
+      "text": "**Security Risks:**: Allowing direct mounting of OCI objects introduces potential attack vectors. Mitigation includes thorough security reviews and limiting access to trusted registries. Limiting to non-runnable content and read-only mode will lessen the security risk. Path traversal attacks are a high risk for introducing security vulnerabilities. Container Runtimes should re-use their existing implementations to merge layers as well as secure join symbolic links in the container storage prevent such issues. **Compatibility Risks:** Existing webhooks watching for the images used by the pod using some policies will need to be updated to expect the image to be specified as a `VolumeSource`. **Performance Risks:** Large images could impact performance. Mitigation includes optimizations in the implementation and providing guidance on best practices for users."
+    },
+    {
+      "id": "F024",
+      "format": "text",
+      "text": "This proposal introduces a Mixed Version Proxy (also earlier referred to as Unknown Version Interoperability Proxy in the original version of the proposal) to solve issues with version skew in Kubernetes clusters. During upgrades or downgrades, when API servers have different versions, this feature ensures that: Client requests for a specific built-in resource are proxied to an API server capable of serving it, avoiding 404 Not Found errors Clients receive a complete, cluster-wide discovery document (we'll call this the \"peer-aggregated discovery\"), by merging information from all peer API servers, preventing controllers from making incorrect decisions based on incomplete data\n\nPeer-aggregated discovery is only supported for aggregated discovery endpoint, which requires clients to use the aggregated discovery Accept headers."
+    },
+    {
+      "id": "F025",
+      "format": "text",
+      "text": "The new `VolumeSource` will be defined in the Kubernetes API, and the implementation will involve updating components (CRI, Kubelet) to support this source type. Key design aspects include: API changes to introduce the new `VolumeSource` type. Modifications to the Kubelet to handle mounting OCI images. Handling image pull secrets and registry authentication. The regular OCI images (that are used to create container rootfs today) can be setup similarly as a directory and mounted as a volume source."
+    },
+    {
+      "id": "F026",
+      "format": "text",
+      "text": "OpenAPI is an open specification for defining types and operations on those types. The Kubernetes API server has supported it fully since version 1.15, meaning one can query an API server to get a detailed list of the types it understands, including any Custom Resources that it knows about. Clients can use this information to correctly instantiate those types and make calls on the server. Kustomize uses a hard-coded snapshot of the kubernetes API taken at version 1.19 to help it understand field types and most importantly, merge keys to use when patching type instances."
+    },
+    {
+      "id": "F027",
+      "format": "text",
+      "text": "This Kubernetes Enhancement Proposal (KEP) outlines the changes planned in the scope of an overhaul of all metrics instrumented in the main kubernetes/kubernetes repository. This is a living document and as existing metrics, that are planned to change are added to the scope, they will be added to this document. As this initiative is going to affect all current users of Kubernetes metrics, this document will also be a source for migration documentation coming out of this effort.\n\nThis KEP is targeted to land in Kubernetes 1.14. The aim is to get all changes into one Kubernetes minor release, to have only a migration be necessary. We are preparing a number of changes, but intend to only start merging them once the 1.14 development window opens."
+    },
+    {
+      "id": "F028",
+      "format": "text",
+      "text": "Replace existing monitoring solutions: metrics, logs, traces To provide a general-purpose extension mechanism for other components (e.g., container runtime, CNI, device plugins) to expose their own information through z-pages Provide information about components that are not directly accessible due to network restrictions **Report the status of internal sub-components or external dependencies.** Many Kubernetes components, such as the `kube-controller-manager` (with its multiple controller loops) or the `kube-apiserver` (with its dependency on etcd), are complex. Surfacing the status of all these individual pieces is a significantly more complex problem that this KEP does not aim to solve. This endpoint is intentionally limited to reporting the status of the main serving binary itself. A separate KEP would be required to address aggregated or detailed dependency status."
+    },
+    {
+      "id": "F029",
+      "format": "text",
+      "text": "This proposal does not aim to replace existing `VolumeSource` types. This proposal does not address other use cases for OCI objects beyond directory sharing among containers in a pod. Mounting thousands of images in a single pod. The enhancement leaves single file use case out for now and restrict the mount output to directories. Out of scope: The runtimes (CRI-O, containerd, others) will have to agree on the implementation of how images are manifested as directories. We don't want to over-spec on selecting based on media types or other attributes now and can consider that for later. We don't want to tie too strongly to how models are hosted on a particular provider so we are flexible to adapt to different ways models and their configurations are stored. If some file, say a VM format such as a qcow file, is stored as an artifact, we don't want the runtime to be the entity responsible for interpreting and correctly processing it to its final consumable state. That could be delegated to the consumer or perhaps to some hooks and is out of scope for this enhancement. Manifest list use cases are left out for now and will be restricted to matching architecture like we do today for images. In the future (if there are use cases) we will consider support for lists with items separated by quantization or format or other attributes. However, that is out of scope for now as it is easily worked around by creating a different image/artifact for each instance/format/quantization of a model."
+    },
+    {
+      "id": "F030",
+      "format": "text",
+      "text": "Introduce `Composition` as a new API `kind` recognized by `kustomize build`. A `Composition` must be defined in a `composition.yaml` file. Inclusion of both `composition.yaml` and `kustomization.yaml` in the target directory of a build will be considered an error.\n\nThe `Composition` API enables users to: Define a list of transformer configuration that intermingles built-in and plugin transformers. Import transformers from another `Composition` and add them to the list. Override an imported transformer's fields with new values. Reorder the list of transformers prior to execution.\n\nOnce a user has written a `Composition`, they can run `kustomize build` to turn it into a list of Kubernetes resources that they can commit to git, the same way they would with `Kustomization`.\n\nTo provide this experience, Kustomize will need to do the following during builds: Consolidate the `Composition` and its imports into a finalized list of transformers (which may be plugins). Execute each transformer in sequence (no changes to plugin execution are proposed by this KEP). Pass the output of each transformer as the input to the next."
+    },
+    {
+      "id": "F031",
+      "format": "text",
+      "text": "When a user makes a request to a deprecated API, present them with a warning that includes the target removal release and any replacement API Allow a cluster administrator to programatically determine if deprecated APIs are being used: Filtered to particular APIs Filtered to particular operations (e.g. get, list, create, update) Filtered to APIs targeting removal in particular releases Allow a cluster administrator to programatically identify particular clients using deprecated APIs Allow in-process validation mechanisms (API validation, admission, etc) to contribute warnings Allow extension mechanisms (CustomResourceDefinitions, admission webhooks) to contribute warnings"
+    },
+    {
+      "id": "F032",
+      "format": "text",
+      "text": "We're proposing adding additional metadata fields to Kubernetes metrics. Specifically we want to add the following stability levels: `Internal` - representing internal usages of metrics (i.e. classes of metrics which do not correspond to features) or low-level metrics that a typical operator would not understand (or would not be able to react to them properly). `Beta` - representing a more mature stage in a feature metric, with greater stability guarantees than alpha or internal metrics, but less than `Stable`\n\nWe also propose amending the semantic meaning of an `Alpha` metric such that it represents the nascent stage of a KEP-proposed feature, rather than the entire class of metrics without stability guarantees.\n\nAdditionally we propose forced upgrades of metrics stability classes in the similar vein that features are not allowed to languish in `alpha` or `beta` stages, but this feature will not be available until the beta version of this KEP. For the alpha version of this KEP, we will implement the necessary changes to Kubernetes metrics framework, such that it supports the additional classes of metrics, without making changes to any existing metrics or their stability levels. As such, this KEP proposes changes to the metrics pipeline and the static analysis pieces of Kubernetes metrics framework."
+    },
+    {
+      "id": "F033",
+      "format": "text",
+      "text": "This is a new protocol and an experimental feature, it will be behind a feature flag and will not graduate to beta until the protocol and its implementation are mature.\n\nThe protocol is still a Draft, however, it is not likely it change too much at this stage before is published as RFC.\n\nThe golang implementation tries to be as much compatible as possible with the golang standard library, but it is not fully compatible. It also brings a considerable amount of dependencies."
+    },
+    {
+      "id": "F034",
+      "format": "text",
+      "text": "The metric stability framework was originally introduced with the intent of safeguarding significant metrics from being broken downstream. Metrics could be deemed `stable` or `alpha`, and only `stable` metrics would have stability guarantees.\n\nThis KEP intends to propose additional stability classes to extend on the existing metrics stability framework, such that we can achieve parity with the various stages of the feature release cycle."
+    },
+    {
+      "id": "F035",
+      "format": "text",
+      "text": "This effort is NOT intending to support fully user-specified configuration, to cap risk to node stability This effort is purposefully NOT implementing more complex heuristics by kubelet (e.g. system state, workload specific factors, or by detecting anomalous workload behavior) to focus on better benchmarking and observability and address common use cases with easily modelled changes first This effort is NOT changing the independent backoff curve for image pulls"
+    },
+    {
+      "id": "F036",
+      "format": "text",
+      "text": "A number of metrics that Kubernetes is instrumented with do not follow the official Kubernetes instrumentation guidelines. This is for a number of reasons, such as the metrics having been created before the instrumentation guidelines were put in place (around two years ago), and just missing it in code reviews. Beyond the Kubernetes instrumentation guidelines, there are several violations of the Prometheus instrumentation best practices."
+    }
+  ]
+}

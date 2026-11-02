@@ -1,0 +1,366 @@
+{
+  "task_id": "mini-012",
+  "records": [
+    {
+      "id": "F001",
+      "path": [
+        "sig-cli",
+        "2381-future-of-kubectl-cp"
+      ],
+      "content_sha256": "32165044c2a362f908b8d388ca5785374080a13e31398886218343250d510c63",
+      "source_native_id": "keps/sig-cli/2381-future-of-kubectl-cp#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F002",
+      "path": [
+        "sig-release",
+        "1731-publishing-packages"
+      ],
+      "content_sha256": "2eac306ffd5fd8456ace52968182c2ae0a7e1ca14cc054d05a830cd54782600d",
+      "source_native_id": "keps/sig-release/1731-publishing-packages#excerpt-1",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F003",
+      "path": [
+        "sig-release",
+        "1731-publishing-packages"
+      ],
+      "content_sha256": "0a1308f4fc0e60d8cc953076c15d2371ba0cd8b8260b771299052b45598f2866",
+      "source_native_id": "keps/sig-release/1731-publishing-packages#excerpt-2",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F004",
+      "path": [
+        "sig-autoscaling",
+        "5679-external-metric-fallback"
+      ],
+      "content_sha256": "757d9ef03e043f73b26ef33c5e9e1cfd8c70a89471ca75d6e48aa27d97c97659",
+      "source_native_id": "keps/sig-autoscaling/5679-external-metric-fallback#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F005",
+      "path": [
+        "sig-cli",
+        "491-kubectl-diff"
+      ],
+      "content_sha256": "c7b6ad37a1756bd2f6f656a8dc7addbde6da584f4e07253984a78d8719b01bd6",
+      "source_native_id": "keps/sig-cli/491-kubectl-diff#excerpt-2",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F006",
+      "path": [
+        "sig-release",
+        "1729-rebase-images-to-distroless"
+      ],
+      "content_sha256": "84fa7e900004df2e659f685866cd1c731793a16cff4bf48607affdc4948e1a6f",
+      "source_native_id": "keps/sig-release/1729-rebase-images-to-distroless#excerpt-3",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F007",
+      "path": [
+        "sig-cli",
+        "491-kubectl-diff"
+      ],
+      "content_sha256": "fb279cef79fddd0335c8bc97f46ebf5d04e76c991a060a780e23d9eaa1ab0b04",
+      "source_native_id": "keps/sig-cli/491-kubectl-diff#excerpt-1",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F008",
+      "path": [
+        "sig-api-machinery",
+        "1040-priority-and-fairness"
+      ],
+      "content_sha256": "4d2f5d1446a4c269ef77bf9b4b400a67b2cc755e3e85ec67909175525c71e516",
+      "source_native_id": "keps/sig-api-machinery/1040-priority-and-fairness#excerpt-3",
+      "source_heading": "non-goals"
+    },
+    {
+      "id": "F009",
+      "path": [
+        "sig-autoscaling",
+        "1610-container-resource-autoscaling"
+      ],
+      "content_sha256": "90c8be58a0b9a121fd55d0e189522643a68d7281d2fd4ab59619181607b9216a",
+      "source_native_id": "keps/sig-autoscaling/1610-container-resource-autoscaling#excerpt-3",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F010",
+      "path": [
+        "sig-release",
+        "1729-rebase-images-to-distroless"
+      ],
+      "content_sha256": "4b51a3153f1c7c8882735d34d90f2ee61aca9d25aca12ce829125f47a5e14e23",
+      "source_native_id": "keps/sig-release/1729-rebase-images-to-distroless#excerpt-1",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F011",
+      "path": [
+        "sig-api-machinery",
+        "2885-server-side-unknown-field-validation"
+      ],
+      "content_sha256": "0cbc2446069773840de6f3780a65be5a5a90df0a67e80d835f982519f08ebd25",
+      "source_native_id": "keps/sig-api-machinery/2885-server-side-unknown-field-validation#excerpt-2",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F012",
+      "path": [
+        "sig-release",
+        "1731-publishing-packages"
+      ],
+      "content_sha256": "dcf4bd98c28885646b2be29c47cc34fc2a5bf02cd5e86bfd55f26e1bce212611",
+      "source_native_id": "keps/sig-release/1731-publishing-packages#excerpt-3",
+      "source_heading": "risks and mitigations"
+    },
+    {
+      "id": "F013",
+      "path": [
+        "sig-autoscaling",
+        "5325-hpa-pod-selection-accuracy"
+      ],
+      "content_sha256": "5f17548a704571b0968d51446643ca6d41bb076e7fa58fdcdc81e5f6241f4db2",
+      "source_native_id": "keps/sig-autoscaling/5325-hpa-pod-selection-accuracy#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F014",
+      "path": [
+        "sig-autoscaling",
+        "1610-container-resource-autoscaling"
+      ],
+      "content_sha256": "b928d09daf9bb4b11844ce6d003649567c4963256ee75113e735d598c85619d6",
+      "source_native_id": "keps/sig-autoscaling/1610-container-resource-autoscaling#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F015",
+      "path": [
+        "sig-api-machinery",
+        "598-crd-conversion-webhook"
+      ],
+      "content_sha256": "9a1d764d98ae5649f06233bf54678bff0a599b559d6dbb624e94bc1aad3b3579",
+      "source_native_id": "keps/sig-api-machinery/598-crd-conversion-webhook#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F016",
+      "path": [
+        "sig-api-machinery",
+        "2885-server-side-unknown-field-validation"
+      ],
+      "content_sha256": "e749654f0fb9709beffa0c1ad01ddcde2586e73bc92d8c129d5d752377fa7529",
+      "source_native_id": "keps/sig-api-machinery/2885-server-side-unknown-field-validation#excerpt-1",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F017",
+      "path": [
+        "sig-autoscaling",
+        "1610-container-resource-autoscaling"
+      ],
+      "content_sha256": "948eabf9daeaf45f6d71dbb172b2f9dd703c7baba5d1ff6e21055076ea8203cf",
+      "source_native_id": "keps/sig-autoscaling/1610-container-resource-autoscaling#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F018",
+      "path": [
+        "sig-release",
+        "2818-reducing-build-maintenance"
+      ],
+      "content_sha256": "4514c0eca218a8625ed59844aadc1aac2b354114585d13f6669480fb237d196d",
+      "source_native_id": "keps/sig-release/2818-reducing-build-maintenance#excerpt-3",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F019",
+      "path": [
+        "sig-cli",
+        "491-kubectl-diff"
+      ],
+      "content_sha256": "1d7ed9150e972beaed6f21babefe6b6bb2247b6c9fe29f5459ccd365d2a430b0",
+      "source_native_id": "keps/sig-cli/491-kubectl-diff#excerpt-3",
+      "source_heading": "design details"
+    },
+    {
+      "id": "F020",
+      "path": [
+        "sig-api-machinery",
+        "1040-priority-and-fairness"
+      ],
+      "content_sha256": "33ae307cda9729d16afcef4b9ad1669469f7a86671c12e7b5d1528817940b674",
+      "source_native_id": "keps/sig-api-machinery/1040-priority-and-fairness#excerpt-2",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F021",
+      "path": [
+        "sig-cli",
+        "2381-future-of-kubectl-cp"
+      ],
+      "content_sha256": "8a7aafcdc150c520f79073dd721d54aaec1014c6eabfcdd985f5b2077804bf63",
+      "source_native_id": "keps/sig-cli/2381-future-of-kubectl-cp#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F022",
+      "path": [
+        "sig-api-machinery",
+        "598-crd-conversion-webhook"
+      ],
+      "content_sha256": "41497f0d5d4fcac24f20798c4860e0c1a7435a43c73a3baba83455dfef661c08",
+      "source_native_id": "keps/sig-api-machinery/598-crd-conversion-webhook#excerpt-3",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F023",
+      "path": [
+        "sig-autoscaling",
+        "5679-external-metric-fallback"
+      ],
+      "content_sha256": "7d403f0090091117cf9171f87c69feb252833a7ec5dff85d90c682fe30b246b4",
+      "source_native_id": "keps/sig-autoscaling/5679-external-metric-fallback#excerpt-3",
+      "source_heading": "non-goals"
+    },
+    {
+      "id": "F024",
+      "path": [
+        "sig-api-machinery",
+        "2885-server-side-unknown-field-validation"
+      ],
+      "content_sha256": "e5159d88fa6857dbfe1be7dc2829595574eba92ba0e62ea5503ce974285247d3",
+      "source_native_id": "keps/sig-api-machinery/2885-server-side-unknown-field-validation#excerpt-3",
+      "source_heading": "non-goals"
+    },
+    {
+      "id": "F025",
+      "path": [
+        "sig-cli",
+        "5295-kyaml"
+      ],
+      "content_sha256": "3a6946c5e6cc999c846a754d04f015dcdd5149c92d569e6f49520807cbc918d2",
+      "source_native_id": "keps/sig-cli/5295-kyaml#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F026",
+      "path": [
+        "sig-api-machinery",
+        "1040-priority-and-fairness"
+      ],
+      "content_sha256": "9e73f3083390f4cf5896c8a74e0641ae2993ab322c628a6a1c0846a9c177cb8d",
+      "source_native_id": "keps/sig-api-machinery/1040-priority-and-fairness#excerpt-1",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F027",
+      "path": [
+        "sig-api-machinery",
+        "598-crd-conversion-webhook"
+      ],
+      "content_sha256": "42168004d54d0c5114860094370fddda6d904082fe4e26ec183ee94c185d9c27",
+      "source_native_id": "keps/sig-api-machinery/598-crd-conversion-webhook#excerpt-2",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F028",
+      "path": [
+        "sig-cli",
+        "2381-future-of-kubectl-cp"
+      ],
+      "content_sha256": "b6fb4d880ea100550b0b6b562139d9ca80f2798f5cb008b378ee68ffe90ca878",
+      "source_native_id": "keps/sig-cli/2381-future-of-kubectl-cp#excerpt-3",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F029",
+      "path": [
+        "sig-cli",
+        "5295-kyaml"
+      ],
+      "content_sha256": "8da410de8840174ec2248d583e62b050a074697cc09f841c8ea08ae3edeff2df",
+      "source_native_id": "keps/sig-cli/5295-kyaml#excerpt-3",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F030",
+      "path": [
+        "sig-release",
+        "2818-reducing-build-maintenance"
+      ],
+      "content_sha256": "afaf41bc6011a7eba086fe85472adb456e4cdfb4a09ff7eeb008d3caac87d282",
+      "source_native_id": "keps/sig-release/2818-reducing-build-maintenance#excerpt-2",
+      "source_heading": "non-goals"
+    },
+    {
+      "id": "F031",
+      "path": [
+        "sig-autoscaling",
+        "5325-hpa-pod-selection-accuracy"
+      ],
+      "content_sha256": "c04214f359dd9e27a5b151250b843372f06b012bc3bfe0644f201c27c3850534",
+      "source_native_id": "keps/sig-autoscaling/5325-hpa-pod-selection-accuracy#excerpt-2",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F032",
+      "path": [
+        "sig-release",
+        "2818-reducing-build-maintenance"
+      ],
+      "content_sha256": "82a03e2342ce512fd26692e1b3da3ab8218080abd74403d1e3b914d027d7ccf8",
+      "source_native_id": "keps/sig-release/2818-reducing-build-maintenance#excerpt-1",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F033",
+      "path": [
+        "sig-autoscaling",
+        "5679-external-metric-fallback"
+      ],
+      "content_sha256": "a42ff126f958193ef4c57e02f0ac0d8499b41dafd3706bcbe863f89e610efb97",
+      "source_native_id": "keps/sig-autoscaling/5679-external-metric-fallback#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F034",
+      "path": [
+        "sig-release",
+        "1729-rebase-images-to-distroless"
+      ],
+      "content_sha256": "02264680882787a61acaf3be55eefb1d36d1540987027cd02d5acefdeefdd31e",
+      "source_native_id": "keps/sig-release/1729-rebase-images-to-distroless#excerpt-2",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F035",
+      "path": [
+        "sig-cli",
+        "5295-kyaml"
+      ],
+      "content_sha256": "0ba6c5596f6805694cfec7eb20a9a1a76d451e7f0060cc886b45b4354cbf32d2",
+      "source_native_id": "keps/sig-cli/5295-kyaml#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F036",
+      "path": [
+        "sig-autoscaling",
+        "5325-hpa-pod-selection-accuracy"
+      ],
+      "content_sha256": "202da788aacb7d85d13768685a400b9c6a2c1596e6fe19bba8b0078c4afea888",
+      "source_native_id": "keps/sig-autoscaling/5325-hpa-pod-selection-accuracy#excerpt-3",
+      "source_heading": "design details"
+    }
+  ],
+  "reference_scope": "Source-derived group/proposal hierarchy for a development-only difficulty and cost pilot."
+}

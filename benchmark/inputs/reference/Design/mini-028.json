@@ -1,0 +1,366 @@
+{
+  "task_id": "mini-028",
+  "records": [
+    {
+      "id": "F001",
+      "path": [
+        "sig-architecture",
+        "1659-standard-topology-labels"
+      ],
+      "content_sha256": "fd256709e65fa47df9bbc2fb95b44283d4b3769677b3ab8fe04fded65f3f0857",
+      "source_native_id": "keps/sig-architecture/1659-standard-topology-labels#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F002",
+      "path": [
+        "sig-api-machinery",
+        "5116-streaming-response-encoding"
+      ],
+      "content_sha256": "f47c8eee41270fa82060c790f463e8c4a39f574d060eaff2ad808bd182c092e7",
+      "source_native_id": "keps/sig-api-machinery/5116-streaming-response-encoding#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F003",
+      "path": [
+        "sig-node",
+        "2862-fine-grained-kubelet-authz"
+      ],
+      "content_sha256": "4092cb0c2f908a60250c370440a13b3f6028bebbe499f318a1b637f50ade8420",
+      "source_native_id": "keps/sig-node/2862-fine-grained-kubelet-authz#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F004",
+      "path": [
+        "sig-network",
+        "1860-kube-proxy-IP-node-binding"
+      ],
+      "content_sha256": "acdedcfb1a95cd8a5b404e94db75b6e6646c84d00afb41bf0502cf820d95f15d",
+      "source_native_id": "keps/sig-network/1860-kube-proxy-IP-node-binding#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F005",
+      "path": [
+        "sig-node",
+        "5825-cri-pagination"
+      ],
+      "content_sha256": "29b7dae9295ca8e003db9ac9baaedebb45dacd2353fb72b483fc8f8649d62b1d",
+      "source_native_id": "keps/sig-node/5825-cri-pagination#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F006",
+      "path": [
+        "sig-architecture",
+        "1659-standard-topology-labels"
+      ],
+      "content_sha256": "8966c7ea541aa9953abbb70d6e93d3d363cdb4ee602d0b410e37146efa92f988",
+      "source_native_id": "keps/sig-architecture/1659-standard-topology-labels#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F007",
+      "path": [
+        "sig-api-machinery",
+        "5793-manifest-based-admission-control-config"
+      ],
+      "content_sha256": "d89efe5b8db53d219c0d50748c662151b2a5cee95e22d65ca180387345f2ab21",
+      "source_native_id": "keps/sig-api-machinery/5793-manifest-based-admission-control-config#excerpt-3",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F008",
+      "path": [
+        "sig-architecture",
+        "4330-compatibility-versions"
+      ],
+      "content_sha256": "a5155557acbf24925f338646fd4a3e0ec5da2f5d1bbe5fcbed3f64579e651532",
+      "source_native_id": "keps/sig-architecture/4330-compatibility-versions#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F009",
+      "path": [
+        "sig-network",
+        "2448-Remove-kube-proxy-automatic-clean-up-logic"
+      ],
+      "content_sha256": "a00527973aeb84c0e0688642b77fb1e8096943a264984006d48f0485f992306f",
+      "source_native_id": "keps/sig-network/2448-Remove-kube-proxy-automatic-clean-up-logic#excerpt-2",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F010",
+      "path": [
+        "sig-network",
+        "2448-Remove-kube-proxy-automatic-clean-up-logic"
+      ],
+      "content_sha256": "856b9165ce9223789339da9370f2a105b7bf77b28d2aa490c4a577833aeaee60",
+      "source_native_id": "keps/sig-network/2448-Remove-kube-proxy-automatic-clean-up-logic#excerpt-3",
+      "source_heading": "alternatives"
+    },
+    {
+      "id": "F011",
+      "path": [
+        "sig-architecture",
+        "1659-standard-topology-labels"
+      ],
+      "content_sha256": "0f6a7c4a0f48ef311fb0ebb7a59113480e9e1c9cc7b35171aeb9e123ccd8b75f",
+      "source_native_id": "keps/sig-architecture/1659-standard-topology-labels#excerpt-3",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F012",
+      "path": [
+        "sig-network",
+        "1860-kube-proxy-IP-node-binding"
+      ],
+      "content_sha256": "48b951374fe50055a0328c620e7b751cb250dde1e11f5760d523c0b64efab144",
+      "source_native_id": "keps/sig-network/1860-kube-proxy-IP-node-binding#excerpt-3",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F013",
+      "path": [
+        "sig-api-machinery",
+        "555-server-side-apply"
+      ],
+      "content_sha256": "5cea7b3ba4aaf217611c95086f4602eae4dea83e11639d7439a0e72ee7e8c571",
+      "source_native_id": "keps/sig-api-machinery/555-server-side-apply#excerpt-1",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F014",
+      "path": [
+        "sig-node",
+        "2862-fine-grained-kubelet-authz"
+      ],
+      "content_sha256": "50b55c896b3e37da30e8826115aec9a19bc69ffa34454d967828c2e03eb9bc32",
+      "source_native_id": "keps/sig-node/2862-fine-grained-kubelet-authz#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F015",
+      "path": [
+        "sig-api-machinery",
+        "5793-manifest-based-admission-control-config"
+      ],
+      "content_sha256": "d554f00093d33b31f8e4fff980dcd57a9e27f5b6010db523e959fc40f027f11d",
+      "source_native_id": "keps/sig-api-machinery/5793-manifest-based-admission-control-config#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F016",
+      "path": [
+        "sig-architecture",
+        "4402-go-workspaces"
+      ],
+      "content_sha256": "fe5304ab81371d7c8c96b70257200aeefb640ad766bead2f9227a4b8b429b89f",
+      "source_native_id": "keps/sig-architecture/4402-go-workspaces#excerpt-3",
+      "source_heading": "risks and mitigations"
+    },
+    {
+      "id": "F017",
+      "path": [
+        "sig-node",
+        "5526-pod-level-resource-managers"
+      ],
+      "content_sha256": "f1a0492c8c25695dc0579d734363f1701a7da45c658f1de1de5010f795187faf",
+      "source_native_id": "keps/sig-node/5526-pod-level-resource-managers#excerpt-2",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F018",
+      "path": [
+        "sig-network",
+        "1860-kube-proxy-IP-node-binding"
+      ],
+      "content_sha256": "4b6cb0d04dafeb0432be9ef60f499bb442fa2dfc3887a74994ac7a3edd2ce521",
+      "source_native_id": "keps/sig-network/1860-kube-proxy-IP-node-binding#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F019",
+      "path": [
+        "sig-api-machinery",
+        "555-server-side-apply"
+      ],
+      "content_sha256": "4c7ede5894424a50d214ec7640f2e737ae0b73f8945e3924d0fe1968437af869",
+      "source_native_id": "keps/sig-api-machinery/555-server-side-apply#excerpt-3",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F020",
+      "path": [
+        "sig-network",
+        "2448-Remove-kube-proxy-automatic-clean-up-logic"
+      ],
+      "content_sha256": "8b90ce44f7692645dbc5e9edf2c661d1b4619ab19df37189fb3c526b5334dbac",
+      "source_native_id": "keps/sig-network/2448-Remove-kube-proxy-automatic-clean-up-logic#excerpt-1",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F021",
+      "path": [
+        "sig-architecture",
+        "4402-go-workspaces"
+      ],
+      "content_sha256": "f72384d30c445a8191026b8a1318577644d318d6b07773c4ae8faf66945fcbd6",
+      "source_native_id": "keps/sig-architecture/4402-go-workspaces#excerpt-2",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F022",
+      "path": [
+        "sig-architecture",
+        "4402-go-workspaces"
+      ],
+      "content_sha256": "836c9b2b3f71adcc1e15985bd7ffbbaa2dd5e34eeaeabee0b0615e5e57e70fdc",
+      "source_native_id": "keps/sig-architecture/4402-go-workspaces#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F023",
+      "path": [
+        "sig-node",
+        "2862-fine-grained-kubelet-authz"
+      ],
+      "content_sha256": "e85e105c14037374a58ec678e57499f1b0e7d3857e81a88781b64272ed8dc205",
+      "source_native_id": "keps/sig-node/2862-fine-grained-kubelet-authz#excerpt-3",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F024",
+      "path": [
+        "sig-api-machinery",
+        "5793-manifest-based-admission-control-config"
+      ],
+      "content_sha256": "7a6ce548846fa8844d4b779d41feadfcfa109a10ae3e7a2e3eec2a34795fda7f",
+      "source_native_id": "keps/sig-api-machinery/5793-manifest-based-admission-control-config#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F025",
+      "path": [
+        "sig-node",
+        "5825-cri-pagination"
+      ],
+      "content_sha256": "f7f5b3e49819ca7c9d92b4072f19a650b463fb04b4347c3260275bb8af0c19ce",
+      "source_native_id": "keps/sig-node/5825-cri-pagination#excerpt-3",
+      "source_heading": "risks and mitigations"
+    },
+    {
+      "id": "F026",
+      "path": [
+        "sig-api-machinery",
+        "5116-streaming-response-encoding"
+      ],
+      "content_sha256": "f7692b5995f1118a720f2f2656350e4c95ddaf8f51433cc936cc6974c2df6dfd",
+      "source_native_id": "keps/sig-api-machinery/5116-streaming-response-encoding#excerpt-3",
+      "source_heading": "non-goals"
+    },
+    {
+      "id": "F027",
+      "path": [
+        "sig-api-machinery",
+        "555-server-side-apply"
+      ],
+      "content_sha256": "cbcf7defcd0a4664acfdb0c3f7b0d01714bb3f1cb12a6b136b2de2e2d666a00a",
+      "source_native_id": "keps/sig-api-machinery/555-server-side-apply#excerpt-2",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F028",
+      "path": [
+        "sig-node",
+        "5526-pod-level-resource-managers"
+      ],
+      "content_sha256": "cb9732d9a4da1b9a4db54acb7792ad1f23456a89c3bcb86d0ecb0214084e4970",
+      "source_native_id": "keps/sig-node/5526-pod-level-resource-managers#excerpt-3",
+      "source_heading": "non-goals"
+    },
+    {
+      "id": "F029",
+      "path": [
+        "sig-architecture",
+        "4330-compatibility-versions"
+      ],
+      "content_sha256": "db3ac0abca4fa5fef2745cf3e9f1d8651f0768b3321a69834983317e3815b0f9",
+      "source_native_id": "keps/sig-architecture/4330-compatibility-versions#excerpt-3",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F030",
+      "path": [
+        "sig-api-machinery",
+        "5116-streaming-response-encoding"
+      ],
+      "content_sha256": "a90d95598a39045ff673f7a66d4f479033ad373a502033b9d7ae041e9cda66ee",
+      "source_native_id": "keps/sig-api-machinery/5116-streaming-response-encoding#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F031",
+      "path": [
+        "sig-architecture",
+        "4330-compatibility-versions"
+      ],
+      "content_sha256": "470b6f3e1b574f3cee2c1aec400e09eb9423a4629d0269753e51f2a4774fd062",
+      "source_native_id": "keps/sig-architecture/4330-compatibility-versions#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F032",
+      "path": [
+        "sig-network",
+        "563-dual-stack"
+      ],
+      "content_sha256": "c1fd7b3e81768fe8d525f9992bf86073d6c7024f60b9854cf38ab27c2a2eda1a",
+      "source_native_id": "keps/sig-network/563-dual-stack#excerpt-1",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F033",
+      "path": [
+        "sig-network",
+        "563-dual-stack"
+      ],
+      "content_sha256": "635f53af4030e20cf0b376176d39334d5cf96d30c82db47724e8653a33eb94ac",
+      "source_native_id": "keps/sig-network/563-dual-stack#excerpt-3",
+      "source_heading": "non-goals"
+    },
+    {
+      "id": "F034",
+      "path": [
+        "sig-node",
+        "5526-pod-level-resource-managers"
+      ],
+      "content_sha256": "40c2a0ed8dcbb1d40a7ea0675c187022a71ca2cc2b42a80fc8de55c1c27097ae",
+      "source_native_id": "keps/sig-node/5526-pod-level-resource-managers#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F035",
+      "path": [
+        "sig-node",
+        "5825-cri-pagination"
+      ],
+      "content_sha256": "aa4689f81b38e401d5758f9b03819f0644b69848d203245c333e6e1b30a40c73",
+      "source_native_id": "keps/sig-node/5825-cri-pagination#excerpt-2",
+      "source_heading": "user stories"
+    },
+    {
+      "id": "F036",
+      "path": [
+        "sig-network",
+        "563-dual-stack"
+      ],
+      "content_sha256": "d1bb5e7ccdaaf4105d47cd6a0ad5eecdf1b46b0606f96321d254ffec6f20bbd1",
+      "source_native_id": "keps/sig-network/563-dual-stack#excerpt-2",
+      "source_heading": "goals"
+    }
+  ],
+  "reference_scope": "Source-derived group/proposal hierarchy for a development-only difficulty and cost pilot."
+}

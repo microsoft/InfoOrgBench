@@ -1,0 +1,361 @@
+{
+  "assignments": [
+    {
+      "id": "F001",
+      "path": [
+        "HADOOP-15825",
+        "test-results"
+      ]
+    },
+    {
+      "id": "F002",
+      "path": [
+        "S3A-ssl-dots",
+        "troubleshooting"
+      ]
+    },
+    {
+      "id": "F003",
+      "path": [
+        "HADOOP-17015",
+        "discussion"
+      ]
+    },
+    {
+      "id": "F004",
+      "path": [
+        "HADOOP-17015",
+        "discussion"
+      ]
+    },
+    {
+      "id": "F005",
+      "path": [
+        "HADOOP-17015",
+        "idempotency-tests"
+      ]
+    },
+    {
+      "id": "F006",
+      "path": [
+        "S3A-ssl-dots",
+        "troubleshooting"
+      ]
+    },
+    {
+      "id": "F007",
+      "path": [
+        "HADOOP-17015",
+        "patch-updates"
+      ]
+    },
+    {
+      "id": "F008",
+      "path": [
+        "HADOOP-17200",
+        "token-fetch"
+      ]
+    },
+    {
+      "id": "F009",
+      "path": [
+        "HADOOP-18759",
+        "retry-policy"
+      ]
+    },
+    {
+      "id": "F010",
+      "path": [
+        "HADOOP-17015",
+        "patch-updates"
+      ]
+    },
+    {
+      "id": "F011",
+      "path": [
+        "HADOOP-17200",
+        "token-fetch"
+      ]
+    },
+    {
+      "id": "F012",
+      "path": [
+        "HADOOP-17200",
+        "token-fetch"
+      ]
+    },
+    {
+      "id": "F013",
+      "path": [
+        "HADOOP-17015",
+        "idempotency-tests"
+      ]
+    },
+    {
+      "id": "F014",
+      "path": [
+        "HADOOP-17015",
+        "test-errors"
+      ]
+    },
+    {
+      "id": "F015",
+      "path": [
+        "S3A-ssl-dots",
+        "bucket-names"
+      ]
+    },
+    {
+      "id": "F016",
+      "path": [
+        "HADOOP-18759",
+        "retry-policy"
+      ]
+    },
+    {
+      "id": "F017",
+      "path": [
+        "S3A-ssl-dots",
+        "bucket-names"
+      ]
+    },
+    {
+      "id": "F018",
+      "path": [
+        "HADOOP-16163",
+        "kerberos-dt"
+      ]
+    },
+    {
+      "id": "F019",
+      "path": [
+        "S3A-assume-role",
+        "credentials"
+      ]
+    },
+    {
+      "id": "F020",
+      "path": [
+        "HADOOP-20061",
+        "contract-tests"
+      ]
+    },
+    {
+      "id": "F021",
+      "path": [
+        "HADOOP-15825",
+        "namespace-tests"
+      ]
+    },
+    {
+      "id": "F022",
+      "path": [
+        "HADOOP-15825",
+        "namespace-tests"
+      ]
+    },
+    {
+      "id": "F023",
+      "path": [
+        "HADOOP-16163",
+        "test-setup-issues"
+      ]
+    },
+    {
+      "id": "F024",
+      "path": [
+        "S3A-ssl-dots",
+        "bucket-names"
+      ]
+    },
+    {
+      "id": "F025",
+      "path": [
+        "HADOOP-16163",
+        "test-setup-issues"
+      ]
+    },
+    {
+      "id": "F026",
+      "path": [
+        "S3A-encryption",
+        "public-buckets"
+      ]
+    },
+    {
+      "id": "F027",
+      "path": [
+        "HADOOP-17002",
+        "hns-config"
+      ]
+    },
+    {
+      "id": "F028",
+      "path": [
+        "HADOOP-16163",
+        "test-setup-issues"
+      ]
+    },
+    {
+      "id": "F029",
+      "path": [
+        "HADOOP-16163",
+        "kerberos-dt"
+      ]
+    },
+    {
+      "id": "F030",
+      "path": [
+        "HADOOP-17200",
+        "review"
+      ]
+    },
+    {
+      "id": "F031",
+      "path": [
+        "HADOOP-17002",
+        "hns-config"
+      ]
+    },
+    {
+      "id": "F032",
+      "path": [
+        "HADOOP-17002",
+        "hns-config"
+      ]
+    },
+    {
+      "id": "F033",
+      "path": [
+        "S3A-credentials",
+        "test-failures"
+      ]
+    },
+    {
+      "id": "F034",
+      "path": [
+        "HADOOP-17002",
+        "hns-config"
+      ]
+    },
+    {
+      "id": "F035",
+      "path": [
+        "HADOOP-17015",
+        "release-management"
+      ]
+    },
+    {
+      "id": "F036",
+      "path": [
+        "S3A-credentials",
+        "test-failures"
+      ]
+    },
+    {
+      "id": "F037",
+      "path": [
+        "HADOOP-17015",
+        "patch-updates"
+      ]
+    },
+    {
+      "id": "F038",
+      "path": [
+        "HADOOP-18759",
+        "retry-policy"
+      ]
+    },
+    {
+      "id": "F039",
+      "path": [
+        "HADOOP-17054",
+        "integration"
+      ]
+    },
+    {
+      "id": "F040",
+      "path": [
+        "S3A-ssl-dots",
+        "bucket-names"
+      ]
+    },
+    {
+      "id": "F041",
+      "path": [
+        "S3A-uploads",
+        "s3guard"
+      ]
+    },
+    {
+      "id": "F042",
+      "path": [
+        "HADOOP-17015",
+        "patch-updates"
+      ]
+    },
+    {
+      "id": "F043",
+      "path": [
+        "HADOOP-16163",
+        "integration"
+      ]
+    },
+    {
+      "id": "F044",
+      "path": [
+        "HADOOP-17015",
+        "idempotency-tests"
+      ]
+    },
+    {
+      "id": "F045",
+      "path": [
+        "HADOOP-17002",
+        "integration"
+      ]
+    },
+    {
+      "id": "F046",
+      "path": [
+        "S3A-uploads",
+        "s3guard"
+      ]
+    },
+    {
+      "id": "F047",
+      "path": [
+        "HADOOP-20063",
+        "metrics"
+      ]
+    },
+    {
+      "id": "F048",
+      "path": [
+        "HADOOP-15825",
+        "namespace-tests"
+      ]
+    },
+    {
+      "id": "F049",
+      "path": [
+        "HADOOP-15825",
+        "namespace-tests"
+      ]
+    },
+    {
+      "id": "F050",
+      "path": [
+        "S3A-ssl-dots",
+        "errors"
+      ]
+    },
+    {
+      "id": "F051",
+      "path": [
+        "S3A-ssl-dots",
+        "errors"
+      ]
+    }
+  ]
+}

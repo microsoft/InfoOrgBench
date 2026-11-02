@@ -1,0 +1,333 @@
+{
+  "assignments": [
+    {
+      "id": "F001",
+      "path": [
+        "Prototype Review",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F002",
+      "path": [
+        "Project Kickoff",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F003",
+      "path": [
+        "Prototype Review",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F004",
+      "path": [
+        "Prototype Review",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F005",
+      "path": [
+        "Prototype Review",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F006",
+      "path": [
+        "Prototype Review",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F007",
+      "path": [
+        "Prototype Review",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F008",
+      "path": [
+        "Project Kickoff",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F009",
+      "path": [
+        "Prototype Review",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F010",
+      "path": [
+        "Remote Design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F011",
+      "path": [
+        "Remote Design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F012",
+      "path": [
+        "Prototype Review",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F013",
+      "path": [
+        "Project Kickoff",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F014",
+      "path": [
+        "Remote Design",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F015",
+      "path": [
+        "Remote Design",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F016",
+      "path": [
+        "Project Kickoff",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F017",
+      "path": [
+        "Remote Design",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F018",
+      "path": [
+        "Remote Design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F019",
+      "path": [
+        "Prototype Review",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F020",
+      "path": [
+        "Prototype Review",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F021",
+      "path": [
+        "Remote Design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F022",
+      "path": [
+        "Project Kickoff",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F023",
+      "path": [
+        "Remote Design",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F024",
+      "path": [
+        "Remote Design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F025",
+      "path": [
+        "Remote Design",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F026",
+      "path": [
+        "Project Kickoff",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F027",
+      "path": [
+        "Prototype Review",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F028",
+      "path": [
+        "Prototype Review",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F029",
+      "path": [
+        "Remote Design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F030",
+      "path": [
+        "Project Kickoff",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F031",
+      "path": [
+        "Prototype Review",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F032",
+      "path": [
+        "Project Kickoff",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F033",
+      "path": [
+        "Project Kickoff",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F034",
+      "path": [
+        "Prototype Review",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F035",
+      "path": [
+        "Prototype Review",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F036",
+      "path": [
+        "Project Kickoff",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F037",
+      "path": [
+        "Prototype Review",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F038",
+      "path": [
+        "Prototype Review",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F039",
+      "path": [
+        "Project Kickoff",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F040",
+      "path": [
+        "Prototype Review",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F041",
+      "path": [
+        "Project Kickoff",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F042",
+      "path": [
+        "Remote Design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F043",
+      "path": [
+        "Remote Design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F044",
+      "path": [
+        "Project Kickoff",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F045",
+      "path": [
+        "Project Kickoff",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F046",
+      "path": [
+        "Remote Design",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F047",
+      "path": [
+        "Prototype Review",
+        "Overview"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,366 @@
+{
+  "task_id": "mini-005",
+  "records": [
+    {
+      "id": "F001",
+      "path": [
+        "sig-storage",
+        "695-skip-permission-change"
+      ],
+      "content_sha256": "fe9f8c28b25b66236cf5dea5bad29e437ff46f0c206acc68d840c61faffd3c77",
+      "source_native_id": "keps/sig-storage/695-skip-permission-change#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F002",
+      "path": [
+        "sig-node",
+        "4817-resource-claim-device-status"
+      ],
+      "content_sha256": "f95c56959d6253a3ede041b52c3c7078f2fefa9c5deb120b7a0d15f2f78a3b8d",
+      "source_native_id": "keps/sig-node/4817-resource-claim-device-status#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F003",
+      "path": [
+        "sig-storage",
+        "695-skip-permission-change"
+      ],
+      "content_sha256": "0032fddbaabf7524026b84247782859e84017ca56ec9933e24dc5a44ef36a266",
+      "source_native_id": "keps/sig-storage/695-skip-permission-change#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F004",
+      "path": [
+        "sig-api-machinery",
+        "2876-crd-validation-expression-language"
+      ],
+      "content_sha256": "31d1766a166f112a36b5f39889730987e6cf0397a048c4067751787cd2371263",
+      "source_native_id": "keps/sig-api-machinery/2876-crd-validation-expression-language#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F005",
+      "path": [
+        "sig-apps",
+        "981-poddisruptionbudget-for-custom-resources"
+      ],
+      "content_sha256": "6c20780b3dd3f7e59b8c9b5b146fc2b626984f5205473105802ce3e08938ca1c",
+      "source_native_id": "keps/sig-apps/981-poddisruptionbudget-for-custom-resources#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F006",
+      "path": [
+        "sig-apps",
+        "2232-suspend-jobs"
+      ],
+      "content_sha256": "c052eeb07d27c40c8cd3802313265ddf4cb4a456ea86778ab04b1c6608507197",
+      "source_native_id": "keps/sig-apps/2232-suspend-jobs#excerpt-3",
+      "source_heading": "non-goals"
+    },
+    {
+      "id": "F007",
+      "path": [
+        "sig-api-machinery",
+        "2876-crd-validation-expression-language"
+      ],
+      "content_sha256": "8dce8eb5b4c4cb54ac31e0249b13e1981af83fd9b4da7f5b4ff90559ae388ebf",
+      "source_native_id": "keps/sig-api-machinery/2876-crd-validation-expression-language#excerpt-3",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F008",
+      "path": [
+        "sig-storage",
+        "962-execution-hook"
+      ],
+      "content_sha256": "c64f1193a9972d4e48ea9593900659d2b2012880aa776b7d25ef984d26b09e78",
+      "source_native_id": "keps/sig-storage/962-execution-hook#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F009",
+      "path": [
+        "sig-node",
+        "4781-kublet-restart-pod-status"
+      ],
+      "content_sha256": "fea1db52d42147e785316988b62a4702bc5b1ae74349569aea0081586f2cca36",
+      "source_native_id": "keps/sig-node/4781-kublet-restart-pod-status#excerpt-3",
+      "source_heading": "non-goals"
+    },
+    {
+      "id": "F010",
+      "path": [
+        "sig-node",
+        "4188-kubelet-pod-readiness-api"
+      ],
+      "content_sha256": "a2485dfa97faa77b35470d934f0047a6f41bb7b1e413bd90359b7f65eb37cee9",
+      "source_native_id": "keps/sig-node/4188-kubelet-pod-readiness-api#excerpt-3",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F011",
+      "path": [
+        "sig-node",
+        "4188-kubelet-pod-readiness-api"
+      ],
+      "content_sha256": "9ea811ec144dd8669bbc6f4647044864367c6f15d1532c3ea3e550fc9b8511c9",
+      "source_native_id": "keps/sig-node/4188-kubelet-pod-readiness-api#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F012",
+      "path": [
+        "sig-storage",
+        "3314-csi-changed-block-tracking"
+      ],
+      "content_sha256": "6c137464ffcb6683fe137600911afe493246d4a715ef69359ee41fab719bac14",
+      "source_native_id": "keps/sig-storage/3314-csi-changed-block-tracking#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F013",
+      "path": [
+        "sig-apps",
+        "981-poddisruptionbudget-for-custom-resources"
+      ],
+      "content_sha256": "75a83432d7366a1df46e6920f3f69b85ae28784f86bf64e3f1057f529f5373d6",
+      "source_native_id": "keps/sig-apps/981-poddisruptionbudget-for-custom-resources#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F014",
+      "path": [
+        "sig-node",
+        "4781-kublet-restart-pod-status"
+      ],
+      "content_sha256": "f194198ba40e9c47a0ce9c55452b62be1d9fb38f9ea7725155083593bf23ecba",
+      "source_native_id": "keps/sig-node/4781-kublet-restart-pod-status#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F015",
+      "path": [
+        "sig-apps",
+        "981-poddisruptionbudget-for-custom-resources"
+      ],
+      "content_sha256": "fcc04dd4b2cad2f0a4f08438572d4b41ff5f33bfca979bb57d25919ebd445e22",
+      "source_native_id": "keps/sig-apps/981-poddisruptionbudget-for-custom-resources#excerpt-3",
+      "source_heading": "risks and mitigations"
+    },
+    {
+      "id": "F016",
+      "path": [
+        "sig-storage",
+        "695-skip-permission-change"
+      ],
+      "content_sha256": "4f05778077a0fe52edc0164fde780e8014bb236cef29052b8738fdb34b4dcb0e",
+      "source_native_id": "keps/sig-storage/695-skip-permission-change#excerpt-3",
+      "source_heading": "non-goals"
+    },
+    {
+      "id": "F017",
+      "path": [
+        "sig-api-machinery",
+        "1164-remove-selflink"
+      ],
+      "content_sha256": "9e90bacac941de219169c2571bbf225a7cbf1ce746ca8a6705a7ac3ae3a2df9f",
+      "source_native_id": "keps/sig-api-machinery/1164-remove-selflink#excerpt-1",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F018",
+      "path": [
+        "sig-apps",
+        "2232-suspend-jobs"
+      ],
+      "content_sha256": "b99187255e73d1c776ad6616f7dbe09ed70582c1aaf14b9ddd560a91a4d5634a",
+      "source_native_id": "keps/sig-apps/2232-suspend-jobs#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F019",
+      "path": [
+        "sig-api-machinery",
+        "1872-manifest-based-admission-webhooks"
+      ],
+      "content_sha256": "35035ecf4c0830c70d21f2a2749884f0e9d214be9b156fd2d3c02047261eddf7",
+      "source_native_id": "keps/sig-api-machinery/1872-manifest-based-admission-webhooks#excerpt-3",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F020",
+      "path": [
+        "sig-apps",
+        "3939-allow-replacement-when-fully-terminated"
+      ],
+      "content_sha256": "c79bd40720f847aa92b287305005d6a4085c3a241b518924cfc2e2c98a4885c3",
+      "source_native_id": "keps/sig-apps/3939-allow-replacement-when-fully-terminated#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F021",
+      "path": [
+        "sig-api-machinery",
+        "2876-crd-validation-expression-language"
+      ],
+      "content_sha256": "3fac6d9b3b4d029246c011c819c7aa1f5102ea3b6f6cc1caa835bf22f4b15f31",
+      "source_native_id": "keps/sig-api-machinery/2876-crd-validation-expression-language#excerpt-2",
+      "source_heading": "non-goals"
+    },
+    {
+      "id": "F022",
+      "path": [
+        "sig-apps",
+        "3939-allow-replacement-when-fully-terminated"
+      ],
+      "content_sha256": "8a15c845a563e55cadc64b85bd1d8b7aa638e2655b23ce5f6bee30c76790b744",
+      "source_native_id": "keps/sig-apps/3939-allow-replacement-when-fully-terminated#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F023",
+      "path": [
+        "sig-api-machinery",
+        "1164-remove-selflink"
+      ],
+      "content_sha256": "05c05aa23e50884a333bb17ea33b18e39a87738b29ed82deeaf6dc4b22e51cac",
+      "source_native_id": "keps/sig-api-machinery/1164-remove-selflink#excerpt-2",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F024",
+      "path": [
+        "sig-api-machinery",
+        "1872-manifest-based-admission-webhooks"
+      ],
+      "content_sha256": "896daac2a6fee02f747f25b7f46704fc15cb3dfe4af6e1f73798c0e5c937c48d",
+      "source_native_id": "keps/sig-api-machinery/1872-manifest-based-admission-webhooks#excerpt-1",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F025",
+      "path": [
+        "sig-storage",
+        "962-execution-hook"
+      ],
+      "content_sha256": "e3992b0537effcef220b3bc7e55172de4a98f9c45f5b642e9d83ebbee138e751",
+      "source_native_id": "keps/sig-storage/962-execution-hook#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F026",
+      "path": [
+        "sig-node",
+        "4188-kubelet-pod-readiness-api"
+      ],
+      "content_sha256": "eede517bb6bae32e0283865a18dfa0a8bc411ee2bd7bf478035a4a468552b799",
+      "source_native_id": "keps/sig-node/4188-kubelet-pod-readiness-api#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F027",
+      "path": [
+        "sig-storage",
+        "962-execution-hook"
+      ],
+      "content_sha256": "db6855acdd9bbea27ecbae4aedfdfe6dc6b734bc4afb0d0e13dc6f28588e0d55",
+      "source_native_id": "keps/sig-storage/962-execution-hook#excerpt-3",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F028",
+      "path": [
+        "sig-apps",
+        "3939-allow-replacement-when-fully-terminated"
+      ],
+      "content_sha256": "92fb00ed07e19bbce684c70671c9116f58d781e8a0784db618758d180c72398c",
+      "source_native_id": "keps/sig-apps/3939-allow-replacement-when-fully-terminated#excerpt-3",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F029",
+      "path": [
+        "sig-storage",
+        "3314-csi-changed-block-tracking"
+      ],
+      "content_sha256": "6ce70bcf7d64eedd6c067aa7602bccf24db5bf7d902bb96d1c4fbc31b352aef7",
+      "source_native_id": "keps/sig-storage/3314-csi-changed-block-tracking#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F030",
+      "path": [
+        "sig-storage",
+        "3314-csi-changed-block-tracking"
+      ],
+      "content_sha256": "333056edb4232470024f03599a61b0d612d94b950c7deb793b8bd6d21134e54c",
+      "source_native_id": "keps/sig-storage/3314-csi-changed-block-tracking#excerpt-3",
+      "source_heading": "non-goals"
+    },
+    {
+      "id": "F031",
+      "path": [
+        "sig-node",
+        "4817-resource-claim-device-status"
+      ],
+      "content_sha256": "310b0f3b6ada3e2bd5ddb986c58a7c6d442c9cd0c1f2c127adc5e5525f38ed2a",
+      "source_native_id": "keps/sig-node/4817-resource-claim-device-status#excerpt-3",
+      "source_heading": "risks and mitigations"
+    },
+    {
+      "id": "F032",
+      "path": [
+        "sig-node",
+        "4781-kublet-restart-pod-status"
+      ],
+      "content_sha256": "957bc0f174bb98da48c155841a560d634128b1168c55f7599b48519f07497d40",
+      "source_native_id": "keps/sig-node/4781-kublet-restart-pod-status#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F033",
+      "path": [
+        "sig-apps",
+        "2232-suspend-jobs"
+      ],
+      "content_sha256": "7d86c65d1e998cdbceb984aef848091571fdfc04d152d4fb160e0f6b6348c733",
+      "source_native_id": "keps/sig-apps/2232-suspend-jobs#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F034",
+      "path": [
+        "sig-api-machinery",
+        "1164-remove-selflink"
+      ],
+      "content_sha256": "6aa6c0dd87e29db1ccc011e85c1fc4808f98327c88d36ef2048afd1adb97c67a",
+      "source_native_id": "keps/sig-api-machinery/1164-remove-selflink#excerpt-3",
+      "source_heading": "design details"
+    },
+    {
+      "id": "F035",
+      "path": [
+        "sig-api-machinery",
+        "1872-manifest-based-admission-webhooks"
+      ],
+      "content_sha256": "b1c5158b5fe95437cc827029941aad5834548cf615b3a4f3e6c2ddb20d51023d",
+      "source_native_id": "keps/sig-api-machinery/1872-manifest-based-admission-webhooks#excerpt-2",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F036",
+      "path": [
+        "sig-node",
+        "4817-resource-claim-device-status"
+      ],
+      "content_sha256": "8d7e3e2cd7ff9f8180d944774c638bcbba40e42d626df1d0e174aff4b70a074d",
+      "source_native_id": "keps/sig-node/4817-resource-claim-device-status#excerpt-1",
+      "source_heading": "summary"
+    }
+  ],
+  "reference_scope": "Source-derived group/proposal hierarchy for a development-only difficulty and cost pilot."
+}

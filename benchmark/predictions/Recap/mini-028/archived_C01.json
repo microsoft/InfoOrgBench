@@ -1,0 +1,424 @@
+{
+  "assignments": [
+    {
+      "id": "F001",
+      "path": [
+        "Meeting_1_Requirements",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F002",
+      "path": [
+        "Meeting_2_Functional",
+        "Open_Issues"
+      ]
+    },
+    {
+      "id": "F003",
+      "path": [
+        "Meeting_2_Functional",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F004",
+      "path": [
+        "Meeting_2_Functional",
+        "Closing"
+      ]
+    },
+    {
+      "id": "F005",
+      "path": [
+        "Meeting_2_Functional",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F006",
+      "path": [
+        "Meeting_2_Functional",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F007",
+      "path": [
+        "Meeting_2_Functional",
+        "Discussion"
+      ]
+    },
+    {
+      "id": "F008",
+      "path": [
+        "Meeting_2_Functional",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F009",
+      "path": [
+        "Meeting_1_Requirements",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F010",
+      "path": [
+        "Meeting_2_Functional",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F011",
+      "path": [
+        "Meeting_2_Functional",
+        "Presentations"
+      ]
+    },
+    {
+      "id": "F012",
+      "path": [
+        "Meeting_2_Functional",
+        "Open_Issues"
+      ]
+    },
+    {
+      "id": "F013",
+      "path": [
+        "Meeting_2_Functional",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F014",
+      "path": [
+        "Meeting_2_Functional",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F015",
+      "path": [
+        "Meeting_2_Functional",
+        "Open_Issues"
+      ]
+    },
+    {
+      "id": "F016",
+      "path": [
+        "Meeting_2_Functional",
+        "Discussion"
+      ]
+    },
+    {
+      "id": "F017",
+      "path": [
+        "Meeting_1_Requirements",
+        "Presentations"
+      ]
+    },
+    {
+      "id": "F018",
+      "path": [
+        "Meeting_2_Functional",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F019",
+      "path": [
+        "Meeting_2_Functional",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F020",
+      "path": [
+        "Meeting_2_Functional",
+        "Open_Issues"
+      ]
+    },
+    {
+      "id": "F021",
+      "path": [
+        "Meeting_2_Functional",
+        "Presentations"
+      ]
+    },
+    {
+      "id": "F022",
+      "path": [
+        "Meeting_2_Functional",
+        "Presentations"
+      ]
+    },
+    {
+      "id": "F023",
+      "path": [
+        "Meeting_2_Functional",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F024",
+      "path": [
+        "Meeting_2_Functional",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F025",
+      "path": [
+        "Meeting_2_Functional",
+        "Presentations"
+      ]
+    },
+    {
+      "id": "F026",
+      "path": [
+        "Meeting_2_Functional",
+        "Open_Issues"
+      ]
+    },
+    {
+      "id": "F027",
+      "path": [
+        "Meeting_2_Functional",
+        "Discussion"
+      ]
+    },
+    {
+      "id": "F028",
+      "path": [
+        "Meeting_2_Functional",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F029",
+      "path": [
+        "Meeting_2_Functional",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F030",
+      "path": [
+        "Meeting_1_Requirements",
+        "Presentations"
+      ]
+    },
+    {
+      "id": "F031",
+      "path": [
+        "Meeting_1_Requirements",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F032",
+      "path": [
+        "Meeting_2_Functional",
+        "Presentations"
+      ]
+    },
+    {
+      "id": "F033",
+      "path": [
+        "Meeting_1_Requirements",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F034",
+      "path": [
+        "Meeting_2_Functional",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F035",
+      "path": [
+        "Meeting_2_Functional",
+        "Open_Issues"
+      ]
+    },
+    {
+      "id": "F036",
+      "path": [
+        "Meeting_2_Functional",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F037",
+      "path": [
+        "Meeting_2_Functional",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F038",
+      "path": [
+        "Meeting_1_Requirements",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F039",
+      "path": [
+        "Meeting_2_Functional",
+        "Presentations"
+      ]
+    },
+    {
+      "id": "F040",
+      "path": [
+        "Meeting_2_Functional",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F041",
+      "path": [
+        "Meeting_2_Functional",
+        "Presentations"
+      ]
+    },
+    {
+      "id": "F042",
+      "path": [
+        "Meeting_1_Requirements",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F043",
+      "path": [
+        "Meeting_2_Functional",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F044",
+      "path": [
+        "Meeting_2_Functional",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F045",
+      "path": [
+        "Meeting_1_Requirements",
+        "Discussion"
+      ]
+    },
+    {
+      "id": "F046",
+      "path": [
+        "Meeting_2_Functional",
+        "Open_Issues"
+      ]
+    },
+    {
+      "id": "F047",
+      "path": [
+        "Meeting_2_Functional",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F048",
+      "path": [
+        "Meeting_2_Functional",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F049",
+      "path": [
+        "Meeting_2_Functional",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F050",
+      "path": [
+        "Meeting_2_Functional",
+        "Discussion"
+      ]
+    },
+    {
+      "id": "F051",
+      "path": [
+        "Meeting_2_Functional",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F052",
+      "path": [
+        "Meeting_2_Functional",
+        "Open_Issues"
+      ]
+    },
+    {
+      "id": "F053",
+      "path": [
+        "Meeting_2_Functional",
+        "Presentations"
+      ]
+    },
+    {
+      "id": "F054",
+      "path": [
+        "Meeting_2_Functional",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F055",
+      "path": [
+        "Meeting_2_Functional",
+        "Open_Issues"
+      ]
+    },
+    {
+      "id": "F056",
+      "path": [
+        "Meeting_2_Functional",
+        "Presentations"
+      ]
+    },
+    {
+      "id": "F057",
+      "path": [
+        "Meeting_1_Requirements",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F058",
+      "path": [
+        "Meeting_2_Functional",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F059",
+      "path": [
+        "Meeting_2_Functional",
+        "Open_Issues"
+      ]
+    },
+    {
+      "id": "F060",
+      "path": [
+        "Meeting_2_Functional",
+        "Open_Issues"
+      ]
+    }
+  ]
+}

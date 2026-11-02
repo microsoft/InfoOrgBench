@@ -1,0 +1,319 @@
+{
+  "assignments": [
+    {
+      "id": "F001",
+      "path": [
+        "HADOOP-16404",
+        "blocksize-change"
+      ]
+    },
+    {
+      "id": "F002",
+      "path": [
+        "HADOOP-16161",
+        "s3a-dot-bucket-names"
+      ]
+    },
+    {
+      "id": "F003",
+      "path": [
+        "HADOOP-16404",
+        "blocksize-change"
+      ]
+    },
+    {
+      "id": "F004",
+      "path": [
+        "HADOOP-16404",
+        "blocksize-change"
+      ]
+    },
+    {
+      "id": "F005",
+      "path": [
+        "HADOOP-16404",
+        "blocksize-change"
+      ]
+    },
+    {
+      "id": "F006",
+      "path": [
+        "HADOOP-16660",
+        "retry-policy-backport"
+      ]
+    },
+    {
+      "id": "F007",
+      "path": [
+        "HADOOP-16575",
+        "azure-china-auth"
+      ]
+    },
+    {
+      "id": "F008",
+      "path": [
+        "HADOOP-16155",
+        "s3a-read-bytes"
+      ]
+    },
+    {
+      "id": "F009",
+      "path": [
+        "HADOOP-16404",
+        "blocksize-change"
+      ]
+    },
+    {
+      "id": "F010",
+      "path": [
+        "HADOOP-16575",
+        "azure-china-auth"
+      ]
+    },
+    {
+      "id": "F011",
+      "path": [
+        "HADOOP-16155",
+        "s3a-read-bytes"
+      ]
+    },
+    {
+      "id": "F012",
+      "path": [
+        "HADOOP-16404",
+        "blocksize-change"
+      ]
+    },
+    {
+      "id": "F013",
+      "path": [
+        "HADOOP-16404",
+        "blocksize-change"
+      ]
+    },
+    {
+      "id": "F014",
+      "path": [
+        "HADOOP-16404",
+        "blocksize-change"
+      ]
+    },
+    {
+      "id": "F015",
+      "path": [
+        "HADOOP-16404",
+        "blocksize-change"
+      ]
+    },
+    {
+      "id": "F016",
+      "path": [
+        "HADOOP-16578",
+        "filesystemexists-backport"
+      ]
+    },
+    {
+      "id": "F017",
+      "path": [
+        "HADOOP-16578",
+        "filesystemexists-backport"
+      ]
+    },
+    {
+      "id": "F018",
+      "path": [
+        "HADOOP-16578",
+        "filesystemexists-backport"
+      ]
+    },
+    {
+      "id": "F019",
+      "path": [
+        "HADOOP-16591",
+        "abfs-config-docs"
+      ]
+    },
+    {
+      "id": "F020",
+      "path": [
+        "HADOOP-16591",
+        "abfs-config-docs"
+      ]
+    },
+    {
+      "id": "F021",
+      "path": [
+        "HADOOP-16591",
+        "abfs-config-docs"
+      ]
+    },
+    {
+      "id": "F022",
+      "path": [
+        "HADOOP-16161",
+        "s3a-dot-bucket-names"
+      ]
+    },
+    {
+      "id": "F023",
+      "path": [
+        "HADOOP-16575",
+        "azure-china-auth"
+      ]
+    },
+    {
+      "id": "F024",
+      "path": [
+        "HADOOP-16575",
+        "azure-china-auth"
+      ]
+    },
+    {
+      "id": "F025",
+      "path": [
+        "HADOOP-16404",
+        "blocksize-change"
+      ]
+    },
+    {
+      "id": "F026",
+      "path": [
+        "HADOOP-16404",
+        "blocksize-change"
+      ]
+    },
+    {
+      "id": "F027",
+      "path": [
+        "HADOOP-16404",
+        "blocksize-change"
+      ]
+    },
+    {
+      "id": "F028",
+      "path": [
+        "HADOOP-16155",
+        "s3a-read-bytes"
+      ]
+    },
+    {
+      "id": "F029",
+      "path": [
+        "HADOOP-16404",
+        "blocksize-change"
+      ]
+    },
+    {
+      "id": "F030",
+      "path": [
+        "HADOOP-16404",
+        "blocksize-change"
+      ]
+    },
+    {
+      "id": "F031",
+      "path": [
+        "HADOOP-16399",
+        "s3a-assumed-role"
+      ]
+    },
+    {
+      "id": "F032",
+      "path": [
+        "HADOOP-16161",
+        "s3a-dot-bucket-names"
+      ]
+    },
+    {
+      "id": "F033",
+      "path": [
+        "HADOOP-12374",
+        "shell-rm-trash"
+      ]
+    },
+    {
+      "id": "F034",
+      "path": [
+        "HADOOP-12374",
+        "shell-rm-trash"
+      ]
+    },
+    {
+      "id": "F035",
+      "path": [
+        "HADOOP-12374",
+        "shell-rm-trash"
+      ]
+    },
+    {
+      "id": "F036",
+      "path": [
+        "HADOOP-16161",
+        "s3a-dot-bucket-names"
+      ]
+    },
+    {
+      "id": "F037",
+      "path": [
+        "HADOOP-16578",
+        "filesystemexists-backport"
+      ]
+    },
+    {
+      "id": "F038",
+      "path": [
+        "HADOOP-16161",
+        "s3a-dot-bucket-names"
+      ]
+    },
+    {
+      "id": "F039",
+      "path": [
+        "HADOOP-16161",
+        "s3a-dot-bucket-names"
+      ]
+    },
+    {
+      "id": "F040",
+      "path": [
+        "HADOOP-16409",
+        "abfs-auth-throttling"
+      ]
+    },
+    {
+      "id": "F041",
+      "path": [
+        "HADOOP-16404",
+        "blocksize-change"
+      ]
+    },
+    {
+      "id": "F042",
+      "path": [
+        "HADOOP-16591",
+        "abfs-config-docs"
+      ]
+    },
+    {
+      "id": "F043",
+      "path": [
+        "HADOOP-16539",
+        "s3a-encryption-tests"
+      ]
+    },
+    {
+      "id": "F044",
+      "path": [
+        "HADOOP-16161",
+        "s3a-dot-bucket-names"
+      ]
+    },
+    {
+      "id": "F045",
+      "path": [
+        "HADOOP-16161",
+        "s3a-dot-bucket-names"
+      ]
+    }
+  ]
+}

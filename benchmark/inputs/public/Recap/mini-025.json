@@ -1,0 +1,250 @@
+{
+  "task_id": "ami/mini-025",
+  "records": [
+    {
+      "id": "F001",
+      "format": "text",
+      "text": "The group decided to consider the following features for the remote control device: universal compatibility with different types of video formatting, combination with other types of devices, and interchangeable faceplates."
+    },
+    {
+      "id": "F002",
+      "format": "text",
+      "text": "The initial cost was calculated at 13.70 Euros."
+    },
+    {
+      "id": "F003",
+      "format": "text",
+      "text": "A simple chip is going to support the electronics of the device."
+    },
+    {
+      "id": "F004",
+      "format": "text",
+      "text": "A sample sensor was included to add speech recognition."
+    },
+    {
+      "id": "F005",
+      "format": "text",
+      "text": "The Marketing Expert presented several characteristics important to users."
+    },
+    {
+      "id": "F006",
+      "format": "text",
+      "text": "However, the idea of designing a remote control seemed unexciting, especially since the requirements restricted it to TV only, and the budget was too small."
+    },
+    {
+      "id": "F007",
+      "format": "text",
+      "text": "On the other hand, it was argued that the special colours and form compensated for that."
+    },
+    {
+      "id": "F008",
+      "format": "text",
+      "text": "However, volume and channel buttons will be different from the rest."
+    },
+    {
+      "id": "F009",
+      "format": "text",
+      "text": "He suggested a simple design with few buttons, small size, and a locator function."
+    },
+    {
+      "id": "F010",
+      "format": "text",
+      "text": "The group introduced themselves to each other and trained themselves how to use the whiteboard tools."
+    },
+    {
+      "id": "F011",
+      "format": "text",
+      "text": "The Marketing Expert will define the needs and desires of the user."
+    },
+    {
+      "id": "F012",
+      "format": "text",
+      "text": "On a scale from 1 (true) to 7 (false) they rated it on the basis of the following criteria: fancy design (2), technological innovation (2), ease of use (1), incorporation of fashion elements (2), and brand recognition (2)."
+    },
+    {
+      "id": "F013",
+      "format": "text",
+      "text": "The group decided not to include a lighting adaptation system."
+    },
+    {
+      "id": "F014",
+      "format": "text",
+      "text": "The group discussed the new requirement that required them to omit teletext from their design, and discussed the possibility of using the remote to access the internet through the television."
+    },
+    {
+      "id": "F015",
+      "format": "text",
+      "text": "The first prototype for the remote control was made of single-curved rubber with a total of 16 rubber buttons (some of them in a slide-out panel) with a cherry design on top."
+    },
+    {
+      "id": "F016",
+      "format": "text",
+      "text": "The Project Manager announced that he would make a report containing the discussion of the group's initial ideas about the device."
+    },
+    {
+      "id": "F017",
+      "format": "text",
+      "text": "The Project Manager presented the goals of the meeting and new product requirements."
+    },
+    {
+      "id": "F018",
+      "format": "text",
+      "text": "He showed that the competitors' remotes were too complicated."
+    },
+    {
+      "id": "F019",
+      "format": "text",
+      "text": "Although over budget, the team decided to evaluate this prototype before making any changes."
+    },
+    {
+      "id": "F020",
+      "format": "text",
+      "text": "Finally, some new ideas were also found in the form of kinetic energy source and use of speech recognition."
+    },
+    {
+      "id": "F021",
+      "format": "text",
+      "text": "The User Interface Designer gave a presentation on the technical functions of the remote, and displayed the interfaces of two existing products for comparison."
+    },
+    {
+      "id": "F022",
+      "format": "text",
+      "text": "After changing the case material from rubber to plastic, it was debated that the loss of sponginess does affect the fancy appeal and trendiness of the remote."
+    },
+    {
+      "id": "F023",
+      "format": "text",
+      "text": "The remote is going to be powered by kinetic energy."
+    },
+    {
+      "id": "F024",
+      "format": "text",
+      "text": "They were not certain what the colour of the company logo should be and how the logo should be displayed."
+    },
+    {
+      "id": "F025",
+      "format": "text",
+      "text": "The Industrial Designer presented the internal components of a remote control and showed a diagram of how they operate together."
+    },
+    {
+      "id": "F026",
+      "format": "text",
+      "text": "The group then began a discussion of their initial ideas about the remote control and possible features."
+    },
+    {
+      "id": "F027",
+      "format": "text",
+      "text": "The buttons will be made of rubber mostly in a light blue colour."
+    },
+    {
+      "id": "F028",
+      "format": "text",
+      "text": "He discussed using speech recognition and ways to make it feasible for the project, small size, low price point, and incorporating teletext in different languages."
+    },
+    {
+      "id": "F029",
+      "format": "text",
+      "text": "The buttons in this panel will all be in the standard blue colour."
+    },
+    {
+      "id": "F030",
+      "format": "text",
+      "text": "The team were reasonably satisfied with the project in terms of teamwork and creativity, although they thought that the flow of information was sometimes disjointed."
+    },
+    {
+      "id": "F031",
+      "format": "text",
+      "text": "He suggested that field programmable gateway arrays be used for the chip controlling software functionalities, and it was suggested that the remote be used with a recharging stand."
+    },
+    {
+      "id": "F032",
+      "format": "text",
+      "text": "The case will be made of plastic."
+    },
+    {
+      "id": "F033",
+      "format": "text",
+      "text": "The Project Manager presented the project to the other participants by discussing the aim of creating a new, fashionable remote control device and defined the roles and tasks of each participant."
+    },
+    {
+      "id": "F034",
+      "format": "text",
+      "text": "Changing the rubber case to plastic reduced the cost and allowed for an extra button-form and colour."
+    },
+    {
+      "id": "F035",
+      "format": "text",
+      "text": "The team were not certain to what extent the prototype satisfied recognisability of the corporate identity."
+    },
+    {
+      "id": "F036",
+      "format": "text",
+      "text": "It uses kinetic energy and has a sample sensor for the speech recognition."
+    },
+    {
+      "id": "F037",
+      "format": "text",
+      "text": "The remote will be single-curved with a cherry design on top."
+    },
+    {
+      "id": "F038",
+      "format": "text",
+      "text": "The remote will be used with a recharging stand."
+    },
+    {
+      "id": "F039",
+      "format": "text",
+      "text": "He suggested that the televisions that the remotes are used with connect to the internet to access downloadable programs."
+    },
+    {
+      "id": "F040",
+      "format": "text",
+      "text": "The participants disagreed on how to easily move through channels using the design of the User Interface Designer, which included very few buttons."
+    },
+    {
+      "id": "F041",
+      "format": "text",
+      "text": "Volume buttons will be lemon-shaped and coloured."
+    },
+    {
+      "id": "F042",
+      "format": "text",
+      "text": "The Project Manager discussed the financial goals of the project, including the projected profit aim and price point for the device."
+    },
+    {
+      "id": "F043",
+      "format": "text",
+      "text": "A slide-out panel with extra buttons for less-used functions is included."
+    },
+    {
+      "id": "F044",
+      "format": "text",
+      "text": "The Project Manager will prepare a report of the initial ideas discussed during the meeting."
+    },
+    {
+      "id": "F045",
+      "format": "text",
+      "text": "The Industrial Designer will prepare a definition of the basic functions that the remote control device will have."
+    },
+    {
+      "id": "F046",
+      "format": "text",
+      "text": "The User Interface Designer will receive further assignments at a later time."
+    },
+    {
+      "id": "F047",
+      "format": "text",
+      "text": "The Project Manager gave each participant their assignments."
+    },
+    {
+      "id": "F048",
+      "format": "text",
+      "text": "The team have two questionnaires and a report on the last meeting to complete before they finish."
+    },
+    {
+      "id": "F049",
+      "format": "text",
+      "text": "There was no resolution on whether or not to allow users to use the remote to access the internet through their television, as opposed to including teletext capabilities."
+    }
+  ]
+}

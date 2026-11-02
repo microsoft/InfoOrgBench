@@ -1,0 +1,185 @@
+{
+  "task_id": "mini-011",
+  "records": [
+    {
+      "id": "F001",
+      "format": "text",
+      "text": "improve discovery of version supportability across Kubernetes and external cloud providers. promote using the latest cloud-controller-manager library based on the Kubernetes version of the cluster prevent wide version skew of Kubernetes control plane and cloud-controller-manager. reduce chances of incompatibility issues that occur when a cloud-controller-manager vendoring a really old version of Kubernetes is running on a much newer version of Kubernetes."
+    },
+    {
+      "id": "F002",
+      "format": "text",
+      "text": "Add an option to the Kubelet configuration:\n\nThis option will be wired down to the Kubelet's image manager, similarly to the other garbage collection fields.\n\nThe Kubelet's image manager already keeps track of the last time an image was used through the `lastUsed` field in the imageRecord structure. So a comparison can be made in the realImageGCManager's function GarbageCollect to garbage collect the images that are older than the specified image age.\n\nSince the Kubelet does not own images, and can only request images be cleaned up, this cleaning should be considered \"best effort\".\n\nFurther, since Kubelet's GC runs periodically every 5 minutes the ImageMaximumGCAge may not be exactly precise. An image could be GC'd up to 5 minutes after it has aged out.\n\nFinally, Kubelet restarts are a point that needs to be figured out. The easiest way to handle it would be waiting the full ImageGCMaximumAge for an image to be qualified for GC, but that would essentially disable the feature if the Kubelet restarts more frequently than ImageGCMaximumAge."
+    },
+    {
+      "id": "F003",
+      "format": "text",
+      "text": "Increase API calls volume: More objects means more API calls for creation, updates, and watches. The mitigation is split the responsibility. The `Workload` object is rarely updated (as a template object) while `PodGroup` handles runtime state. In addition, `PodGroups` allow per-replica sharding of status updates. Consistency: State is spread across multiple objects (`Workload` and `PodGroup`). The mitigation is that the `PodGroup` inlines all runtime state making it self-contained. Race conditions during objects creation: While the design requires controllers to create objects in order (`Workload` -> `PodGroup` -> `Pods`), there is still a possibility of race condition to happen anyway. The mitigation is to introduce admission controller to validate the object creation order. In addition, `UnschedulableAndUnresolvable` status will be set to serve as last line of defense if `Pods` are created before `PodGroup` is created or `PodGroup` object was deleted in the meantime. Increased etcd size: New object per replica which means more objects in etcd. The mitigation is `PodGroups` are owned by controllers with `ownerReferences`, so they are automatically garbage collected when the replica is deleted. Also, each `PodGroup` object is small (~1KB) compared to potentially large `Workload` object (~1.5MB) with the embedded `PodGroup` design."
+    },
+    {
+      "id": "F004",
+      "format": "text",
+      "text": "In Dynamic Resource Allocation (DRA), the kubelet coordinates with a node-local driver via gRPC to prepare allocated devices before container start (`NodePrepareResources`) and to unprepare them upon pod termination (`NodeUnprepareResources`). For node-local accelerators (such as PCIe GPUs or local FPGAs), this node-level setup is critical to check device health, partition memory, and configure mount paths."
+    },
+    {
+      "id": "F005",
+      "format": "text",
+      "text": "The in tree cloud-provider implementations are being removed in the future, this involves a large amount of code that is used in many places in tree. In order to prepare for this eventuality it would be helpful to see what that removal entails exactly and verify that Kubernetes will continue to function correctly. Doing so is a bit tricky without ensuring that the in-tree provider code is not being used via some unexpected side-channel (such as `init()` methods). Building binaries without the in-tree cloud provider packages would allow us to verify this and additionally provide experimentally smaller / cheaper binaries for parties interested in out of tree provider or no provider based clusters."
+    },
+    {
+      "id": "F006",
+      "format": "text",
+      "text": "This is only developer facing, however we will need to ensure that these tags stay up to date if we want this build mode to continue to work (the normal build mode should work by default without any additional maintenance).\n\nTo ensure this continues to work we can mitigate by: verify in CI that the cloud provider packages have boilerplate including the build constraints build in this mode in CI to ensure that the build succeeds"
+    },
+    {
+      "id": "F007",
+      "format": "text",
+      "text": "improve readiness times for clusters with a large number of encrypted resources reduce the likelihood of hitting the KMS rate limit enable partially automated key rotation for the latest key without API server restarts improve KMS plugin health check reliability improve observability of envelop operations between kube-apiserver, KMS plugins and KMS if this v2 API reaches beta in release M, the existing v1beta1 gRPC API will be deprecated at release M (or any later release) if this v2 API reaches GA in release N, the existing v1beta1 gRPC API will be disabled by default at N, stop supporting writes at N+3, and removed at release N+6 (the existing key rotation dance of using multiple providers will be used to migrate from v1beta1 to v2)"
+    },
+    {
+      "id": "F008",
+      "format": "text",
+      "text": "Today we have many external (a.k.a out-of-tree) cloud providers, each responsible for managing releases for components such as cloud-controller-manger, but possibly others. Thus far there has been no standard on how providers should be semantically versioning their releases. Likewise, there has been no version skew policy indicating what versions of Kubernetes is supported by a version of a cloud-controller-manager (though it is assumed based on the vendored version of k8s.io/kubernetes). This KEP proposes to standardize all external cloud providers on a semantic versioning policy that ensures the vendored version of the cloud-controller-manager library is likely to match the version of the Kubernetes control plane. More concretely, releases for external cloud providers should track the major and minor versions of the Kubernetes version they intend to support. Patch releases are not required to match. For example, release v1.18.X of cloud-controller-manager for provider Foo should support Kubernetes clusters on v1.18.X."
+    },
+    {
+      "id": "F009",
+      "format": "text",
+      "text": "To achieve the above mentioned goals, at a high level, the following changes are proposed: The `authorizer.Authorizer` interface and `SubjectAccessReview` API are extended to support: The client indicating it supports conditional authorization The authorizer returning, in addition to existing unconditional `Allow`, `Deny` or `NoOpinion` decisions, a set of conditions The `WithAuthorization` HTTP filter lets a supported request proceed in the request chain if the decision is: A unconditional `Allow`, just like before, or A ConditionSet *which can evaluate* to `Allow` A new, always-on `k8s.io/apiserver`-built-in `AuthorizationConditionsEnforcer` validating admission plugin (ordered before other validating webhooks) which enforces that the set of conditions (if any) evaluate into `Allow`, or denies the request."
+    },
+    {
+      "id": "F010",
+      "format": "text",
+      "text": "Performance, Health Check, Observability and Rotation: Support re-using DEK when the KEK key ID is stable Expand `EncryptionConfiguration` to support a new KMSv2 configuration Add v2alpha1 `KeyManagementService` proto service contract in Kubernetes to include `key_id` and additional metadata in `annotations` to support key rotation `key_id`: the KMS Key ID, stable identifier, changed to trigger key rotation and storage migration `annotations`: structured data, can be used for debugging, recovery, opaque to API server, stored unencrypted, etc."
+    },
+    {
+      "id": "F011",
+      "format": "text",
+      "text": "This KEP proposes an opportunistic batching mechanism in the scheduler to improve performance of scheduling many compatible pods at once, and to begin building the infrastructure required for gang scheduling. To implement this mechanism we propose the following additions: **Pod scheduling signature:** A signature that captures the properties of a pod that impact scoring and feasibility. **Batching mechanism:** A mechanism to reuse the scheduling output from one pod to provide node hints for multiple subsequent pods with matching scheduling signatures. **Opportunistic batching:** Transparent inclusion of the batching mechanism in the scheduler to improve the performance of targeted workloads that could benefit from it. **Rescoring:** An extension to the batching mechanism that removes the one-pod-per-node limitation: when the last chosen node is still feasible, it is rescored in-place rather than flushing the batch."
+    },
+    {
+      "id": "F012",
+      "format": "text",
+      "text": "Today our scheduling algorithm is O(num pods x num nodes). As the size of clusters and jobs continue to increase, this leads to low performance when scheduling or rescheduling large jobs. This increases user cost and slows down user jobs, both unpleasant impacts. Optimizations like this one have the potential to dramatically reduce the cost of scheduling in these scenarios. Gang scheduling and other multi-pod scheduling mechanisms require a way to consider multiple pods at the same time."
+    },
+    {
+      "id": "F013",
+      "format": "text",
+      "text": "Our immediate goal is to allow in tree Cloud Providers to stop using the existing PVL admission controller and do so using the framework. However we want to build a framework which wil be usable by similar solutions to problems. This KEP is about the framework needed to support the PVL webhook and not the webhook itself. The frameworks default listener for the webhook should use existing Kubernetes mechanism (secure serving, authz, authn) to secure itself and validate the client. It should be possible to then easily change that configuration to any other Kubernetes supported options for a webhook."
+    },
+    {
+      "id": "F014",
+      "format": "text",
+      "text": "A sample of how the Builder pattern might look is:\n\nThis will not alter the existing extension hooks in the controller manager framework, as they are critical for backward compatibility. The builders are meant to be an abstraction layer on top to make the extensions easier to use. So for the existing controller manager code you might see changes like:\n\nThe handler in this case is likely to be of type ControllerInitFuncConstructor."
+    },
+    {
+      "id": "F015",
+      "format": "text",
+      "text": "After the transition period, the only way to configure container streaming will be using the local redirect with Kubelet proxy approach. Under this configuration, handling streaming redirects are not needed by the apiserver, so `StreamingProxyRedirects` will be deprecated and eventually removed. Once `StreamingProxyRedirects` are removed, `ValidateProxyRedirects` is no longer needed and can be removed. Finally, the `--redirect-container-streaming` flag will be deprecated and eventually removed.\n\nUpon completion, streaming requests will be forwarded to the Kubelet. The Kubelet will ask the CRI to prepare a streaming server, and then open an upgraded connection to the CRI streaming server. The kubelet will proxy the connection back to the apiserver (upgrade the original exec request), which will in turn proxy the connection back to the client.\n\n!Kubelet-proxied streaming request sequence diagram"
+    },
+    {
+      "id": "F016",
+      "format": "text",
+      "text": "Showing the users what authorization conditions that they are subject to through `SelfSubjectAccessReview` means that badly-written access control policies which follow the pattern of [Security Through Obscurity] would be \"broken\". For example, if a user can only `create pods` conditioned on `metadata.labels.foo == \"42\"`, the latter condition would be returned in the SelfSAR, whereas without this information the user would need to \"blindly\" guess the number. However, these kind of practices are highly discouraged, as they rarely are effective in practice. For example, if the user could `list pods` otherwise (which in that case would be a reasonable permission to have), they could most likely reverse-engineer the conditions they are subject to, by seeing data that \"got through\".\n\nThis risk could be mitigated by the authorizer returning opaque conditions (which could not be efficiently evaluated in the API server), instead of transparent (e.g. CEL) ones. It is up to the authorizer's discretion to know whether conditions are \"secret\" or can be shown to the user. For clarity to the user, it is recommended that conditions are shown when possible and reasonable.\n\nSecurity Through Obscurity"
+    },
+    {
+      "id": "F017",
+      "format": "text",
+      "text": "The current design embeds PodGroups within the Workload spec which creates several architectural challenges: `Workload` represents long-lived configuration-intent, whereas `PodGroups` represent transient units of scheduling. Tying runtime execution units to the persistent definition object violates separation of concerns Lifecycle coupling for standalone `PodGroup` objects, which enables other resources (i.e., ResourceClaims) to be owned by and garbage-collected with specific scheduling units, rather than the entire `Workload` or individual `Pods` Extending the Workload object to track the runtime status for all PodGroups would lead to significant scalability issues *Size Limit*: Large Workloads (i.e., large number of PodGroups) may easily hit the 1.5MB etcd object limit *Contention*: Updating the status of a single `PodGroup` would require read-modify-write on the central massive Workload object\n\nBy decoupling `PodGroup` as a standalone runtime object: `Workload` becomes scheduling policy object that defines scheduling constraints and requirements `PodGroupTemplate` provides the blueprint for runtime `PodGroup` creation `PodGroup` is a controller-owned runtime object with its own lifecycle that represents a single scheduling unit."
+    },
+    {
+      "id": "F018",
+      "format": "text",
+      "text": "Improve the performance of scheduling large jobs on large clusters where the constraints are simple. Begin building infrastructure to support gang scheduling and other \"multi-pod\" scheduling mechanisms. Ensure that the infrastructure we build is maintainable as we update, add and remove plugins. Reduce per-cycle scheduling cost for both one-pod-per-node and multi-pod-per-node workloads. Provide a path where we can expand batching to apply to most or all workloads over the next few releases. Allow users to continue to use out-of-tree plugins. For this KEP we need to ensure that out-of- tree plugins continue to work without requiring edits, although they may not be able to take advantage of the new feature without some edits."
+    },
+    {
+      "id": "F019",
+      "format": "text",
+      "text": "Currently, all image garbage collection the Kubelet is triggered by disk usage going over a threshold (ImageGCLowThresholdPercent). However, there are cases that additional conditions could be considered useful. One such condition is maximum age of an image. If an image is unused for a long time (the exact amount of time will be decided, but on the order of weeks is what comes to mind), then it is not likely to be used again.\n\nOne such condition that can be imagined are clusters with automatic upgrades. If a cluster goes through an upgrade process, it will likely have images cached from the old release (old kube-apiserver/etcd/etc). While these images would eventually get removed through the disk usage condition, they will needlessly occupy disk space before that."
+    },
+    {
+      "id": "F020",
+      "format": "text",
+      "text": "The Device Resource Assignment (DRA) API currently allows scalar attribute values to describe device characteristics. However, many real-world device topologies require representing sets of relationships (e.g., multiple PCIe roots, NUMA nodes). This KEP introduces support for list-typed attributes in `ResourceSlice` and extends(redefine) `ResourceClaim`'s `constraints[].{matchAttribute, distinctAttribute}` semantics to fit both list-type attributes and primitive attributes supported previously."
+    },
+    {
+      "id": "F021",
+      "format": "text",
+      "text": "There are several features and flags for handling container streaming requests (exec/attach/port-forward). Having so many different ways of handling these requests unnecessarily complicates configuration, and opens the cluster to potential security risks. This is a proposal to consolidate the current options into a single supported configuration. Specifically, it proposes: Deprecate the Kubelet's `--redirect-container-streaming` feature Deprecate the `StreamingProxyRedirects` feature"
+    },
+    {
+      "id": "F022",
+      "format": "text",
+      "text": "This KEP proposes decoupling the `PodGroup` API from the `Workload` API by introducing `PodGroup` as a standalone runtime object. In alpha1 design for gang scheduling, PodGroups were embedded within the Workload spec, which creates challenges around immutability, scaling, and lifecycle management. Under this proposal, the following changes are proposed as alpha2: `Workload` becomes a static template defining scheduling hierarchy and scheduling policy definition that specifies what workload behavior should be applied `PodGroup` becomes a runtime self-contained runtime scheduling unit for a group of pods that encapsulates both the scheduling policy and status. It is automatically created by true controllers (Job, JobSet, LeaderWorkerSet) when they create workloads, rather than being embedded within the Workload spec. It will be created based on the `podGroupTemplate` defined in the referenced Workload."
+    },
+    {
+      "id": "F023",
+      "format": "text",
+      "text": "We will start by adding extension hooks which can be registered in the cmd/cloud-controller-manager/main.go. This would be similar to the mechanism we already use to register new controllers. The existing sample shows this with a sample of registering the nodeipamcontroller which is not a normally installed controller in the cloud controller manager. In a similar way we will have a sample of integrating a PVL mutating webhook into the sample CCM."
+    },
+    {
+      "id": "F024",
+      "format": "text",
+      "text": "We will add a build constraints to the cloud provider code for a pseudo \"build tag\" specifying not to include any in-tree provider code. This will allow compiling the binaries as normal today and simulating the removal of this code by specifying the tag at build time and triggering the build constraints on the files in these packages.\n\nSome small adjustments may be necessary to the code base to ensure that the other packages can build without depending on these packages.\n\nA prototype is available in kubernetes/kubernetes#80353.\n\nTo ensure that this continues to function we will add CI building in this mode, and CI running end to end tests against it (see the test plan)."
+    },
+    {
+      "id": "F025",
+      "format": "text",
+      "text": "Certificates issued through the certificate signing requests API are not revocable today. Furthermore, clients lack a way to control the duration of the issued certificate. Certificate approvers may have trust distinctions for different clients. For example, if an approver knows that a client stores their private key in a HSM, they may be willing to approve for a longer certificate duration. Signers lack a per-CSR mechanism to control the certificate duration, and thus are forced to learn this information out of band. The built-in signers use the same duration for all issued certificates, with the default being a one year certificate lifespan (that is irrevocable without rotating the signer).\n\nTo increase the overall security of the Kubernetes ecosystem and allow clients to request a particular duration for issued certificates, we propose extending the Kubernetes certificates signing request API with a new optional spec field that can be used to request a particular duration."
+    },
+    {
+      "id": "F026",
+      "format": "text",
+      "text": "Semantic versioning used by external cloud providers should track the major and minor releases of the supported Kubernetes version in that release. Patch releases are not required to match. For example, release v1.18.X of the cloud-controller-manager for provider Foo should support Kubernetes v1.18.X. The benefits of this versioning policy include but are not limited to: the desired version of the cloud-controller-manager is explicit based on the Kubernetes version of the cluster resolves incompatibility issues occurring wbsfrom vendoring a really old version of k8s.io/kubernetes ensures the vendored version of the cloud-controller-manager is up-to-date"
+    },
+    {
+      "id": "F027",
+      "format": "text",
+      "text": "**Performance**: Today, when the kube-apiserver is restarted in a cluster and a LIST secret call is made (this applies to all resources encrypted at rest, which secrets tend to always be part of), due to the serial processing of LIST requests and the data encryption key (DEK) cache being empty, the initialization of informers may take significant time as a result of the large number of consecutive trips to the KMS plugin -> external KMS for all the DEKs that have been generated so far."
+    },
+    {
+      "id": "F028",
+      "format": "text",
+      "text": "Provide a way for an authorizer (and by extension, policy author) to only authorize certain write[^2] operations, when the payload or stored object satisfies some specific conditions Let users discover what conditions they are subject to through `(Self)SubjectAccessReview` Initially support enforcement of write and connect requests in the `k8s.io/apiserver` `WithAuthorization` HTTP filter, with options to expand coverage to read[^2] and impersonate verbs later."
+    },
+    {
+      "id": "F029",
+      "format": "text",
+      "text": "Allow resource drivers to declare that node-local operations (preparation and clean-up) are optional for devices. Propagate this configuration from the `ResourceSlice` to the final allocated `ResourceClaim.Status.Allocation` result. Update the kubelet to skip driver lookup and gRPC preparation/unpreparation steps when node operations are explicitly configured as skipped. Maintain backward compatibility: by default, all existing DRA drivers must continue to require node-local preparation and unpreparation."
+    },
+    {
+      "id": "F030",
+      "format": "text",
+      "text": "This design is centered around a change to the `CertificateSigningRequestSpec` structs found in the `k8s.io/api/certificates/v1` and `k8s.io/api/certificates/v1beta1` packages.\n\nA new optional `ExpirationSeconds` field will be added to this struct. The go doc comment describes the behavior of this field. A `*int32` is used because the field is optional and must not overflow JSON parsers (an unsigned type is avoided as we want to provide a detailed validation error on a negative input instead of a difficult to understand decoding error).\n\nThe name `expirationSeconds` was chosen to match existing art in the token request API. Similarly, the minimum valid duration was chosen to match the token request API as well. As this is a security related field, individuals may be encouraged to set this value to the minimum valid value to maximize security. Since a certificate with a short lifetime will require frequent rotation before the current certificate expires (say at `80%` the lifetime of the certificate given that CSR approval and signing is asynchronous which necessitates a buffer), `10` minutes seems like an appropriate minimum to prevent accidental DOS against the CSR API. Furthermore, `10` minutes is a short enough lifetime that revocation is not of concern.\n\nMetrics will be included to show if requested expirations are being extended or truncated (i.e. is the requested duration being honored by the signer)."
+    },
+    {
+      "id": "F031",
+      "format": "text",
+      "text": "The `StreamingProxyRedirects` feature was originally added as part of the migration the [Container Runtime Interface][]. One of the initial goals was to bypass the Kubelet for these long-running requests in order to better account the request overhead. However, the apiserver is still responsible for proxying these requests, so the gains of bypassing the Kubelet are marginal. Furthermore, the redirect handling significantly complicates the apiserver stream handling, and opens it up to [potential SSRF attacks][], so we added the `ValidateProxyRedirects` feature to mitigate those.\n\nWhen we went to add mTLS support to the runtime streaming server, we realized getting the right certs established between the apiserver and the runtime was complicated, but the apiserver already had an mTLS connection to the Kubelet. So, we added the ability for the Kubelet to connect the stream locally and proxy the connection back to the apiserver. This setup is more secure, removes the need for `StreamingProxyRedirects` and `ValidateProxyRedirects`, but adds the Kubelet back into the long-running request chain. For background, see the discussion on kubernetes/kubernetes#36666 (comment).\n\n`StreamingProxyRedirects` and `ValidateProxyRedirects` are currently in Beta, and should either be graduated or removed.\n\n[Container Runtime Interface]: [potential SSRF attacks]:"
+    },
+    {
+      "id": "F032",
+      "format": "text",
+      "text": "The `ResourceSlice` API allows users to attach scalar attributes to devices. These can be used to allocate devices that share common topology within the node. For certain types of topological relationships, scalar values are insufficient. For example, a CPU may have adjacency to multiple PCIe roots. This enhancement proposes allowing attributes to be lists. The semantics of the `MatchAttribute` and `DistinctAttribute` constraints must adapt to the possibility of lists. For example, rather than defining an attribute \"match\" as equality, it would be defined as a non-empty intersection, treating scalars as single-element lists. Conversely, \"distinct\" attributes for lists would be defined as an empty intersection."
+    },
+    {
+      "id": "F033",
+      "format": "text",
+      "text": "Support typed-list in device attribute values. Extends(redefine) the semantics of `ResourceClaim`'s `constraints[].{matchAttribute,distinctAttribute}` fields as below so that it can work with list-type attribute values `matchAttribute`: it is defined as non-empty intersection `distinctAttribute`: it is defined as pairwise disjoint note: scalar values are treated as single-element lists Keep _monotonicity_ in constraint. Currently `Allocator`'s algorithm assumes _monotonic_ constraints only. Monotonic means that once a constraint returns false, adding more devices will never cause it to return true. This allows to bound the computational complexity for searching device combinations which satisfies the specified constraints. This KEP focuses to keep monotonicity of `matchAttribute/distinctAttribute` semantics. Maintain backward compatibility and inter-operability for scalar-only attributes. `matchAttribute/distinctAttribute`: existing constraint can work because scalar values are treated as single-value list CEL expressions in device selectors: when the attribute type is updated, existing CEL won't failed to compile. But, we will provide some type-agnostic helper function to achieve easier migration for users/DRA driver developers."
+    },
+    {
+      "id": "F034",
+      "format": "text",
+      "text": "An alternative to creating a new field in the Kubernetes CSR REST API would be to add an optional but critical x509 extension to the PEM encoded x509 CSR contained in the `spec.request` field. This extension would then serve to communicate the desired `expirationSeconds`. It is unclear what encoding format would be used for this extension, perhaps ASN.1 or JSON. This approach offer no benefits over the design presented above, and would likely make it far more difficult to adopt this functionality in the Kubernetes ecosystem."
+    },
+    {
+      "id": "F035",
+      "format": "text",
+      "text": "This KEP introduces **Optional Node Preparation** to Dynamic Resource Allocation (DRA), allowing resource drivers to declare that node preparation and/or node unpreparation is not required for their devices. Currently, the kubelet assumes it must always coordinate with a node-local DRA driver via gRPC to prepare allocated devices before container start (`NodePrepareResources`), and to unprepare them during pod termination (`NodeUnprepareResources`).\n\nIn some cases, node preparation or cleanup is a pure no-op. Requiring it forces administrators and vendors to deploy and maintain empty node-local drivers on every node, which introduces unnecessary operational complexity and risk.\n\nBy introducing a `SkipNodeOperations` field to the `ResourceSliceSpec` and propagating it to the device allocation results at scheduling time, the kubelet can safely skip driver lookup and gRPC calls for devices that do not require these node-local actions."
+    },
+    {
+      "id": "F036",
+      "format": "text",
+      "text": "Kubelet has three different configuration fields for image garbage collection: ImageMinimumGCAge: the youngest an image can be to be qualified for garbage collection ImageGCLowThresholdPercent: The lowest disk usage will be before garbage collection begins ImageGCHighThresholdPercent: The highest disk usage will be before garbage collection runs each GC period. Between each of these options, there is a common thread: image garbage collection only triggers when disk usage has reached a certain threshold."
+    }
+  ]
+}

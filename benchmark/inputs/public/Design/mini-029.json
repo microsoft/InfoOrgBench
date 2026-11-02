@@ -1,0 +1,185 @@
+{
+  "task_id": "mini-029",
+  "records": [
+    {
+      "id": "F001",
+      "format": "text",
+      "text": "Being able to proactively understand how configuration changes affect the state of the cluster is a key piece of declarative configuration management. It allows integration into tools, but is equally important in manual deployments. Without diff, understanding the exact consequences of one's changes can be hard to grasp, especially when exposed to defaults and configurable mutating webhooks. It also provides a basic validation since the command will fail if something is rejected by the server."
+    },
+    {
+      "id": "F002",
+      "format": "text",
+      "text": "In order to diff the current configuration with the future configuration, we do the following: get the current object from the server, prepare an apply request that is sent with the `dryRun` flag and returns the hypothetical object, carefully insert the resourceVersion in the patch that we send, in order to make sure that we're patching and diffing the exact same object version we've seen to avoid diffing unrelated objects, save each of these objects in files with specific names using their GVK to avoid collisions, diff these files either using `diff(1)`, or using the binary provided in `KUBECTL_EXTERNAL_DIFF`."
+    },
+    {
+      "id": "F003",
+      "format": "text",
+      "text": "We initially considered multiple ways to \"diff\" resources, since we can consider multiple cases: There is the applied configuration, the one in the file, There is the last-applied-configuration, the one in the file that we applied the last time, There is the \"current live\" configuration, the one describing the existing state of the server, There is the \"future\" configuration of the server, if we did apply the configuration.\n\nAll the combinations of these diffs initially sounded useful, but after providing such a variant in `kubectl alpha diff`, we realized that the most relevant is actually \"current live\" configuration -> \"future\" configuration. This describes exactly the changes that are happening on the cluster."
+    },
+    {
+      "id": "F004",
+      "format": "text",
+      "text": "Pods are composed of one or more containers. This leads to an extra effort by the operators when they need to run a command on a Pod that needs to target a specific container.\n\nIt gets worse because aside from a warning, this couples the default exec container to the container order.\n\nAs an example, with Service Mesh now a Pod can always have two containers: the main application and the sidecar. The container startup order impacts on which is the \"default\" container nowadays, leading to command executions against wrong containers.\n\nWe don't have a general default container name attribute for pod, and this would change pod spec and is not acceptable.\n\nHaving a well-known annotation that specifies what's the default container of that Pod reduces operation efforts and improves the user experience.\n\n> However, it gets worse because aside from a warning, this couples the default exec container to the container order. > The container ordering also happens to have an impact on container startup order. We have started offering an option > to inject our sidecar as the first container (previously, it was the last one), which has resulted in users running > kubectl exec and getting the \"wrong\" container.\n\nQuoted from kubernetes #96986 opened by @howardjohn"
+    },
+    {
+      "id": "F005",
+      "format": "text",
+      "text": "Split the special environment and feature development labels: Clarify the semantic of a `[Feature:]` label. Introduce the `[FeatureGate:]` label with the stage (`[Alpha]`, `[Beta]`, etc.) addition, replace tags like `[NodeAlphaFeature]`.\n\nClean up labels that means whether special environment is needed: Eliminate the `[NodeFeature:]` label by renaming to `[Feature:]` when applicable. Document the meaning of `[NodeConformance]` label. Remove the `[NodeSpecialFeature:]` label. Introduce the `[Environment:Foo]` label to indicate the special environment that is not a standard OSS test infrastructure machines needed to run the feature."
+    },
+    {
+      "id": "F006",
+      "format": "text",
+      "text": "The Kubernetes release artifacts include a \"mondo\" test tarball which includes both \"portable\" test sources (such as shell scripts and image manifests) as well as platform-specific test binaries for all supported client, node, and server platforms.\n\nThis KEP proposes replacing the monolith test tarball with platform-specific tarballs, matching the existing pattern used for the client, node, and server tarballs."
+    },
+    {
+      "id": "F007",
+      "format": "text",
+      "text": "Tests have various clarifiers - they may be testing the feature that is currently in development and depends on feature gate, test may require a special environment, or test may only work with specific hardware. Today a few labels are used to represent the combination of these \"dimensions\", in most cases a single label `[Feature:]` is used.\n\nThe universal nature of a single `[Feature:]` label makes it hard to apply it consistently and query tests.\n\nThere are a few specific problems we saw recently: There is no way to disable tests for a specific feature gate (example where it’s needed: It is a \"feature\" guarded by feature gate, but not marked as \"feature\". There are no tests validating that k8s works with ALL beta feature gates disabled. Creating such test would be hard with today's test labeling. Some tests are degraded in how `[Feature]` and `[NodeFeature]` labels are applied (for example: labels that we apply heavily depend on the environment tests are running on. For example, is not marked as `Feature`, even though it depends on the environment - if `test-handler` is not installed, test will not succeed. Similar thing to AppArmor tests."
+    },
+    {
+      "id": "F008",
+      "format": "text",
+      "text": "The introduction of In-Place Pod Resize gives platform teams new ways to optimize cloud resources without restarting pods, marking a significant shift in how Kubernetes operates. This is especially powerful when In-Place Pod Resize is integrated with higher-level autoscaling controllers such as VPA's new `InPlaceOrRecreate` mode. However, users currently lack a way to control scale-up behavior when a node lacks the capacity to fulfill the request. Consequently, workloads may face disruptions such as being moved to a larger node, or suffering an OOM-kill because memory could not be scaled up in-place.\n\nScheduler preemption eliminates the gap by introducing an configurable ability to free up capacity on a fully-utilized node to allow the scale up to succeed in-place."
+    },
+    {
+      "id": "F009",
+      "format": "text",
+      "text": "There are three ways to add new scheduling rules to Kubernetes: Update existing or add new scheduler plugins and recompiling Implementing your own scheduler process that runs instead of, or alongside of, the standard Kubernetes scheduler Implementing a \"scheduler extender\" process that the standard Kubernetes scheduler calls out to as a final pass when making scheduling decisions\n\nThe first and the second approach have a high bar for beginners. Scheduler plugins must be written in Go and are compiled with Kubernetes scheduler code. Implementing a new scheduler from scratch to replace the default one requires a lot of effort if supporting all features is required (e.g. spreading, affinity, taints).\n\nExtending the functionality of scheduler via a separate process has some drawbacks, such as bad performance and cache inconsistency, but it also has several advantages: It can extend the functionality of an existing scheduler without recompiling the binary The extender can be written in any languages Once implemented, it can be used to extend different versions of kube-scheduler\n\nThis document describes the third approach. If you don't care about latency and cache consistency and don't want to maintain your own build of the default scheduler, then this approach is likely the better choice. If you care about performance and want maximum ability to customize the scheduler's behavior, then developing a new plugin is likely the better choice."
+    },
+    {
+      "id": "F010",
+      "format": "text",
+      "text": "This is a follow up to KEP Kustomize Subcommand Integration\n\nKustomize was introduced as subcommand of kubectl to allow users to build their kustomizations directly. However users need to pipe the kustomize output to other commands in order to use the kustomizations.\n\nThis KEP proposes integrating the kustomization libraries into the cli-runtime file processing libraries. Doing so will provide a cleaner, simpler UX and provide a path for addressing issues around error handling and messaging."
+    },
+    {
+      "id": "F011",
+      "format": "text",
+      "text": "Kubernetes drops support for gitRepo volume types by removing the in-tree driver that actually mounts the volume in the pod. In this case we will still keep the gitRepo volume in the API. Pods with gitRepo volumes will be admitted by kube-apiserver however, kubelet will fail to run them with an appropriate error message.\n\nThis removal is similar to removal of support for glusterfs which was deprecated in v1.25 and removed in v1.26."
+    },
+    {
+      "id": "F012",
+      "format": "text",
+      "text": "Increase the availability of stateful workloads when a node is shutdown, or in other non-recoverable cases such as the hardware failure or broken OS. Requires user intervention to detect node shutdown/failure cases, because currently there is no good way of detecting whether node is in the middle of restarting. Once the feature in this KEP is developed and tested, we plan to work on automatic way of detecting and fencing node for shutdown/failure use cases and re-evaluating some approaches listed in the Alternatives section."
+    },
+    {
+      "id": "F013",
+      "format": "text",
+      "text": "This KEP proposes decoupling the `PodGroup` API from the `Workload` API by introducing `PodGroup` as a standalone runtime object. In alpha1 design for gang scheduling, PodGroups were embedded within the Workload spec, which creates challenges around immutability, scaling, and lifecycle management. Under this proposal, the following changes are proposed as alpha2: `Workload` becomes a static template defining scheduling hierarchy and scheduling policy definition that specifies what workload behavior should be applied `PodGroup` becomes a runtime self-contained runtime scheduling unit for a group of pods that encapsulates both the scheduling policy and status. It is automatically created by true controllers (Job, JobSet, LeaderWorkerSet) when they create workloads, rather than being embedded within the Workload spec. It will be created based on the `podGroupTemplate` defined in the referenced Workload."
+    },
+    {
+      "id": "F014",
+      "format": "text",
+      "text": "Perform the entire scheduling cycle (including binding, DRA, etc) on `Deferred` resizes; the Scheduler should trigger preemption and nothing more. Coordinate with higher-level autoscalers such as VPA or CA on the preemption decision. This is considered out of scope for this KEP, but may be considered as a future enhancement. Changing the source of truth for resize allocations. The Kubelet remains responsible for evaluating incoming resize requests, and the scheduler must account for cases where the Kubelet's runtime decisions differ from the scheduler's calculated predictions."
+    },
+    {
+      "id": "F015",
+      "format": "text",
+      "text": "Integrate kustomize directly into libraries that enable file processing for cli-runtime (e.g. resource builder). Kubectl commands taking the common flags (`-f`, `--filename`, `-R`, `--recursive`) will support `kustomization.yaml` files through a new flag `-k` or `--kustomize`.\n\nCli-runtime will add the flags `-k, --kustomize`, which will be registered along side the other file processing flags. If the `-k` flag is provided to a command, the experience will be similar to if the user had piped kustomize to stdin - e.g. `kubectl kustomize <value> | kubectl <command> -f -`. It will differ in that it provides improved error handling and messaging.\n\nExample: `kubectl apply -k <dir-containing-kustomization>`\n\nTools outside kubectl that use the cli-runtime to register file processing flags and build resources will get the `-k` by default, but can opt-out if they do not want the functionality."
+    },
+    {
+      "id": "F016",
+      "format": "text",
+      "text": "The document started as an analysis of whether `NodeFeature` label needs to be renamed to simply `Feature` as it carries an identical semantics kubernetes/kubernetes#94289, but looking into it, scope needed to be extended into other labels currently being used, see also this discussion.\n\nDocument proposes changes into `Feature` label description, and additional labels that will make it clearer for contributors how to apply these labels."
+    },
+    {
+      "id": "F017",
+      "format": "text",
+      "text": "Since some CSI drivers(AzureFile for example) - don't support chmod/chown - we propose that fsgroup of pod to be provided to the CSI driver on `NodeStageVolume` and `NodePublishVolume` CSI RPC calls. This will allow the CSI driver to apply `fsgroup` as a mount option on `NodeStageVolume` or `NodePublishVolume` and kubelet can be freed from responsibility of applying recursive ownership and permission change.\n\nThis feature hence becomes a prerequisite of CSI migration of Azure file driver and removal of Azure Cloud Provider."
+    },
+    {
+      "id": "F018",
+      "format": "text",
+      "text": "Kubernetes currently uses Kubetest as the interface for launching and running e2e tests. It also uses a set of scripts called “scenarios” for running common use cases such as setting up end-to-end tests or pushing CI builds. Kubetest and scenarios have both been deprecated, (2) for a while, with a recommendation to move jobs to kubetest2.\n\nThis KEP proposes a plan for migration/deprecation of CI jobs that are in the critical path of a release."
+    },
+    {
+      "id": "F019",
+      "format": "text",
+      "text": "Node/control plane partitioning other than a node shutdown is not covered by the proposal, but will be addressed in the future and built on top of this design. We do not have a way to determine whether it is safe to detach in the case of node partitioning. In the Alternatives section, we discussed the node fencing approach and explained why that is not selected for this KEP but will be considered after this KEP is implemented. Implement in-cluster logic to handle node/control plane partitioning."
+    },
+    {
+      "id": "F020",
+      "format": "text",
+      "text": "Currently for most volume plugins kubelet applies fsgroup ownership and permission-based changes by recursively `chown`ing and `chmod`ing the files and directories inside a volume. For certain CSI drivers this may not be possible because `chown` and `chmod` are unix primitives and underlying CSI driver may not support them. This enhancement proposes providing the CSI driver with fsgroup as an explicit field so as CSI driver can apply this on mount time."
+    },
+    {
+      "id": "F021",
+      "format": "text",
+      "text": "Kubernetes scheduler schedules based on resources managed by Kubernetes. Scheduling based on opaque resource counting helps extending this further. But when there is a need for contextual scheduling for resources managed outside of kubernetes, there is no mechanism to do it today.\n\nThe proposal is to make kubernetes scheduler extensible by adding the capability to make http calls out to another endpoint to help achieve this functionality.\n\n**NOTE**: This KEP was done in retrospect and it was based on the original extender proposal."
+    },
+    {
+      "id": "F022",
+      "format": "text",
+      "text": "It is capable of removing friction that requires deeper integration - such as producing errors referencing line numbers of the original files (rather than the output files) and exiting with the right error code if kustomization fails. It works for tools that wrap and exec kubectl or vendor kubectl without additional steps It is more consistent with the UX workflow of other commands and flags (other commands don't require pipes) It has a cleaner and simpler UX than requiring a pipe - fewer characters to type It is clear which commands it that support it - apply, get, delete, etc. It can be more clear in the documentation when running `--help` (e.g. the -k flag is shown)"
+    },
+    {
+      "id": "F023",
+      "format": "text",
+      "text": "User story 1: Julia, the operator of a deployment called \"backend\" that generates some stack traces locally. Her environment uses Service Mesh, and because of this, every time she tries to copy those stack traces she gets an error because the file does not exist, and this happens because kubectl cp points to the service mesh sidecar as the first container.\n\nStory 2: John, a developer of a PHP application always needs to run a command inside the application Pod. Because of the way John structured the Pod (a Container with NGINX and the other with php_fpm) every time he wants to execute this command on the php_fpm but he forgets to use the flag --container, and this way the command gets executed in the wrong container."
+    },
+    {
+      "id": "F024",
+      "format": "text",
+      "text": "**Publishing Data:**\n\nAlpha: default container annotation Define a well known annotation `kubectl.kubernetes.io/default-container` in a Pod to provide a way to consumers (CLI, operators) to know which is the default Container. Define a global function GetDefaultContainerName for kubectl that uses this annotation like below -- 1. if the command is `logs` check `--all-containers` flag at first: if it is specified, ignore container flag or annotations; if not, next step."
+    },
+    {
+      "id": "F025",
+      "format": "text",
+      "text": "In-Place Pod Resize reached GA in 1.35, allowing pod resizing without restarts. However, unlike traditional pod recreation, in-place resizes that exceed node capacity do not currently trigger the preemption of lower-priority pods. Instead, they remain in a `Deferred` resize status and require manual intervention. We propose that the Scheduler actively creates space for resize requests by preempting lower-priority pods, following the same preemption logic used when scheduling new pods."
+    },
+    {
+      "id": "F026",
+      "format": "text",
+      "text": "The biggest risk is in breaking users. Despite being deprecated for years, there may be some users who are still using it and their workloads would be broken when their clusters are upgraded.\n\nWe plan to mitigate the risk by: Allowing users to opt-in to re-enabling the driver for 3 versions to give them enough time to fix workloads Announcing the change via release notes, updates to the gitRepo documentation and publishing kubernetes release blog for this feature so that customers are aware and can take action before they upgrade We will update the gitRepo volume documentation to say it say that the driver has been disabled by default and add information about alternative approaches. We will also document how users can turn on the gitRepo volume driver however, we will add a warning educating users on why they shouldn't do that."
+    },
+    {
+      "id": "F027",
+      "format": "text",
+      "text": "The Graceful Node Shutdown KEP introduced a way to detect a node shutdown and handle it gracefully. However, a node shutdown action may not be detected by Kubelet's Node Shutdown Mananger, either because the command does not trigger the inhibitor locks mechanism used by Kubelet or because of a user error, i.e., the ShutdownGracePeriod and ShutdownGracePeriodCriticalPods are not configured properly."
+    },
+    {
+      "id": "F028",
+      "format": "text",
+      "text": "Implementing kubetest2 deployers for all existing kubetest providers kubetest2 enables implementing custom deployers out-of-tree so replacing all of the deployers upstream is not a hard requirement Migrate all 1700+ e2e jobs away from the deprecated e2e test tools (e.g. scenarios, bootstrap, kubetes) This KEP only covers migrating all kubernetes/kubernetes release-blocking and merge-blocking jobs. We propose enforcing no further changes to the remaining deprecated tools to incentivize community migration and improvements to kubetest2. Other community efforts are already underway (e.g. removing the kubernetes_build scenario) Backporting changes to older release branches In general, no changes should be made to the release branches or their CI and the old jobs will age out. Decoupling from kubekins to a more minimal image The kubekins image has become a kitchen-sink over the years, used by more jobs than necessary, and containing more dependencies than required for effective kubetest2 usage Migrating kubekins away from bootstrap as a base image is only feasible once all jobs have migrated away from bootstrap, which is a non-goal of this KEP"
+    },
+    {
+      "id": "F029",
+      "format": "text",
+      "text": "For the development (main/master) branch only, **NOT** the existing release branches: Create shadow canary jobs for each presubmit-kubernetes-blocking, release-blocking to use kubetest2 as optional, non-blocking Monitor these canary jobs till they are stable Make kubetest2 jobs non-optional, non-blocking Make kubetest2 jobs non-optional, blocking\n\nNo changes should be made to the release branches or their CI."
+    },
+    {
+      "id": "F030",
+      "format": "text",
+      "text": "When scheduling a pod, the extender allows an external process to filter and prioritize nodes. Two separate http/https calls are issued to the extender, one for \"filter\" and one for \"prioritize\" actions. If the pod cannot be scheduled, the scheduler will try to preempt lower priority pods from nodes and send them to extender \"preempt\" verb if configured. The extender can return a subset of nodes and new victims back to the scheduler. Additionally, the extender can choose to bind the pod to apiserver by implementing the \"bind\" action."
+    },
+    {
+      "id": "F031",
+      "format": "text",
+      "text": "We are updating CSI specs by adding additional field called `volume_mount_group` to `NodeStageVolume` and `NodePublishVolume` RPC calls. The CSI proposal is available at - .\n\nThe CSI spec change is deliberately trying to avoid asking drivers to use supplied `fsGroup` as a generic handle for ownership and permissions. The reason being - Kubernetes may expect ownership and permissions to be in a way that is very platform/OS specific. We do not think CSI driver is right place to enforce all kind of different permissions expected by Kubernetes. The full scope of that discussion is out of scope for this enhancement and interested folks can follow along on -"
+    },
+    {
+      "id": "F032",
+      "format": "text",
+      "text": "Increase API calls volume: More objects means more API calls for creation, updates, and watches. The mitigation is split the responsibility. The `Workload` object is rarely updated (as a template object) while `PodGroup` handles runtime state. In addition, `PodGroups` allow per-replica sharding of status updates. Consistency: State is spread across multiple objects (`Workload` and `PodGroup`). The mitigation is that the `PodGroup` inlines all runtime state making it self-contained. Race conditions during objects creation: While the design requires controllers to create objects in order (`Workload` -> `PodGroup` -> `Pods`), there is still a possibility of race condition to happen anyway. The mitigation is to introduce admission controller to validate the object creation order. In addition, `UnschedulableAndUnresolvable` status will be set to serve as last line of defense if `Pods` are created before `PodGroup` is created or `PodGroup` object was deleted in the meantime. Increased etcd size: New object per replica which means more objects in etcd. The mitigation is `PodGroups` are owned by controllers with `ownerReferences`, so they are automatically garbage collected when the replica is deleted. Also, each `PodGroup` object is small (~1KB) compared to potentially large `Workload` object (~1.5MB) with the embedded `PodGroup` design."
+    },
+    {
+      "id": "F033",
+      "format": "text",
+      "text": "As the number of supported client, server, and node platforms has increased, the size of the test tarball has increased as well. As of Kubernetes v1.13.2, the official `kubernetes-test.tar.gz` is approximately 1.2GB; previous releases ranged from 1.3 - 1.5GB. Several years ago, there were complaints that the \"full\" `kubernetes.tar.gz` release tarball was too big at 1.4G. Many of the motivations for breaking up that tarball echo into this proposal.\n\nThe Bazel effort is another driving motivation. It's possible to build all release artifacts solely using Bazel, and there is progress being made on supporting cross-compilation of binary artifacts, but combining multiple target platforms in one Bazel call is currently not well-supported. Separating this tarball would make it easier to ensure that we can use Bazel t produce identical artifacts as the non-Bazel build."
+    },
+    {
+      "id": "F034",
+      "format": "text",
+      "text": "We propose removing support for the in-tree gitRepo volume driver. We aren't proposing removing gitVOlumes from the Kubernetes API, meaning pods with gitRepo volumes will be admitted by kube-apiserver but kubelets with the feature-gate GitRepoVolumeDriver set to false will not run them and return an appropriate error to the user.\n\nWe acknowledge that this is highly unusual, but there are mitigating circumstances: gitRepo volume types can be exploited to gain remote code execution as root on the nodes as shown in CVE-2024-10220 gitRepo has perfectly workable alternatives: Using git-sync Using an initContainer. See for more details gitRepo has been deprecated for a long time and is unmaintained gitRepo has low usage (based on limited data) there exists precedent for removing volume drivers which were unmaintained like glusterfs\n\nGiven this, we think kubernetes should EOL this feature with urgency."
+    },
+    {
+      "id": "F035",
+      "format": "text",
+      "text": "Changing the underlying build system. Both the make/shell-based build system and the Bazel-based build system will be affected, but users can continue to use their existing workflow. Removing cruft from the test tarballs. Likely, there are binaries and portable sources no longer being used anywhere, but we won't prune them with this effort. Changing what is released independent of the test tarball; i.e. whether we should make test binaries able to be downloaded directly from GCS."
+    },
+    {
+      "id": "F036",
+      "format": "text",
+      "text": "The current design embeds PodGroups within the Workload spec which creates several architectural challenges: `Workload` represents long-lived configuration-intent, whereas `PodGroups` represent transient units of scheduling. Tying runtime execution units to the persistent definition object violates separation of concerns Lifecycle coupling for standalone `PodGroup` objects, which enables other resources (i.e., ResourceClaims) to be owned by and garbage-collected with specific scheduling units, rather than the entire `Workload` or individual `Pods` Extending the Workload object to track the runtime status for all PodGroups would lead to significant scalability issues *Size Limit*: Large Workloads (i.e., large number of PodGroups) may easily hit the 1.5MB etcd object limit *Contention*: Updating the status of a single `PodGroup` would require read-modify-write on the central massive Workload object\n\nBy decoupling `PodGroup` as a standalone runtime object: `Workload` becomes scheduling policy object that defines scheduling constraints and requirements `PodGroupTemplate` provides the blueprint for runtime `PodGroup` creation `PodGroup` is a controller-owned runtime object with its own lifecycle that represents a single scheduling unit."
+    }
+  ]
+}

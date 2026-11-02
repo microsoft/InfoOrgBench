@@ -1,0 +1,326 @@
+{
+  "assignments": [
+    {
+      "id": "F001",
+      "path": [
+        "ConceptualDesign",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F002",
+      "path": [
+        "ConceptualDesign",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F003",
+      "path": [
+        "ConceptualDesign",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F004",
+      "path": [
+        "FunctionalDesign",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F005",
+      "path": [
+        "FunctionalDesign",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F006",
+      "path": [
+        "ConceptualDesign",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F007",
+      "path": [
+        "DetailedDesign",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F008",
+      "path": [
+        "FunctionalDesign",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F009",
+      "path": [
+        "DetailedDesign",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F010",
+      "path": [
+        "FunctionalDesign",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F011",
+      "path": [
+        "ConceptualDesign",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F012",
+      "path": [
+        "FunctionalDesign",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F013",
+      "path": [
+        "ConceptualDesign",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F014",
+      "path": [
+        "FunctionalDesign",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F015",
+      "path": [
+        "FunctionalDesign",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F016",
+      "path": [
+        "DetailedDesign",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F017",
+      "path": [
+        "ConceptualDesign",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F018",
+      "path": [
+        "FunctionalDesign",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F019",
+      "path": [
+        "FunctionalDesign",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F020",
+      "path": [
+        "FunctionalDesign",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F021",
+      "path": [
+        "ConceptualDesign",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F022",
+      "path": [
+        "FunctionalDesign",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F023",
+      "path": [
+        "ConceptualDesign",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F024",
+      "path": [
+        "FunctionalDesign",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F025",
+      "path": [
+        "DetailedDesign",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F026",
+      "path": [
+        "DetailedDesign",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F027",
+      "path": [
+        "ConceptualDesign",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F028",
+      "path": [
+        "ConceptualDesign",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F029",
+      "path": [
+        "ConceptualDesign",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F030",
+      "path": [
+        "FunctionalDesign",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F031",
+      "path": [
+        "FunctionalDesign",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F032",
+      "path": [
+        "ConceptualDesign",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F033",
+      "path": [
+        "FunctionalDesign",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F034",
+      "path": [
+        "ConceptualDesign",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F035",
+      "path": [
+        "DetailedDesign",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F036",
+      "path": [
+        "FunctionalDesign",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F037",
+      "path": [
+        "ConceptualDesign",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F038",
+      "path": [
+        "DetailedDesign",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F039",
+      "path": [
+        "ConceptualDesign",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F040",
+      "path": [
+        "DetailedDesign",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F041",
+      "path": [
+        "ConceptualDesign",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F042",
+      "path": [
+        "ConceptualDesign",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F043",
+      "path": [
+        "ConceptualDesign",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F044",
+      "path": [
+        "DetailedDesign",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F045",
+      "path": [
+        "DetailedDesign",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F046",
+      "path": [
+        "DetailedDesign",
+        "Overview"
+      ]
+    }
+  ]
+}

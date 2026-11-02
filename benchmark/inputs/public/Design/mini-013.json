@@ -1,0 +1,185 @@
+{
+  "task_id": "mini-013",
+  "records": [
+    {
+      "id": "F001",
+      "format": "text",
+      "text": "There's not a clean way to do this. Go workspaces DOES NOT work with our symlinks-in-vendor hack, and all of our tools do not work without it. We have a LOT of tools and the hacks run DEEP. We have a decade of legacy to scrub off. Worse, many of our tools make dubious assumptions about the interchangeability of Go package paths (e.g. \"example.com/foo/bar\") and disk paths. Those assumptions held as long as we used GOPATH, BARELY held with staging modules, and break totally in workspaces."
+    },
+    {
+      "id": "F002",
+      "format": "text",
+      "text": "This KEP proposes adding an opt-in mechanism for CSI drivers to receive service account tokens through the dedicated `secrets` field in `NodePublishVolumeRequest` instead of the `volume_context` field. A new field in the `CSIDriver` spec will allow drivers to explicitly opt into using the secrets field for improved security and proper handling of sensitive information. The default behavior will remain unchanged (tokens in volume context) to maintain backward compatibility."
+    },
+    {
+      "id": "F003",
+      "format": "text",
+      "text": "Add a configuration to to begin testing 3 version node / control plane skew Identify in-flight feature enablement plans from SIGs that rely on a maximum of 2 version node / control plane skew, and the node version when those plans would be complete Choose the minimum node version to begin supporting 3-version skew that avoids disrupting the plans identified in step 2 1.25 nodes / 1.28 control planes Update the Kubernetes version skew policy as part of the release identified in step 3 Update identified KEPs that need to adjust timelines Update the \"Production Readiness Review - Version Skew Strategy\" portion of the KEP template to remind KEP authors of max supported skews"
+    },
+    {
+      "id": "F004",
+      "format": "text",
+      "text": "This Kubernetes Enhancement Proposal (KEP) is to enhance the kubelet to allow tracing gRPC and HTTP API requests. The kubelet is the integration point of a node's operating system and kubernetes. From control plane-node communication documentation, a primary communication path from the control plane to the nodes is from the apiserver to the kubelet process running on each node. The kubelet communicates with the container runtime over gRPC, where kubelet is the gRPC client and the Container Runtime Interface is the gRPC server. The CRI then sends the creation request to the container runtime installed on the node. Traces gathered from the kubelet will provide critical information to monitor and troubleshoot interactions at the node level. This KEP proposes using OpenTelemetry libraries, and exports in the OpenTelemetry format. This is in line with the API Server enhancement."
+    },
+    {
+      "id": "F005",
+      "format": "text",
+      "text": "Enable separate review of behaviors and tests that evaluate those behaviors. Provide a single location for defining conforming behavior. Provide tooling to generate as many of the behaviors as possible from API schemas. This will be a seed for the behavior lists, which will in turn be human curated. Refinements can improve the quality of the seed over time. Provide tooling to generate tests and test scaffolding for validating behaviors. Provide tooling to measure the conformance test coverage of the behaviors. Provide an incremental migration path from current conformance testing to the updated framework."
+    },
+    {
+      "id": "F006",
+      "format": "text",
+      "text": "The main Kubernetes git repo (github.com/kubernetes/kubernetes, colloquially called \"k/k\") is the embodiment of evolution. When it was created, the only way to build Go applications was GOPATH. Over time we built tooling which understood GOPATH, and it leaked into many parts of our build, test, and release systems. Then Go added modules, in part because GOPATH was unpleasant and had a tendency to leak into tools. We adopted modules, but we also added the idea of \"staging\" repositories - a way to eat our cake and have, too. We get the benefits of a monorepo (atomic commits, fast iteration across repos) and then publish those to standalone repos for downstream consumption. To make this work with modules, we abused GOPATH even harder and wrote even more tools.\n\nThe Go project saw what we (and others) were doing and did not like it. So they created workspaces. They basically created a solution that is purpose-built for us.\n\nThis KEP proposes that we adopt Go workspaces and bring our tooling up to modern standards. In fact, the author started this work in 2021 or 2022, discovering issues along the way that the Go team has worked to resolve.\n\nThis is not a user-facing change. No k8s cluster-user or cluster-admin should know or care that this happened. On the surface, it seems like something that should not warrant a KEP, but: a) KEPs are how we communicate big changes; b) This is a big change; c) There's some ecosystem impact to developers"
+    },
+    {
+      "id": "F007",
+      "format": "text",
+      "text": "Our immediate goal is to allow in tree Cloud Providers to stop using the existing PVL admission controller and do so using the framework. However we want to build a framework which wil be usable by similar solutions to problems. This KEP is about the framework needed to support the PVL webhook and not the webhook itself. The frameworks default listener for the webhook should use existing Kubernetes mechanism (secure serving, authz, authn) to secure itself and validate the client. It should be possible to then easily change that configuration to any other Kubernetes supported options for a webhook."
+    },
+    {
+      "id": "F008",
+      "format": "text",
+      "text": "A sample of how the Builder pattern might look is:\n\nThis will not alter the existing extension hooks in the controller manager framework, as they are critical for backward compatibility. The builders are meant to be an abstraction layer on top to make the extensions easier to use. So for the existing controller manager code you might see changes like:\n\nThe handler in this case is likely to be of type ControllerInitFuncConstructor."
+    },
+    {
+      "id": "F009",
+      "format": "text",
+      "text": "This is only developer facing, however we will need to ensure that these tags stay up to date if we want this build mode to continue to work (the normal build mode should work by default without any additional maintenance).\n\nTo ensure this continues to work we can mitigate by: verify in CI that the cloud provider packages have boilerplate including the build constraints build in this mode in CI to ensure that the build succeeds"
+    },
+    {
+      "id": "F010",
+      "format": "text",
+      "text": "Currently, when the `TokenRequests` field is set in the `CSIDriver` spec, service account tokens are generated by the kubelet and passed to CSI drivers as part of the volume attributes map with the key `csi.storage.k8s.io/serviceAccount.tokens`. These tokens could be used for workload identity in cloud providers, particularly in the Secrets Store CSI Driver where they access external secret stores.\n\nHowever, including sensitive service account tokens in the volume context map alongside non-sensitive information (such as pod name, namespace, service account name) is inappropriate. The volume context is not designed for sensitive data, and this approach has led to security issues: Security vulnerabilities: This approach led to CVE-2023-2878 in the Secrets Store CSI Driver and CVE-2024-3744 in the Azure File CSI Driver where service account tokens were logged as part of GRPC requests. Insufficient protection: The protosanitizer tool used by CSI drivers doesn't consider volume context as \"secret\", so tokens were logged without sanitization. Driver-specific workarounds: Each driver must implement custom logic to handle token sanitization, creating inconsistency and potential security gaps.\n\nThe CSI specification provides a dedicated `secrets` field in `NodePublishVolumeRequest` that is more appropriate for sensitive information like service account tokens."
+    },
+    {
+      "id": "F011",
+      "format": "text",
+      "text": "We propose to enhance the observability, troubleshooting, and debugging capabilities of core Kubernetes components by implementing a statusz endpoint for all components. By exposing standardized, real-time data about a component's basic information, health status, and key metrics in a low-overhead manner, this enhancement empowers users with deeper insights into the behavior and performance of each component."
+    },
+    {
+      "id": "F012",
+      "format": "text",
+      "text": "Pushing a new release image is triggered by setting a tag. Unless there is a build failure, the result of the automatic build becomes the latest release, without any further manual checking. There are multiple risks: automatic testing of a single component cannot catch all bugs, so some bugs might make it into a tagged release the wrong revision gets tagged by the maintainer the build process itself is buggy and pushes a corrupt image\n\nTo mitigate this, maintainers can do a trial release first by tagging a `-rc` version and doing additional manual tests with the result.\n\nBut ultimately the safeguard against such failures is that new CSI sidecar containers only get used in a production cluster after packagers of a CSI driver update the deployment files for their driver."
+    },
+    {
+      "id": "F013",
+      "format": "text",
+      "text": "Replace existing monitoring solutions: metrics, logs, traces To provide a general-purpose extension mechanism for other components (e.g., container runtime, CNI, device plugins) to expose their own information through z-pages Provide information about components that are not directly accessible due to network restrictions **Report the status of internal sub-components or external dependencies.** Many Kubernetes components, such as the `kube-controller-manager` (with its multiple controller loops) or the `kube-apiserver` (with its dependency on etcd), are complex. Surfacing the status of all these individual pieces is a significantly more complex problem that this KEP does not aim to solve. This endpoint is intentionally limited to reporting the status of the main serving binary itself. A separate KEP would be required to address aggregated or detailed dependency status."
+    },
+    {
+      "id": "F014",
+      "format": "text",
+      "text": "Instead of allowing CSI drivers that support both ephemeral and persistent volumes and passing the `csi.storage.k8s.io/ephemeral` hint, a simpler solution would have been to require that a driver gets deployed twice, once for for each kind of volume. That was rejected because a driver might manage some resource that is shared between both kinds of volumes, like local disks (LVM) or persistent memory (PMEM). Having to deploy the driver twice would have made the driver implementation more complex."
+    },
+    {
+      "id": "F015",
+      "format": "text",
+      "text": "Originating at Google and embedded by default in many internal servers, z-pages have proven invaluable for real-time monitoring and debugging of complex distributed systems. Recognizing the power and utility of this aggregated interface, we aim to extend its benefits to the broader open source community.\n\nWith statusz, we envision the following advantages Consolidated and precise information: Presenting critical build data in a clear, concise format, eliminates the need to dig through logs or configurations to gather this essential information. Z-pages offer a distinct advantage over external monitoring solutions by providing insights from within the server itself. This inherent integration eliminates the need for complex external setups like manual inspection of logs, configuration files, or running external scripts that may be subject to potential network latency issues Streamlined troubleshooting and debugging: Immediate access to crucial build information like binary version, Go version and compatibility details enables better understanding of the component's state. We hope this interface makes it easier to identify version mismatches or incompatibilities that might contribute to issues, accelerating troubleshooting and debugging efforts"
+    },
+    {
+      "id": "F016",
+      "format": "text",
+      "text": "We will add a build constraints to the cloud provider code for a pseudo \"build tag\" specifying not to include any in-tree provider code. This will allow compiling the binaries as normal today and simulating the removal of this code by specifying the tag at build time and triggering the build constraints on the files in these packages.\n\nSome small adjustments may be necessary to the code base to ensure that the other packages can build without depending on these packages.\n\nA prototype is available in kubernetes/kubernetes#80353.\n\nTo ensure that this continues to function we will add CI building in this mode, and CI running end to end tests against it (see the test plan)."
+    },
+    {
+      "id": "F017",
+      "format": "text",
+      "text": "This KEP aims to migrate the `kubernetes-monitoring/kubernetes-mixin` repository under the `kubernetes-sigs` organization, to better reflect its Kubernetes-specific nature and to align with the organizational structure of Kubernetes-related projects. The mixins provided by the repository are a set of monitoring rules and dashboards that are fulfilled by CNCF graduated projects, but do not, and will not, engage any in-tree Kubernetes components directly, in any way.\n\nThis migration will help clarify the purpose and scope of the repository, and facilitate better collaboration and maintenance within the Kubernetes community."
+    },
+    {
+      "id": "F018",
+      "format": "text",
+      "text": "The in tree cloud-provider implementations are being removed in the future, this involves a large amount of code that is used in many places in tree. In order to prepare for this eventuality it would be helpful to see what that removal entails exactly and verify that Kubernetes will continue to function correctly. Doing so is a bit tricky without ensuring that the in-tree provider code is not being used via some unexpected side-channel (such as `init()` methods). Building binaries without the in-tree cloud provider packages would allow us to verify this and additionally provide experimentally smaller / cheaper binaries for parties interested in out of tree provider or no provider based clusters."
+    },
+    {
+      "id": "F019",
+      "format": "text",
+      "text": "Introduce a new field to Service `spec.loadBalancerClass`.\n\nIf the field `spec.loadBalancerClass` is not set, the existing cloud provider will assume ownership of the Service Type=LoadBalancer resource. This is required to not break existing clusters that assume Service Type=LoadBalancer is always managed by the cloud provider.\n\nRequired API changes: `loadBalancerClass` will be immutable when the Service type is `LoadBalancer`, this way existing and future implementations do not have to worry about handling Services that change the class name. The class name is mutable only when the type is not LoadBalancer and must be cleared when the type changes. `loadBalancerClass` will be validated against label-style format. the `loadBalancerClass` field will be feature gated. The field will be dropped during API strategy unless the feature gate is enabled. all external implementations of Service LoadBalancer using a non-empty class name should use the finalizer `service.kubernetes.io/load-balancer-cleanup` to ensure proper garbage collection of external resources.\n\nRequired updates to service controller: if the class field is NOT set for a Service, allow the cloud provider to reconcile the load balancer. if the class field IS set for a Service, skip reconciliation of the Service from the cloud provider."
+    },
+    {
+      "id": "F020",
+      "format": "text",
+      "text": "Along with metrics and logs, traces are a useful form of telemetry to aid with debugging incoming requests. The kubelet can make use of distributed tracing to improve the ease of use and enable easier analysis of trace data. Trace data is structured, providing the detail necessary to debug requests across service boundaries. As more core components are instrumented, Kubernetes becomes easier to monitor, manage, and troubleshoot."
+    },
+    {
+      "id": "F021",
+      "format": "text",
+      "text": "Allow users to make full use of the yearly support period Streamline upgrade paths for nodes / node pools to minimize required workload churn Validate oldest supported node components work with latest control plane components Update the Kubernetes version skew policy to indicate node components from the oldest supported minor version work with control plane components from the newest supported minor version, starting with Kubernetes `v1.25` nodes and `v1.28` control planes."
+    },
+    {
+      "id": "F022",
+      "format": "text",
+      "text": "`kubernetes-monitoring/kubernetes-mixin` has provided the de-facto set of monitoring mixins tailered for the Kubernetes ecosystem for a long time, and has been widely adopted by users and vendors alike. The migration not only reflects the Kubernetes-specific nature of the repository, but also aims to foster better [collaboration and maintenance] within the Kubernetes community.\n\n[collaboration and maintenance]:"
+    },
+    {
+      "id": "F023",
+      "format": "text",
+      "text": "The kubelet generates and exports spans for reconcile loops it initiates and for incoming/outgoing requests to the kubelet's authenticated http servers, as well as the CRI, CNI, and CSI interfaces. An example of a reconcile loop is the creation of a pod. Pod creation involves pulling the image, creating the pod sandbox and creating the container. With stateful workloads, attachment and mounting of volumes referred by a pod might be included. Trace data can be used to diagnose latency within such flows."
+    },
+    {
+      "id": "F024",
+      "format": "text",
+      "text": "A CSI driver may be able to support either PV/PVC-originated or pod spec originated volumes. When a volume definition is embedded inside a pod spec, it is considered to be an `ephemeral inline` volume request and can only participate in *mount/unmount* volume operation calls. Ephemeral inline volume requests have the following characteristics: The inline volume spec will not contain nor require a `volumeHandle`. The CSI Kubelet plugin will internally generate a `volumeHandle` which is passed to the driver. Using existing strategy, the volumeHandle will be cached for future volume operations (i.e. unmount). The Kubelet will send mount related calls to CSI drivers: Kubelet will have access to both podUID and pod namespace during mount/Setup operations. Secrets references can be fully realized during mount/Setup phase and sent to driver. The Kubelet will send unmount related calls to CSI drivers: The cached volumeHandle will be sent to the driver during unmount/Teardown phase."
+    },
+    {
+      "id": "F025",
+      "format": "text",
+      "text": "Add an opt-in mechanism for CSI drivers to receive service account tokens through the secrets field in `NodePublishVolumeRequest` Improve security by providing a proper way to handle sensitive token information for drivers that opt-in Maintain complete backward compatibility by keeping volume context as the default behavior Reduce the need for driver-specific security workarounds for drivers that choose to opt-in"
+    },
+    {
+      "id": "F026",
+      "format": "text",
+      "text": "The main use-case for this feature is being able to support multiple Service Type=LoadBalancer implementations in a cluster, as different workloads may want to leverage different loadbalancer providers based on efficiency, availability, cost and other factors.\n\nFor example, a cluster admin may want to use a public load balancer from a cloud provider for workloads that must be assigned a publically routable address, but they may want to enable a lower-cost solution for workloads that are only internally accessible."
+    },
+    {
+      "id": "F027",
+      "format": "text",
+      "text": "So far, the process for tagging and building components has been fairly manual, with some assistance by Travis CI. There has been no automatic testing of the release candidates on a Kubernetes cluster, neither as stand-alone deployment of individual components nor as full end-to-end (E2E) testing of several Kubernetes-CSI components. Testing the stable releases of the components is included in the automatic Kubernetes testing, but running those tests against pre-release components had to be done manually.\n\nWith CSI support reaching GA in Kubernetes 1.13, it is time to define and follow a less work-intensive and more predictable approach."
+    },
+    {
+      "id": "F028",
+      "format": "text",
+      "text": "a combined \"Kubernetes-CSI release\": each component gets released separately. It is the responsibility of a CSI driver maintainer to pick and test sidecar releases for a combined deployment of that driver. The hostpath deployment example can be used as a starting point, but it's not going to be able to test all the possible combinations of features that a specific CSI driver may need. change responsibilities among the kubernetes-csi maintainers: as before, each component will have some main maintainer who is responsible for releasing updates of that component automatically generate release notes: this will be covered by a separate, future KEP"
+    },
+    {
+      "id": "F029",
+      "format": "text",
+      "text": "When Service Type=LoadBalancer is enabled by a Kubernetes cloud provider, it is a global configuration that applies for all Service Type=LoadBalancer resources in a given cluster. This becomes problematic if users want to leverage multiple Service Type=LoadBalancer implementations in a cluster.\n\nThe new Services APIs addresses this already with the GatewayClass resource. However, until Gateway/GatewayClass APIs become mature, we should support similar functionality for Services of Type=LoadBalancer. Introducing a new resource like `ServiceClass` is probably not worthwhile given that there are new APIs already in development. This KEP proposes a light-weight approach for Service Type=LoadBalancer by introducing a Service field `service.spec.loadBalancerClass`."
+    },
+    {
+      "id": "F030",
+      "format": "text",
+      "text": "This KEP proposes to add a `go.work` file (checked in) and fix all the tools that break because of that. At the end, there will be no reliance on GOPATH. verify and update scripts can use normal Go conventions for building and running code. Abominations like `run-in-gopath.sh` will be deleted. The implementation will come in several waves, which will have to be sequenced across k8s.io/kubernetes, k8s.io/gengo, and k8s.io/kube-openapi repos."
+    },
+    {
+      "id": "F031",
+      "format": "text",
+      "text": "**NOTE**\n\nThis KEP is now withdrawn. After initial attempts at implementation it became clear that the effort to rework existing tests to follow this methodology was more extensive than expected. Additionally, the problems this KEP intended to solve (particularly separate reviewer pools) have not proven to be the bottleneck in test creation and promotion.\n\n**END NOTE**\n\nThis proposal modifies the conformance testing framework to be driven by a list of agreed upon behaviors. These behaviors are identified by processing of the API schemas, documentation, expert knowledge, and code examination. They are explicitly documented and tracked in the repository rather than in GitHub issues, allowing them to be reviewed and approved independently of the tests that evaluate them. Additionally it proposes new tooling to generate tests, test scaffolding, and test coverage reports."
+    },
+    {
+      "id": "F032",
+      "format": "text",
+      "text": "We will start by adding extension hooks which can be registered in the cmd/cloud-controller-manager/main.go. This would be similar to the mechanism we already use to register new controllers. The existing sample shows this with a sample of registering the nodeipamcontroller which is not a normally installed controller in the cloud controller manager. In a similar way we will have a sample of integrating a PVL mutating webhook into the sample CCM."
+    },
+    {
+      "id": "F033",
+      "format": "text",
+      "text": "It has proven difficult to measure how much of the expected Kubernetes behavior the current conformance tests cover. The current measurements are based upon identifying which API endpoints are exercised by the tests. The Kubernetes API is CRUD-oriented, and most of the client’s desired behavior is encapsulated in the payload of the create or update calls, not in the simple fact that those endpoints were hit. This means that even if a given endpoint is shown as covered, it’s impossible to know how much that tests the actual behavior.\n\nCoverage is measured this way because there is no single, explicit list of behaviors that comprise the expected behavior of a conformant cluster. These expectations are spread out across the existing design documents, KEPs, the user documentation, a subset of the e2e test, and the code itself. This makes it impossible to identify if the conformance suite provides a meaningful test of a cluster’s operation.\n\nAdditionally, progress in writing and promoting tests has been slow and too much manual effort is involved. As a starting point, this proposal includes new tooling that uses the API schemas to identify expected behaviors and produce tests and test scaffolding to quickly cover those behaviors."
+    },
+    {
+      "id": "F034",
+      "format": "text",
+      "text": "The Kubernetes yearly support period already makes annual upgrades possible. Users can upgrade to latest patch versions to pick up security fixes, and do 3 sequential minor version upgrades once a year to \"catch up\" to the latest supported minor version. However, since the tested/supported skew between nodes and control planes is currently limited to 2 versions, a 3-version upgrade would have to update nodes twice to stay within supported skew."
+    },
+    {
+      "id": "F035",
+      "format": "text",
+      "text": "There isn't much to say here, as the proposal is straightforward: we want to migrate the `kubernetes-monitoring/kubernetes-mixin` repository to `kubernetes-sigs/kubernetes-mixin` via a [GitHub repository transfer], and continue operations as they were before, with the same expectations. Users should be able to reference the new repository without any issues, and the mixins should continue to work as they did before, as the migration is mostly a change in ownership and location, rather than in functionality. The migration should be seamless for users, and the mixins should continue to be maintained and updated as they were before, with the same level of quality and reliability. Since GitHub's repository transfer mechanism automatically redirects all existing git operations (`clone`, `fetch`, `push`) and web links to the new location, existing references will continue to work without any additional CI automations or mirroring setups.\n\n[GitHub repository transfer]:\n\nAlso, as mentioned earlier, and most importantly, the migration should also help clarify the purpose and scope of the repository, and facilitate better collaboration and maintenance within the Kubernetes community."
+    },
+    {
+      "id": "F036",
+      "format": "text",
+      "text": "As a storage provider, I want to use the CSI API to develop drivers that can mount ephemeral volumes that follow the lifecycles of pods where they are embedded. This feature would allow me to create drivers that work similarly to how the in-tree Secrets or ConfigMaps driver works. My ephemeral CSI driver should allow me to inject arbitrary data into a pod using a volume mount point inside the pod. As a user I want to be able to define pod specs with embedded ephemeral CSI volumes that are created/mounted when the pod is deployed and are deleted when the pod goes away."
+    }
+  ]
+}

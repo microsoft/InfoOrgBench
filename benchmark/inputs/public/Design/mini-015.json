@@ -1,0 +1,185 @@
+{
+  "task_id": "mini-015",
+  "records": [
+    {
+      "id": "F001",
+      "format": "text",
+      "text": "A typical multicluster setup involves two key components: Scheduler: examines the fleet (`ClusterProfile` objects), and other signals/metrics and decides *where* a workload should land. Consumer: GitOps engine, workload orchestrator, progressive rollout controller, AI/ML pipeline read that decision and act (for example, by creating Work objects). Today's problem: Every scheduler publishes its own API to convey placement decisions, forcing each consumer to write custom integration code for every scheduler they want to support."
+    },
+    {
+      "id": "F002",
+      "format": "text",
+      "text": "Many Kubectl commands make requests to specific Resource endpoints. The request bodies are populated by flags provided by the user.\n\nExamples: `create <resource>` `set <field> <resource>` `logs`\n\nAlthough these commands are compiled into the kubectl binary, their workflow is similar to a form on a webpage and could be complete driven by the server providing the client with the request (endpoint + body) and a set of flags to populate the request body.\n\nPublishing commands as data from the server addresses cli integration with API extensions as well as client-server version skew.\n\n**Note:** No server-side changes are required for this, all Request and Response template expansion is performed on the client side."
+    },
+    {
+      "id": "F003",
+      "format": "text",
+      "text": "Support instantiating a container's environment variables from a file. This file must be in emptyDir volume. The env file can be created by an initContainer in the emptyDir volume. kubelet will instantiate the env vars in the container from the specified file in the emptyDir volume but it will not mount the file, Please note that the volume will only be mounted to the environment variable producer container (initContainer), while the regular container that consumes the environment variable will not have the volume mounted. All containers (container, initContainer, sidecar and ephemeral container) will be able to load env vars from a file."
+    },
+    {
+      "id": "F004",
+      "format": "text",
+      "text": "The proposed approach to obtaining credentials is to leverage plugins for retrieving the credentials from an issuer recognized by the target cluster. The controller using ClusterProfile would use a library to run a local executable which would retrieve the credentials for the current controller and a given clusterprofile. It is expected that plugins would leverage elements local to the controller to help assert the identity of the controller (environment variables, config files, KSA, the local IP, etc...) to retrieve credentials that are valid on the target cluster. Plugins would be exec'ed by the controller so that they don't need be built-in the binary, allowing flexibility into writing their own credential plugins and still leveraging multicluster controllers written by the community. In addition, we propose to reuse the exec approach and protocol used for external credentials in Kubeconfig (but not the configuration part of kubeconfig). Finally, in order to retrieve the endpoint for the cluster, we standardize the property names that are used in ClusterProfile."
+    },
+    {
+      "id": "F005",
+      "format": "text",
+      "text": "Because of its interaction with authentication and credentials, particular attention in this design must be paid to security: credentials leak: ClusterProfile, Controller configuration and Plugin configuration should never contain sensitive information Plugin poisoning: supporting credentials provider plugins in a controller relies on trusting the plugin itself and its path in the filesystem. Particular attention must be provided by the user deploying a controller to make sure the plugin that they install are from trusted source as they will have access to the controller's identity. In addition, the path of the plugin may be edited or hijacked by an attacker which would then sit in lieu of the normal plugin, allowing process execution by the controller's process. This risk is mitigated by the assumption that the pod's filesystem is private to it and that no lower-privileged (or separate) processes are able to access it.\n\nAnother risk is around AuthZ. This design doesn't cover the distribution of RBAC to multiple clusters and identifying what principal a controller can be identified as. This setup is currently left to the responsibility of the platform admin setting up the different clusters and controllers."
+    },
+    {
+      "id": "F006",
+      "format": "text",
+      "text": "The main motivation behind a plugin system for `kubectl` stems from being able to provide users with a way to extend the functionality of `kubectl`, beyond what is offered by its core commands.\n\nBy picturing the core commands provided by `kubectl` as essential building blocks for interacting with a Kubernetes cluster, we can begin to think of plugins as a means of using these building blocks to provide more complex functionality. A new command, `kubectl set-ns`, for example, could take advantage of the rudimentary functionality already provided by the `kubectl config` command, and build on top of it to provide users with a powerful, yet easy-to-use way of switching to a new namespace.\n\nFor example, the user experience for switching namespaces could go from:\n\nto:\n\nwhere `set-ns` would be a user-provided plugin which would call the initial `kubectl config set-context ...` command and set the namespace flag according to the value provided as the plugin's first parameter.\n\nThe `set-ns` command above could have multiple variations, or be expanded to support subcommands with relative ease. Since plugins would be distributed by their authors, independent from the core Kubernetes repository, plugins could release updates and changes at their own pace."
+    },
+    {
+      "id": "F007",
+      "format": "text",
+      "text": "The new plugin mechanism will not be a \"plugin installer\" or wizard. It will not have specific or baked-in knowledge regarding a plugin's location or composition, nor will it provide a way to download or unpack plugins in a correct location. Plugin discovery is not a main focus of this mechanism. As such, it will not attempt to collect data about every plugin that exists in an environment. Plugin management is out of the scope of this design. A mechanism for updating and managing lifecycle of existing plugins should be covered as a separate design (See Provide a standard package of common cli utilities that is consumed by `kubectl` and plugins alike. This should be done as an independent effort of this plugin mechanism."
+    },
+    {
+      "id": "F008",
+      "format": "text",
+      "text": "This API aims to solve the following problems: Reduce integration burden: Enable consumers to write ONE integration that works with ANY scheduler implementing this API, instead of writing separate integrations for each scheduler. Enable scheduler portability: Allow organizations to switch schedulers (e.g., from OCM to Clusternet) without rewriting consumer code. Enable consumer portability: Allow new consumers (e.g., Argo CD, MultiKueue) to work with all schedulers by implementing one standard API. Simplify RBAC: Provide one resource schema for consumers to `get/list/watch`, instead of different permissions for each scheduler's API. Support placement delegation: Enable external placement controllers to be plugged into any consumer. Align with ClusterProfile: Ensure direct mapping to `ClusterProfile` inventory for cluster references.\n\nTechnical goals: Define a namespaced, minimalistic, data-only `PlacementDecision` API that lists selected clusters. Support continuous rescheduling where decision lists may be updated over time. Guarantee that every (`clusterNamespace`, `clusterName`) pair matches a `ClusterProfile` in the fleet (enforced via admission). Provide label and naming conventions so consumers can retrieve all slices of one decision via label selector or deterministic naming. Leave room for scheduler-specific implementations and workload-aware placement logic."
+    },
+    {
+      "id": "F009",
+      "format": "text",
+      "text": "Avoid any kind of installation process (no additional config, users drop an executable in their `PATH`, for example, and they are then able to use that plugin with `kubectl`). No additional configuration is needed, only the plugin executable. A plugin's filename determines the plugin's intention, such as which path in the command tree it applies to: `/usr/bin/kubectl-educate-dolphins` would, for example be invoked under the command `kubectl educate dolphins --flag1 --flag2`. It is up to a plugin to parse any arguments and flags given to it. A plugin decides when an argument is a subcommand, as well as any limitations or constraints that its flags should have. Relay all information given to `kubectl` (via command line args) to plugins as-is. Plugins receive all arguments and flags provided by users and are responsible for adjusting their behavior accordingly. Provide a way to limit which command paths can and cannot be overridden by plugins in the command tree."
+    },
+    {
+      "id": "F010",
+      "format": "text",
+      "text": "Today every multicluster scheduler publishes its own API to convey where a workload should run, forcing downstream tools such as GitOps engine, workload orchestrator, progressive rollout controller, or AI/ML pipeline to understand a scheduler-specific API. This KEP introduces a vendor neutral `PlacementDecision` API that standardizes the output of multicluster placement calculations. A `PlacementDecision` object is data only: a namespaced list of chosen clusters whose referenced names must map one-to-one to `ClusterProfile`s as defined by the ClusterProfile API."
+    },
+    {
+      "id": "F011",
+      "format": "text",
+      "text": "Kubernetes provides existing mechanisms for setting environment variables within containers using ConfigMap and Secret resources. However, these mechanisms have a few drawbacks in following use-cases: An `initContainer` creates some configuration that needs to be consumed as an environment variable by the main container. Existing mechanisms necessitate additional ConfigMap or Secret API calls. The user is using a container offered by a vendor that requires configurating environment variables (for eg, license key, one-time secret tokens). They can use an `initContainer` to fetch this info into a file and the main container can consume.\n\nThe syntactic enhancement proposed in this KEP offers a simplified method for populating environment variables directly from files. This change would streamline the process for users."
+    },
+    {
+      "id": "F012",
+      "format": "text",
+      "text": "The Job controller tracks and manages all Jobs within Kubernetes. When a new Job is created by the user, the Job controller will immediately begin creating pods to satisfy the requirements of the Job until the Job is complete.\n\nHowever, there are use-cases that require a Job to be suspended in the middle of its execution. Currently, this is impossible; as a workaround, users can delete and re-create the Job, but this will also delete Job metadata such as the list of successful/failed Pods and logs. Therefore, it is desirable to suspend Jobs and resume them later when convenient."
+    },
+    {
+      "id": "F013",
+      "format": "text",
+      "text": "The Jobs API allows users to create Pods using the Job controller with specific requirements such as Pod-level parallelism, completing a certain number of executions, and restart policies.\n\nThis KEP proposes an enhancement that will allow suspending and resuming Jobs. Suspending a Job will delete all active Pods owned by that Job and also instruct the controller manager to not create new Pods until the Job is resumed. Users will also be able to create Jobs in the suspended state, thereby delaying Pod creation indefinitely."
+    },
+    {
+      "id": "F014",
+      "format": "text",
+      "text": "Define a new feature gate: `SizeMemoryBackedVolumes`.\n\nIf enabled, the `kubelet` will change the behavior when building memory backed volume to specify a non-zero size that is the following:\n\n`min(nodeAllocatable[memory], podAllocatable[memory], emptyDir.sizeLimit)`\n\nThis is an improvement over present behavior as pods will see emptyDir memory backed volumes sized based on actual allowed usage rather than a heuristic based on the node that is executing the pod."
+    },
+    {
+      "id": "F015",
+      "format": "text",
+      "text": "To manage an Inventory of Clusters, a platform admin can rely on having the cluster manager output ClusterProfile CRs that point to the clusters. Those CRs are key for multicluster controllers that want to operate on the clusters. However, there isn't a single way to obtain credentials to reach those clusters. This KEP provides a standardized way to obtain credentials for Clusters when using ClusterProfile and makes it pluggable to allow the diverse ecosystem to support the multitude of ways to obtain credentials. It also reuses part of the Kubeconfig external provider semantics to make implementation easier."
+    },
+    {
+      "id": "F016",
+      "format": "text",
+      "text": "Being able to suspending and resume jobs makes Job preemption, all-or-nothing scheduling, and Job queueing possible. However, we don't propose to create such higher-level controllers as a part of this KEP. It might be useful to restrict who can set/modify the `suspend` flag. However, we don't propose to create the validating and/or mutating webhooks necessary to achieve that as a part of this KEP."
+    },
+    {
+      "id": "F017",
+      "format": "text",
+      "text": "Add a new `Recreate` update strategy type to StatefulSet, providing a third option alongside `OnDelete` and `RollingUpdate` Align StatefulSet update strategies with Deployment patterns for API consistency Enable automated recovery from stuck pod states without manual intervention Provide a simple, predictable update behavior for workloads that can tolerate downtime Support use cases like CI/CD environments, stateless applications, external storage applications, and LeaderWorkerSet patterns Add `Progressing` state condition to `StatefulSet` status for all strategies"
+    },
+    {
+      "id": "F018",
+      "format": "text",
+      "text": "The risks for this proposal are minimal.\n\nThe empty dir volume will now be sized consistently with pod level cgroup memory limit. A container that writes to a memory backed volume is charged for that write while accounting memory. If a container restarts, the charge goes to the pod cgroup. Sizing the emptyDir volume to match the actual amount of memory that can be charged to a pod basically avoids undersizing or oversizing the appearance of more memory."
+    },
+    {
+      "id": "F019",
+      "format": "text",
+      "text": "Existing Issues: Job Creates Replacement Pods as soon as Pod is marked for deletion Kueue: Account for terminating pods when doing preemption\n\nMany common machine learning frameworks, such as Tensorflow and JAX, require unique pods per Index. Currently, if a pod enters a terminating state (due to preemption, eviction or other external factors), a replacement pod is created and immediately fail to start.\n\nHaving a replacement Pod before the previous one fully terminates can also cause problems in clusters with scarce resources or with tight budgets. These resources can be difficult to obtain so pods can take a long time to find resources and they may only be able to find nodes once the existing pods have been terminated. If cluster autoscaler is enabled, the replacement Pods might produce undesired scale ups.\n\nOn the other hand, if a replacement Pod is not immediately created, the Job status would show that the number of active pods doesn't match the desired parallelism. To provide better visibility, the job status can have a new field to track the number of Pods currently terminating.\n\nThis new field can also be used by queueing controllers, such as Kueue, to track the number of terminating pods to calculate quotas."
+    },
+    {
+      "id": "F020",
+      "format": "text",
+      "text": "Re-introduce `exec` SecretGenerators, but with the following safeguards in place to address security concerns. Plugins must be explicitly enabled with a flag. If it is not enabled and is used, Kustomize will exit 1 without running exec. This is to protect against the case where exploitable plugins are installed and used safely internally in an organization. If exiting 1, Kustomize will first print the list of plugins exec commands that were not executed, and a message about the flag. Executables are restricted to flag defined paths - defaulted a location that is empty by default. Users must install / symlink executables to this location."
+    },
+    {
+      "id": "F021",
+      "format": "text",
+      "text": "StatefulSets currently offer two update strategies: `OnDelete` (manual) and `RollingUpdate` (automatic, default). When using `RollingUpdate` with the default `podManagementPolicy: OrderedReady`, StatefulSets follow sequential ordering where each individual pod must be Running and Ready before the controller proceeds to update the next pod. Even with the `maxUnavailable` option (which allows multiple pods to be updated simultaneously), the controller still requires each pod to reach Ready state before moving forward but stuck pods halt the entire update process."
+    },
+    {
+      "id": "F022",
+      "format": "text",
+      "text": "Kubectl provides a number of commands to simplify working with Kubernetes by making requests to Resources and SubResources. These requests are mostly static, with fields filled in by user supplied flags. Today the commands are compiled into the client, which as the following challenges: Extension APIs cannot be compiled into the client Version-Skewed clients (old client) may be missing commands for new APIs or send outdated requests Version-Skewed clients (new client) may have commands for APIs that are not present in the server or expose fields not present in older API versions"
+    },
+    {
+      "id": "F023",
+      "format": "text",
+      "text": "The Job controller gets a list of active pods. Active pods are pods that don't have a terminal phase (`Succeeded` or `Failed`) and are not terminating (have a `deletionTimestamp`) In this KEP, we will consider terminating pods to be separate from active and failed. As an opt-in behavior, the job controller can use the active and terminating pods to determine whether replacement Pods are needed.\n\nWe propose two new API fields: A field in Spec that allows for opt-in behavior of whether to wait for terminating pods to finish before creating replacement pods. A new field in Status for tracking the number of terminating pods."
+    },
+    {
+      "id": "F024",
+      "format": "text",
+      "text": "Retreival of topology information will be achieved through the existing mechanism of passing down Pod labels using Downward API. A new admission plugin, `PodTopologyLabels`, will be added to kube-apiserver. When enabled, it will mutate the `pods/binding` subresource, adding topology labels that match those of the target Node. The Binding REST implementation will be updated to copy these labels from the `pods/binding` subresource to the assigned Pod's labels.\n\nUsing the downward API to retrieve topology information will look similar to the following:"
+    },
+    {
+      "id": "F025",
+      "format": "text",
+      "text": "Kubernetes supports emptyDir volumes whose backing storage is memory (i.e. tmpfs). The size of this memory backed volume is defaulted to 50% of the memory on a Linux host. The coupling of default memory backed volume size with the host that runs the pod makes pod definitions less portable across node instance types and providers.\n\nThis impacts workloads that make heavy use of /dev/shm or other use cases oriented around memory backed volume usage (AI/ML, etc.)"
+    },
+    {
+      "id": "F026",
+      "format": "text",
+      "text": "The ability to create Kubernetes Secrets generated by commands is commonly requested by users. This is useful for use cases where the user does not want the Secrets to be appear decrypted on disk before being applied to the cluster.\n\nExamples: Secrets sources are encrypted and need to be decrypted before they are applied Secrets sources are not stored locally, and need to be fetched from some remote location Secrets are generated using some function (e.g. private-keys)\n\n**Note:** For the target case, *the command for generating the Secret already exists as an executable on the user's machine*. User's are not expected to want a marketplace of solutions, rather instead they are expected to want to be able to invoke the tools they already use for addressing this task."
+    },
+    {
+      "id": "F027",
+      "format": "text",
+      "text": "Define a format for publishing simple cli commands as data. CLI commands would be limited to: Sending one or more requests to Resource or SubResource Endpoints Populating requests from command line flags and arguments Writing output populated from the Responses\n\n**Proof of Concept:** cnctl\n\nInstructions to run PoC: `go run ./main.go` (no commands show up) `kubectl apply` the `cli_v1alpha1_clitestresource.yaml` (add the CRD with the commands) `go run ./main.go` (create command shows up) `go run ./main create deployment -h` (view create command help) `go run ./main create deploy --image nginx --name nginx` (create a deployment) `kubectl get deployments`"
+    },
+    {
+      "id": "F028",
+      "format": "text",
+      "text": "Change default behavior of StatefulSet updates (opt-in via explicit `type: Recreate` configuration) Add timeout-based progressive failure detection (use Recreate for simplicity) Change Recreate deletion semantics (all pods are always deleted simultaneously but recreate ordering follows `podManagementPolicy`) Replace Deployment-style revision management (StatefulSets continue to directly manage Pods)"
+    },
+    {
+      "id": "F029",
+      "format": "text",
+      "text": "The ability to generate Secrets using `exec` was removed in kustomize v2 because of security concerns about users kustomizing malicious `kustomization.yaml`s and thereby providing a path for `kustomization.yaml`'s publishers to execute arbitrary commands on the machines of any user who applies the `kustomization.yaml`.\n\nExample goal to enable: Alice wants to develop an Application requiring a shared Secret, and to deploy it on Kubernetes using GitOps Alice wants her GitOps deployment mechanism to pull the Secrets that it deploys from an remote source without writing the Secrets as files to local disk. Alice's organization configures the gitops deployment container to run Kustomize in the cluster and be capable of pulling Secrets from remote locations Alice writes her kustomization.yaml to use the generation options configured by her organization.\n\nExample exploit to avoid: Alice wants to run a whitebox mysql instance on a test cluster Chuck publishes a whitebox mysql `kustomization.yaml` on GitHub, with a SecretGenerator that will read Alice's ~/.kube/config and send it to Chuck's server by executing `sh` will run a script to generate some Secret Alice runs `kubectl apply -k and has the credentials of all of her Kubernetes clusters sent to Chuck when the Secret is generated.\n\nSee kubernetes-sigs/kustomize#692 for more details."
+    },
+    {
+      "id": "F030",
+      "format": "text",
+      "text": "Topology awareness is crucial for a growing number of applications and workloads on Kubernetes. Knowing the Pods's location within the cluster's topology allows for significant performance optimizations and improved resilience. End-user feedback has highlighted the following key use cases: High-bandwidth AI/ML workloads, especially those employing distributed training or inference, demonstrate a substantial need for topology awareness."
+    },
+    {
+      "id": "F031",
+      "format": "text",
+      "text": "Many workloads benefit significantly from being aware of the topology of the node they are scheduled on. However, Kubernetes currently lacks a built-in mechanism to directly expose this node topology information to Pods. This KEP proposes a built-in admission plugin to copy standard node topology labels to Pods. Once copied, these labels can be consumed via the Downward API, just like any other Pod label. This approach eliminates the need for workarounds, such as custom init containers with elevated privileges, promoting a more secure and consistent solution."
+    },
+    {
+      "id": "F032",
+      "format": "text",
+      "text": "There is currently no standard way to connect or even think about Kubernetes services beyond the cluster boundary, but we increasingly see users deploy applications across multiple clusters designed to work in concert. This KEP proposes a new API to extend the service concept across multiple clusters. It aims for minimal additional configuration, making multi-cluster services as easy to use as in-cluster services, and leaves room for multiple implementations.\n\n*Converted from this original proposal doc.*"
+    },
+    {
+      "id": "F033",
+      "format": "text",
+      "text": "Currently, Jobs start replacement Pods as soon as previously created Pods are terminating (have a `deletionTimestamp`) or fail (`phase=Failed`). Terminating pods are currently counted as failed in the Job status. However, terminating pods are actually in a transitory state where they are neither active nor really fully terminated. This KEP proposes a new field for the Job API that allows for users to specify if they want replacement Pods as soon as the previous Pods are terminating (existing behavior) or only once the existing pods are fully terminated (new behavior)."
+    },
+    {
+      "id": "F034",
+      "format": "text",
+      "text": "There are many reasons why a K8s user may want to split their deployments across multiple clusters, but still retain mutual dependencies between workloads running in those clusters. Today the cluster is a hard boundary, and a service is opaque to a remote K8s consumer that would otherwise be able to make use of metadata (e.g. endpoint topology) to better direct traffic. To support failover or temporarily during migration, users may want to consume services spread across clusters, but today that requires non-trivial bespoke solutions.\n\nThe Multi-Cluster Services API aims to fix these problems."
+    },
+    {
+      "id": "F035",
+      "format": "text",
+      "text": "We do not plan to support expansion of environment variables, that is, when an environment variable refers to another. We do not intend to update env vars if the file content has changed after the container consuming it has started, unless the container is restarted for some other reason We do not intend to use a change in the file content to trigger a container restart. We do not intend to support instantiating all variables from an env file (e.g. EnvFromSource, without knowing their names a priori. Expose these environment variables in exec probes."
+    },
+    {
+      "id": "F036",
+      "format": "text",
+      "text": "Define a minimal API to support service discovery and consumption across clusters. Consume a service in another cluster. Consume a service deployed in multiple clusters as a single service. When a service is consumed from another cluster its behavior should be predictable and consistent with how it would be consumed within its own cluster. Allow gradual rollout of changes in a multi-cluster environment. Create building blocks for multi-cluster tooling. Support multiple implementations. Leave room for future extension and new use cases."
+    }
+  ]
+}

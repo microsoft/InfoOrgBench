@@ -1,0 +1,361 @@
+{
+  "assignments": [
+    {
+      "id": "F001",
+      "path": [
+        "ABFS improvements",
+        "Configured HNS detection"
+      ]
+    },
+    {
+      "id": "F002",
+      "path": [
+        "S3A improvements",
+        "Dotted bucket SSL failures"
+      ]
+    },
+    {
+      "id": "F003",
+      "path": [
+        "ABFS test reliability",
+        "Delegation token test isolation"
+      ]
+    },
+    {
+      "id": "F004",
+      "path": [
+        "ABFS improvements",
+        "Configured HNS detection"
+      ]
+    },
+    {
+      "id": "F005",
+      "path": [
+        "ABFS test reliability",
+        "SharedKey test authentication"
+      ]
+    },
+    {
+      "id": "F006",
+      "path": [
+        "S3A improvements",
+        "Dotted bucket SSL failures"
+      ]
+    },
+    {
+      "id": "F007",
+      "path": [
+        "ABFS test reliability",
+        "SharedKey test authentication"
+      ]
+    },
+    {
+      "id": "F008",
+      "path": [
+        "ABFS improvements",
+        "Token failure retries"
+      ]
+    },
+    {
+      "id": "F009",
+      "path": [
+        "ABFS improvements",
+        "Static timeout retry policy"
+      ]
+    },
+    {
+      "id": "F010",
+      "path": [
+        "ABFS test reliability",
+        "Non-HNS OAuth tests"
+      ]
+    },
+    {
+      "id": "F011",
+      "path": [
+        "S3A improvements",
+        "Dotted bucket SSL failures"
+      ]
+    },
+    {
+      "id": "F012",
+      "path": [
+        "S3A improvements",
+        "Assumed role credential chain"
+      ]
+    },
+    {
+      "id": "F013",
+      "path": [
+        "ABFS test reliability",
+        "Non-HNS OAuth tests"
+      ]
+    },
+    {
+      "id": "F014",
+      "path": [
+        "ABFS test reliability",
+        "Parallel contract test paths"
+      ]
+    },
+    {
+      "id": "F015",
+      "path": [
+        "S3A improvements",
+        "Dotted bucket SSL failures"
+      ]
+    },
+    {
+      "id": "F016",
+      "path": [
+        "ABFS improvements",
+        "Static timeout retry policy"
+      ]
+    },
+    {
+      "id": "F017",
+      "path": [
+        "S3A improvements",
+        "Dotted bucket SSL failures"
+      ]
+    },
+    {
+      "id": "F018",
+      "path": [
+        "ABFS test reliability",
+        "Delegation token test isolation"
+      ]
+    },
+    {
+      "id": "F019",
+      "path": [
+        "S3A improvements",
+        "Assumed role credential chain"
+      ]
+    },
+    {
+      "id": "F020",
+      "path": [
+        "ABFS test reliability",
+        "Parallel contract test paths"
+      ]
+    },
+    {
+      "id": "F021",
+      "path": [
+        "ABFS test reliability",
+        "Non-HNS OAuth tests"
+      ]
+    },
+    {
+      "id": "F022",
+      "path": [
+        "ABFS test reliability",
+        "Non-HNS OAuth tests"
+      ]
+    },
+    {
+      "id": "F023",
+      "path": [
+        "ABFS test reliability",
+        "Delegation token test isolation"
+      ]
+    },
+    {
+      "id": "F024",
+      "path": [
+        "S3A improvements",
+        "Dotted bucket SSL failures"
+      ]
+    },
+    {
+      "id": "F025",
+      "path": [
+        "ABFS test reliability",
+        "Delegation token test isolation"
+      ]
+    },
+    {
+      "id": "F026",
+      "path": [
+        "S3A improvements",
+        "Public bucket encryption tests"
+      ]
+    },
+    {
+      "id": "F027",
+      "path": [
+        "ABFS improvements",
+        "Configured HNS detection"
+      ]
+    },
+    {
+      "id": "F028",
+      "path": [
+        "ABFS test reliability",
+        "Delegation token test isolation"
+      ]
+    },
+    {
+      "id": "F029",
+      "path": [
+        "ABFS improvements",
+        "Static timeout retry policy"
+      ]
+    },
+    {
+      "id": "F030",
+      "path": [
+        "ABFS test reliability",
+        "Non-HNS OAuth tests"
+      ]
+    },
+    {
+      "id": "F031",
+      "path": [
+        "ABFS improvements",
+        "Configured HNS detection"
+      ]
+    },
+    {
+      "id": "F032",
+      "path": [
+        "ABFS improvements",
+        "Token failure retries"
+      ]
+    },
+    {
+      "id": "F033",
+      "path": [
+        "S3A improvements",
+        "Credential tests with tokens"
+      ]
+    },
+    {
+      "id": "F034",
+      "path": [
+        "ABFS test reliability",
+        "SharedKey test authentication"
+      ]
+    },
+    {
+      "id": "F035",
+      "path": [
+        "S3A improvements",
+        "Dotted bucket SSL failures"
+      ]
+    },
+    {
+      "id": "F036",
+      "path": [
+        "S3A improvements",
+        "Credential tests with tokens"
+      ]
+    },
+    {
+      "id": "F037",
+      "path": [
+        "ABFS test reliability",
+        "Non-HNS OAuth tests"
+      ]
+    },
+    {
+      "id": "F038",
+      "path": [
+        "ABFS improvements",
+        "Static timeout retry policy"
+      ]
+    },
+    {
+      "id": "F039",
+      "path": [
+        "ABFS test reliability",
+        "SharedKey test authentication"
+      ]
+    },
+    {
+      "id": "F040",
+      "path": [
+        "S3A improvements",
+        "Dotted bucket SSL failures"
+      ]
+    },
+    {
+      "id": "F041",
+      "path": [
+        "S3A improvements",
+        "Upload listing metadata"
+      ]
+    },
+    {
+      "id": "F042",
+      "path": [
+        "ABFS test reliability",
+        "SharedKey test authentication"
+      ]
+    },
+    {
+      "id": "F043",
+      "path": [
+        "ABFS test reliability",
+        "Delegation token test isolation"
+      ]
+    },
+    {
+      "id": "F044",
+      "path": [
+        "ABFS test reliability",
+        "Non-HNS OAuth tests"
+      ]
+    },
+    {
+      "id": "F045",
+      "path": [
+        "ABFS improvements",
+        "Configured HNS detection"
+      ]
+    },
+    {
+      "id": "F046",
+      "path": [
+        "S3A improvements",
+        "Upload listing metadata"
+      ]
+    },
+    {
+      "id": "F047",
+      "path": [
+        "ABFS improvements",
+        "Analytical driver metrics"
+      ]
+    },
+    {
+      "id": "F048",
+      "path": [
+        "ABFS test reliability",
+        "Non-HNS OAuth tests"
+      ]
+    },
+    {
+      "id": "F049",
+      "path": [
+        "ABFS improvements",
+        "Token failure retries"
+      ]
+    },
+    {
+      "id": "F050",
+      "path": [
+        "S3A improvements",
+        "Dotted bucket SSL failures"
+      ]
+    },
+    {
+      "id": "F051",
+      "path": [
+        "ABFS improvements",
+        "Analytical driver metrics"
+      ]
+    }
+  ]
+}

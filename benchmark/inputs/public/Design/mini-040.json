@@ -1,0 +1,185 @@
+{
+  "task_id": "mini-040",
+  "records": [
+    {
+      "id": "F001",
+      "format": "text",
+      "text": "The main drawbacks are concerns about unintended memory throttling and additional complexity due to utilization of several new cgroup v2 based memory controls (i.e., memory.min, memory.high).\n\nHowever, we believe that impact of unintended throttling will be minimized due to a high throttling factor (see above) and the additional complexity is justified due to the additional resource management benefits"
+    },
+    {
+      "id": "F002",
+      "format": "text",
+      "text": "By default, the `CPUManager` will pack CPUs onto one NUMA node until it is filled, with any remaining CPUs simply spilling over to the next NUMA node. This can cause undesired bottlenecks in parallel code relying on barriers (and similar synchronization primitivies), as this type of code tends to run only as fast as its slowest worker (which is slowed down by the fact that fewer CPUs are available on at least one NUMA node). By distributing CPUs evenly across NUMA nodes, application developers can more easily ensure that no single worker suffers from NUMA effects more than any other, improving the overall performance of these types of applications."
+    },
+    {
+      "id": "F003",
+      "format": "text",
+      "text": "When `distribute-cpus-across-numa` is passed as a policy option, the following algorithm will be run to distribute CPUs across NUMA nodes instead of packing them:\n\nIf none of the above conditions can be met, resort back to a best-effort fit of packing CPUs into NUMA nodes wherever they can fit.\n\nNOTE: The striping operation after all CPUs have been evenly distributed will be performed such that the overall disribution of CPUs across those NUMA nodes remains as balanced as possible."
+    },
+    {
+      "id": "F004",
+      "format": "text",
+      "text": "The vast majority of examples of how to use Kubernetes include YAML. These all use the most \"conventional\" YAML syntax, which is what `kubectl get -o yaml` also uses. Simple YAML is easy to read, but complex YAML can become very tricky. Some of the things that motivated this KEP are:\n\nWhitespace being significant means that readers and writers must track the nesting depth. While this does not sound too onerous, We have ample evidence that it is, in fact, very hard."
+    },
+    {
+      "id": "F005",
+      "format": "text",
+      "text": "Security considerations are the same with executing other external plugins and there is no additional risk.\n\nIn terms of risk considerations, users may adopt external plugins that do not exist as subcommand(e.g. `kubectl create foo`) but afterwards built-in subcommand with the same name might be added. This brings about a risk about breaking users' scripts which rely on external plugins. To overcome that problem, there should be a some form of forcing mechanism to select external plugin instead built-in subcommand. `KUBECTL_ENABLE_CMD_SHADOW` flag can also be used also for that purpose in later stages to provide a way to the users always using external plugin instead built-in subcommand."
+    },
+    {
+      "id": "F006",
+      "format": "text",
+      "text": "This proposal uses memory controller of cgroups v2 to support memory qos for guaranteeing pod/container memory requests/limits and node resource. Currently we only use `memory.limit_in_bytes=sum(pod.spec.containers.resources.limits[memory])` with cgroups v1 and `memory.max=sum(pod.spec.containers.resources.limits[memory])` with cgroups v2 to limit memory usage. `resources.requests[memory]` is not yet used by either cgroups v1 or cgroups v2 to protect memory requests."
+    },
+    {
+      "id": "F007",
+      "format": "text",
+      "text": "There isn't much to say here, as the proposal is straightforward: we want to migrate the `kubernetes-monitoring/kubernetes-mixin` repository to `kubernetes-sigs/kubernetes-mixin` via a [GitHub repository transfer], and continue operations as they were before, with the same expectations. Users should be able to reference the new repository without any issues, and the mixins should continue to work as they did before, as the migration is mostly a change in ownership and location, rather than in functionality. The migration should be seamless for users, and the mixins should continue to be maintained and updated as they were before, with the same level of quality and reliability. Since GitHub's repository transfer mechanism automatically redirects all existing git operations (`clone`, `fetch`, `push`) and web links to the new location, existing references will continue to work without any additional CI automations or mirroring setups.\n\n[GitHub repository transfer]:\n\nAlso, as mentioned earlier, and most importantly, the migration should also help clarify the purpose and scope of the repository, and facilitate better collaboration and maintenance within the Kubernetes community."
+    },
+    {
+      "id": "F008",
+      "format": "text",
+      "text": "The proposal is to extend the scope of the on-going conversion of logging calls to structured logging by removing the dependency on the global klog logger. Like the conversion to structured logging, this activity can convert code incrementally over as many Kubernetes releases as necessary without affecting the usage of Kubernetes in the meantime. Log calls that were already converted to structured logging need to be updated to use a logger that gets passed into the function in one of two ways: as explicit parameter attached to a `context.Context`\n\nWhen a function already accepts a context parameter, then that will be used instead of adding a separate parameter."
+    },
+    {
+      "id": "F009",
+      "format": "text",
+      "text": "The main risk of this proposal is throttling applications too early. We intend to mitigate this by (1) setting a `memory.high` that is closer to the limit and (2) only throttling when usage > request.\n\n**Blast Radius:** In Alpha (v1.36), the `MemoryQoS` feature gate is disabled by default. In Beta (v1.37), the feature gate is enabled by default. On upgrade to v1.37, `memory.high` is **not** set by default to protect existing workloads on upgrade. `memoryThrottlingFactor` defaults to `nil`; operators opt into `memory.high` throttling by explicitly setting a value in (0, 1.0] (e.g., `0.9`, leaving 10% headroom before throttling). Memory protection (`memory.min`/`memory.low`) is not applied unless `memoryReservationPolicy` is set to `TieredReservation` (default is `None`). Mitigations: Operators can set `memoryReservationPolicy: None` (default) to disable memory.min/memory.low protection Guaranteed pods are exempt from memory.high throttling Operators should test with the feature explicitly enabled before production upgrades"
+    },
+    {
+      "id": "F010",
+      "format": "text",
+      "text": "Complete (business-logic) server-side validation of every aspect of an object (i.e. we’re only focused on mismatched fields between the object in the request body and its schema). Protobuf support. Theoretically, unknown protobuf fields could occur if clients on version X send a request to the server of version less than X which does not recognize some of the fields (or a similar situation). We do not think it is worth supporting this use case initially and will error if clients attempt to validate schema server-side with protobuf data. Enhanced offline validation. Current client-side validation has been used as a form of offline validation to simply validate configs that have no intention of being actually applied to a server. Ideally users would have a supported way to perform offline validation, but that is outside the scope of this KEP."
+    },
+    {
+      "id": "F011",
+      "format": "text",
+      "text": "When user executes a subcommand of a built-in command, instead returning an \"unknown command\" error, `kubectl` will search this subcommand in external plugins with the name structure similar to current plugin search mechanism(e.g. `kubectl-create-foo`).\n\nIf `kubectl` finds a match for the subcommand, it will execute this external plugin how it already does for external plugins currently.\n\nBecause of starting as alpha and this is an explicitly opted-in feature, shadowing functionality will be hidden behind the environment variable and will only be used after exporting;"
+    },
+    {
+      "id": "F012",
+      "format": "text",
+      "text": "The primary risk associated with distributed tracing is DDOS. A user that can send a large number of sampled requests can cause the server to generate a large number of spans. This is mitigated by allowing respecting the incoming trace context for privileged (`system:master` and `system:monitoring` groups) users and by configuring the to `SamplingRatePerMillion` to a low value.\n\nThere is also a risk of memory usage incurred by storing spans prior to export. This is mitigated by limiting the number of spans that can be queued for export, and dropping spans if necessary to stay under that limit."
+    },
+    {
+      "id": "F013",
+      "format": "text",
+      "text": "Remove direct log calls through the `k8s.io/klog` API and the hard dependency on the klog logging implementation from all packages. Grant the caller of a function control over logging inside that function, either by passing a logger into the function or by configuring the object that a method belongs to. Provide documentation and helper code for setting up logging in unit tests. Change as few exported APIs as possible."
+    },
+    {
+      "id": "F014",
+      "format": "text",
+      "text": "By far most native Golang based resources implement defaulting. CRDs do not allow that, leading to unnatural, not Kubernetes-like APIs. This is bad for the ecosystem. Mutating Admission Webhooks can be used for defaulting, but: they are not adequate as it is not possible to set default values of newly added fields on GET because admission is not run in the storage layer when reading from etcd. webhooks are complex, both from the development/maintenance point of view and due to their non-trivial operational overhead. This makes them a no-go for many \"not so ambitiously, professionally developed CRDs\", e.g. in in-house enterprise environments. _Structural schemas_ as defined in KEP Vanilla OpenAPI Subset: Structural Schema make defaulting a low hanging fruit."
+    },
+    {
+      "id": "F015",
+      "format": "text",
+      "text": "Specify a YAML dialect which is 100% compatible with existing parsers and tooling. Provide libraries and tooling for encoding and converting to this formatting, with stable (idempotent) conversion. Provide a KYAML output format for kubectl. Expand examples and documentation throughout the project to also show KYAML alongside the existing output. Address common YAML pitfalls through an opinionated formatting approach. Document the design and reasons for KYAML and the 100% compatibility with tooling expecting arbitrary YAML."
+    },
+    {
+      "id": "F016",
+      "format": "text",
+      "text": "`kubectl –validate=true` is the current mechanism to indicate that a request should fail if it specifies unknown fields on the object.\n\nThere are a few issues with this as highlighted by the previous effort to do server-side validation, primarily these issues include: Bug Fixes are utilized slower because client-side upgrades are hard to get in people’s hands. Each client needs to implement validation.\n\nThis is the last remaining step for removing client-side validation according to this comment Client-side validation is very painful\n\nAdditional problems have been highlighted in the relevant github issues: The community has been asking for this feature as recently as August 8th, 2021"
+    },
+    {
+      "id": "F017",
+      "format": "text",
+      "text": "Since this feature is for diagnosing problems with the Kube-API Server, it is targeted at Cluster Operators and Cloud Vendors that manage kubernetes control-planes.\n\nFor the following use-cases, I can deploy an OpenTelemetry collector as a sidecar to the API Server. I can use the API Server's `--opentelemetry-config-file` flag with the default URL to make the API Server send its spans to the sidecar collector. Alternatively, I can point the API Server at an OpenTelemetry collector listening on a different port or URL if I need to."
+    },
+    {
+      "id": "F018",
+      "format": "text",
+      "text": "Solve common kubectl user friction (such as those defined in the Motivation section) by publishing kustomize functionality from kubectl to complement commands which are targeted at declarative workflows. Complement commands targeted at declarative workflows: `kubectl apply`, `kubectl diff` Complement the *server-side apply* initiative targeted at improving declarative workflows.\n\nUser friction solved through capabilities such as: Generating Resource Config for Resources with data frequently populated from other sources - ConfigMap and Secret Performing common cross-cutting transformations intended to be applied across Resource Configs - e.g. name prefixing / suffixing, labeling, annotating, namespacing, imageTag setting. Performing flexible targeted transformations intended to be applied to specific Resource Configs - e.g. strategic patch, json patch Composing and layering Resource Config with schema-aware transformations Facilitating rolling updates to Resources such as ConfigMaps and Secrets via Resource Config transformations Facilitating creation of Resources that require the creation to be ordered - e.g. namespaces, crds"
+    },
+    {
+      "id": "F019",
+      "format": "text",
+      "text": "`kubernetes-monitoring/kubernetes-mixin` has provided the de-facto set of monitoring mixins tailered for the Kubernetes ecosystem for a long time, and has been widely adopted by users and vendors alike. The migration not only reflects the Kubernetes-specific nature of the repository, but also aims to foster better [collaboration and maintenance] within the Kubernetes community.\n\n[collaboration and maintenance]:"
+    },
+    {
+      "id": "F020",
+      "format": "text",
+      "text": "The purpose of this KEP is to outline changes to the Kubelet and Container Runtime Interface (CRI) that update the way the Kubelet updates changes to pod state to a List/Watch model that polls less frequently reducing overhead. Specifically, the Kubelet will listen for gRPC server streaming events from the CRI implementation for events required for generating pod lifecycle events.\n\nThe overarching goal of this effort is to reduce the Kubelet and CRI implementation's steady state CPU usage."
+    },
+    {
+      "id": "F021",
+      "format": "text",
+      "text": "Kustomize Standalone Sub Command\n\nPublish the `kustomize build` command as `kubectl kustomize`. Update documentation to demonstrate using kustomize as `kubectl kustomize <dir> | kubectl apply -f -`.\n\n`kubectl kustomize` takes a single argument with is the location of a directory containing a file named `kustomization.yaml` and writes to stdout the kustomized Resource Config.\n\nIf the directory does not contain a `kustomization.yaml` file, it returns an error.\n\nDefer deeper integration into ResourceBuilder (e.g. `kubectl apply -k <dir>`) as a follow up after discussing the precise UX and technical tradeoffs. (i.e. deeper integration is more delicate and can be done independently.)"
+    },
+    {
+      "id": "F022",
+      "format": "text",
+      "text": "Alternative of the proposed mechanism to overcome this request is to propose a new flag `--use-plugin`. User can pass this flag when they want to explicitly use the external plugin. Thanks to that, user also can shadow already existing subcommands. For example `kubectl create job` executes built-in `job` subcommand, on the other hand `kubectl create job --use-plugin` executes custom `kubectl-create-job` plugin.\n\nHowever, downside of this alternative is that usability hurts without any gain; Everytime user has to pass a new flag to execute external plugin. This flag can not be passed to external plugins and this makes `--use-plugin` flag a special flag. There is no clear use case allowing plugins for already existed subcommands which means that we want to disable this deliberately instead providing as a feature."
+    },
+    {
+      "id": "F023",
+      "format": "text",
+      "text": "Server should validate that no extra fields are present or invalid (e.g. misspelled), nor are any fields duplicated (for json and yaml data). We must maintain compatibility with all existing clients, thus server side unknown field validation should be opt-in. kubectl should default to server-side validation against servers that support it. kubectl should provide the ability for a user to request no validation, or warning only validation, instead of strict server-side validation on a per-request basis."
+    },
+    {
+      "id": "F024",
+      "format": "text",
+      "text": "Contextual logging replaces the global logger by passing a `logr.Logger` instance into functions via a `context.Context` or an explicit parameter, building on top of structured logging.\n\nIt enables the caller to: attach key/value pairs that get included in all log messages add names that describe which component or operation triggered a log messages reduce the amount of log messages emitted by a callee by changing the verbosity\n\nThis works without having to pass any additional information into the callees because the additional information or settings are stored in the modified logger instance that is passed to it.\n\nThird-party components that use Kubernetes packages like client-go are no longer forced to use klog. They can choose an arbitrary implementation of `logr.Logger` and configure it as desired.\n\nDuring unit testing, each test case can use its own logger to ensure that log output is associated with the test case."
+    },
+    {
+      "id": "F025",
+      "format": "text",
+      "text": "When an upgrade or downgrade is performed on a cluster, for some period of time the apiservers are at differing versions and are able to serve different sets of built-in resources (different groups, versions, and resources are all possible).\n\nIn an ideal world, clients would be able to know about the entire set of available resources and perform operations on those resources without regard to which apiserver they happened to connect to. Currently this is not the case.\n\nToday, these things potentially differ: Resources available somewhere in the cluster Resources known by a client (i.e. read from discovery from some apiserver) Resources that can be actuated by a client\n\nThis can have serious consequences, such as namespace deletion being blocked incorrectly or objects being garbage collected mistakenly."
+    },
+    {
+      "id": "F026",
+      "format": "text",
+      "text": "Along with metrics and logs, traces are a useful form of telemetry to aid with debugging incoming requests. The API Server currently uses a poor-man's form of tracing (see github.com/kubernetes/utils/trace), but we can make use of distributed tracing to improve the ease of use and enable easier analysis of trace data. Trace data is structured, providing the detail necessary to debug requests, and context propagation allows plugins, such as admission webhooks, to add to API Server requests."
+    },
+    {
+      "id": "F027",
+      "format": "text",
+      "text": "This KEP aims to migrate the `kubernetes-monitoring/kubernetes-mixin` repository under the `kubernetes-sigs` organization, to better reflect its Kubernetes-specific nature and to align with the organizational structure of Kubernetes-related projects. The mixins provided by the repository are a set of monitoring rules and dashboards that are fulfilled by CNCF graduated projects, but do not, and will not, engage any in-tree Kubernetes components directly, in any way.\n\nThis migration will help clarify the purpose and scope of the repository, and facilitate better collaboration and maintenance within the Kubernetes community."
+    },
+    {
+      "id": "F028",
+      "format": "text",
+      "text": "This KEP proposes to add a new output format for kubectl, called \"KYAML\" (as in `kubectl get -o kyaml ...`). This format is a strict subset (aka \"dialect\") of standard YAML, and so should be parseable by the existing ecosystem. This dialect seeks to emphasize syntactical choices which avoid many of the most common traps in YAML. For example, unlike standard YAML output, this dialect is not whitespace-sensitive, which makes it vastly easier to patch correctly in things like Helm charts.\n\nThis KEP further proposes to add KYAML as an additional, co-existing output alongside the existing YAML/JSON in project-owned documentation and examples."
+    },
+    {
+      "id": "F029",
+      "format": "text",
+      "text": "This proposal aims to replace the periodic polling with a pod lifecycle event watcher. Currently, the Kubelet calls into three CRI calls of the form `List*`: ListContainers, ListPodSandbox. Each of these is used to populate the Kubelet's perspective of the state of the node. As the number of pods on a node increases, the amount of time the Kubelet and CRI implementation takes in generating and reading this list increases linearly."
+    },
+    {
+      "id": "F030",
+      "format": "text",
+      "text": "This proposal introduces a Mixed Version Proxy (also earlier referred to as Unknown Version Interoperability Proxy in the original version of the proposal) to solve issues with version skew in Kubernetes clusters. During upgrades or downgrades, when API servers have different versions, this feature ensures that: Client requests for a specific built-in resource are proxied to an API server capable of serving it, avoiding 404 Not Found errors Clients receive a complete, cluster-wide discovery document (we'll call this the \"peer-aggregated discovery\"), by merging information from all peer API servers, preventing controllers from making incorrect decisions based on incomplete data\n\nPeer-aggregated discovery is only supported for aggregated discovery endpoint, which requires clients to use the aggregated discovery Accept headers."
+    },
+    {
+      "id": "F031",
+      "format": "text",
+      "text": "**Background:** Kubectl Apply\n\nKubectl apply is intended to provide a declarative workflow for working with the Kubernetes API. Similar to kustomize, `apply` (client-side) pre-processes Resource Config and transforms it into Kubernetes patches sent to the apiserver (transformation is a function of live cluster state and Resource Config). Apply addresses user friction such as: updating Resources from Resource Config without wiping out control-plane defined fields (e.g."
+    },
+    {
+      "id": "F032",
+      "format": "text",
+      "text": "Ensure that a request for built-in resources is handled by an apiserver that is capable of serving that resource (if one exists) In the failure case (e.g. network not routable between apiservers), ensure that unreachable resources are served 503 and not 404. Ensure discovery reports the same set of resources everywhere (not just group versions, as it does today) Ensure that every resource in discovery can be accessed successfully"
+    },
+    {
+      "id": "F033",
+      "format": "text",
+      "text": "Defaulting is a fundamental step in the processing of API objects in the request pipeline of the kube-apiserver. Defaulting happens during deserialization, i.e. after decoding of a versioned object, **but before** conversion to a hub type.\n\nDefaulting is implemented for most native Kubernetes API types and plays a crucial role for API compatibility when adding new fields. CustomResources do not support this natively.\n\nMutating admission webhooks can be used to partially replicate defaulting for incoming request payloads. But mutating admission webhooks do not run when reading from etcd.\n\nThis KEP is about adding support for specifying default values for fields via OpenAPI v3 validation schemas in the CRD manifest. OpenAPI v3 has native support for a `default` field with arbitrary JSON values, for example:\n\nThis KEP proposes to apply these default values during deserialization, in the same way as native resources do. We assume _structural schemas_ as defined in KEP Vanilla OpenAPI Subset: Structural Schema.\n\nThis feature starts behind a feature gate `CustomResourceDefaulting`, disabled by default as alpha in 1.15.\n\nIt will graduate to GA in `apiextensions.k8s.io/v1` for 1.16. Defaults can only be set on creation via the v1 API."
+    },
+    {
+      "id": "F034",
+      "format": "text",
+      "text": "In Kubernetes, Kubelet is a per-node daemon that manages the pods on the node, driving the pod states to match their pod specifications (specs). To achieve this, Kubelet needs to react to changes in both (1) pod specs and (2) the container states. For the former, Kubelet watches the pod specs changes from multiple sources; for the latter, Kubelet polls the container runtime periodically for the latest states for all containers. the current hardcoded default value is 1s.\n\nPolling incurs non-negligible overhead as the number of pods/containers increases, and is exacerbated by Kubelet's parallelism -- one worker (goroutine) per pod, which queries the container runtime individually. Periodic, concurrent, large number of requests causes high CPU usage spikes (even when there is no spec/state change), poor performance, and reliability problems due to overwhelmed container runtime. Ultimately, it limits Kubelet's scalability."
+    },
+    {
+      "id": "F035",
+      "format": "text",
+      "text": "allow non-constant defaults: native Golang code can of course set defaults which depends on other fields of a JSON object. This is out of scope here and would need some kind of defaulting webhook. native-type declarative defaulting: this KEP is about CRDs. Though it might be desirable to support the same `// +default=<some-json-value>` tag and a mechanism in `k8s.io/apiserver` to evaluate defaults in native, generic registries, this is out-of-scope of the KEP though."
+    },
+    {
+      "id": "F036",
+      "format": "text",
+      "text": "Kubernetes 1.22 introduced a new framework for adding `CPUManager` policy options (#2625). These new policy options allow one to tweak the behaviour of a given `CPUManager` policy without the need to introduce an entirely new policy. Moreover, these policy options can build on one another, such that multiple tweaks can be made to a policy in an additive fashion. The first option introduced in conjunction with #2625 allows one to ensure that only **full** CPUs are allocated to a container, rather than handing out individual hyperthreads from each CPU to different containers. This KEP introduces a new `CPUManager` policy option to ensure that CPU allocations are evenly distributed across NUMA nodes in cases where more than one NUMA node is required to satisfy the allocation."
+    }
+  ]
+}

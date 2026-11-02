@@ -1,0 +1,382 @@
+{
+  "assignments": [
+    {
+      "id": "F001",
+      "path": [
+        "ABFS connector",
+        "Account-specific HNS config"
+      ]
+    },
+    {
+      "id": "F002",
+      "path": [
+        "ABFS connector",
+        "Account-specific HNS config"
+      ]
+    },
+    {
+      "id": "F003",
+      "path": [
+        "S3A failure handling",
+        "Dotted-bucket SSL retries"
+      ]
+    },
+    {
+      "id": "F004",
+      "path": [
+        "ABFS backoff optimization",
+        "Static connection-timeout retries"
+      ]
+    },
+    {
+      "id": "F005",
+      "path": [
+        "ABFS connector",
+        "Account-specific HNS config"
+      ]
+    },
+    {
+      "id": "F006",
+      "path": [
+        "ABFS connector",
+        "Non-HNS OAuth tests"
+      ]
+    },
+    {
+      "id": "F007",
+      "path": [
+        "ABFS connector",
+        "Account-specific HNS config"
+      ]
+    },
+    {
+      "id": "F008",
+      "path": [
+        "ABFS connector",
+        "Non-HNS OAuth tests"
+      ]
+    },
+    {
+      "id": "F009",
+      "path": [
+        "ABFS connector",
+        "Retry-count backport"
+      ]
+    },
+    {
+      "id": "F010",
+      "path": [
+        "ABFS connector",
+        "Account-specific HNS config"
+      ]
+    },
+    {
+      "id": "F011",
+      "path": [
+        "ABFS backoff optimization",
+        "Static connection-timeout retries"
+      ]
+    },
+    {
+      "id": "F012",
+      "path": [
+        "ABFS connector",
+        "Account-specific HNS config"
+      ]
+    },
+    {
+      "id": "F013",
+      "path": [
+        "ABFS backoff optimization",
+        "Static connection-timeout retries"
+      ]
+    },
+    {
+      "id": "F014",
+      "path": [
+        "ABFS connector",
+        "Account-specific HNS config"
+      ]
+    },
+    {
+      "id": "F015",
+      "path": [
+        "ABFS connector",
+        "Account-specific HNS config"
+      ]
+    },
+    {
+      "id": "F016",
+      "path": [
+        "ABFS connector",
+        "Non-HNS OAuth tests"
+      ]
+    },
+    {
+      "id": "F017",
+      "path": [
+        "ABFS connector",
+        "Account-specific HNS config"
+      ]
+    },
+    {
+      "id": "F018",
+      "path": [
+        "ABFS connector",
+        "Non-HNS OAuth tests"
+      ]
+    },
+    {
+      "id": "F019",
+      "path": [
+        "ABFS connector",
+        "Account-specific HNS config"
+      ]
+    },
+    {
+      "id": "F020",
+      "path": [
+        "ABFS connector",
+        "Account-specific HNS config"
+      ]
+    },
+    {
+      "id": "F021",
+      "path": [
+        "ABFS connector",
+        "Non-HNS OAuth tests"
+      ]
+    },
+    {
+      "id": "F022",
+      "path": [
+        "ABFS connector",
+        "Account-specific HNS config"
+      ]
+    },
+    {
+      "id": "F023",
+      "path": [
+        "ABFS backoff optimization",
+        "Static connection-timeout retries"
+      ]
+    },
+    {
+      "id": "F024",
+      "path": [
+        "ABFS connector",
+        "Retry-count backport"
+      ]
+    },
+    {
+      "id": "F025",
+      "path": [
+        "ABFS connector",
+        "Account-specific HNS config"
+      ]
+    },
+    {
+      "id": "F026",
+      "path": [
+        "ABFS connector",
+        "Account-specific HNS config"
+      ]
+    },
+    {
+      "id": "F027",
+      "path": [
+        "S3A failure handling",
+        "Dotted-bucket SSL retries"
+      ]
+    },
+    {
+      "id": "F028",
+      "path": [
+        "ABFS connector",
+        "Account-specific HNS config"
+      ]
+    },
+    {
+      "id": "F029",
+      "path": [
+        "ABFS connector",
+        "Account-specific HNS config"
+      ]
+    },
+    {
+      "id": "F030",
+      "path": [
+        "ABFS connector",
+        "Account-specific HNS config"
+      ]
+    },
+    {
+      "id": "F031",
+      "path": [
+        "ABFS connector",
+        "Account-specific HNS config"
+      ]
+    },
+    {
+      "id": "F032",
+      "path": [
+        "ABFS connector",
+        "Non-HNS OAuth tests"
+      ]
+    },
+    {
+      "id": "F033",
+      "path": [
+        "S3A failure handling",
+        "Dotted-bucket SSL retries"
+      ]
+    },
+    {
+      "id": "F034",
+      "path": [
+        "ABFS connector",
+        "Account-specific HNS config"
+      ]
+    },
+    {
+      "id": "F035",
+      "path": [
+        "ABFS connector",
+        "Non-HNS OAuth tests"
+      ]
+    },
+    {
+      "id": "F036",
+      "path": [
+        "ABFS connector",
+        "Account-specific HNS config"
+      ]
+    },
+    {
+      "id": "F037",
+      "path": [
+        "ABFS connector",
+        "Account-specific HNS config"
+      ]
+    },
+    {
+      "id": "F038",
+      "path": [
+        "ABFS connector",
+        "Retry-count backport"
+      ]
+    },
+    {
+      "id": "F039",
+      "path": [
+        "ABFS connector",
+        "Account-specific HNS config"
+      ]
+    },
+    {
+      "id": "F040",
+      "path": [
+        "S3A failure handling",
+        "Dotted-bucket SSL retries"
+      ]
+    },
+    {
+      "id": "F041",
+      "path": [
+        "ABFS connector",
+        "Non-HNS OAuth tests"
+      ]
+    },
+    {
+      "id": "F042",
+      "path": [
+        "S3A failure handling",
+        "Dotted-bucket SSL retries"
+      ]
+    },
+    {
+      "id": "F043",
+      "path": [
+        "ABFS connector",
+        "Account-specific HNS config"
+      ]
+    },
+    {
+      "id": "F044",
+      "path": [
+        "ABFS connector",
+        "Retry-count backport"
+      ]
+    },
+    {
+      "id": "F045",
+      "path": [
+        "S3A failure handling",
+        "Dotted-bucket SSL retries"
+      ]
+    },
+    {
+      "id": "F046",
+      "path": [
+        "ABFS connector",
+        "Retry-count backport"
+      ]
+    },
+    {
+      "id": "F047",
+      "path": [
+        "S3A failure handling",
+        "Dotted-bucket SSL retries"
+      ]
+    },
+    {
+      "id": "F048",
+      "path": [
+        "S3A failure handling",
+        "Dotted-bucket SSL retries"
+      ]
+    },
+    {
+      "id": "F049",
+      "path": [
+        "ABFS connector",
+        "Account-specific HNS config"
+      ]
+    },
+    {
+      "id": "F050",
+      "path": [
+        "ABFS connector",
+        "Non-HNS OAuth tests"
+      ]
+    },
+    {
+      "id": "F051",
+      "path": [
+        "ABFS backoff optimization",
+        "Static connection-timeout retries"
+      ]
+    },
+    {
+      "id": "F052",
+      "path": [
+        "ABFS connector",
+        "Account-specific HNS config"
+      ]
+    },
+    {
+      "id": "F053",
+      "path": [
+        "ABFS connector",
+        "Account-specific HNS config"
+      ]
+    },
+    {
+      "id": "F054",
+      "path": [
+        "ABFS connector",
+        "Account-specific HNS config"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,185 @@
+{
+  "task_id": "mini-033",
+  "records": [
+    {
+      "id": "F001",
+      "format": "text",
+      "text": "Add a Preempting field to both PodSpec and PriorityClass. This field will default to true, for backwards compatibility.\n\nIf Preempting is true for a pod, the scheduler will preempt lower priority pods to schedule this pod, as is current behavior.\n\nIf Preempting is false, a pod of that priority will not preempt other pods.\n\nSetting the Preempting field in PriorityClass provides a straightforward interface, and allows ResourceQuotas to restrict preemption.\n\nPriorityClass type example:\n\nThe Preempting field in PodSpec will be populated during pod admission, similarly to how the PriorityClass Value is populated. Storing the Preempting field in the pod spec has several benefits: The scheduler does not need to be aware of PiorityClasses, as all relevant information is in the pod. Mutating PriorityClass objects does not impact existing pods. Kubelets can set Preempting on static pods.\n\nPodSpec type example:\n\nThis feature should be gated in alpha, provisionally under the gate `NonPreemptingPriority`.\n\nDocumentation must be updated to reflect the new feature, and changes to PriorityClass/PodSpec fields."
+    },
+    {
+      "id": "F002",
+      "format": "text",
+      "text": "The vast majority of examples of how to use Kubernetes include YAML. These all use the most \"conventional\" YAML syntax, which is what `kubectl get -o yaml` also uses. Simple YAML is easy to read, but complex YAML can become very tricky. Some of the things that motivated this KEP are:\n\nWhitespace being significant means that readers and writers must track the nesting depth. While this does not sound too onerous, We have ample evidence that it is, in fact, very hard."
+    },
+    {
+      "id": "F003",
+      "format": "text",
+      "text": "`kubectl debug` command provides a set of predefined profiles and users can pick the appropriate ones according to their needs and roles. However, in some cases (maybe even in most cases), users might want to customize these profiles by adding: environment variables replicate volume mounts security contexts labels image pull secrets\n\nand many others. Users can overcome these problems by manually patching pod specs (unless the required intervention prevents the pod to become available) but this is impractical, especially if this should be done frequently and that's why, users first reaction is opening an issue about this or pull request proposing a new flag to manage only a particular fields in pod specs. Adding a new flag for every field puts a debug command at risk of unmanageable and unmaintainable state from not only maintainers point of view but also users.\n\nDue to all these reasons, this proposal adds a custom profiling support on top of predefined profiles debug command. Custom profiling mitigates the new flag request pressure."
+    },
+    {
+      "id": "F004",
+      "format": "text",
+      "text": "As stated above, the goal is to re-implement the functionality called out in the summary, but in a way that does not depend on a pod cluster CIDR. The essence of the proposal is that for the first two cases in iptables implementation and first case in ipvs, we can replace the `-s proxier.clusterCIDR` with some notion of node local pod traffic.\n\nThe core logic in these cases is “how to determine” cluster originated traffic from non-cluster originated ones. The proposal is that tracking pod traffic generated from within the node is sufficient to determine cluster originated traffic. For the first two use cases in iptables and first use case in ipvs, we provide alternatives to using proxier.clusterCIDR in one of the following ways to determine cluster originated traffic `-s node.podCIDR` (where node podCIDR is used for allocating pod IPs within the node) `--in-interface prefix+` (where all pod interfaces start with same prefix, or where all pod traffic appears to come from a single bridge or other interface) `-m physdev --physdev-is-in` (for kubenet if we don’t want to depend on node podCIDR)\n\nNote the above are equivalent definitions, when considering only pod traffic originating from within the node.\n\nGiven that this kep only addresses usage of the cluster CIDR (for pods), and that pods with hostNetwork are not impacted by this, the assumption is that hostNetwork pod behavior will continue to work as is.\n\nFor the last use case, note above, in iptables and ipvs, the proposal is to drop the reference to the cluster CIDR.\n\nThe reasoning behind why this works are as follows."
+    },
+    {
+      "id": "F005",
+      "format": "text",
+      "text": "The iptables implementation of kube-proxy today references the cluster CIDR for pods in three places for the following reasons. Masquerade off cluster traffic to services by node IP Redirecting pods traffic to external loadbalancer VIP to cluster IP Accepting traffic after first packet, after being accepted by kubernetes rules\n\nIn addition, the ipvs implementation also references it in two places for similar purposes Masquerade off cluster traffic to services by node IP Accepting traffic after first packet, after being accepted by kubernetes\n\nThis enhancement proposes ways to achieve similar goals without tracking the pod cluster CIDR to do so."
+    },
+    {
+      "id": "F006",
+      "format": "text",
+      "text": "1) Deliver a `kui` plugin for kubectl that has graphical popups that enhance the user experience 2) Deliver a `kui-core` framework with a well defined API to facilitate development of plugins such as `kui`. 3) Deliver a `kui-template` repository that plugin developers can opt to use as a starting point for developing their own graphical plugins. 4) That such graphical plugins can leverage `krew` for installation"
+    },
+    {
+      "id": "F007",
+      "format": "text",
+      "text": "~~Kubernetes supports the `appProtocol` field to provide a way to specify an application protocol for each Service port.~~\n\nKubernetes `appProtocol` field is used as a hint for implementations to configure the protocol used between the implementation and the application it exposes.\n\nThe documentation for this field says that:\n\nThis KEP proposes to declare standard Kubernetes protocol names for common protocols that are not IANA standard service names.\n\nThose common protocols will be well defined strings prefixed with ‘kubernetes.io’. `kubernetes.io/h2c` as an example."
+    },
+    {
+      "id": "F008",
+      "format": "text",
+      "text": "PriorityClasses are a GA feature as on 1.14, which impact the scheduling and eviction of pods. Pods are be scheduled according to descending priority. If a pod cannot be scheduled due to insufficient resources, lower-priority pods will be preempted to make room.\n\nThis proposal makes the preempting behavior optional for a PriorityClass, by adding a new field to PriorityClasses, which in turn populates PodSpec. If a pod is waiting to be scheduled, and it does not have preemption enabled, it will not trigger preemption of other pods."
+    },
+    {
+      "id": "F009",
+      "format": "text",
+      "text": "With volume topology-aware scheduling in place, the scheduler filters nodes considering volume topology constraints. However, scheduler picks the smallest matching volumes in each topology but does not try to prioritize nodes in different topologies based on volume capacity. This leads to a waste of resources which we should avoid.\n\nThis KEP continues the work proposed here, to enable the scheduler to favor the node which has the most fit PV."
+    },
+    {
+      "id": "F010",
+      "format": "text",
+      "text": "The `v1.Endpoints` API has been essentially (though not _actually_) deprecated since EndpointSlices became GA in 1.21. Several new Service features (such as dual-stack and topology, not to mention \"services with more than 1000 endpoints\") are implemented only for EndpointSlice, not for Endpoints. Kube-proxy no longer uses Endpoints ever, for anything, and the Gateway API conformance tests also require implementations to use EndpointSlices, so Gateway implementations don't use Endpoints either.\n\nDespite this, kube-controller-manager still does all of the work of managing Endpoints objects for all Services, and a cluster cannot pass the conformance test suite unless the Endpoints and EndpointSlice Mirroring controllers are running, even though in many cases nothing will ever look at the output of the Endpoints controller.\n\nAdditionally, many users are completely unaware of the semi-deprecated status of the Endpoints API. Because the Endpoints controller still runs, users can still read Endpoints (provided they don't care about any of the newer EndpointSlice features), and because of the EndpointSlice mirroring controller, users can still write their own Endpoints objects and have kube-proxy use the provided information (even though kube-proxy will never see the Endpoints object itself).\n\nWhile Kubernetes's API guarantees make it essentially impossible to ever actually fully remove Endpoints, we should at least move toward a world where most users run Kubernetes with the Endpoints and EndpointSlice Mirroring controllers disabled."
+    },
+    {
+      "id": "F011",
+      "format": "text",
+      "text": "CLIs are highly desired, for their speed, ease of sharing and scripting, and generally not getting in the way of development and operational tasks. However, visualizations, even simple ones, can go a long way with assisting in common kubernetes tasks.\n\nToday, the `kubectl` CLI and its plugins exist separately from the visual experience provided by browser-based consoles. You must chose to inhabit (using, and extending) one world or the other.\n\nWe believe it is possible to bring the two closer together. So that, as a tool user, transitions from a terminal world into a graphical world are fast, and only at my choosing; and, as a tool developer, I can enhance the world of CLIs, in a way that can be reused, if needed, in a browser context: a framework for CLI-driven graphical tools."
+    },
+    {
+      "id": "F012",
+      "format": "text",
+      "text": "Increase the availability of stateful workloads when a node is shutdown, or in other non-recoverable cases such as the hardware failure or broken OS. Requires user intervention to detect node shutdown/failure cases, because currently there is no good way of detecting whether node is in the middle of restarting. Once the feature in this KEP is developed and tested, we plan to work on automatic way of detecting and fencing node for shutdown/failure use cases and re-evaluating some approaches listed in the Alternatives section."
+    },
+    {
+      "id": "F013",
+      "format": "text",
+      "text": "Add a new condition type `Unused` to the `PersistentVolumeClaim` status conditions. This condition is managed by the PVC protection controller (in kube-controller-manager) and reflects whether the PVC is currently referenced by any non-terminal Pod.\n\nWhen the last Pod referencing a PVC is deleted or reaches a terminal state, the condition is set to `Status=True` with `Reason=\"NoPodsUsingPVC\"` and `Message=\"No pods are currently referencing this PVC\"`. When a new Pod starts referencing the PVC, the condition is set to `Status=False` with `Reason=\"PodUsingPVC\"` and `Message=\"A pod is currently referencing this PVC\"`.\n\nThe `lastTransitionTime` of the condition indicates when the PVC last changed between used and unused states, providing the equivalent of an \"unused since\" timestamp."
+    },
+    {
+      "id": "F014",
+      "format": "text",
+      "text": "The Graceful Node Shutdown KEP introduced a way to detect a node shutdown and handle it gracefully. However, a node shutdown action may not be detected by Kubelet's Node Shutdown Mananger, either because the command does not trigger the inhibitor locks mechanism used by Kubelet or because of a user error, i.e., the ShutdownGracePeriod and ShutdownGracePeriodCriticalPods are not configured properly."
+    },
+    {
+      "id": "F015",
+      "format": "text",
+      "text": "The `PreEnqueue` extension point in the scheduler framework is an important gate that performs preliminary checks before a Pod is allowed into the scheduling cycle. This prevents the scheduler from wasting cycles on Pods that cannot be scheduled due to fundamental issues. This extension point is already utilized by some features like Scheduling Gates and Dynamic Resource Allocation (DRA). Moreover, it is a planned integration point for future capabilities such as Deferred ResourceQuota Enforcement and advanced Gang Scheduling implementations."
+    },
+    {
+      "id": "F016",
+      "format": "text",
+      "text": "This is the prospective code snippet of a function that applies the custom profile.\n\nAfter predefined profiles are applied, there will be a generated podSpec that is pending for creation. Before sending a request to API server to create this pod or ephemeral container, `applyCustomProfile` function will be called with the required parameters. This function modifies podSpec internally and this podSpec will be created/updated."
+    },
+    {
+      "id": "F017",
+      "format": "text",
+      "text": "This design proposal suggests adding a field `AllowDisruptionByPriorityGreaterThanOrEqual` in the `PriorityClass` API to explicitly indicate that `PodDisruptionBudget` of the pods corresponding to this priorty class can only be violated by pods with the priority value greater than or equal to the value of `AllowDisruptionByPriorityGreaterThanOrEqual` during the scheduler preemption process, this proposal allows cluster administrators to define PriorityClasses that restrict PDB violations during preemption to satisfy the needs for high availability of services during scheduler preemption due to some reasons such as high availability of services("
+    },
+    {
+      "id": "F018",
+      "format": "text",
+      "text": "Changes required for this KEP: Add a new condition type constant to PVC condition types in `core/v1`:\n\nThe condition uses the following states:\n\nIn the PVC protection controller, add logic to set/update the `Unused` condition: The PVC Protection controller already watches Pod events and checks when a PVC transitions from \"in use\" to \"not in use\". The implementation extends this existing logic: When a Pod is deleted, the controller enqueues all the affected PVCs During sync, the controller checks if the PVC is still in use by a Pod Existing behavior: If it's not in use, and the `deletionTimestamp` is set, it proceeds with finalizer removal."
+    },
+    {
+      "id": "F019",
+      "format": "text",
+      "text": "The idea that makes kubernetes networking model unique and powerful is the concept of each pod having its own IP, with all the pod IPs being natively routable within the cluster. The service chains in iptable rules depend on this capability by assuming that they can treat all the endpoints of a cluster as being equivalent and load balance service traffic across all the endpoints, by just translating destination to the pod IP address.\n\nWhile this is powerful, it also means pod IP addresses are in many cases the constraining resource for cluster creation and scale. It would be valuable for implementations to have different strategies for managing pod IP addresses that can adapt to different environment needs.\n\nSome examples of use cases: Creating a cluster out of many disjoint ranges instead of a single range. Expanding a cluster with more disjoint ranges after initial creation.\n\nNot having to depend on the cluster pod CIDR for routing service traffic would effectively de-couple pod IP management and allocation strategies from service management and routing. Which in turn would mean that it would be far cheaper to evolve the IP allocation schemes while sharing the same service implementation, thus significantly lowering the bar for adoption of alternate schemes.\n\nAlternate implementations that don’t use iptables could also adopt this same reasoning to not have to track the cluster CIDR for routing cluster traffic."
+    },
+    {
+      "id": "F020",
+      "format": "text",
+      "text": "Because we didn't take volume capacity into account when scheduling a pod that can run in multiple topologies. A large PV may be used by a PVC with a small capacity request, even if there are many suitable small PVs in other topologies. PVCs with a large capacity request may not find feasible PVs to use if too many large PVs are consumed by PVCs with a small capacity request.\n\nLike CPU, Memory resources, the scheduler should take volume capacity into account in scheduling pods to ensure balanced resource usage."
+    },
+    {
+      "id": "F021",
+      "format": "text",
+      "text": "We have a scheduler plugin called VolumeBinding to filter the nodes based on volume topology constraints. After the filter phase, there is a reduced set of nodes that can fit a pod and filtered smallest statically provisioned PV(s) in each node topology.\n\nWe can add `Score` interfaces to score nodes based on pod's unbound PVCs and filtered PVs.\n\nThe score is calculated in two steps:\n\n1) First, we group pod's unbound PVCs and corresponding statically provisioned PVs by storage class. For PVCs/PVs in each storage class, we calculate requested to capacity ratio using the following formula:\n\nThe utilization ranges from 0 to 100.\n\nWe can tune this formula by applying utilization shape points, which is used in `RequestedToCapacityRatio`.\n\nBy default, we use this shape points to get linear scores between [0, 100] utilization.\n\nThe score ranges from 0 to `MaxNodeScore` (100).\n\nOptionally, users can configure customized utilization shape points, e.g.\n\nThe score of utilization below 50 will be 0, and the score of utilization of 90 will be 4 (`3 + (5 - 3) * (90 - 80) / (100 - 80)`).\n\n2) Then, we add them together and divides by the number of storage classes."
+    },
+    {
+      "id": "F022",
+      "format": "text",
+      "text": "Node/control plane partitioning other than a node shutdown is not covered by the proposal, but will be addressed in the future and built on top of this design. We do not have a way to determine whether it is safe to detach in the case of node partitioning. In the Alternatives section, we discussed the node fencing approach and explained why that is not selected for this KEP but will be considered after this KEP is implemented. Implement in-cluster logic to handle node/control plane partitioning."
+    },
+    {
+      "id": "F023",
+      "format": "text",
+      "text": "There are cases where implementations implement different things for the same application protocol names. That has already caused issues for certain implementations to interoperate, with the possibility of more in the future. (See the example with GKE and Istio under Motivation)\n\nThis KEP suggests a different description for the `AppProtocol` field and proposes to declare standard Kubernetes protocol names for common protocols that are not IANA service names."
+    },
+    {
+      "id": "F024",
+      "format": "text",
+      "text": "We limit the scope such that graphical plugins and the required framework are installed and used with the discretion of our users. In particular, there is no need to replace existing non-graphical `kubectl` plugins that work well with purely textual output. We desire no mandates for radical updates or parallel constructs to `krew` in order to support graphical plugins. We will base any krew-focused work on the goal of minimal perturbation."
+    },
+    {
+      "id": "F025",
+      "format": "text",
+      "text": "The lack of direct support for specifying application protocols for ports and the widespread use of implementation-specific annotations to mitigate it had led Kubernetes to add the `AppProtocol` field to the port spec.\n\nWhile this is a good solution - we never came with recommended standards other than IANA standard service names or a domain prefixed protocol.\n\nThis loose definition has led us to; Have instances where implementations do different things for common protocols. Have no support for implementations interoperability with different domain prefixed protocols (or a mix domain prefixed and non prefixed protocol) for the same port.\n\nOne good example for the first bullet is `HTTP2`. In GKE you can use `appProtocol: HTTP2` and it will describe HTTP2 over TLS ( While in Istio it will be h2c (HTTP2 over cleartext).\n\nThat creates a problem where users with GKE and Istio in their cluster can have very different behaviors for the same `appProtocol` value."
+    },
+    {
+      "id": "F026",
+      "format": "text",
+      "text": "Allowing PriorityClasses to be non-preempting is important for running batch workloads.\n\nBatch workloads typically have a backlog of work, with unscheduled pods. Higher-priority workloads can be assigned a higher priority via a PriorityClass, but this may result in pods with partially-completed work being preempted. Adding the non-preempting option allows users to prioritize the scheduling queue, without discarding incomplete work."
+    },
+    {
+      "id": "F027",
+      "format": "text",
+      "text": "This KEP proposes enhancing the Kubernetes scheduler to update a Pod's status with a descriptive message when a `PreEnqueue` plugin rejects it. When a Pod is rejected at this early stage, it currently remains in a generic `Pending` state with no direct feedback in its status, making observability and debugging difficult. By reflecting the rejection reason in the Pod's status (and emitting a corresponding event), cluster administrators and users will gain immediate insight into why a Pod is not being scheduled."
+    },
+    {
+      "id": "F028",
+      "format": "text",
+      "text": "This KEP proposes to add a new output format for kubectl, called \"KYAML\" (as in `kubectl get -o kyaml ...`). This format is a strict subset (aka \"dialect\") of standard YAML, and so should be parseable by the existing ecosystem. This dialect seeks to emphasize syntactical choices which avoid many of the most common traps in YAML. For example, unlike standard YAML output, this dialect is not whitespace-sensitive, which makes it vastly easier to patch correctly in things like Helm charts.\n\nThis KEP further proposes to add KYAML as an additional, co-existing output alongside the existing YAML/JSON in project-owned documentation and examples."
+    },
+    {
+      "id": "F029",
+      "format": "text",
+      "text": "Officially declare v1.Endpoints to be deprecated. Update documentation and put out appropriate communications (blog posts, etc) to ensure that end users are aware of this deprecation. Add warnings (e.g., `Warning:` headers on Endpoints create/update) to alert users of the fact that Endpoints is deprecated. Ensure that all core Kubernetes code uses EndpointSlices rather than Endpoints. Update the e2e test suite to make it possible to run it in a \"no Endpoints controller\" configuration, by rewriting some tests and adding feature tags to others. Update the conformance test suite to not require the Endpoints and EndpointSlice Mirroring controllers to be running, by rewriting some tests and demoting others from conformance. Explicitly document that disabling `endpoints-controller` and/or `endpointslice-mirroring-controller` via kube-controller-manager's `--controllers` flag is a supported and conforming configuration. Implement the (as-yet-undetermined) plan to clean up stale Endpoints in clusters that aren't running the Endpoints controller. Update the Endpoints controller to mark the Endpoints it creates, to make future cleanup easier (even if you clean up the stale Endpoints a long time after having disabled the controller, when they no longer correspond 1-to-1 with Services)."
+    },
+    {
+      "id": "F030",
+      "format": "text",
+      "text": "`PodDisruptionBudget` (PDB) is used to limit the number of concurrent disruptions that your application experiences, allowing for high availability. Users can set the field `.spec.maxUnavailable` or `.spec.minAvailable` to declare the current minimum availability or maximum unavailability to be maintained after eviction.\n\nHowever, there is currently an issue where the kube-scheduler does not strictly guarantee PDBs during the preemption process. The scheduler supports PDBs when preempting pods, but the adherence to PDBs is best effort. The scheduler attempts to select victims whose PDBs are not violated during preemption, but if no such victims are found, preemption will still take place, resulting in the removal of lower-priority pods despite their PDBs being violated.\n\nPodDisruptionBudgets (PDBs) are frequently used for stability and the possibility of violating a PDB during the preemption process is not acceptable for certain users. As such, it is beneficial to provide users with the option to choose if they want the PDB to be guaranteed during preemption or not."
+    },
+    {
+      "id": "F031",
+      "format": "text",
+      "text": "Deleting or modifying the `v1.Endpoints` API. Removing or demoting the conformance tests that test the `v1.Endpoints` API independently of the Endpoints controller. Removing the code for the Endpoints and EndpointSlice mirroring controllers, or switching them from enabled-by-default to disabled-by-default. There is some interest in making one or both of them disabled-by-default, but there is not yet consensus about whether this would constitute an API break. If it is allowable, it would require additional planning and messaging, and would best be handled as a separate KEP after those controllers are removed from conformance."
+    },
+    {
+      "id": "F032",
+      "format": "text",
+      "text": "Update a Pod's `.status.conditions` with a descriptive reason and message when a `PreEnqueue` plugin rejects the Pod. Utilize the existing asynchronous API calls feature to perform these status updates without impacting scheduler performance. Provide a mechanism for existing `PreEnqueue` use cases (like `DynamicResources` plugin) to adopt this new status reporting. Investigate migrating the responsibility for setting the `SchedulingGated` condition from the kube-apiserver to the kube-scheduler for consistency."
+    },
+    {
+      "id": "F033",
+      "format": "text",
+      "text": "Specify a YAML dialect which is 100% compatible with existing parsers and tooling. Provide libraries and tooling for encoding and converting to this formatting, with stable (idempotent) conversion. Provide a KYAML output format for kubectl. Expand examples and documentation throughout the project to also show KYAML alongside the existing output. Address common YAML pitfalls through an opinionated formatting approach. Document the design and reasons for KYAML and the 100% compatibility with tooling expecting arbitrary YAML."
+    },
+    {
+      "id": "F034",
+      "format": "text",
+      "text": "In order to address the issue mentioned above, a new field `AllowDisruptionByPriorityGreaterThanOrEqual` will be added to `PriorityClass`. Users will be able to set this field to indicate that the PodDisruptionBudget of the pods associated with this priority class can only be violated during scheduler preemption by other pods with a priority value greater than or equal to AllowDisruptionByPriorityGreaterThanOrEqual."
+    },
+    {
+      "id": "F035",
+      "format": "text",
+      "text": "There will be a new flag, namely `custom`, in `kubectl debug` which is used to pass a json file that includes the fields that are compatible with partial container spec (e.g. ) It is expected that this file passed to `custom` flag is decodable to `corev1.Container` (please note that this doesn't have to be a complete `corev1.Container` spec, but all the fields should be mapped to the fields in `corev1.Container`), otherwise `kubectl debug` returns an error mentioning that only `corev1.Container` compatible json files are accepted."
+    },
+    {
+      "id": "F036",
+      "format": "text",
+      "text": "PersistentVolumeClaims can accumulate over time in a cluster. When applications are deleted or migrated, their associated PVCs may be left behind, consuming storage resources and incurring costs. It'd be helpful for cluster admins to identify how long a PVC has been sitting unused, to then clean up unutilized storage. Currently, Kubernetes provides no mechanism to determine when a PVC was last actively used by a workload.\n\nOnly Kubernetes has accurate knowledge of when a PVC is mounted by a Pod, making this the ideal place to track usage."
+    }
+  ]
+}

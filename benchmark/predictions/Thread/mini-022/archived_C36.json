@@ -1,0 +1,298 @@
+{
+  "assignments": [
+    {
+      "id": "F001",
+      "path": [
+        "ABFS reliability",
+        "Rename failure logging"
+      ]
+    },
+    {
+      "id": "F002",
+      "path": [
+        "ABFS reliability",
+        "Credential test"
+      ]
+    },
+    {
+      "id": "F003",
+      "path": [
+        "ABFS reliability",
+        "Trace logging"
+      ]
+    },
+    {
+      "id": "F004",
+      "path": [
+        "ABFS reliability",
+        "China authentication"
+      ]
+    },
+    {
+      "id": "F005",
+      "path": [
+        "ABFS performance",
+        "Manifest rate limiting"
+      ]
+    },
+    {
+      "id": "F006",
+      "path": [
+        "ABFS performance",
+        "Manifest rate limiting"
+      ]
+    },
+    {
+      "id": "F007",
+      "path": [
+        "ABFS performance",
+        "HTTP timing"
+      ]
+    },
+    {
+      "id": "F008",
+      "path": [
+        "ABFS performance",
+        "Manifest rate limiting"
+      ]
+    },
+    {
+      "id": "F009",
+      "path": [
+        "ABFS performance",
+        "Manifest rate limiting"
+      ]
+    },
+    {
+      "id": "F010",
+      "path": [
+        "ABFS reliability",
+        "China authentication"
+      ]
+    },
+    {
+      "id": "F011",
+      "path": [
+        "ABFS reliability",
+        "Trace logging"
+      ]
+    },
+    {
+      "id": "F012",
+      "path": [
+        "ABFS performance",
+        "HTTP timing"
+      ]
+    },
+    {
+      "id": "F013",
+      "path": [
+        "S3A stream resilience",
+        "Read failure handling"
+      ]
+    },
+    {
+      "id": "F014",
+      "path": [
+        "ABFS performance",
+        "HTTP timing"
+      ]
+    },
+    {
+      "id": "F015",
+      "path": [
+        "ABFS reliability",
+        "Credential test"
+      ]
+    },
+    {
+      "id": "F016",
+      "path": [
+        "S3A stream resilience",
+        "Read failure handling"
+      ]
+    },
+    {
+      "id": "F017",
+      "path": [
+        "ABFS performance",
+        "Manifest rate limiting"
+      ]
+    },
+    {
+      "id": "F018",
+      "path": [
+        "ABFS performance",
+        "Manifest rate limiting"
+      ]
+    },
+    {
+      "id": "F019",
+      "path": [
+        "ABFS reliability",
+        "China authentication"
+      ]
+    },
+    {
+      "id": "F020",
+      "path": [
+        "ABFS performance",
+        "Manifest rate limiting"
+      ]
+    },
+    {
+      "id": "F021",
+      "path": [
+        "ABFS performance",
+        "Manifest rate limiting"
+      ]
+    },
+    {
+      "id": "F022",
+      "path": [
+        "ABFS performance",
+        "Static timeout retries"
+      ]
+    },
+    {
+      "id": "F023",
+      "path": [
+        "ABFS performance",
+        "Static timeout retries"
+      ]
+    },
+    {
+      "id": "F024",
+      "path": [
+        "ABFS performance",
+        "Manifest rate limiting"
+      ]
+    },
+    {
+      "id": "F025",
+      "path": [
+        "ABFS performance",
+        "Manifest rate limiting"
+      ]
+    },
+    {
+      "id": "F026",
+      "path": [
+        "ABFS performance",
+        "Manifest rate limiting"
+      ]
+    },
+    {
+      "id": "F027",
+      "path": [
+        "ABFS performance",
+        "Manifest rate limiting"
+      ]
+    },
+    {
+      "id": "F028",
+      "path": [
+        "ABFS performance",
+        "Manifest rate limiting"
+      ]
+    },
+    {
+      "id": "F029",
+      "path": [
+        "ABFS reliability",
+        "Trace logging"
+      ]
+    },
+    {
+      "id": "F030",
+      "path": [
+        "ABFS reliability",
+        "Trace logging"
+      ]
+    },
+    {
+      "id": "F031",
+      "path": [
+        "ABFS reliability",
+        "Trace logging"
+      ]
+    },
+    {
+      "id": "F032",
+      "path": [
+        "S3A stream resilience",
+        "Read failure handling"
+      ]
+    },
+    {
+      "id": "F033",
+      "path": [
+        "ABFS performance",
+        "Manifest rate limiting"
+      ]
+    },
+    {
+      "id": "F034",
+      "path": [
+        "ABFS reliability",
+        "China authentication"
+      ]
+    },
+    {
+      "id": "F035",
+      "path": [
+        "ABFS performance",
+        "Static timeout retries"
+      ]
+    },
+    {
+      "id": "F036",
+      "path": [
+        "ABFS performance",
+        "Manifest rate limiting"
+      ]
+    },
+    {
+      "id": "F037",
+      "path": [
+        "ABFS performance",
+        "HTTP timing"
+      ]
+    },
+    {
+      "id": "F038",
+      "path": [
+        "ABFS performance",
+        "Manifest rate limiting"
+      ]
+    },
+    {
+      "id": "F039",
+      "path": [
+        "ABFS reliability",
+        "Rename failure logging"
+      ]
+    },
+    {
+      "id": "F040",
+      "path": [
+        "ABFS reliability",
+        "Rename failure logging"
+      ]
+    },
+    {
+      "id": "F041",
+      "path": [
+        "ABFS performance",
+        "Static timeout retries"
+      ]
+    },
+    {
+      "id": "F042",
+      "path": [
+        "ABFS reliability",
+        "Trace logging"
+      ]
+    }
+  ]
+}

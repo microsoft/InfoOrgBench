@@ -1,0 +1,185 @@
+{
+  "task_id": "mini-042",
+  "records": [
+    {
+      "id": "F001",
+      "format": "text",
+      "text": "CLIs are highly desired, for their speed, ease of sharing and scripting, and generally not getting in the way of development and operational tasks. However, visualizations, even simple ones, can go a long way with assisting in common kubernetes tasks.\n\nToday, the `kubectl` CLI and its plugins exist separately from the visual experience provided by browser-based consoles. You must chose to inhabit (using, and extending) one world or the other.\n\nWe believe it is possible to bring the two closer together. So that, as a tool user, transitions from a terminal world into a graphical world are fast, and only at my choosing; and, as a tool developer, I can enhance the world of CLIs, in a way that can be reused, if needed, in a browser context: a framework for CLI-driven graphical tools."
+    },
+    {
+      "id": "F002",
+      "format": "text",
+      "text": "1) Deliver a `kui` plugin for kubectl that has graphical popups that enhance the user experience 2) Deliver a `kui-core` framework with a well defined API to facilitate development of plugins such as `kui`. 3) Deliver a `kui-template` repository that plugin developers can opt to use as a starting point for developing their own graphical plugins. 4) That such graphical plugins can leverage `krew` for installation"
+    },
+    {
+      "id": "F003",
+      "format": "text",
+      "text": "We limit the scope such that graphical plugins and the required framework are installed and used with the discretion of our users. In particular, there is no need to replace existing non-graphical `kubectl` plugins that work well with purely textual output. We desire no mandates for radical updates or parallel constructs to `krew` in order to support graphical plugins. We will base any krew-focused work on the goal of minimal perturbation."
+    },
+    {
+      "id": "F004",
+      "format": "text",
+      "text": "In version 1.31 of kubectl we will implement warnings, such that all users of `kubectl kustomize` will be informed that the subcommand is deprecated and they will be directed to use standalone kustomize, or switch to kustomize plugin. Users of `--kustomize` flag will be informed that the flag is deprecated, and will be directed to use standalone kustomize.\n\nThe above warnings will be implemented behind a `KUBECTL_LEGACY_KUSTOMIZE` environment variable which starting from v1.31 will be on by default. Users interested in trying out kubectl without kustomize will be able to disable the aforementioned environment variable.\n\nIn version 1.34 we will disable the environment variable, disabling access to kustomize by default in kubectl. At this point in time users will still have the option to enable this mechanism back using `KUBECTL_LEGACY_KUSTOMIZE`.\n\nIn version 1.36 lock `KUBECTL_LEGACY_KUSTOMIZE` to off by default, but leaving the kustomize code base in kubectl for one more release.\n\nFinally, in version 1.37 entirely drop kustomize from kubectl."
+    },
+    {
+      "id": "F005",
+      "format": "text",
+      "text": "The KEP targets a controller which allows for: Custom Resource metrics generation based on their schemata, using admission webhooks to avoid ingesting conflicting or bad configuration from managed resources, defining cluster-scoped managed resources (`ResourceMetricsMonitor`) that allows defining the collection configuration for generating metrics on-the-fly, accommodating for multiple configuration parsing techniques and expressions using turing-incomplete (or turing-complete if Go-bindings are available) languages, conforming to, improving on, and eventually deprecating the existing Custom Resource State API offered by Kube State Metrics without hindering the maintainability and the scalability of the controller."
+    },
+    {
+      "id": "F006",
+      "format": "text",
+      "text": "For every CRD that we serve, publish Paths (operations that we support on resource and subresources) and Definitions (for both CR object and CR list object) in OpenAPI documentation to fully demonstrate the existence of the API. For CRDs with schema defined, the CR object Definition should include both CRD schema and native Kubernetes ObjectMeta and TypeMeta properties. For CRDs without schema, the CR object definition will be as complete as possible while still maintaining compatibility with the openapi spec and with supported kubernetes components"
+    },
+    {
+      "id": "F007",
+      "format": "text",
+      "text": "More than one pod per index\n\nJobs have a known issue in which more than one Pod can be started even if parallelism and completion are set to 1 ([reference]). In the case of indexed Jobs, this translates to more than one Pod having the same index. Just like for existing Job patterns, workloads have to handle duplicates at the application level. Jobs with a high number of parallelism produce starvation on small jobs\n\nThis problem is not unique to Indexed Jobs, but the new API might motivate use cases with higher degree of parallelism."
+    },
+    {
+      "id": "F008",
+      "format": "text",
+      "text": "The purpose of this enhancement is to implement maxUnavailable for StatefulSet during RollingUpdate. When a StatefulSet’s `.spec.updateStrategy.type` is set to `RollingUpdate`, the StatefulSet controller will delete and recreate each Pod in the StatefulSet. The updating of each Pod currently happens one at a time. With support for `maxUnavailable`, the updating will proceed `maxUnavailable` number of pods at a time."
+    },
+    {
+      "id": "F009",
+      "format": "text",
+      "text": "We introduce a new Job API field, called `.spec.backoffLimitPerIndex`. When set it limits the number of retries, counted independently for all indexes.\n\nAdditionally, we propose the `.spec.maxFailedIndexes` to control the maximal number of failed indexes. Once the number is exceeded the entire Job is marked Failed and its execution is terminated.\n\nWe also propose to extend the PodFailurePolicy with a new action, called `FailIndex` to allow an index to fail fast before reaching the backoff limit per index."
+    },
+    {
+      "id": "F010",
+      "format": "text",
+      "text": "**Feature gate**\n\nWhen a new field is added to an existing API version, a feature gate is added to control the enablement of the new field. Sometimes feature gates are also used when a new `Kind` is added. The feature gates are defined in [`kube_features.go`]. The comments for each of these feature gates in [`kube_features.go`] lists the prerelease status of the feature gate and the minimum Kubernetes version for the particular prerelease."
+    },
+    {
+      "id": "F011",
+      "format": "text",
+      "text": "Declarative support for defining ConfigMaps and Secrets generated from binary and text files Declarative support for adding or updating cross-cutting fields labels & selectors annotations names (as transformation of the original name) Declarative support for applying patches to transform arbitrary fields use strategic-merge-patch format Ease of integration with CICD systems that maintain configuration in a version control repository as a single source of truth, and take action (build, test, deploy, etc.) when that truth changes (gitops)."
+    },
+    {
+      "id": "F012",
+      "format": "text",
+      "text": "Support publishing versioning information for built-in `Kind`s. This may be added in the future but is not in scope in the alpha status of this KEP. Support publishing field-level versioning for custom resources in OpenAPI. Publish the default status of a feature gate (enabled/disabled by default) in OpenAPI. Allow parsing comment tags on feature gates in [`kube_features.go`]. Update the Kubernetes API reference docs to include the field-level versioning information (out of scope of this KEP, can be done in a follow up)."
+    },
+    {
+      "id": "F013",
+      "format": "text",
+      "text": "The KEP aims at fixing few issues in the current way Events are structured and implemented. This effort has two main goals - reduce the performance impact that Events have on the rest of the cluster and add more structure to the Event object which is the first and necessary step to make it possible to automate Event analysis.\n\nMost sections and design details are copied from the original design doc: Make Kubernetes Events Useful and Safe.\n\nThe new Event API has been promoted from v1beta1 to v1 in 1.19 and currently only scheduler was migrated to use it."
+    },
+    {
+      "id": "F014",
+      "format": "text",
+      "text": "Currently, the indexes of an indexed job share a single backoff limit. When the job reaches this shared backoff limit, the job controller marks the entire job as failed, and the resources are cleaned up, including indexes that have yet to run to completion.\n\nAs a result, the current implementation does not cover the situation where the workload is truly embarrassingly parallel and each index is independent of other indexes.\n\nFor instance, if indexed jobs were used as the basis for a suite of long-running integration tests, then each test run would only be able to find a single test failure.\n\nOther popular batch services like AWS Batch use a separate backoff limit for each index, showing that this is a common use case that should be supported by Kubernetes."
+    },
+    {
+      "id": "F015",
+      "format": "text",
+      "text": "The kubectl command provides a cli for: accessing the Kubernetes apis through json or yaml configuration porcelain commands for generating and transforming configuration off of command line flags.\n\nExamples: Generate a configmap or secret from a text or binary file `kubectl create configmap`, `kubectl create secret` Users can manage their configmaps and secrets text and binary files Create or update fields that cut across other fields and objects `kubectl label`, `kubectl annotate` Users can add and update labels for all objects composing an application Transform an existing declarative configuration without forking it `kubectl patch` Users may generate multiple variations of the same workload Transform live resources arbitrarily without auditing `kubectl edit`\n\nTo create a Secret from a binary file, users must first base64 encode the binary file and then create a Secret yaml config from the resulting data. Because the source of truth is actually the binary file, not the config, users must write scripting and tooling to keep the 2 sources consistent.\n\nInstead, users should be able to access the simple, but necessary, functionality available in the imperative kubectl commands from their declarative workflow."
+    },
+    {
+      "id": "F016",
+      "format": "text",
+      "text": "With this enhancement, Kubernetes Developers will declare validation rules using Interface Definition Language (IDL) tags in the `types.go` files that define the Kubernetes native API types. For example:\n\nIn this example `+k8s:optional`, and `+k8s:minimum` are IDL tags.\n\nThe declarative validation IDL tags will be used to generate code via a new code generator - `validation-gen`. For the above IDL tags the generated code will look something like the snippet below (full file here)\n\nThis generated code will then be used in the kube-apiserver to validate API requests."
+    },
+    {
+      "id": "F017",
+      "format": "text",
+      "text": "The proposal targets the incubation and incorporation of a controller capable of essentially doing all that Kube State Metrics' Custom Resource State API offers, in addition to various benefits of its own owing to the controller lifecycle it is based upon.\n\nThe controller aims to replace the existing Kube State Metrics' Custom Resource State feature-set and be significantly much more maintainable and scalable than its predecessor while enabling the community the freedom to extend the supported set of DSLs to parse the configuration in a language that they are familiar with, instead of forcing them up a steep learning-curve for a self-defined DSL that they have to live with, as is the case with Kube State Metrics' Custom Resource State feature-set."
+    },
+    {
+      "id": "F018",
+      "format": "text",
+      "text": "Following the official kubernetes deprecation policy it is required to keep a generally available element of user-facing component to be available at minimum 12 months or 2 releases. We're proposing to proceed with the deprecation and removal of kustomize in the following stages: v1.31 (alpha) - announce the deprecation of `kubectl kustomize` subcommand, `--kustomize` flag from all the subcommands using it, and from `kubectl version` output. v1.31 - v1.33 - gather feedback from users, and publish kustomize in krew index. v1.34 - v1.35 (beta) - disable kustomize by default from kubectl. Entirely remove kustomize in v1.36 (planned as first release of 2026)."
+    },
+    {
+      "id": "F019",
+      "format": "text",
+      "text": "Eliminate 90% of net-new hand-written validation within 5 kube releases (target start: v1.33) Convert 50% of existing hand-written validation within 5 kube releases (target start: v1.33) Migrate in such a way that if contributors lose steam and abandon this, we can roll it back relatively easily. `types.go` files become the de-facto IDL of Kubernetes for native types. It is worth noting that `+enum` support, `+default` support and similar enhancements all moved our API development forward in this direction."
+    },
+    {
+      "id": "F020",
+      "format": "text",
+      "text": "This KEP extends kubernetes with user-friendly support for running parallel jobs.\n\nHere, parallel means multiple pods per Job. Jobs can be: Embarrassingly parallel, where the pods have no dependencies between each other. Tightly coupled, where the Pods communicate among themselves to make progress kubernetes/kubernetes#99497\n\nWe propose the addition of completion indexes into the Pods of a *Job [with fixed completion count]* to support running embarrassingly parallel programs, with a focus on ease of use for workload partitioning. We call this new Job pattern an *Indexed Job*, because each Pod of the Job specializes to work on a particular index, as if the Pods where elements of an array. With the addition of a headless Service, Pods can address another Pod with a specific index with a DNS lookup, because the index is part of the hostname.\n\n[with fixed completion count]:"
+    },
+    {
+      "id": "F021",
+      "format": "text",
+      "text": "In CustomResourceDefinition (CRD) we allow CRD author to define OpenAPI v3 schema, to enable server-side validation for CustomResources (CR). The validation schema format is compatible for creating OpenAPI documentation for CRs, which can be used by clients like kubectl to perform client-side validation (e.g. `kubectl create` and `kubectl apply`), schema explanation (`kubectl explain`), and client generation. This KEP proposes using the OpenAPI v3 schema to create and publish OpenAPI documentation for CRs."
+    },
+    {
+      "id": "F022",
+      "format": "text",
+      "text": "Consider the following scenarios: My containers publish metrics to a time series system. If I am using a Deployment, each rolling update creates a new pod name and hence the metrics published by this new pod starts a new time series which makes tracking metrics for the application difficult. While this could be mitigated, it requires some tricks on the time series collection side. It would be so much better, If we could use a StatefulSet object so my object names doesnt change and hence all metrics goes to a single time series."
+    },
+    {
+      "id": "F023",
+      "format": "text",
+      "text": "Performance: OpenAPI aggregation has performed poorly in the past. Introducing aggregation that occurs on a higher frequency could cause performance issues in the apiserver. To mitigate this, improvements in OpenAPI merging are being made (both in terms of memory and CPU cost), and benchmarking will be done prior to merge to ensure we do not regress API server performance.\n\nCompatibility: some Kubernetes components (notably kubectl) perform client-side validation based on published openapi schemas. To ensure that publishing schemas for additional custom resources does not regress existing function, we will test creation of custom resources with and without validation with current and prior versions of kubectl.\n\nWe will add a feature gate CustomResourcePublishOpenAPI, which can be turned on to start CRD openapi creation & aggregation & publishing. The feature gate will be Alpha (defaulted to False) in 1.14, Beta (defaulted to True) in 1.15 and Stable in 1.16."
+    },
+    {
+      "id": "F024",
+      "format": "text",
+      "text": "We propose a new policy for running Indexed Jobs in which the backoff limit controls the number of retries per index. When the new policy is used all indexes execute until their success or failure. We also propose a new API field to control the number of failed indexes.\n\nAdditionally, we propose a new action in PodFailurePolicy, called FailIndex, to short-circuit failing of the index before the backoff limit per index is reached."
+    },
+    {
+      "id": "F025",
+      "format": "text",
+      "text": "Eliminate 100% of existing hand-written validation. The goal is to drastically reduce the # of hand-written validation cases only to those that are extra-ordinary but not replace all hand-written validation. To convert validation into a full-featured scripted language It is not a goal of this KEP directly to publish validation rules to OpenAPI It is not a goal of this KEP to expose unenforced validation markers in CR schemas in CR openapi. It is not a goal of this KEP directly to have declarative defaults, only declarative validation rules. That is the goal of a TBD complementary KEP"
+    },
+    {
+      "id": "F026",
+      "format": "text",
+      "text": "The metric stability framework was originally introduced with the intent of safeguarding significant metrics from being broken downstream. Metrics could be deemed `stable` or `alpha`, and only `stable` metrics would have stability guarantees.\n\nThis KEP intends to propose additional stability classes to extend on the existing metrics stability framework, such that we can achieve parity with the various stages of the feature release cycle."
+    },
+    {
+      "id": "F027",
+      "format": "text",
+      "text": "The controller offers a number of improvements over Kube State Metrics' Custom Resource State API, while maintaining a [3x faster] round trip time for metric generation. At its core, the controller relies on its managed resource, `ResourceMetricsMonitor` to fetch the metric generation configuration. Parts of the configuration may be defined using different `resolver`s, such as `unstructured` or `CEL`."
+    },
+    {
+      "id": "F028",
+      "format": "text",
+      "text": "Kustomize was brought into kubectl shortly after its initial release. The main motivation back then was to expand declarative support for kubernetes objects. Over the past decade of kubernetes existence multiple, various tools for customization and templating has been development. Given that, current kubectl maintainers feel that promoting one tool over the other should not be the role of the project.\n\nMoreover, decoupling both projects will allow them to move at separate pace. The current kubernetes release cycle doesn't match that of kustomize, oftentimes risking users of kubectl to work with outdated version of kustomize.\n\nLastly, some of the kustomize dependencies has already been problematic to the core kubernetes project, so removing kustomize will allow us to minimize the dependency graph and the size of kubectl binary."
+    },
+    {
+      "id": "F029",
+      "format": "text",
+      "text": "This document proposes to add new field to StatefulSet's RollingUpdate configuration settings (`.spec.updateStrategy.rollingUpdate`) called `maxUnavailable`, which will allow setting the maximum number of pods that can be unavailable during the update. This new field can be an absolute, positive number (eg. `5`) or a percentage of desired pods (ex: `10%`). When the field is not specified, it will default to 1 to maintain previous behavior of rolling one pod at a time."
+    },
+    {
+      "id": "F030",
+      "format": "text",
+      "text": "The new Event API makes all semantic information about events first-class fields, allowing better deduplication and querying. The API changes aim to: make it easy to list all interesting Events in common scenarios using kubectl: Listing Events mentioning given Pod, Listing Events emitted by a given component (e.g. Kubelet on a given machine, NodeController), make timestamps precise enough to allow better events correlation, update the field names to better indicate their function.\n\nIn addition, we will improve 'Event series' detection and send only 'series start' and 'series finish' Events, and add more aggressive backoff policy for Events.\n\nAfter the migration is done, users and administrators: will be able to better track interesting changes in the state of objects they're interested in, will be convinced that Events do not destabilize."
+    },
+    {
+      "id": "F031",
+      "format": "text",
+      "text": "Users can use some [Job patterns] to run embarrassingly parallel Jobs, but those approaches have downsides: The queue patterns require setting up an external queue service and modifying the Job binary to be able to connect to the queue. Depending on the implementation, it is prone to race conditions when coordinating which Pod works on which item. The template pattern doesn't scale when the parallelism level is too high, in terms of job creation and querying status."
+    },
+    {
+      "id": "F032",
+      "format": "text",
+      "text": "There's a relatively wide agreement that current implementation of Events in Kubernetes is problematic. Events are supposed to give app developer insight into what's happening with his/her app. Important requirement for Event library is that it shouldn't cause/worsen performance problems in the cluster.\n\nThe problem is that neither of those requirements are actually met. Currently Events are extremely spammy (e.g. Event is emitted when Pod is unable to schedule every few seconds) with unclear semantics (e.g. Reason was understood by developers as \"reason for taking action\" or \"reason for emitting event\"). Also there are well known performance problems caused by Events (e.g. #47366, #47899) - Events can overload API server if there's something wrong with the cluster (e.g. some correlated crashloop on many Nodes, user created way more Pods than fit on the cluster which fail to schedule repeatedly). This was raised by the community on number of occasions."
+    },
+    {
+      "id": "F033",
+      "format": "text",
+      "text": "Publish feature gate associated with an API field for built-in API types in OpenAPI to document the mapping of API fields with their feature gates. Document the current prerelease status of an API field by publishing the prerelease status of the field and the minimum Kubernetes version for the prerelease in OpenAPI. Validate that the feature gate mentioned in the API field comment is a valid feature gate."
+    },
+    {
+      "id": "F034",
+      "format": "text",
+      "text": "Declarative specification of Kubernetes objects is the recommended way to manage Kubernetes production workloads, however gaps in the kubectl tooling force users to write their own scripting and tooling to augment the declarative tools with preprocessing transformations. While most of these transformations already exist as imperative kubectl commands, they are not natively accessible from a declarative workflow.\n\nThis KEP describes how `kustomize` addresses this problem by providing a declarative format for users to access the imperative kubectl commands they are already familiar natively from declarative workflows."
+    },
+    {
+      "id": "F035",
+      "format": "text",
+      "text": "Our plan is to add functionality to our static analysis framework which is hosted in the main `k8s/k8s` repo, under `test/instrumentation`. Specifically, we will need to support: parsing variables multi-line strings evaluating buckets buckets which are defined via variables and consts evaluation of simple consts evaluation of simple variables\n\nWe will not attempt to parse metrics which: are constructed dynamically, i.e. through function calls which use function arguments as parameters in metric definitions, since some of those cannot be resolved until runtime. are constructed using custom prometheus collectors, for the same reasons as above.\n\nAs an aside, much of this work has already been done, but is stashed in a local repo."
+    },
+    {
+      "id": "F036",
+      "format": "text",
+      "text": "We're proposing adding additional metadata fields to Kubernetes metrics. Specifically we want to add the following stability levels: `Internal` - representing internal usages of metrics (i.e. classes of metrics which do not correspond to features) or low-level metrics that a typical operator would not understand (or would not be able to react to them properly). `Beta` - representing a more mature stage in a feature metric, with greater stability guarantees than alpha or internal metrics, but less than `Stable`\n\nWe also propose amending the semantic meaning of an `Alpha` metric such that it represents the nascent stage of a KEP-proposed feature, rather than the entire class of metrics without stability guarantees.\n\nAdditionally we propose forced upgrades of metrics stability classes in the similar vein that features are not allowed to languish in `alpha` or `beta` stages, but this feature will not be available until the beta version of this KEP. For the alpha version of this KEP, we will implement the necessary changes to Kubernetes metrics framework, such that it supports the additional classes of metrics, without making changes to any existing metrics or their stability levels. As such, this KEP proposes changes to the metrics pipeline and the static analysis pieces of Kubernetes metrics framework."
+    }
+  ]
+}

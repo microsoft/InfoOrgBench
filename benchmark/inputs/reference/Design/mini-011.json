@@ -1,0 +1,366 @@
+{
+  "task_id": "mini-011",
+  "records": [
+    {
+      "id": "F001",
+      "path": [
+        "sig-cloud-provider",
+        "1771-versioning-policy-for-external-cloud-providers"
+      ],
+      "content_sha256": "2dd1833c3a94772c6737913ea795c96fc0a8a88810d6b0b7858a1e8c942f5069",
+      "source_native_id": "keps/sig-cloud-provider/1771-versioning-policy-for-external-cloud-providers#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F002",
+      "path": [
+        "sig-node",
+        "4210-max-image-gc-age"
+      ],
+      "content_sha256": "973ed2f7e74d282f49ec0f9d236229f55b916058ab7a170bb9e34c47cde54329",
+      "source_native_id": "keps/sig-node/4210-max-image-gc-age#excerpt-3",
+      "source_heading": "design details"
+    },
+    {
+      "id": "F003",
+      "path": [
+        "sig-scheduling",
+        "5832-decouple-podgroup-api"
+      ],
+      "content_sha256": "4d3599d606e0c675c84095946ae1a6024d4b5354b7f3258a87794367cfcff14c",
+      "source_native_id": "keps/sig-scheduling/5832-decouple-podgroup-api#excerpt-3",
+      "source_heading": "risks and mitigations"
+    },
+    {
+      "id": "F004",
+      "path": [
+        "sig-node",
+        "5945-dra-optional-node-preparation"
+      ],
+      "content_sha256": "157ad47ac5db20e51293b2feb8ab9628dd3cfc2ef43ddd54ab89e6eae2b5a53a",
+      "source_native_id": "keps/sig-node/5945-dra-optional-node-preparation#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F005",
+      "path": [
+        "sig-cloud-provider",
+        "1179-building-without-in-tree-providers"
+      ],
+      "content_sha256": "bec6897fe06486e8f97f57c771f5fa71a95bc1339ce69d38c6045a60f4e6a418",
+      "source_native_id": "keps/sig-cloud-provider/1179-building-without-in-tree-providers#excerpt-1",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F006",
+      "path": [
+        "sig-cloud-provider",
+        "1179-building-without-in-tree-providers"
+      ],
+      "content_sha256": "20a3d348b641608fbd860c716b4159dd5c55409311ed16c5387954de77643007",
+      "source_native_id": "keps/sig-cloud-provider/1179-building-without-in-tree-providers#excerpt-3",
+      "source_heading": "risks and mitigations"
+    },
+    {
+      "id": "F007",
+      "path": [
+        "sig-auth",
+        "3299-kms-v2-improvements"
+      ],
+      "content_sha256": "fd265c0eb30df41508cba81ae03c7d8e6166109e855b95da364dcacb5e655980",
+      "source_native_id": "keps/sig-auth/3299-kms-v2-improvements#excerpt-2",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F008",
+      "path": [
+        "sig-cloud-provider",
+        "1771-versioning-policy-for-external-cloud-providers"
+      ],
+      "content_sha256": "7a280d428200a328745549ea9c3db0e9a1baecc8ac72b726e7ca783abadabc22",
+      "source_native_id": "keps/sig-cloud-provider/1771-versioning-policy-for-external-cloud-providers#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F009",
+      "path": [
+        "sig-auth",
+        "5681-conditional-authorization"
+      ],
+      "content_sha256": "1415bc60989ae6eefb8d4f5ebd119a8f337666746330a67e6c8a72d8f91e337e",
+      "source_native_id": "keps/sig-auth/5681-conditional-authorization#excerpt-2",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F010",
+      "path": [
+        "sig-auth",
+        "3299-kms-v2-improvements"
+      ],
+      "content_sha256": "361a8ccfb97c3fea52bf274589d984c4ffcd23344c38bcfa86b670621d3bf23e",
+      "source_native_id": "keps/sig-auth/3299-kms-v2-improvements#excerpt-3",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F011",
+      "path": [
+        "sig-scheduling",
+        "5598-opportunistic-batching"
+      ],
+      "content_sha256": "993277a2f67f042d95259b3f24cf4fb7808e2021b2e8ca8901d388f1c9afab19",
+      "source_native_id": "keps/sig-scheduling/5598-opportunistic-batching#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F012",
+      "path": [
+        "sig-scheduling",
+        "5598-opportunistic-batching"
+      ],
+      "content_sha256": "db006d4620a61b4d6ea378eb5d37abe7f32fe8af773a19941c8910c9c25a9195",
+      "source_native_id": "keps/sig-scheduling/5598-opportunistic-batching#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F013",
+      "path": [
+        "sig-cloud-provider",
+        "2699-add-webhook-hosting-to-ccm"
+      ],
+      "content_sha256": "1f96e8f3492e757842785262ebfe43e9a57b7f775eb246419100a8544aac1e74",
+      "source_native_id": "keps/sig-cloud-provider/2699-add-webhook-hosting-to-ccm#excerpt-1",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F014",
+      "path": [
+        "sig-cloud-provider",
+        "2699-add-webhook-hosting-to-ccm"
+      ],
+      "content_sha256": "d01dd3224807d7003a4b4c1d3cd2d8cfe5b4b444154ed07f3bbfba99df278de9",
+      "source_native_id": "keps/sig-cloud-provider/2699-add-webhook-hosting-to-ccm#excerpt-3",
+      "source_heading": "design details"
+    },
+    {
+      "id": "F015",
+      "path": [
+        "sig-node",
+        "1558-streaming-proxy-redirects"
+      ],
+      "content_sha256": "7b51cb7abc7d836f2508f9fd2d240d969ced22330cb0803f2eab8eeca28ddfec",
+      "source_native_id": "keps/sig-node/1558-streaming-proxy-redirects#excerpt-3",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F016",
+      "path": [
+        "sig-auth",
+        "5681-conditional-authorization"
+      ],
+      "content_sha256": "55ee1e7ef120ffd23617d6db324396efc85dabd3afa9bfe7d5f171f72fe64da1",
+      "source_native_id": "keps/sig-auth/5681-conditional-authorization#excerpt-3",
+      "source_heading": "risks and mitigations"
+    },
+    {
+      "id": "F017",
+      "path": [
+        "sig-scheduling",
+        "5832-decouple-podgroup-api"
+      ],
+      "content_sha256": "55b4368d868a10fa57281989f6cd38e0b636ffd330f07cb2e09a65f32078b38c",
+      "source_native_id": "keps/sig-scheduling/5832-decouple-podgroup-api#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F018",
+      "path": [
+        "sig-scheduling",
+        "5598-opportunistic-batching"
+      ],
+      "content_sha256": "7753cd25d436dd5485f50d191a5efff4381e74506717b5329c4baeb1149ad93f",
+      "source_native_id": "keps/sig-scheduling/5598-opportunistic-batching#excerpt-3",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F019",
+      "path": [
+        "sig-node",
+        "4210-max-image-gc-age"
+      ],
+      "content_sha256": "b11eb8d1eb0f0c092a19169af8d2e76f27728908793fd06425620bb55efaae47",
+      "source_native_id": "keps/sig-node/4210-max-image-gc-age#excerpt-1",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F020",
+      "path": [
+        "sig-scheduling",
+        "5491-dra-list-types-for-attributes"
+      ],
+      "content_sha256": "98e0a412aaed33393dd7b47c5fb6e9b6e28d70908bb7e9c94f95a88514b5cd10",
+      "source_native_id": "keps/sig-scheduling/5491-dra-list-types-for-attributes#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F021",
+      "path": [
+        "sig-node",
+        "1558-streaming-proxy-redirects"
+      ],
+      "content_sha256": "be289e4e5ff6dd96623b81651978689ccc439984c2a6c6d0fc259beb3bcd99c5",
+      "source_native_id": "keps/sig-node/1558-streaming-proxy-redirects#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F022",
+      "path": [
+        "sig-scheduling",
+        "5832-decouple-podgroup-api"
+      ],
+      "content_sha256": "1a8c1ea5b159d5e8f4f97e94be4f7eb295011ee861560be3fec309e9a4cb7899",
+      "source_native_id": "keps/sig-scheduling/5832-decouple-podgroup-api#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F023",
+      "path": [
+        "sig-cloud-provider",
+        "2699-add-webhook-hosting-to-ccm"
+      ],
+      "content_sha256": "8efa54178e6c8c46f7071f9dde4ec2f2eb8aba351cfbe8f94262fdd86719b90b",
+      "source_native_id": "keps/sig-cloud-provider/2699-add-webhook-hosting-to-ccm#excerpt-2",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F024",
+      "path": [
+        "sig-cloud-provider",
+        "1179-building-without-in-tree-providers"
+      ],
+      "content_sha256": "e31f004233fe20b3c996bfa8c0a4ddd69b054ae0f936a585a0013fd861879abd",
+      "source_native_id": "keps/sig-cloud-provider/1179-building-without-in-tree-providers#excerpt-2",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F025",
+      "path": [
+        "sig-auth",
+        "2784-csr-duration"
+      ],
+      "content_sha256": "d704ced5df820753cb3b797053e9c16fcb5c40b8fbff00c45f613910e4f8221f",
+      "source_native_id": "keps/sig-auth/2784-csr-duration#excerpt-1",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F026",
+      "path": [
+        "sig-cloud-provider",
+        "1771-versioning-policy-for-external-cloud-providers"
+      ],
+      "content_sha256": "75666bda795d5d40cc14c315d716061f67938e2fee20d0b7e2ac3e23bcafaa69",
+      "source_native_id": "keps/sig-cloud-provider/1771-versioning-policy-for-external-cloud-providers#excerpt-3",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F027",
+      "path": [
+        "sig-auth",
+        "3299-kms-v2-improvements"
+      ],
+      "content_sha256": "8b7ad76f51129fc174268faa1b806f40ba22dcdea62059153cd1e85e6d3abaab",
+      "source_native_id": "keps/sig-auth/3299-kms-v2-improvements#excerpt-1",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F028",
+      "path": [
+        "sig-auth",
+        "5681-conditional-authorization"
+      ],
+      "content_sha256": "c546c767e742c1c5042f4c8610d58361f0a45f5308c8a9d5b3203de78c9f43de",
+      "source_native_id": "keps/sig-auth/5681-conditional-authorization#excerpt-1",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F029",
+      "path": [
+        "sig-node",
+        "5945-dra-optional-node-preparation"
+      ],
+      "content_sha256": "e54d0bf4c4e8283a3ebfd2e37248ed500d0bcfe23de456572ab9c6b43933e31f",
+      "source_native_id": "keps/sig-node/5945-dra-optional-node-preparation#excerpt-3",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F030",
+      "path": [
+        "sig-auth",
+        "2784-csr-duration"
+      ],
+      "content_sha256": "75ec2a31bff7ce08f7c8f954813ad1d07dcfeed7f83cc978ede63ebea2272414",
+      "source_native_id": "keps/sig-auth/2784-csr-duration#excerpt-2",
+      "source_heading": "design details"
+    },
+    {
+      "id": "F031",
+      "path": [
+        "sig-node",
+        "1558-streaming-proxy-redirects"
+      ],
+      "content_sha256": "ac9db88c0a6ae072f23627ffca1729fccb4ebba87ef69add7f29ed5ebea43ec6",
+      "source_native_id": "keps/sig-node/1558-streaming-proxy-redirects#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F032",
+      "path": [
+        "sig-scheduling",
+        "5491-dra-list-types-for-attributes"
+      ],
+      "content_sha256": "003826137ea7d93f4396079785e0d9c1e96181d2918dfa04b32a9373bd1b5bbf",
+      "source_native_id": "keps/sig-scheduling/5491-dra-list-types-for-attributes#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F033",
+      "path": [
+        "sig-scheduling",
+        "5491-dra-list-types-for-attributes"
+      ],
+      "content_sha256": "3dd8afb0b513ba766d4eb83c07c5ef67a888f21d11c1e9339782a64874f88915",
+      "source_native_id": "keps/sig-scheduling/5491-dra-list-types-for-attributes#excerpt-3",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F034",
+      "path": [
+        "sig-auth",
+        "2784-csr-duration"
+      ],
+      "content_sha256": "df2b8c96abe271ccafe9e47d3f935011b00d0cc1806da0b540c7648e62fe3b69",
+      "source_native_id": "keps/sig-auth/2784-csr-duration#excerpt-3",
+      "source_heading": "alternatives"
+    },
+    {
+      "id": "F035",
+      "path": [
+        "sig-node",
+        "5945-dra-optional-node-preparation"
+      ],
+      "content_sha256": "95e904ba17102b4f3ca511134d691b5b6b1c150daf291501e78de1205b4ae16b",
+      "source_native_id": "keps/sig-node/5945-dra-optional-node-preparation#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F036",
+      "path": [
+        "sig-node",
+        "4210-max-image-gc-age"
+      ],
+      "content_sha256": "a6c96812ae7b184e12fbd1e44fd44a2e74614a6fad43461f24685d8e9dd6d6ce",
+      "source_native_id": "keps/sig-node/4210-max-image-gc-age#excerpt-2",
+      "source_heading": "proposal"
+    }
+  ],
+  "reference_scope": "Source-derived group/proposal hierarchy for a development-only difficulty and cost pilot."
+}

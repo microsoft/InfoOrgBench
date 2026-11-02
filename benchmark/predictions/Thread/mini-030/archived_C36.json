@@ -1,0 +1,354 @@
+{
+  "assignments": [
+    {
+      "id": "F001",
+      "path": [
+        "ABFS driver improvements",
+        "Container existence backport"
+      ]
+    },
+    {
+      "id": "F002",
+      "path": [
+        "ABFS driver improvements",
+        "Analytical metrics"
+      ]
+    },
+    {
+      "id": "F003",
+      "path": [
+        "Manifest committer",
+        "ABFS rate limiting"
+      ]
+    },
+    {
+      "id": "F004",
+      "path": [
+        "ABFS driver improvements",
+        "Configuration documentation"
+      ]
+    },
+    {
+      "id": "F005",
+      "path": [
+        "Manifest committer",
+        "ABFS rate limiting"
+      ]
+    },
+    {
+      "id": "F006",
+      "path": [
+        "Manifest committer",
+        "ABFS rate limiting"
+      ]
+    },
+    {
+      "id": "F007",
+      "path": [
+        "Manifest committer",
+        "ABFS rate limiting"
+      ]
+    },
+    {
+      "id": "F008",
+      "path": [
+        "ABFS driver improvements",
+        "Random read performance"
+      ]
+    },
+    {
+      "id": "F009",
+      "path": [
+        "ABFS driver improvements",
+        "Revert root attributes"
+      ]
+    },
+    {
+      "id": "F010",
+      "path": [
+        "ABFS driver improvements",
+        "Namespace exception handling"
+      ]
+    },
+    {
+      "id": "F011",
+      "path": [
+        "ABFS driver improvements",
+        "Namespace exception handling"
+      ]
+    },
+    {
+      "id": "F012",
+      "path": [
+        "Manifest committer",
+        "ABFS rate limiting"
+      ]
+    },
+    {
+      "id": "F013",
+      "path": [
+        "ABFS driver improvements",
+        "Random read performance"
+      ]
+    },
+    {
+      "id": "F014",
+      "path": [
+        "ABFS driver improvements",
+        "Revert root attributes"
+      ]
+    },
+    {
+      "id": "F015",
+      "path": [
+        "ABFS driver improvements",
+        "Revert root attributes"
+      ]
+    },
+    {
+      "id": "F016",
+      "path": [
+        "ABFS driver improvements",
+        "Revert root attributes"
+      ]
+    },
+    {
+      "id": "F017",
+      "path": [
+        "ABFS driver improvements",
+        "Random read performance"
+      ]
+    },
+    {
+      "id": "F018",
+      "path": [
+        "ABFS driver improvements",
+        "Revert root attributes"
+      ]
+    },
+    {
+      "id": "F019",
+      "path": [
+        "ABFS driver improvements",
+        "Rename failure logging"
+      ]
+    },
+    {
+      "id": "F020",
+      "path": [
+        "ABFS driver improvements",
+        "Random read performance"
+      ]
+    },
+    {
+      "id": "F021",
+      "path": [
+        "ABFS driver improvements",
+        "Container existence backport"
+      ]
+    },
+    {
+      "id": "F022",
+      "path": [
+        "Manifest committer",
+        "ABFS rate limiting"
+      ]
+    },
+    {
+      "id": "F023",
+      "path": [
+        "ABFS driver improvements",
+        "Revert root attributes"
+      ]
+    },
+    {
+      "id": "F024",
+      "path": [
+        "ABFS driver improvements",
+        "Namespace exception handling"
+      ]
+    },
+    {
+      "id": "F025",
+      "path": [
+        "Manifest committer",
+        "ABFS rate limiting"
+      ]
+    },
+    {
+      "id": "F026",
+      "path": [
+        "ABFS driver improvements",
+        "Revert root attributes"
+      ]
+    },
+    {
+      "id": "F027",
+      "path": [
+        "Manifest committer",
+        "ABFS rate limiting"
+      ]
+    },
+    {
+      "id": "F028",
+      "path": [
+        "ABFS driver improvements",
+        "Revert root attributes"
+      ]
+    },
+    {
+      "id": "F029",
+      "path": [
+        "ABFS driver improvements",
+        "Revert root attributes"
+      ]
+    },
+    {
+      "id": "F030",
+      "path": [
+        "ABFS driver improvements",
+        "Configuration documentation"
+      ]
+    },
+    {
+      "id": "F031",
+      "path": [
+        "ABFS driver improvements",
+        "Revert root attributes"
+      ]
+    },
+    {
+      "id": "F032",
+      "path": [
+        "Manifest committer",
+        "ABFS rate limiting"
+      ]
+    },
+    {
+      "id": "F033",
+      "path": [
+        "Manifest committer",
+        "ABFS rate limiting"
+      ]
+    },
+    {
+      "id": "F034",
+      "path": [
+        "Manifest committer",
+        "ABFS rate limiting"
+      ]
+    },
+    {
+      "id": "F035",
+      "path": [
+        "ABFS driver improvements",
+        "Container existence backport"
+      ]
+    },
+    {
+      "id": "F036",
+      "path": [
+        "ABFS driver improvements",
+        "Analytical metrics"
+      ]
+    },
+    {
+      "id": "F037",
+      "path": [
+        "ABFS driver improvements",
+        "Common retry policy"
+      ]
+    },
+    {
+      "id": "F038",
+      "path": [
+        "ABFS driver improvements",
+        "Revert root attributes"
+      ]
+    },
+    {
+      "id": "F039",
+      "path": [
+        "ABFS driver improvements",
+        "Revert root attributes"
+      ]
+    },
+    {
+      "id": "F040",
+      "path": [
+        "ABFS driver improvements",
+        "Revert root attributes"
+      ]
+    },
+    {
+      "id": "F041",
+      "path": [
+        "ABFS driver improvements",
+        "Revert root attributes"
+      ]
+    },
+    {
+      "id": "F042",
+      "path": [
+        "Manifest committer",
+        "ABFS rate limiting"
+      ]
+    },
+    {
+      "id": "F043",
+      "path": [
+        "Manifest committer",
+        "ABFS rate limiting"
+      ]
+    },
+    {
+      "id": "F044",
+      "path": [
+        "ABFS driver improvements",
+        "Common retry policy"
+      ]
+    },
+    {
+      "id": "F045",
+      "path": [
+        "ABFS driver improvements",
+        "Rename failure logging"
+      ]
+    },
+    {
+      "id": "F046",
+      "path": [
+        "Manifest committer",
+        "ABFS rate limiting"
+      ]
+    },
+    {
+      "id": "F047",
+      "path": [
+        "Manifest committer",
+        "ABFS rate limiting"
+      ]
+    },
+    {
+      "id": "F048",
+      "path": [
+        "ABFS driver improvements",
+        "Random read performance"
+      ]
+    },
+    {
+      "id": "F049",
+      "path": [
+        "ABFS driver improvements",
+        "Rename failure logging"
+      ]
+    },
+    {
+      "id": "F050",
+      "path": [
+        "ABFS driver improvements",
+        "Random read performance"
+      ]
+    }
+  ]
+}

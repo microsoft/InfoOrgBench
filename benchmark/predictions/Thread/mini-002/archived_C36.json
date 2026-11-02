@@ -1,0 +1,354 @@
+{
+  "assignments": [
+    {
+      "id": "F001",
+      "path": [
+        "ABFS reliability",
+        "Delegation token tests"
+      ]
+    },
+    {
+      "id": "F002",
+      "path": [
+        "ABFS reliability",
+        "Trace logging"
+      ]
+    },
+    {
+      "id": "F003",
+      "path": [
+        "S3A integration",
+        "Credential provider tests"
+      ]
+    },
+    {
+      "id": "F004",
+      "path": [
+        "ABFS reliability",
+        "Delegation token tests"
+      ]
+    },
+    {
+      "id": "F005",
+      "path": [
+        "ABFS reliability",
+        "HNS credential test"
+      ]
+    },
+    {
+      "id": "F006",
+      "path": [
+        "S3A integration",
+        "Remove HDFS dependency"
+      ]
+    },
+    {
+      "id": "F007",
+      "path": [
+        "S3A integration",
+        "SSL retry failures"
+      ]
+    },
+    {
+      "id": "F008",
+      "path": [
+        "ABFS reliability",
+        "HNS configuration"
+      ]
+    },
+    {
+      "id": "F009",
+      "path": [
+        "S3A integration",
+        "Credential provider tests"
+      ]
+    },
+    {
+      "id": "F010",
+      "path": [
+        "ABFS reliability",
+        "Delegation token tests"
+      ]
+    },
+    {
+      "id": "F011",
+      "path": [
+        "ABFS reliability",
+        "Trace logging"
+      ]
+    },
+    {
+      "id": "F012",
+      "path": [
+        "S3A SDK upgrade",
+        "Public bucket encryption tests"
+      ]
+    },
+    {
+      "id": "F013",
+      "path": [
+        "S3A integration",
+        "Remove HDFS dependency"
+      ]
+    },
+    {
+      "id": "F014",
+      "path": [
+        "S3A integration",
+        "SSL retry failures"
+      ]
+    },
+    {
+      "id": "F015",
+      "path": [
+        "S3A integration",
+        "Credential provider tests"
+      ]
+    },
+    {
+      "id": "F016",
+      "path": [
+        "S3A integration",
+        "Credential provider tests"
+      ]
+    },
+    {
+      "id": "F017",
+      "path": [
+        "ABFS reliability",
+        "HNS credential test"
+      ]
+    },
+    {
+      "id": "F018",
+      "path": [
+        "S3A integration",
+        "YARN log collection"
+      ]
+    },
+    {
+      "id": "F019",
+      "path": [
+        "S3A SDK upgrade",
+        "HEAD metadata headers"
+      ]
+    },
+    {
+      "id": "F020",
+      "path": [
+        "ABFS reliability",
+        "Trace logging"
+      ]
+    },
+    {
+      "id": "F021",
+      "path": [
+        "ABFS reliability",
+        "Delegation token tests"
+      ]
+    },
+    {
+      "id": "F022",
+      "path": [
+        "ABFS reliability",
+        "HNS configuration"
+      ]
+    },
+    {
+      "id": "F023",
+      "path": [
+        "ABFS reliability",
+        "Container API backport"
+      ]
+    },
+    {
+      "id": "F024",
+      "path": [
+        "ABFS reliability",
+        "HNS configuration"
+      ]
+    },
+    {
+      "id": "F025",
+      "path": [
+        "ABFS reliability",
+        "Container API backport"
+      ]
+    },
+    {
+      "id": "F026",
+      "path": [
+        "ABFS reliability",
+        "HNS configuration"
+      ]
+    },
+    {
+      "id": "F027",
+      "path": [
+        "ABFS reliability",
+        "Container API backport"
+      ]
+    },
+    {
+      "id": "F028",
+      "path": [
+        "S3A SDK upgrade",
+        "Parallel rename timeout"
+      ]
+    },
+    {
+      "id": "F029",
+      "path": [
+        "S3A integration",
+        "SSL retry failures"
+      ]
+    },
+    {
+      "id": "F030",
+      "path": [
+        "ABFS reliability",
+        "Delegation token tests"
+      ]
+    },
+    {
+      "id": "F031",
+      "path": [
+        "ABFS reliability",
+        "Container API backport"
+      ]
+    },
+    {
+      "id": "F032",
+      "path": [
+        "ABFS reliability",
+        "Rename test authentication"
+      ]
+    },
+    {
+      "id": "F033",
+      "path": [
+        "ABFS reliability",
+        "Rename test authentication"
+      ]
+    },
+    {
+      "id": "F034",
+      "path": [
+        "ABFS reliability",
+        "Rename test authentication"
+      ]
+    },
+    {
+      "id": "F035",
+      "path": [
+        "ABFS reliability",
+        "Rename test authentication"
+      ]
+    },
+    {
+      "id": "F036",
+      "path": [
+        "ABFS reliability",
+        "Rename test authentication"
+      ]
+    },
+    {
+      "id": "F037",
+      "path": [
+        "ABFS reliability",
+        "Trace logging"
+      ]
+    },
+    {
+      "id": "F038",
+      "path": [
+        "ABFS reliability",
+        "HNS configuration"
+      ]
+    },
+    {
+      "id": "F039",
+      "path": [
+        "ABFS reliability",
+        "Trace logging"
+      ]
+    },
+    {
+      "id": "F040",
+      "path": [
+        "S3A integration",
+        "YARN log collection"
+      ]
+    },
+    {
+      "id": "F041",
+      "path": [
+        "ABFS reliability",
+        "Delegation token tests"
+      ]
+    },
+    {
+      "id": "F042",
+      "path": [
+        "S3A integration",
+        "SSL retry failures"
+      ]
+    },
+    {
+      "id": "F043",
+      "path": [
+        "ABFS reliability",
+        "Trace logging"
+      ]
+    },
+    {
+      "id": "F044",
+      "path": [
+        "S3A SDK upgrade",
+        "Parallel rename timeout"
+      ]
+    },
+    {
+      "id": "F045",
+      "path": [
+        "S3A integration",
+        "YARN log collection"
+      ]
+    },
+    {
+      "id": "F046",
+      "path": [
+        "S3A integration",
+        "SSL retry failures"
+      ]
+    },
+    {
+      "id": "F047",
+      "path": [
+        "S3A SDK upgrade",
+        "Parallel rename timeout"
+      ]
+    },
+    {
+      "id": "F048",
+      "path": [
+        "ABFS reliability",
+        "Rename failure logging"
+      ]
+    },
+    {
+      "id": "F049",
+      "path": [
+        "S3A integration",
+        "SSL retry failures"
+      ]
+    },
+    {
+      "id": "F050",
+      "path": [
+        "ABFS reliability",
+        "Rename test authentication"
+      ]
+    }
+  ]
+}

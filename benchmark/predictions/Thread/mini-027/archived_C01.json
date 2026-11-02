@@ -1,0 +1,312 @@
+{
+  "assignments": [
+    {
+      "id": "F001",
+      "path": [
+        "HADOOP-16404",
+        "ABFS-blocksize-change"
+      ]
+    },
+    {
+      "id": "F002",
+      "path": [
+        "HADOOP-S3A-shell",
+        "S3A-rm-trash-bypass"
+      ]
+    },
+    {
+      "id": "F003",
+      "path": [
+        "HADOOP-15825",
+        "ABFS-namespace-OAuth-tests"
+      ]
+    },
+    {
+      "id": "F004",
+      "path": [
+        "HADOOP-Misc",
+        "general-comments"
+      ]
+    },
+    {
+      "id": "F005",
+      "path": [
+        "HADOOP-16163",
+        "ABFS-delegation-token-NPE"
+      ]
+    },
+    {
+      "id": "F006",
+      "path": [
+        "HADOOP-S3A-headers",
+        "S3A-header-processing"
+      ]
+    },
+    {
+      "id": "F007",
+      "path": [
+        "HADOOP-Misc",
+        "general-comments"
+      ]
+    },
+    {
+      "id": "F008",
+      "path": [
+        "HADOOP-S3A-Iceberg",
+        "S3A-bulk-delete-validation"
+      ]
+    },
+    {
+      "id": "F009",
+      "path": [
+        "HADOOP-ABFS-docs",
+        "ABFS-configuration-docs"
+      ]
+    },
+    {
+      "id": "F010",
+      "path": [
+        "HADOOP-ABFS-tests",
+        "ABFS-namespace-OAuth"
+      ]
+    },
+    {
+      "id": "F011",
+      "path": [
+        "HADOOP-16281",
+        "ABFS-rename-debug-log"
+      ]
+    },
+    {
+      "id": "F012",
+      "path": [
+        "HADOOP-Misc",
+        "general-comments"
+      ]
+    },
+    {
+      "id": "F013",
+      "path": [
+        "HADOOP-Misc",
+        "general-comments"
+      ]
+    },
+    {
+      "id": "F014",
+      "path": [
+        "HADOOP-17004",
+        "duplicate-issue"
+      ]
+    },
+    {
+      "id": "F015",
+      "path": [
+        "HADOOP-S3A-SSL",
+        "S3A-SSL-timeout-retry"
+      ]
+    },
+    {
+      "id": "F016",
+      "path": [
+        "HADOOP-Misc",
+        "general-comments"
+      ]
+    },
+    {
+      "id": "F017",
+      "path": [
+        "HADOOP-Misc",
+        "general-comments"
+      ]
+    },
+    {
+      "id": "F018",
+      "path": [
+        "HADOOP-Misc",
+        "general-comments"
+      ]
+    },
+    {
+      "id": "F019",
+      "path": [
+        "HADOOP-16163",
+        "ABFS-delegation-token-NPE"
+      ]
+    },
+    {
+      "id": "F020",
+      "path": [
+        "HADOOP-S3A-SSL",
+        "S3A-SSL-timeout-retry"
+      ]
+    },
+    {
+      "id": "F021",
+      "path": [
+        "HADOOP-S3A-SSL",
+        "S3A-SSL-timeout-retry"
+      ]
+    },
+    {
+      "id": "F022",
+      "path": [
+        "HADOOP-S3A-shell",
+        "S3A-rm-trash-bypass"
+      ]
+    },
+    {
+      "id": "F023",
+      "path": [
+        "HADOOP-15825",
+        "ABFS-namespace-OAuth-tests"
+      ]
+    },
+    {
+      "id": "F024",
+      "path": [
+        "HADOOP-15825",
+        "ABFS-namespace-OAuth-tests"
+      ]
+    },
+    {
+      "id": "F025",
+      "path": [
+        "HADOOP-15825",
+        "ABFS-namespace-OAuth-tests"
+      ]
+    },
+    {
+      "id": "F026",
+      "path": [
+        "HADOOP-15825",
+        "ABFS-namespace-OAuth-tests"
+      ]
+    },
+    {
+      "id": "F027",
+      "path": [
+        "HADOOP-15825",
+        "ABFS-namespace-OAuth-tests"
+      ]
+    },
+    {
+      "id": "F028",
+      "path": [
+        "HADOOP-15825",
+        "ABFS-namespace-OAuth-tests"
+      ]
+    },
+    {
+      "id": "F029",
+      "path": [
+        "HADOOP-15825",
+        "ABFS-namespace-OAuth-tests"
+      ]
+    },
+    {
+      "id": "F030",
+      "path": [
+        "HADOOP-S3A-SSL",
+        "S3A-SSL-timeout-retry"
+      ]
+    },
+    {
+      "id": "F031",
+      "path": [
+        "HADOOP-15825",
+        "ABFS-namespace-OAuth-tests"
+      ]
+    },
+    {
+      "id": "F032",
+      "path": [
+        "HADOOP-16404",
+        "ABFS-blocksize-change"
+      ]
+    },
+    {
+      "id": "F033",
+      "path": [
+        "HADOOP-15825",
+        "ABFS-namespace-OAuth-tests"
+      ]
+    },
+    {
+      "id": "F034",
+      "path": [
+        "HADOOP-ABFS-token",
+        "ABFS-token-retry-unrecoverable"
+      ]
+    },
+    {
+      "id": "F035",
+      "path": [
+        "HADOOP-16404",
+        "ABFS-blocksize-change"
+      ]
+    },
+    {
+      "id": "F036",
+      "path": [
+        "HADOOP-16404",
+        "ABFS-blocksize-change"
+      ]
+    },
+    {
+      "id": "F037",
+      "path": [
+        "HADOOP-16404",
+        "ABFS-blocksize-change"
+      ]
+    },
+    {
+      "id": "F038",
+      "path": [
+        "HADOOP-16163",
+        "ABFS-delegation-token-NPE"
+      ]
+    },
+    {
+      "id": "F039",
+      "path": [
+        "HADOOP-S3A-SSL",
+        "S3A-SSL-timeout-retry"
+      ]
+    },
+    {
+      "id": "F040",
+      "path": [
+        "HADOOP-S3A-SSL",
+        "S3A-SSL-timeout-retry"
+      ]
+    },
+    {
+      "id": "F041",
+      "path": [
+        "HADOOP-16163",
+        "ABFS-delegation-token-NPE"
+      ]
+    },
+    {
+      "id": "F042",
+      "path": [
+        "HADOOP-S3A-SSL",
+        "S3A-SSL-timeout-retry"
+      ]
+    },
+    {
+      "id": "F043",
+      "path": [
+        "HADOOP-16404",
+        "ABFS-blocksize-change"
+      ]
+    },
+    {
+      "id": "F044",
+      "path": [
+        "HADOOP-Misc",
+        "general-comments"
+      ]
+    }
+  ]
+}

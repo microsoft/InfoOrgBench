@@ -1,0 +1,185 @@
+{
+  "task_id": "mini-007",
+  "records": [
+    {
+      "id": "F001",
+      "format": "text",
+      "text": "Troubleshooting issues with control-plane and worker nodes typically requires a cluster administrator to SSH into the nodes for debugging. While certain issues will require being on the node, issues with the kube-proxy or kubelet, to name a couple, could be solved by perusing their logs. However this too requires the administrator to SSH access into the nodes. Having a way for them to view the logs using a kubelet API or kubectl plugin will significantly simplify their troubleshooting."
+    },
+    {
+      "id": "F002",
+      "format": "text",
+      "text": "**Scalability**: In the current design and draft implementation, kubelet holds the private keys for each pod on the node in memory. If kubelet restarts, then the private keys are lost, and kubelet will need to immediately generate new keys and request new certificates for each volume on the pod. If kubelet crashloops, this can generate high CertificateSigningRequest traffic on kube-apiserver. This can potentially be mitigated by giving kubelet the capability to read back the existing key from the projected volume on startup."
+    },
+    {
+      "id": "F003",
+      "format": "text",
+      "text": "Add native histogram support to the `component-base/metrics` package with: **Feature Gate**: A new `NativeHistograms` feature gate controlling whether K8s components expose metrics with native histogram format **Global Defaults**: Use sensible global defaults for native histogram configuration **Dual Exposition**: When enabled, expose both classic and native histogram formats\n\nThe control model is intentionally simple: K8s-side: Feature gate controls whether native histograms are exposed Prometheus-side: Per-job `scrape_native_histograms` (ref) controls what Prometheus ingests (Prometheus 3.x)"
+    },
+    {
+      "id": "F004",
+      "format": "text",
+      "text": "**Ensure that certificate issuance can be accomplished without relying on bearer tokens at any step**: One of the most significant benefits of mTLS authentication is that the credential is split into two pieces (private key and certificate), only one of which is ever transmitted to the counterparty (and thus subject to eavesdropping or theft by the counterparty). In order to preserve this guarantee, it's important that bearer tokens are not involved *at any step*, otherwise the security of the scheme devolves to just being a bearer token."
+    },
+    {
+      "id": "F005",
+      "format": "text",
+      "text": "Many kubernetes users still misconfigure their cluster by creating RoleBindings and ClusterRoleBindings to powerful rules in their cluster. This KubeCon talk covers a real world example of a production kubernetes cluster where a ClusterRoleBinding was created that bound the `cluster-admin` ClusterRole to the `system:anonymous` user, allowing for full cluster takeover.\n\nOne of the mitigations would be to disable anonymous authentication by setting the `kube-apiserver` flag `--anonymous-auth` to `false`, but this is not possible for many deployments that depend on unauthenticated requests (from clients like load balancers or the kubelet) to check health endpoints of a kubernetes cluster (`healthz`, `livez` and `readyz`). In order to allow these health checks a cluster admin has to enable anonymous requests opening the door for misconfigurations."
+    },
+    {
+      "id": "F006",
+      "format": "text",
+      "text": "We will update the `kube-apiserver` AuthenticationConfiguration with a field that allows a user to configure anonymous authentication as shown below. Using the structure described above a user will be able to do the following: Disable Anonymous Auth. Note: This is the same as setting `--anonymous-auth` flag to `false`. Enable Anonymous Auth. Note: This is the same as setting `--anonymous-auth` flag to `true`."
+    },
+    {
+      "id": "F007",
+      "format": "text",
+      "text": "Supporting In-place cpu resource resize for Guaranteed QoS pods is crucial because it allows critical, performance-sensitive applications to adjust their CPU allocations without disruptive restarts.\n\nFor example in a Data Plane Development Kit (DPDK) based high-speed data packet networking application, at application startup: DPDK libraries are initialized in the `main logical core (lcore 0)`. Please note that in DPDK, `lcore` refers to a logical execution unit of the processor, sometimes called a hardware thread. `worker and I/O logical cores ( lcore > 0)` are also initialized, to handle packet processing and run on application's workload at RX and TX logical cores ( depending on the application ). Those initial `DPDK logical cores` must be maintained during applications lifecycle, by design of core DPDK Environment Abstraction Layer (EAL) to ensure no disrupton.\n\nCurrently, in-place resource resizing is infeasible for Guaranteed QoS pods on nodes configured with a Static CPU Policy ( issue #127262 ).\n\nThis proposal aims to implement this capability, which was a planned (but out-of-scope) enhancement for the In-Place Resource Resize feature."
+    },
+    {
+      "id": "F008",
+      "format": "text",
+      "text": "Bugs in handling CPU resizing can result in incorrect CPU pinning affecting performance of the pod being resized and also the other pods on the node.\n\nResource fragmentation could potentially caused, after pod resizes, especially downsize. Such fragementation could result that future resource requests could be harder to accommodate, including new admissions. In such case a possible mitigation would be in the future to review the allocation algorithm in general to better tolerate fragmentation."
+    },
+    {
+      "id": "F009",
+      "format": "text",
+      "text": "The `metrics.k8s.io` API provides resource metrics (CPU and memory) for nodes and pods in the cluster, in an implementation-agnostic manner. As a part of the aggregation layer, implementations instrumenting the API benefit from APIServer's authentication and authorization measures out-of-the-box.\n\nThe diagram below gives a general idea on the flow: The consumer, through the `metrics.k8s.io` client, sends a request. The format is dictated by `k8s.io/metrics/pkg/apis/metrics`: The responsible addon APIServer is identified based on the registered APIService object. For e.g., for metrics-server: The implementation collects resource metrics from each kubelet and returns `NodeMetrics` or `PodMetrics` objects. `PodMetrics` includes per-container breakdown via `ContainerMetrics`. The `v1` types are identical to `v1beta1` except for the version name:"
+    },
+    {
+      "id": "F010",
+      "format": "text",
+      "text": "There are two important motivations for the API enhancements described in this KEP: With the introduction of Alpha support for GMSA in Kubernetes v1.14, references to GMSA credential spec custom resources need to be specified through annotations at the pod and container level. However, as detailed in the related GMSA KEP, we want the ability to specify references to GMSA credential specs directly in the pod/container specs as fields (without having to use annotations) beyond the Alpha stage. The Windows implementation of the dockershim, CRI and the low-level OCI spec can already handle a username (instead of UID), which is interpreted inside the container to create a process as the intended user. This however is not surfaced as a field in the pod/container specs that an operator can specify. We want the ability to specify the desired username in the pod/container specs as fields and be able to pass them to the configured Windows runtime."
+    },
+    {
+      "id": "F011",
+      "format": "text",
+      "text": "We want to avoid using cAdvisor for container & pod level stats and move metric collection to the CRI implementation for the following reasons: cAdvisor and metric dependency: CRI mission is not fully fulfilled - container runtime is not fully plugable. Break the monolithic design of cAdvisor, which needs to be aware of the underlying container runtime. Duplicate stats are collected by both cAdvisor and the CRI runtime, which can lead to: Different information from different sources Confusion from unclear origin of a given metric Performance degradations (increased CPU / Memory / etc) [xref][perf-issue] Stats should be reported by the container runtime which knows behavior of the container/pod the best. cAdvisor only supports runtimes that run processes on the host, not e.g. VM based runtime like Kata Containers. cAdvisor only supports linux containers, not Windows ones. cAdvisor has big list of external dependencies since it needs to support multiple container runtimes itself - leads to large support surface.\n\n[perf-issue]:"
+    },
+    {
+      "id": "F012",
+      "format": "text",
+      "text": "Here we use UIDs, but the same applies for GIDs. Increase node to pod isolation by mapping user and group IDs inside the container to different IDs in the host. In particular, mapping root inside the container to unprivileged user and group IDs in the node. Increase pod to pod isolation by allowing to use non-overlapping mappings (UIDs/GIDs) whenever possible. In other words: if two containers runs as user X, they run as different UIDs in the node and therefore are more isolated than today. Allow pods to have capabilities (e.g. `CAP_SYS_ADMIN`) that are only valid in the pod (not valid in the host). Benefit from the security hardening that user namespaces provide against some of the future unknown runtime and kernel vulnerabilities."
+    },
+    {
+      "id": "F013",
+      "format": "text",
+      "text": "This feature makes the assumption that an admin will only perform read-only monitoring and troubleshooting operations. However, it is possible that an admin also performs write access to the device. This risk can be mitigated by the DRA driver to ensure AdminAccess ResourceClaims can only execute read-only operations on the device. We can add a warning in the driver documentation. However, what additional permissions are granted or needed for admin operations is up to the DRA driver implementation."
+    },
+    {
+      "id": "F014",
+      "format": "text",
+      "text": "Support for containerized Windows workloads on Windows nodes in a Kubernetes cluster reached GA status in v1.14. For persistent storage requirements, Windows workloads today depend on: (1) Powershell based FlexVolume plugins maintained by Microsoft that support mounting remote storage volumes over SMB and iSCSI protocols and (2) In-tree plugins in Kubernetes core (kubernetes/kubernetes repository) for popular cloud environments that support formatting and mounting direct attached disks on Windows nodes."
+    },
+    {
+      "id": "F015",
+      "format": "text",
+      "text": "The current Dynamic Resource Allocation (DRA) feature enables users to request resources but lacks a mechanism for cluster administrators to gain privileged access to devices already in use by other users. This limitation restricts administrators from performing tasks like: Monitoring device health or status. Performing diagnostics and troubleshooting on devices shared across users.\n\nEnabling such administrative tasks without compromising security is critical to cluster operations. Non-admin users gaining access to devices in use by others could result in: Unauthorized access to confidential information about device usage. Potential conflicts or misuse of shared hardware.\n\nAs the adoption of DRA expands, the inability of administrators to perform privileged device introspection becomes a bottleneck for cluster operations, particularly in shared environments where devices are critical resources."
+    },
+    {
+      "id": "F016",
+      "format": "text",
+      "text": "This KEP proposes adding support for Prometheus Native Histograms to Kubernetes component metrics. Starting with Prometheus v3.8.0, native histograms are supported as a stable feature. Native histograms use exponential bucket boundaries instead of fixed boundaries, providing significant storage efficiency (~10x reduction in time series count per histogram), improved query performance, and finer-grained visibility into distributions while maintaining full backward compatibility with existing monitoring infrastructure through a dual exposition strategy.\n\nThe implementation introduces a feature gate (`NativeHistograms`) to provide safe rollout and rollback capabilities. When enabled, Kubernetes components will expose histogram metrics in both classic and native formats simultaneously (when requesting a format that supports Native Histograms, such as PrometheusProto), ensuring existing dashboards and alerts continue to function while users can migrate to native histograms at their own pace. Rollback is handled primarily through Prometheus-side configuration (for Prometheus 3.x users) or via the K8s feature gate."
+    },
+    {
+      "id": "F017",
+      "format": "text",
+      "text": "Ensure that the QoS class of the pod does not change during resize. Ensure CPU request and limit equality is maintained when a Guaranteed QoS Pod alongside CPU Manager static policy is resized successfully. Preserve the properties of the configured Topology Manager, CPU Manager during resize. Support CPU limit increase without container restart keeping originally configured CPU values (during pod creation on the Node), maintains original NUMA affinity ( during pod creation of the Node ), expands upon the original NUMA affinity, if needed, respecting the constraints of the topology manager policy in use. Support CPU limit decrease without container restart up to the originally configured CPU values (during pod creation on the Node), maintains original NUMA affinity, maintains parts or whole of previously expanded upon the original NUMA affinity ( from a previous CPU limit increase ), if needed, respecting the constraints of the topology manager policy in use."
+    },
+    {
+      "id": "F018",
+      "format": "text",
+      "text": "A Kubernetes cluster administrator has to log in to the relavant control-plane or worker nodes to view the logs of the API server, kubelet etc. Or they would have to implement a client side reader. A simpler and more elegant method would be to allow them to use a kubelet API or kubectl plugin to also view these logs similar to using it for other interactions with the cluster. Given the sensitive nature of the information in node logs, this feature will only be available to cluster administrators."
+    },
+    {
+      "id": "F019",
+      "format": "text",
+      "text": "As the Dynamic Resource Allocation (DRA) feature evolves, cluster administrators require a privileged mode, referred to as DRAAdminAccess, to securely access devices already in use by other users. This mode enables administrators to perform tasks such as monitoring the health and status of all devices while ensuring that regular users can only run containers on devices explicitly claimed by their workloads.\n\nThis KEP proposes a mechanism for cluster administrators to mark a request in a ResourceClaim or ResourceClaimTemplate with an admin access flag. This flag allows privileged access to devices, enabling administrative tasks without compromising security. Access to this mode is restricted to users authorized to create ResourceClaim or ResourceClaimTemplate objects in namespaces marked with the DRA admin label, ensuring that non-administrative users cannot misuse this feature.\n\nNote: Administrator workloads should not interfere with the application workloads. If that cannot be supported due to hardware restrictions or that the administrator workload is too demanding, then administrators should request exclusive access for specific admin task such that no other claims are allocated."
+    },
+    {
+      "id": "F020",
+      "format": "text",
+      "text": "By default, requests to the `kube-apiserver` that are not rejected by configured authentication methods are treated as anonymous requests, and given a username of `system:anonymous` and a group of `system:unauthenticated`.\n\nThis behavior is can be toggled on or off by using the `--anonymous-auth` boolean flag. By default `anonymous-auth` is set to `true`.\n\nWe propose that kubernetes should allow users to configure which endpoints can be accessed anonymously and disable anonymous auth for all other endpoints."
+    },
+    {
+      "id": "F021",
+      "format": "text",
+      "text": "Provide a way to run the kubelet process or container runtimes as an unprivileged process. Although initiatives like [kubelet in user namespaces][kubelet-userns] and this KEP both make use of user namespaces, it is a different implementation for a different purpose. Implement all the very nice use cases that user namespaces allows. The goal here is to allow them as incremental improvements, not implement all the possible ideas related with user namespaces.\n\n[kubelet-userns]:"
+    },
+    {
+      "id": "F022",
+      "format": "text",
+      "text": "Details around GMSA end-2-end functionality and interaction with webhooks that is covered in the GMSA KEP. Implementation details and security considerations around how a GMSACredentialSpecName is expanded to GMSACredentialSpec as that is covered in details in the GMSA KEP. Details around how GMSA credential specs or Windows username is passed through CRI and interpreted by Windows container run-times like Docker or ContainerD. Enhancements related to GMSA in CRI is already covered in the GMSA KEP. Enhancements related to Username in CRI was introduced a while back in a PR"
+    },
+    {
+      "id": "F023",
+      "format": "text",
+      "text": "In this KEP, we propose API enhancements in the Kubernetes pod spec to capture Windows OS specific security options from the perspective of Windows workload identity in containers. Initially the enhancements will cover fields pertinent to GMSA credential specs and the username with which to execute the container entry-point. More fields may be added in the future. Please note that this is a KEP with a very limited scope focussing mainly on the API enhancements needed to support GMSA credential spec details and the RunAsUsername field. Details around overall GMSA functionality can be found in the GMSA KEP and are not repeated in this KEP."
+    },
+    {
+      "id": "F024",
+      "format": "text",
+      "text": "Container Storage Interface (CSI) is a modern GRPC based standard for implementing external storage plugins (maintained by storage vendors, cloud providers, etc.) for container orchestrators like Kubernetes. Persistent storage requirements of containerized workloads can be satisfied from a diverse array of storage systems by installing and configuring the CSI plugins supported by the desired storage system. This KEP covers the enhancements necessary in Kubernetes core and CSI related out-of-tree components (specific to Kubernetes) to support CSI plugins for Windows nodes in a Kubernetes cluster. With the enhancements proposed in this KEP, Kubernetes operators will be able to leverage modern CSI plugins to satisfy the persistent storage requirements of Windows workloads in Kubernetes."
+    },
+    {
+      "id": "F025",
+      "format": "text",
+      "text": "Support all CSI Node Plugin operations: NodeStageVolume/NodeUnstageVolume, NodePublishVolume/NodeUnPublishVolume, NodeExpandVolume, NodeGetVolumeStats, NodeGetCapabilities and NodeGetInfo on Windows nodes. Support CSI plugins associated with a variety of external storage scenarios: block storage surfaced through iSCSI as well as directly attached disks (e.g. in cloud environments) as well as remote volumes over SMB. Ability to distribute CSI Node Plugins targeting Windows nodes as containers that can be deployed using DaemonSets in a Kubernetes cluster comprising of Windows nodes."
+    },
+    {
+      "id": "F026",
+      "format": "text",
+      "text": "There are two main APIs that consumers use to gather stats about running containers and pods: [summary API][summary-api] and [/metrics/cadvisor][metrics-cadvisor]. The Kubelet is responsible for implementing the summary API, and cadvisor is responsible for fulfilling `/metrics/cadvisor`.\n\nThe CRI API currently does not provide enough metrics to fully supply all the fields for either endpoint, however is used to fill some fields of the summary API. This results in an unclear origin of metrics, duplication of work done between cAdvisor and CRI, and performance implications.\n\nThis KEP aims to enhance CRI implementations to be able to fulfill all the stats needs of Kubernetes. At a high level, there are two pieces of this: enhance the CRI API with enough metrics to be able to supplement the pod and container fields in the summary API directly from CRI. enhance the CRI implementations to broadcast the required metrics to fulfill the pod and container fields in the `/metrics/cadvisor` endpoint.\n\n[summary-api]: [metrics-cadvisor]:"
+    },
+    {
+      "id": "F027",
+      "format": "text",
+      "text": "Kubernetes exposes hundreds of histogram metrics across its control plane components. These metrics are essential for monitoring cluster health, debugging performance issues, and ensuring service level objectives are met. However, classic Prometheus histograms have inherent limitations: **Storage overhead**: Each classic histogram creates multiple time series (one per bucket plus `_count` and `_sum`), leading to high storage costs at scale **Fixed bucket boundaries**: Predefined buckets may not align well with actual data distributions, causing accuracy issues and rendering bucket boundaries useless. For example, if a histogram uses default buckets like `[0.005, 0.01, 0.025, 0.05, 0.1, 0.25, 0.5, 1, 2.5, 5, 10]` seconds, a request completing in 1µs (0.000001s) falls into the same `le=\"0.005\"` bucket as a request completing in 4ms—a 4000x difference in latency becomes indistinguishable. Similarly, all requests between 1s and 2.5s are grouped together, hiding important performance variations\n\nPrometheus Native Histograms, introduced in Prometheus 2.40, address these limitations using exponential bucket boundaries with automatic adjustment. Kubernetes should support this modern, more efficient histogram format."
+    },
+    {
+      "id": "F028",
+      "format": "text",
+      "text": "Provide a cluster administrator with a streaming view of logs using a kubelet API without them having to implement a client side reader or logging into the node. This would work for: Services on Linux worker and control plane nodes: That have systemd / journald support. That have services that log to `/var/log/` Windows worker nodes (all supported variants) that log to `C:\\var\\log`, and Application logs."
+    },
+    {
+      "id": "F029",
+      "format": "text",
+      "text": "The proposal broadly entails two efforts: Introducing `metrics.k8s.io/v1` for the `k8s.io/metrics` package, and, Migrating in-house components and sub-projects to utilize the stable version.\n\nThe former will be a cosmetic change, essentially bumping `v1beta1` to `v1`. The `v1` API surface will be identical to `v1beta1`, with the only difference being the version name itself.\n\nThe latter will focus on utilizing the stable version in the `metrics.k8s.io`'s client, as well as `pkg/controller/podautoscaler` and `kubectl top`, which are currently on the latest beta version."
+    },
+    {
+      "id": "F030",
+      "format": "text",
+      "text": "The current Prometheus metrics exposed by the cluster have gaps that make building accurate capacity alerts, dashboards, and ad-hoc queries more difficult than necessary and complicate the average user’s understanding of the resource model. The Kubernetes resource model is fundamental to capacity planning and error triage. It should be easy to visualize and alert on core usage and capacity through a simple set of metrics. Administrators and integrators should be able to easily graph and calculate the available and consumed resources within the cluster at any time."
+    },
+    {
+      "id": "F031",
+      "format": "text",
+      "text": "**Specify a solution for pod-to-pod mTLS in core Kubernetes**: Pod-to-pod mTLS (aka service mesh) is a rapidly-evolving area. While all of the machinery described in this KEP is expected (and is designed to be) useful for service mesh implementations, it doesn't make sense to try and standardize pod-to-pod mTLS at the core Kubernetes layer today. **Support HSM-backed private keys**: In this proposal, private keys are contained to the node (held only in kubelet memory and tmpfs projected volumes), but they can still be extracted from a compromised workload (or compromised node)."
+    },
+    {
+      "id": "F032",
+      "format": "text",
+      "text": "Kubernetes should define a set of standard metrics that allow a user who works with the Kubernetes resource model to easily answer via instrumentation several important queries: What is the current remaining schedulable capacity of all my nodes Which components are using less than they request Which components on a node are the most likely to be evicted Which resources on my cluster are most contended Is a set of pods requesting more resources than any node has to offer\n\nWe should attempt to provide sufficient “out of the box” metrics for capacity planning for most cluster administrators, and present the resource model that Kubernetes uses for easy consumption. Integrations that extend the resource model with our supported pattern should also be visible in these metrics as the default resource model would interpret them.\n\nWe should use consistent terminology, patterns, and descriptions of resource request, consumption, and availability across our API, metrics, component code, and documentation to ensure Kubernetes admins see a coherent view of the Kubernetes resource model."
+    },
+    {
+      "id": "F033",
+      "format": "text",
+      "text": "Promote the `metrics.k8s.io` API to stable. The API has been in beta since v1.8 (approximately 7 years ago) without a formal graduation effort. Given this lengthy soak period, the API has proven stable in production environments worldwide — consumers such as the Horizontal Pod Autoscaler and `kubectl top` have relied on it for years. We believe it is now appropriate to formally graduate the API to stable."
+    },
+    {
+      "id": "F034",
+      "format": "text",
+      "text": "Rely on a single component to provide the container and pod level metrics for the Summary API. Improve performance and reduce confusion on metrics collection in the Kubelet. Do not introduce breaking changes to the Summary API. Eliminate dependencies on container runtime clients used by cAdvisor. Enhance CRI implementations to provide metrics analogous to the existing metrics provided by `/metrics/cadvisor`, and have the kubelet report metrics through that endpoint."
+    },
+    {
+      "id": "F035",
+      "format": "text",
+      "text": "From user_namespaces(7): > User namespaces isolate security-related identifiers and attributes, in particular, user IDs and group IDs, the root directory, keys, and capabilities. A process's user and group IDs can be different inside and outside a user namespace. In particular, a process can have a normal unprivileged user ID outside a user namespace while at the same time having a user ID of 0 inside the namespace; in other words, the process has full privileges for operations inside the user namespace, but is unprivileged for operations outside the namespace."
+    },
+    {
+      "id": "F036",
+      "format": "text",
+      "text": "We considered extending `kube-state-metrics` to represent all of the data necessary to perform the pod resource lifecycle calculation as described above. The implementation would require a significant number of new metric cardinality, and would also require a very complex recording rule that would be difficult in some engines and likely not be completely accurate. Since we believe that metrics should be exposed that reflect the intent of the system, and this metric is extremely high value, and we desire to reuse the same logic that the underlying system relies on to minimize drift, we choose to bypass this approach for now."
+    }
+  ]
+}

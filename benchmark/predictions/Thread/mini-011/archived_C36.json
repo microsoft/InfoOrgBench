@@ -1,0 +1,424 @@
+{
+  "assignments": [
+    {
+      "id": "F001",
+      "path": [
+        "ABFS improvements",
+        "Trace logging"
+      ]
+    },
+    {
+      "id": "F002",
+      "path": [
+        "S3 access points",
+        "Alias support"
+      ]
+    },
+    {
+      "id": "F003",
+      "path": [
+        "ABFS improvements",
+        "Trace logging"
+      ]
+    },
+    {
+      "id": "F004",
+      "path": [
+        "ABFS improvements",
+        "Configuration documentation"
+      ]
+    },
+    {
+      "id": "F005",
+      "path": [
+        "S3 access points",
+        "Alias support"
+      ]
+    },
+    {
+      "id": "F006",
+      "path": [
+        "ABFS improvements",
+        "Credential failure test"
+      ]
+    },
+    {
+      "id": "F007",
+      "path": [
+        "ABFS improvements",
+        "China authentication"
+      ]
+    },
+    {
+      "id": "F008",
+      "path": [
+        "ABFS improvements",
+        "HNS configuration"
+      ]
+    },
+    {
+      "id": "F009",
+      "path": [
+        "Blobstore DistCp",
+        "Attribute preservation"
+      ]
+    },
+    {
+      "id": "F010",
+      "path": [
+        "S3 access points",
+        "Alias support"
+      ]
+    },
+    {
+      "id": "F011",
+      "path": [
+        "S3 access points",
+        "Alias support"
+      ]
+    },
+    {
+      "id": "F012",
+      "path": [
+        "ABFS improvements",
+        "Analytical metrics"
+      ]
+    },
+    {
+      "id": "F013",
+      "path": [
+        "ABFS improvements",
+        "Trace logging"
+      ]
+    },
+    {
+      "id": "F014",
+      "path": [
+        "ABFS improvements",
+        "Credential failure test"
+      ]
+    },
+    {
+      "id": "F015",
+      "path": [
+        "ABFS improvements",
+        "China authentication"
+      ]
+    },
+    {
+      "id": "F016",
+      "path": [
+        "ABFS improvements",
+        "China authentication"
+      ]
+    },
+    {
+      "id": "F017",
+      "path": [
+        "S3 access points",
+        "Alias support"
+      ]
+    },
+    {
+      "id": "F018",
+      "path": [
+        "ABFS improvements",
+        "Token retry failures"
+      ]
+    },
+    {
+      "id": "F019",
+      "path": [
+        "Blobstore DistCp",
+        "Attribute preservation"
+      ]
+    },
+    {
+      "id": "F020",
+      "path": [
+        "ABFS improvements",
+        "Trace logging"
+      ]
+    },
+    {
+      "id": "F021",
+      "path": [
+        "S3 access points",
+        "Alias support"
+      ]
+    },
+    {
+      "id": "F022",
+      "path": [
+        "ABFS improvements",
+        "Token retry failures"
+      ]
+    },
+    {
+      "id": "F023",
+      "path": [
+        "S3 access points",
+        "Alias support"
+      ]
+    },
+    {
+      "id": "F024",
+      "path": [
+        "S3 access points",
+        "Alias support"
+      ]
+    },
+    {
+      "id": "F025",
+      "path": [
+        "ABFS improvements",
+        "Throttling auth errors"
+      ]
+    },
+    {
+      "id": "F026",
+      "path": [
+        "Blobstore DistCp",
+        "Attribute preservation"
+      ]
+    },
+    {
+      "id": "F027",
+      "path": [
+        "Blobstore DistCp",
+        "Attribute preservation"
+      ]
+    },
+    {
+      "id": "F028",
+      "path": [
+        "ABFS improvements",
+        "Trace logging"
+      ]
+    },
+    {
+      "id": "F029",
+      "path": [
+        "S3 access points",
+        "Alias support"
+      ]
+    },
+    {
+      "id": "F030",
+      "path": [
+        "ABFS improvements",
+        "HNS configuration"
+      ]
+    },
+    {
+      "id": "F031",
+      "path": [
+        "ABFS improvements",
+        "Configuration documentation"
+      ]
+    },
+    {
+      "id": "F032",
+      "path": [
+        "ABFS improvements",
+        "HNS configuration"
+      ]
+    },
+    {
+      "id": "F033",
+      "path": [
+        "ABFS improvements",
+        "Analytical metrics"
+      ]
+    },
+    {
+      "id": "F034",
+      "path": [
+        "ABFS improvements",
+        "China authentication"
+      ]
+    },
+    {
+      "id": "F035",
+      "path": [
+        "S3 access points",
+        "Alias support"
+      ]
+    },
+    {
+      "id": "F036",
+      "path": [
+        "Blobstore DistCp",
+        "Attribute preservation"
+      ]
+    },
+    {
+      "id": "F037",
+      "path": [
+        "Blobstore DistCp",
+        "Attribute preservation"
+      ]
+    },
+    {
+      "id": "F038",
+      "path": [
+        "S3 access points",
+        "Alias support"
+      ]
+    },
+    {
+      "id": "F039",
+      "path": [
+        "S3 access points",
+        "Alias support"
+      ]
+    },
+    {
+      "id": "F040",
+      "path": [
+        "Blobstore DistCp",
+        "Attribute preservation"
+      ]
+    },
+    {
+      "id": "F041",
+      "path": [
+        "ABFS improvements",
+        "Rename failure logging"
+      ]
+    },
+    {
+      "id": "F042",
+      "path": [
+        "Blobstore DistCp",
+        "Attribute preservation"
+      ]
+    },
+    {
+      "id": "F043",
+      "path": [
+        "Blobstore DistCp",
+        "Attribute preservation"
+      ]
+    },
+    {
+      "id": "F044",
+      "path": [
+        "S3 access points",
+        "Alias support"
+      ]
+    },
+    {
+      "id": "F045",
+      "path": [
+        "S3 access points",
+        "Alias support"
+      ]
+    },
+    {
+      "id": "F046",
+      "path": [
+        "S3 access points",
+        "Alias support"
+      ]
+    },
+    {
+      "id": "F047",
+      "path": [
+        "S3 access points",
+        "Alias support"
+      ]
+    },
+    {
+      "id": "F048",
+      "path": [
+        "ABFS improvements",
+        "Trace logging"
+      ]
+    },
+    {
+      "id": "F049",
+      "path": [
+        "ABFS improvements",
+        "Configuration documentation"
+      ]
+    },
+    {
+      "id": "F050",
+      "path": [
+        "S3 access points",
+        "Alias support"
+      ]
+    },
+    {
+      "id": "F051",
+      "path": [
+        "Blobstore DistCp",
+        "Attribute preservation"
+      ]
+    },
+    {
+      "id": "F052",
+      "path": [
+        "ABFS improvements",
+        "Throttling auth errors"
+      ]
+    },
+    {
+      "id": "F053",
+      "path": [
+        "S3 access points",
+        "Alias support"
+      ]
+    },
+    {
+      "id": "F054",
+      "path": [
+        "Blobstore DistCp",
+        "Attribute preservation"
+      ]
+    },
+    {
+      "id": "F055",
+      "path": [
+        "Blobstore DistCp",
+        "Attribute preservation"
+      ]
+    },
+    {
+      "id": "F056",
+      "path": [
+        "ABFS improvements",
+        "HNS configuration"
+      ]
+    },
+    {
+      "id": "F057",
+      "path": [
+        "ABFS improvements",
+        "China authentication"
+      ]
+    },
+    {
+      "id": "F058",
+      "path": [
+        "ABFS improvements",
+        "HNS configuration"
+      ]
+    },
+    {
+      "id": "F059",
+      "path": [
+        "S3 access points",
+        "Alias support"
+      ]
+    },
+    {
+      "id": "F060",
+      "path": [
+        "Blobstore DistCp",
+        "Attribute preservation"
+      ]
+    }
+  ]
+}

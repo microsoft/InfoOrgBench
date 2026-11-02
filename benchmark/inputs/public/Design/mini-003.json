@@ -1,0 +1,185 @@
+{
+  "task_id": "mini-003",
+  "records": [
+    {
+      "id": "F001",
+      "format": "text",
+      "text": "Heterogenous clusters, i.e. clusters where access to storage is limited only to some nodes. Existing `PV.spec.nodeAffinity` handling, not modified by this KEP, will filter out nodes that don't have access to the storage, so predicates changed in this KEP don't need to worry about storage topology and can be simpler. Multiple plugins sharing the same volume limits. We expect that every CSI driver will have its own limits, not shared with other CSI drivers. In this KEP we support only in-tree volume plugins sharing its limits with one hard-coded CSI driver each. Multiple \"units\" per single volume. Each volume used on a node takes exactly 1 unit from `allocatable.volumes`, regardless of the volume size, its replica count, number of connections to remote servers or other underlying resources needed to use the volume. For example, multipath iSCSI volume with three paths (and thus three iSCSI connections to three different servers) still takes 1 unit from `CSINode.spec.drivers[xyz].allocatable.volumes`. Maximum capacity per node. Some cloud environments limit both number of attached volumes (covered in this KEP) and total capacity of attached volumes (not covered in this KEP). For example, this KEP will ensure that scheduler puts max. 128 GCE PD volumes to a typical GCE node, but it won't ensure that the total capacity of the volumes is less than 64 TB. Volume limits does not yet integrate with cluster autoscaler if all nodes in the cluster are running at maximum volume limits."
+    },
+    {
+      "id": "F002",
+      "format": "text",
+      "text": "When scheduling a pod, the extender allows an external process to filter and prioritize nodes. Two separate http/https calls are issued to the extender, one for \"filter\" and one for \"prioritize\" actions. If the pod cannot be scheduled, the scheduler will try to preempt lower priority pods from nodes and send them to extender \"preempt\" verb if configured. The extender can return a subset of nodes and new victims back to the scheduler. Additionally, the extender can choose to bind the pod to apiserver by implementing the \"bind\" action."
+    },
+    {
+      "id": "F003",
+      "format": "text",
+      "text": "\"Obtainability\" of certain types of scarce resources is a primary concern of many AI/ML users. GPUs are in high demand, particularly the latest models. This means that workloads that use DRA to specify a need for particular types of GPUs may fail to schedule. In practice, a workload that needs a GPU can be written such that it can discover the GPUs available to it, and work with what it is given. A user may have a preference for the latest model, but would like to run the workload even if only an older model is available.\n\nSimilarly, packaged workload authors may wish to configure a workload such that it will work well in the widest selection of available clusters. That is, a distributor of shared workload definitions would like to be able to specify alternative types of devices with which their workload will function, without requiring the user to modify the manifests."
+    },
+    {
+      "id": "F004",
+      "format": "text",
+      "text": "We propose adding a new field to the HPA specification called `SelectionStrategy` that allows users to specify how pods should be selected for metric collection: If set to `LabelSelector` (default): Uses the current behavior of selecting all pods that match the target workload's label selector. If set to `OwnerReference`: Only selects pods that are owned by the target workload through owner references.\n\nThis enumerated type allows for future extension with additional selection strategies if needed, such as `Annotations` etc."
+    },
+    {
+      "id": "F005",
+      "format": "text",
+      "text": "[Horizontal Pod Autoscaler][] (HPA) regularly estimates how many replicas a given Deployment (or other resource with a `/scale` subresource) should instantiate. HPAs define one (or more) metrics (e.g. CPU utilization) on which autoscaling is based. The number of replicas is derived from the ratio between the *expected* and *current* value of this metric ([Algorithm details][]).\n\nFor example, for a workload with 100 `currentReplicas` and a usage ratio (`currentMetricValue`/`desiredMetricValue`) of 1.07, the calculated `desiredReplicas` would be 107 (100 * 1.07).\n\nHowever, to avoid flapping, scaling actions are skipped if the usage ratio is approximately 1, within a globally-configurable *tolerance*, set to 10% by default. In the example above, no scaling action would take place, since the ratio is within this tolerance.\n\nThis proposal adds a parameter to HPAs allowing users to configure this tolerance per HPA resource. For the example above, we could configure the tolerance in the workload's HPA to 5%, which would allow the scale-up to 107 replicas to proceed.\n\n[Horizontal Pod Autoscaler]: [Algorithm details]:"
+    },
+    {
+      "id": "F006",
+      "format": "text",
+      "text": "Allow workload authors, when specifying a `ResourceClaim`, to provide a list of ways to satisfy the claim, with a preference ranking. Enable schedulers to evaluate those preferences and allocate devices for the claim based on them. Enable cluster autoscalers to evaluate those preferences and make scaling choices based on them. Provide some measure of ResourceQuota controls when users utilize claims with these types of requests."
+    },
+    {
+      "id": "F007",
+      "format": "text",
+      "text": "The autoscaling/v2 API will be updated the following way:\n\nNotice that the `metricName` field is replaced with a new `metric` field, which encapsulates both the metric name, and an optional label selector, which takes the form of a standard kubernetes label selector.\n\nThe `targetXXX` fields are replaced by a unified `Target` field that contains the different target types. The `target` field in the Object metric source type is renamed to `describedObject`, since the `target` field is now taken, and to more accurately describe its purpose.\n\nThe `External` source is updated slightly to match the new form of the `Pods` and `Object` sources.\n\nThese changes necessitate a second beta of `autoscaling/v2`: `autoscaling/v2beta2`.\n\nSimilarly, corresponding changes need to be made to the custom metrics API:\n\nThis will also require bumping the custom metrics API to `custom.metrics.k8s.io/v1beta2`.\n\n**Note that if a metrics pipeline works in such a way that multiple series are matched by a label selector, it's the metrics adapter's job to deal with it, similarly to the way things current work with the custom metrics API.**"
+    },
+    {
+      "id": "F008",
+      "format": "text",
+      "text": "The DRA Structured Parameters feature has added the ability to make requests for very specific types of devices using a `ResourceClaim`. However, the current API does not allow the user to indicate any priority when multiple types or configurations of devices may meet the needs of the workload. This feature allows the user to specify alternative requests that statisfy the workloads need, giving the scheduler more flexiblity in scheduling the workload. This can increase the change that their workloads will get scheduled, although it doesn't guarantee that the optimal set of devices will be allocated. Scoring will improve this once implemented."
+    },
+    {
+      "id": "F009",
+      "format": "text",
+      "text": "Cloud providers and storage vendors offer volumes which allow specifying IO quality of service (Performance) parameters like IOPS or throughput and tuning them as workloads operate. (1, 2, 3, 4, 5, 6). While these parameters can be specified as storage class parameters to be set at provisioning time, Kubernetes has no API which allows changing them. Only capacity can be changed through the volume expansion API. This KEP proposes an extension to the Kubernetes Persistent Volume API to allow users to dynamically control these volume options."
+    },
+    {
+      "id": "F010",
+      "format": "text",
+      "text": "Every built-in Kubernetes API group maintains an *internal* (\"`__internal`\") representation of its types in addition to the versioned types (`v1`, `v1beta1`, …). The internal type is the conversion \"hub\" and also serves as the type that handwritten validation evaluates against.\n\nToday many APIs have progressed to a stable `v1` version and the alpha and beta types are no longer served by the API. For such APIs the internal type, there is no benefit to having an internal type that differs from the preferred served type.\n\nThis KEP proposes a two-phase project:\n\nPhase 1: **make the internal types memory-identical to the preferred served type**, resulting in O(n) -> O(1) allocation cost for conversions which reduces peak memory utilization by up to 5x faster and 3x less memory utilization for the conversions performed by large list operations.\n\nPhase 2: **alias internal types to versioned types** using Go type aliases, and retire the `__internal` registration so the versioned type becomes the hub.\n\nLonger term, removing the internal types from the code entirely is considered potential future work."
+    },
+    {
+      "id": "F011",
+      "format": "text",
+      "text": "We propose to add a new field to the existing [`HPAScalingRules`][] object: `tolerance`: (float) the minimum change (from 1.0) in the desired-to-actual metrics ratio for the horizontal pod autoscaler to consider scaling. Must be greater than or equal to 0.\n\nThe `tolerance` field is optional, and when not specified the HPA will continue to use the value of the global `--horizontal-pod-autoscaler-tolerance` as the tolerance for scaling calculations.\n\nSince there are separate `HPAScalingRules` objects defined for an HPA's `spec.behavior.scaleUp` and `spec.behavior.scaleDown`, it is possible to specify different `tolerance` values for scaling up vs. scaling down.\n\n[HPAScalingRules]:"
+    },
+    {
+      "id": "F012",
+      "format": "text",
+      "text": "allow non-constant defaults: native Golang code can of course set defaults which depends on other fields of a JSON object. This is out of scope here and would need some kind of defaulting webhook. native-type declarative defaulting: this KEP is about CRDs. Though it might be desirable to support the same `// +default=<some-json-value>` tag and a mechanism in `k8s.io/apiserver` to evaluate defaults in native, generic registries, this is out-of-scope of the KEP though."
+    },
+    {
+      "id": "F013",
+      "format": "text",
+      "text": "OS-level IO volume attributes, for example cgroup policy Inter-pod volume attributes. This KEP is restricted to what attributes can be defined on a volume. Scheduling based on total specific volume attributes limits of a node. For example, total throughput for many cloud provider network attached storage volumes is limited by instance network bandwidth and may prevent achieving the provisioned IO. Scheduling to mitigate these factors is out of scope but it should be considered as a future extension of this KEP."
+    },
+    {
+      "id": "F014",
+      "format": "text",
+      "text": "Currently, types that are actually enums are represented as plain strings. For example, here is the definition of `Protocol`, which must be one of `TCP`, `UDP`, and `SCTP`.\n\nIn order to convey that the `Protocol` type is an enum, every field of the type have to comment its values like `ContainerPort` does. The same goes for validation - protocol being one of \"TCP\", \"UDP\", and \"SCTP\" is duplicated among the code base.\n\nTools and UIs can also benefit from the additional piece of information. For example, Protocol can be shown as a dropdown of possible values instead of a textbox. The user no longer needs to see an error of invalid value after submits the request."
+    },
+    {
+      "id": "F015",
+      "format": "text",
+      "text": "Some users have experienced data loss when using `Delete` retain policy and reverted to a safer `Retain` policy. With `Retain` policy all volumes that are retained and left unclaimed have their phase is set to `Released`. As the released volumes pile up over time admins want to perform manual cleanup based on the time when the volume was last used, which is when the volume transitioned to `Released` phase.\n\nWe can approach the solution in a more generic way and record a timestamp of when the volume transitioned to any phase, not just to `Released` phase. This allows anyone, including our perf tests, to measure time e.g. between a PV `Pending` and `Bound`. This can be also useful for providing metrics and SLOs."
+    },
+    {
+      "id": "F016",
+      "format": "text",
+      "text": "Kubernetes scheduler schedules based on resources managed by Kubernetes. Scheduling based on opaque resource counting helps extending this further. But when there is a need for contextual scheduling for resources managed outside of kubernetes, there is no mechanism to do it today.\n\nThe proposal is to make kubernetes scheduler extensible by adding the capability to make http calls out to another endpoint to help achieve this functionality.\n\n**NOTE**: This KEP was done in retrospect and it was based on the original extender proposal."
+    },
+    {
+      "id": "F017",
+      "format": "text",
+      "text": "Changes required for this KEP: kube-apiserver extend PersistentVolumeStatus type with `LastPhaseTransitionTime` field: update the timestamp whenever PV transitions to a different phase (`pv.Status.Phase`) allow `LastPhaseTransitionTime` to be updated by users if needed reset the timestamp in `LastPhaseTransitionTime` to `nil` only when feature gate is disabled and `LastPhaseTransitionTime` is not initialized (time is zero)"
+    },
+    {
+      "id": "F018",
+      "format": "text",
+      "text": "Number of volumes of certain type that can be attached to a node should be configurable easily and should be based on node type. This proposal implements dynamic attachable volume limits on a per-node basis rather than cluster global defaults that exist today. This proposal also implements a way of configuring volume limits for CSI volumes.\n\nThis proposal replaces #730 and integrates volume limits for in-tree volumes (AWS EBS, GCE PD, AZURE DD, OpenStack Cinder) and CSI into one predicate. As result, in-tree volumes and corresponding CSI driver can share the same volume limit."
+    },
+    {
+      "id": "F019",
+      "format": "text",
+      "text": "The HPA specification (v2) will be extended with a new field to control additional filtering of pods after the initial label selector matching:\n\nSince the added field is optional and its omission does not change the existing autoscaling behavior, this feature will only be added to the latest stable API version `pkg/apis/autoscaling/v2`. Older versions (i.e. `v1`, `v2beta1`, `v2beta2`) will not include the new field, but converters will be updated where needed to comply with [round-trip requirements][].\n\nPod Selection Process: Initial Label Selection (Always happens): The HPA first selects pods using the target workload's label selector This is the fundamental selection mechanism and remains unchanged Additional Filtering (Based on SelectionStrategy): `LabelSelector`(default): No additional filtering All pods that matched the label selector are used for metrics Maintains current behavior for backward compatibility `OwnerReference`: Further filters the label-selected pods Only keeps pods that are owned by the target workload through owner references Follows the ownership chain (e.g., Pods -> ReplicaSet -> Deployment) Excludes pods that matched labels but aren't in the ownership chain\n\nThe `HorizontalPodAutoscaler` API updated to add a new `SelectionStrategy` field to the `HorizontalPodAutoscalerSpec` object:\n\n[round-trip requirements]:"
+    },
+    {
+      "id": "F020",
+      "format": "text",
+      "text": "**Risk**: A new CEL expression needs to be evaluated for each candidate device (in addition to any CEL expressions evaluated for device selectors). **Mitigation**: To prevent redundant evaluations of the same expression on a single device (which may be evaluated multiple times or against multiple requests), the scheduler plugin caches both the compiled CEL ASTs and the evaluated derived attribute values for each candidate device. Evaluation happens exactly once per candidate device per scheduling cycle, making the latency overhead strictly linear O(N) with the number of candidate devices."
+    },
+    {
+      "id": "F021",
+      "format": "text",
+      "text": "Defaulting is a fundamental step in the processing of API objects in the request pipeline of the kube-apiserver. Defaulting happens during deserialization, i.e. after decoding of a versioned object, **but before** conversion to a hub type.\n\nDefaulting is implemented for most native Kubernetes API types and plays a crucial role for API compatibility when adding new fields. CustomResources do not support this natively.\n\nMutating admission webhooks can be used to partially replicate defaulting for incoming request payloads. But mutating admission webhooks do not run when reading from etcd.\n\nThis KEP is about adding support for specifying default values for fields via OpenAPI v3 validation schemas in the CRD manifest. OpenAPI v3 has native support for a `default` field with arbitrary JSON values, for example:\n\nThis KEP proposes to apply these default values during deserialization, in the same way as native resources do. We assume _structural schemas_ as defined in KEP Vanilla OpenAPI Subset: Structural Schema.\n\nThis feature starts behind a feature gate `CustomResourceDefaulting`, disabled by default as alpha in 1.15.\n\nIt will graduate to GA in `apiextensions.k8s.io/v1` for 1.16. Defaults can only be set on creation via the v1 API."
+    },
+    {
+      "id": "F022",
+      "format": "text",
+      "text": "There are three ways to add new scheduling rules to Kubernetes: Update existing or add new scheduler plugins and recompiling Implementing your own scheduler process that runs instead of, or alongside of, the standard Kubernetes scheduler Implementing a \"scheduler extender\" process that the standard Kubernetes scheduler calls out to as a final pass when making scheduling decisions\n\nThe first and the second approach have a high bar for beginners. Scheduler plugins must be written in Go and are compiled with Kubernetes scheduler code. Implementing a new scheduler from scratch to replace the default one requires a lot of effort if supporting all features is required (e.g. spreading, affinity, taints).\n\nExtending the functionality of scheduler via a separate process has some drawbacks, such as bad performance and cache inconsistency, but it also has several advantages: It can extend the functionality of an existing scheduler without recompiling the binary The extender can be written in any languages Once implemented, it can be used to extend different versions of kube-scheduler\n\nThis document describes the third approach. If you don't care about latency and cache consistency and don't want to maintain your own build of the default scheduler, then this approach is likely the better choice. If you care about performance and want maximum ability to customize the scheduler's behavior, then developing a new plugin is likely the better choice."
+    },
+    {
+      "id": "F023",
+      "format": "text",
+      "text": "**Maintaining the hub type increases maintenance burden.** Today the hub type is the internal type. With this change, the hub type will be one of the versioned types and will change type as the feature stabilizes and the storage version changes. This is a risk that the extra work of switching the hub type each time an API is changed will result in increased maintenance burden and/or will discourage API changes. Hand-written validation and admission controllers are the most likely to be affected. Migiations: The rollout of declarative validation significantly weakens the hand-written alidation case. Removal of the internal type reduces the number of API types that must be kept in sync and reduces some of the maintenance burden.\n\nEliminating the cost of maintaining the internal API definitions reduces development burden for all APIs. **Regressions:** The existing round-trip fuzz and serialization-compatibility harnesses (see Test Plan) are the main defense. A migration that silently changed serialized output would fail the compatibility fixtures, and a conversion that dropped data would fail the round-trip fuzz tests. **Defaulting drift:** A few groups (e.g. `autoscaling/v1`) defer some defaulting into the internal-conversion step. Collapsing that conversion could skip such defaulting; these groups are identified and handled in the long-tail reshaping step rather than aliased blindly. **Reviewability:** Touching many groups risks large, hard-to-review PRs. We will limit PRs to a single migration each."
+    },
+    {
+      "id": "F024",
+      "format": "text",
+      "text": "It is not a goal to migrate all APIs in a single release. The migration is sequenced over several releases (see Migration order), but the end state is a single conversion pattern across *all* built-in APIs, not a permanent split between migrated and unmigrated groups. Changing the conversion-gen, deepcopy-gen, or defaulter-gen tooling contracts (they already handle aliases correctly; see Design Details)."
+    },
+    {
+      "id": "F025",
+      "format": "text",
+      "text": "With custom-metrics-based autoscaling, users frequently ask how to select more specific metrics in their metric storage. For instance, a user might have message queue statefulset with several queues producing metrics:\n\nSuppose they have a pool of works that they wish to scale for each queue. In the current-day HPA, it's non-trivial to allow selecting the metric for a specific queue. Current suggestions are metric-backend-specific (for instance, you could create a Prometheus recording rule to relabel or rename the metric), and often involve making external changes to the metrics pipeline.\n\nWith the addition of the metrics label selector, users could simply select the queue using the label selector:\n\nSimilarly, in discussions of scaling on queues, being able to divide a target backlog length by the number of available pods is often useful -- for instance, a backlog length of 3 might be acceptable if there are three pods processing items, but not if there is only one."
+    },
+    {
+      "id": "F026",
+      "format": "text",
+      "text": "When generating OpenAPI schema, the de facto enum types should be reflected as enums in the resulting schema.\n\nWe define enum types with following properties: All enum types are closed, i.e., the type includes a finite number of possible values. However, for compatibility, a client may allow unknown values from responses. All enum types should be string. There can be no enum integers, floats, etc\n\nAdditionally, This KEP makes the following assumptions on the implementation: The canonical definition of a type is written in go and follows the standard Kubernetes convention. All enum types have their own type alias. i.e. , no raw string enums."
+    },
+    {
+      "id": "F027",
+      "format": "text",
+      "text": "Allow `.devices.requests` to define virtual grouping keys via scoped, per-device CEL expressions (`derivedAttributes`). Enable co-allocation of heterogeneous hardware across differing vendor attribute schemas without prior human coordination or schema standardization. Preserve the early-pruning performance of the scheduler's constraint engine by scoping CEL evaluation to individual candidate devices."
+    },
+    {
+      "id": "F028",
+      "format": "text",
+      "text": "By far most native Golang based resources implement defaulting. CRDs do not allow that, leading to unnatural, not Kubernetes-like APIs. This is bad for the ecosystem. Mutating Admission Webhooks can be used for defaulting, but: they are not adequate as it is not possible to set default values of newly added fields on GET because admission is not run in the storage layer when reading from etcd. webhooks are complex, both from the development/maintenance point of view and due to their non-trivial operational overhead. This makes them a no-go for many \"not so ambitiously, professionally developed CRDs\", e.g. in in-house enterprise environments. _Structural schemas_ as defined in KEP Vanilla OpenAPI Subset: Structural Schema make defaulting a low hanging fruit."
+    },
+    {
+      "id": "F029",
+      "format": "text",
+      "text": "The syntax proposed in this KEP is different from existing implementation of kube-builder. Namely, kube-builder requires possible values in the marker itself, and is treated as a validation.\n\nThe two approaches are compatible, but eventually they will have to be unified. To retain compatibility with existing users of kube-builder, the auto-deduction will be added to kube-builder once the work is done with built-in types."
+    },
+    {
+      "id": "F030",
+      "format": "text",
+      "text": "The `External` metric source type in the HPA currently supports passing a metric label selectors, which is passed to the custom metrics API (custom.metrics.k8s.io) to select a more specific metrics series. This allows users to more easily make use of existing metrics structure, without need to manipulate their metrics labeling and ingestion externally.\n\nAdditionally, it supports the `targetAverageValue` field, which allows artificially dividing an external metric by the number of replicas in the target scalable.\n\nThis proposal brings both of those fields to the `Object` metric source type, and further brings the selector field to the `Pods` metric source type, making both types more flexible and bringing them in line with the `External` metrics types."
+    },
+    {
+      "id": "F031",
+      "format": "text",
+      "text": "Current scheduler predicates for scheduling of pods with volumes is based on `node.status.capacity` and `node.status.allocatable`. It works well for hardcoded predicates for volume limits on AWS (`MaxEBSVolumeCount`), GCE(`MaxGCEPDVolumeCount`), Azure (`MaxAzureDiskVolumeCount`) and OpenStack (`MaxCinderVolumeCount`).\n\nIt is problematic for CSI (`MaxCSIVolumeCountPred`) outlined in #730 `ResourceName` is limited to 63 characters. We must prefix `ResourceName` with unique string (such as `attachable-volumes-csi-<driver name>`) so it cannot collide with existing resources like `cpu` or `memory`. But `<driver name>` itself is up to 63 character long, so we ended up with using SHA-sums of driver name to keep the `ResourceName` unique, which is not user readable. CSI driver cannot share its limits with in-tree volume plugin e.g. when running pods with AWS EBS in-tree volumes and `ebs.csi.aws.com` CSI driver on the same node."
+    },
+    {
+      "id": "F032",
+      "format": "text",
+      "text": "We need to update API server to support the newly proposed field and set a value of the new timestamp field when a volume transitions to a different phase. The timestamp field must be set to current time also for newly created volumes.\n\nThe value of the field is not intended for use by any other Kubernetes components at this point and should be used only as a convenience feature for cluster admins. Cluster admins should be able to list and sort PersistentVolumes based on a timestamp which indicates when the volume transitioned to a different state."
+    },
+    {
+      "id": "F033",
+      "format": "text",
+      "text": "The `HorizontalPodAutoscaler` API is updated to add a new `tolerance` field to the `HPAScalingRules` object:\n\nThis new tolerance will be used in the autoscaling controller [replica_calculator.go][]. The current logic is:\n\nIt will be replaced by:\n\nSince the added field is optional and its omission does not change the existing autoscaling behavior, this feature will only be added to the latest stable API version `pkg/apis/autoscaling/v2`. Older versions (i.e. `v1`, `v2beta1`, `v2beta2`) will not include the new field, but converters will be updated where needed to comply with [round-trip requirements][].\n\nThe feature presented in this KEP only allows users to tune an existing parameter, and as such doesn't require any new HPA Events or modify any Status. The validation logic will be updated to ensure that the `tolerance` field cannot be set to a negative value.\n\n[replica_calculator.go]: [round-trip requirements]:"
+    },
+    {
+      "id": "F034",
+      "format": "text",
+      "text": "The Horizontal Pod Autoscaler (HPA) has a critical limitation in its pod selection mechanism: it collects metrics from all pods that match the target workload's label selector. This can lead to incorrect scaling decisions when unrelated pods (such as Jobs, CronJobs, or other Deployments) happen to share the same labels.\n\nThis often results in unexpected behavior such as: HPAs stuck at maxReplicas despite low actual usage in the target workload Unnecessary scaling events triggered by temporary workloads Unpredictable scaling behavior that's difficult to diagnose\n\nThis proposal adds a parameter to HPAs which ensures the HPA only considers pods that are actually owned by the target workload, through owner references, rather than all pods matching the label selector."
+    },
+    {
+      "id": "F035",
+      "format": "text",
+      "text": "DRA currently relies on exact literal matching of device attributes across requests (`matchAttributes`). While performant, literal matching is rigid for end users. Workloads needing to pair devices across complex boundaries— such as extracting a PCI or NUMA ID from a topology string—cannot express these requirements inline.\n\nThis KEP introduces `derivedAttributes` to `.devices.requests`. It allows users to synthesize virtual grouping keys on the fly using scoped, per-device CEL expressions. The scheduler's constraint engine then evaluates these derived keys exactly like static attributes."
+    },
+    {
+      "id": "F036",
+      "format": "text",
+      "text": "In practice, workloads may scale vertically up to a certain point but then must partition horizontally. The system scales up and down horizontally with partition and at the same time provides a software layer to manage key attributes such as iops/throughput independently from capacity.\n\nCurrently after CreateVolume with provider specific parameters pass in storage class, Kubernetes does not handle update of volume attributes other than capacity. The only way to achieve this is to use the cloud provider's API directly to modify iops and throughput. This creates frictions of managing storage resources on k8s. Allowing Resources to be changed without managing it through different provider's APIs directly simplifies this whole process."
+    }
+  ]
+}
