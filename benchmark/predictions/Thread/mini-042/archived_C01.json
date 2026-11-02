@@ -1,0 +1,305 @@
+{
+  "assignments": [
+    {
+      "id": "F001",
+      "path": [
+        "ABFS DT issuing",
+        "kerberos requirement"
+      ]
+    },
+    {
+      "id": "F002",
+      "path": [
+        "Administrative",
+        "metadata comments"
+      ]
+    },
+    {
+      "id": "F003",
+      "path": [
+        "S3 multipart upload",
+        "add initiator info"
+      ]
+    },
+    {
+      "id": "F004",
+      "path": [
+        "ABFS blocksize",
+        "blocksize change"
+      ]
+    },
+    {
+      "id": "F005",
+      "path": [
+        "Administrative",
+        "bulk updates"
+      ]
+    },
+    {
+      "id": "F006",
+      "path": [
+        "ABFS DT issuing",
+        "kerberos requirement"
+      ]
+    },
+    {
+      "id": "F007",
+      "path": [
+        "Administrative",
+        "bulk updates"
+      ]
+    },
+    {
+      "id": "F008",
+      "path": [
+        "ABFS connection timeout",
+        "static retry policy"
+      ]
+    },
+    {
+      "id": "F009",
+      "path": [
+        "ABFS DT issuing",
+        "kerberos requirement"
+      ]
+    },
+    {
+      "id": "F010",
+      "path": [
+        "ABFS delegation tokens",
+        "NPE in setup teardown"
+      ]
+    },
+    {
+      "id": "F011",
+      "path": [
+        "ABFS blocksize",
+        "blocksize change"
+      ]
+    },
+    {
+      "id": "F012",
+      "path": [
+        "ABFS contract tests",
+        "mkdir failures"
+      ]
+    },
+    {
+      "id": "F013",
+      "path": [
+        "ABFS delegation tokens",
+        "NPE in setup teardown"
+      ]
+    },
+    {
+      "id": "F014",
+      "path": [
+        "S3A dependencies",
+        "remove hdfs dependency"
+      ]
+    },
+    {
+      "id": "F015",
+      "path": [
+        "ABFS blocksize",
+        "blocksize change"
+      ]
+    },
+    {
+      "id": "F016",
+      "path": [
+        "S3A read failure",
+        "S3AInputStream read"
+      ]
+    },
+    {
+      "id": "F017",
+      "path": [
+        "ABFS contract tests",
+        "mkdir failures"
+      ]
+    },
+    {
+      "id": "F018",
+      "path": [
+        "S3A dependencies",
+        "remove hdfs dependency"
+      ]
+    },
+    {
+      "id": "F019",
+      "path": [
+        "S3A read failure",
+        "S3AInputStream read"
+      ]
+    },
+    {
+      "id": "F020",
+      "path": [
+        "S3A encryption tests",
+        "public bucket tests"
+      ]
+    },
+    {
+      "id": "F021",
+      "path": [
+        "ABFS blocksize",
+        "blocksize change"
+      ]
+    },
+    {
+      "id": "F022",
+      "path": [
+        "ABFS namespace",
+        "credentials check"
+      ]
+    },
+    {
+      "id": "F023",
+      "path": [
+        "Administrative",
+        "bulk updates"
+      ]
+    },
+    {
+      "id": "F024",
+      "path": [
+        "S3Guard uploads",
+        "list metadata"
+      ]
+    },
+    {
+      "id": "F025",
+      "path": [
+        "S3A credentials provider",
+        "delegation tokens"
+      ]
+    },
+    {
+      "id": "F026",
+      "path": [
+        "S3A header processing",
+        "metadata headers"
+      ]
+    },
+    {
+      "id": "F027",
+      "path": [
+        "ABFS namespace",
+        "credentials check"
+      ]
+    },
+    {
+      "id": "F028",
+      "path": [
+        "ABFS delegation tokens",
+        "NPE in setup teardown"
+      ]
+    },
+    {
+      "id": "F029",
+      "path": [
+        "ABFS blocksize",
+        "blocksize change"
+      ]
+    },
+    {
+      "id": "F030",
+      "path": [
+        "ABFS contract tests",
+        "parallel test methods"
+      ]
+    },
+    {
+      "id": "F031",
+      "path": [
+        "S3A credentials provider",
+        "delegation tokens"
+      ]
+    },
+    {
+      "id": "F032",
+      "path": [
+        "ABFS connection timeout",
+        "static retry policy"
+      ]
+    },
+    {
+      "id": "F033",
+      "path": [
+        "ABFS retry policy",
+        "refactor retry"
+      ]
+    },
+    {
+      "id": "F034",
+      "path": [
+        "ABFS retry policy",
+        "refactor retry"
+      ]
+    },
+    {
+      "id": "F035",
+      "path": [
+        "S3A AssumedRole",
+        "instance role credentials"
+      ]
+    },
+    {
+      "id": "F036",
+      "path": [
+        "Administrative",
+        "metadata comments"
+      ]
+    },
+    {
+      "id": "F037",
+      "path": [
+        "ABFS retry policy",
+        "refactor retry"
+      ]
+    },
+    {
+      "id": "F038",
+      "path": [
+        "Administrative",
+        "bulk updates"
+      ]
+    },
+    {
+      "id": "F039",
+      "path": [
+        "ABFS blocksize",
+        "blocksize change"
+      ]
+    },
+    {
+      "id": "F040",
+      "path": [
+        "ABFS delegation tokens",
+        "NPE in setup teardown"
+      ]
+    },
+    {
+      "id": "F041",
+      "path": [
+        "S3A Iceberg",
+        "bulk delete validation"
+      ]
+    },
+    {
+      "id": "F042",
+      "path": [
+        "ABFS connection timeout",
+        "static retry policy"
+      ]
+    },
+    {
+      "id": "F043",
+      "path": [
+        "ABFS blocksize",
+        "blocksize change"
+      ]
+    }
+  ]
+}

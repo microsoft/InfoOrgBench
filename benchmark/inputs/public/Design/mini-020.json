@@ -1,0 +1,185 @@
+{
+  "task_id": "mini-020",
+  "records": [
+    {
+      "id": "F001",
+      "format": "text",
+      "text": "Cross-family connectivity: IPv4-to-IPv6 and IPv6-to-IPv4 connectivity is considered outside of the scope of this proposal. (As a possible future enhancement, the Kubernetes NGINX ingress controller could be modified to load balance to both IPv4 and IPv6 addresses for each endpoint. With such a change, it's possible that an external IPv4 client could access a Kubernetes service via an IPv6 pod address, and vice versa)."
+    },
+    {
+      "id": "F002",
+      "format": "text",
+      "text": "A Kubernetes cluster administrator has to log in to the relavant control-plane or worker nodes to view the logs of the API server, kubelet etc. Or they would have to implement a client side reader. A simpler and more elegant method would be to allow them to use a kubelet API or kubectl plugin to also view these logs similar to using it for other interactions with the cluster. Given the sensitive nature of the information in node logs, this feature will only be available to cluster administrators."
+    },
+    {
+      "id": "F003",
+      "format": "text",
+      "text": "Privileged containers are containers that are enabled with similar access to the host as processes that run on the host directly. With privileged containers, users can package and distribute management operations and functionalities that require host access while retaining versioning and deployment methods provided by containers. Linux privileged containers are currently used for a variety of key scenarios in Kubernetes, including kube-proxy (via kubeadm), storage, and networking scenarios. Support for these scenarios in Windows currently requires workarounds via proxies or other implementations. This proposal aims to extend the Windows container model to support privileged containers. This proposal also aims to enable host network mode for privileged networking scenarios. Enabling privileged containers and host network mode for privileged containers would enable users to package and distribute key functionalities requiring host access."
+    },
+    {
+      "id": "F004",
+      "format": "text",
+      "text": "The adoption of IPv6 has increased in recent years, and customers are requesting IPv6 support in Kubernetes clusters. To this end, the support of IPv6-only clusters was added as an alpha feature in Kubernetes Version 1.9. Clusters can now be run in either IPv4-only, IPv6-only, or in a \"single-pod-IP-aware\" dual-stack configuration. This \"single-pod-IP-aware\" dual-stack support is limited by the following restrictions: Some CNI network plugins are capable of assigning dual-stack addresses on a pod, but Kubernetes is aware of only one address per pod."
+    },
+    {
+      "id": "F005",
+      "format": "text",
+      "text": "Provide a standard reference implementation. Define specific implementation details beyond general API behavior. Offering functionalities related to multi-cluster orchestration. Define the Consumer registration API Define the mechanism for shipping plugins to be used by the controllers and their delivery in the controller image/pod. Design plugin or a library for plugins Mandate Federated workload identity / OIDC frameworks (though they are recommended)"
+    },
+    {
+      "id": "F006",
+      "format": "text",
+      "text": "Because of its interaction with authentication and credentials, particular attention in this design must be paid to security: credentials leak: ClusterProfile, Controller configuration and Plugin configuration should never contain sensitive information Plugin poisoning: supporting credentials provider plugins in a controller relies on trusting the plugin itself and its path in the filesystem. Particular attention must be provided by the user deploying a controller to make sure the plugin that they install are from trusted source as they will have access to the controller's identity. In addition, the path of the plugin may be edited or hijacked by an attacker which would then sit in lieu of the normal plugin, allowing process execution by the controller's process. This risk is mitigated by the assumption that the pod's filesystem is private to it and that no lower-privileged (or separate) processes are able to access it.\n\nAnother risk is around AuthZ. This design doesn't cover the distribution of RBAC to multiple clusters and identifying what principal a controller can be identified as. This setup is currently left to the responsibility of the platform admin setting up the different clusters and controllers."
+    },
+    {
+      "id": "F007",
+      "format": "text",
+      "text": "the API proposed by this KEP aims to Provide a reliable, consistent, and automated approach for any multi-cluster application (framework, toolset) to discover available clusters and take actions accordingly, in a way similar to service discovery works in a microservice architecture. Through the inventory, the application can query for a list of clusters to access, or watch for an ever-flowing stream of cluster lifecycle events which the application can act upon timely, such as auto-scaling, upgrades, failures, and connectivity issues. Provide a simple, clear interface for human operators to understand clusters under management. Provide a standardized, pluggable mechanism for obtaining credentials to access clusters represented by ClusterProfile objects. The proposed approach is to leverage plugins for retrieving the credentials from an issuer recognized by the target cluster. The controller using ClusterProfile would use a library to run a local executable which would retrieve the credentials for the current controller and a given clusterprofile. Plugins would be exec'ed by the controller so that they don't need be built-in the binary, allowing flexibility into writing their own access plugins and still leveraging multicluster controllers written by the community. We propose to reuse the exec approach and protocol used for external credentials in Kubeconfig (but not the configuration part of kubeconfig). Finally, in order to retrieve the endpoint for the cluster, we standardize the property names that are used in ClusterProfile."
+    },
+    {
+      "id": "F008",
+      "format": "text",
+      "text": "Any change unrelated to Services Any generalization of the API model that can evolve onto something different, like an IPAM API, or collide with existing APIs like Ingress and GatewayAPI. NodePorts use the same allocation model than ClusterIPs, but it is totally out of scope of this KEP. However, this KEP can be a proof that a similar model will work for NodePorts too. Change the default IPFamily used for Services IP allocation, the defaulting depends on the services.spec.IPFamily and services.spec.IPFamilyPolicy, a simple webhook or an admission plugin can set this fields to the desired default, so the allocation logic doesn't have to handle it. Removing the apiserver flags that define the service IP CIDRs, though that may be possible in the future. Any admin or cluster wide process related to Services, like automating the default Service CIDR range, though, this KEP will implement the behaviours and primitives necessaries to perform those kind of operations automatically."
+    },
+    {
+      "id": "F009",
+      "format": "text",
+      "text": "DSR support was added to Windows Server 2019 as part of the May 2020 update. DSR provides performance optimizations by allowing the return traffic routed through load balancers to bypass the load balancer and respond directly to the client; reducing load on the load balancer and also reducing overall latency. More information on DSR on Windows can be found here.\n\nOverlay networking mode is a common networking mode used in Kubernetes clusters and is required by some for some important scenarios like network policy support with Calico CNI. Adding support for overlay networking mode in Windows kube-proxy will allow users to use more CNI solutions with Windows nodes."
+    },
+    {
+      "id": "F010",
+      "format": "text",
+      "text": "The current Prometheus metrics exposed by the cluster have gaps that make building accurate capacity alerts, dashboards, and ad-hoc queries more difficult than necessary and complicate the average user’s understanding of the resource model. The Kubernetes resource model is fundamental to capacity planning and error triage. It should be easy to visualize and alert on core usage and capacity through a simple set of metrics. Administrators and integrators should be able to easily graph and calculate the available and consumed resources within the cluster at any time."
+    },
+    {
+      "id": "F011",
+      "format": "text",
+      "text": "See: [Metrics Stability Framework#Motivation] [Metrics Stability Migration#Motivation] [Metrics Validation and Verification#Motivation] [Metrics Stability to Beta#Motivation]\n\n[Metrics Stability Framework#Motivation]: kubernetes-control-plane-metrics-stability.md#motivation [Metrics Stability Migration#Motivation]: metrics-stability-migration.md#motivation [Metrics Validation and Verification#Motivation]: metrics-validation-and-verification.md#motivation [Metrics Stability to Beta#Motivation]: metrics-stability-to-beta.md#motivation"
+    },
+    {
+      "id": "F012",
+      "format": "text",
+      "text": "This API aims to solve the following problems: Reduce integration burden: Enable consumers to write ONE integration that works with ANY scheduler implementing this API, instead of writing separate integrations for each scheduler. Enable scheduler portability: Allow organizations to switch schedulers (e.g., from OCM to Clusternet) without rewriting consumer code. Enable consumer portability: Allow new consumers (e.g., Argo CD, MultiKueue) to work with all schedulers by implementing one standard API. Simplify RBAC: Provide one resource schema for consumers to `get/list/watch`, instead of different permissions for each scheduler's API. Support placement delegation: Enable external placement controllers to be plugged into any consumer. Align with ClusterProfile: Ensure direct mapping to `ClusterProfile` inventory for cluster references.\n\nTechnical goals: Define a namespaced, minimalistic, data-only `PlacementDecision` API that lists selected clusters. Support continuous rescheduling where decision lists may be updated over time. Guarantee that every (`clusterNamespace`, `clusterName`) pair matches a `ClusterProfile` in the fleet (enforced via admission). Provide label and naming conventions so consumers can retrieve all slices of one decision via label selector or deterministic naming. Leave room for scheduler-specific implementations and workload-aware placement logic."
+    },
+    {
+      "id": "F013",
+      "format": "text",
+      "text": "To manage an Inventory of Clusters, a platform admin can rely on having the cluster manager output ClusterProfile CRs that point to the clusters. Those CRs are key for multicluster controllers that want to operate on the clusters. However, there isn't a single way to obtain credentials to reach those clusters. This KEP provides a standardized way to obtain credentials for Clusters when using ClusterProfile and makes it pluggable to allow the diverse ecosystem to support the multitude of ways to obtain credentials. It also reuses part of the Kubeconfig external provider semantics to make implementation easier."
+    },
+    {
+      "id": "F014",
+      "format": "text",
+      "text": "This proposal covers the implementation of metrics stability in the kubernetes/kubernetes repo (and anywhere else that consumes `component-base/metrics`).\n\nHistorically, the implementation was split into four documents: Metrics Stability Framework Metrics Stability Migration Metrics Validation and Verification Metrics Stability to Beta\n\nThis document is not net new and ties the four together in order to document the lifecycle of this feature.\n\n[Metrics Stability Framework]: kubernetes-control-plane-metrics-stability.md [Metrics Stability Migration]: metrics-stability-migration.md [Metrics Validation and Verification]: metrics-validation-and-verification.md [Metrics Stability to Beta]: metrics-stability-to-beta.md"
+    },
+    {
+      "id": "F015",
+      "format": "text",
+      "text": "To provide access to host network resources for **non-privileged** containers and pods. To provide a privileged mode for Hyper-V containers, or a method to run privileged process containers within a Hyper-V isolation boundary. This is a non-goal as running a Hyper-V container in the root namespace from within the isolation boundary is not supported. To enable privileged containers for Docker. This will only be for containerd. To align privileged containers with pod namespaces - this functionality may be addressed in a future KEP. Enabling the ability to mix privileged and non-privileged containers in the same Pod. (Multiple privileged containers running in the same Pod will be supported.)"
+    },
+    {
+      "id": "F016",
+      "format": "text",
+      "text": "The lack of privileged container support within the Windows container model has resulted in separate workarounds and privileged proxies for Windows workloads that are not required for Linux workloads. These workarounds have provided necessary functionality for key scenarios such as networking, storage, and device access, but have also presented many challenges, including increased available attack surfaces, complex change and update management, and scenario specific solutions. There is significant interest from the community for the Windows container model to support privileged containers and host network mode (which enable pods to be created in the host’s network compartment/namespace, as opposed to getting their own) to transition off such workarounds and align more closely with Linux support and operational models.\n\nFurthermore, since kube-proxy cannot be run as a privileged daemonset, it must either be run with a proxy or directly on the host as a service. In the case that it is run as a service, the admin kube config must be stored on the Windows node which poses a security concern. This is also true for networking daemons such as Flannel."
+    },
+    {
+      "id": "F017",
+      "format": "text",
+      "text": "See: [Metrics Stability Framework#Proposal] [Metrics Stability Migration#General Migration Strategy] [Metrics Validation and Verification#Proposal] [Metrics Stability to Beta#Proposal]\n\n[Metrics Stability Framework#Proposal]: kubernetes-control-plane-metrics-stability.md#proposal [Metrics Stability Migration#General Migration Strategy]: metrics-stability-migration.md#general-migration-strategy [Metrics Validation and Verification#Proposal]: metrics-validation-and-verification.md#proposal [Metrics Stability to Beta#Proposal]: metrics-stability-to-beta.md#proposal"
+    },
+    {
+      "id": "F018",
+      "format": "text",
+      "text": "The proposed approach to obtaining credentials is to leverage plugins for retrieving the credentials from an issuer recognized by the target cluster. The controller using ClusterProfile would use a library to run a local executable which would retrieve the credentials for the current controller and a given clusterprofile. It is expected that plugins would leverage elements local to the controller to help assert the identity of the controller (environment variables, config files, KSA, the local IP, etc...) to retrieve credentials that are valid on the target cluster. Plugins would be exec'ed by the controller so that they don't need be built-in the binary, allowing flexibility into writing their own credential plugins and still leveraging multicluster controllers written by the community. In addition, we propose to reuse the exec approach and protocol used for external credentials in Kubeconfig (but not the configuration part of kubeconfig). Finally, in order to retrieve the endpoint for the cluster, we standardize the property names that are used in ClusterProfile."
+    },
+    {
+      "id": "F019",
+      "format": "text",
+      "text": "The proposal is to implement a new allocator logic that uses 2 new API Objects: ServiceCIDR and IPAddress, and allow users to dynamically increase the number of Services IPs available by creating new ServiceCIDRs. The new allocator will be able to \"automagically\" consume IPs from any ServiceCIDR available, we can think about this model, as the same as adding more disks to a Storage system to increase the capacity."
+    },
+    {
+      "id": "F020",
+      "format": "text",
+      "text": "Today every multicluster scheduler publishes its own API to convey where a workload should run, forcing downstream tools such as GitOps engine, workload orchestrator, progressive rollout controller, or AI/ML pipeline to understand a scheduler-specific API. This KEP introduces a vendor neutral `PlacementDecision` API that standardizes the output of multicluster placement calculations. A `PlacementDecision` object is data only: a namespaced list of chosen clusters whose referenced names must map one-to-one to `ClusterProfile`s as defined by the ClusterProfile API."
+    },
+    {
+      "id": "F021",
+      "format": "text",
+      "text": "Troubleshooting issues with control-plane and worker nodes typically requires a cluster administrator to SSH into the nodes for debugging. While certain issues will require being on the node, issues with the kube-proxy or kubelet, to name a couple, could be solved by perusing their logs. However this too requires the administrator to SSH access into the nodes. Having a way for them to view the logs using a kubelet API or kubectl plugin will significantly simplify their troubleshooting."
+    },
+    {
+      "id": "F022",
+      "format": "text",
+      "text": "Establish a standardized ClusterProfile API to represent clusters. Lay the groundwork for multi-cluster tooling by providing a foundational component. Accommodate multiple implementations to encourage flexibility and adoption. Allow for future extensions and new use cases by leaving room for further development and enhancements. A unified API, such as this one, is most effective when platform extension authors can use it as a foundational tool to create extensions compatible with multiple providers. Allow cluster managers of different types to create ClusterProfiles in the same inventory. Provide a library for controllers to obtain credentials for a cluster represented by a ClusterProfile Allow cluster managers to provide a method to obtain credentials that doesn't require to be embedded into the controller code and recompiling. Be a secure mechanism for credential obtention and storage."
+    },
+    {
+      "id": "F023",
+      "format": "text",
+      "text": "The new Event API makes all semantic information about events first-class fields, allowing better deduplication and querying. The API changes aim to: make it easy to list all interesting Events in common scenarios using kubectl: Listing Events mentioning given Pod, Listing Events emitted by a given component (e.g. Kubelet on a given machine, NodeController), make timestamps precise enough to allow better events correlation, update the field names to better indicate their function.\n\nIn addition, we will improve 'Event series' detection and send only 'series start' and 'series finish' Events, and add more aggressive backoff policy for Events.\n\nAfter the migration is done, users and administrators: will be able to better track interesting changes in the state of objects they're interested in, will be convinced that Events do not destabilize."
+    },
+    {
+      "id": "F024",
+      "format": "text",
+      "text": "Enabling DSR and overlay networking mode support in Windows kube-proxy both have very little risk.\n\nFor DSR, the Windows Host Network Service handles all of the logic for managing network traffic; kube-proxy only needs to specify if DSR should be used when creating/sycing load balancer rules. Additionally, DSR must be enabled with a kube-proxy command switch (--enable-dsr=true) disabling DSR is can be performed by redeploying kube-proxy on Windows nodes.\n\nOverlay networking support in Windows has been used in the Windows CI pipelines running release-informing capz-windows-master jobs since K8s v1.20."
+    },
+    {
+      "id": "F025",
+      "format": "text",
+      "text": "Pod Connectivity: IPv4-to-IPv4 and IPv6-to-IPv6 access between pods Access to External Servers: IPv4-to-IPv4 and IPv6-to-IPv6 access from pods to external servers NGINX Ingress Controller Access: Access from IPv4 and/or IPv6 external clients to Kubernetes services via the Kubernetes NGINX Ingress Controller. Dual-stack support for Kubernetes service IPs, NodePorts, and ExternalIPs Functionality tested with the Bridge CNI plugin, PTP CNI plugin, and Host-Local IPAM plugins as references Maintain backwards-compatible support for IPv4-only and IPv6-only clusters"
+    },
+    {
+      "id": "F026",
+      "format": "text",
+      "text": "Provide a cluster administrator with a streaming view of logs using a kubelet API without them having to implement a client side reader or logging into the node. This would work for: Services on Linux worker and control plane nodes: That have systemd / journald support. That have services that log to `/var/log/` Windows worker nodes (all supported variants) that log to `C:\\var\\log`, and Application logs."
+    },
+    {
+      "id": "F027",
+      "format": "text",
+      "text": "Kubernetes should define a set of standard metrics that allow a user who works with the Kubernetes resource model to easily answer via instrumentation several important queries: What is the current remaining schedulable capacity of all my nodes Which components are using less than they request Which components on a node are the most likely to be evicted Which resources on my cluster are most contended Is a set of pods requesting more resources than any node has to offer\n\nWe should attempt to provide sufficient “out of the box” metrics for capacity planning for most cluster administrators, and present the resource model that Kubernetes uses for easy consumption. Integrations that extend the resource model with our supported pattern should also be visible in these metrics as the default resource model would interpret them.\n\nWe should use consistent terminology, patterns, and descriptions of resource request, consumption, and availability across our API, metrics, component code, and documentation to ensure Kubernetes admins see a coherent view of the Kubernetes resource model."
+    },
+    {
+      "id": "F028",
+      "format": "text",
+      "text": "The different kube-proxy implementations (at least ipvs and iptables), as of today, are binding the External IPs of the LoadBalancer Service to each node. (iptables are creating some rules to redirect packets directly to the service and ipvs is binding the IP to one interface on the node). This feature exists because: To redirect pod traffic that is intended for LoadBalancer IP directly to the service, bypassing the loadbalancer for path optimization. Some LBs are sending packet with the destination IP equal to the LB IP, so the IP needs to be routed directly to the right service (otherwise looping back and forth)\n\nThis enhancement proposes a way to make these features configurable, giving the cloud provider, a way to disable the behaviour of kube-proxy. The best way would be to set a default behaviour at the cloud controller level."
+    },
+    {
+      "id": "F029",
+      "format": "text",
+      "text": "The KEP aims at fixing few issues in the current way Events are structured and implemented. This effort has two main goals - reduce the performance impact that Events have on the rest of the cluster and add more structure to the Event object which is the first and necessary step to make it possible to automate Event analysis.\n\nMost sections and design details are copied from the original design doc: Make Kubernetes Events Useful and Safe.\n\nThe new Event API has been promoted from v1beta1 to v1 in 1.19 and currently only scheduler was migrated to use it."
+    },
+    {
+      "id": "F030",
+      "format": "text",
+      "text": "A typical multicluster setup involves two key components: Scheduler: examines the fleet (`ClusterProfile` objects), and other signals/metrics and decides *where* a workload should land. Consumer: GitOps engine, workload orchestrator, progressive rollout controller, AI/ML pipeline read that decision and act (for example, by creating Work objects). Today's problem: Every scheduler publishes its own API to convey placement decisions, forcing each consumer to write custom integration code for every scheduler they want to support."
+    },
+    {
+      "id": "F031",
+      "format": "text",
+      "text": "DSR and Overlay networking mode support is already implemented in Windows kube-proxy and has been extensively tested in the Windows CI pipeline. This proposal is to promote the existing implementations to GA.\n\nAdditionally, DSR support on Windows is supported on both EKS and AKS. Both DSR and overlay networking support have been used in the Windows CI pipelines running release-informing jobs since K8s v1.20."
+    },
+    {
+      "id": "F032",
+      "format": "text",
+      "text": "There are numerous problems with the current behaviour: Some cloud providers (Scaleway, Tencent Cloud, ...) are using the LB's external IP (or a private IP) as source IP when sending packets to the cluster. This is a problem in the ipvs mode of kube-proxy since the IP is bounded to an interface and healthchecks from the LB are never coming back. Some cloud providers (DigitalOcean, Scaleway, ...) have features at the LB level (TLS termination, PROXY protocol, ...). Bypassing the LB means missing these features when the packet arrives at the service (leading to protocols errors).\n\nSo, giving options to these cloud providers to disable the actual behaviour would be very valuable.\n\nCurrently there is some hacky workaround that set the `Hostname` on the `Service` in order to bypass kube-proxy binding (AWS and DigitalOcean for instance), but as stated, it's a bit hacky. This KEP should also give a solution to this hack."
+    },
+    {
+      "id": "F033",
+      "format": "text",
+      "text": "We considered extending `kube-state-metrics` to represent all of the data necessary to perform the pod resource lifecycle calculation as described above. The implementation would require a significant number of new metric cardinality, and would also require a very complex recording rule that would be difficult in some engines and likely not be completely accurate. Since we believe that metrics should be exposed that reflect the intent of the system, and this metric is extremely high value, and we desire to reuse the same logic that the underlying system relies on to minimize drift, we choose to bypass this approach for now."
+    },
+    {
+      "id": "F034",
+      "format": "text",
+      "text": "The solution would be to add a new field in the `loadBalancer` field of a `Service`'s `status`, like `ipMode`. This new field will be used by kube-proxy in order to not bind the Load Balancer's External IP to the node (in both IPVS and iptables mode). The value `VIP` would be the default one (if not set for instance), keeping the current behaviour. The value `Proxy` would be used in order to disable the the shortcut.\n\nSince the `EnsureLoadBalancer` returns a `LoadBalancerStatus`, the Cloud Controller Manager can optionally set the `ipMode` field before returning the status."
+    },
+    {
+      "id": "F035",
+      "format": "text",
+      "text": "The number of etcd objects required scales at O(N) where N is the number of services. That seems reasonable (the largest number of services today is limited by the bitmap size ~32k). etcd memory use is proportional to the number of keys, but there are other objects like Pods and Secrets that use a much higher number of objects. 1-2 million keys in etcd is a reasonable upper bound in a cluster, and this has not a big impact (<10%). The objects described here are smaller than most other Kube objects (especially pods), so the etcd storage size is still reasonable.\n\nxref: Clayton Coleman"
+    },
+    {
+      "id": "F036",
+      "format": "text",
+      "text": "There's a relatively wide agreement that current implementation of Events in Kubernetes is problematic. Events are supposed to give app developer insight into what's happening with his/her app. Important requirement for Event library is that it shouldn't cause/worsen performance problems in the cluster.\n\nThe problem is that neither of those requirements are actually met. Currently Events are extremely spammy (e.g. Event is emitted when Pod is unable to schedule every few seconds) with unclear semantics (e.g. Reason was understood by developers as \"reason for taking action\" or \"reason for emitting event\"). Also there are well known performance problems caused by Events (e.g. #47366, #47899) - Events can overload API server if there's something wrong with the cluster (e.g. some correlated crashloop on many Nodes, user created way more Pods than fit on the cluster which fail to schedule repeatedly). This was raised by the community on number of occasions."
+    }
+  ]
+}

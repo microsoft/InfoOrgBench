@@ -1,0 +1,368 @@
+{
+  "assignments": [
+    {
+      "id": "F001",
+      "path": [
+        "Conceptual-design",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F002",
+      "path": [
+        "Conceptual-design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F003",
+      "path": [
+        "Conceptual-design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F004",
+      "path": [
+        "Conceptual-design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F005",
+      "path": [
+        "Prototype-evaluation",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F006",
+      "path": [
+        "Conceptual-design",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F007",
+      "path": [
+        "Conceptual-design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F008",
+      "path": [
+        "Conceptual-design",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F009",
+      "path": [
+        "Prototype-evaluation",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F010",
+      "path": [
+        "Prototype-evaluation",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F011",
+      "path": [
+        "Prototype-evaluation",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F012",
+      "path": [
+        "Prototype-evaluation",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F013",
+      "path": [
+        "Prototype-evaluation",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F014",
+      "path": [
+        "Prototype-evaluation",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F015",
+      "path": [
+        "Prototype-evaluation",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F016",
+      "path": [
+        "Prototype-evaluation",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F017",
+      "path": [
+        "Prototype-evaluation",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F018",
+      "path": [
+        "Conceptual-design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F019",
+      "path": [
+        "Conceptual-design",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F020",
+      "path": [
+        "Conceptual-design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F021",
+      "path": [
+        "Prototype-evaluation",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F022",
+      "path": [
+        "Conceptual-design",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F023",
+      "path": [
+        "Prototype-evaluation",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F024",
+      "path": [
+        "Conceptual-design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F025",
+      "path": [
+        "Prototype-evaluation",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F026",
+      "path": [
+        "Conceptual-design",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F027",
+      "path": [
+        "Prototype-evaluation",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F028",
+      "path": [
+        "Conceptual-design",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F029",
+      "path": [
+        "Prototype-evaluation",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F030",
+      "path": [
+        "Prototype-evaluation",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F031",
+      "path": [
+        "Conceptual-design",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F032",
+      "path": [
+        "Prototype-evaluation",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F033",
+      "path": [
+        "Conceptual-design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F034",
+      "path": [
+        "Conceptual-design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F035",
+      "path": [
+        "Conceptual-design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F036",
+      "path": [
+        "Conceptual-design",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F037",
+      "path": [
+        "Conceptual-design",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F038",
+      "path": [
+        "Prototype-evaluation",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F039",
+      "path": [
+        "Prototype-evaluation",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F040",
+      "path": [
+        "Conceptual-design",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F041",
+      "path": [
+        "Prototype-evaluation",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F042",
+      "path": [
+        "Prototype-evaluation",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F043",
+      "path": [
+        "Conceptual-design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F044",
+      "path": [
+        "Conceptual-design",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F045",
+      "path": [
+        "Conceptual-design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F046",
+      "path": [
+        "Conceptual-design",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F047",
+      "path": [
+        "Conceptual-design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F048",
+      "path": [
+        "Conceptual-design",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F049",
+      "path": [
+        "Conceptual-design",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F050",
+      "path": [
+        "Conceptual-design",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F051",
+      "path": [
+        "Prototype-evaluation",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F052",
+      "path": [
+        "Prototype-evaluation",
+        "Decisions"
+      ]
+    }
+  ]
+}

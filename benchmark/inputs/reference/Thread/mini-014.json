@@ -1,0 +1,709 @@
+{
+  "task_id": "hadoop-jira/mini-014",
+  "records": [
+    {
+      "id": "F001",
+      "path": [
+        "HADOOP-15763",
+        "HADOOP-17002"
+      ],
+      "content_sha256": "9017777dea72832c7ecc54b750455ac1beb4b3b135da3c9a0a04967f518888db"
+    },
+    {
+      "id": "F002",
+      "path": [
+        "HADOOP-19092",
+        "HADOOP-19284"
+      ],
+      "content_sha256": "2a5444f6ad9bcac963f1a271fcc403b33c9ea437cf2f3620334abcee61d491be"
+    },
+    {
+      "id": "F003",
+      "path": [
+        "HADOOP-19092",
+        "HADOOP-19284"
+      ],
+      "content_sha256": "c1983cbabbee0ca04108d55fde2c8ac78a833382fe18a17b99cc85b00f3ef66b"
+    },
+    {
+      "id": "F004",
+      "path": [
+        "HADOOP-19803",
+        "HADOOP-16155"
+      ],
+      "content_sha256": "9b5792b60414774390f9f1b209eaa97307dbfbd14535bc3a9d70e511971ec09c"
+    },
+    {
+      "id": "F005",
+      "path": [
+        "HADOOP-19803",
+        "HADOOP-15631"
+      ],
+      "content_sha256": "5e9df86f298ab99d18288410921f7ffc5408e63b2b2ad9788073e89f3bb017fa"
+    },
+    {
+      "id": "F006",
+      "path": [
+        "HADOOP-19803",
+        "HADOOP-18605"
+      ],
+      "content_sha256": "e6c0a839dd08f46b3dec162fc156d712b44a05485da0bf21365d988c0d5be584"
+    },
+    {
+      "id": "F007",
+      "path": [
+        "HADOOP-15763",
+        "HADOOP-17002"
+      ],
+      "content_sha256": "8b27aed58e7b404f4b97c5d89edba2ea85e5c27366bac5ab0e53062dff59317b"
+    },
+    {
+      "id": "F008",
+      "path": [
+        "HADOOP-19803",
+        "HADOOP-18839"
+      ],
+      "content_sha256": "4235c391a41375f0b0982407193ff5a235104b367c8c89196c825220e3fe6038"
+    },
+    {
+      "id": "F009",
+      "path": [
+        "HADOOP-19803",
+        "HADOOP-18839"
+      ],
+      "content_sha256": "c7dc657a70546c093a238f8fbc2d1660eae652749276e25febc6c3f9e797b702"
+    },
+    {
+      "id": "F010",
+      "path": [
+        "HADOOP-19092",
+        "HADOOP-19284"
+      ],
+      "content_sha256": "a1bd0b657e45d816b13a4f82513101f8397fa5f8602c943e6ba8293c7692d2f7"
+    },
+    {
+      "id": "F011",
+      "path": [
+        "HADOOP-19803",
+        "HADOOP-18839"
+      ],
+      "content_sha256": "6ca5e3ec0e9c9cb6ccc361fd0aa8cc55b963a6bfba7ced50aeac79f81974808a"
+    },
+    {
+      "id": "F012",
+      "path": [
+        "HADOOP-19092",
+        "HADOOP-19284"
+      ],
+      "content_sha256": "f8c7bbde8d336732c3ad27d821ffd202ced9f753532bc2d5eb89c904c3c8913c"
+    },
+    {
+      "id": "F013",
+      "path": [
+        "HADOOP-19803",
+        "HADOOP-15631"
+      ],
+      "content_sha256": "ce561e0d43887a504efb3fc670504e9f7a1922b61a0ebf09b3f4be83ef041652"
+    },
+    {
+      "id": "F014",
+      "path": [
+        "HADOOP-19092",
+        "HADOOP-19284"
+      ],
+      "content_sha256": "ffba3f377dd8c62add7926aa03fc4708d9bef719f9793d59d3d0b3e330543183"
+    },
+    {
+      "id": "F015",
+      "path": [
+        "HADOOP-19092",
+        "HADOOP-19284"
+      ],
+      "content_sha256": "5877090c650cd64b392bc338605f86db6a541998b0597d23ef07ea2b87d4c950"
+    },
+    {
+      "id": "F016",
+      "path": [
+        "HADOOP-19092",
+        "HADOOP-19284"
+      ],
+      "content_sha256": "e28207f3caee9077b75870b94187ca4eae156b10ef3c679f76c4f42a50529e3c"
+    },
+    {
+      "id": "F017",
+      "path": [
+        "HADOOP-19092",
+        "HADOOP-19284"
+      ],
+      "content_sha256": "b8b0f8176ae3fab6867305a729800b62cdcb509bd07d0f3ef4b3487b96b062d1"
+    },
+    {
+      "id": "F018",
+      "path": [
+        "HADOOP-15763",
+        "HADOOP-16163"
+      ],
+      "content_sha256": "9f82e8652f08089d62210ddeaf32294c70a11455837fc92f7acd999c210493e0"
+    },
+    {
+      "id": "F019",
+      "path": [
+        "HADOOP-19092",
+        "HADOOP-19284"
+      ],
+      "content_sha256": "aa5b87fa21d6c5b2804073358ec0b91cab8c5732b8d56968ec7d84ae0a1053cb"
+    },
+    {
+      "id": "F020",
+      "path": [
+        "HADOOP-19803",
+        "HADOOP-18839"
+      ],
+      "content_sha256": "04d68d8da042ee84d4f0a75455178fb1d7f1f565ec48b7723e41ff9baf1152c1"
+    },
+    {
+      "id": "F021",
+      "path": [
+        "HADOOP-19092",
+        "HADOOP-19284"
+      ],
+      "content_sha256": "6d80d662a8043d9b500ece21c2f9f339b947fdb902b6fa7aab562ebc62f0309a"
+    },
+    {
+      "id": "F022",
+      "path": [
+        "HADOOP-19092",
+        "HADOOP-19284"
+      ],
+      "content_sha256": "2f2f2cc4b34853a5d93c4161d4b5c6a44278121dca18dc51fc4a02e52c8d884b"
+    },
+    {
+      "id": "F023",
+      "path": [
+        "HADOOP-19092",
+        "HADOOP-19284"
+      ],
+      "content_sha256": "c499e23e73c80b551124362e6f818195cd72712ff6e7ef23eca1ab6a2adf7393"
+    },
+    {
+      "id": "F024",
+      "path": [
+        "HADOOP-19092",
+        "HADOOP-19284"
+      ],
+      "content_sha256": "a9525beb0167fd9dbf89d8b6dff30342cb59b87fff90479787f2d64803b2c8fc"
+    },
+    {
+      "id": "F025",
+      "path": [
+        "HADOOP-19803",
+        "HADOOP-15631"
+      ],
+      "content_sha256": "07612e6cc24ea0b31c14e24f59e5fb87e16cbf48565d37bb6658fb78347e4550"
+    },
+    {
+      "id": "F026",
+      "path": [
+        "HADOOP-19092",
+        "HADOOP-19284"
+      ],
+      "content_sha256": "64b13cc171c5476edf2df039dfbe26bfedca574efe02488d0d7c3842cae0ce9c"
+    },
+    {
+      "id": "F027",
+      "path": [
+        "HADOOP-19092",
+        "HADOOP-19284"
+      ],
+      "content_sha256": "0959782a663e0c6e1728f592b1a7eaccb2555217cf669e9493a4a37aea0d14e2"
+    },
+    {
+      "id": "F028",
+      "path": [
+        "HADOOP-15763",
+        "HADOOP-17002"
+      ],
+      "content_sha256": "c2711ce829708359c78258a67633eedb58239f1e76b9e1b2e38a059f60a307c9"
+    },
+    {
+      "id": "F029",
+      "path": [
+        "HADOOP-19803",
+        "HADOOP-15631"
+      ],
+      "content_sha256": "8775a6ad5b89d2c9f9b46ad450e017ca2271e75cffae0be2a2efb60506ff6efc"
+    },
+    {
+      "id": "F030",
+      "path": [
+        "HADOOP-19092",
+        "HADOOP-19284"
+      ],
+      "content_sha256": "37e5a811ae3473e06b0242bc30b227681f5b109a1f8a3db18b52cd96333072c9"
+    },
+    {
+      "id": "F031",
+      "path": [
+        "HADOOP-19803",
+        "HADOOP-14639"
+      ],
+      "content_sha256": "ce561e0d43887a504efb3fc670504e9f7a1922b61a0ebf09b3f4be83ef041652"
+    },
+    {
+      "id": "F032",
+      "path": [
+        "HADOOP-19803",
+        "HADOOP-14639"
+      ],
+      "content_sha256": "99b1ceff83015c3669cd4b15a2703f0fde6c7027ac9ec28cd692999e6c32089b"
+    },
+    {
+      "id": "F033",
+      "path": [
+        "HADOOP-15763",
+        "HADOOP-16163"
+      ],
+      "content_sha256": "8c180345d27e71bb347f2c2c7d19643f1c1f629e48d81284f12c2258e0364cd5"
+    },
+    {
+      "id": "F034",
+      "path": [
+        "HADOOP-15763",
+        "HADOOP-16163"
+      ],
+      "content_sha256": "572a8cf2ce710219ab96e568850526096667b1c81f48462dc7489f3730dd0333"
+    },
+    {
+      "id": "F035",
+      "path": [
+        "HADOOP-19803",
+        "HADOOP-18839"
+      ],
+      "content_sha256": "0305a3dc95d23be59679905f958df6b7bafb53651865422d3e13550126cf6509"
+    },
+    {
+      "id": "F036",
+      "path": [
+        "HADOOP-19803",
+        "HADOOP-14639"
+      ],
+      "content_sha256": "8775a6ad5b89d2c9f9b46ad450e017ca2271e75cffae0be2a2efb60506ff6efc"
+    },
+    {
+      "id": "F037",
+      "path": [
+        "HADOOP-19092",
+        "HADOOP-19284"
+      ],
+      "content_sha256": "098740c6a3aa391cdcd19f3fbc8d911df2a5dfe839a8371694ed11f0a3d8a94b"
+    },
+    {
+      "id": "F038",
+      "path": [
+        "HADOOP-19092",
+        "HADOOP-19284"
+      ],
+      "content_sha256": "b6207fc06c60d5def8510bd7cba337959f7f7112d3afea970a83f178edb2d707"
+    },
+    {
+      "id": "F039",
+      "path": [
+        "HADOOP-15763",
+        "HADOOP-17002"
+      ],
+      "content_sha256": "8e9512e4e8fcbc9637fed39a464fd57752544bae955ce1522eb4280f30f5b7c0"
+    },
+    {
+      "id": "F040",
+      "path": [
+        "HADOOP-19803",
+        "HADOOP-16155"
+      ],
+      "content_sha256": "0529d6bcd6abc90e9f9b928211b20a4873e56c189d23a9feac10b00c8470e7ce"
+    },
+    {
+      "id": "F041",
+      "path": [
+        "HADOOP-15763",
+        "HADOOP-16163"
+      ],
+      "content_sha256": "7be1437de91a563a198a5d6bacfce0872561c5ba844e847585f98e99de18fc56"
+    },
+    {
+      "id": "F042",
+      "path": [
+        "HADOOP-19092",
+        "HADOOP-19284"
+      ],
+      "content_sha256": "b003c41dc42ac3ba3c0609ca85034aee6ba6c108e80674ff5ce14774f7bdc699"
+    },
+    {
+      "id": "F043",
+      "path": [
+        "HADOOP-19092",
+        "HADOOP-19284"
+      ],
+      "content_sha256": "1a68179347f636f75658e423537e3ba285eeafbee2f742370c07560ff86c705c"
+    },
+    {
+      "id": "F044",
+      "path": [
+        "HADOOP-19092",
+        "HADOOP-19284"
+      ],
+      "content_sha256": "9761ecc33127ddbd2e78e4d3298e69b4f82551bb9a1bbd533075c56790cd4882"
+    },
+    {
+      "id": "F045",
+      "path": [
+        "HADOOP-15763",
+        "HADOOP-17002"
+      ],
+      "content_sha256": "91b80eda0be4f98f862e96ad4db2807d9aef46e3a06fd195e4d490c13e7a6855"
+    },
+    {
+      "id": "F046",
+      "path": [
+        "HADOOP-19092",
+        "HADOOP-19284"
+      ],
+      "content_sha256": "e1828e8ba151689662adecf3325da0a268885e508053933324349d3bde103ab7"
+    },
+    {
+      "id": "F047",
+      "path": [
+        "HADOOP-19092",
+        "HADOOP-19284"
+      ],
+      "content_sha256": "9414879a49a849b7257637cd750c901a8388a2cc283854ff23d14196d32d83de"
+    },
+    {
+      "id": "F048",
+      "path": [
+        "HADOOP-19092",
+        "HADOOP-19284"
+      ],
+      "content_sha256": "ffad7e02a22a78df0d445a5b3e95762289cbf7b4678a850a1d813489d1872c0e"
+    },
+    {
+      "id": "F049",
+      "path": [
+        "HADOOP-15763",
+        "HADOOP-16163"
+      ],
+      "content_sha256": "36e5e099538860eb8627c472878fc99c2d553717c39d3d011eda960d76227f0d"
+    },
+    {
+      "id": "F050",
+      "path": [
+        "HADOOP-19092",
+        "HADOOP-19284"
+      ],
+      "content_sha256": "06a9fc661d3745dff3d7f8084f7d2430aebca34fd4b0c6e238f408b719c903cd"
+    },
+    {
+      "id": "F051",
+      "path": [
+        "HADOOP-19092",
+        "HADOOP-19284"
+      ],
+      "content_sha256": "5335e3f26b817a38e16fb0cbf5f6000e9a3ee05358eab29ee7348ec3d6c238f7"
+    },
+    {
+      "id": "F052",
+      "path": [
+        "HADOOP-19803",
+        "HADOOP-18839"
+      ],
+      "content_sha256": "72bbf0afbd73759eb30350341b16b45d13f6e8481454eb9622f0d1847ab5a110"
+    },
+    {
+      "id": "F053",
+      "path": [
+        "HADOOP-19092",
+        "HADOOP-19284"
+      ],
+      "content_sha256": "3211f606414553f91f6cb0f57251d99d27d61c91accec2cb78e5856fe214b7fb"
+    },
+    {
+      "id": "F054",
+      "path": [
+        "HADOOP-15763",
+        "HADOOP-16163"
+      ],
+      "content_sha256": "db488c55214854661eb65b9f4fa1dc77628674d5e0de31dae7c042295dfb4e49"
+    }
+  ],
+  "provenance": [
+    {
+      "id": "F001",
+      "native_id": "HADOOP-17002/comment/17089848",
+      "role": "comment"
+    },
+    {
+      "id": "F002",
+      "native_id": "HADOOP-19284/comment/17884952",
+      "role": "comment"
+    },
+    {
+      "id": "F003",
+      "native_id": "HADOOP-19284/comment/17883796",
+      "role": "comment"
+    },
+    {
+      "id": "F004",
+      "native_id": "HADOOP-16155/comment/17930306",
+      "role": "comment"
+    },
+    {
+      "id": "F005",
+      "native_id": "HADOOP-15631",
+      "role": "subtask"
+    },
+    {
+      "id": "F006",
+      "native_id": "HADOOP-18605",
+      "role": "subtask"
+    },
+    {
+      "id": "F007",
+      "native_id": "HADOOP-17002",
+      "role": "subtask"
+    },
+    {
+      "id": "F008",
+      "native_id": "HADOOP-18839/comment/17773611",
+      "role": "comment"
+    },
+    {
+      "id": "F009",
+      "native_id": "HADOOP-18839/comment/17752144",
+      "role": "comment"
+    },
+    {
+      "id": "F010",
+      "native_id": "HADOOP-19284/comment/17884951",
+      "role": "comment"
+    },
+    {
+      "id": "F011",
+      "native_id": "HADOOP-18839/comment/17750859",
+      "role": "comment"
+    },
+    {
+      "id": "F012",
+      "native_id": "HADOOP-19284/comment/17884879",
+      "role": "comment"
+    },
+    {
+      "id": "F013",
+      "native_id": "HADOOP-15631/comment/17079865",
+      "role": "comment"
+    },
+    {
+      "id": "F014",
+      "native_id": "HADOOP-19284/comment/17884934",
+      "role": "comment"
+    },
+    {
+      "id": "F015",
+      "native_id": "HADOOP-19284/comment/17884848",
+      "role": "comment"
+    },
+    {
+      "id": "F016",
+      "native_id": "HADOOP-19284/comment/17884360",
+      "role": "comment"
+    },
+    {
+      "id": "F017",
+      "native_id": "HADOOP-19284/comment/17884969",
+      "role": "comment"
+    },
+    {
+      "id": "F018",
+      "native_id": "HADOOP-16163/comment/16784132",
+      "role": "comment"
+    },
+    {
+      "id": "F019",
+      "native_id": "HADOOP-19284/comment/17884986",
+      "role": "comment"
+    },
+    {
+      "id": "F020",
+      "native_id": "HADOOP-18839",
+      "role": "subtask"
+    },
+    {
+      "id": "F021",
+      "native_id": "HADOOP-19284/comment/17885294",
+      "role": "comment"
+    },
+    {
+      "id": "F022",
+      "native_id": "HADOOP-19284/comment/17884875",
+      "role": "comment"
+    },
+    {
+      "id": "F023",
+      "native_id": "HADOOP-19284/comment/17885210",
+      "role": "comment"
+    },
+    {
+      "id": "F024",
+      "native_id": "HADOOP-19284/comment/17885209",
+      "role": "comment"
+    },
+    {
+      "id": "F025",
+      "native_id": "HADOOP-15631/comment/16746713",
+      "role": "comment"
+    },
+    {
+      "id": "F026",
+      "native_id": "HADOOP-19284/comment/17885323",
+      "role": "comment"
+    },
+    {
+      "id": "F027",
+      "native_id": "HADOOP-19284/comment/17883867",
+      "role": "comment"
+    },
+    {
+      "id": "F028",
+      "native_id": "HADOOP-17002/comment/17091068",
+      "role": "comment"
+    },
+    {
+      "id": "F029",
+      "native_id": "HADOOP-15631/comment/17803122",
+      "role": "comment"
+    },
+    {
+      "id": "F030",
+      "native_id": "HADOOP-19284/comment/17885028",
+      "role": "comment"
+    },
+    {
+      "id": "F031",
+      "native_id": "HADOOP-14639/comment/17079945",
+      "role": "comment"
+    },
+    {
+      "id": "F032",
+      "native_id": "HADOOP-14639",
+      "role": "subtask"
+    },
+    {
+      "id": "F033",
+      "native_id": "HADOOP-16163/comment/16783508",
+      "role": "comment"
+    },
+    {
+      "id": "F034",
+      "native_id": "HADOOP-16163/comment/16784500",
+      "role": "comment"
+    },
+    {
+      "id": "F035",
+      "native_id": "HADOOP-18839/comment/17757302",
+      "role": "comment"
+    },
+    {
+      "id": "F036",
+      "native_id": "HADOOP-14639/comment/17803072",
+      "role": "comment"
+    },
+    {
+      "id": "F037",
+      "native_id": "HADOOP-19284/comment/17884961",
+      "role": "comment"
+    },
+    {
+      "id": "F038",
+      "native_id": "HADOOP-19284/comment/17884914",
+      "role": "comment"
+    },
+    {
+      "id": "F039",
+      "native_id": "HADOOP-17002/comment/17140784",
+      "role": "comment"
+    },
+    {
+      "id": "F040",
+      "native_id": "HADOOP-16155",
+      "role": "subtask"
+    },
+    {
+      "id": "F041",
+      "native_id": "HADOOP-16163",
+      "role": "subtask"
+    },
+    {
+      "id": "F042",
+      "native_id": "HADOOP-19284/comment/17884894",
+      "role": "comment"
+    },
+    {
+      "id": "F043",
+      "native_id": "HADOOP-19284/comment/17884896",
+      "role": "comment"
+    },
+    {
+      "id": "F044",
+      "native_id": "HADOOP-19284/comment/17884895",
+      "role": "comment"
+    },
+    {
+      "id": "F045",
+      "native_id": "HADOOP-17002/comment/17087863",
+      "role": "comment"
+    },
+    {
+      "id": "F046",
+      "native_id": "HADOOP-19284/comment/17884898",
+      "role": "comment"
+    },
+    {
+      "id": "F047",
+      "native_id": "HADOOP-19284/comment/17883778",
+      "role": "comment"
+    },
+    {
+      "id": "F048",
+      "native_id": "HADOOP-19284",
+      "role": "subtask"
+    },
+    {
+      "id": "F049",
+      "native_id": "HADOOP-16163/comment/16783496",
+      "role": "comment"
+    },
+    {
+      "id": "F050",
+      "native_id": "HADOOP-19284/comment/17885395",
+      "role": "comment"
+    },
+    {
+      "id": "F051",
+      "native_id": "HADOOP-19284/comment/17883798",
+      "role": "comment"
+    },
+    {
+      "id": "F052",
+      "native_id": "HADOOP-18839/comment/17751712",
+      "role": "comment"
+    },
+    {
+      "id": "F053",
+      "native_id": "HADOOP-19284/comment/17884916",
+      "role": "comment"
+    },
+    {
+      "id": "F054",
+      "native_id": "HADOOP-16163/comment/16784468",
+      "role": "comment"
+    }
+  ]
+}

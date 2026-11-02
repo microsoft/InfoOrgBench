@@ -1,0 +1,354 @@
+{
+  "assignments": [
+    {
+      "id": "F001",
+      "path": [
+        "S3A improvements",
+        "DistCp capabilities"
+      ]
+    },
+    {
+      "id": "F002",
+      "path": [
+        "S3A improvements",
+        "DistCp capabilities"
+      ]
+    },
+    {
+      "id": "F003",
+      "path": [
+        "ABFS improvements",
+        "Token failure retries"
+      ]
+    },
+    {
+      "id": "F004",
+      "path": [
+        "S3A improvements",
+        "SSL retry failures"
+      ]
+    },
+    {
+      "id": "F005",
+      "path": [
+        "S3A improvements",
+        "SSL retry failures"
+      ]
+    },
+    {
+      "id": "F006",
+      "path": [
+        "S3A improvements",
+        "DistCp capabilities"
+      ]
+    },
+    {
+      "id": "F007",
+      "path": [
+        "S3A improvements",
+        "DistCp capabilities"
+      ]
+    },
+    {
+      "id": "F008",
+      "path": [
+        "ABFS improvements",
+        "Token failure retries"
+      ]
+    },
+    {
+      "id": "F009",
+      "path": [
+        "S3A improvements",
+        "DistCp capabilities"
+      ]
+    },
+    {
+      "id": "F010",
+      "path": [
+        "ABFS improvements",
+        "Retry configuration backport"
+      ]
+    },
+    {
+      "id": "F011",
+      "path": [
+        "S3A improvements",
+        "DistCp capabilities"
+      ]
+    },
+    {
+      "id": "F012",
+      "path": [
+        "S3A improvements",
+        "DistCp capabilities"
+      ]
+    },
+    {
+      "id": "F013",
+      "path": [
+        "S3A improvements",
+        "DistCp capabilities"
+      ]
+    },
+    {
+      "id": "F014",
+      "path": [
+        "ABFS improvements",
+        "Rename failure logging"
+      ]
+    },
+    {
+      "id": "F015",
+      "path": [
+        "S3A improvements",
+        "DistCp capabilities"
+      ]
+    },
+    {
+      "id": "F016",
+      "path": [
+        "ABFS improvements",
+        "Retry configuration backport"
+      ]
+    },
+    {
+      "id": "F017",
+      "path": [
+        "S3A improvements",
+        "DistCp capabilities"
+      ]
+    },
+    {
+      "id": "F018",
+      "path": [
+        "S3A improvements",
+        "Remove HDFS dependency"
+      ]
+    },
+    {
+      "id": "F019",
+      "path": [
+        "ABFS improvements",
+        "Rename failure logging"
+      ]
+    },
+    {
+      "id": "F020",
+      "path": [
+        "ABFS improvements",
+        "China authentication"
+      ]
+    },
+    {
+      "id": "F021",
+      "path": [
+        "S3A improvements",
+        "YARN log collection"
+      ]
+    },
+    {
+      "id": "F022",
+      "path": [
+        "S3A improvements",
+        "SSL retry failures"
+      ]
+    },
+    {
+      "id": "F023",
+      "path": [
+        "S3A improvements",
+        "Delegation credential tests"
+      ]
+    },
+    {
+      "id": "F024",
+      "path": [
+        "S3A improvements",
+        "Remove HDFS dependency"
+      ]
+    },
+    {
+      "id": "F025",
+      "path": [
+        "S3A improvements",
+        "Assumed role credentials"
+      ]
+    },
+    {
+      "id": "F026",
+      "path": [
+        "S3A improvements",
+        "Remove HDFS dependency"
+      ]
+    },
+    {
+      "id": "F027",
+      "path": [
+        "S3A improvements",
+        "Remove HDFS dependency"
+      ]
+    },
+    {
+      "id": "F028",
+      "path": [
+        "S3A improvements",
+        "Object store trash"
+      ]
+    },
+    {
+      "id": "F029",
+      "path": [
+        "S3A improvements",
+        "Object store trash"
+      ]
+    },
+    {
+      "id": "F030",
+      "path": [
+        "ABFS improvements",
+        "Retry configuration backport"
+      ]
+    },
+    {
+      "id": "F031",
+      "path": [
+        "S3A improvements",
+        "DistCp capabilities"
+      ]
+    },
+    {
+      "id": "F032",
+      "path": [
+        "ABFS improvements",
+        "Token failure retries"
+      ]
+    },
+    {
+      "id": "F033",
+      "path": [
+        "S3A improvements",
+        "Input stream read failures"
+      ]
+    },
+    {
+      "id": "F034",
+      "path": [
+        "S3A improvements",
+        "SSL retry failures"
+      ]
+    },
+    {
+      "id": "F035",
+      "path": [
+        "S3A improvements",
+        "Object store trash"
+      ]
+    },
+    {
+      "id": "F036",
+      "path": [
+        "S3A improvements",
+        "DistCp capabilities"
+      ]
+    },
+    {
+      "id": "F037",
+      "path": [
+        "S3A improvements",
+        "DistCp capabilities"
+      ]
+    },
+    {
+      "id": "F038",
+      "path": [
+        "ABFS improvements",
+        "Rename failure logging"
+      ]
+    },
+    {
+      "id": "F039",
+      "path": [
+        "S3A improvements",
+        "DistCp capabilities"
+      ]
+    },
+    {
+      "id": "F040",
+      "path": [
+        "ABFS improvements",
+        "China authentication"
+      ]
+    },
+    {
+      "id": "F041",
+      "path": [
+        "S3A improvements",
+        "Iceberg bulk delete tests"
+      ]
+    },
+    {
+      "id": "F042",
+      "path": [
+        "S3A improvements",
+        "Delegation credential tests"
+      ]
+    },
+    {
+      "id": "F043",
+      "path": [
+        "S3A improvements",
+        "Public bucket encryption tests"
+      ]
+    },
+    {
+      "id": "F044",
+      "path": [
+        "S3A improvements",
+        "SSL retry failures"
+      ]
+    },
+    {
+      "id": "F045",
+      "path": [
+        "S3A improvements",
+        "DistCp capabilities"
+      ]
+    },
+    {
+      "id": "F046",
+      "path": [
+        "S3A improvements",
+        "SSL retry failures"
+      ]
+    },
+    {
+      "id": "F047",
+      "path": [
+        "S3A improvements",
+        "Input stream read failures"
+      ]
+    },
+    {
+      "id": "F048",
+      "path": [
+        "ABFS improvements",
+        "China authentication"
+      ]
+    },
+    {
+      "id": "F049",
+      "path": [
+        "S3A improvements",
+        "Remove HDFS dependency"
+      ]
+    },
+    {
+      "id": "F050",
+      "path": [
+        "ABFS improvements",
+        "China authentication"
+      ]
+    }
+  ]
+}

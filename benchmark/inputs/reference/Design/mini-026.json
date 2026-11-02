@@ -1,0 +1,366 @@
+{
+  "task_id": "mini-026",
+  "records": [
+    {
+      "id": "F001",
+      "path": [
+        "sig-instrumentation",
+        "1748-pod-resource-metrics"
+      ],
+      "content_sha256": "d5eb6c32be0b3e034d5dfbad291d17ac2a31bcfde6e9e00583650f7905078875",
+      "source_native_id": "keps/sig-instrumentation/1748-pod-resource-metrics#excerpt-2",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F002",
+      "path": [
+        "sig-node",
+        "5304-dra-attributes-downward-api"
+      ],
+      "content_sha256": "6b705ae1e4262fa4d5d63fcd7c878bb3e1443c9061c841b23a61ac7d05e320d7",
+      "source_native_id": "keps/sig-node/5304-dra-attributes-downward-api#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F003",
+      "path": [
+        "sig-auth",
+        "2718-20210511-client-exec-proxy"
+      ],
+      "content_sha256": "16daee2ccfa48a70ab1567f4e43c71882bbc938b38510119a1f77fc6233b568a",
+      "source_native_id": "keps/sig-auth/2718-20210511-client-exec-proxy#excerpt-3",
+      "source_heading": "non-goals"
+    },
+    {
+      "id": "F004",
+      "path": [
+        "sig-node",
+        "6122-configurable-scaling-delay-with-pod-resource-exposure"
+      ],
+      "content_sha256": "389d938cf0e8d54c6a26702c0a45c7add5aa4f1c414c97385f0a93b8232380a0",
+      "source_native_id": "keps/sig-node/6122-configurable-scaling-delay-with-pod-resource-exposure#excerpt-2",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F005",
+      "path": [
+        "sig-instrumentation",
+        "5808-native-histogram-support"
+      ],
+      "content_sha256": "38705306b5ee3cca08c846758f15854558f48fad685348a43b994bda11548f4e",
+      "source_native_id": "keps/sig-instrumentation/5808-native-histogram-support#excerpt-3",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F006",
+      "path": [
+        "sig-auth",
+        "3331-structured-authentication-configuration"
+      ],
+      "content_sha256": "d98b3c1a9f31b2953fd9c01b9403c14844bc5f5bbea8ca49a0254109e872625d",
+      "source_native_id": "keps/sig-auth/3331-structured-authentication-configuration#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F007",
+      "path": [
+        "sig-instrumentation",
+        "2831-kubelet-tracing"
+      ],
+      "content_sha256": "f9fc9e18b549734a9445283b7f8be2be221f3c3a146e3721df6e7f6ef8e19e80",
+      "source_native_id": "keps/sig-instrumentation/2831-kubelet-tracing#excerpt-3",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F008",
+      "path": [
+        "sig-api-machinery",
+        "5958-client-opt-out-managedfields"
+      ],
+      "content_sha256": "a32ff4832407aabe7dd2dccccb98c6223fc91aafe595da64a74972915d2ad058",
+      "source_native_id": "keps/sig-api-machinery/5958-client-opt-out-managedfields#excerpt-1",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F009",
+      "path": [
+        "sig-instrumentation",
+        "2831-kubelet-tracing"
+      ],
+      "content_sha256": "1cb4c980c4f552a10b37383d7682fb7c52c507f6150a33e5d334ff0ef7759bfa",
+      "source_native_id": "keps/sig-instrumentation/2831-kubelet-tracing#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F010",
+      "path": [
+        "sig-api-machinery",
+        "1152-less-object-serializations"
+      ],
+      "content_sha256": "4081c4133f3385ed24f4acd4dd9cdd54c225951622407cfd4af155cdd9eb0877",
+      "source_native_id": "keps/sig-api-machinery/1152-less-object-serializations#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F011",
+      "path": [
+        "sig-api-machinery",
+        "5958-client-opt-out-managedfields"
+      ],
+      "content_sha256": "972f4513c1fe47feab29ef99a490975e1d42bd19e27e20d2b502ed1ec6557cc8",
+      "source_native_id": "keps/sig-api-machinery/5958-client-opt-out-managedfields#excerpt-2",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F012",
+      "path": [
+        "sig-api-machinery",
+        "1152-less-object-serializations"
+      ],
+      "content_sha256": "03836471316585076388f51d75a752ce52228793144589153be14d9c683ff892",
+      "source_native_id": "keps/sig-api-machinery/1152-less-object-serializations#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F013",
+      "path": [
+        "sig-api-machinery",
+        "5073-declarative-validation-with-validation-gen"
+      ],
+      "content_sha256": "562a8130a5072512eca7f0496b22c23db830737ad6b77bc3dee19368dee06925",
+      "source_native_id": "keps/sig-api-machinery/5073-declarative-validation-with-validation-gen#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F014",
+      "path": [
+        "sig-node",
+        "1898-hardened-exec"
+      ],
+      "content_sha256": "58c39fa35fba6c969619a7124535eea88e586b78c8c7345eda887e613469a14f",
+      "source_native_id": "keps/sig-node/1898-hardened-exec#excerpt-1",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F015",
+      "path": [
+        "sig-auth",
+        "4317-pod-certificates"
+      ],
+      "content_sha256": "f88ff7b1d45499cc42469511ff26e3cc5acc109f937483068f04629b0cb5ed95",
+      "source_native_id": "keps/sig-auth/4317-pod-certificates#excerpt-2",
+      "source_heading": "non-goals"
+    },
+    {
+      "id": "F016",
+      "path": [
+        "sig-node",
+        "1898-hardened-exec"
+      ],
+      "content_sha256": "b44f2eaf6e17c9e4d8256aa1e86bc4eda1cd85ea7525cdf54d35c47ee817228c",
+      "source_native_id": "keps/sig-node/1898-hardened-exec#excerpt-2",
+      "source_heading": "risks and mitigations"
+    },
+    {
+      "id": "F017",
+      "path": [
+        "sig-node",
+        "1898-hardened-exec"
+      ],
+      "content_sha256": "aaa074a5db19430652d2a4bfcba5728dc3b13700c93edf0a1add496380885a91",
+      "source_native_id": "keps/sig-node/1898-hardened-exec#excerpt-3",
+      "source_heading": "alternatives"
+    },
+    {
+      "id": "F018",
+      "path": [
+        "sig-auth",
+        "3331-structured-authentication-configuration"
+      ],
+      "content_sha256": "f04d806514ee4b7fd77afa53b606958a3e3dbc891a43fdaca6593d964dfc3c35",
+      "source_native_id": "keps/sig-auth/3331-structured-authentication-configuration#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F019",
+      "path": [
+        "sig-node",
+        "6122-configurable-scaling-delay-with-pod-resource-exposure"
+      ],
+      "content_sha256": "99215903a1047c3ea15c3c683165c940c5b1738f62bad4ed24a2e096325f50fc",
+      "source_native_id": "keps/sig-node/6122-configurable-scaling-delay-with-pod-resource-exposure#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F020",
+      "path": [
+        "sig-auth",
+        "4317-pod-certificates"
+      ],
+      "content_sha256": "53718030cf78477316ea9d1bde7dbc8b88d40d785951c03c90e0236b3429d901",
+      "source_native_id": "keps/sig-auth/4317-pod-certificates#excerpt-3",
+      "source_heading": "risks and mitigations"
+    },
+    {
+      "id": "F021",
+      "path": [
+        "sig-auth",
+        "2718-20210511-client-exec-proxy"
+      ],
+      "content_sha256": "33d4ad242e26b4df5707ce2f147321f994bde866af6e32153824ecc14fa19b04",
+      "source_native_id": "keps/sig-auth/2718-20210511-client-exec-proxy#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F022",
+      "path": [
+        "sig-api-machinery",
+        "1152-less-object-serializations"
+      ],
+      "content_sha256": "47e2db4cadbe4e09b9131bff448eebb3925ce8966bfc7bd5163536a700e4e564",
+      "source_native_id": "keps/sig-api-machinery/1152-less-object-serializations#excerpt-3",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F023",
+      "path": [
+        "sig-api-machinery",
+        "5073-declarative-validation-with-validation-gen"
+      ],
+      "content_sha256": "e301334ea9581c78863c12d1ad4a767f9170a201051c505820f5de0d3cdf93c2",
+      "source_native_id": "keps/sig-api-machinery/5073-declarative-validation-with-validation-gen#excerpt-3",
+      "source_heading": "non-goals"
+    },
+    {
+      "id": "F024",
+      "path": [
+        "sig-node",
+        "6122-configurable-scaling-delay-with-pod-resource-exposure"
+      ],
+      "content_sha256": "872eb367d7c442114be5f39d5f1b9c6bf9f87257a1b933079ee6ef91e4dd163d",
+      "source_native_id": "keps/sig-node/6122-configurable-scaling-delay-with-pod-resource-exposure#excerpt-3",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F025",
+      "path": [
+        "sig-node",
+        "5304-dra-attributes-downward-api"
+      ],
+      "content_sha256": "95dfcfea16263b5b70d043b370e1795bf23261963ed865273a4f8fdc086f11c4",
+      "source_native_id": "keps/sig-node/5304-dra-attributes-downward-api#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F026",
+      "path": [
+        "sig-auth",
+        "2718-20210511-client-exec-proxy"
+      ],
+      "content_sha256": "6b6ffacdbea4911dbbc297b9c99b1e0179238bc706d64d45f4aa3680be16afac",
+      "source_native_id": "keps/sig-auth/2718-20210511-client-exec-proxy#excerpt-2",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F027",
+      "path": [
+        "sig-node",
+        "5304-dra-attributes-downward-api"
+      ],
+      "content_sha256": "c984f14156afdfe17e20d7d5f94c7c867d47475f6a5ca6e385e4446077f26064",
+      "source_native_id": "keps/sig-node/5304-dra-attributes-downward-api#excerpt-3",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F028",
+      "path": [
+        "sig-api-machinery",
+        "5073-declarative-validation-with-validation-gen"
+      ],
+      "content_sha256": "1ec5a8400bd029150a5aba35de7ee7e61df97e4885575a27640360b3663df5a2",
+      "source_native_id": "keps/sig-api-machinery/5073-declarative-validation-with-validation-gen#excerpt-2",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F029",
+      "path": [
+        "sig-instrumentation",
+        "1748-pod-resource-metrics"
+      ],
+      "content_sha256": "5da8607fa862abfde469c9b649e6745d1391af6b733ae98170ce4c522ac2a7b5",
+      "source_native_id": "keps/sig-instrumentation/1748-pod-resource-metrics#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F030",
+      "path": [
+        "sig-instrumentation",
+        "5808-native-histogram-support"
+      ],
+      "content_sha256": "700a8082d3b8921550564e6258c5a565a47c2a0ab804706b65ec22ec5634a740",
+      "source_native_id": "keps/sig-instrumentation/5808-native-histogram-support#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F031",
+      "path": [
+        "sig-instrumentation",
+        "2831-kubelet-tracing"
+      ],
+      "content_sha256": "dc2be1db7a58cbf962d7efad7e2360e8974d914fe8a20e6940d3cba560407441",
+      "source_native_id": "keps/sig-instrumentation/2831-kubelet-tracing#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F032",
+      "path": [
+        "sig-api-machinery",
+        "5958-client-opt-out-managedfields"
+      ],
+      "content_sha256": "98aef72c0b98f7ae0578d9610d1e508ab333f10b389e1d760886b7d0ad9f269f",
+      "source_native_id": "keps/sig-api-machinery/5958-client-opt-out-managedfields#excerpt-3",
+      "source_heading": "non-goals"
+    },
+    {
+      "id": "F033",
+      "path": [
+        "sig-instrumentation",
+        "5808-native-histogram-support"
+      ],
+      "content_sha256": "37edc68c0b798a9001dd68c88d7e30b8ff4a8268483c53f3589fe8aced0cfbba",
+      "source_native_id": "keps/sig-instrumentation/5808-native-histogram-support#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F034",
+      "path": [
+        "sig-auth",
+        "3331-structured-authentication-configuration"
+      ],
+      "content_sha256": "2e3f04dfd7aa03369b18874a137b8ea93ae2994b08a603aba8eaea1760183fa0",
+      "source_native_id": "keps/sig-auth/3331-structured-authentication-configuration#excerpt-3",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F035",
+      "path": [
+        "sig-instrumentation",
+        "1748-pod-resource-metrics"
+      ],
+      "content_sha256": "64a92b676c16ab5ffc36222fa54bb4155608021210cc013c137ba88330508df4",
+      "source_native_id": "keps/sig-instrumentation/1748-pod-resource-metrics#excerpt-3",
+      "source_heading": "alternatives"
+    },
+    {
+      "id": "F036",
+      "path": [
+        "sig-auth",
+        "4317-pod-certificates"
+      ],
+      "content_sha256": "2d833719c02537df88a4edfe07925875d7d2e365961aa1a13d2fd9c6879f7a6e",
+      "source_native_id": "keps/sig-auth/4317-pod-certificates#excerpt-1",
+      "source_heading": "goals"
+    }
+  ],
+  "reference_scope": "Source-derived group/proposal hierarchy for a development-only difficulty and cost pilot."
+}

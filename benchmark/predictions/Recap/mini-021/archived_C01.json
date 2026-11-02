@@ -1,0 +1,333 @@
+{
+  "assignments": [
+    {
+      "id": "F001",
+      "path": [
+        "Review",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F002",
+      "path": [
+        "Development",
+        "Presentations"
+      ]
+    },
+    {
+      "id": "F003",
+      "path": [
+        "Review",
+        "Problems"
+      ]
+    },
+    {
+      "id": "F004",
+      "path": [
+        "Review",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F005",
+      "path": [
+        "Review",
+        "Problems"
+      ]
+    },
+    {
+      "id": "F006",
+      "path": [
+        "Review",
+        "Problems"
+      ]
+    },
+    {
+      "id": "F007",
+      "path": [
+        "Review",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F008",
+      "path": [
+        "Development",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F009",
+      "path": [
+        "Development",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F010",
+      "path": [
+        "Review",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F011",
+      "path": [
+        "Kickoff",
+        "Presentations"
+      ]
+    },
+    {
+      "id": "F012",
+      "path": [
+        "Review",
+        "Problems"
+      ]
+    },
+    {
+      "id": "F013",
+      "path": [
+        "Review",
+        "Problems"
+      ]
+    },
+    {
+      "id": "F014",
+      "path": [
+        "Development",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F015",
+      "path": [
+        "Kickoff",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F016",
+      "path": [
+        "Kickoff",
+        "Discussion"
+      ]
+    },
+    {
+      "id": "F017",
+      "path": [
+        "Development",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F018",
+      "path": [
+        "Kickoff",
+        "Presentations"
+      ]
+    },
+    {
+      "id": "F019",
+      "path": [
+        "Review",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F020",
+      "path": [
+        "Development",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F021",
+      "path": [
+        "Development",
+        "Discussion"
+      ]
+    },
+    {
+      "id": "F022",
+      "path": [
+        "Development",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F023",
+      "path": [
+        "Development",
+        "Discussion"
+      ]
+    },
+    {
+      "id": "F024",
+      "path": [
+        "Development",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F025",
+      "path": [
+        "Development",
+        "Problems"
+      ]
+    },
+    {
+      "id": "F026",
+      "path": [
+        "Development",
+        "Discussion"
+      ]
+    },
+    {
+      "id": "F027",
+      "path": [
+        "Development",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F028",
+      "path": [
+        "Development",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F029",
+      "path": [
+        "Kickoff",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F030",
+      "path": [
+        "Development",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F031",
+      "path": [
+        "Review",
+        "Problems"
+      ]
+    },
+    {
+      "id": "F032",
+      "path": [
+        "Kickoff",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F033",
+      "path": [
+        "Kickoff",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F034",
+      "path": [
+        "Development",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F035",
+      "path": [
+        "Closure",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F036",
+      "path": [
+        "Closure",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F037",
+      "path": [
+        "Closure",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F038",
+      "path": [
+        "Review",
+        "Problems"
+      ]
+    },
+    {
+      "id": "F039",
+      "path": [
+        "Development",
+        "Discussion"
+      ]
+    },
+    {
+      "id": "F040",
+      "path": [
+        "Closure",
+        "Reflection"
+      ]
+    },
+    {
+      "id": "F041",
+      "path": [
+        "Kickoff",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F042",
+      "path": [
+        "Kickoff",
+        "Presentations"
+      ]
+    },
+    {
+      "id": "F043",
+      "path": [
+        "Kickoff",
+        "Discussion"
+      ]
+    },
+    {
+      "id": "F044",
+      "path": [
+        "Development",
+        "Problems"
+      ]
+    },
+    {
+      "id": "F045",
+      "path": [
+        "Development",
+        "Discussion"
+      ]
+    },
+    {
+      "id": "F046",
+      "path": [
+        "Development",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F047",
+      "path": [
+        "Closure",
+        "Decisions"
+      ]
+    }
+  ]
+}

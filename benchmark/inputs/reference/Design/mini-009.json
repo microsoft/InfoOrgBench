@@ -1,0 +1,366 @@
+{
+  "task_id": "mini-009",
+  "records": [
+    {
+      "id": "F001",
+      "path": [
+        "sig-network",
+        "2448-Remove-kube-proxy-automatic-clean-up-logic"
+      ],
+      "content_sha256": "856b9165ce9223789339da9370f2a105b7bf77b28d2aa490c4a577833aeaee60",
+      "source_native_id": "keps/sig-network/2448-Remove-kube-proxy-automatic-clean-up-logic#excerpt-3",
+      "source_heading": "alternatives"
+    },
+    {
+      "id": "F002",
+      "path": [
+        "sig-instrumentation",
+        "1206-metrics-overhaul"
+      ],
+      "content_sha256": "f71703d347908e62c0bdb55f1f289f1b8dcfc7dadb5a155bf2c0a41cc9b53a60",
+      "source_native_id": "keps/sig-instrumentation/1206-metrics-overhaul#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F003",
+      "path": [
+        "sig-network",
+        "2433-topology-aware-hints"
+      ],
+      "content_sha256": "09f968fa80ad877b820ee046ccbe56e40d7f9fb5efed8eef8514e77431fca8ef",
+      "source_native_id": "keps/sig-network/2433-topology-aware-hints#excerpt-3",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F004",
+      "path": [
+        "sig-instrumentation",
+        "4785-resource-state-metrics"
+      ],
+      "content_sha256": "f16ef8dbb9eeb70d53a432b6ed82ecea2bfac7e82c69cddcebacdc8f9c8fb164",
+      "source_native_id": "keps/sig-instrumentation/4785-resource-state-metrics#excerpt-1",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F005",
+      "path": [
+        "sig-instrumentation",
+        "4785-resource-state-metrics"
+      ],
+      "content_sha256": "aea17266494abf335e029489938f632c71f5c50468d802905133f2bf31d28d9f",
+      "source_native_id": "keps/sig-instrumentation/4785-resource-state-metrics#excerpt-3",
+      "source_heading": "design details"
+    },
+    {
+      "id": "F006",
+      "path": [
+        "sig-instrumentation",
+        "4785-resource-state-metrics"
+      ],
+      "content_sha256": "ab7a4896bc325e132f90142e2cb1e18992b5524a9e44e32477941b174eb72061",
+      "source_native_id": "keps/sig-instrumentation/4785-resource-state-metrics#excerpt-2",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F007",
+      "path": [
+        "sig-scheduling",
+        "785-scheduler-component-config-api"
+      ],
+      "content_sha256": "1d4deabc8fd22de30c016093b13a3cc7d6222946181c11ef1e440604ad5a7cd0",
+      "source_native_id": "keps/sig-scheduling/785-scheduler-component-config-api#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F008",
+      "path": [
+        "sig-testing",
+        "714-break-test-tarball"
+      ],
+      "content_sha256": "9c4bb35d46bea71bc9bc1c0b8e90f01702019a1b9bba61bc8ac63d0c651ba8b1",
+      "source_native_id": "keps/sig-testing/714-break-test-tarball#excerpt-3",
+      "source_heading": "non-goals"
+    },
+    {
+      "id": "F009",
+      "path": [
+        "sig-testing",
+        "3041-node-conformance-and-features"
+      ],
+      "content_sha256": "d440ab29a2e6add1bc566fb39bf47d97311a5dd5523f59b18b2c46c9d625bf64",
+      "source_native_id": "keps/sig-testing/3041-node-conformance-and-features#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F010",
+      "path": [
+        "sig-network",
+        "2448-Remove-kube-proxy-automatic-clean-up-logic"
+      ],
+      "content_sha256": "8b90ce44f7692645dbc5e9edf2c661d1b4619ab19df37189fb3c526b5334dbac",
+      "source_native_id": "keps/sig-network/2448-Remove-kube-proxy-automatic-clean-up-logic#excerpt-1",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F011",
+      "path": [
+        "sig-instrumentation",
+        "1206-metrics-overhaul"
+      ],
+      "content_sha256": "892bc2d8e8dabf3d0317bc7a4496a0113d42beea1dfc11532fd4b09187b92d87",
+      "source_native_id": "keps/sig-instrumentation/1206-metrics-overhaul#excerpt-3",
+      "source_heading": "risks and mitigations"
+    },
+    {
+      "id": "F012",
+      "path": [
+        "sig-scheduling",
+        "5229-asynchronous-api-calls-during-scheduling"
+      ],
+      "content_sha256": "db1326947ac333e486bba94997248ceafcc9d1aa71d647d1d6b443550edcefec",
+      "source_native_id": "keps/sig-scheduling/5229-asynchronous-api-calls-during-scheduling#excerpt-3",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F013",
+      "path": [
+        "sig-testing",
+        "2420-reducing-kubernetes-build-maintenance"
+      ],
+      "content_sha256": "fd1495d6729c332a4ed61cbaaf8ab97dc9710b4fa9457842335a09209cf90f12",
+      "source_native_id": "keps/sig-testing/2420-reducing-kubernetes-build-maintenance#excerpt-1",
+      "source_heading": "non-goals"
+    },
+    {
+      "id": "F014",
+      "path": [
+        "sig-testing",
+        "714-break-test-tarball"
+      ],
+      "content_sha256": "cfa9cee35dd7e23c6477faf13dae3ca463fdc3e7b75f8f2a2cb1312e22814549",
+      "source_native_id": "keps/sig-testing/714-break-test-tarball#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F015",
+      "path": [
+        "sig-scheduling",
+        "5229-asynchronous-api-calls-during-scheduling"
+      ],
+      "content_sha256": "32cb6f684cfdead139cfa01cb17e51fb3675dfa434d30d315374950f11077374",
+      "source_native_id": "keps/sig-scheduling/5229-asynchronous-api-calls-during-scheduling#excerpt-2",
+      "source_heading": "non-goals"
+    },
+    {
+      "id": "F016",
+      "path": [
+        "sig-testing",
+        "3041-node-conformance-and-features"
+      ],
+      "content_sha256": "90441a9687ee4af42507bbb2cc1e01b77fffebd41d062df0dbb57f72311c7e69",
+      "source_native_id": "keps/sig-testing/3041-node-conformance-and-features#excerpt-3",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F017",
+      "path": [
+        "sig-network",
+        "5311-relaxed-validation-for-service-names"
+      ],
+      "content_sha256": "a64292df7e874db68af5307f4bb912435a5660ac8ccb6583b81c0d95c850d973",
+      "source_native_id": "keps/sig-network/5311-relaxed-validation-for-service-names#excerpt-1",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F018",
+      "path": [
+        "sig-testing",
+        "714-break-test-tarball"
+      ],
+      "content_sha256": "df6cbf5e5902540ca509451bebc189b276c7838afc770d1517631679851b43c1",
+      "source_native_id": "keps/sig-testing/714-break-test-tarball#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F019",
+      "path": [
+        "sig-scheduling",
+        "5229-asynchronous-api-calls-during-scheduling"
+      ],
+      "content_sha256": "4a2029c21a0d5ff206dbc9dc93b60bc8bb535a4b9cb0d371e2d115a1edb35076",
+      "source_native_id": "keps/sig-scheduling/5229-asynchronous-api-calls-during-scheduling#excerpt-1",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F020",
+      "path": [
+        "sig-instrumentation",
+        "383-new-event-api-ga-graduation"
+      ],
+      "content_sha256": "57c21db9af1fb6bd115ea976a6c053a9c228f85a620cf53ab8ba9fd49f4f7c3a",
+      "source_native_id": "keps/sig-instrumentation/383-new-event-api-ga-graduation#excerpt-3",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F021",
+      "path": [
+        "sig-scheduling",
+        "4671-gang-scheduling"
+      ],
+      "content_sha256": "0694d7f28686a009fd2ea18e8cf8c680ba57d4140b07512a6f6aaa4e11931cad",
+      "source_native_id": "keps/sig-scheduling/4671-gang-scheduling#excerpt-2",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F022",
+      "path": [
+        "sig-network",
+        "2433-topology-aware-hints"
+      ],
+      "content_sha256": "6b37f14fa031fb89a00a2206c586517a6f02a2f7ca6cc816ff2c798fb3677230",
+      "source_native_id": "keps/sig-network/2433-topology-aware-hints#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F023",
+      "path": [
+        "sig-testing",
+        "2420-reducing-kubernetes-build-maintenance"
+      ],
+      "content_sha256": "d62cfbddceeff87a93084322d8a29b34fd07ee35f303d97a98f9e02503a86af9",
+      "source_native_id": "keps/sig-testing/2420-reducing-kubernetes-build-maintenance#excerpt-3",
+      "source_heading": "drawbacks"
+    },
+    {
+      "id": "F024",
+      "path": [
+        "sig-testing",
+        "2420-reducing-kubernetes-build-maintenance"
+      ],
+      "content_sha256": "fc6d6e1cbbfcffa8e21dbe141962ec686edcccaf6b282408cec0b2e576757668",
+      "source_native_id": "keps/sig-testing/2420-reducing-kubernetes-build-maintenance#excerpt-2",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F025",
+      "path": [
+        "sig-network",
+        "5311-relaxed-validation-for-service-names"
+      ],
+      "content_sha256": "2ae92eb54a00f54c8736c58d04ccbda925f8f7f5e407e33186d3f0c0cd6fa41a",
+      "source_native_id": "keps/sig-network/5311-relaxed-validation-for-service-names#excerpt-3",
+      "source_heading": "risks and mitigations"
+    },
+    {
+      "id": "F026",
+      "path": [
+        "sig-testing",
+        "3041-node-conformance-and-features"
+      ],
+      "content_sha256": "578430c251a1d49a394e623a8b728a1e40ef6deb7299a345bdded18c5bce4fe3",
+      "source_native_id": "keps/sig-testing/3041-node-conformance-and-features#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F027",
+      "path": [
+        "sig-scheduling",
+        "4671-gang-scheduling"
+      ],
+      "content_sha256": "b61f5aa48004499ca2c459aac03181746a8ad318df30c35996bb35d0ffbde80e",
+      "source_native_id": "keps/sig-scheduling/4671-gang-scheduling#excerpt-3",
+      "source_heading": "non-goals"
+    },
+    {
+      "id": "F028",
+      "path": [
+        "sig-instrumentation",
+        "383-new-event-api-ga-graduation"
+      ],
+      "content_sha256": "652e5cf4dc9653042477ce66a44421e608904351e2bc5a09c05d6c324b179243",
+      "source_native_id": "keps/sig-instrumentation/383-new-event-api-ga-graduation#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F029",
+      "path": [
+        "sig-scheduling",
+        "785-scheduler-component-config-api"
+      ],
+      "content_sha256": "3e00d2f4a4dda77c915741740d6a0cf583df0f40a11c1cdd29ec09b3dca40437",
+      "source_native_id": "keps/sig-scheduling/785-scheduler-component-config-api#excerpt-3",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F030",
+      "path": [
+        "sig-network",
+        "2448-Remove-kube-proxy-automatic-clean-up-logic"
+      ],
+      "content_sha256": "a00527973aeb84c0e0688642b77fb1e8096943a264984006d48f0485f992306f",
+      "source_native_id": "keps/sig-network/2448-Remove-kube-proxy-automatic-clean-up-logic#excerpt-2",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F031",
+      "path": [
+        "sig-instrumentation",
+        "383-new-event-api-ga-graduation"
+      ],
+      "content_sha256": "a0747149baa2457bf99853a9ac1c42c28638311a44fe3366233f33a75a8b139a",
+      "source_native_id": "keps/sig-instrumentation/383-new-event-api-ga-graduation#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F032",
+      "path": [
+        "sig-scheduling",
+        "4671-gang-scheduling"
+      ],
+      "content_sha256": "94c881c6a3302406b1dca91db2609d33b6ca803f4f8e878a3345d4d6931a1389",
+      "source_native_id": "keps/sig-scheduling/4671-gang-scheduling#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F033",
+      "path": [
+        "sig-network",
+        "5311-relaxed-validation-for-service-names"
+      ],
+      "content_sha256": "3575e28b975c201b1417ea39fd6aadf40d8982a4752a9d4566a53d273046cb39",
+      "source_native_id": "keps/sig-network/5311-relaxed-validation-for-service-names#excerpt-2",
+      "source_heading": "design details"
+    },
+    {
+      "id": "F034",
+      "path": [
+        "sig-network",
+        "2433-topology-aware-hints"
+      ],
+      "content_sha256": "43ede57e48887492cf5b8fa9a180cbba0c944924dc789f4d20cb137d48fdcb73",
+      "source_native_id": "keps/sig-network/2433-topology-aware-hints#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F035",
+      "path": [
+        "sig-instrumentation",
+        "1206-metrics-overhaul"
+      ],
+      "content_sha256": "2eef3d189f622f13f11cf3bc8dee9f41c075b8162636405edd9b5c524db14919",
+      "source_native_id": "keps/sig-instrumentation/1206-metrics-overhaul#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F036",
+      "path": [
+        "sig-scheduling",
+        "785-scheduler-component-config-api"
+      ],
+      "content_sha256": "519da1321df30705e4388c1e0217df0b1dbb4d7e496b9fedca9fea253ebf66f4",
+      "source_native_id": "keps/sig-scheduling/785-scheduler-component-config-api#excerpt-2",
+      "source_heading": "motivation"
+    }
+  ],
+  "reference_scope": "Source-derived group/proposal hierarchy for a development-only difficulty and cost pilot."
+}

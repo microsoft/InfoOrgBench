@@ -1,0 +1,185 @@
+{
+  "task_id": "mini-005",
+  "records": [
+    {
+      "id": "F001",
+      "format": "text",
+      "text": "When a volume is mounted on the node, we recursively change permissions of volume before bind mounting the volume inside container. The reason of doing this is to ensure that volumes are readable/writable by provided fsGroup.\n\nBut this presents following problems: An application(many popular databases) which is sensitive to permission bits changing underneath may refuse to start whenever volume being used inside pod gets mounted on different node. If volume has a large number of files, performing recursive `chown` and `chmod` could be slow and could cause timeout while starting the pod."
+    },
+    {
+      "id": "F002",
+      "format": "text",
+      "text": "As of now, when a device is configured in a pod/container, the state and characteristics of the device set during the configuration stage are invisible. The lack of this information is then a challenge for the users and developers to diagnose issues, verify configurations, and integrate the allocated resources into higher-level services. Reporting this information is then crucial in environments where device specific configurations are necessary.\n\nFor certain types of devices, such as network interfaces, knowing the detailed characteristics of what has been allocated is particularly useful and crucial. For example, reporting the interface Name, MAC address and IP addresses of network interfaces in the status of a ResourceClaim can significantly help in configuring and managing network services, as well as in debugging network related issues. By including such device specific information, this proposal addresses existing gaps in visibility and facilitates better integration and management of resources."
+    },
+    {
+      "id": "F003",
+      "format": "text",
+      "text": "Currently before a volume is bind-mounted inside a container the permissions on that volume are changed recursively to the provided fsGroup value. This change in ownership can take an excessively long time to complete, especially for very large volumes (>=1TB) as well as a few other reasons detailed in Motivation. To solve this issue we will add a new field called `pod.Spec.SecurityContext.FSGroupChangePolicy` and allow the user to specify how they want the permission and ownership change for volumes used by pod to happen."
+    },
+    {
+      "id": "F004",
+      "format": "text",
+      "text": "CRDs need direct support for non-trivial validation. While admission webhooks do support CRDs validation, they significantly complicate the development and operability of CRDs.\n\nThis KEP proposes that an inline expression language be integrated directly into CRDs such that a much larger portion of validation use cases can be solved without the use of webhooks.\n\nThis KEP proposes the adoption of Common Expression Language (CEL). It is sufficiently lightweight and safe to be run directly in the kube-apiserver (since CRD creation is a privileged operation), has a straight-forward and unsurprising grammar, and supports pre-parsing and typechecking of expressions, allowing syntax and type errors to be caught at CRD registration time.\n\nCEL might be used in Kubernetes for extensibility beyond CRD validation. The future plans section of this KEP explains how CEL might be used for general admission control, defaulting and conversion. This KEP aims to prove the utility of CEL for both the immediate use case (CRD validation) and these future use cases. This KEP also aims to use CEL in a way that is congruent with these future use cases."
+    },
+    {
+      "id": "F005",
+      "format": "text",
+      "text": "Pod Disruption Budget (PDB) is a Kubernetes API that limits the number of pods of a collection that are down simultaneously from voluntary disruptions. PDBs allows a user to specify the allowed disruption through either min available or max unavailable number of pods. In order to support PDBs where max number of unavailable pods is set, the PDB controller needs to be able to look up the desired number of replicas. It does this by looking at the controller(s) (as specified by the owner ref) for the pods covered by the PDB. Currently only four of the basic workload controllers are supported for PDBs, namely Deployment, StatefulSet, ReplicaSet and ReplicationController.\n\nThe scale subresource allows any resource to specify its desired number of replicas and a generic way to look up this information. This document lays out a plan to use the scale subresource to allow setting PDBs for any resource implementing the scale subresource."
+    },
+    {
+      "id": "F006",
+      "format": "text",
+      "text": "Being able to suspending and resume jobs makes Job preemption, all-or-nothing scheduling, and Job queueing possible. However, we don't propose to create such higher-level controllers as a part of this KEP. It might be useful to restrict who can set/modify the `suspend` flag. However, we don't propose to create the validating and/or mutating webhooks necessary to achieve that as a part of this KEP."
+    },
+    {
+      "id": "F007",
+      "format": "text",
+      "text": "An inline expression language like Common Expression Language (CEL) would be an excellent supplement to the current validation mechanism because it is sufficiently expressive to satisfy a large set of remaining uses cases that none of the above can solve. For example, cross-field validation use cases can only be solved using expressions or webhooks. `x-kubernetes-validations` extension will be added to CRD structural schemas to allow CEL validation expressions."
+    },
+    {
+      "id": "F008",
+      "format": "text",
+      "text": "The volume snapshot feature allows creating/deleting volume snapshots, and the ability to create new volumes from a snapshot natively using the Kubernetes API. However, application consistency is not guaranteed. An user has to figure out how to quiece an application before taking a snapshot and unquiece it after taking the snapshot.\n\nSo we want to introduce an `ExecutionHook` to facilitate the quiesce and unquiesce actions when taking a snapshot. There is an existing lifecycle hook in the `Container` struct. The lifecycle hook is called immediately after a container is created or immediately before a container is terminated. The proposed execution hook is not tied to the start or termination time of the container. It can be triggered on demand by callers (users or controllers) and the status will be updated dynamically."
+    },
+    {
+      "id": "F009",
+      "format": "text",
+      "text": "If the kubelet fails to renew its lease beyond the nodeMonitorGracePeriod due to an excessively long restart interval, the Ready status of the containers in the pods on the node will be set to false. In this situation, we should not manually set the Ready status back to true. Instead, it should remain false, waiting for the probe to execute again and restore it. Modify the fundamental logic of how readiness probes work."
+    },
+    {
+      "id": "F010",
+      "format": "text",
+      "text": "Expand Kubelet API Scope: Provide a general pod information API, equivalent to the apiserver. Support an optional fieldmask-based filtering for lean responses. Maintain strict local-only, read-only access via UNIX socket and file permissions.\n\nThe goal of this API is to expose comprehensive Pod information, including the full PodSpec and status, directly from the source - Kubelet, independent of Control Plane availability. This would remove the need for node-local components to request this node-local information from the Kubernetes API Server.\n\nThe API should allow consumers to request only the fields they need, using protobuf fieldmasks, to enable efficient and lean data transfer. For advanced use cases, the full pod spec can be returned, but only to authorized local admin users due to the potential for sensitive information.\n\nKubelet already has a podresources endpoint (2403-pod-resources-allocatable-resources) which returns information about Pod’s containers and Devices. This API does not contain information about pod state.\n\nKubelet is responsible for computing Pod status and stores it in a local cache. We want to create a new gRPC API that will expose pod information that is computed by Kubelet and return the most recent data even when kube-API is not reachable. This API is open for future modification if needed but exposed data via this API should be limited to pod's information relevant for node-local consumers."
+    },
+    {
+      "id": "F011",
+      "format": "text",
+      "text": "This KEP proposes a new Kubelet gRPC API with an endpoint that returns local Pod information, including the full PodSpec and status. Serving this information from Kubelet on a node increases reliability and reduces load on the Kubernetes API Server and network traffic outside the node. Connectivity issues between the node and control plane should not impact workloads that depend on Pod state information. The full PodSpec may contain sensitive information, so access to this API is secured by restricting the UNIX socket to local admin users only."
+    },
+    {
+      "id": "F012",
+      "format": "text",
+      "text": "Changed block tracking (CBT) techniques have been used by commercial backup systems to efficiently back up large amount of data in block volumes. They identify block-level changes between two arbitrary pair of snapshots of the same block volume, and selectively back up what has changed between the two checkpoints. This type of differential backup approach is a lot more efficient than backing up the entire volume.\n\nThis KEP proposes a design to extend the Kubernetes CSI framework to utilize these CBT features to bring efficient, cloud-native data protection to Kubernetes users."
+    },
+    {
+      "id": "F013",
+      "format": "text",
+      "text": "PDBs are an important tool to control the number of voluntary disruptions for workloads on Kubernetes. As more users start deploying custom controllers/operators based on CRDs (EtcdCluster, MySQLReplicaSet...), it is inconvenient that they cannot take advantage of PDBs. This doesn't work today because the PDB controller needs to know the desired number of replicas specified in a controller and the PDB controller only knows how to find this from the four Kubernetes workload controllers mentioned above. The scale subresource is already in use by the autoscaler and it provides a generic way to look up the desired number of replicas from any custom resource with a scale subresource. We can leverage this to support PDBs for custom controllers."
+    },
+    {
+      "id": "F014",
+      "format": "text",
+      "text": "When a kubelet restarts, for whatever reason, it usually will not have any impact on currently running pods. Today, however, a kubelet restart causes all pods on that node to have their Started and Ready statuses set to False (by the kubelet), which can disrupt services that were actually functioning normally. This KEP proposes improving Pod readiness management in the kubelet to ensure that the status of Pods is not unilaterally modified, and is instead preserved during kubelet restarts."
+    },
+    {
+      "id": "F015",
+      "format": "text",
+      "text": "The major risk with this change is the additional load on the apiserver since we can't use shared informers for scale subresources. As described above, we plan to mitigate this by only checking the scale subresource when the kind of the controller ref doesn't match any of the kubernetes workload controllers, and use a cache to make sure we only need to look up each controller once per reconcile loop."
+    },
+    {
+      "id": "F016",
+      "format": "text",
+      "text": "In some cases if user brings in a large enough volume from outside, the first time ownership and permission change still could take lot of time. On SELinux enabled distributions we will still do recursive chcon whenever applicable and handling that is outside the scope. This proposal does not attempt to fix two pods using same volume with conflicting fsgroup. `FSGroupChangePolicy` also will be only applicable to volume types which support setting fsgroup."
+    },
+    {
+      "id": "F017",
+      "format": "text",
+      "text": "I haven't heard any really compelling reason for having `SelfLink` field. When modifying or reading an object from kube-apiserver, its `Selflink` is set to exactly the URL that was used to perform that operation, e.g.\n\nSo in order to get the object, client has to knew that URL anyway.\n\nWhat is more, it leaves out exactly the thing that user can't tell from looking at a stored object, which is what cluster and/or server it came from.\n\nAt the same time, setting this `SelfLink` field: is treated in a very special way in generic-apiserver - it is the only field that is being set right before serializing the object (as this is the only place that has all the necessary information to set it) has non-negligible performance impact - constructing the value performs couple memory allocations (and memory allocations are things that have visible impact on Kubernetes performance and scalability)\n\nI propose to remove that field after necessary (long enough) deprecation period."
+    },
+    {
+      "id": "F018",
+      "format": "text",
+      "text": "The Jobs API allows users to create Pods using the Job controller with specific requirements such as Pod-level parallelism, completing a certain number of executions, and restart policies.\n\nThis KEP proposes an enhancement that will allow suspending and resuming Jobs. Suspending a Job will delete all active Pods owned by that Job and also instruct the controller manager to not create new Pods until the Job is resumed. Users will also be able to create Jobs in the suspended state, thereby delaying Pod creation indefinitely."
+    },
+    {
+      "id": "F019",
+      "format": "text",
+      "text": "In short, this proposal is about augmenting `AdmissionConfig`'s plugin `configuration` specification to include a path to a configuration file containing one of the following: `admissionregistration.k8s.io/v1.ValidatingWebhookConfigurationList` `admissionregistration.k8s.io/v1.MutatingWebhookConfigurationList` v1.List with items of admissionregistration.k8s.io/v1.ValidatingWebhookConfiguration v1.List with items of admissionregistration.k8s.io/v1.MutatingWebhookConfiguration. This configuration is loaded as manifest based webhooks in api servers. These webhooks are called by validating and mutating admission plugins along with dynamically loaded webhooks for relevant admission requests. This also means that these webhooks are not API visible objects and hence cannot be modified by an API user."
+    },
+    {
+      "id": "F020",
+      "format": "text",
+      "text": "Currently, Jobs start replacement Pods as soon as previously created Pods are terminating (have a `deletionTimestamp`) or fail (`phase=Failed`). Terminating pods are currently counted as failed in the Job status. However, terminating pods are actually in a transitory state where they are neither active nor really fully terminated. This KEP proposes a new field for the Job API that allows for users to specify if they want replacement Pods as soon as the previous Pods are terminating (existing behavior) or only once the existing pods are fully terminated (new behavior)."
+    },
+    {
+      "id": "F021",
+      "format": "text",
+      "text": "Support for validation formats, immutability or unions. These are all valuable improvements but can be addressed orthogonally in separate KEPs. Eliminate the need for webhooks entirely. Webhooks will still be needed for some use cases. For example, if a validation check requires making a network request to some other system, it will still need to be implemented in a webhook. Support all validation done on native Kubernetes types. For example, CRD structural schemas has complex validation rules that we CEL cannot support due to the lask of support for arbitrarily deeply nested terms (CEL cannot support recursive data types). Change how Kubernetes built-in types are validated, defaulted and converted. We are, however, interested in admission control support for build-in types. See future work for more details."
+    },
+    {
+      "id": "F022",
+      "format": "text",
+      "text": "Existing Issues: Job Creates Replacement Pods as soon as Pod is marked for deletion Kueue: Account for terminating pods when doing preemption\n\nMany common machine learning frameworks, such as Tensorflow and JAX, require unique pods per Index. Currently, if a pod enters a terminating state (due to preemption, eviction or other external factors), a replacement pod is created and immediately fail to start.\n\nHaving a replacement Pod before the previous one fully terminates can also cause problems in clusters with scarce resources or with tight budgets. These resources can be difficult to obtain so pods can take a long time to find resources and they may only be able to find nodes once the existing pods have been terminated. If cluster autoscaler is enabled, the replacement Pods might produce undesired scale ups.\n\nOn the other hand, if a replacement Pod is not immediately created, the Job status would show that the number of active pods doesn't match the desired parallelism. To provide better visibility, the job status can have a new field to track the number of Pods currently terminating.\n\nThis new field can also be used by queueing controllers, such as Kueue, to track the number of terminating pods to calculate quotas."
+    },
+    {
+      "id": "F023",
+      "format": "text",
+      "text": "In v1.16, we will deprecate the `SelfLink` field in both `ObjectMeta` and `ListMeta` objects by: documenting in field definition that it is deprecated and is going to be removed adding a release-note about field deprecation We will also introduce a feature gate to allow disabling setting `SelfLink` fields and opaque the logic setting it behind this feature gate.\n\nIn v1.20 (12 months and 4 release from v1.16) we will switch off the feature gate which will automatically disable setting SelfLinks. However it will still be possible to revert the behavior by changing value of a feature gate.\n\nIn v1.21, we will get rid of the whole code propagating those fields and fields themselves. In the meantime, we will go over places referencing that field (see below) and get rid of those too."
+    },
+    {
+      "id": "F024",
+      "format": "text",
+      "text": "Today most policy enforcement is implemented through MutatingAdmissionWebhooks and/or ValidatingAdmissionWebhooks. These admission webhooks are registered through creating MutatingWebhookConfiguration or ValidatingWebhookConfiguration objects. Any policy enforcement is not in place until these webhook configurations are created, thereby registering the webhook. This creates a gap in enforcement spanning from when the kube-apiserver is started to until the webhook configuration objects are created and picked up by the dynamic admission controller. Another gap is the inability of the cluster administrator to protect against deletion of these webhook configuration objects as MutatingWebhookConfiguration and ValidatingWebhookConfiguration objects are not subject to webhook admission policy.\n\nThis KEP aims to address these issues."
+    },
+    {
+      "id": "F025",
+      "format": "text",
+      "text": "This proposal is to introduce an API (ExecutionHook) for dynamically executing user’s commands in a pod/container or a group of pods/containers and a controller (ExecutionHookController) to manage the hook lifecycle. ExecutionHook provides a general mechanism for users to trigger hook commands in their containers for their different use cases. Different options have been evaluated to decide how this ExecutionHook should be managed and executed. The preferred option is described in the Proposal section. The other options are discussed in the Alternatives section."
+    },
+    {
+      "id": "F026",
+      "format": "text",
+      "text": "Kubelet is responsible for running Health Checks (probes) and communicating the results via Pod status. All that information is stored in cache and reported to Kube-API. Right now pod's state information is tightly coupled with the Kubernetes API Server. When a workload wants to know the actual state of Pods running on the Node, it needs to fetch it from Kube-API. This causes some issues: Reliability - for various reasons Kube-API might not be available (connectivity issue, control plane updates) Scalability - adding new watchers to kube-API is a scalability concern. By exposing the endpoint that will serve the Pods state directly from the Kubelet cache we can use it on node workloads and avoid additional dependencies on the Kubernetes API Server. Flexibility - consumers may need more than just readiness, such as phase, IPs, resource usage, or labels/annotations, or the full pod spec. Supporting field selection enables lean, efficient queries, but the API can also provide the full pod object when needed. Because the full pod spec may contain secrets or other sensitive data, access must be tightly controlled."
+    },
+    {
+      "id": "F027",
+      "format": "text",
+      "text": "The general ExecutionHook API has two parts, spec and status. The hook spec has two piece of information, what are the commands to execute and where to execute them. In many use cases, different hooks share the same commands and user or controller will create many hooks for execution repeatedly. To reduce the work of copying the same execution commands in different hooks, we also propose a second API, HookAction to record the execution commands which can be referenced by ExecutionHook API."
+    },
+    {
+      "id": "F028",
+      "format": "text",
+      "text": "The Job controller gets a list of active pods. Active pods are pods that don't have a terminal phase (`Succeeded` or `Failed`) and are not terminating (have a `deletionTimestamp`) In this KEP, we will consider terminating pods to be separate from active and failed. As an opt-in behavior, the job controller can use the active and terminating pods to determine whether replacement Pods are needed.\n\nWe propose two new API fields: A field in Spec that allows for opt-in behavior of whether to wait for terminating pods to finish before creating replacement pods. A new field in Status for tracking the number of terminating pods."
+    },
+    {
+      "id": "F029",
+      "format": "text",
+      "text": "This KEP proposes new CSI API that can be used to identify the list of changed blocks between pairs of CSI volume snapshots. CSI drivers can implement this API to expose their changed block tracking (CBT) services to enable efficient and reliable differential backup of data stored in CSI volumes.\n\nKubernetes backup applications directly use this API to stream changed block information, bypassing and posing no additional load on the Kubernetes API server. The mechanism that enables this direct access utilizes a proxy service sidecar to shield the CSI drivers from managing the individual Kubernetes clients."
+    },
+    {
+      "id": "F030",
+      "format": "text",
+      "text": "Specify how data is written to the block volume in the first place. > *The volume could be attached to a pod with either `Block` or `Filesystem` volume modes.* Provide an API to retrieve the data blocks of a snapshot. > *It is assumed that a snapshot's data blocks can be retrieved by creating a PersistentVolume for the snapshot, launching a pod with this volume attached in `Block` volume mode, and then reading the individual blocks from the raw block device.* Support of file changed list tracking for network file shares is not addressed by this proposal."
+    },
+    {
+      "id": "F031",
+      "format": "text",
+      "text": "As stated, 3rd party DRA drivers will set and update the `Devices` for the device they manage. An access control must be set in place to restrict the write access to the appropriate driver (A device status can only be updated by the entities that have a direct control over the device(s) being reported).\n\nAdding `Data` as an arbitrary data field may introduce extra processing and storage overhead which might impact performance in a cluster with many devices and frequent status updates. In large-scale clusters where many devices are allocated, this impact must be considered."
+    },
+    {
+      "id": "F032",
+      "format": "text",
+      "text": "Ensuring high availability and minimizing service disruptions are critical considerations for Kubernetes clusters. When the kubelet restarts, it resets the Start and Ready states of all containers to False by default. This means that any successful probe statuses that were previously established are lost upon the restart. As a result, services may be inaccurately flagged as unavailable, despite having been operational prior to the kubelet's restart. This reset can lead to erroneous perceptions of service health and negatively impact the overall performance of the cluster, potentially triggering unnecessary alerts or load balancing changes.\n\nSome users have reported that this issue has been causing them trouble. Here are some links to historical discussions related to this problem:\n\nIt's essential to implement strategies to ensure that the service states accurately reflect their operational status, even during kubelet interruptions."
+    },
+    {
+      "id": "F033",
+      "format": "text",
+      "text": "The Job controller tracks and manages all Jobs within Kubernetes. When a new Job is created by the user, the Job controller will immediately begin creating pods to satisfy the requirements of the Job until the Job is complete.\n\nHowever, there are use-cases that require a Job to be suspended in the middle of its execution. Currently, this is impossible; as a workaround, users can delete and re-create the Job, but this will also delete Job metadata such as the list of successful/failed Pods and logs. Therefore, it is desirable to suspend Jobs and resume them later when convenient."
+    },
+    {
+      "id": "F034",
+      "format": "text",
+      "text": "I went through a k/k repo (including its staging repos) and all repos under [kubernetes-client][] and this is the list of places that reference `SelfLink` fields (I excluded tests and all places in apiserver responsible for setting it): [ ] Used for detecting version (which I believe should always be set?). [ ] Propagating SelfLink in kubectl get. [ ] Doesn't seem to be really used anywhere. [ ] Setting SelfLink for table format. [ ] Setting SelfLink in conversion to table format for custom resources. [ ] Setting SelfLink in conversion to table format. [ ] staging/src/k8s.io/client-go/tools/reference/ref.go A copy of first item literally. [ ] Setter/getter and part of equals() and hashCode() methods. [ ] Setter/getter and part of equals() and hashCode() methods. [ ] Setter/getter and constructor. [ ] Setter/getter and constructor. [ ] Only part of type definition. [ ] Only part of type definition. [ ] Setter/getter. [ ] Setter/getter. [ ] Seems like setter/getter to me. [ ] Seems like setter/getter to me. [ ] Setter/getter. [ ] Setter/getter.\n\n[kubernetes-client]:"
+    },
+    {
+      "id": "F035",
+      "format": "text",
+      "text": "A robust admission webhook registration process where there is no period of time between the kube-apiserver coming up and the registration of an admission webhook. The registration of webhooks registered through this process should be protected from alteration by API requests made by cluster users. It should be possible to alter webhooks registered through this new process without restarting the kube-apiserver."
+    },
+    {
+      "id": "F036",
+      "format": "text",
+      "text": "This proposal enhances the `ResourceClaim.Status` by adding a new field `Devices`. The new field allows drivers to report driver-specific device status data for each allocated device in a resource claim. Allowing the drivers to report the device statuses will improve both observability and troubleshooting as well as enabling new functionalities such as, for example, if the IPs of a network device are reported, network services.\n\nThis extension also establishes a standardization for specific type device data, such as, for example, networking devices information."
+    }
+  ]
+}

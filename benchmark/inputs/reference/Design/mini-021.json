@@ -1,0 +1,366 @@
+{
+  "task_id": "mini-021",
+  "records": [
+    {
+      "id": "F001",
+      "path": [
+        "sig-instrumentation",
+        "1209-metrics-stability"
+      ],
+      "content_sha256": "f56111cb8f00c3b74f6d3c953a629a44dde3f78fd5323bc9b7d2c7bc86e51fc1",
+      "source_native_id": "keps/sig-instrumentation/1209-metrics-stability#excerpt-3",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F002",
+      "path": [
+        "sig-release",
+        "1731-publishing-packages"
+      ],
+      "content_sha256": "0a1308f4fc0e60d8cc953076c15d2371ba0cd8b8260b771299052b45598f2866",
+      "source_native_id": "keps/sig-release/1731-publishing-packages#excerpt-2",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F003",
+      "path": [
+        "sig-apps",
+        "3850-backoff-limits-per-index-for-indexed-jobs"
+      ],
+      "content_sha256": "e07a4ad3fd9c6af68d660160eb69e4ba4c3ef24745494577c8e614ebcaa4756f",
+      "source_native_id": "keps/sig-apps/3850-backoff-limits-per-index-for-indexed-jobs#excerpt-2",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F004",
+      "path": [
+        "sig-api-machinery",
+        "5647-stale-controller-handling"
+      ],
+      "content_sha256": "a7daefedad05a254c11f490dfe1d27038ec62a254af43dcc357ecd474fa2de65",
+      "source_native_id": "keps/sig-api-machinery/5647-stale-controller-handling#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F005",
+      "path": [
+        "sig-release",
+        "2818-reducing-build-maintenance"
+      ],
+      "content_sha256": "4514c0eca218a8625ed59844aadc1aac2b354114585d13f6669480fb237d196d",
+      "source_native_id": "keps/sig-release/2818-reducing-build-maintenance#excerpt-3",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F006",
+      "path": [
+        "sig-release",
+        "3027-slsa-compliance"
+      ],
+      "content_sha256": "e831511de60fd17e6608a25c0f201903fc9c9eca765720d128bf8dab85ab058e",
+      "source_native_id": "keps/sig-release/3027-slsa-compliance#excerpt-2",
+      "source_heading": "non-goals"
+    },
+    {
+      "id": "F007",
+      "path": [
+        "sig-release",
+        "2818-reducing-build-maintenance"
+      ],
+      "content_sha256": "afaf41bc6011a7eba086fe85472adb456e4cdfb4a09ff7eeb008d3caac87d282",
+      "source_native_id": "keps/sig-release/2818-reducing-build-maintenance#excerpt-2",
+      "source_heading": "non-goals"
+    },
+    {
+      "id": "F008",
+      "path": [
+        "sig-release",
+        "2818-reducing-build-maintenance"
+      ],
+      "content_sha256": "82a03e2342ce512fd26692e1b3da3ab8218080abd74403d1e3b914d027d7ccf8",
+      "source_native_id": "keps/sig-release/2818-reducing-build-maintenance#excerpt-1",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F009",
+      "path": [
+        "sig-apps",
+        "3335-statefulset-slice"
+      ],
+      "content_sha256": "fbcdd80856555959c4497e69d08d1d689dabfa7362d48470f7c7cccf68d6ff22",
+      "source_native_id": "keps/sig-apps/3335-statefulset-slice#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F010",
+      "path": [
+        "sig-instrumentation",
+        "4785-resource-state-metrics"
+      ],
+      "content_sha256": "aea17266494abf335e029489938f632c71f5c50468d802905133f2bf31d28d9f",
+      "source_native_id": "keps/sig-instrumentation/4785-resource-state-metrics#excerpt-3",
+      "source_heading": "design details"
+    },
+    {
+      "id": "F011",
+      "path": [
+        "sig-api-machinery",
+        "3962-mutating-admission-policies"
+      ],
+      "content_sha256": "98def1918720b8d203002f771153172a3f19287a838f71b333cc6c42886d8712",
+      "source_native_id": "keps/sig-api-machinery/3962-mutating-admission-policies#excerpt-3",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F012",
+      "path": [
+        "sig-apps",
+        "4017-pod-index-label"
+      ],
+      "content_sha256": "afcb25c0585a603e4ae6f17cf8e71a33ffc5e99c43fa1f162867192f16cc2433",
+      "source_native_id": "keps/sig-apps/4017-pod-index-label#excerpt-1",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F013",
+      "path": [
+        "sig-instrumentation",
+        "1206-metrics-overhaul"
+      ],
+      "content_sha256": "892bc2d8e8dabf3d0317bc7a4496a0113d42beea1dfc11532fd4b09187b92d87",
+      "source_native_id": "keps/sig-instrumentation/1206-metrics-overhaul#excerpt-3",
+      "source_heading": "risks and mitigations"
+    },
+    {
+      "id": "F014",
+      "path": [
+        "sig-instrumentation",
+        "4785-resource-state-metrics"
+      ],
+      "content_sha256": "f16ef8dbb9eeb70d53a432b6ed82ecea2bfac7e82c69cddcebacdc8f9c8fb164",
+      "source_native_id": "keps/sig-instrumentation/4785-resource-state-metrics#excerpt-1",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F015",
+      "path": [
+        "sig-instrumentation",
+        "1206-metrics-overhaul"
+      ],
+      "content_sha256": "2eef3d189f622f13f11cf3bc8dee9f41c075b8162636405edd9b5c524db14919",
+      "source_native_id": "keps/sig-instrumentation/1206-metrics-overhaul#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F016",
+      "path": [
+        "sig-api-machinery",
+        "3962-mutating-admission-policies"
+      ],
+      "content_sha256": "ffc27432e33765b4ef05aa4422b747a97222b10768ea0f0695b257ab11b36456",
+      "source_native_id": "keps/sig-api-machinery/3962-mutating-admission-policies#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F017",
+      "path": [
+        "sig-instrumentation",
+        "1209-metrics-stability"
+      ],
+      "content_sha256": "de9efc0abbdc00eed4bdf3e1ac79a5c5aba06d9812bf137159afd40cc942fc0e",
+      "source_native_id": "keps/sig-instrumentation/1209-metrics-stability#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F018",
+      "path": [
+        "sig-api-machinery",
+        "3962-mutating-admission-policies"
+      ],
+      "content_sha256": "f0d62a8dfaead29238d3d4efc0fdf6326c41dc495630ca67148dd8a9229f2b0a",
+      "source_native_id": "keps/sig-api-machinery/3962-mutating-admission-policies#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F019",
+      "path": [
+        "sig-apps",
+        "3335-statefulset-slice"
+      ],
+      "content_sha256": "ab618b618799f3525dc6ded46e47143eb43d4f6cc0488892f58607b96b76d982",
+      "source_native_id": "keps/sig-apps/3335-statefulset-slice#excerpt-3",
+      "source_heading": "design details"
+    },
+    {
+      "id": "F020",
+      "path": [
+        "sig-release",
+        "1731-publishing-packages"
+      ],
+      "content_sha256": "2eac306ffd5fd8456ace52968182c2ae0a7e1ca14cc054d05a830cd54782600d",
+      "source_native_id": "keps/sig-release/1731-publishing-packages#excerpt-1",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F021",
+      "path": [
+        "sig-release",
+        "3027-slsa-compliance"
+      ],
+      "content_sha256": "2981ad02b1199f186526659e0490e08b436e7f27881f6a0e23427279a068b82a",
+      "source_native_id": "keps/sig-release/3027-slsa-compliance#excerpt-1",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F022",
+      "path": [
+        "sig-instrumentation",
+        "4785-resource-state-metrics"
+      ],
+      "content_sha256": "ab7a4896bc325e132f90142e2cb1e18992b5524a9e44e32477941b174eb72061",
+      "source_native_id": "keps/sig-instrumentation/4785-resource-state-metrics#excerpt-2",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F023",
+      "path": [
+        "sig-api-machinery",
+        "5647-stale-controller-handling"
+      ],
+      "content_sha256": "d2fe7728f88245d7c2ca7f3dfd48dd20cec3e8559a9c97f1aeb0015b7f447789",
+      "source_native_id": "keps/sig-api-machinery/5647-stale-controller-handling#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F024",
+      "path": [
+        "sig-apps",
+        "3335-statefulset-slice"
+      ],
+      "content_sha256": "eaac875c80c76bd3b8b2ad0d880d1b3bd94ff72fa14c8faa1eb5cdbe44345a3a",
+      "source_native_id": "keps/sig-apps/3335-statefulset-slice#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F025",
+      "path": [
+        "sig-apps",
+        "3850-backoff-limits-per-index-for-indexed-jobs"
+      ],
+      "content_sha256": "310d7b0a7fa8534f8d9bf7835dc176498429afbb51b54cc7da42f058190cbc54",
+      "source_native_id": "keps/sig-apps/3850-backoff-limits-per-index-for-indexed-jobs#excerpt-3",
+      "source_heading": "design details"
+    },
+    {
+      "id": "F026",
+      "path": [
+        "sig-release",
+        "1731-publishing-packages"
+      ],
+      "content_sha256": "dcf4bd98c28885646b2be29c47cc34fc2a5bf02cd5e86bfd55f26e1bce212611",
+      "source_native_id": "keps/sig-release/1731-publishing-packages#excerpt-3",
+      "source_heading": "risks and mitigations"
+    },
+    {
+      "id": "F027",
+      "path": [
+        "sig-api-machinery",
+        "5080-ordered-namespace-deletion"
+      ],
+      "content_sha256": "f8abebabf370059a06ba8949144f8caa109244952ce9e43343b5c95f20955930",
+      "source_native_id": "keps/sig-api-machinery/5080-ordered-namespace-deletion#excerpt-3",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F028",
+      "path": [
+        "sig-instrumentation",
+        "1209-metrics-stability"
+      ],
+      "content_sha256": "f0ff6ab9f27f49c10814b3b1c14daeb50008c97cf7f880ddb4abc1e9a4e581e7",
+      "source_native_id": "keps/sig-instrumentation/1209-metrics-stability#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F029",
+      "path": [
+        "sig-api-machinery",
+        "5080-ordered-namespace-deletion"
+      ],
+      "content_sha256": "6f42d77e8b46eed2b56a92f6183c238a049e57e6e9e9f353afd77ec6aacd6ddc",
+      "source_native_id": "keps/sig-api-machinery/5080-ordered-namespace-deletion#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F030",
+      "path": [
+        "sig-api-machinery",
+        "5080-ordered-namespace-deletion"
+      ],
+      "content_sha256": "d927fd105c0b0dd70b43f8203fb1906aabcfdc329bf531c833de2c54b89423b9",
+      "source_native_id": "keps/sig-api-machinery/5080-ordered-namespace-deletion#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F031",
+      "path": [
+        "sig-apps",
+        "4017-pod-index-label"
+      ],
+      "content_sha256": "ad5c464be98386c355bd482bc2615e3729f84500ccc52db6ce09e9b3b6d8b735",
+      "source_native_id": "keps/sig-apps/4017-pod-index-label#excerpt-3",
+      "source_heading": "design details"
+    },
+    {
+      "id": "F032",
+      "path": [
+        "sig-release",
+        "3027-slsa-compliance"
+      ],
+      "content_sha256": "d5325fe41c7234bb90f3c9d1f6b71d6d3969ec5364d41470a9185e1d07c0d3e4",
+      "source_native_id": "keps/sig-release/3027-slsa-compliance#excerpt-3",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F033",
+      "path": [
+        "sig-apps",
+        "4017-pod-index-label"
+      ],
+      "content_sha256": "62362fb3b6064be7bcfb2443a17cd60672cff1f739883916fcf872e37e36fa8c",
+      "source_native_id": "keps/sig-apps/4017-pod-index-label#excerpt-2",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F034",
+      "path": [
+        "sig-apps",
+        "3850-backoff-limits-per-index-for-indexed-jobs"
+      ],
+      "content_sha256": "60b7ee4d812e898acf9ac334caa5d99a99664dcc1fa429340c9ece1fad812cb7",
+      "source_native_id": "keps/sig-apps/3850-backoff-limits-per-index-for-indexed-jobs#excerpt-1",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F035",
+      "path": [
+        "sig-instrumentation",
+        "1206-metrics-overhaul"
+      ],
+      "content_sha256": "f71703d347908e62c0bdb55f1f289f1b8dcfc7dadb5a155bf2c0a41cc9b53a60",
+      "source_native_id": "keps/sig-instrumentation/1206-metrics-overhaul#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F036",
+      "path": [
+        "sig-api-machinery",
+        "5647-stale-controller-handling"
+      ],
+      "content_sha256": "91e84f00d6582e2e28d5b4f616c6ce06e5ed62bb707601265724dd952408124a",
+      "source_native_id": "keps/sig-api-machinery/5647-stale-controller-handling#excerpt-3",
+      "source_heading": "proposal"
+    }
+  ],
+  "reference_scope": "Source-derived group/proposal hierarchy for a development-only difficulty and cost pilot."
+}

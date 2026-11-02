@@ -1,0 +1,319 @@
+{
+  "assignments": [
+    {
+      "id": "F001",
+      "path": [
+        "HADOOP-16404",
+        "blocksize-change"
+      ]
+    },
+    {
+      "id": "F002",
+      "path": [
+        "HADOOP-16404",
+        "throttling-fix"
+      ]
+    },
+    {
+      "id": "F003",
+      "path": [
+        "HADOOP-16404",
+        "blocksize-change"
+      ]
+    },
+    {
+      "id": "F004",
+      "path": [
+        "HADOOP-16404",
+        "blocksize-change"
+      ]
+    },
+    {
+      "id": "F005",
+      "path": [
+        "HADOOP-16404",
+        "blocksize-change"
+      ]
+    },
+    {
+      "id": "F006",
+      "path": [
+        "HADOOP-16404",
+        "blocksize-change"
+      ]
+    },
+    {
+      "id": "F007",
+      "path": [
+        "HADOOP-17002",
+        "hns-config"
+      ]
+    },
+    {
+      "id": "F008",
+      "path": [
+        "HADOOP-17039",
+        "cloudstore-reflection"
+      ]
+    },
+    {
+      "id": "F009",
+      "path": [
+        "HADOOP-16404",
+        "blocksize-change"
+      ]
+    },
+    {
+      "id": "F010",
+      "path": [
+        "HADOOP-16859",
+        "unbuffer-support"
+      ]
+    },
+    {
+      "id": "F011",
+      "path": [
+        "HADOOP-16404",
+        "contract-tests"
+      ]
+    },
+    {
+      "id": "F012",
+      "path": [
+        "HADOOP-17002",
+        "hns-config"
+      ]
+    },
+    {
+      "id": "F013",
+      "path": [
+        "HADOOP-16660",
+        "retry-policy"
+      ]
+    },
+    {
+      "id": "F014",
+      "path": [
+        "HADOOP-16859",
+        "unbuffer-support"
+      ]
+    },
+    {
+      "id": "F015",
+      "path": [
+        "HADOOP-18759",
+        "static-retry"
+      ]
+    },
+    {
+      "id": "F016",
+      "path": [
+        "HADOOP-16859",
+        "unbuffer-support"
+      ]
+    },
+    {
+      "id": "F017",
+      "path": [
+        "HADOOP-17054",
+        "auth-fix"
+      ]
+    },
+    {
+      "id": "F018",
+      "path": [
+        "HADOOP-17037",
+        "token-failures"
+      ]
+    },
+    {
+      "id": "F019",
+      "path": [
+        "HADOOP-16859",
+        "unbuffer-support"
+      ]
+    },
+    {
+      "id": "F020",
+      "path": [
+        "HADOOP-17002",
+        "hns-config"
+      ]
+    },
+    {
+      "id": "F021",
+      "path": [
+        "Maintenance",
+        "integration-notes"
+      ]
+    },
+    {
+      "id": "F022",
+      "path": [
+        "HADOOP-16404",
+        "blocksize-change"
+      ]
+    },
+    {
+      "id": "F023",
+      "path": [
+        "HADOOP-17015",
+        "rename-idempotency"
+      ]
+    },
+    {
+      "id": "F024",
+      "path": [
+        "HADOOP-16404",
+        "blocksize-change"
+      ]
+    },
+    {
+      "id": "F025",
+      "path": [
+        "HADOOP-17002",
+        "hns-config"
+      ]
+    },
+    {
+      "id": "F026",
+      "path": [
+        "Maintenance",
+        "build-issues"
+      ]
+    },
+    {
+      "id": "F027",
+      "path": [
+        "HADOOP-18759",
+        "static-retry"
+      ]
+    },
+    {
+      "id": "F028",
+      "path": [
+        "HADOOP-17037",
+        "token-failures"
+      ]
+    },
+    {
+      "id": "F029",
+      "path": [
+        "Maintenance",
+        "general-discussion"
+      ]
+    },
+    {
+      "id": "F030",
+      "path": [
+        "Maintenance",
+        "general-discussion"
+      ]
+    },
+    {
+      "id": "F031",
+      "path": [
+        "HADOOP-17002",
+        "hns-config"
+      ]
+    },
+    {
+      "id": "F032",
+      "path": [
+        "HADOOP-18759",
+        "static-retry"
+      ]
+    },
+    {
+      "id": "F033",
+      "path": [
+        "HADOOP-17015",
+        "rename-idempotency"
+      ]
+    },
+    {
+      "id": "F034",
+      "path": [
+        "HADOOP-17054",
+        "auth-fix"
+      ]
+    },
+    {
+      "id": "F035",
+      "path": [
+        "HADOOP-16404",
+        "contract-tests"
+      ]
+    },
+    {
+      "id": "F036",
+      "path": [
+        "Maintenance",
+        "integration-notes"
+      ]
+    },
+    {
+      "id": "F037",
+      "path": [
+        "HADOOP-16859",
+        "unbuffer-support"
+      ]
+    },
+    {
+      "id": "F038",
+      "path": [
+        "HADOOP-17054",
+        "auth-fix"
+      ]
+    },
+    {
+      "id": "F039",
+      "path": [
+        "HADOOP-17002",
+        "hns-config"
+      ]
+    },
+    {
+      "id": "F040",
+      "path": [
+        "Maintenance",
+        "integration-notes"
+      ]
+    },
+    {
+      "id": "F041",
+      "path": [
+        "Maintenance",
+        "build-issues"
+      ]
+    },
+    {
+      "id": "F042",
+      "path": [
+        "HADOOP-17054",
+        "auth-fix"
+      ]
+    },
+    {
+      "id": "F043",
+      "path": [
+        "Maintenance",
+        "general-discussion"
+      ]
+    },
+    {
+      "id": "F044",
+      "path": [
+        "HADOOP-18759",
+        "static-retry"
+      ]
+    },
+    {
+      "id": "F045",
+      "path": [
+        "Maintenance",
+        "general-discussion"
+      ]
+    }
+  ]
+}

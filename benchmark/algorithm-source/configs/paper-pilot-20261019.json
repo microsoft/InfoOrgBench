@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "study_id": "paper-pilot-20261019",
+  "scorer_commit": "6e5af354790109f8b85e691da289edec6b3f110f",
+  "families": {"Recap": "ami", "Thread": "hadoop-jira", "Design": "kubernetes"},
+  "tasks_per_family": 10,
+  "selection": {
+    "canonical_id": "{source}/{manifest id}",
+    "hash_prefix": "20261019-pilot",
+    "rule": "Ascending sha256(prefix + '|' + family + '|' + canonical_id), then canonical_id",
+    "uses_outcomes": false
+  },
+  "public_record_fields": ["id", "format", "text"],
+  "prediction_features": ["text"],
+  "primary_lambda": 0.2,
+  "diagnostic_lambdas": [0.0, 0.1, 0.2, 0.3, 0.4],
+  "methods": ["filed_flat", "lexical", "random_shape"],
+  "filed_flat": {"path": ["collection", "records"], "scope": "One common leaf; neutral wrappers satisfy two-level filing."},
+  "random_seeds": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+  "lexical": {
+    "representation": "within-packet TF-IDF",
+    "lowercase": true,
+    "strip_accents": "unicode",
+    "stop_words": "english",
+    "token_pattern": "(?u)\\b\\w\\w+\\b",
+    "ngram_range": [1, 2],
+    "sublinear_tf": true,
+    "norm": "l2",
+    "max_features": 5000,
+    "distance": "cosine",
+    "linkage": "average",
+    "lower_distance_threshold": 0.7,
+    "upper_distance_threshold": 0.9,
+    "cluster_count_rule": "The two fixed distance cuts of one complete average-linkage dendrogram; eligible cluster counts are 1 through n. No reference or output-score selection.",
+    "tie_rule": "Input rows sorted by opaque record ID; pinned SciPy linkage and fcluster implementation.",
+    "empty_vocabulary": "All zero vectors; off-diagonal distance 1 and diagonal distance 0.",
+    "zero_vector": "Cosine similarity to another vector is zero, including another zero vector; diagonal distance is zero.",
+    "one_record": "One top folder and one leaf folder.",
+    "identical_nonzero_vectors": "Zero distance; one shared leaf if all vectors coincide."
+  },
+  "random_shape": {
+    "rule": "Uniform seeded permutation of sorted record IDs into the lexical assignment slots, preserving all lexical leaf sizes and nesting.",
+    "rng": "Python random.Random(seed)",
+    "gold_shape": false
+  },
+  "reporting": {
+    "random_aggregation": "Mean seeds within each task, then equal-weight task means within family.",
+    "failed_predictions": "Retain explicit failure; never silently omit or change denominators.",
+    "uncertainty": "Descriptive exposed development pilot; no independent-packet inference."
+  },
+  "live": {
+    "contract_id": "paper-design36-reactfc-v1",
+    "design_tasks": 6,
+    "profiles": ["h0-gpt-6-1-sol-medium", "h0-claude-haiku-5-5-medium"],
+    "record_count": 36,
+    "source_episode_limit": 12,
+    "attempts_per_model_task": 1,
+    "episode_seconds": 300,
+    "request_seconds": 120,
+    "decision_turns": 16,
+    "max_output_tokens": 8192,
+    "episode_observed_token_stop": 100000,
+    "global_inference_seconds": 5400,
+    "global_observed_tokens": 2000000,
+    "preflight_count": 2,
+    "preflights_in_global_limits": true,
+    "semantic_retries": 0,
+    "transport_retries": 0,
+    "order_seed": 20261019,
+    "admission": "Independent parent approval of exact protocol/jobs and actual holds/routes required before any live call."
+  }
+}

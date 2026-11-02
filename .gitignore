@@ -1,0 +1,9 @@
+__pycache__/
+*.py[cod]
+.venv/
+.local/
+.release-denylist
+replay-receipt.json
+*.zip
+*.tar.gz# Apache Hadoop Jira text is not redistributed; build it locally with benchmark/build_thread.py.
+benchmark/inputs/public/Thread/

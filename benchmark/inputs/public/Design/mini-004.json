@@ -1,0 +1,185 @@
+{
+  "task_id": "mini-004",
+  "records": [
+    {
+      "id": "F001",
+      "format": "text",
+      "text": "In order to remove cloud provider code from `k8s.io/kubernetes`. A 4 phase approach will be taken. Move all code in `k8s.io/kubernetes/pkg/cloudprovider/providers/<provider>` to `k8s.io/kubernetes/staging/src/k8s.io/legacy-cloud-providers/<provider>/`. This requires removing all internal dependencies in each cloud provider to `k8s.io/kubernetes`. Begin to build/release the CCM from external repos (`k8s.io/cloud-provider-<provider>`) with the option to import the legacy providers from `k8s.io/legacy-cloud-providers/<provider>`. This allows the cloud-controller-manager to opt into legacy behavior in-tree (for compatibility reasons) or build new implementations of the provider. Development for cloud providers in-tree is still done in `k8s.io/kubernetes/staging/src/k8s.io/legacy-cloud-providers/<provider>` during this phase. Migrate all code in `k8s.io/kubernetes/staging/src/k8s.io/legacy-cloud-providers` and shift main development to `k8s.io/cloud-provider-<provider>`. External cloud provider repos can optionally still import `k8s.io/legacy-cloud-providers` but it will no longer be imported from core components in `k8s.io/kubernetes`. Changes to `k8s.io/kubernetes/staging/src/k8s.io/legacy-cloud-providers` are no longer accepted unless they are critical or security-related. Disable in-tree providers and set the `DisableCloudProviders` and `DisableKubeletCloudCredentialProvider` feature gates to true by default. This will enable external CCM behavior by default in Kubernetes."
+    },
+    {
+      "id": "F002",
+      "format": "text",
+      "text": "Kubernetes has always taken the position that \"topology is arbitrary\", and designs dealing with topology have had to take that into account. Even so, the project has two commonly assumed labels - `topology.kubernetes.io/region` and `topology.kubernetes.io/zone` - which are used in many components, generally hard-coded and not extensible. Those labels have relatively well understood meanings, and (so far) have been sufficient to represent what most people need.\n\nThis KEP proposes to declare those labels, and possibly one more, as \"standard\" and give them more well-defined meanings and semantics. APIs that handle topology can still handle arbitrary topology keys, but these common ones may be handled automatically."
+    },
+    {
+      "id": "F003",
+      "format": "text",
+      "text": "Introduce a new field to Service `spec.loadBalancerClass`.\n\nIf the field `spec.loadBalancerClass` is not set, the existing cloud provider will assume ownership of the Service Type=LoadBalancer resource. This is required to not break existing clusters that assume Service Type=LoadBalancer is always managed by the cloud provider.\n\nRequired API changes: `loadBalancerClass` will be immutable when the Service type is `LoadBalancer`, this way existing and future implementations do not have to worry about handling Services that change the class name. The class name is mutable only when the type is not LoadBalancer and must be cleared when the type changes. `loadBalancerClass` will be validated against label-style format. the `loadBalancerClass` field will be feature gated. The field will be dropped during API strategy unless the feature gate is enabled. all external implementations of Service LoadBalancer using a non-empty class name should use the finalizer `service.kubernetes.io/load-balancer-cleanup` to ensure proper garbage collection of external resources.\n\nRequired updates to service controller: if the class field is NOT set for a Service, allow the cloud provider to reconcile the load balancer. if the class field IS set for a Service, skip reconciliation of the Service from the cloud provider."
+    },
+    {
+      "id": "F004",
+      "format": "text",
+      "text": "The make system works best from x86 (though it can cross compile all platforms), largely due to a [bug in the kube-cross image build] and some other small oversights. Improving the existing make system is an explicit non-goal of this KEP, but we support addressing these oversights, and expect the outcome of this KEP will naturally increase available bandwidth to do so. A few other issues related to CGO / $CC on non-amd64 build hosts have already received pull requests / fixes."
+    },
+    {
+      "id": "F005",
+      "format": "text",
+      "text": "Introduce the metadata necessary to configure features/APIs/storage-versions/validation rules to match the behavior of an older Kubernetes release version A Kubernetes binary with emulation version set to N, will pass the conformance and e2e tests from Kubernetes release version N. A Kubernetes binary with emulation version set to N does not enable any changes (storage versions, CEL feature, features) that would prevent it from being rolled back to N-1. The most recent Kubernetes version supports emulation version being set to the full range of supported versions. In alpha we intend to support: `--emulation-version` range of `binaryMinorVersion`..`binaryMinorVersion-1` In beta, we intend to extend support to: `--emulation-version` range of `binaryMinorVersion`..`binaryMinorVersion-3` `--min-compatibility-version` to `emulationVersion`..`binaryMinorVersion-3`"
+    },
+    {
+      "id": "F006",
+      "format": "text",
+      "text": "The main use-case for this feature is being able to support multiple Service Type=LoadBalancer implementations in a cluster, as different workloads may want to leverage different loadbalancer providers based on efficiency, availability, cost and other factors.\n\nFor example, a cluster admin may want to use a public load balancer from a cloud provider for workloads that must be assigned a publically routable address, but they may want to enable a lower-cost solution for workloads that are only internally accessible."
+    },
+    {
+      "id": "F007",
+      "format": "text",
+      "text": "For the development (main/master) branch only, **NOT** the existing release branches: Create shadow canary jobs for each presubmit-kubernetes-blocking, release-blocking to use kubetest2 as optional, non-blocking Monitor these canary jobs till they are stable Make kubetest2 jobs non-optional, non-blocking Make kubetest2 jobs non-optional, blocking\n\nNo changes should be made to the release branches or their CI."
+    },
+    {
+      "id": "F008",
+      "format": "text",
+      "text": "Rebasing the k8s images to distroless/static can make the images thinner, safer and less vulnerable.\n\nMeanwhile, it will drastically reduce churn on the total number of k8s images versions. Due to the fact that many images are based on debian base and a vulnerability in debian base (a couple times a month) will result in rebuilding every image, changing the image from debian base to distroless/static can reduce the total number of k8s image versions.\n\nWhat's more, it reduces the burden of managing and maintaining multiple k8s images from the security (e.g. CVE), compatibility and build process concerns."
+    },
+    {
+      "id": "F009",
+      "format": "text",
+      "text": "Motiviation behind this effort is to allow cloud providers to develop and make releases independent from the core Kubernetes release cycle. The de-coupling of cloud provider code allows for separation of concern between \"Kubernetes core\" and the cloud providers within the ecosystem. In addition, this ensures all cloud providers in the ecosystem are integrating with Kubernetes in a consistent and extendable way.\n\nHaving all cloud providers developed/released in their own external repos/modules will result in the following benefits: The core pieces of Kubernetes (kubelet, kube-apiserver, kube-controller-manager, etc) will no longer depend on cloud provider specific APIs (and their dependencies). This results in smaller binaries and lowers the chance of security vulnerabilities via external dependencies. Each cloud provider is free to release features/bug fixes at their own schedule rather than relying on the core Kubernetes release cycle."
+    },
+    {
+      "id": "F010",
+      "format": "text",
+      "text": "It is possible to version some or all presubmits of a given repository inside that repository in a `yaml` file This feature is optional and opt-in The triggering of presubmits on pull request creation or updates continues to work and includes the jobs that are managed inside the code repository Re-Running tests via the `/retest` command continues to work and includes the jobs that are managed inside the code repository Explicitly executing optional tests via the `/test <<myjob>>` command continues to work and includes all jobs that are managed inside the code repository All the existing defaulting and validation for Presubmit jobs is being used to default and validate jobs that are managed inside the code repository Pull Requests on which an error occurred during parsing, defaulting or validation of presubmits that are managed in the code repository are not considered as merge candidates by Tide Tide executes the presubmits that are defined inside the code repository when it re-tests Renamed blocking presubmits added via pull request trigger a migration on all in-flight PRs Removed blocking presubmits via pull request trigger a status retire on all in-flight PRs All existing functionality except for what is listed in the Risks and Mitigations section will continue to work when `inrepoconfig` is enabled All existing functionality will continue to work when `inrepoconfig` is not enabled"
+    },
+    {
+      "id": "F011",
+      "format": "text",
+      "text": "Implementing kubetest2 deployers for all existing kubetest providers kubetest2 enables implementing custom deployers out-of-tree so replacing all of the deployers upstream is not a hard requirement Migrate all 1700+ e2e jobs away from the deprecated e2e test tools (e.g. scenarios, bootstrap, kubetes) This KEP only covers migrating all kubernetes/kubernetes release-blocking and merge-blocking jobs. We propose enforcing no further changes to the remaining deprecated tools to incentivize community migration and improvements to kubetest2. Other community efforts are already underway (e.g. removing the kubernetes_build scenario) Backporting changes to older release branches In general, no changes should be made to the release branches or their CI and the old jobs will age out. Decoupling from kubekins to a more minimal image The kubekins image has become a kitchen-sink over the years, used by more jobs than necessary, and containing more dependencies than required for effective kubetest2 usage Migrating kubekins away from bootstrap as a base image is only feasible once all jobs have migrated away from bootstrap, which is a non-goal of this KEP"
+    },
+    {
+      "id": "F012",
+      "format": "text",
+      "text": "Use image gcr.io/distroless/static:latest as the only base image for the following kubernetes images Images based FROM scratch Images based on debian/alpine and only for the purpose of redirecting logs with shell. Images based on k8s.gcr.io/debian-base due to previous rebasing from busybox.\n\nHelp the community and contributors better understanding and maintaining the images. Set up the policy that only `distroless/static` and `k8s.gcr.io/debian-base` are used (as the base image) for the images hosted in the official k8s.gcr.io image repository. And if the image is based on debian-base, it should be documented in the exception list. Improve the presubmit prow test to guarantee that the upcoming k8s/kubernetes PRs won't introduce dependencies that distroless/static doesn't support. Document the base image list for important kubernetes components, including both core containers and important add-ons. Also, document the exception list (unable to base on distroless)."
+    },
+    {
+      "id": "F013",
+      "format": "text",
+      "text": "Kubernetes currently uses Kubetest as the interface for launching and running e2e tests. It also uses a set of scripts called “scenarios” for running common use cases such as setting up end-to-end tests or pushing CI builds. Kubetest and scenarios have both been deprecated, (2) for a while, with a recommendation to move jobs to kubetest2.\n\nThis KEP proposes a plan for migration/deprecation of CI jobs that are in the critical path of a release."
+    },
+    {
+      "id": "F014",
+      "format": "text",
+      "text": "Address end-user feedback regarding support time per release Define an annual support policy. Define any prerequisites for the policy. Set acceptance criteria for enacting the change in support policy. This should be supplemented by KEPs and PRs that address the implementation of the policy by the release team and Release Engineering (patch management). Clarify and confirm that the support period is defined based on time (e.g. 1 year) and not based on a specific number of releases (e.g. 3 or 4) given that the release cadence might change in the future."
+    },
+    {
+      "id": "F015",
+      "format": "text",
+      "text": "As we consider problems like cross-zone network traffic being a chargeable resource in most public clouds, we started to build an API for topology in Services. We tried to think through how that API would map to existing load-balancer implementations which may already understand topology, and we realized 3 things.\n\n1) Cloud-ish load-balancers do not have arbitrary topology APIs and can't easily adapt to that. 2) Other systems have standardized on two or three levels of topology (e.g. the [Envoy locality API]). 3) Nobody is really complaining about this.\n\nIn trying to simplify the way Service topology might work, we are proposing that standardizing on a small set of well-defined topology concepts will be a net win for the project at almost no cost to what users are actually doing with Kubernetes.\n\n[Envoy locality API]:"
+    },
+    {
+      "id": "F016",
+      "format": "text",
+      "text": "Semantic versioning used by external cloud providers should track the major and minor releases of the supported Kubernetes version in that release. Patch releases are not required to match. For example, release v1.18.X of the cloud-controller-manager for provider Foo should support Kubernetes v1.18.X. The benefits of this versioning policy include but are not limited to: the desired version of the cloud-controller-manager is explicit based on the Kubernetes version of the cluster resolves incompatibility issues occurring wbsfrom vendoring a really old version of k8s.io/kubernetes ensures the vendored version of the cloud-controller-manager is up-to-date"
+    },
+    {
+      "id": "F017",
+      "format": "text",
+      "text": "Currently, all jobs for Prow are configured in a central `infra-config` repository that is in most cases distinct from the repositories whose code is being tested in presubmits. This poses severall challenges: It is not possible to see in a Pull Request that introduces a new presubmit if that presubmit will actually pass. The two workarounds for this are to either have both the job author and the reviewer use two CLIs to create a Pod from the job or to make the Job initially optional, verify it with a test Pull Request to the code repository, then make it mandatory. Both of these workarounds are cumbersome. The same issues apply when doing changes to the config of a presubmit When a project maintains multiple branches, e.G. because there are release branches, the maintainers must remember to create a copy of the presubmit in the `infra-config` repository. Otherwise it is easely possible that the presubmit becomes incompatible with one of the branches it is used in, because somone makes a change to its config and forgets to test against all branches. This is an additional step maintainers have to remember when branching off. If the `test-infra` repository is not public, outside collaborators are unable to change job configs. This may happen if an organization that uses Prow has a mixture of public and private repositories and chooses not to bear the maintenance overhead of multiple Prow instances."
+    },
+    {
+      "id": "F018",
+      "format": "text",
+      "text": "When Service Type=LoadBalancer is enabled by a Kubernetes cloud provider, it is a global configuration that applies for all Service Type=LoadBalancer resources in a given cluster. This becomes problematic if users want to leverage multiple Service Type=LoadBalancer implementations in a cluster.\n\nThe new Services APIs addresses this already with the GatewayClass resource. However, until Gateway/GatewayClass APIs become mature, we should support similar functionality for Services of Type=LoadBalancer. Introducing a new resource like `ServiceClass` is probably not worthwhile given that there are new APIs already in development. This KEP proposes a light-weight approach for Service Type=LoadBalancer by introducing a Service field `service.spec.loadBalancerClass`."
+    },
+    {
+      "id": "F019",
+      "format": "text",
+      "text": "The main goal of this KEP is to define the highest possible SLSA compliance as final objective in enhancing the Kubernetes release process. While providing a roadmap this KEP can be considered complete when a SLSA level is deemed as not implementable by the community at large (see Graduation Criteria).\n\nIt is also the goal of this KEP to produce full documentation about changes to technical and human processes, tooling, and all artifacts produced as of the compliance effort. The documentation effort shall include complete specifications of provenance attestations and software bill of materials as well as handbook updates for contributors to follow."
+    },
+    {
+      "id": "F020",
+      "format": "text",
+      "text": "Support importing github.com/kubernetes/kubernetes as a library This has never been supported, and is orthogonal to the decision of maintaining duplicate build systems Code under kubernetes/kubernetes/src/staging/k8s.io/foo is intended to be imported as k8s.io/foo from the staged copies at github.com/kubernetes/foo; anything else is internal-only and not supported for import, bazel or otherwise. Removing Bazel from sub-projects other than the core repo Bazel comes with tradeoffs, each subproject can make its own decision in this regard. This KEP **only** covers the main Kubernetes repository, and nothing else. Improving the previously existing make build We should strongly consider improving the implementation and behavior of this build in the future, but this is largely orthogonal to whether we should consider maintaining two build systems. An anticipated outcome of this KEP is increased bandwidth available to improve our single build system."
+    },
+    {
+      "id": "F021",
+      "format": "text",
+      "text": "It has proven difficult to measure how much of the expected Kubernetes behavior the current conformance tests cover. The current measurements are based upon identifying which API endpoints are exercised by the tests. The Kubernetes API is CRUD-oriented, and most of the client’s desired behavior is encapsulated in the payload of the create or update calls, not in the simple fact that those endpoints were hit. This means that even if a given endpoint is shown as covered, it’s impossible to know how much that tests the actual behavior.\n\nCoverage is measured this way because there is no single, explicit list of behaviors that comprise the expected behavior of a conformant cluster. These expectations are spread out across the existing design documents, KEPs, the user documentation, a subset of the e2e test, and the code itself. This makes it impossible to identify if the conformance suite provides a meaningful test of a cluster’s operation.\n\nAdditionally, progress in writing and promoting tests has been slow and too much manual effort is involved. As a starting point, this proposal includes new tooling that uses the API schemas to identify expected behaviors and produce tests and test scaffolding to quickly cover those behaviors."
+    },
+    {
+      "id": "F022",
+      "format": "text",
+      "text": "We propose to work on SLSA compliance in a predictable manner. As we move up the SLSA hardening levels, more and more stakeholders will be required to weigh in and to provide perspective about the required enhancements. Starting with SLSA 1, which is mostly a documentation effort, we plan to start having the discussions and presenting the necessary KEPs to work our way up.\n\nThe ideal outcome of this KEP would be to have a Kubernetes release process that complies with SLSA Level 4, meaning it is shielded from the most common threats to software supply chains. However, changes to reach level 4 may not be feasible.\n\nIf the changes that need to be conducted are deemed too disruptive or even destructive to other areas of the project (development velocity, contributor experience, policy, etc), the community may declare a specific SLSA level to be unimplementable. In that scenario, we would work on the rest of the SLSA requirements and consider this KEP complete."
+    },
+    {
+      "id": "F023",
+      "format": "text",
+      "text": "The approaches to rebase different containers can vary significantly due to the function of the containers, the cloud-providers’ release workflows, and legacy reasons (repo migration plans, retirement plans, etc). This section will discuss 4 main types of image rebasing strategies, and this should cover the majority of the kubernetes containers. The images are built via bazel. In such case, we will update the bazel BUILD rule to switch to the base image to distroless/static. This method applies for the core containers like kube-apiserver, kube-controller-manager, cloud-controller-manager, kube-scheduler. (See detailed solution in Core Master Images) The images have dependencies that are not supported by distroless/static. One typical example is the usage of shell. Previously, shell is widely used for redirecting glog output to a certain directory. This use case is no longer needed since we've switched from glog to klog which can accept a flag to specify the log output path. A generic approach is: Remove the dependencies that distroless/static doesn't support and then rebase the images to distroless (e.g. issue/1787. Meanwhile, we limit the introduction of new dependencies. (e.g. pr/74690) Images based \"FROM scratch\" is safe to switch to distroless/static directly. Images from kubernetes incubator won't be changed directly by this KEP and the release plan is not estimated here. We notify the project OWNERs and we defer to the OWNERs on whether or not those images should be updated."
+    },
+    {
+      "id": "F024",
+      "format": "text",
+      "text": "It is proposed to introduce a the option to configure additional presubmits inside the code repositories that are tested by prow via a file named `prow.yaml`.\n\nThis requires to change the existing `Config` struct to not expose a `Presubmits` property anymore, but instead getter functions to get all Presubmits with the ones from the `prow.yaml` added, if applicable.\n\nAdditionally, all components that need to access the `Presubmit` configuration need to be changed to use the new getters and to contain a git client which can be used to fetch the `Presubmit` config from inside the repo."
+    },
+    {
+      "id": "F025",
+      "format": "text",
+      "text": "We intend to introduce version compatibility and emulation options to Kubernetes control plane components to make upgrades safer by increasing the granularity of steps available to cluster administrators.\n\nWe will introduce a `--emulation-version` flag to emulate the capabiliites (APIs, features, ...) of a prior Kubernetes release version. When used, the capabilities available will match the emulated version. Any capabilities present in the binary version that were introduced after the emulation version will be unavailable and any capabilities removed after the emulation version will be available. This enables a binary version to emulate the behavior of a previous version with sufficient fidelity that interoperability with other system components can be defined in terms of the emulated version.\n\nWe will also introduce a `--min-compatibility-version` flag to control the minimum version a control plane component is compatible with (in terms of storage versions, validation rules, ...). When used, the component tolerates workloads that expect the behavior of the specified minimum compatibility version, component skew ranges extend based on the minimum compatibility version, and rollbacks can be performed back to the specified minimum compatibility version."
+    },
+    {
+      "id": "F026",
+      "format": "text",
+      "text": "A drawback of this proposal is the complexity involved with doing this type of change in the Kubernetes community. It will necessarily require an increased level of turbulence for developers and users as they learn about the changes to the `kubelet`, `kube-apiserver`, and `kube-controller-manager` processes, and the changes necessary to operate the external CCMs. Users will need to adapt their practices and automation to include the changes to command line flags and manifests to enable external cloud providers."
+    },
+    {
+      "id": "F027",
+      "format": "text",
+      "text": "**NOTE**\n\nThis KEP is now withdrawn. After initial attempts at implementation it became clear that the effort to rework existing tests to follow this methodology was more extensive than expected. Additionally, the problems this KEP intended to solve (particularly separate reviewer pools) have not proven to be the bottleneck in test creation and promotion.\n\n**END NOTE**\n\nThis proposal modifies the conformance testing framework to be driven by a list of agreed upon behaviors. These behaviors are identified by processing of the API schemas, documentation, expert knowledge, and code examination. They are explicitly documented and tracked in the repository rather than in GitHub issues, allowing them to be reviewed and approved independently of the tests that evaluate them. Additionally it proposes new tooling to generate tests, test scaffolding, and test coverage reports."
+    },
+    {
+      "id": "F028",
+      "format": "text",
+      "text": "For the development (main/master) branch only, **NOT** the existing release branches: Switch remaining CI usage (mostly a few presubmits) to use the make build. Most of CI already uses the make builds, excluding some presubmits, we will need to switch these (generally a flag flip in the CI configuration). Most of periodic testing consumes pre-uploaded binaries from the make builds, and does not build at all. These will require no changes. In areas where the make build generates fewer artifacts or exercises fewer paths than bazel, we will err on the side of parity with artifacts that end up in a kubernetes/kubernetes release Remove the bazel build and associated tooling. There are multiple scripts and LOTS of files related wholly to the bazel build in Kubernetes. Once we are confident that CI is no longer reliant on them we can remove these and relieving the maintenance toil.\n\nNo changes should be made to the release branches or their CI."
+    },
+    {
+      "id": "F029",
+      "format": "text",
+      "text": "This KEP does not aim to propose concrete technical implementation details or process improvements to achieve each SLSA level. As a framework, SLSA provides an incomplete roadmap to guide our implementation while it leaves the rest to the project. Some of these changes need a discussion and KEP by themselves, and we will be working on them as we advance.\n\nThe changes that need to be conducted include technical improvements (signing of artifacts, metadata generation, etc), setting up cryptographic key management systems and policy, VCS (GitHub) management, code review practices, and more. None of those concrete enhancements are under the scope of this document."
+    },
+    {
+      "id": "F030",
+      "format": "text",
+      "text": "Kubernetes has always taken the position that \"topology is arbitrary\", and designs dealing with topology have had to take that into account. Even so, the project has two commonly assumed labels - `topology.kubernetes.io/region` and `topology.kubernetes.io/zone` - which are used in many components, generally hard-coded and not extensible. Those labels have relatively well understood meanings, and (so far) have been sufficient to represent what most people need.\n\nThis KEP proposes to document those labels as \"standard\" and give them more rigorous definitions. This also proposes that we discuss and decide whether a third level of topology is needed and if so, define it in the same manner as the existing labels.\n\nThe resulting definitions should be specific enough that users and implementors understand what they mean, but not so rigid that they can not map them to the nearest constructs available in most environments."
+    },
+    {
+      "id": "F031",
+      "format": "text",
+      "text": "The goal of this KEP is to increase patch-fix support for each Kubernetes release from the current 9 months to 1 year. The primary motivation is to address an end-user request: Business cycles (financial, certification, sales, vacation, HR and others) are overwhelmingly annual, leading to many users desiring at least annual support cycles in projects on which they depend.\n\nWhen we say we provide patch support for a release, what do we mean? We will fix security issues in our Kubernetes code We will pick up security fixes from dependencies as they are made available, in specific versioned patch releases of the dependency in use We will not maintain forks of our major dependencies We will not attempt our own back ports of critical fixes to dependencies which are out of support from their own communities\n\nDetails of the expected tasks involved in implementing this policy are outlined below, the most major of which are: Review skew policies, identify which skews are derived from the number of supported versions, and identify new target skews (e.g. oldest kubelet against newest API server) Review deprecation policies, identify which deprecation periods are derived from the number of supported versions, and identify new target deprecation periods (e.g. deprecation period for GA features/APIs) Review support policies of external dependencies and identify/resolve gaps to ensure we do not claim longer support than the things we build on top of"
+    },
+    {
+      "id": "F032",
+      "format": "text",
+      "text": "improve discovery of version supportability across Kubernetes and external cloud providers. promote using the latest cloud-controller-manager library based on the Kubernetes version of the cluster prevent wide version skew of Kubernetes control plane and cloud-controller-manager. reduce chances of incompatibility issues that occur when a cloud-controller-manager vendoring a really old version of Kubernetes is running on a much newer version of Kubernetes."
+    },
+    {
+      "id": "F033",
+      "format": "text",
+      "text": "Today the Kubernetes project delivers minor releases (e.g.: 1.13 or 1.14) every 3 months. The project provides bugfix support via patch releases (e.g.: 1.13.Y), with each minor release (e.g.: 1.13) having this patch release stream of support for approximately 9 months. This means a cluster operator must upgrade at least every 9 months to remain supported. Nine months is an irregular period of time relative to the planning, operations, and financial cycles of most companies."
+    },
+    {
+      "id": "F034",
+      "format": "text",
+      "text": "Today we have many external (a.k.a out-of-tree) cloud providers, each responsible for managing releases for components such as cloud-controller-manger, but possibly others. Thus far there has been no standard on how providers should be semantically versioning their releases. Likewise, there has been no version skew policy indicating what versions of Kubernetes is supported by a version of a cloud-controller-manager (though it is assumed based on the vendored version of k8s.io/kubernetes). This KEP proposes to standardize all external cloud providers on a semantic versioning policy that ensures the vendored version of the cloud-controller-manager library is likely to match the version of the Kubernetes control plane. More concretely, releases for external cloud providers should track the major and minor versions of the Kubernetes version they intend to support. Patch releases are not required to match. For example, release v1.18.X of cloud-controller-manager for provider Foo should support Kubernetes clusters on v1.18.X."
+    },
+    {
+      "id": "F035",
+      "format": "text",
+      "text": "The notion of more granular steps in Kubernetes upgrades is attractive because it is more rigorous about how we step through a Kubernetes control-plane upgrade, introducing potentially corrupting data (i.e. data only present in N+1 and not in N) only in later stages of the upgrade process. For example, upgrading from Kubernetes 1.30 to 1.31 while keeping the emulation version at 1.30 would enable a cluster administrator to validate that the new Kubernetes binary version is working as desired before exposing any feature changes introduced in 1.31 to cluster users, and without writing and data to storage at newer API versions."
+    },
+    {
+      "id": "F036",
+      "format": "text",
+      "text": "Enable separate review of behaviors and tests that evaluate those behaviors. Provide a single location for defining conforming behavior. Provide tooling to generate as many of the behaviors as possible from API schemas. This will be a seed for the behavior lists, which will in turn be human curated. Refinements can improve the quality of the seed over time. Provide tooling to generate tests and test scaffolding for validating behaviors. Provide tooling to measure the conformance test coverage of the behaviors. Provide an incremental migration path from current conformance testing to the updated framework."
+    }
+  ]
+}

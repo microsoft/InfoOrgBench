@@ -1,0 +1,312 @@
+{
+  "assignments": [
+    {
+      "id": "F001",
+      "path": [
+        "ABFS",
+        "Root xattr rollback"
+      ]
+    },
+    {
+      "id": "F002",
+      "path": [
+        "ABFS",
+        "Retry count backport"
+      ]
+    },
+    {
+      "id": "F003",
+      "path": [
+        "S3A",
+        "Assumed role credential chain"
+      ]
+    },
+    {
+      "id": "F004",
+      "path": [
+        "ABFS",
+        "HTTP operation timing"
+      ]
+    },
+    {
+      "id": "F005",
+      "path": [
+        "ABFS",
+        "Root xattr rollback"
+      ]
+    },
+    {
+      "id": "F006",
+      "path": [
+        "ABFS",
+        "Root xattr rollback"
+      ]
+    },
+    {
+      "id": "F007",
+      "path": [
+        "ABFS",
+        "SharedKey credential test"
+      ]
+    },
+    {
+      "id": "F008",
+      "path": [
+        "ABFS",
+        "Root xattr rollback"
+      ]
+    },
+    {
+      "id": "F009",
+      "path": [
+        "ABFS",
+        "Root xattr rollback"
+      ]
+    },
+    {
+      "id": "F010",
+      "path": [
+        "ABFS",
+        "Parallel contract test paths"
+      ]
+    },
+    {
+      "id": "F011",
+      "path": [
+        "S3A",
+        "Assumed role credential chain"
+      ]
+    },
+    {
+      "id": "F012",
+      "path": [
+        "ABFS",
+        "Namespace exception handling"
+      ]
+    },
+    {
+      "id": "F013",
+      "path": [
+        "ABFS",
+        "Root xattr rollback"
+      ]
+    },
+    {
+      "id": "F014",
+      "path": [
+        "ABFS",
+        "HTTP operation timing"
+      ]
+    },
+    {
+      "id": "F015",
+      "path": [
+        "ABFS",
+        "Delegation token test NPE"
+      ]
+    },
+    {
+      "id": "F016",
+      "path": [
+        "ABFS",
+        "Delegation token test NPE"
+      ]
+    },
+    {
+      "id": "F017",
+      "path": [
+        "ABFS",
+        "SharedKey credential test"
+      ]
+    },
+    {
+      "id": "F018",
+      "path": [
+        "ABFS",
+        "HTTP operation timing"
+      ]
+    },
+    {
+      "id": "F019",
+      "path": [
+        "ABFS",
+        "Root xattr rollback"
+      ]
+    },
+    {
+      "id": "F020",
+      "path": [
+        "ABFS",
+        "Delegation token test NPE"
+      ]
+    },
+    {
+      "id": "F021",
+      "path": [
+        "ABFS",
+        "Root xattr rollback"
+      ]
+    },
+    {
+      "id": "F022",
+      "path": [
+        "S3A",
+        "YARN log collection tests"
+      ]
+    },
+    {
+      "id": "F023",
+      "path": [
+        "ABFS",
+        "Namespace exception handling"
+      ]
+    },
+    {
+      "id": "F024",
+      "path": [
+        "ABFS",
+        "SharedKey credential test"
+      ]
+    },
+    {
+      "id": "F025",
+      "path": [
+        "ABFS",
+        "Root xattr rollback"
+      ]
+    },
+    {
+      "id": "F026",
+      "path": [
+        "ABFS",
+        "Retry count backport"
+      ]
+    },
+    {
+      "id": "F027",
+      "path": [
+        "ABFS",
+        "Root xattr rollback"
+      ]
+    },
+    {
+      "id": "F028",
+      "path": [
+        "ABFS",
+        "Root xattr rollback"
+      ]
+    },
+    {
+      "id": "F029",
+      "path": [
+        "ABFS",
+        "Delegation token test NPE"
+      ]
+    },
+    {
+      "id": "F030",
+      "path": [
+        "ABFS",
+        "Delegation token test NPE"
+      ]
+    },
+    {
+      "id": "F031",
+      "path": [
+        "S3A",
+        "Upload listing metadata"
+      ]
+    },
+    {
+      "id": "F032",
+      "path": [
+        "ABFS",
+        "Root xattr rollback"
+      ]
+    },
+    {
+      "id": "F033",
+      "path": [
+        "ABFS",
+        "Root xattr rollback"
+      ]
+    },
+    {
+      "id": "F034",
+      "path": [
+        "ABFS",
+        "Delegation token test NPE"
+      ]
+    },
+    {
+      "id": "F035",
+      "path": [
+        "ABFS",
+        "Root xattr rollback"
+      ]
+    },
+    {
+      "id": "F036",
+      "path": [
+        "S3A",
+        "Upload listing metadata"
+      ]
+    },
+    {
+      "id": "F037",
+      "path": [
+        "ABFS",
+        "Parallel contract test paths"
+      ]
+    },
+    {
+      "id": "F038",
+      "path": [
+        "ABFS",
+        "Retry count backport"
+      ]
+    },
+    {
+      "id": "F039",
+      "path": [
+        "ABFS",
+        "Namespace exception handling"
+      ]
+    },
+    {
+      "id": "F040",
+      "path": [
+        "S3A",
+        "YARN log collection tests"
+      ]
+    },
+    {
+      "id": "F041",
+      "path": [
+        "S3A",
+        "Upload listing metadata"
+      ]
+    },
+    {
+      "id": "F042",
+      "path": [
+        "ABFS",
+        "SharedKey credential test"
+      ]
+    },
+    {
+      "id": "F043",
+      "path": [
+        "ABFS",
+        "HTTP operation timing"
+      ]
+    },
+    {
+      "id": "F044",
+      "path": [
+        "ABFS",
+        "Delegation token test NPE"
+      ]
+    }
+  ]
+}

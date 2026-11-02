@@ -1,0 +1,300 @@
+{
+  "task_id": "ami/mini-030",
+  "records": [
+    {
+      "id": "F001",
+      "format": "text",
+      "text": "The meeting begins with the group trying to resolve some equipment issues and waiting for Anna's arrival."
+    },
+    {
+      "id": "F002",
+      "format": "text",
+      "text": "The remote will be for use with the television set."
+    },
+    {
+      "id": "F003",
+      "format": "text",
+      "text": "The industrial designer was unsure about the value of the evaluation score."
+    },
+    {
+      "id": "F004",
+      "format": "text",
+      "text": "The case of the remote will be made of wood."
+    },
+    {
+      "id": "F005",
+      "format": "text",
+      "text": "They have not decided what functions the remote can have, but they have discussed that they may not be able to produce something extremely fancy with the given budget."
+    },
+    {
+      "id": "F006",
+      "format": "text",
+      "text": "The Marketing Specialist  discussed recent findings from trend watching reports."
+    },
+    {
+      "id": "F007",
+      "format": "text",
+      "text": "The group were unsure about which features to drop and which to keep."
+    },
+    {
+      "id": "F008",
+      "format": "text",
+      "text": "The group were satisfied with the overall score of 3.1."
+    },
+    {
+      "id": "F009",
+      "format": "text",
+      "text": "They do some tool training by trying out the whiteboard, and each person draws his/her favorite animal on it."
+    },
+    {
+      "id": "F010",
+      "format": "text",
+      "text": "The team discussed the issue of using speech recognition at length."
+    },
+    {
+      "id": "F011",
+      "format": "text",
+      "text": "The remote will be powered by a hand dynamo instead of kinetic energy."
+    },
+    {
+      "id": "F012",
+      "format": "text",
+      "text": "The profit will be about fifty million Euro.\n-The remote will target an international market."
+    },
+    {
+      "id": "F013",
+      "format": "text",
+      "text": "The selling price of the product will be about twenty five Euros each."
+    },
+    {
+      "id": "F014",
+      "format": "text",
+      "text": "The industrial designer and user interface designer worked on a drawing of the new design, while the project manager and marketing manager worked on the final report."
+    },
+    {
+      "id": "F015",
+      "format": "text",
+      "text": "The project manager led an evaluation of the project process."
+    },
+    {
+      "id": "F016",
+      "format": "text",
+      "text": "The marketing expert will think about user requirements."
+    },
+    {
+      "id": "F017",
+      "format": "text",
+      "text": "The remote will be technologically innovative."
+    },
+    {
+      "id": "F018",
+      "format": "text",
+      "text": "The production cost will be twelve Euros and fifty cents."
+    },
+    {
+      "id": "F019",
+      "format": "text",
+      "text": "It will be made of plastic instead of rubber."
+    },
+    {
+      "id": "F020",
+      "format": "text",
+      "text": "The User Interface Designer will work on adding a spongy quality to the buttons and the shape of the remote."
+    },
+    {
+      "id": "F021",
+      "format": "text",
+      "text": "The group discussed which features should be dropped."
+    },
+    {
+      "id": "F022",
+      "format": "text",
+      "text": "They were happy with the room for creativity, but thought they were limited by the budget."
+    },
+    {
+      "id": "F023",
+      "format": "text",
+      "text": "The group's original design was too expensive, costing 25 Euros, so the remote had to be substantially redesigned."
+    },
+    {
+      "id": "F024",
+      "format": "text",
+      "text": "Whether to have a case that is made of wood or is spongy."
+    },
+    {
+      "id": "F025",
+      "format": "text",
+      "text": "The industrial designer will work on the technica function design."
+    },
+    {
+      "id": "F026",
+      "format": "text",
+      "text": "The remote will be single-curved."
+    },
+    {
+      "id": "F027",
+      "format": "text",
+      "text": "Using speech recognition in the remote."
+    },
+    {
+      "id": "F028",
+      "format": "text",
+      "text": "This includes the basics such as on/off, channel up/down browsing, volume and record button(s)."
+    },
+    {
+      "id": "F029",
+      "format": "text",
+      "text": "He starts talking about the product they are to design, a remote control which should be original, trendy, and user-friendly."
+    },
+    {
+      "id": "F030",
+      "format": "text",
+      "text": "They will need to examine user requirements before deciding on what functionalities are necessary."
+    },
+    {
+      "id": "F031",
+      "format": "text",
+      "text": "The Industrial Designer will work on the look and feel of the design, the ease of use of the design, the characteristics of being powerful and fancy, and the speech recognition aspect."
+    },
+    {
+      "id": "F032",
+      "format": "text",
+      "text": "The team will mix the concepts of the Google controller and the fancy controller in their design."
+    },
+    {
+      "id": "F033",
+      "format": "text",
+      "text": "The project manager decided to start by looking at costs instead of the prototype presentation because the original design was too expensive and had to be changed."
+    },
+    {
+      "id": "F034",
+      "format": "text",
+      "text": "At this point they clarify their names and roles in the group and then resume talking about remote control functions."
+    },
+    {
+      "id": "F035",
+      "format": "text",
+      "text": "The remote will use low level chips."
+    },
+    {
+      "id": "F036",
+      "format": "text",
+      "text": "The group thought that they worked well together, especially after the first meeting."
+    },
+    {
+      "id": "F037",
+      "format": "text",
+      "text": "The remote will have LCD buttons."
+    },
+    {
+      "id": "F038",
+      "format": "text",
+      "text": "The remote will use solar energy."
+    },
+    {
+      "id": "F039",
+      "format": "text",
+      "text": "The project manager will complete the final report."
+    },
+    {
+      "id": "F040",
+      "format": "text",
+      "text": "The group decided that the LCD screen was integral to their design, but dropped the speech recognition."
+    },
+    {
+      "id": "F041",
+      "format": "text",
+      "text": "The Industrial Designer presented possible materials to use in making the case for the remote, introduced the option of using a solar battery, and discussed options for buttons."
+    },
+    {
+      "id": "F042",
+      "format": "text",
+      "text": "Then the project manager introduces the meeting by saying they have some technical tools with which to communicate so they will try to get acquainted with them first."
+    },
+    {
+      "id": "F043",
+      "format": "text",
+      "text": "They preferred the digital pens to the SMARTboard.  They had mixed feelings about using PowerPoint."
+    },
+    {
+      "id": "F044",
+      "format": "text",
+      "text": "The marketing expert led the prototype evaluation, based on the new design."
+    },
+    {
+      "id": "F045",
+      "format": "text",
+      "text": "The team will not use the intelligent controller proposed by the User Interface Designer."
+    },
+    {
+      "id": "F046",
+      "format": "text",
+      "text": "The project manager closes the meeting by telling each group member what he/she will be working on."
+    },
+    {
+      "id": "F047",
+      "format": "text",
+      "text": "The general outline of the project will be the functional, conceptual, and detailed design."
+    },
+    {
+      "id": "F048",
+      "format": "text",
+      "text": "The interface designer will work on a general design."
+    },
+    {
+      "id": "F049",
+      "format": "text",
+      "text": "The remote will no longer feature speech recognition, but will still have an LCD screen."
+    },
+    {
+      "id": "F050",
+      "format": "text",
+      "text": "The group felt they should have been given the information about costs before designing the prototype."
+    },
+    {
+      "id": "F051",
+      "format": "text",
+      "text": "It will have one integrated scroll push-button and no other buttons."
+    },
+    {
+      "id": "F052",
+      "format": "text",
+      "text": "Two members of the team will work on creating a prototype made of clay"
+    },
+    {
+      "id": "F053",
+      "format": "text",
+      "text": "The remote will use speech recognition for simple commands."
+    },
+    {
+      "id": "F054",
+      "format": "text",
+      "text": "The necessary buttons are on/off, channel up/down browsing, volume, and record button(s)."
+    },
+    {
+      "id": "F055",
+      "format": "text",
+      "text": "They discuss some functions such as a personal video recorder, but say it is probable that they cannot produce a fancy device given their budget."
+    },
+    {
+      "id": "F056",
+      "format": "text",
+      "text": "The User Interface Designer presented three different concepts to consider for the user interface and introduced the idea of using speech recognition in the design of the remote."
+    },
+    {
+      "id": "F057",
+      "format": "text",
+      "text": "The team discussed what materials to use and their interface concept."
+    },
+    {
+      "id": "F058",
+      "format": "text",
+      "text": "They decided to drop all the buttons in favour of an integrated scroll push-button, and to use a hand dynamo instead of kinetic energy as a power source."
+    },
+    {
+      "id": "F059",
+      "format": "text",
+      "text": "The project manager proceeds to talk about the project finance, which is followed by a group discussion about what functions a good remote control has."
+    }
+  ]
+}

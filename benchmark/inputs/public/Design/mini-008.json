@@ -1,0 +1,185 @@
+{
+  "task_id": "mini-008",
+  "records": [
+    {
+      "id": "F001",
+      "format": "text",
+      "text": "Tighten validation on `VolumeSnapshot` and `VolumeSnapshotContent` by updating the CRD validation schema and providing a webhook server to enforce immutability.\n\nThis KEP will list the new validation rules. It will also provide the release plan to ensure backwards compatibility. As well, it will outline the deployment plan of the webhook server. The webhook server is deployed separately from the snapshot controller.\n\nThis tightening of the validation on volume snapshot objects is considered a change to the volume snapshot API. Choosing not to install the webhook server and participate in the 2-phase release process can cause future problems when upgrading from v1beta1 to V1 volumesnapshot API if there are currently persisted objects which fail the new stricter validation. Potential impacts include being unable to delete invalid snapshot objects. It should be possible to downgrade the CRD definition as a workaround."
+    },
+    {
+      "id": "F002",
+      "format": "text",
+      "text": "There will be a new flag, namely `custom`, in `kubectl debug` which is used to pass a json file that includes the fields that are compatible with partial container spec (e.g. ) It is expected that this file passed to `custom` flag is decodable to `corev1.Container` (please note that this doesn't have to be a complete `corev1.Container` spec, but all the fields should be mapped to the fields in `corev1.Container`), otherwise `kubectl debug` returns an error mentioning that only `corev1.Container` compatible json files are accepted."
+    },
+    {
+      "id": "F003",
+      "format": "text",
+      "text": "This is the prospective code snippet of a function that applies the custom profile.\n\nAfter predefined profiles are applied, there will be a generated podSpec that is pending for creation. Before sending a request to API server to create this pod or ephemeral container, `applyCustomProfile` function will be called with the required parameters. This function modifies podSpec internally and this podSpec will be created/updated."
+    },
+    {
+      "id": "F004",
+      "format": "text",
+      "text": "All clients and users of Kubernetes APIs usually first need to “discover” what the available APIs are and how they can be used. These APIs are described through a mechanism called “Discovery” which is typically queried to then build the requests to correct APIs. Unfortunately, the “Discovery” API is made of lots of small objects that need to be queried individually, causing possibly a lot of delay due to the latency of each individual request (up to 80 requests, with most objects being less than 1,024 bytes). The more numerous the APIs provided by the Kubernetes cluster, the more requests need to be performed.\n\nThe most well known Kubernetes client that uses the discovery mechanism is `kubectl`, and more specifically the `CachedDiscoveryClient` in `client-go`. To mitigate some of this latency, kubectl has implemented a 6 hour timer during which the discovery API is not refreshed. The drawback of this approach is that the freshness of the cache is doubtful and the entire discovery API needs to be refreshed after 6 hours, even if it hasn’t expired. Other clients such as Openshift UI have slow loading times due to the browser limit of the amount of parallel requests that can be made.\n\nThis primarily concerns clients that need a discovery cache and need to frequently poll the apiserver for the latest discovery information. Clients include kubectl, web interfaces, controllers, etc."
+    },
+    {
+      "id": "F005",
+      "format": "text",
+      "text": "Currently there is a single set of conformance tests which are used to cover all vendor and cloud provider Kubernetes offerings. Any given offering must pass all conformance tests in order to be conforming. Therefore, the conformance tests are limited to non-optional, GA features, in order to avoid excluding offerings that do not implement an optional feature.\n\nHowever, to meet the overall goal of the program - workload portability - it is necessary to ensure that optional features, when available, are implemented in a consistent manner. This KEP proposes the use of sets of functionality (behaviors), referred to as “profiles”, and the mechanisms used to define and validate those profiles."
+    },
+    {
+      "id": "F006",
+      "format": "text",
+      "text": "As the Kubernetes project matures, and is used as the foundation for other projects, production distributions are expected to increase in stability, reliability, and consistency. The Kubernetes conformance project is an important aspect of ensuring consistency across distributions. A production distribution should not be required to enable non-GA features or REST APIs in order to pass conformance tests.\n\nBeta dependencies can be grouped into several categories: Kubernetes components requiring beta REST APIs with no stable alternatives (kubelet's use of the beta CertificateSigningRequest endpoints for cert rotation is a borderline example; cert rotation is not a required feature, but all our setup and test tools make use of it) Kubernetes components requiring beta REST APIs with stable alternatives (for example, kube-scheduler accidentally switched to using the beta Events REST API in 1.16) Kubernetes components requiring behavior enabled by beta feature gates Kubernetes conformance tests requiring calls to beta REST APIs Kubernetes conformance tests exercising behavior enabled by beta feature gates\n\nFor each category, we should identify and resolve existing dependencies, and prevent future occurrences."
+    },
+    {
+      "id": "F007",
+      "format": "text",
+      "text": "Develop an API (`kind`) for Kustomize that is focused on function discovery, as well as guidelines and recommendations for distribution of functions and associated resources, such as schema definitions.\n\nA successful implementation of this API should have the following characteristics: Function based workflows are driven by seamless invocation of sets of functions without individual out-of-band discovery or installation steps for specific runtimes. The new API is integrated with the existing Kustomize tool (i.e. `kustomize build`) through references provided in Kustomization, Component, and Composition resources. Eligible Kustomize functionality could be extracted and distributed as official extensions. This won't be completed as part of this KEP but the required changes to support this will be implemented."
+    },
+    {
+      "id": "F008",
+      "format": "text",
+      "text": "Don't break any existing behavior, even obviously unintentional behavior that currently works. Enable users to create pre-populated volumes in a manner consistent with current practice Enable developers to innovate with new an interesting data sources Minimize change to existing workflows and breaking existing tools with new behavior Ensure that users continue to get accurate error messages and feedback about volume creation progress, whether using existing methods of volume creation or specifying a data source associated with a volume populator. Maintain existing pattern of allowing things to happen out of order. As long as there's a chance things will succeed in the future, just provide a status update and retry again later."
+    },
+    {
+      "id": "F009",
+      "format": "text",
+      "text": "The use of Kustomize functions today is cumbersome, both in terms of discovery and the use of functions within a Kustomization. The introduction of the `Composition` API will improve function workflows, but challenges remain surrounding function distribution and discovery. This KEP is motivated by this need to improve the distribution and discovery of functions, for use in `Composition` or other Kustomize resources."
+    },
+    {
+      "id": "F010",
+      "format": "text",
+      "text": "Modify the apiserver to retry name generation. When performing the create operation at the storage layer of the kube-apiserver, if the create fails with a \"name conflict\" error, generate a new name and retry.\n\nIf we retry up to 7 times, we can generate up to 1 million names before reaching a 0.1% chance of a collision. This is roughly the same probability of collision we would get if we were to increased the number of chars per random generateName suffix to 11.\n\nWhile this doesn't eliminate the possibility of name conflicts when very large numbers of resources are generated with the same `generateName` prefix, it does effectively eliminate name conflicts for more typical use cases. When generating <=100,000 resources with a single `generateName` prefix, there is a 1 in $`1.6x10^{13}`$ chance of ever encountering a name conflict."
+    },
+    {
+      "id": "F011",
+      "format": "text",
+      "text": "OpenAPI is an open specification for defining types and operations on those types. The Kubernetes API server has supported it fully since version 1.15, meaning one can query an API server to get a detailed list of the types it understands, including any Custom Resources that it knows about. Clients can use this information to correctly instantiate those types and make calls on the server. Kustomize uses a hard-coded snapshot of the kubernetes API taken at version 1.19 to help it understand field types and most importantly, merge keys to use when patching type instances."
+    },
+    {
+      "id": "F012",
+      "format": "text",
+      "text": "When kustomize applies a strategic merge patch, it makes use of the kyaml merging libraries. First, it uses the kyaml walker code, which utilizes the kustomize/kyaml/openapi library. With the openapi library, it does two things:\n\n1) Makes a call to `openapi.initSchema()`, which loads the builtin kubernetes OpenAPI schema into a global schema variable for all other functions to use 2) Retrieves the patch strategy and merge keys from the schema (`openapi.GetPatchStrategyAndKeyList()`)\n\nInstead of loading the builtin schema, `openapi.initSchema()` should read the schema from a file if specified (and default to the builtin schema if there is no file specified). The kustomize/kyaml/openapi library already has a function `openapi.SchemaFromFile(path string)` that can load in an OpenAPI schema from a file.\n\nKustomize would have to make the kustomization’s openapi/path field available to `openapi.initSchema()` so that it can load the schema from the specified file.\n\nAdditional logic would be added to handle overlays; as kustomize recursively processes kustomizations, the schema would have to be reinitialized at each step to account for potentially different schemas in each kustomization.\n\nThe `kustomize openapi fetch` command (to fetch OpenAPI data from the user’s current cluster) should be implemented mostly in cli-utils so that any other programs that want to have a similar command can share the underlying code."
+    },
+    {
+      "id": "F013",
+      "format": "text",
+      "text": "Provide an updated CRD schema to validate fields Prevent: Invalid VolumeSnapshot/VolumeSnapshotContent from creation and update Invalid updates on immutable fields, i.e., VolumeSnapshot.Spec.Source Provide a pre-built image which can be used to deploy the webhook server Provide a way to deploy the webhook server in cluster Provide a way to authenticate the webhook server to the API server via TLS Provide a release process to safely tighten the validation and move towards the ideal state of using builtin CRD validation while maintaining backwards compatibility"
+    },
+    {
+      "id": "F014",
+      "format": "text",
+      "text": "Tighten the validation on Volume Snapshot objects. Please see the tables below for detailed information. Due to backwards compatibility concerns, the tightening will occur in three phases. The first phase is webhook-only, and will use ratcheting validation. It will be the user's responsibility to clean up invalid objects which already existed before the webhook was enabled. Invalid objects are those which fail the new, stricter validation."
+    },
+    {
+      "id": "F015",
+      "format": "text",
+      "text": "Kubernetes has always taken the position that \"topology is arbitrary\", and designs dealing with topology have had to take that into account. Even so, the project has two commonly assumed labels - `topology.kubernetes.io/region` and `topology.kubernetes.io/zone` - which are used in many components, generally hard-coded and not extensible. Those labels have relatively well understood meanings, and (so far) have been sufficient to represent what most people need.\n\nThis KEP proposes to document those labels as \"standard\" and give them more rigorous definitions. This also proposes that we discuss and decide whether a third level of topology is needed and if so, define it in the same manner as the existing labels.\n\nThe resulting definitions should be specific enough that users and implementors understand what they mean, but not so rigid that they can not map them to the nearest constructs available in most environments."
+    },
+    {
+      "id": "F016",
+      "format": "text",
+      "text": "The operations that a Kubernetes API server supports are reported through a collection of small documents partitioned by group-version. All clients of Kubernetes APIs must send a request to every group-version in order to \"discover\" the available APIs. This causes a storm of requests for clusters and is a source of latency and throttling. When new types are added to the API, types will need to be fetched again and adds an additional storm of requests. This KEP proposes centralizing the \"discovery\" mechanism into two aggregated documents so clients do not need to send a storm of requests to the API server to retrieve all the operations available."
+    },
+    {
+      "id": "F017",
+      "format": "text",
+      "text": "Introduce an optional `DefaultUser` field to atomic write volume API objects. Atomic write volumes include ConfigMap, Secret, DownwardAPI and Projected volumes. Introduce an optional `User` field to atomic write volume types child items API objects. This allows users to define file owner UID per item that takes precedence over the volume level `DefaultUser` field. When writing files into the atomic write volumes, Kubelet configures their file owner UID according to the `DefaultUser` and `User` fields."
+    },
+    {
+      "id": "F018",
+      "format": "text",
+      "text": "In Kubernetes 1.12, we added the `DataSource` field to the PVC spec. The field was implemented as a `TypedLocalObjectReference` to give flexibility in the future about what objects could be data sources for new volumes. Since then, we have allowed only two things to be the source of a new volume -- existing PVCs (indicating a user's intent to clone the volume) and snapshots (indicating the user's intent to restore a snapshot)."
+    },
+    {
+      "id": "F019",
+      "format": "text",
+      "text": "The CRD validation schemas today support nearly the whole OpenAPI v3 schema language. Here, we propose to impose a restriction called _structural schema_ to that language, which will significantly reduce difficulty in moving forward with advanced features like pruning, defaulting, server-side apply, read-only fields and protobuf in the near and medium term future while keeping needed expressivity to express Kubernetes-like APIs including powerful value validations.\n\nSchema generators (like crd-gen and openapi-gen) which recurse over API Golang types produce structural schemas naturally. Developers can enrich those structural schemas with nearly arbitrary value validation logic, usually using in-code `+kubebuilder`-like tags.\n\nThe restriction is an API change of the CustomResourceDefinition kind in the `apiextensions.k8s.io/v1beta1` API group, but in the sense that CRDs created via the `v1beta1` endpoints are not restricted such that existing CRDs keep working **as before**, but CRDs created or updated via the `v1beta1` endpoints have to conform to the new restrictions **if they want to make use of new features**.\n\nIn the `v1` CustomResourceDefinition API we will enforce structural schemas on creation and do ratcheting validation on update (allow updates with non-structural schemas if the original schema was non-structural already).\n\nTo communicate to the developer that a CRD does not follow the structural schema restriction and will therefore not benefit from future developments, we add a `NonStructuralSchema` condition to the CRD."
+    },
+    {
+      "id": "F020",
+      "format": "text",
+      "text": "Restrict CRD validation OpenAPI v3 schemas to give one canonical way to express objects we intend to support as Kubernetes-like types. Simplify the semantics of CRD validation OpenAPI v3 schemas to make implementation of advanced feature like pruning, defaulting, server-side apply and read-only validation considerably less difficult. Support embedding of existing API types into a CRD via RawExtensions or via Golang type reuse (e.g. of PodSpecs). Allow a rich OpenAPI v3 validation schema for CustomResource validation, but allow us to programmatically derive the restricted spec for all other purposes. Prospective goal: have a canonical mapping from a restricted schema to Golang types and Protobuf v3."
+    },
+    {
+      "id": "F021",
+      "format": "text",
+      "text": "We are proposing augmenting the current discovery endpoints at `/api` and `/apis` with an new content negotiation accept type. This endpoint will serve an aggregated discovery document that contains the resources for all group versions. ETag support will be provided so clients who already have the latest version of the aggregated discovery can avoid redownloading the document.\n\nWe will add a new controller responsible for aggregating the discovery documents when a resource on the cluster changes. There will be no conflicts when aggregating since each discovery document is self-contained."
+    },
+    {
+      "id": "F022",
+      "format": "text",
+      "text": "OpenAPI has the goal of describing every API possible. We have the goal of presenting a consistent API to users of Kubernetes. OpenAPI therefore makes a fantastic output format able to describe anything, but a poor input format, because there's not \"one correct way\" to do a given thing. It is easy to accidentally (or intentionally) describe things in OpenAPI v3 that are not similar to other Kubernetes APIs and far outside of the Kubernetes API conversions. OpenAPI v3 is a very open and wide spec that can define crazy things using logical operators (`not(anyOf(oneof ...))`), leading to complicated semantics, making advanced CRD features difficult or even impossible to implement."
+    },
+    {
+      "id": "F023",
+      "format": "text",
+      "text": "As we consider problems like cross-zone network traffic being a chargeable resource in most public clouds, we started to build an API for topology in Services. We tried to think through how that API would map to existing load-balancer implementations which may already understand topology, and we realized 3 things.\n\n1) Cloud-ish load-balancers do not have arbitrary topology APIs and can't easily adapt to that. 2) Other systems have standardized on two or three levels of topology (e.g. the [Envoy locality API]). 3) Nobody is really complaining about this.\n\nIn trying to simplify the way Service topology might work, we are proposing that standardizing on a small set of well-defined topology concepts will be a net win for the project at almost no cost to what users are actually doing with Kubernetes.\n\n[Envoy locality API]:"
+    },
+    {
+      "id": "F024",
+      "format": "text",
+      "text": "Design and implement a mechanism to express profiles in the conformance behavior definitions. Design and implement a mechanism to validate whether a cluster conforms to each profile. Document guidance on how to choose the scope of individual profiles. The total number of profiles should be restricted. Document guidance on how to decide the profile in which a new feature belongs. This could result in a modification of an existing profile or a creation of a new profile. Define a base profile and at least one other profile."
+    },
+    {
+      "id": "F025",
+      "format": "text",
+      "text": "Make it possible to easily disable all beta REST APIs and features Add support for disabling built-in REST API versions of the form `v[0-9]+beta[0-9]+` to the Kubernetes API server with `--runtime-config api/beta=false` Parallels existing use of `--runtime-config api/all=false` For completeness, we can also add support for disabling built-in REST API versions of the form `v[0-9]+alpha[0-9]+` to the Kubernetes API server with `--runtime-config api/alpha=false` Add support for disabling beta feature gates to all components with `--feature-gates AllBeta=false` Parallels existing use of `--feature-gates AllAlpha=false` Identify existing beta REST APIs/features required by Kubernetes components or conformance tests Iteratively run a conformance test with all beta REST APIs and features disabled Identify failures due to uses of beta features/REST APIs Open issues for owners of the relevant tests or components to remove the beta dependency Construct an exemption list of beta features/REST APIs currently required to pass conformance Prevent introduction of new required beta dependencies in Kubernetes components or conformance tests Set up a merge-blocking CI job running conformance tests with all beta REST APIs and features disabled except the exemptions constructed in step 2. Resolve existing dependencies on beta REST APIs/features required by Kubernetes components or conformance tests Track issues opened in step 2 As each dependency is resolved, remove it from the exemption list"
+    },
+    {
+      "id": "F026",
+      "format": "text",
+      "text": "Kubernetes has always taken the position that \"topology is arbitrary\", and designs dealing with topology have had to take that into account. Even so, the project has two commonly assumed labels - `topology.kubernetes.io/region` and `topology.kubernetes.io/zone` - which are used in many components, generally hard-coded and not extensible. Those labels have relatively well understood meanings, and (so far) have been sufficient to represent what most people need.\n\nThis KEP proposes to declare those labels, and possibly one more, as \"standard\" and give them more well-defined meanings and semantics. APIs that handle topology can still handle arbitrary topology keys, but these common ones may be handled automatically."
+    },
+    {
+      "id": "F027",
+      "format": "text",
+      "text": "Introduce a new API (`kind`) that will provide a mechanism to improve distribution and discovery of Kustomize functions, for use with `Kustomization`, `Components`, and `Composition` resources.\n\nThis new API will provide a standardized way to define a collection of one or more Kustomize functions, as well as supporting KRM-style configuration resources, that can be consumed by Kustomize in order to automate the use of functions and eliminate manual out-of-band discovery and installation steps, regardless of the packaging format. All Kustomize configuration objects (i.e. Kustomization, Component and Composition) will support function source configuration via this new kind. Ideally, we would like the new API to become a standard that other KRM-style transformer orchestrators such as KPT can adopt as well."
+    },
+    {
+      "id": "F028",
+      "format": "text",
+      "text": "This design does not support persistent volumes\n\nPersistent volumes may be shared across multiple pods and have an independent lifecycle.\n\nA design that covers both ephemeral and persistent volumes would introduces significant complexity regarding user namespaces, varying underlying storage capabilities and diverse CSI drivers implementation.\n\nTherefore, a simpler design that focus on ephemeral volumes is more feasible and maintainable. This design does not support all ephemeral volume types\n\nUnlike atomic write volumes, where individual data files are managed by kubelet, `emptyDir` provides an empty directory at the mount point. Therefore, any ownership configurations involve the mount point directory only.\n\nOther ephemeral volume types, i.e. image, CSI ephemeral and general ephemeral, each present different challenges and variances. These distinctions are significant enough to warrant a separate proposal."
+    },
+    {
+      "id": "F029",
+      "format": "text",
+      "text": "The current set of conforming behaviors represents only a small subset of Kubernetes functionality. This means that users and software packagers cannot simply rely on the statement that a vendor’s offering is “Certified Kubernetes” to know that the software will run successfully. For instance, an application packaged as a Helm chart may use a PersistentVolume. Because that feature is not part of the conformance program, there are valid, Certified Kubernetes distributions that do not support it, and therefore the application deployment will not succeed."
+    },
+    {
+      "id": "F030",
+      "format": "text",
+      "text": "In the `openapi` field of a kustomization file, a user may specify a path to an OpenAPI schema file to use instead of whatever version was compiled in to kustomize. Add a `kustomize openapi fetch` command that will fetch the OpenAPI schema from the user’s current cluster Create the necessary conditions to merge open API data - e.g. read one large file containing the full kubernetes native type set, and one or more relatively small files containing custom resource data (this would eliminate the need to first load CRDs into an API server then fetch everything back as one large blow)."
+    },
+    {
+      "id": "F031",
+      "format": "text",
+      "text": "Change the length of the random suffix. This is a breaking change: There is a 63 char name length limit. to guarantee a 5 char random suffix length, `generateName` is trimmed if its length is >58 chars. If the random suffix length were to be increased, `generateName` would need to trimmed to a shorter length, breaking users that depend on 58 chars of `generateName` being preserved. (Increasing the max length of `name` would also be a breaking change). There are major downstream projects that use regular expressions with a `{5}` exact match count that is intended to match the random suffix. Eliminate the possibility of generated name conflicts entirely. This is much harder problem given that `generateName` does create names in a reserved identifier space, and so any mechanism to pick names is prone to conflicts."
+    },
+    {
+      "id": "F032",
+      "format": "text",
+      "text": "This KEP resolves a long-standing and recurring ask to configure atomic write volume files with proper ownerships. There have been several issue tickets since 2014, each with a lot of comments and reactions, demonstrating the strong requirements from the Kubernetes user base.\n\nMany popular software requires strict file ownerships, such as MongoDB replica set [key files][mongodb-key-files] and SSHD [host keys][sshd-host-keys]. The existing atomic write volume implementation creates files owned by root and therefore not satisfying such ownership requirements. A known workaround involves running an initContainers as root to perform chown.\n\nHowever, this workaround is not possible in clusters implementing the [restricted][restricted-policy] pod security standards policy that follow the current pod hardening best practices. The policy requires pods to run as non-root and drop all capabilities, therefore rending this workaround impossible. Moreover, even in less hardened clusters, the workaround creates unnecessary friction and maintenance overhead for the users.\n\n[mongodb-key-files]: [sshd-host-keys]: [restricted-policy]:"
+    },
+    {
+      "id": "F033",
+      "format": "text",
+      "text": "Kubernetes generates a 5 char random suffix that is appended to a prefix specified by `.metadata.generateName`.\n\nEach char in the sequence is from the \"bcdfghjklmnpqrstvwxz2456789\" range.\n\nThis leads to $`27^5 = 14,348,907`$ possible names per generateName prefix. For context, we have seen clusters store 100,000..1,000,000 custom resources, so the total number of names that can be generated is not currently a problem.\n\nBut there is a problem with name conflicts. There is a 50% chance of hitting a conflict before generating even 5000 names, and a 0.1% chance at only 500 names!\n\nToday a HTTP 409 respose returned to the client if a name conflict happens. It is possible for clients to detect the error and retry, but we've seen that most clients don't realize to do this and hit this problem in production."
+    },
+    {
+      "id": "F034",
+      "format": "text",
+      "text": "Identify existing beta REST APIs and features required by Kubernetes components so they can be graduated or the dependencies removed Identify existing beta REST APIs and features required by conformance tests so the tests can be rewritten to remove those dependencies Prevent new beta REST APIs and features from being required by Kubernetes components or conformance tests Demonstrate passing conformance tests on a cluster with all beta REST APIs and features disabled"
+    },
+    {
+      "id": "F035",
+      "format": "text",
+      "text": "Introduce a new field on PVCs called `DataSourceRef`. This new field operates like `DataSource` except that it never ignores input -- contents are always accepted or the entire PVC is rejected if the contents are deemed invalid. Deprecate the `DataSource` field once `DataSourceRef` reaches GA, but continue to support it in a backwards-compatible way, never removing it. In particular: If `DataSource` and `DataSourceRef` are both unset; accept If `DataSource` is set valid (PVC or VolumeSnapshot) AND `DataSourceRef` is not set; set `DataSourceRef` from `DataSource` If `DataSource` is set valid AND `DataSourceRef` is set the same; accept If `DataSource` is set valid AND `DataSourceRef` is set differently; reject If `DataSource` is set invalid (anything but PVC or VolumeSnapshot) and `DataSourceRef` is not set; wipe `DataSource` (as today) If `DataSource` is set invalid and `DataSourceRef` is set; reject If `DataSource` is not set and `DataSourceRef` is set invalid (any core object other than PVC); reject If `DataSource` is not set and `DataSourceRef` is set valid (PVC or any non-core object); set `DataSource` from `DataSourceRef` and accept\n\nNote that in the last case, we allow setting the CRD data sources, which enables volume populators to work."
+    },
+    {
+      "id": "F036",
+      "format": "text",
+      "text": "`kubectl debug` command provides a set of predefined profiles and users can pick the appropriate ones according to their needs and roles. However, in some cases (maybe even in most cases), users might want to customize these profiles by adding: environment variables replicate volume mounts security contexts labels image pull secrets\n\nand many others. Users can overcome these problems by manually patching pod specs (unless the required intervention prevents the pod to become available) but this is impractical, especially if this should be done frequently and that's why, users first reaction is opening an issue about this or pull request proposing a new flag to manage only a particular fields in pod specs. Adding a new flag for every field puts a debug command at risk of unmanageable and unmaintainable state from not only maintainers point of view but also users.\n\nDue to all these reasons, this proposal adds a custom profiling support on top of predefined profiles debug command. Custom profiling mitigates the new flag request pressure."
+    }
+  ]
+}

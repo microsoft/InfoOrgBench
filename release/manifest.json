@@ -1,0 +1,153 @@
+{
+  "schema_version": 2,
+  "repository": "InfoOrgBench",
+  "notes": "Components are matched in order; the first matching pattern owns a file. Presence in the private staging repository is allowed while approvals are pending. Every channel requires all approvals of every present component. PENDING-CELA marks material whose licence is decided in the dataset review; no channel may release it until the manifest records the decided licence.",
+  "channels": {
+    "public_github": {
+      "description": "Make github.com/microsoft/InfoOrgBench public",
+      "approved": false
+    },
+    "anonymous_review": {
+      "description": "Anonymized copy for double-blind ACL Rolling Review (anonymous.4open.science mirror or anonymized supplementary archives)",
+      "approved": false
+    }
+  },
+  "approvals": {
+    "release_registration": {
+      "description": "Open Source Management Portal release pre-approval (business and open-source legal review)",
+      "status": "in_review",
+      "reference": "Open Source release review 56409 (submitted 2026-10-24)"
+    },
+    "dataset_review": {
+      "description": "Open Data Review Request for RELEASE covering Microsoft-authored data, third-party excerpts and model outputs",
+      "status": "in_review",
+      "reference": "Open Data review 2194 (release, pending) and 2193 (collection and use, approved 2026-10-28 with conditions: collection checklist, Data Collection Guidelines, Privacy approval)"
+    },
+    "security_review": {
+      "description": "Secret scan, PoliCheck and fresh-history check before any external copy",
+      "status": "not_started",
+      "reference": null
+    }
+  },
+  "components": [
+    {
+      "id": "model-outputs",
+      "description": "Final assignment trees produced by Claude Haiku 4.5 (C01) and GPT-6.1 Sol (C36) on Recap and Thread; record IDs and model-written folder labels only",
+      "patterns": [
+        "benchmark/predictions/*/*/archived_*.json"
+      ],
+      "origin": "third-party-model-output",
+      "license": "PENDING-CELA",
+      "requires": [
+        "dataset_review"
+      ],
+      "proposed_license": "MIT"
+    },
+    {
+      "id": "recap-data",
+      "description": "AMI summary sentences and reference memberships for 50 Recap tasks",
+      "patterns": [
+        "benchmark/inputs/*/Recap/*"
+      ],
+      "origin": "third-party-AMI-CC-BY-4.0",
+      "license": "CC-BY-4.0",
+      "requires": [
+        "dataset_review"
+      ]
+    },
+    {
+      "id": "design-data",
+      "description": "Kubernetes Enhancement Proposal excerpts and reference memberships for 50 Design tasks",
+      "patterns": [
+        "benchmark/inputs/*/Design/*"
+      ],
+      "origin": "third-party-Kubernetes-Apache-2.0",
+      "license": "Apache-2.0",
+      "requires": [
+        "dataset_review"
+      ]
+    },
+    {
+      "id": "thread-recipe",
+      "description": "Thread references (record IDs, Jira issue keys, provenance IDs and content hashes) and the list of Apache Hadoop Jira issues to download; no Jira text",
+      "patterns": [
+        "benchmark/inputs/reference/Thread/*",
+        "benchmark/sources/hadoop-jira/*"
+      ],
+      "origin": "microsoft-metadata-about-third-party",
+      "license": "PENDING-CELA",
+      "proposed_license": "MIT",
+      "requires": [
+        "dataset_review"
+      ]
+    },
+    {
+      "id": "baseline-outputs-and-scores",
+      "description": "Deterministic baseline assignments, including Thread identifier-masked diagnostics, per-output metrics and study provenance",
+      "patterns": [
+        "benchmark/predictions/*",
+        "benchmark/saved-results.json",
+        "benchmark/study-provenance.json"
+      ],
+      "origin": "microsoft",
+      "license": "PENDING-CELA",
+      "requires": [
+        "dataset_review"
+      ],
+      "proposed_license": "MIT"
+    },
+    {
+      "id": "benchmark-code",
+      "description": "Scorer, baselines, configurations, replay script and file manifest",
+      "patterns": [
+        "benchmark/*"
+      ],
+      "origin": "microsoft",
+      "license": "MIT",
+      "requires": [
+        "release_registration",
+        "security_review"
+      ]
+    },
+    {
+      "id": "scaffold",
+      "description": "Repository policy files, licences, documentation and release tooling",
+      "patterns": [
+        ".gitattributes",
+        ".gitignore",
+        ".gitleaks.toml",
+        "README.md",
+        "LICENSE",
+        "NOTICE.md",
+        "CONTRIBUTING.md",
+        "CODE_OF_CONDUCT.md",
+        "SECURITY.md",
+        "SUPPORT.md",
+        "release/*",
+        "docs/*",
+        "licenses/*",
+        "tools/*",
+        "tests/*"
+      ],
+      "origin": "microsoft",
+      "license": "MIT",
+      "requires": [
+        "release_registration"
+      ]
+    }
+  ],
+  "excluded": [
+    "Apache Hadoop Jira issue and comment text (rebuilt locally from Apache Jira with benchmark/build_thread.py)",
+    "Upstream archives and raw transcripts",
+    "Prompts, conversation transcripts, tool-call logs and token usage of model runs",
+    "Run logs, provider configuration, credentials and internal review material"
+  ],
+  "forbidden": [
+    {
+      "patterns": [
+        "benchmark/inputs/public/Thread/*"
+      ],
+      "reason": "Apache Hadoop Jira text is not redistributed (Open Data review 2194, row 12); build it locally with benchmark/build_thread.py"
+    }
+  ]
+}

@@ -1,0 +1,417 @@
+{
+  "assignments": [
+    {
+      "id": "F001",
+      "path": [
+        "S3A-access-points",
+        "alias-support"
+      ]
+    },
+    {
+      "id": "F002",
+      "path": [
+        "Azure-auth",
+        "aad-endpoints"
+      ]
+    },
+    {
+      "id": "F003",
+      "path": [
+        "Azure-auth",
+        "aad-endpoints"
+      ]
+    },
+    {
+      "id": "F004",
+      "path": [
+        "ABFS-logging",
+        "debug-improvements"
+      ]
+    },
+    {
+      "id": "F005",
+      "path": [
+        "HADOOP-19089",
+        "pr-6592-discussion"
+      ]
+    },
+    {
+      "id": "F006",
+      "path": [
+        "S3A-access-points",
+        "alias-support"
+      ]
+    },
+    {
+      "id": "F007",
+      "path": [
+        "Azure-auth",
+        "aad-endpoints"
+      ]
+    },
+    {
+      "id": "F008",
+      "path": [
+        "HADOOP-19089",
+        "revert-xattr-root"
+      ]
+    },
+    {
+      "id": "F009",
+      "path": [
+        "HADOOP-19089",
+        "pr-6592-discussion"
+      ]
+    },
+    {
+      "id": "F010",
+      "path": [
+        "HADOOP-19089",
+        "pr-6592-discussion"
+      ]
+    },
+    {
+      "id": "F011",
+      "path": [
+        "HADOOP-18759",
+        "retry-optimization"
+      ]
+    },
+    {
+      "id": "F012",
+      "path": [
+        "S3A-access-points",
+        "alias-support"
+      ]
+    },
+    {
+      "id": "F013",
+      "path": [
+        "ABFS-docs",
+        "configuration"
+      ]
+    },
+    {
+      "id": "F014",
+      "path": [
+        "HADOOP-18759",
+        "retry-optimization"
+      ]
+    },
+    {
+      "id": "F015",
+      "path": [
+        "HADOOP-19089",
+        "pr-6592-discussion"
+      ]
+    },
+    {
+      "id": "F016",
+      "path": [
+        "ABFS-logging",
+        "debug-improvements"
+      ]
+    },
+    {
+      "id": "F017",
+      "path": [
+        "S3A-access-points",
+        "alias-support"
+      ]
+    },
+    {
+      "id": "F018",
+      "path": [
+        "S3A-access-points",
+        "testing"
+      ]
+    },
+    {
+      "id": "F019",
+      "path": [
+        "HADOOP-19089",
+        "pr-6592-discussion"
+      ]
+    },
+    {
+      "id": "F020",
+      "path": [
+        "ABFS-testing",
+        "mkdirs-errors"
+      ]
+    },
+    {
+      "id": "F021",
+      "path": [
+        "S3A-access-points",
+        "alias-support"
+      ]
+    },
+    {
+      "id": "F022",
+      "path": [
+        "S3A-access-points",
+        "alias-support"
+      ]
+    },
+    {
+      "id": "F023",
+      "path": [
+        "HADOOP-18759",
+        "retry-optimization"
+      ]
+    },
+    {
+      "id": "F024",
+      "path": [
+        "S3A-access-points",
+        "alias-support"
+      ]
+    },
+    {
+      "id": "F025",
+      "path": [
+        "HADOOP-19089",
+        "pr-6592-discussion"
+      ]
+    },
+    {
+      "id": "F026",
+      "path": [
+        "S3A-access-points",
+        "alias-support"
+      ]
+    },
+    {
+      "id": "F027",
+      "path": [
+        "S3A-access-points",
+        "alias-support"
+      ]
+    },
+    {
+      "id": "F028",
+      "path": [
+        "HADOOP-18930",
+        "namespace-check"
+      ]
+    },
+    {
+      "id": "F029",
+      "path": [
+        "HADOOP-19089",
+        "pr-6592-discussion"
+      ]
+    },
+    {
+      "id": "F030",
+      "path": [
+        "S3A-access-points",
+        "testing"
+      ]
+    },
+    {
+      "id": "F031",
+      "path": [
+        "HADOOP-19089",
+        "pr-6592-discussion"
+      ]
+    },
+    {
+      "id": "F032",
+      "path": [
+        "ABFS-logging",
+        "debug-improvements"
+      ]
+    },
+    {
+      "id": "F033",
+      "path": [
+        "S3A-ssl-issues",
+        "dot-bucket-problem"
+      ]
+    },
+    {
+      "id": "F034",
+      "path": [
+        "S3A-access-points",
+        "alias-support"
+      ]
+    },
+    {
+      "id": "F035",
+      "path": [
+        "S3A-access-points",
+        "alias-support"
+      ]
+    },
+    {
+      "id": "F036",
+      "path": [
+        "S3A-ssl-issues",
+        "dot-bucket-problem"
+      ]
+    },
+    {
+      "id": "F037",
+      "path": [
+        "Azure-auth",
+        "china-region"
+      ]
+    },
+    {
+      "id": "F038",
+      "path": [
+        "ABFS-logging",
+        "debug-improvements"
+      ]
+    },
+    {
+      "id": "F039",
+      "path": [
+        "ABFS-logging",
+        "debug-improvements"
+      ]
+    },
+    {
+      "id": "F040",
+      "path": [
+        "S3A-access-points",
+        "testing"
+      ]
+    },
+    {
+      "id": "F041",
+      "path": [
+        "ABFS-retry",
+        "refactoring"
+      ]
+    },
+    {
+      "id": "F042",
+      "path": [
+        "HADOOP-19089",
+        "pr-6592-discussion"
+      ]
+    },
+    {
+      "id": "F043",
+      "path": [
+        "ABFS-logging",
+        "debug-improvements"
+      ]
+    },
+    {
+      "id": "F044",
+      "path": [
+        "S3A-access-points",
+        "testing"
+      ]
+    },
+    {
+      "id": "F045",
+      "path": [
+        "S3A-ssl-issues",
+        "dot-bucket-problem"
+      ]
+    },
+    {
+      "id": "F046",
+      "path": [
+        "HADOOP-19089",
+        "pr-6592-discussion"
+      ]
+    },
+    {
+      "id": "F047",
+      "path": [
+        "S3A-ssl-issues",
+        "dot-bucket-problem"
+      ]
+    },
+    {
+      "id": "F048",
+      "path": [
+        "ABFS-testing",
+        "contract-tests"
+      ]
+    },
+    {
+      "id": "F049",
+      "path": [
+        "S3A-ssl-issues",
+        "dot-bucket-problem"
+      ]
+    },
+    {
+      "id": "F050",
+      "path": [
+        "HADOOP-19089",
+        "pr-6592-discussion"
+      ]
+    },
+    {
+      "id": "F051",
+      "path": [
+        "S3A-ssl-issues",
+        "duplicate-tracking"
+      ]
+    },
+    {
+      "id": "F052",
+      "path": [
+        "S3A-access-points",
+        "alias-support"
+      ]
+    },
+    {
+      "id": "F053",
+      "path": [
+        "S3A-access-points",
+        "alias-support"
+      ]
+    },
+    {
+      "id": "F054",
+      "path": [
+        "cloudstore",
+        "storediag"
+      ]
+    },
+    {
+      "id": "F055",
+      "path": [
+        "S3A-ssl-issues",
+        "dot-bucket-problem"
+      ]
+    },
+    {
+      "id": "F056",
+      "path": [
+        "Azure-auth",
+        "china-region"
+      ]
+    },
+    {
+      "id": "F057",
+      "path": [
+        "HADOOP-19089",
+        "pr-6592-discussion"
+      ]
+    },
+    {
+      "id": "F058",
+      "path": [
+        "HADOOP-19089",
+        "revert-xattr-root"
+      ]
+    },
+    {
+      "id": "F059",
+      "path": [
+        "S3A-access-points",
+        "alias-support"
+      ]
+    }
+  ]
+}

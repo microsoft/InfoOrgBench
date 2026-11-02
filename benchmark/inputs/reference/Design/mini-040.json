@@ -1,0 +1,366 @@
+{
+  "task_id": "mini-040",
+  "records": [
+    {
+      "id": "F001",
+      "path": [
+        "sig-node",
+        "2570-memory-qos"
+      ],
+      "content_sha256": "11132e30e4e8ee151bd2cd95807b7c242986d52f5d406a8f3d4665a096d506a9",
+      "source_native_id": "keps/sig-node/2570-memory-qos#excerpt-3",
+      "source_heading": "drawbacks"
+    },
+    {
+      "id": "F002",
+      "path": [
+        "sig-node",
+        "2902-cpumanager-distribute-cpus-policy-option"
+      ],
+      "content_sha256": "87fc8011a7e3a9d2e8852c485cffdffe907f57476327991f6a3590cc895cc335",
+      "source_native_id": "keps/sig-node/2902-cpumanager-distribute-cpus-policy-option#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F003",
+      "path": [
+        "sig-node",
+        "2902-cpumanager-distribute-cpus-policy-option"
+      ],
+      "content_sha256": "56fc21d8a08a7174b98dbbfb551331facaf7ab370d694f06c881fb8139c04e99",
+      "source_native_id": "keps/sig-node/2902-cpumanager-distribute-cpus-policy-option#excerpt-3",
+      "source_heading": "design details"
+    },
+    {
+      "id": "F004",
+      "path": [
+        "sig-cli",
+        "5295-kyaml"
+      ],
+      "content_sha256": "3a6946c5e6cc999c846a754d04f015dcdd5149c92d569e6f49520807cbc918d2",
+      "source_native_id": "keps/sig-cli/5295-kyaml#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F005",
+      "path": [
+        "sig-cli",
+        "3638-kubectl-plugin-subcommands"
+      ],
+      "content_sha256": "b75e675dc08583d22c9848c573b6b064a2aa384e7c30c40a51e89966d5efe0be",
+      "source_native_id": "keps/sig-cli/3638-kubectl-plugin-subcommands#excerpt-2",
+      "source_heading": "risks and mitigations"
+    },
+    {
+      "id": "F006",
+      "path": [
+        "sig-node",
+        "2570-memory-qos"
+      ],
+      "content_sha256": "5c2e624fd7dfffe403d740aa58bebaae669dbbcdfb9d6ed09d418e78406498f4",
+      "source_native_id": "keps/sig-node/2570-memory-qos#excerpt-1",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F007",
+      "path": [
+        "sig-instrumentation",
+        "5905-mixins-migration"
+      ],
+      "content_sha256": "e9b7d2763a64eb22c592857c729a0977a330006f004aae1744eb39d06bb90af0",
+      "source_native_id": "keps/sig-instrumentation/5905-mixins-migration#excerpt-3",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F008",
+      "path": [
+        "sig-instrumentation",
+        "3077-contextual-logging"
+      ],
+      "content_sha256": "94763c52a16c97133083e04181396b4f7fc8023943fbdff9e198c95cfaad26b0",
+      "source_native_id": "keps/sig-instrumentation/3077-contextual-logging#excerpt-3",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F009",
+      "path": [
+        "sig-node",
+        "2570-memory-qos"
+      ],
+      "content_sha256": "f313ee5dc4033c7be49105c3b1f6a25776329bdf7e8e99eaf19374d0eaa7a903",
+      "source_native_id": "keps/sig-node/2570-memory-qos#excerpt-2",
+      "source_heading": "risks and mitigations"
+    },
+    {
+      "id": "F010",
+      "path": [
+        "sig-api-machinery",
+        "2885-server-side-unknown-field-validation"
+      ],
+      "content_sha256": "e5159d88fa6857dbfe1be7dc2829595574eba92ba0e62ea5503ce974285247d3",
+      "source_native_id": "keps/sig-api-machinery/2885-server-side-unknown-field-validation#excerpt-3",
+      "source_heading": "non-goals"
+    },
+    {
+      "id": "F011",
+      "path": [
+        "sig-cli",
+        "3638-kubectl-plugin-subcommands"
+      ],
+      "content_sha256": "e544d6f969bb52eb8edf545a37afe89ad13374a94c3cd43327a9cc3e2185cd62",
+      "source_native_id": "keps/sig-cli/3638-kubectl-plugin-subcommands#excerpt-1",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F012",
+      "path": [
+        "sig-instrumentation",
+        "647-apiserver-tracing"
+      ],
+      "content_sha256": "a65464560f90a275bc3cee57a2b28e1a81ab4d9397e60d1d85665292d22d6709",
+      "source_native_id": "keps/sig-instrumentation/647-apiserver-tracing#excerpt-3",
+      "source_heading": "risks and mitigations"
+    },
+    {
+      "id": "F013",
+      "path": [
+        "sig-instrumentation",
+        "3077-contextual-logging"
+      ],
+      "content_sha256": "8ec2f4a32402596808031376d83a86489407f3bdd8b4caeb577c8579c19ac194",
+      "source_native_id": "keps/sig-instrumentation/3077-contextual-logging#excerpt-2",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F014",
+      "path": [
+        "sig-api-machinery",
+        "575-crd-defaulting"
+      ],
+      "content_sha256": "268f2a7330abcec1b4560dd322b579f34424bf5e1bd8b5f09a26117612cfa202",
+      "source_native_id": "keps/sig-api-machinery/575-crd-defaulting#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F015",
+      "path": [
+        "sig-cli",
+        "5295-kyaml"
+      ],
+      "content_sha256": "8da410de8840174ec2248d583e62b050a074697cc09f841c8ea08ae3edeff2df",
+      "source_native_id": "keps/sig-cli/5295-kyaml#excerpt-3",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F016",
+      "path": [
+        "sig-api-machinery",
+        "2885-server-side-unknown-field-validation"
+      ],
+      "content_sha256": "e749654f0fb9709beffa0c1ad01ddcde2586e73bc92d8c129d5d752377fa7529",
+      "source_native_id": "keps/sig-api-machinery/2885-server-side-unknown-field-validation#excerpt-1",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F017",
+      "path": [
+        "sig-instrumentation",
+        "647-apiserver-tracing"
+      ],
+      "content_sha256": "90e75e8540e87ddd1079b66f64997085316a28821aecd1e470597358386e8dbd",
+      "source_native_id": "keps/sig-instrumentation/647-apiserver-tracing#excerpt-2",
+      "source_heading": "user stories"
+    },
+    {
+      "id": "F018",
+      "path": [
+        "sig-cli",
+        "2386-kustomize-subcommand-integration"
+      ],
+      "content_sha256": "88dc63dc9d7efc435abec0d9f74023b1194e24aa227e3cbd184593c6577b29c0",
+      "source_native_id": "keps/sig-cli/2386-kustomize-subcommand-integration#excerpt-2",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F019",
+      "path": [
+        "sig-instrumentation",
+        "5905-mixins-migration"
+      ],
+      "content_sha256": "cb4016c71cda2f801af20091240e330bfea6987281ad8c6ce76436c3ccbbc38f",
+      "source_native_id": "keps/sig-instrumentation/5905-mixins-migration#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F020",
+      "path": [
+        "sig-node",
+        "3386-kubelet-evented-pleg"
+      ],
+      "content_sha256": "097f7b63d601bccb4a02fa4f01ed128a129ab623a9ccbbb6f733cf6923628fdb",
+      "source_native_id": "keps/sig-node/3386-kubelet-evented-pleg#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F021",
+      "path": [
+        "sig-cli",
+        "2386-kustomize-subcommand-integration"
+      ],
+      "content_sha256": "f2bb34293c34fbab1c7a0eaf284f5997d984d37d750f02d6f99ab11963007735",
+      "source_native_id": "keps/sig-cli/2386-kustomize-subcommand-integration#excerpt-3",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F022",
+      "path": [
+        "sig-cli",
+        "3638-kubectl-plugin-subcommands"
+      ],
+      "content_sha256": "c1621d2888d941711fb1cde2eb81e010e1c890800c678008f583d6d22068af80",
+      "source_native_id": "keps/sig-cli/3638-kubectl-plugin-subcommands#excerpt-3",
+      "source_heading": "alternatives"
+    },
+    {
+      "id": "F023",
+      "path": [
+        "sig-api-machinery",
+        "2885-server-side-unknown-field-validation"
+      ],
+      "content_sha256": "0cbc2446069773840de6f3780a65be5a5a90df0a67e80d835f982519f08ebd25",
+      "source_native_id": "keps/sig-api-machinery/2885-server-side-unknown-field-validation#excerpt-2",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F024",
+      "path": [
+        "sig-instrumentation",
+        "3077-contextual-logging"
+      ],
+      "content_sha256": "3df2b85d3815f252b8a676095e0277dcd1747dc49f233a63056da3ce21725bae",
+      "source_native_id": "keps/sig-instrumentation/3077-contextual-logging#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F025",
+      "path": [
+        "sig-api-machinery",
+        "4020-unknown-version-interoperability-proxy"
+      ],
+      "content_sha256": "52e31558477754f57a49fe430e67783bbb7e49a84b6b31795cae4dd6d77f53cf",
+      "source_native_id": "keps/sig-api-machinery/4020-unknown-version-interoperability-proxy#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F026",
+      "path": [
+        "sig-instrumentation",
+        "647-apiserver-tracing"
+      ],
+      "content_sha256": "62a875cce57515d6ee82dcddab97382efbc00d1c9296041c5bc00d0da25a9a7c",
+      "source_native_id": "keps/sig-instrumentation/647-apiserver-tracing#excerpt-1",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F027",
+      "path": [
+        "sig-instrumentation",
+        "5905-mixins-migration"
+      ],
+      "content_sha256": "0dc8422d06bcebb3e8cd917eb3ed992aa04f10d451e9a491d0061cd882376bab",
+      "source_native_id": "keps/sig-instrumentation/5905-mixins-migration#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F028",
+      "path": [
+        "sig-cli",
+        "5295-kyaml"
+      ],
+      "content_sha256": "0ba6c5596f6805694cfec7eb20a9a1a76d451e7f0060cc886b45b4354cbf32d2",
+      "source_native_id": "keps/sig-cli/5295-kyaml#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F029",
+      "path": [
+        "sig-node",
+        "3386-kubelet-evented-pleg"
+      ],
+      "content_sha256": "03a067187f40c5c747270737d7c14f0b1a472cea63bcd4dcc894556c8f22fd8b",
+      "source_native_id": "keps/sig-node/3386-kubelet-evented-pleg#excerpt-3",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F030",
+      "path": [
+        "sig-api-machinery",
+        "4020-unknown-version-interoperability-proxy"
+      ],
+      "content_sha256": "eb9e8042fab0e0a40e8176b6a4f46d9374cc52b333954059c6445dd98e01482b",
+      "source_native_id": "keps/sig-api-machinery/4020-unknown-version-interoperability-proxy#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F031",
+      "path": [
+        "sig-cli",
+        "2386-kustomize-subcommand-integration"
+      ],
+      "content_sha256": "30e52b4321ceee4f88a35e5fde87078f904c4931f856dbdeb7b9af2efcfb891d",
+      "source_native_id": "keps/sig-cli/2386-kustomize-subcommand-integration#excerpt-1",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F032",
+      "path": [
+        "sig-api-machinery",
+        "4020-unknown-version-interoperability-proxy"
+      ],
+      "content_sha256": "7139460f18b1aa6f68fa1f766ffcf326d2ec7388311bb757b25491fff02d3d9c",
+      "source_native_id": "keps/sig-api-machinery/4020-unknown-version-interoperability-proxy#excerpt-3",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F033",
+      "path": [
+        "sig-api-machinery",
+        "575-crd-defaulting"
+      ],
+      "content_sha256": "6cf8761ca684064186f99f42c560905fe1696d41d193aaf798af8c1676692589",
+      "source_native_id": "keps/sig-api-machinery/575-crd-defaulting#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F034",
+      "path": [
+        "sig-node",
+        "3386-kubelet-evented-pleg"
+      ],
+      "content_sha256": "b7672216b3c929ff1ea3e7bee3388e65b6d9047c91658c92fcb078c340477b61",
+      "source_native_id": "keps/sig-node/3386-kubelet-evented-pleg#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F035",
+      "path": [
+        "sig-api-machinery",
+        "575-crd-defaulting"
+      ],
+      "content_sha256": "df5b7842f9e146691df31722312af06e24b364090b9c18bd3b45fad3bd4a777c",
+      "source_native_id": "keps/sig-api-machinery/575-crd-defaulting#excerpt-3",
+      "source_heading": "non-goals"
+    },
+    {
+      "id": "F036",
+      "path": [
+        "sig-node",
+        "2902-cpumanager-distribute-cpus-policy-option"
+      ],
+      "content_sha256": "19b94bc97cebb876e69c0185789aa4fa759e51d0c5939b047301902c33e152fb",
+      "source_native_id": "keps/sig-node/2902-cpumanager-distribute-cpus-policy-option#excerpt-1",
+      "source_heading": "summary"
+    }
+  ],
+  "reference_scope": "Source-derived group/proposal hierarchy for a development-only difficulty and cost pilot."
+}

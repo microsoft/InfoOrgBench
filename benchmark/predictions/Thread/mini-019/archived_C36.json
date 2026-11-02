@@ -1,0 +1,361 @@
+{
+  "assignments": [
+    {
+      "id": "F001",
+      "path": [
+        "S3A authentication",
+        "Delegation token provider tests"
+      ]
+    },
+    {
+      "id": "F002",
+      "path": [
+        "S3A authentication",
+        "Delegation token provider tests"
+      ]
+    },
+    {
+      "id": "F003",
+      "path": [
+        "Object store integration",
+        "DistCp attribute preservation"
+      ]
+    },
+    {
+      "id": "F004",
+      "path": [
+        "ABFS improvements",
+        "Trace logging"
+      ]
+    },
+    {
+      "id": "F005",
+      "path": [
+        "Object store integration",
+        "DistCp attribute preservation"
+      ]
+    },
+    {
+      "id": "F006",
+      "path": [
+        "ABFS improvements",
+        "Default block size"
+      ]
+    },
+    {
+      "id": "F007",
+      "path": [
+        "Object store integration",
+        "DistCp attribute preservation"
+      ]
+    },
+    {
+      "id": "F008",
+      "path": [
+        "ABFS improvements",
+        "Common retry policy"
+      ]
+    },
+    {
+      "id": "F009",
+      "path": [
+        "Object store integration",
+        "DistCp attribute preservation"
+      ]
+    },
+    {
+      "id": "F010",
+      "path": [
+        "ABFS improvements",
+        "Default block size"
+      ]
+    },
+    {
+      "id": "F011",
+      "path": [
+        "ABFS improvements",
+        "Container check backport"
+      ]
+    },
+    {
+      "id": "F012",
+      "path": [
+        "ABFS improvements",
+        "Default block size"
+      ]
+    },
+    {
+      "id": "F013",
+      "path": [
+        "ABFS improvements",
+        "Idempotency test authentication"
+      ]
+    },
+    {
+      "id": "F014",
+      "path": [
+        "ABFS improvements",
+        "Throttling error classification"
+      ]
+    },
+    {
+      "id": "F015",
+      "path": [
+        "ABFS improvements",
+        "Trace logging"
+      ]
+    },
+    {
+      "id": "F016",
+      "path": [
+        "Object store integration",
+        "Shell trash handling"
+      ]
+    },
+    {
+      "id": "F017",
+      "path": [
+        "ABFS improvements",
+        "Container check backport"
+      ]
+    },
+    {
+      "id": "F018",
+      "path": [
+        "ABFS improvements",
+        "Container check backport"
+      ]
+    },
+    {
+      "id": "F019",
+      "path": [
+        "ABFS improvements",
+        "Trace logging"
+      ]
+    },
+    {
+      "id": "F020",
+      "path": [
+        "Object store integration",
+        "DistCp attribute preservation"
+      ]
+    },
+    {
+      "id": "F021",
+      "path": [
+        "S3A authentication",
+        "Assumed role credential chain"
+      ]
+    },
+    {
+      "id": "F022",
+      "path": [
+        "ABFS improvements",
+        "Idempotency test authentication"
+      ]
+    },
+    {
+      "id": "F023",
+      "path": [
+        "Object store integration",
+        "DistCp attribute preservation"
+      ]
+    },
+    {
+      "id": "F024",
+      "path": [
+        "Object store integration",
+        "DistCp attribute preservation"
+      ]
+    },
+    {
+      "id": "F025",
+      "path": [
+        "ABFS improvements",
+        "Default block size"
+      ]
+    },
+    {
+      "id": "F026",
+      "path": [
+        "Object store integration",
+        "DistCp attribute preservation"
+      ]
+    },
+    {
+      "id": "F027",
+      "path": [
+        "ABFS improvements",
+        "Default block size"
+      ]
+    },
+    {
+      "id": "F028",
+      "path": [
+        "S3A authentication",
+        "Assumed role credential chain"
+      ]
+    },
+    {
+      "id": "F029",
+      "path": [
+        "ABFS improvements",
+        "Default block size"
+      ]
+    },
+    {
+      "id": "F030",
+      "path": [
+        "S3A authentication",
+        "Delegation token provider tests"
+      ]
+    },
+    {
+      "id": "F031",
+      "path": [
+        "ABFS improvements",
+        "Trace logging"
+      ]
+    },
+    {
+      "id": "F032",
+      "path": [
+        "ABFS improvements",
+        "Trace logging"
+      ]
+    },
+    {
+      "id": "F033",
+      "path": [
+        "Object store integration",
+        "DistCp attribute preservation"
+      ]
+    },
+    {
+      "id": "F034",
+      "path": [
+        "Object store integration",
+        "DistCp attribute preservation"
+      ]
+    },
+    {
+      "id": "F035",
+      "path": [
+        "S3A authentication",
+        "Delegation token provider tests"
+      ]
+    },
+    {
+      "id": "F036",
+      "path": [
+        "ABFS improvements",
+        "Default block size"
+      ]
+    },
+    {
+      "id": "F037",
+      "path": [
+        "ABFS improvements",
+        "Default block size"
+      ]
+    },
+    {
+      "id": "F038",
+      "path": [
+        "ABFS improvements",
+        "Idempotency test authentication"
+      ]
+    },
+    {
+      "id": "F039",
+      "path": [
+        "ABFS improvements",
+        "Throttling error classification"
+      ]
+    },
+    {
+      "id": "F040",
+      "path": [
+        "ABFS improvements",
+        "Idempotency test authentication"
+      ]
+    },
+    {
+      "id": "F041",
+      "path": [
+        "Object store integration",
+        "YARN log collection"
+      ]
+    },
+    {
+      "id": "F042",
+      "path": [
+        "ABFS improvements",
+        "Default block size"
+      ]
+    },
+    {
+      "id": "F043",
+      "path": [
+        "ABFS improvements",
+        "Idempotency test authentication"
+      ]
+    },
+    {
+      "id": "F044",
+      "path": [
+        "ABFS improvements",
+        "Default block size"
+      ]
+    },
+    {
+      "id": "F045",
+      "path": [
+        "Object store integration",
+        "YARN log collection"
+      ]
+    },
+    {
+      "id": "F046",
+      "path": [
+        "Object store integration",
+        "DistCp attribute preservation"
+      ]
+    },
+    {
+      "id": "F047",
+      "path": [
+        "Object store integration",
+        "DistCp attribute preservation"
+      ]
+    },
+    {
+      "id": "F048",
+      "path": [
+        "Object store integration",
+        "YARN log collection"
+      ]
+    },
+    {
+      "id": "F049",
+      "path": [
+        "ABFS improvements",
+        "Default block size"
+      ]
+    },
+    {
+      "id": "F050",
+      "path": [
+        "Object store integration",
+        "DistCp attribute preservation"
+      ]
+    },
+    {
+      "id": "F051",
+      "path": [
+        "ABFS improvements",
+        "Default block size"
+      ]
+    }
+  ]
+}

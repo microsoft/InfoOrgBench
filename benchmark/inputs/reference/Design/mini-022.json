@@ -1,0 +1,366 @@
+{
+  "task_id": "mini-022",
+  "records": [
+    {
+      "id": "F001",
+      "path": [
+        "sig-node",
+        "1769-memory-manager"
+      ],
+      "content_sha256": "e282e5c4d7fa49c3adbe29161c3817ad4e7cf6b6dd1fad7eef52d0050117fd7a",
+      "source_native_id": "keps/sig-node/1769-memory-manager#excerpt-2",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F002",
+      "path": [
+        "sig-storage",
+        "5936-atomic-write-volume-user-fields"
+      ],
+      "content_sha256": "e958365ceb7efad98d23c3a1b7cbed9dafe3701e35e0cc9cf356db4ba2767993",
+      "source_native_id": "keps/sig-storage/5936-atomic-write-volume-user-fields#excerpt-2",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F003",
+      "path": [
+        "sig-autoscaling",
+        "4951-configurable-hpa-tolerance"
+      ],
+      "content_sha256": "01043e03cf78b3f58912d3f406824756f627b686e0975c3d0b3648c898a51db6",
+      "source_native_id": "keps/sig-autoscaling/4951-configurable-hpa-tolerance#excerpt-2",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F004",
+      "path": [
+        "sig-autoscaling",
+        "4951-configurable-hpa-tolerance"
+      ],
+      "content_sha256": "dba411b92ab3f6f0d5c5e66ccf3ad76c78c26dd414e1f64620f9e7bcc1b4cf4e",
+      "source_native_id": "keps/sig-autoscaling/4951-configurable-hpa-tolerance#excerpt-3",
+      "source_heading": "design details"
+    },
+    {
+      "id": "F005",
+      "path": [
+        "sig-cli",
+        "3659-kubectl-apply-prune"
+      ],
+      "content_sha256": "44e935489c46ef28cf3c4819d46f37e92c755234aba004ce09617ad22f001e56",
+      "source_native_id": "keps/sig-cli/3659-kubectl-apply-prune#excerpt-2",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F006",
+      "path": [
+        "sig-node",
+        "4563-eviction-request-api"
+      ],
+      "content_sha256": "4531d639e40cfe6a55cce7b07bf7e439d4dbd2d632717625daa915043d2b7610",
+      "source_native_id": "keps/sig-node/4563-eviction-request-api#excerpt-3",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F007",
+      "path": [
+        "sig-cli",
+        "2953-kustomize-plugin-graduation"
+      ],
+      "content_sha256": "2e81f57d578e8d7d45ee54e379f429b13ac04d3594fc82495255ed3ab004501f",
+      "source_native_id": "keps/sig-cli/2953-kustomize-plugin-graduation#excerpt-2",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F008",
+      "path": [
+        "sig-node",
+        "2625-cpumanager-policies-thread-placement"
+      ],
+      "content_sha256": "5a3da4e440805544ec654e77d65e5c540a096c92b02c524fbaa2d530a9a6be92",
+      "source_native_id": "keps/sig-node/2625-cpumanager-policies-thread-placement#excerpt-1",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F009",
+      "path": [
+        "sig-cli",
+        "3659-kubectl-apply-prune"
+      ],
+      "content_sha256": "2685c516ebf145c5168b238e2fc6da8be1f6f6b0e4ac21e0518444bb6e93de6f",
+      "source_native_id": "keps/sig-cli/3659-kubectl-apply-prune#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F010",
+      "path": [
+        "sig-node",
+        "2625-cpumanager-policies-thread-placement"
+      ],
+      "content_sha256": "235ad0a24b588006325292cf8e0db9c00134dab997fff1f676aa4df74e3001ec",
+      "source_native_id": "keps/sig-node/2625-cpumanager-policies-thread-placement#excerpt-2",
+      "source_heading": "design details"
+    },
+    {
+      "id": "F011",
+      "path": [
+        "sig-autoscaling",
+        "5325-hpa-pod-selection-accuracy"
+      ],
+      "content_sha256": "c04214f359dd9e27a5b151250b843372f06b012bc3bfe0644f201c27c3850534",
+      "source_native_id": "keps/sig-autoscaling/5325-hpa-pod-selection-accuracy#excerpt-2",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F012",
+      "path": [
+        "sig-autoscaling",
+        "5325-hpa-pod-selection-accuracy"
+      ],
+      "content_sha256": "5f17548a704571b0968d51446643ca6d41bb076e7fa58fdcdc81e5f6241f4db2",
+      "source_native_id": "keps/sig-autoscaling/5325-hpa-pod-selection-accuracy#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F013",
+      "path": [
+        "sig-autoscaling",
+        "4951-configurable-hpa-tolerance"
+      ],
+      "content_sha256": "ee2f5c06e2aaa13acc7ca9cae02d2aaaf447befa42e797a74cda1e39cbf609c4",
+      "source_native_id": "keps/sig-autoscaling/4951-configurable-hpa-tolerance#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F014",
+      "path": [
+        "sig-node",
+        "2625-cpumanager-policies-thread-placement"
+      ],
+      "content_sha256": "06f76263378ae7e7d7756f717d0e4c4faf293b433169fca8ae1b81b800bb15a0",
+      "source_native_id": "keps/sig-node/2625-cpumanager-policies-thread-placement#excerpt-3",
+      "source_heading": "alternatives"
+    },
+    {
+      "id": "F015",
+      "path": [
+        "sig-storage",
+        "1682-csi-driver-skip-permission"
+      ],
+      "content_sha256": "20dc7e3210064750cc658ebf7298a92c386cfc8c1191dcffa0be3065d56fa810",
+      "source_native_id": "keps/sig-storage/1682-csi-driver-skip-permission#excerpt-3",
+      "source_heading": "risks and mitigations"
+    },
+    {
+      "id": "F016",
+      "path": [
+        "sig-cli",
+        "2953-kustomize-plugin-graduation"
+      ],
+      "content_sha256": "38ae74eb5d3623301bd97b169f9ad35455d70e8ef5d7a02351460e7188e19a27",
+      "source_native_id": "keps/sig-cli/2953-kustomize-plugin-graduation#excerpt-3",
+      "source_heading": "non-goals"
+    },
+    {
+      "id": "F017",
+      "path": [
+        "sig-cli",
+        "2380-data-driven-commands-for-kubectl"
+      ],
+      "content_sha256": "edd515c7243a090c828f3b053bf44e2720245248621464b3b7109ab1db5c1810",
+      "source_native_id": "keps/sig-cli/2380-data-driven-commands-for-kubectl#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F018",
+      "path": [
+        "sig-storage",
+        "5541-pvc-last-used-time-status-field"
+      ],
+      "content_sha256": "93d8f3f31edd8ac230618811a9b45c0732830d000ebeaa0cc5d9c9204821724f",
+      "source_native_id": "keps/sig-storage/5541-pvc-last-used-time-status-field#excerpt-1",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F019",
+      "path": [
+        "sig-autoscaling",
+        "2021-scale-from-zero"
+      ],
+      "content_sha256": "cfcc61943bd278b2a57bdb67ff4ea427c473ec317b5deb93f1ae11144772bf6b",
+      "source_native_id": "keps/sig-autoscaling/2021-scale-from-zero#excerpt-3",
+      "source_heading": "risks and mitigations"
+    },
+    {
+      "id": "F020",
+      "path": [
+        "sig-storage",
+        "1682-csi-driver-skip-permission"
+      ],
+      "content_sha256": "fa296d3a04844672271bb9bca112956d3c20d70d936d360f25dc20c934e62522",
+      "source_native_id": "keps/sig-storage/1682-csi-driver-skip-permission#excerpt-2",
+      "source_heading": "design details"
+    },
+    {
+      "id": "F021",
+      "path": [
+        "sig-autoscaling",
+        "2021-scale-from-zero"
+      ],
+      "content_sha256": "c268dd03748b8385df605ee156b4ec5a851497a57b46143679f0b976daaaabb1",
+      "source_native_id": "keps/sig-autoscaling/2021-scale-from-zero#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F022",
+      "path": [
+        "sig-storage",
+        "5936-atomic-write-volume-user-fields"
+      ],
+      "content_sha256": "2b7e302d4831bace16c2d0879c09fa2de1d1e103f2e9a2e181f630e724d2e729",
+      "source_native_id": "keps/sig-storage/5936-atomic-write-volume-user-fields#excerpt-3",
+      "source_heading": "drawbacks"
+    },
+    {
+      "id": "F023",
+      "path": [
+        "sig-node",
+        "1769-memory-manager"
+      ],
+      "content_sha256": "0f46907690c3812c1ab51c8e12877d985f59775741dcf550bb9779c4fbf9dfec",
+      "source_native_id": "keps/sig-node/1769-memory-manager#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F024",
+      "path": [
+        "sig-node",
+        "1769-memory-manager"
+      ],
+      "content_sha256": "f4146b0492318602eeac59629d7dfc9688f98504b100556c5d163431805eb022",
+      "source_native_id": "keps/sig-node/1769-memory-manager#excerpt-3",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F025",
+      "path": [
+        "sig-storage",
+        "5541-pvc-last-used-time-status-field"
+      ],
+      "content_sha256": "8035296423f7327fc987f5641f9abeb1ab8d19a810af2788d788fe08bc3f4238",
+      "source_native_id": "keps/sig-storage/5541-pvc-last-used-time-status-field#excerpt-3",
+      "source_heading": "design details"
+    },
+    {
+      "id": "F026",
+      "path": [
+        "sig-node",
+        "4563-eviction-request-api"
+      ],
+      "content_sha256": "ee26972cdf4dc7594ca86997c4ddb281bfebbabf08b2dd27077d72e8a0b2c947",
+      "source_native_id": "keps/sig-node/4563-eviction-request-api#excerpt-2",
+      "source_heading": "non-goals"
+    },
+    {
+      "id": "F027",
+      "path": [
+        "sig-storage",
+        "1682-csi-driver-skip-permission"
+      ],
+      "content_sha256": "cecd7c44190f9147f441beb802ef62abb4e21ea3ffc761d92547626c5c9b76a4",
+      "source_native_id": "keps/sig-storage/1682-csi-driver-skip-permission#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F028",
+      "path": [
+        "sig-autoscaling",
+        "5325-hpa-pod-selection-accuracy"
+      ],
+      "content_sha256": "202da788aacb7d85d13768685a400b9c6a2c1596e6fe19bba8b0078c4afea888",
+      "source_native_id": "keps/sig-autoscaling/5325-hpa-pod-selection-accuracy#excerpt-3",
+      "source_heading": "design details"
+    },
+    {
+      "id": "F029",
+      "path": [
+        "sig-storage",
+        "5936-atomic-write-volume-user-fields"
+      ],
+      "content_sha256": "728d925b8ce0801143bf108c15419f02bd2b5f5532c6af195b45d18391804789",
+      "source_native_id": "keps/sig-storage/5936-atomic-write-volume-user-fields#excerpt-1",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F030",
+      "path": [
+        "sig-autoscaling",
+        "2021-scale-from-zero"
+      ],
+      "content_sha256": "7497ac8e37cadac0cd3151fa815b3d6042cb2524eff37583ad9dfb045f5c37c0",
+      "source_native_id": "keps/sig-autoscaling/2021-scale-from-zero#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F031",
+      "path": [
+        "sig-node",
+        "4563-eviction-request-api"
+      ],
+      "content_sha256": "1dbced5b1d0a3744ed8bc7d712a9b139eda289e635b07cf10158e72dc359ab1c",
+      "source_native_id": "keps/sig-node/4563-eviction-request-api#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F032",
+      "path": [
+        "sig-storage",
+        "5541-pvc-last-used-time-status-field"
+      ],
+      "content_sha256": "320dbb318a29fc7972a32cf67e3ebde1bc122461377e757cb03c40f92c4bf2fe",
+      "source_native_id": "keps/sig-storage/5541-pvc-last-used-time-status-field#excerpt-2",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F033",
+      "path": [
+        "sig-cli",
+        "3659-kubectl-apply-prune"
+      ],
+      "content_sha256": "22bf235c6a8be5a09d61d06b75d6b5f5e7905f636fb3ad9e071663898c66197f",
+      "source_native_id": "keps/sig-cli/3659-kubectl-apply-prune#excerpt-3",
+      "source_heading": "non-goals"
+    },
+    {
+      "id": "F034",
+      "path": [
+        "sig-cli",
+        "2953-kustomize-plugin-graduation"
+      ],
+      "content_sha256": "510bb037619c6e0b415fbdec782ac409ce17fe5357fc2b0958fbe01eb559a504",
+      "source_native_id": "keps/sig-cli/2953-kustomize-plugin-graduation#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F035",
+      "path": [
+        "sig-cli",
+        "2380-data-driven-commands-for-kubectl"
+      ],
+      "content_sha256": "3ca4a5cce1641e05521ca1469f5111d45930a3d6bfc9b3aec1c2df802e5741c2",
+      "source_native_id": "keps/sig-cli/2380-data-driven-commands-for-kubectl#excerpt-3",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F036",
+      "path": [
+        "sig-cli",
+        "2380-data-driven-commands-for-kubectl"
+      ],
+      "content_sha256": "70acea5f8be8253c5c71490ffa31053bcf675571ef9dbfb5628302b7fc60525e",
+      "source_native_id": "keps/sig-cli/2380-data-driven-commands-for-kubectl#excerpt-2",
+      "source_heading": "motivation"
+    }
+  ],
+  "reference_scope": "Source-derived group/proposal hierarchy for a development-only difficulty and cost pilot."
+}

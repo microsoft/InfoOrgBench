@@ -1,0 +1,366 @@
+{
+  "task_id": "mini-001",
+  "records": [
+    {
+      "id": "F001",
+      "path": [
+        "sig-network",
+        "2091-admin-network-policy"
+      ],
+      "content_sha256": "455c17548a8aca7a1a2aec86f05732f38121dde9c467fcc5cb4333373b1fd5d1",
+      "source_native_id": "keps/sig-network/2091-admin-network-policy#excerpt-1",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F002",
+      "path": [
+        "sig-cli",
+        "2377-Kustomize"
+      ],
+      "content_sha256": "a2d19bf37a0a21840a904c72aca53787e3ba14aeb938ec33f0a5a9f71e67cc74",
+      "source_native_id": "keps/sig-cli/2377-Kustomize#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F003",
+      "path": [
+        "sig-network",
+        "784-kube-proxy-component-config"
+      ],
+      "content_sha256": "b2b78488d55bba7f3f8071e48d67b264fca860b7974879b72d917e4d5cbc6540",
+      "source_native_id": "keps/sig-network/784-kube-proxy-component-config#excerpt-1",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F004",
+      "path": [
+        "sig-cli",
+        "2377-Kustomize"
+      ],
+      "content_sha256": "4eee581af4f2c438d2bdc97e0f9300eb2a4dffc6bd619b79973db6d2d00429e1",
+      "source_native_id": "keps/sig-cli/2377-Kustomize#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F005",
+      "path": [
+        "sig-multicluster",
+        "1645-multi-cluster-services-api"
+      ],
+      "content_sha256": "fa56d6103dd7304968e573207ea43453f532f1ac5e399ce16558edfe8a3d7b76",
+      "source_native_id": "keps/sig-multicluster/1645-multi-cluster-services-api#excerpt-3",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F006",
+      "path": [
+        "sig-auth",
+        "2718-20210511-client-exec-proxy"
+      ],
+      "content_sha256": "16daee2ccfa48a70ab1567f4e43c71882bbc938b38510119a1f77fc6233b568a",
+      "source_native_id": "keps/sig-auth/2718-20210511-client-exec-proxy#excerpt-3",
+      "source_heading": "non-goals"
+    },
+    {
+      "id": "F007",
+      "path": [
+        "sig-cli",
+        "3638-kubectl-plugin-subcommands"
+      ],
+      "content_sha256": "b75e675dc08583d22c9848c573b6b064a2aa384e7c30c40a51e89966d5efe0be",
+      "source_native_id": "keps/sig-cli/3638-kubectl-plugin-subcommands#excerpt-2",
+      "source_heading": "risks and mitigations"
+    },
+    {
+      "id": "F008",
+      "path": [
+        "sig-network",
+        "4858-ip-cidr-validation"
+      ],
+      "content_sha256": "68d77e6f60aeceb0e05a4de6306ac89089ecf137a77c26959b74887a94fb9ec6",
+      "source_native_id": "keps/sig-network/4858-ip-cidr-validation#excerpt-2",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F009",
+      "path": [
+        "sig-network",
+        "4858-ip-cidr-validation"
+      ],
+      "content_sha256": "f45a3e9ae5e2fe5ee59937b130b4db1a863b7fe5531cf686af534d1b437daed9",
+      "source_native_id": "keps/sig-network/4858-ip-cidr-validation#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F010",
+      "path": [
+        "sig-multicluster",
+        "5339-clusterprofile-plugin-credentials"
+      ],
+      "content_sha256": "f3915e3d55ac7cc95b999b041a2d096b61f8da8feab43faae4c8c2e9ae72963e",
+      "source_native_id": "keps/sig-multicluster/5339-clusterprofile-plugin-credentials#excerpt-2",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F011",
+      "path": [
+        "sig-cli",
+        "2384-kustomize-file-processing-integration"
+      ],
+      "content_sha256": "a26842b41478af8755f23ed270efca6a8504af535203a4b453121b662615ed13",
+      "source_native_id": "keps/sig-cli/2384-kustomize-file-processing-integration#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F012",
+      "path": [
+        "sig-network",
+        "4858-ip-cidr-validation"
+      ],
+      "content_sha256": "a5dc821422ababec9688c2acababaca899434a3434ea3d6d42e99aa2dc9efc8c",
+      "source_native_id": "keps/sig-network/4858-ip-cidr-validation#excerpt-3",
+      "source_heading": "non-goals"
+    },
+    {
+      "id": "F013",
+      "path": [
+        "sig-multicluster",
+        "1645-multi-cluster-services-api"
+      ],
+      "content_sha256": "d9984ace7fc4158fe3ffd1ceca8f41911c97c8f0043a30d758ac43634c6acc50",
+      "source_native_id": "keps/sig-multicluster/1645-multi-cluster-services-api#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F014",
+      "path": [
+        "sig-network",
+        "784-kube-proxy-component-config"
+      ],
+      "content_sha256": "2c92c6cecd37be927febe095a02bdbe162b00f64499bc0d0f6f1e046a21ebe45",
+      "source_native_id": "keps/sig-network/784-kube-proxy-component-config#excerpt-3",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F015",
+      "path": [
+        "sig-multicluster",
+        "4322-cluster-inventory"
+      ],
+      "content_sha256": "220035460e68d6bd418b079c8e3ab3f43148b700161b54b64cde383aaf3f22d8",
+      "source_native_id": "keps/sig-multicluster/4322-cluster-inventory#excerpt-2",
+      "source_heading": "non-goals"
+    },
+    {
+      "id": "F016",
+      "path": [
+        "sig-cli",
+        "2384-kustomize-file-processing-integration"
+      ],
+      "content_sha256": "63b07b036b2046a6bb014eb892c8494434c307a9375598b6e9ceacd9a828be28",
+      "source_native_id": "keps/sig-cli/2384-kustomize-file-processing-integration#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F017",
+      "path": [
+        "sig-auth",
+        "3221-structured-authorization-configuration"
+      ],
+      "content_sha256": "1198f880b5d4d62bfeed414d9f51b9f202977cdcf1e2bd479c155c820790d4f0",
+      "source_native_id": "keps/sig-auth/3221-structured-authorization-configuration#excerpt-3",
+      "source_heading": "non-goals"
+    },
+    {
+      "id": "F018",
+      "path": [
+        "sig-auth",
+        "5284-constrained-impersonation"
+      ],
+      "content_sha256": "ed76126f9eec1acd1c4d63f1b65cc5d2aabf7bb654f86bdec60168f294fd9700",
+      "source_native_id": "keps/sig-auth/5284-constrained-impersonation#excerpt-2",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F019",
+      "path": [
+        "sig-auth",
+        "5284-constrained-impersonation"
+      ],
+      "content_sha256": "2fd9182a713d1c1515268a2c24c3dab72bf4032f45c44a76512f10ca9bc1aa55",
+      "source_native_id": "keps/sig-auth/5284-constrained-impersonation#excerpt-3",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F020",
+      "path": [
+        "sig-auth",
+        "2718-20210511-client-exec-proxy"
+      ],
+      "content_sha256": "33d4ad242e26b4df5707ce2f147321f994bde866af6e32153824ecc14fa19b04",
+      "source_native_id": "keps/sig-auth/2718-20210511-client-exec-proxy#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F021",
+      "path": [
+        "sig-auth",
+        "2718-20210511-client-exec-proxy"
+      ],
+      "content_sha256": "6b6ffacdbea4911dbbc297b9c99b1e0179238bc706d64d45f4aa3680be16afac",
+      "source_native_id": "keps/sig-auth/2718-20210511-client-exec-proxy#excerpt-2",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F022",
+      "path": [
+        "sig-network",
+        "784-kube-proxy-component-config"
+      ],
+      "content_sha256": "98ede58d7ceb3724494158f8936ecf73b8fe5801f7d263b7778f751583c18b68",
+      "source_native_id": "keps/sig-network/784-kube-proxy-component-config#excerpt-2",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F023",
+      "path": [
+        "sig-auth",
+        "5284-constrained-impersonation"
+      ],
+      "content_sha256": "71c92781b29a10c182d2ab769e30d4a8a1262e63a9d16df23f79fb8a197acc4f",
+      "source_native_id": "keps/sig-auth/5284-constrained-impersonation#excerpt-1",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F024",
+      "path": [
+        "sig-multicluster",
+        "5339-clusterprofile-plugin-credentials"
+      ],
+      "content_sha256": "9dfb2842493fe50b0ab50293a8c8979482f6e12a681697293f913455b1ec6902",
+      "source_native_id": "keps/sig-multicluster/5339-clusterprofile-plugin-credentials#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F025",
+      "path": [
+        "sig-cli",
+        "3638-kubectl-plugin-subcommands"
+      ],
+      "content_sha256": "e544d6f969bb52eb8edf545a37afe89ad13374a94c3cd43327a9cc3e2185cd62",
+      "source_native_id": "keps/sig-cli/3638-kubectl-plugin-subcommands#excerpt-1",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F026",
+      "path": [
+        "sig-auth",
+        "3221-structured-authorization-configuration"
+      ],
+      "content_sha256": "45e8978bf5f1ff4ca60cfadfade72563d9a8e49cf126fed8c77e122a5105897a",
+      "source_native_id": "keps/sig-auth/3221-structured-authorization-configuration#excerpt-2",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F027",
+      "path": [
+        "sig-network",
+        "2091-admin-network-policy"
+      ],
+      "content_sha256": "5f2684c7ab4a13fb38c03b26dd805656e3207a02bcc266d8b8d64eb6a26382d9",
+      "source_native_id": "keps/sig-network/2091-admin-network-policy#excerpt-3",
+      "source_heading": "non-goals"
+    },
+    {
+      "id": "F028",
+      "path": [
+        "sig-network",
+        "2091-admin-network-policy"
+      ],
+      "content_sha256": "e733cb18859e29d87ce2d66c7e33d1df8cb72dcd1e182e04366b0d726e1c8849",
+      "source_native_id": "keps/sig-network/2091-admin-network-policy#excerpt-2",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F029",
+      "path": [
+        "sig-auth",
+        "3221-structured-authorization-configuration"
+      ],
+      "content_sha256": "a95d03b7b3e291dc64addf8e974f62a16a936f17db8f39191112a05085ba75dc",
+      "source_native_id": "keps/sig-auth/3221-structured-authorization-configuration#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F030",
+      "path": [
+        "sig-multicluster",
+        "4322-cluster-inventory"
+      ],
+      "content_sha256": "c64b9885d5470fcabca06af14e8810efa747407ff3727182d89309b2ecd8eb8e",
+      "source_native_id": "keps/sig-multicluster/4322-cluster-inventory#excerpt-1",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F031",
+      "path": [
+        "sig-cli",
+        "2377-Kustomize"
+      ],
+      "content_sha256": "c02fa3073433a6c1538a0aaeb7ce988eb3dd8838d1054731bca47ac75f2f4bef",
+      "source_native_id": "keps/sig-cli/2377-Kustomize#excerpt-3",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F032",
+      "path": [
+        "sig-cli",
+        "2384-kustomize-file-processing-integration"
+      ],
+      "content_sha256": "5c37d2d012c4c5f1dffdc8e4d7d26e4bde3dd9e64b0747e8d0fbf378e3cb752d",
+      "source_native_id": "keps/sig-cli/2384-kustomize-file-processing-integration#excerpt-3",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F033",
+      "path": [
+        "sig-cli",
+        "3638-kubectl-plugin-subcommands"
+      ],
+      "content_sha256": "c1621d2888d941711fb1cde2eb81e010e1c890800c678008f583d6d22068af80",
+      "source_native_id": "keps/sig-cli/3638-kubectl-plugin-subcommands#excerpt-3",
+      "source_heading": "alternatives"
+    },
+    {
+      "id": "F034",
+      "path": [
+        "sig-multicluster",
+        "4322-cluster-inventory"
+      ],
+      "content_sha256": "f8f2d5d479819733aea41ecb6346d82bf4d684df7c39d41311b70f941428d6d1",
+      "source_native_id": "keps/sig-multicluster/4322-cluster-inventory#excerpt-3",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F035",
+      "path": [
+        "sig-multicluster",
+        "1645-multi-cluster-services-api"
+      ],
+      "content_sha256": "27f209577e47e77cca54f174ef791798e9593988801abcff7096057509357f51",
+      "source_native_id": "keps/sig-multicluster/1645-multi-cluster-services-api#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F036",
+      "path": [
+        "sig-multicluster",
+        "5339-clusterprofile-plugin-credentials"
+      ],
+      "content_sha256": "bbeb4e1de76922efde3da4ac2da8be2ea9fbb971bc7dcab6cd454eaaa0d8e12a",
+      "source_native_id": "keps/sig-multicluster/5339-clusterprofile-plugin-credentials#excerpt-3",
+      "source_heading": "risks and mitigations"
+    }
+  ],
+  "reference_scope": "Source-derived group/proposal hierarchy for a development-only difficulty and cost pilot."
+}

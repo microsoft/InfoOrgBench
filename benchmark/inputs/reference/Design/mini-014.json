@@ -1,0 +1,366 @@
+{
+  "task_id": "mini-014",
+  "records": [
+    {
+      "id": "F001",
+      "path": [
+        "sig-windows",
+        "116-windows-node-support"
+      ],
+      "content_sha256": "2b143bb4a17aabe6592a628d1c1c6daaa6fead9747a65cd9ec59c2d62cc58545",
+      "source_native_id": "keps/sig-windows/116-windows-node-support#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F002",
+      "path": [
+        "sig-scheduling",
+        "3521-pod-scheduling-readiness"
+      ],
+      "content_sha256": "680802db7dfa6ffedb6d0fb29e327526ff0e46400bc7893d9daaca883ccd8ede",
+      "source_native_id": "keps/sig-scheduling/3521-pod-scheduling-readiness#excerpt-1",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F003",
+      "path": [
+        "sig-scheduling",
+        "2249-pod-affinity-namespace-selector"
+      ],
+      "content_sha256": "d5e5c67519241fb938f3c3aa7c61b1f4513f3d559803691b1eec413b9c965d92",
+      "source_native_id": "keps/sig-scheduling/2249-pod-affinity-namespace-selector#excerpt-3",
+      "source_heading": "design details"
+    },
+    {
+      "id": "F004",
+      "path": [
+        "sig-release",
+        "2818-reducing-build-maintenance"
+      ],
+      "content_sha256": "82a03e2342ce512fd26692e1b3da3ab8218080abd74403d1e3b914d027d7ccf8",
+      "source_native_id": "keps/sig-release/2818-reducing-build-maintenance#excerpt-1",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F005",
+      "path": [
+        "sig-scheduling",
+        "6089-was-controller-apis"
+      ],
+      "content_sha256": "cd09e75bed88fb64a669bab25c6bf37ecefa37011e2fe74d862fe858876896d0",
+      "source_native_id": "keps/sig-scheduling/6089-was-controller-apis#excerpt-3",
+      "source_heading": "non-goals"
+    },
+    {
+      "id": "F006",
+      "path": [
+        "sig-windows",
+        "1043-windows-security-context"
+      ],
+      "content_sha256": "d665b373c0ccc7140993b6c767c549e0047b70cd956bc05e316bfba347353230",
+      "source_native_id": "keps/sig-windows/1043-windows-security-context#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F007",
+      "path": [
+        "sig-windows",
+        "1122-windows-csi-support"
+      ],
+      "content_sha256": "5a79f0a8072e0f241ab9609d0de0a39381862a0ec20d6752fb7a88831dd9d5f4",
+      "source_native_id": "keps/sig-windows/1122-windows-csi-support#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F008",
+      "path": [
+        "sig-network",
+        "4974-deprecate-endpoints"
+      ],
+      "content_sha256": "d26c87e6368c7df397b5a78dadec79161a26485cba897b033acadbf3f0f0aad7",
+      "source_native_id": "keps/sig-network/4974-deprecate-endpoints#excerpt-3",
+      "source_heading": "non-goals"
+    },
+    {
+      "id": "F009",
+      "path": [
+        "sig-release",
+        "3720-freezing-k8s-gcr-io"
+      ],
+      "content_sha256": "d171b18f809ab753d885eef6a5822d6cf6a4fc76210964ba888c51e7040cf7ce",
+      "source_native_id": "keps/sig-release/3720-freezing-k8s-gcr-io#excerpt-3",
+      "source_heading": "design details"
+    },
+    {
+      "id": "F010",
+      "path": [
+        "sig-release",
+        "1732-artifact-management"
+      ],
+      "content_sha256": "b4efcbfd413daa4dae95f46119e6fff9d43065c75ce43b5b9b28e2d0e569ce01",
+      "source_native_id": "keps/sig-release/1732-artifact-management#excerpt-2",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F011",
+      "path": [
+        "sig-windows",
+        "1122-windows-csi-support"
+      ],
+      "content_sha256": "569926051e6d97e1487823f8aaa40fb6d4012db00645a02c6893cbb51113969d",
+      "source_native_id": "keps/sig-windows/1122-windows-csi-support#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F012",
+      "path": [
+        "sig-network",
+        "4974-deprecate-endpoints"
+      ],
+      "content_sha256": "9c02d22f4b651878644ff3d4227bbb335a0cd4855aa0e305dcc1584c03a88969",
+      "source_native_id": "keps/sig-network/4974-deprecate-endpoints#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F013",
+      "path": [
+        "sig-release",
+        "1732-artifact-management"
+      ],
+      "content_sha256": "d2c0978e04ab9ecadaf0ef191f23186451303514e919e6b8daa8d07cf9601b5b",
+      "source_native_id": "keps/sig-release/1732-artifact-management#excerpt-3",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F014",
+      "path": [
+        "sig-release",
+        "1732-artifact-management"
+      ],
+      "content_sha256": "58756197c3ae15b855a86bc092aa5f97041849647dcd067cbe04d7edf0d8f526",
+      "source_native_id": "keps/sig-release/1732-artifact-management#excerpt-1",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F015",
+      "path": [
+        "sig-release",
+        "3720-freezing-k8s-gcr-io"
+      ],
+      "content_sha256": "3996ff0cd791254afaaa066fc8b4755dcc32cbccf36306e2c20d921b76e7c9e7",
+      "source_native_id": "keps/sig-release/3720-freezing-k8s-gcr-io#excerpt-1",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F016",
+      "path": [
+        "sig-network",
+        "1611-network-policy-validation"
+      ],
+      "content_sha256": "32c4aa23c13611f744f73dead3f873fb636419db93fcb071de5cb3389e99566c",
+      "source_native_id": "keps/sig-network/1611-network-policy-validation#excerpt-3",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F017",
+      "path": [
+        "sig-network",
+        "4974-deprecate-endpoints"
+      ],
+      "content_sha256": "b2b4f7486d8ac37b290e727cdb048853e0c15dd571b6f7340f788b56cb2745ea",
+      "source_native_id": "keps/sig-network/4974-deprecate-endpoints#excerpt-2",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F018",
+      "path": [
+        "sig-network",
+        "1611-network-policy-validation"
+      ],
+      "content_sha256": "d043e19d93d0111ab1ea4e2df2af6735063400c262b1cf082a6267fa7fb59d45",
+      "source_native_id": "keps/sig-network/1611-network-policy-validation#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F019",
+      "path": [
+        "sig-release",
+        "3720-freezing-k8s-gcr-io"
+      ],
+      "content_sha256": "4206f98c05ede9d8a13d30d082f8d27f21e02e7507489d87c23bb4b26c1d1b49",
+      "source_native_id": "keps/sig-release/3720-freezing-k8s-gcr-io#excerpt-2",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F020",
+      "path": [
+        "sig-windows",
+        "116-windows-node-support"
+      ],
+      "content_sha256": "2b2dce9d8e625a28cf769d6bf56cb4ad6dc8fd5db20057ce4dd53897a7f4dfd6",
+      "source_native_id": "keps/sig-windows/116-windows-node-support#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F021",
+      "path": [
+        "sig-scheduling",
+        "2249-pod-affinity-namespace-selector"
+      ],
+      "content_sha256": "ea965296e30a91e2a1bda5431bb2f0a1a9a9d6c31d09fd0da9fa4a488f66be09",
+      "source_native_id": "keps/sig-scheduling/2249-pod-affinity-namespace-selector#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F022",
+      "path": [
+        "sig-windows",
+        "1043-windows-security-context"
+      ],
+      "content_sha256": "821343aafc8af703b61411064ee67b61940f94f945b41cd311c0c31e46e1eab6",
+      "source_native_id": "keps/sig-windows/1043-windows-security-context#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F023",
+      "path": [
+        "sig-scheduling",
+        "3521-pod-scheduling-readiness"
+      ],
+      "content_sha256": "b6a88c80f581184e39cb855830f804a5f8920e108fc46431d8e5f75f58354d3d",
+      "source_native_id": "keps/sig-scheduling/3521-pod-scheduling-readiness#excerpt-3",
+      "source_heading": "risks and mitigations"
+    },
+    {
+      "id": "F024",
+      "path": [
+        "sig-scheduling",
+        "2249-pod-affinity-namespace-selector"
+      ],
+      "content_sha256": "4d1ce8161c9b73d4a94dbcb43bd2755d7d1e989056c027aeb613793f6bc31624",
+      "source_native_id": "keps/sig-scheduling/2249-pod-affinity-namespace-selector#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F025",
+      "path": [
+        "sig-windows",
+        "116-windows-node-support"
+      ],
+      "content_sha256": "ad3b2f7d72f656595a1b0ae927fad4183a0fb6351e8449e68cecff461f7a9074",
+      "source_native_id": "keps/sig-windows/116-windows-node-support#excerpt-3",
+      "source_heading": "risks and mitigations"
+    },
+    {
+      "id": "F026",
+      "path": [
+        "sig-release",
+        "2818-reducing-build-maintenance"
+      ],
+      "content_sha256": "afaf41bc6011a7eba086fe85472adb456e4cdfb4a09ff7eeb008d3caac87d282",
+      "source_native_id": "keps/sig-release/2818-reducing-build-maintenance#excerpt-2",
+      "source_heading": "non-goals"
+    },
+    {
+      "id": "F027",
+      "path": [
+        "sig-windows",
+        "1043-windows-security-context"
+      ],
+      "content_sha256": "029ddf4b318d252b725e2ebf862dee0e0efa4658bfd6c80958dfce807a42fef5",
+      "source_native_id": "keps/sig-windows/1043-windows-security-context#excerpt-3",
+      "source_heading": "non-goals"
+    },
+    {
+      "id": "F028",
+      "path": [
+        "sig-scheduling",
+        "6089-was-controller-apis"
+      ],
+      "content_sha256": "bc74b619a0a5a11f7354011e5585c226cb5e5bd3a01fbf925f3a410d649f4f28",
+      "source_native_id": "keps/sig-scheduling/6089-was-controller-apis#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F029",
+      "path": [
+        "sig-release",
+        "2818-reducing-build-maintenance"
+      ],
+      "content_sha256": "4514c0eca218a8625ed59844aadc1aac2b354114585d13f6669480fb237d196d",
+      "source_native_id": "keps/sig-release/2818-reducing-build-maintenance#excerpt-3",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F030",
+      "path": [
+        "sig-network",
+        "3866-nftables-proxy"
+      ],
+      "content_sha256": "e0852d8e86f4af75f428cfab753d0e1ab4617863e96e3a41b762d5d89fc0d5ea",
+      "source_native_id": "keps/sig-network/3866-nftables-proxy#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F031",
+      "path": [
+        "sig-scheduling",
+        "6089-was-controller-apis"
+      ],
+      "content_sha256": "daf2d0df5b08022a64f39010cd1385da20f125f6d91bb2454ecd81b81e6dca82",
+      "source_native_id": "keps/sig-scheduling/6089-was-controller-apis#excerpt-2",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F032",
+      "path": [
+        "sig-network",
+        "3866-nftables-proxy"
+      ],
+      "content_sha256": "cb7de0fa3c6fa8f6df0ab36593a37bddc9eb889ecc8b9d304321f60a5e5b4f08",
+      "source_native_id": "keps/sig-network/3866-nftables-proxy#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F033",
+      "path": [
+        "sig-network",
+        "3866-nftables-proxy"
+      ],
+      "content_sha256": "696c9552e9436007e32c729c6eb084c38effcd35ce0e20ef6f620d2f2697ae75",
+      "source_native_id": "keps/sig-network/3866-nftables-proxy#excerpt-3",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F034",
+      "path": [
+        "sig-scheduling",
+        "3521-pod-scheduling-readiness"
+      ],
+      "content_sha256": "909f6b4230fa825d197dbae7b16d0084ef37d604417ded571c11f4aad77f4923",
+      "source_native_id": "keps/sig-scheduling/3521-pod-scheduling-readiness#excerpt-2",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F035",
+      "path": [
+        "sig-windows",
+        "1122-windows-csi-support"
+      ],
+      "content_sha256": "26e83b19e077b471b452feef49360ce84e92b219c20d37bfdbadd01e60f350b5",
+      "source_native_id": "keps/sig-windows/1122-windows-csi-support#excerpt-3",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F036",
+      "path": [
+        "sig-network",
+        "1611-network-policy-validation"
+      ],
+      "content_sha256": "9a9dd438594829aedc91233bea9127f4273986e193e3d53d4ad0bc3f8f829add",
+      "source_native_id": "keps/sig-network/1611-network-policy-validation#excerpt-1",
+      "source_heading": "summary"
+    }
+  ],
+  "reference_scope": "Source-derived group/proposal hierarchy for a development-only difficulty and cost pilot."
+}

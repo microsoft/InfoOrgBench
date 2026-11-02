@@ -1,0 +1,366 @@
+{
+  "task_id": "mini-013",
+  "records": [
+    {
+      "id": "F001",
+      "path": [
+        "sig-architecture",
+        "4402-go-workspaces"
+      ],
+      "content_sha256": "fe5304ab81371d7c8c96b70257200aeefb640ad766bead2f9227a4b8b429b89f",
+      "source_native_id": "keps/sig-architecture/4402-go-workspaces#excerpt-3",
+      "source_heading": "risks and mitigations"
+    },
+    {
+      "id": "F002",
+      "path": [
+        "sig-storage",
+        "5538-csi-sa-tokens-secrets-field"
+      ],
+      "content_sha256": "5258ea85d7eb53c06b4077bfdfe26a6e0baf42a94419fc8f3a3da7b71209aed1",
+      "source_native_id": "keps/sig-storage/5538-csi-sa-tokens-secrets-field#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F003",
+      "path": [
+        "sig-architecture",
+        "3935-oldest-node-newest-control-plane"
+      ],
+      "content_sha256": "95d792cc5d9b431c1d11b095f0bdd7d2cc3c444390c63c878e468df3a9c2ba59",
+      "source_native_id": "keps/sig-architecture/3935-oldest-node-newest-control-plane#excerpt-3",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F004",
+      "path": [
+        "sig-instrumentation",
+        "2831-kubelet-tracing"
+      ],
+      "content_sha256": "dc2be1db7a58cbf962d7efad7e2360e8974d914fe8a20e6940d3cba560407441",
+      "source_native_id": "keps/sig-instrumentation/2831-kubelet-tracing#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F005",
+      "path": [
+        "sig-architecture",
+        "960-conformance-behaviors"
+      ],
+      "content_sha256": "7995f1b3c1fdf0752b0bea080bfd71ca88fc66cb584e51a1b742ed1cf656515d",
+      "source_native_id": "keps/sig-architecture/960-conformance-behaviors#excerpt-3",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F006",
+      "path": [
+        "sig-architecture",
+        "4402-go-workspaces"
+      ],
+      "content_sha256": "836c9b2b3f71adcc1e15985bd7ffbbaa2dd5e34eeaeabee0b0615e5e57e70fdc",
+      "source_native_id": "keps/sig-architecture/4402-go-workspaces#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F007",
+      "path": [
+        "sig-cloud-provider",
+        "2699-add-webhook-hosting-to-ccm"
+      ],
+      "content_sha256": "1f96e8f3492e757842785262ebfe43e9a57b7f775eb246419100a8544aac1e74",
+      "source_native_id": "keps/sig-cloud-provider/2699-add-webhook-hosting-to-ccm#excerpt-1",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F008",
+      "path": [
+        "sig-cloud-provider",
+        "2699-add-webhook-hosting-to-ccm"
+      ],
+      "content_sha256": "d01dd3224807d7003a4b4c1d3cd2d8cfe5b4b444154ed07f3bbfba99df278de9",
+      "source_native_id": "keps/sig-cloud-provider/2699-add-webhook-hosting-to-ccm#excerpt-3",
+      "source_heading": "design details"
+    },
+    {
+      "id": "F009",
+      "path": [
+        "sig-cloud-provider",
+        "1179-building-without-in-tree-providers"
+      ],
+      "content_sha256": "20a3d348b641608fbd860c716b4159dd5c55409311ed16c5387954de77643007",
+      "source_native_id": "keps/sig-cloud-provider/1179-building-without-in-tree-providers#excerpt-3",
+      "source_heading": "risks and mitigations"
+    },
+    {
+      "id": "F010",
+      "path": [
+        "sig-storage",
+        "5538-csi-sa-tokens-secrets-field"
+      ],
+      "content_sha256": "d75e5b7d7d42e06f2c0e465c0fcb7b6615d4d5e77f056c9064c8e09b8b7d0ffa",
+      "source_native_id": "keps/sig-storage/5538-csi-sa-tokens-secrets-field#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F011",
+      "path": [
+        "sig-instrumentation",
+        "4827-component-statusz"
+      ],
+      "content_sha256": "221203004d074e7ad47661612d0d129f61a8a435f782349be0a746758d8f8465",
+      "source_native_id": "keps/sig-instrumentation/4827-component-statusz#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F012",
+      "path": [
+        "sig-storage",
+        "2264-csi-release-ci-process"
+      ],
+      "content_sha256": "7c3d64ad1068f52b82038781fd56a7fab621189c760c63c260b9c3113d2794ce",
+      "source_native_id": "keps/sig-storage/2264-csi-release-ci-process#excerpt-3",
+      "source_heading": "risks and mitigations"
+    },
+    {
+      "id": "F013",
+      "path": [
+        "sig-instrumentation",
+        "4827-component-statusz"
+      ],
+      "content_sha256": "b211de98c3eee559309b7941cc9c744cd8d604b433e5e54990668383f319049e",
+      "source_native_id": "keps/sig-instrumentation/4827-component-statusz#excerpt-3",
+      "source_heading": "non-goals"
+    },
+    {
+      "id": "F014",
+      "path": [
+        "sig-storage",
+        "596-csi-inline-volumes"
+      ],
+      "content_sha256": "12eaf6ffa44b4c8d08071b7b861c2d44ede7a3cc1f82da42daa4aa06dec88472",
+      "source_native_id": "keps/sig-storage/596-csi-inline-volumes#excerpt-3",
+      "source_heading": "alternatives"
+    },
+    {
+      "id": "F015",
+      "path": [
+        "sig-instrumentation",
+        "4827-component-statusz"
+      ],
+      "content_sha256": "c1a99da337f6fd3139f86a00f090e0a82d52be934034c8c5a867081a618b4f4d",
+      "source_native_id": "keps/sig-instrumentation/4827-component-statusz#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F016",
+      "path": [
+        "sig-cloud-provider",
+        "1179-building-without-in-tree-providers"
+      ],
+      "content_sha256": "e31f004233fe20b3c996bfa8c0a4ddd69b054ae0f936a585a0013fd861879abd",
+      "source_native_id": "keps/sig-cloud-provider/1179-building-without-in-tree-providers#excerpt-2",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F017",
+      "path": [
+        "sig-instrumentation",
+        "5905-mixins-migration"
+      ],
+      "content_sha256": "0dc8422d06bcebb3e8cd917eb3ed992aa04f10d451e9a491d0061cd882376bab",
+      "source_native_id": "keps/sig-instrumentation/5905-mixins-migration#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F018",
+      "path": [
+        "sig-cloud-provider",
+        "1179-building-without-in-tree-providers"
+      ],
+      "content_sha256": "bec6897fe06486e8f97f57c771f5fa71a95bc1339ce69d38c6045a60f4e6a418",
+      "source_native_id": "keps/sig-cloud-provider/1179-building-without-in-tree-providers#excerpt-1",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F019",
+      "path": [
+        "sig-cloud-provider",
+        "1959-service-lb-class-field"
+      ],
+      "content_sha256": "ee09b55bdf365116aa5191366d5d81d85bba5265225a1f5deb1e02403e36f1ec",
+      "source_native_id": "keps/sig-cloud-provider/1959-service-lb-class-field#excerpt-3",
+      "source_heading": "design details"
+    },
+    {
+      "id": "F020",
+      "path": [
+        "sig-instrumentation",
+        "2831-kubelet-tracing"
+      ],
+      "content_sha256": "1cb4c980c4f552a10b37383d7682fb7c52c507f6150a33e5d334ff0ef7759bfa",
+      "source_native_id": "keps/sig-instrumentation/2831-kubelet-tracing#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F021",
+      "path": [
+        "sig-architecture",
+        "3935-oldest-node-newest-control-plane"
+      ],
+      "content_sha256": "d46f001e4315aef357f0405e93faed9203897a67b6cdca9260a065e4bf91d7e4",
+      "source_native_id": "keps/sig-architecture/3935-oldest-node-newest-control-plane#excerpt-2",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F022",
+      "path": [
+        "sig-instrumentation",
+        "5905-mixins-migration"
+      ],
+      "content_sha256": "cb4016c71cda2f801af20091240e330bfea6987281ad8c6ce76436c3ccbbc38f",
+      "source_native_id": "keps/sig-instrumentation/5905-mixins-migration#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F023",
+      "path": [
+        "sig-instrumentation",
+        "2831-kubelet-tracing"
+      ],
+      "content_sha256": "f9fc9e18b549734a9445283b7f8be2be221f3c3a146e3721df6e7f6ef8e19e80",
+      "source_native_id": "keps/sig-instrumentation/2831-kubelet-tracing#excerpt-3",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F024",
+      "path": [
+        "sig-storage",
+        "596-csi-inline-volumes"
+      ],
+      "content_sha256": "1d5be7f0023533fb7ec8efd55c3a927839ce012105a0d9974f44bd5c329ad6fa",
+      "source_native_id": "keps/sig-storage/596-csi-inline-volumes#excerpt-1",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F025",
+      "path": [
+        "sig-storage",
+        "5538-csi-sa-tokens-secrets-field"
+      ],
+      "content_sha256": "54a4c6202060213767996ba0a26b311c8ff3b648105fea73f0d32fb97a12f8ab",
+      "source_native_id": "keps/sig-storage/5538-csi-sa-tokens-secrets-field#excerpt-3",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F026",
+      "path": [
+        "sig-cloud-provider",
+        "1959-service-lb-class-field"
+      ],
+      "content_sha256": "cb5a7580131d866e28fd52c232aa0730b3fd688d2a73580a65ed56eca188b22f",
+      "source_native_id": "keps/sig-cloud-provider/1959-service-lb-class-field#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F027",
+      "path": [
+        "sig-storage",
+        "2264-csi-release-ci-process"
+      ],
+      "content_sha256": "3cd567bd514a08750cde32224836076b92eeadd5ec4bbeafa52a4cc7c36ab15a",
+      "source_native_id": "keps/sig-storage/2264-csi-release-ci-process#excerpt-1",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F028",
+      "path": [
+        "sig-storage",
+        "2264-csi-release-ci-process"
+      ],
+      "content_sha256": "83b9e934aec17ad6129f9d6ae858f6a573fb74eb07d8d91b7fdd4cfe0ff8de5c",
+      "source_native_id": "keps/sig-storage/2264-csi-release-ci-process#excerpt-2",
+      "source_heading": "non-goals"
+    },
+    {
+      "id": "F029",
+      "path": [
+        "sig-cloud-provider",
+        "1959-service-lb-class-field"
+      ],
+      "content_sha256": "12b0659070d9893c59c4c0321ebf5cd3aab4efe911250b26fe5ce72fd7e930d0",
+      "source_native_id": "keps/sig-cloud-provider/1959-service-lb-class-field#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F030",
+      "path": [
+        "sig-architecture",
+        "4402-go-workspaces"
+      ],
+      "content_sha256": "f72384d30c445a8191026b8a1318577644d318d6b07773c4ae8faf66945fcbd6",
+      "source_native_id": "keps/sig-architecture/4402-go-workspaces#excerpt-2",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F031",
+      "path": [
+        "sig-architecture",
+        "960-conformance-behaviors"
+      ],
+      "content_sha256": "e8cac3f4700a6959902110df9985b676552fb79e884f117bf75b7d255faafedd",
+      "source_native_id": "keps/sig-architecture/960-conformance-behaviors#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F032",
+      "path": [
+        "sig-cloud-provider",
+        "2699-add-webhook-hosting-to-ccm"
+      ],
+      "content_sha256": "8efa54178e6c8c46f7071f9dde4ec2f2eb8aba351cfbe8f94262fdd86719b90b",
+      "source_native_id": "keps/sig-cloud-provider/2699-add-webhook-hosting-to-ccm#excerpt-2",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F033",
+      "path": [
+        "sig-architecture",
+        "960-conformance-behaviors"
+      ],
+      "content_sha256": "30d4b0711ac77dd2ecbe7193db45c2679bd2a3f4e6058ea607ee9f656307a020",
+      "source_native_id": "keps/sig-architecture/960-conformance-behaviors#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F034",
+      "path": [
+        "sig-architecture",
+        "3935-oldest-node-newest-control-plane"
+      ],
+      "content_sha256": "74bb6354f3025e2b40590f655e7050829cc6014728eebccbdef209e9003f1492",
+      "source_native_id": "keps/sig-architecture/3935-oldest-node-newest-control-plane#excerpt-1",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F035",
+      "path": [
+        "sig-instrumentation",
+        "5905-mixins-migration"
+      ],
+      "content_sha256": "e9b7d2763a64eb22c592857c729a0977a330006f004aae1744eb39d06bb90af0",
+      "source_native_id": "keps/sig-instrumentation/5905-mixins-migration#excerpt-3",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F036",
+      "path": [
+        "sig-storage",
+        "596-csi-inline-volumes"
+      ],
+      "content_sha256": "6b06770b7706befc41f1a8bf63c636116b556e2ed7d147d7e2a55c86267cdda4",
+      "source_native_id": "keps/sig-storage/596-csi-inline-volumes#excerpt-2",
+      "source_heading": "user stories"
+    }
+  ],
+  "reference_scope": "Source-derived group/proposal hierarchy for a development-only difficulty and cost pilot."
+}

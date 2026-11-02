@@ -1,0 +1,382 @@
+{
+  "assignments": [
+    {
+      "id": "F001",
+      "path": [
+        "S3A-AccessPoint-Alias",
+        "Feature-Design"
+      ]
+    },
+    {
+      "id": "F002",
+      "path": [
+        "S3A-ParallelRename",
+        "Test-Timeout-Issues"
+      ]
+    },
+    {
+      "id": "F003",
+      "path": [
+        "ABFS-Authentication",
+        "AbfsClient-Tests"
+      ]
+    },
+    {
+      "id": "F004",
+      "path": [
+        "S3A-ParallelRename",
+        "Test-Timeout-Issues"
+      ]
+    },
+    {
+      "id": "F005",
+      "path": [
+        "Shell-RM",
+        "Trash-Bypass"
+      ]
+    },
+    {
+      "id": "F006",
+      "path": [
+        "ABFS-Authentication",
+        "AbfsClient-Tests"
+      ]
+    },
+    {
+      "id": "F007",
+      "path": [
+        "ABFS-Authentication",
+        "AbfsClient-Tests"
+      ]
+    },
+    {
+      "id": "F008",
+      "path": [
+        "S3A-CustomSigner",
+        "Access-Point-Region"
+      ]
+    },
+    {
+      "id": "F009",
+      "path": [
+        "S3A-AccessPoint-Alias",
+        "Feature-Design"
+      ]
+    },
+    {
+      "id": "F010",
+      "path": [
+        "ABFS-Authentication",
+        "Namespace-HNS"
+      ]
+    },
+    {
+      "id": "F011",
+      "path": [
+        "S3A-AccessPoint-Alias",
+        "Feature-Design"
+      ]
+    },
+    {
+      "id": "F012",
+      "path": [
+        "S3A-AccessPoint-Alias",
+        "Configuration"
+      ]
+    },
+    {
+      "id": "F013",
+      "path": [
+        "Miscellaneous",
+        "Status-Updates"
+      ]
+    },
+    {
+      "id": "F014",
+      "path": [
+        "ABFS-Authentication",
+        "Namespace-HNS"
+      ]
+    },
+    {
+      "id": "F015",
+      "path": [
+        "ABFS-Retry-Policy",
+        "Connection-Timeout"
+      ]
+    },
+    {
+      "id": "F016",
+      "path": [
+        "ABFS-Authentication",
+        "Namespace-Error-Handling"
+      ]
+    },
+    {
+      "id": "F017",
+      "path": [
+        "S3A-Iceberg",
+        "Bulk-Delete-Validation"
+      ]
+    },
+    {
+      "id": "F018",
+      "path": [
+        "ABFS-Authentication",
+        "Namespace-Error-Handling"
+      ]
+    },
+    {
+      "id": "F019",
+      "path": [
+        "S3A-Iceberg",
+        "Bulk-Delete-Validation"
+      ]
+    },
+    {
+      "id": "F020",
+      "path": [
+        "S3A-AccessPoint-Alias",
+        "Configuration"
+      ]
+    },
+    {
+      "id": "F021",
+      "path": [
+        "ABFS-Authentication",
+        "Namespace-HNS"
+      ]
+    },
+    {
+      "id": "F022",
+      "path": [
+        "ABFS-Retry-Policy",
+        "Connection-Timeout"
+      ]
+    },
+    {
+      "id": "F023",
+      "path": [
+        "S3A-CustomSigner",
+        "Access-Point-Region"
+      ]
+    },
+    {
+      "id": "F024",
+      "path": [
+        "Miscellaneous",
+        "Status-Updates"
+      ]
+    },
+    {
+      "id": "F025",
+      "path": [
+        "S3A-AccessPoint-Alias",
+        "Configuration"
+      ]
+    },
+    {
+      "id": "F026",
+      "path": [
+        "ABFS-Retry-Policy",
+        "Connection-Timeout"
+      ]
+    },
+    {
+      "id": "F027",
+      "path": [
+        "S3A-AccessPoint-Alias",
+        "Implementation-Discussion"
+      ]
+    },
+    {
+      "id": "F028",
+      "path": [
+        "ABFS-Authentication",
+        "Test-Failures"
+      ]
+    },
+    {
+      "id": "F029",
+      "path": [
+        "S3A-AccessPoint-Alias",
+        "Implementation-Discussion"
+      ]
+    },
+    {
+      "id": "F030",
+      "path": [
+        "S3A-Iceberg",
+        "Bulk-Delete-Validation"
+      ]
+    },
+    {
+      "id": "F031",
+      "path": [
+        "Miscellaneous",
+        "Status-Updates"
+      ]
+    },
+    {
+      "id": "F032",
+      "path": [
+        "S3A-AccessPoint-Alias",
+        "Implementation-Discussion"
+      ]
+    },
+    {
+      "id": "F033",
+      "path": [
+        "S3A-ParallelRename",
+        "Test-Timeout-Issues"
+      ]
+    },
+    {
+      "id": "F034",
+      "path": [
+        "S3A-SSL-Timeout",
+        "Retry-Policy-Discussion"
+      ]
+    },
+    {
+      "id": "F035",
+      "path": [
+        "Miscellaneous",
+        "Status-Updates"
+      ]
+    },
+    {
+      "id": "F036",
+      "path": [
+        "ABFS-Authentication",
+        "Test-Failures"
+      ]
+    },
+    {
+      "id": "F037",
+      "path": [
+        "S3A-AccessPoint-Alias",
+        "Configuration"
+      ]
+    },
+    {
+      "id": "F038",
+      "path": [
+        "Miscellaneous",
+        "Status-Updates"
+      ]
+    },
+    {
+      "id": "F039",
+      "path": [
+        "ABFS-Authentication",
+        "Backports"
+      ]
+    },
+    {
+      "id": "F040",
+      "path": [
+        "ABFS-Retry-Policy",
+        "Connection-Timeout"
+      ]
+    },
+    {
+      "id": "F041",
+      "path": [
+        "S3A-SSL-Timeout",
+        "Unrecoverable-Errors"
+      ]
+    },
+    {
+      "id": "F042",
+      "path": [
+        "Miscellaneous",
+        "Status-Updates"
+      ]
+    },
+    {
+      "id": "F043",
+      "path": [
+        "S3A-SSL-Timeout",
+        "Unrecoverable-Errors"
+      ]
+    },
+    {
+      "id": "F044",
+      "path": [
+        "S3A-SSL-Timeout",
+        "Unrecoverable-Errors"
+      ]
+    },
+    {
+      "id": "F045",
+      "path": [
+        "S3A-AccessPoint-Alias",
+        "Testing"
+      ]
+    },
+    {
+      "id": "F046",
+      "path": [
+        "Miscellaneous",
+        "Status-Updates"
+      ]
+    },
+    {
+      "id": "F047",
+      "path": [
+        "S3A-AccessPoint-Alias",
+        "Implementation-Discussion"
+      ]
+    },
+    {
+      "id": "F048",
+      "path": [
+        "S3A-AccessPoint-Alias",
+        "Testing"
+      ]
+    },
+    {
+      "id": "F049",
+      "path": [
+        "S3A-AccessPoint-Alias",
+        "Implementation-Discussion"
+      ]
+    },
+    {
+      "id": "F050",
+      "path": [
+        "S3A-SSL-Timeout",
+        "Unrecoverable-Errors"
+      ]
+    },
+    {
+      "id": "F051",
+      "path": [
+        "Miscellaneous",
+        "Status-Updates"
+      ]
+    },
+    {
+      "id": "F052",
+      "path": [
+        "Miscellaneous",
+        "Status-Updates"
+      ]
+    },
+    {
+      "id": "F053",
+      "path": [
+        "S3A-AccessPoint-Alias",
+        "Implementation-Discussion"
+      ]
+    },
+    {
+      "id": "F054",
+      "path": [
+        "Miscellaneous",
+        "Status-Updates"
+      ]
+    }
+  ]
+}

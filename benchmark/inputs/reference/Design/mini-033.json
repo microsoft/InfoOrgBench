@@ -1,0 +1,366 @@
+{
+  "task_id": "mini-033",
+  "records": [
+    {
+      "id": "F001",
+      "path": [
+        "sig-scheduling",
+        "902-non-preempting-priorityclass"
+      ],
+      "content_sha256": "2e9b981de413d330f5657c3c10325559ebea039eea8b2e43ba9ce4fe8edbd3ad",
+      "source_native_id": "keps/sig-scheduling/902-non-preempting-priorityclass#excerpt-3",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F002",
+      "path": [
+        "sig-cli",
+        "5295-kyaml"
+      ],
+      "content_sha256": "3a6946c5e6cc999c846a754d04f015dcdd5149c92d569e6f49520807cbc918d2",
+      "source_native_id": "keps/sig-cli/5295-kyaml#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F003",
+      "path": [
+        "sig-cli",
+        "4292-kubectl-debug-custom-profile"
+      ],
+      "content_sha256": "62b5218e49405d5aa68cf0f0a5ba14dc2ae973e9e48bdc771b19f48e433c1314",
+      "source_native_id": "keps/sig-cli/4292-kubectl-debug-custom-profile#excerpt-1",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F004",
+      "path": [
+        "sig-network",
+        "2450-Remove-knowledge-of-pod-cluster-CIDR-from-iptables-rules"
+      ],
+      "content_sha256": "a05d0fc2f3d2d636c94412fd4873a7e239f68360afe9a5eb4e95d26934f4a5da",
+      "source_native_id": "keps/sig-network/2450-Remove-knowledge-of-pod-cluster-CIDR-from-iptables-rules#excerpt-3",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F005",
+      "path": [
+        "sig-network",
+        "2450-Remove-knowledge-of-pod-cluster-CIDR-from-iptables-rules"
+      ],
+      "content_sha256": "21c426260177d6110bdff614c34cb6e14b27a6194286b0e0f774913e610b6c65",
+      "source_native_id": "keps/sig-network/2450-Remove-knowledge-of-pod-cluster-CIDR-from-iptables-rules#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F006",
+      "path": [
+        "sig-cli",
+        "2257-kui"
+      ],
+      "content_sha256": "8e8aca9e586c03c6486d4c05799acbd1d04c00cb8768a76393c5897adcd6d1ea",
+      "source_native_id": "keps/sig-cli/2257-kui#excerpt-2",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F007",
+      "path": [
+        "sig-network",
+        "3726-standard-application-protocols"
+      ],
+      "content_sha256": "dc65f3dff42eb862b59e09403ad6150203fb92dd3540930a53865fcfbdb926a9",
+      "source_native_id": "keps/sig-network/3726-standard-application-protocols#excerpt-3",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F008",
+      "path": [
+        "sig-scheduling",
+        "902-non-preempting-priorityclass"
+      ],
+      "content_sha256": "24b2d8b668d01505e87ebd7ce3cee7149124e46e4aa146dba3d9a93c39d95820",
+      "source_native_id": "keps/sig-scheduling/902-non-preempting-priorityclass#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F009",
+      "path": [
+        "sig-storage",
+        "1845-prioritization-on-volume-capacity"
+      ],
+      "content_sha256": "26de40018aaed30b9a0e950820ccfcc1e142ecb35a66d1970de134eb1f4cf76d",
+      "source_native_id": "keps/sig-storage/1845-prioritization-on-volume-capacity#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F010",
+      "path": [
+        "sig-network",
+        "4974-deprecate-endpoints"
+      ],
+      "content_sha256": "9c02d22f4b651878644ff3d4227bbb335a0cd4855aa0e305dcc1584c03a88969",
+      "source_native_id": "keps/sig-network/4974-deprecate-endpoints#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F011",
+      "path": [
+        "sig-cli",
+        "2257-kui"
+      ],
+      "content_sha256": "cb575bf6237239e76e82e9a76b86c30bb8c8aea32ad5d49182656ac0b867a719",
+      "source_native_id": "keps/sig-cli/2257-kui#excerpt-1",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F012",
+      "path": [
+        "sig-storage",
+        "2268-non-graceful-shutdown"
+      ],
+      "content_sha256": "225a59540a61eb5be91d31ebc246d672c6674b0ce7cb57b14547880d5a903866",
+      "source_native_id": "keps/sig-storage/2268-non-graceful-shutdown#excerpt-2",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F013",
+      "path": [
+        "sig-storage",
+        "5541-pvc-last-used-time-status-field"
+      ],
+      "content_sha256": "320dbb318a29fc7972a32cf67e3ebde1bc122461377e757cb03c40f92c4bf2fe",
+      "source_native_id": "keps/sig-storage/5541-pvc-last-used-time-status-field#excerpt-2",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F014",
+      "path": [
+        "sig-storage",
+        "2268-non-graceful-shutdown"
+      ],
+      "content_sha256": "29cb39776908943492ce19d069158d42e2acfb80722c8c4176997e369d07ef38",
+      "source_native_id": "keps/sig-storage/2268-non-graceful-shutdown#excerpt-1",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F015",
+      "path": [
+        "sig-scheduling",
+        "5501-reflect-preenqueue-rejections-in-pod-status"
+      ],
+      "content_sha256": "f517ff53afbe3f7ed9487c8de5378ff79d485f25b55c40962ab605171db5438e",
+      "source_native_id": "keps/sig-scheduling/5501-reflect-preenqueue-rejections-in-pod-status#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F016",
+      "path": [
+        "sig-cli",
+        "4292-kubectl-debug-custom-profile"
+      ],
+      "content_sha256": "9bcb401bb35a7d0b1529e9c36a48e6f007775b443a19dd806f3323d031e536b6",
+      "source_native_id": "keps/sig-cli/4292-kubectl-debug-custom-profile#excerpt-3",
+      "source_heading": "design details"
+    },
+    {
+      "id": "F017",
+      "path": [
+        "sig-scheduling",
+        "3280-guarantee-pdb-when-preemption-happens"
+      ],
+      "content_sha256": "72de538b016bf2927ee9dc1c47490c7acfa6f47741006959e2adb8697c67dc5c",
+      "source_native_id": "keps/sig-scheduling/3280-guarantee-pdb-when-preemption-happens#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F018",
+      "path": [
+        "sig-storage",
+        "5541-pvc-last-used-time-status-field"
+      ],
+      "content_sha256": "8035296423f7327fc987f5641f9abeb1ab8d19a810af2788d788fe08bc3f4238",
+      "source_native_id": "keps/sig-storage/5541-pvc-last-used-time-status-field#excerpt-3",
+      "source_heading": "design details"
+    },
+    {
+      "id": "F019",
+      "path": [
+        "sig-network",
+        "2450-Remove-knowledge-of-pod-cluster-CIDR-from-iptables-rules"
+      ],
+      "content_sha256": "963cdde78d1cdea3e6e0674aed789354eddb59db590abf865262dd8e70435de9",
+      "source_native_id": "keps/sig-network/2450-Remove-knowledge-of-pod-cluster-CIDR-from-iptables-rules#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F020",
+      "path": [
+        "sig-storage",
+        "1845-prioritization-on-volume-capacity"
+      ],
+      "content_sha256": "dff8eafdc3d83692647bd104461a8bf1c1aa9f5d38d3b2d95196b8efbc59844a",
+      "source_native_id": "keps/sig-storage/1845-prioritization-on-volume-capacity#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F021",
+      "path": [
+        "sig-storage",
+        "1845-prioritization-on-volume-capacity"
+      ],
+      "content_sha256": "bf86d755e477237438bf912c1c6d0ef33ed3efecc9155bfd1735107855e71ce4",
+      "source_native_id": "keps/sig-storage/1845-prioritization-on-volume-capacity#excerpt-3",
+      "source_heading": "design details"
+    },
+    {
+      "id": "F022",
+      "path": [
+        "sig-storage",
+        "2268-non-graceful-shutdown"
+      ],
+      "content_sha256": "1df606aef706f8004dd8cd4d4ade1edfbdc7da50ce1aae3318a41a6b227d21be",
+      "source_native_id": "keps/sig-storage/2268-non-graceful-shutdown#excerpt-3",
+      "source_heading": "non-goals"
+    },
+    {
+      "id": "F023",
+      "path": [
+        "sig-network",
+        "3726-standard-application-protocols"
+      ],
+      "content_sha256": "0452232530b832d538ebd94b10d882a98b66457235debc3b989564c6295fd38c",
+      "source_native_id": "keps/sig-network/3726-standard-application-protocols#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F024",
+      "path": [
+        "sig-cli",
+        "2257-kui"
+      ],
+      "content_sha256": "221c492b58f5a1374fd23e442cb6e1bb4f2653e8cf56fec0a81b3790883c84b9",
+      "source_native_id": "keps/sig-cli/2257-kui#excerpt-3",
+      "source_heading": "non-goals"
+    },
+    {
+      "id": "F025",
+      "path": [
+        "sig-network",
+        "3726-standard-application-protocols"
+      ],
+      "content_sha256": "ffa30007f4bc2a71bd927021743fc170a9f6c6306dd62546e75d5f666fe3d1f9",
+      "source_native_id": "keps/sig-network/3726-standard-application-protocols#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F026",
+      "path": [
+        "sig-scheduling",
+        "902-non-preempting-priorityclass"
+      ],
+      "content_sha256": "322450bd50131e4d00b9f74a0c73e5562411cf117b4ddd30003872848b7323b0",
+      "source_native_id": "keps/sig-scheduling/902-non-preempting-priorityclass#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F027",
+      "path": [
+        "sig-scheduling",
+        "5501-reflect-preenqueue-rejections-in-pod-status"
+      ],
+      "content_sha256": "644a96e7c4bc9eb96d0f151c91eba655fd962fc7ea81aafed1311d46b3562ee0",
+      "source_native_id": "keps/sig-scheduling/5501-reflect-preenqueue-rejections-in-pod-status#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F028",
+      "path": [
+        "sig-cli",
+        "5295-kyaml"
+      ],
+      "content_sha256": "0ba6c5596f6805694cfec7eb20a9a1a76d451e7f0060cc886b45b4354cbf32d2",
+      "source_native_id": "keps/sig-cli/5295-kyaml#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F029",
+      "path": [
+        "sig-network",
+        "4974-deprecate-endpoints"
+      ],
+      "content_sha256": "b2b4f7486d8ac37b290e727cdb048853e0c15dd571b6f7340f788b56cb2745ea",
+      "source_native_id": "keps/sig-network/4974-deprecate-endpoints#excerpt-2",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F030",
+      "path": [
+        "sig-scheduling",
+        "3280-guarantee-pdb-when-preemption-happens"
+      ],
+      "content_sha256": "3c45b07de82d9b7f5825217e684a5674538b52458a3399ba231610217c52a092",
+      "source_native_id": "keps/sig-scheduling/3280-guarantee-pdb-when-preemption-happens#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F031",
+      "path": [
+        "sig-network",
+        "4974-deprecate-endpoints"
+      ],
+      "content_sha256": "d26c87e6368c7df397b5a78dadec79161a26485cba897b033acadbf3f0f0aad7",
+      "source_native_id": "keps/sig-network/4974-deprecate-endpoints#excerpt-3",
+      "source_heading": "non-goals"
+    },
+    {
+      "id": "F032",
+      "path": [
+        "sig-scheduling",
+        "5501-reflect-preenqueue-rejections-in-pod-status"
+      ],
+      "content_sha256": "05d494c1759cd6376ca487366e4b483a96331d4c9b44239ea8d9f38ed60fdf7d",
+      "source_native_id": "keps/sig-scheduling/5501-reflect-preenqueue-rejections-in-pod-status#excerpt-3",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F033",
+      "path": [
+        "sig-cli",
+        "5295-kyaml"
+      ],
+      "content_sha256": "8da410de8840174ec2248d583e62b050a074697cc09f841c8ea08ae3edeff2df",
+      "source_native_id": "keps/sig-cli/5295-kyaml#excerpt-3",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F034",
+      "path": [
+        "sig-scheduling",
+        "3280-guarantee-pdb-when-preemption-happens"
+      ],
+      "content_sha256": "faa36cb3bbc38f123e80b56d73e0867b265a054b581db442718b380d4f3d09a7",
+      "source_native_id": "keps/sig-scheduling/3280-guarantee-pdb-when-preemption-happens#excerpt-3",
+      "source_heading": "design details"
+    },
+    {
+      "id": "F035",
+      "path": [
+        "sig-cli",
+        "4292-kubectl-debug-custom-profile"
+      ],
+      "content_sha256": "f674e2bf6daad9188aa5f812709a707728fef09672e28408a817b6903b026711",
+      "source_native_id": "keps/sig-cli/4292-kubectl-debug-custom-profile#excerpt-2",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F036",
+      "path": [
+        "sig-storage",
+        "5541-pvc-last-used-time-status-field"
+      ],
+      "content_sha256": "93d8f3f31edd8ac230618811a9b45c0732830d000ebeaa0cc5d9c9204821724f",
+      "source_native_id": "keps/sig-storage/5541-pvc-last-used-time-status-field#excerpt-1",
+      "source_heading": "motivation"
+    }
+  ],
+  "reference_scope": "Source-derived group/proposal hierarchy for a development-only difficulty and cost pilot."
+}

@@ -1,0 +1,368 @@
+{
+  "assignments": [
+    {
+      "id": "F001",
+      "path": [
+        "China Authentication",
+        "Support China AAD"
+      ]
+    },
+    {
+      "id": "F002",
+      "path": [
+        "Namespace Tests",
+        "Namespace Enabled Account"
+      ]
+    },
+    {
+      "id": "F003",
+      "path": [
+        "China Authentication",
+        "Support China AAD"
+      ]
+    },
+    {
+      "id": "F004",
+      "path": [
+        "Debug Logging",
+        "Verbose TRACE Logging"
+      ]
+    },
+    {
+      "id": "F005",
+      "path": [
+        "Branch Backports",
+        "Backport to Branch-2"
+      ]
+    },
+    {
+      "id": "F006",
+      "path": [
+        "Branch Backports",
+        "Backport to Branch-2"
+      ]
+    },
+    {
+      "id": "F007",
+      "path": [
+        "Unbuffer Support",
+        "AbfsInputStream Unbuffer"
+      ]
+    },
+    {
+      "id": "F008",
+      "path": [
+        "Branch Backports",
+        "Backport to Branch-2"
+      ]
+    },
+    {
+      "id": "F009",
+      "path": [
+        "Unbuffer Support",
+        "AbfsInputStream Unbuffer"
+      ]
+    },
+    {
+      "id": "F010",
+      "path": [
+        "Client Auth Tests",
+        "AbfsClient Authentication"
+      ]
+    },
+    {
+      "id": "F011",
+      "path": [
+        "Branch Backports",
+        "Backport to Branch-2"
+      ]
+    },
+    {
+      "id": "F012",
+      "path": [
+        "Read Modes",
+        "Seek Mode Optimization"
+      ]
+    },
+    {
+      "id": "F013",
+      "path": [
+        "Contract Tests",
+        "Contract Test Robustness"
+      ]
+    },
+    {
+      "id": "F014",
+      "path": [
+        "Retry Policy",
+        "Configurable RetryCount"
+      ]
+    },
+    {
+      "id": "F015",
+      "path": [
+        "Read Modes",
+        "Seek Mode Optimization"
+      ]
+    },
+    {
+      "id": "F016",
+      "path": [
+        "Rename Debug",
+        "Rename Idempotency"
+      ]
+    },
+    {
+      "id": "F017",
+      "path": [
+        "Read Modes",
+        "Seek Mode Optimization"
+      ]
+    },
+    {
+      "id": "F018",
+      "path": [
+        "Debug Logging",
+        "Verbose TRACE Logging"
+      ]
+    },
+    {
+      "id": "F019",
+      "path": [
+        "Debug Logging",
+        "Verbose TRACE Logging"
+      ]
+    },
+    {
+      "id": "F020",
+      "path": [
+        "Debug Logging",
+        "Verbose TRACE Logging"
+      ]
+    },
+    {
+      "id": "F021",
+      "path": [
+        "Namespace Tests",
+        "Namespace Enabled Account"
+      ]
+    },
+    {
+      "id": "F022",
+      "path": [
+        "Dependencies",
+        "Jackson Version Removal"
+      ]
+    },
+    {
+      "id": "F023",
+      "path": [
+        "HTTP Metrics",
+        "HTTP Operation Metrics"
+      ]
+    },
+    {
+      "id": "F024",
+      "path": [
+        "Debug Logging",
+        "Verbose TRACE Logging"
+      ]
+    },
+    {
+      "id": "F025",
+      "path": [
+        "Namespace Tests",
+        "Namespace Enabled Account"
+      ]
+    },
+    {
+      "id": "F026",
+      "path": [
+        "Idempotency Tests",
+        "Idempotency Fixes"
+      ]
+    },
+    {
+      "id": "F027",
+      "path": [
+        "Read Modes",
+        "Seek Mode Optimization"
+      ]
+    },
+    {
+      "id": "F028",
+      "path": [
+        "Read Modes",
+        "Random Read Performance"
+      ]
+    },
+    {
+      "id": "F029",
+      "path": [
+        "Unbuffer Support",
+        "AbfsInputStream Unbuffer"
+      ]
+    },
+    {
+      "id": "F030",
+      "path": [
+        "Unbuffer Support",
+        "AbfsInputStream Unbuffer"
+      ]
+    },
+    {
+      "id": "F031",
+      "path": [
+        "Client Auth Tests",
+        "AbfsClient Authentication"
+      ]
+    },
+    {
+      "id": "F032",
+      "path": [
+        "Idempotency Tests",
+        "Idempotency Fixes"
+      ]
+    },
+    {
+      "id": "F033",
+      "path": [
+        "Client Auth Tests",
+        "AbfsClient Authentication"
+      ]
+    },
+    {
+      "id": "F034",
+      "path": [
+        "Unbuffer Support",
+        "AbfsInputStream Unbuffer"
+      ]
+    },
+    {
+      "id": "F035",
+      "path": [
+        "Unbuffer Support",
+        "AbfsInputStream Unbuffer"
+      ]
+    },
+    {
+      "id": "F036",
+      "path": [
+        "Retry Policy",
+        "Policy Refactoring"
+      ]
+    },
+    {
+      "id": "F037",
+      "path": [
+        "Contract Tests",
+        "Contract Test Robustness"
+      ]
+    },
+    {
+      "id": "F038",
+      "path": [
+        "Namespace Tests",
+        "Namespace Enabled Account"
+      ]
+    },
+    {
+      "id": "F039",
+      "path": [
+        "Namespace Tests",
+        "Namespace Enabled Account"
+      ]
+    },
+    {
+      "id": "F040",
+      "path": [
+        "China Authentication",
+        "Support China AAD"
+      ]
+    },
+    {
+      "id": "F041",
+      "path": [
+        "Release Management",
+        "Version Updates"
+      ]
+    },
+    {
+      "id": "F042",
+      "path": [
+        "HTTP Metrics",
+        "HTTP Operation Metrics"
+      ]
+    },
+    {
+      "id": "F043",
+      "path": [
+        "Release Management",
+        "Version Updates"
+      ]
+    },
+    {
+      "id": "F044",
+      "path": [
+        "Namespace Tests",
+        "Namespace Enabled Account"
+      ]
+    },
+    {
+      "id": "F045",
+      "path": [
+        "Namespace Tests",
+        "Namespace Enabled Account"
+      ]
+    },
+    {
+      "id": "F046",
+      "path": [
+        "Rename Debug",
+        "Rename Logging"
+      ]
+    },
+    {
+      "id": "F047",
+      "path": [
+        "China Authentication",
+        "Support China AAD"
+      ]
+    },
+    {
+      "id": "F048",
+      "path": [
+        "HTTP Metrics",
+        "HTTP Operation Metrics"
+      ]
+    },
+    {
+      "id": "F049",
+      "path": [
+        "Unbuffer Support",
+        "AbfsInputStream Unbuffer"
+      ]
+    },
+    {
+      "id": "F050",
+      "path": [
+        "Namespace Tests",
+        "Namespace Enabled Account"
+      ]
+    },
+    {
+      "id": "F051",
+      "path": [
+        "Debug Logging",
+        "Verbose TRACE Logging"
+      ]
+    },
+    {
+      "id": "F052",
+      "path": [
+        "HTTP Metrics",
+        "HTTP Operation Metrics"
+      ]
+    }
+  ]
+}

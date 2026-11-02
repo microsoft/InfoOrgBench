@@ -1,0 +1,291 @@
+{
+  "assignments": [
+    {
+      "id": "F001",
+      "path": [
+        "ABFS branch-2 backports",
+        "Configurable retry count"
+      ]
+    },
+    {
+      "id": "F002",
+      "path": [
+        "ABFS branch-2 backports",
+        "Filesystem existence"
+      ]
+    },
+    {
+      "id": "F003",
+      "path": [
+        "ABFS improvements",
+        "Parallel contract test paths"
+      ]
+    },
+    {
+      "id": "F004",
+      "path": [
+        "ABFS branch-2 backports",
+        "Filesystem existence"
+      ]
+    },
+    {
+      "id": "F005",
+      "path": [
+        "ABFS improvements",
+        "Delegation token test isolation"
+      ]
+    },
+    {
+      "id": "F006",
+      "path": [
+        "ABFS improvements",
+        "Input stream unbuffer"
+      ]
+    },
+    {
+      "id": "F007",
+      "path": [
+        "ABFS improvements",
+        "Delegation token test isolation"
+      ]
+    },
+    {
+      "id": "F008",
+      "path": [
+        "ABFS improvements",
+        "HTTP send and receive timings"
+      ]
+    },
+    {
+      "id": "F009",
+      "path": [
+        "ABFS improvements",
+        "Input stream unbuffer"
+      ]
+    },
+    {
+      "id": "F010",
+      "path": [
+        "ABFS improvements",
+        "Delegation token test isolation"
+      ]
+    },
+    {
+      "id": "F011",
+      "path": [
+        "ABFS improvements",
+        "Delegation token test isolation"
+      ]
+    },
+    {
+      "id": "F012",
+      "path": [
+        "Object store support",
+        "Shell trash handling"
+      ]
+    },
+    {
+      "id": "F013",
+      "path": [
+        "ABFS improvements",
+        "Input stream unbuffer"
+      ]
+    },
+    {
+      "id": "F014",
+      "path": [
+        "ABFS improvements",
+        "Parallel contract test paths"
+      ]
+    },
+    {
+      "id": "F015",
+      "path": [
+        "ABFS improvements",
+        "SharedKey namespace test"
+      ]
+    },
+    {
+      "id": "F016",
+      "path": [
+        "ABFS improvements",
+        "Input stream unbuffer"
+      ]
+    },
+    {
+      "id": "F017",
+      "path": [
+        "ABFS improvements",
+        "Delegation token test isolation"
+      ]
+    },
+    {
+      "id": "F018",
+      "path": [
+        "ABFS improvements",
+        "Analytical metrics"
+      ]
+    },
+    {
+      "id": "F019",
+      "path": [
+        "ABFS improvements",
+        "Delegation token test isolation"
+      ]
+    },
+    {
+      "id": "F020",
+      "path": [
+        "ABFS branch-2 backports",
+        "Configurable retry count"
+      ]
+    },
+    {
+      "id": "F021",
+      "path": [
+        "ABFS improvements",
+        "Input stream unbuffer"
+      ]
+    },
+    {
+      "id": "F022",
+      "path": [
+        "Object store support",
+        "Remove HDFS client dependency"
+      ]
+    },
+    {
+      "id": "F023",
+      "path": [
+        "ABFS improvements",
+        "Input stream unbuffer"
+      ]
+    },
+    {
+      "id": "F024",
+      "path": [
+        "Object store support",
+        "Shell trash handling"
+      ]
+    },
+    {
+      "id": "F025",
+      "path": [
+        "Object store support",
+        "Remove HDFS client dependency"
+      ]
+    },
+    {
+      "id": "F026",
+      "path": [
+        "ABFS improvements",
+        "Static connection timeout retry"
+      ]
+    },
+    {
+      "id": "F027",
+      "path": [
+        "ABFS improvements",
+        "Delegation token test isolation"
+      ]
+    },
+    {
+      "id": "F028",
+      "path": [
+        "ABFS branch-2 backports",
+        "Configurable retry count"
+      ]
+    },
+    {
+      "id": "F029",
+      "path": [
+        "ABFS branch-2 backports",
+        "Filesystem existence"
+      ]
+    },
+    {
+      "id": "F030",
+      "path": [
+        "ABFS improvements",
+        "Static connection timeout retry"
+      ]
+    },
+    {
+      "id": "F031",
+      "path": [
+        "ABFS branch-2 backports",
+        "Filesystem existence"
+      ]
+    },
+    {
+      "id": "F032",
+      "path": [
+        "ABFS improvements",
+        "HTTP send and receive timings"
+      ]
+    },
+    {
+      "id": "F033",
+      "path": [
+        "ABFS improvements",
+        "Static connection timeout retry"
+      ]
+    },
+    {
+      "id": "F034",
+      "path": [
+        "Object store support",
+        "Remove HDFS client dependency"
+      ]
+    },
+    {
+      "id": "F035",
+      "path": [
+        "ABFS improvements",
+        "HTTP send and receive timings"
+      ]
+    },
+    {
+      "id": "F036",
+      "path": [
+        "ABFS improvements",
+        "Static connection timeout retry"
+      ]
+    },
+    {
+      "id": "F037",
+      "path": [
+        "Object store support",
+        "Shell trash handling"
+      ]
+    },
+    {
+      "id": "F038",
+      "path": [
+        "ABFS improvements",
+        "Static connection timeout retry"
+      ]
+    },
+    {
+      "id": "F039",
+      "path": [
+        "Object store support",
+        "Remove HDFS client dependency"
+      ]
+    },
+    {
+      "id": "F040",
+      "path": [
+        "ABFS improvements",
+        "HTTP send and receive timings"
+      ]
+    },
+    {
+      "id": "F041",
+      "path": [
+        "ABFS improvements",
+        "Parallel contract test paths"
+      ]
+    }
+  ]
+}

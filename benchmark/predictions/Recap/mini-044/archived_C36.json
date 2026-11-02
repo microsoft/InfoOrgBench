@@ -1,0 +1,347 @@
+{
+  "assignments": [
+    {
+      "id": "F001",
+      "path": [
+        "Office_Planning",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F002",
+      "path": [
+        "Remote_Evaluation",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F003",
+      "path": [
+        "Remote_Concept",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F004",
+      "path": [
+        "Office_Planning",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F005",
+      "path": [
+        "Remote_Concept",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F006",
+      "path": [
+        "Office_Planning",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F007",
+      "path": [
+        "Office_Planning",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F008",
+      "path": [
+        "Office_Planning",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F009",
+      "path": [
+        "Office_Planning",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F010",
+      "path": [
+        "Remote_Concept",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F011",
+      "path": [
+        "Office_Planning",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F012",
+      "path": [
+        "Remote_Evaluation",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F013",
+      "path": [
+        "Remote_Concept",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F014",
+      "path": [
+        "Office_Planning",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F015",
+      "path": [
+        "Remote_Concept",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F016",
+      "path": [
+        "Office_Planning",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F017",
+      "path": [
+        "Remote_Concept",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F018",
+      "path": [
+        "Remote_Evaluation",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F019",
+      "path": [
+        "Office_Planning",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F020",
+      "path": [
+        "Office_Planning",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F021",
+      "path": [
+        "Office_Planning",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F022",
+      "path": [
+        "Office_Planning",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F023",
+      "path": [
+        "Office_Planning",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F024",
+      "path": [
+        "Remote_Concept",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F025",
+      "path": [
+        "Office_Planning",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F026",
+      "path": [
+        "Remote_Concept",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F027",
+      "path": [
+        "Remote_Concept",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F028",
+      "path": [
+        "Remote_Concept",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F029",
+      "path": [
+        "Office_Planning",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F030",
+      "path": [
+        "Remote_Concept",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F031",
+      "path": [
+        "Remote_Evaluation",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F032",
+      "path": [
+        "Office_Planning",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F033",
+      "path": [
+        "Office_Planning",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F034",
+      "path": [
+        "Office_Planning",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F035",
+      "path": [
+        "Office_Planning",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F036",
+      "path": [
+        "Remote_Concept",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F037",
+      "path": [
+        "Office_Planning",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F038",
+      "path": [
+        "Remote_Evaluation",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F039",
+      "path": [
+        "Remote_Evaluation",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F040",
+      "path": [
+        "Remote_Evaluation",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F041",
+      "path": [
+        "Remote_Concept",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F042",
+      "path": [
+        "Office_Planning",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F043",
+      "path": [
+        "Remote_Concept",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F044",
+      "path": [
+        "Office_Planning",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F045",
+      "path": [
+        "Office_Planning",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F046",
+      "path": [
+        "Remote_Concept",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F047",
+      "path": [
+        "Office_Planning",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F048",
+      "path": [
+        "Remote_Concept",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F049",
+      "path": [
+        "Remote_Concept",
+        "Overview"
+      ]
+    }
+  ]
+}

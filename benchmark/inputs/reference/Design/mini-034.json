@@ -1,0 +1,366 @@
+{
+  "task_id": "mini-034",
+  "records": [
+    {
+      "id": "F001",
+      "path": [
+        "sig-node",
+        "693-topology-manager"
+      ],
+      "content_sha256": "777c30fa0e6b5ea01720b39962f8ab70c5a3f605d10fec7bd18aa285d7c5bf1a",
+      "source_native_id": "keps/sig-node/693-topology-manager#excerpt-3",
+      "source_heading": "non-goals"
+    },
+    {
+      "id": "F002",
+      "path": [
+        "sig-storage",
+        "962-execution-hook"
+      ],
+      "content_sha256": "c64f1193a9972d4e48ea9593900659d2b2012880aa776b7d25ef984d26b09e78",
+      "source_native_id": "keps/sig-storage/962-execution-hook#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F003",
+      "path": [
+        "sig-node",
+        "4569-cgroup-v1-maintenance-mode"
+      ],
+      "content_sha256": "3a0f6fb8745a1c788d3312db7e01562fad53006645aa4792f63fb50105b06bbe",
+      "source_native_id": "keps/sig-node/4569-cgroup-v1-maintenance-mode#excerpt-3",
+      "source_heading": "risks and mitigations"
+    },
+    {
+      "id": "F004",
+      "path": [
+        "sig-api-machinery",
+        "1027-api-unions"
+      ],
+      "content_sha256": "af203dc6b6aec27b1f8c505e5b43b8786f4ae5d1c9e754d97a0b5bbff9bd7f09",
+      "source_native_id": "keps/sig-api-machinery/1027-api-unions#excerpt-3",
+      "source_heading": "risks and mitigations"
+    },
+    {
+      "id": "F005",
+      "path": [
+        "sig-storage",
+        "596-csi-inline-volumes"
+      ],
+      "content_sha256": "6b06770b7706befc41f1a8bf63c636116b556e2ed7d147d7e2a55c86267cdda4",
+      "source_native_id": "keps/sig-storage/596-csi-inline-volumes#excerpt-2",
+      "source_heading": "user stories"
+    },
+    {
+      "id": "F006",
+      "path": [
+        "sig-storage",
+        "962-execution-hook"
+      ],
+      "content_sha256": "db6855acdd9bbea27ecbae4aedfdfe6dc6b734bc4afb0d0e13dc6f28588e0d55",
+      "source_native_id": "keps/sig-storage/962-execution-hook#excerpt-3",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F007",
+      "path": [
+        "sig-api-machinery",
+        "1027-api-unions"
+      ],
+      "content_sha256": "c28f7aa5f1e72c63bc792167ab734339af4eb88360908528009543f48b76f31d",
+      "source_native_id": "keps/sig-api-machinery/1027-api-unions#excerpt-2",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F008",
+      "path": [
+        "sig-auth",
+        "3221-structured-authorization-configuration"
+      ],
+      "content_sha256": "a95d03b7b3e291dc64addf8e974f62a16a936f17db8f39191112a05085ba75dc",
+      "source_native_id": "keps/sig-auth/3221-structured-authorization-configuration#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F009",
+      "path": [
+        "sig-auth",
+        "3299-kms-v2-improvements"
+      ],
+      "content_sha256": "fd265c0eb30df41508cba81ae03c7d8e6166109e855b95da364dcacb5e655980",
+      "source_native_id": "keps/sig-auth/3299-kms-v2-improvements#excerpt-2",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F010",
+      "path": [
+        "sig-storage",
+        "2264-csi-release-ci-process"
+      ],
+      "content_sha256": "83b9e934aec17ad6129f9d6ae858f6a573fb74eb07d8d91b7fdd4cfe0ff8de5c",
+      "source_native_id": "keps/sig-storage/2264-csi-release-ci-process#excerpt-2",
+      "source_heading": "non-goals"
+    },
+    {
+      "id": "F011",
+      "path": [
+        "sig-api-machinery",
+        "2558-publish-version-openapi"
+      ],
+      "content_sha256": "82b7fb566786f35b7f6ac96da452cc7dcea5274dc8b97fb9094799d6f8ad4764",
+      "source_native_id": "keps/sig-api-machinery/2558-publish-version-openapi#excerpt-2",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F012",
+      "path": [
+        "sig-auth",
+        "3299-kms-v2-improvements"
+      ],
+      "content_sha256": "361a8ccfb97c3fea52bf274589d984c4ffcd23344c38bcfa86b670621d3bf23e",
+      "source_native_id": "keps/sig-auth/3299-kms-v2-improvements#excerpt-3",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F013",
+      "path": [
+        "sig-node",
+        "693-topology-manager"
+      ],
+      "content_sha256": "8d0f732ca45b2d3f16a437cad798f74cfba72370edb38d0b5aed1572e713e535",
+      "source_native_id": "keps/sig-node/693-topology-manager#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F014",
+      "path": [
+        "sig-api-machinery",
+        "2340-Consistent-reads-from-cache"
+      ],
+      "content_sha256": "375802cd13d204476b9bde7ccef81a9c506dad99050900c613bdf50508ad8f89",
+      "source_native_id": "keps/sig-api-machinery/2340-Consistent-reads-from-cache#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F015",
+      "path": [
+        "sig-storage",
+        "962-execution-hook"
+      ],
+      "content_sha256": "e3992b0537effcef220b3bc7e55172de4a98f9c45f5b642e9d83ebbee138e751",
+      "source_native_id": "keps/sig-storage/962-execution-hook#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F016",
+      "path": [
+        "sig-node",
+        "3570-cpumanager"
+      ],
+      "content_sha256": "625b62180b8dc1292681a54c1400b9f4c6c682950081bbb9454b9a1814452ab2",
+      "source_native_id": "keps/sig-node/3570-cpumanager#excerpt-3",
+      "source_heading": "risks and mitigations"
+    },
+    {
+      "id": "F017",
+      "path": [
+        "sig-node",
+        "3570-cpumanager"
+      ],
+      "content_sha256": "449150339d385cbda76e25a3f799a9afec5904b4f7a14390223f112fc5fb3046",
+      "source_native_id": "keps/sig-node/3570-cpumanager#excerpt-2",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F018",
+      "path": [
+        "sig-storage",
+        "2264-csi-release-ci-process"
+      ],
+      "content_sha256": "3cd567bd514a08750cde32224836076b92eeadd5ec4bbeafa52a4cc7c36ab15a",
+      "source_native_id": "keps/sig-storage/2264-csi-release-ci-process#excerpt-1",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F019",
+      "path": [
+        "sig-storage",
+        "596-csi-inline-volumes"
+      ],
+      "content_sha256": "12eaf6ffa44b4c8d08071b7b861c2d44ede7a3cc1f82da42daa4aa06dec88472",
+      "source_native_id": "keps/sig-storage/596-csi-inline-volumes#excerpt-3",
+      "source_heading": "alternatives"
+    },
+    {
+      "id": "F020",
+      "path": [
+        "sig-auth",
+        "3299-kms-v2-improvements"
+      ],
+      "content_sha256": "8b7ad76f51129fc174268faa1b806f40ba22dcdea62059153cd1e85e6d3abaab",
+      "source_native_id": "keps/sig-auth/3299-kms-v2-improvements#excerpt-1",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F021",
+      "path": [
+        "sig-api-machinery",
+        "2558-publish-version-openapi"
+      ],
+      "content_sha256": "0732c0ebecb259aa23e3c14e6ed35c221e08bd99c2b05578c6bd65e3ecc9aa66",
+      "source_native_id": "keps/sig-api-machinery/2558-publish-version-openapi#excerpt-1",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F022",
+      "path": [
+        "sig-node",
+        "3570-cpumanager"
+      ],
+      "content_sha256": "795fbccc6d0550edb56e96f072f95f16906a3052ab0936e98a4c90912079ec2d",
+      "source_native_id": "keps/sig-node/3570-cpumanager#excerpt-1",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F023",
+      "path": [
+        "sig-auth",
+        "3221-structured-authorization-configuration"
+      ],
+      "content_sha256": "1198f880b5d4d62bfeed414d9f51b9f202977cdcf1e2bd479c155c820790d4f0",
+      "source_native_id": "keps/sig-auth/3221-structured-authorization-configuration#excerpt-3",
+      "source_heading": "non-goals"
+    },
+    {
+      "id": "F024",
+      "path": [
+        "sig-auth",
+        "3257-cluster-trust-bundles"
+      ],
+      "content_sha256": "72d55214416d78944015e68f4402e7bf524926f6bfbb3419f6fe97e3d93cdca1",
+      "source_native_id": "keps/sig-auth/3257-cluster-trust-bundles#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F025",
+      "path": [
+        "sig-storage",
+        "596-csi-inline-volumes"
+      ],
+      "content_sha256": "1d5be7f0023533fb7ec8efd55c3a927839ce012105a0d9974f44bd5c329ad6fa",
+      "source_native_id": "keps/sig-storage/596-csi-inline-volumes#excerpt-1",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F026",
+      "path": [
+        "sig-api-machinery",
+        "1027-api-unions"
+      ],
+      "content_sha256": "adf11fe1e9427ee832205361de21a8c34d8c5ef81e8230528d695c89831c4aaa",
+      "source_native_id": "keps/sig-api-machinery/1027-api-unions#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F027",
+      "path": [
+        "sig-api-machinery",
+        "2558-publish-version-openapi"
+      ],
+      "content_sha256": "9c9f974416de8fe90a6e32ad3d37b69565961714dc42eb6e460cbaf3eecd58ec",
+      "source_native_id": "keps/sig-api-machinery/2558-publish-version-openapi#excerpt-3",
+      "source_heading": "non-goals"
+    },
+    {
+      "id": "F028",
+      "path": [
+        "sig-auth",
+        "3221-structured-authorization-configuration"
+      ],
+      "content_sha256": "45e8978bf5f1ff4ca60cfadfade72563d9a8e49cf126fed8c77e122a5105897a",
+      "source_native_id": "keps/sig-auth/3221-structured-authorization-configuration#excerpt-2",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F029",
+      "path": [
+        "sig-node",
+        "693-topology-manager"
+      ],
+      "content_sha256": "6a7207d9cd5a4d151359a418a8b8b5821d2fc7559556abed216cf4821bd090a1",
+      "source_native_id": "keps/sig-node/693-topology-manager#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F030",
+      "path": [
+        "sig-api-machinery",
+        "2340-Consistent-reads-from-cache"
+      ],
+      "content_sha256": "b30f9d914c20f6f085655b2f08932f6b7f55f2e8cec3026032011790a53dfb34",
+      "source_native_id": "keps/sig-api-machinery/2340-Consistent-reads-from-cache#excerpt-3",
+      "source_heading": "alternatives"
+    },
+    {
+      "id": "F031",
+      "path": [
+        "sig-storage",
+        "2264-csi-release-ci-process"
+      ],
+      "content_sha256": "7c3d64ad1068f52b82038781fd56a7fab621189c760c63c260b9c3113d2794ce",
+      "source_native_id": "keps/sig-storage/2264-csi-release-ci-process#excerpt-3",
+      "source_heading": "risks and mitigations"
+    },
+    {
+      "id": "F032",
+      "path": [
+        "sig-auth",
+        "3257-cluster-trust-bundles"
+      ],
+      "content_sha256": "3f8b393304d61cabf9554efba8af8494f523de8b504fee5a67bfbe25cbda0bff",
+      "source_native_id": "keps/sig-auth/3257-cluster-trust-bundles#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F033",
+      "path": [
+        "sig-api-machinery",
+        "2340-Consistent-reads-from-cache"
+      ],
+      "content_sha256": "86f702925ee2a1e78d295d14bd87debfcb9b5a40748fbc05c8b5003229867212",
+      "source_native_id": "keps/sig-api-machinery/2340-Consistent-reads-from-cache#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F034",
+      "path": [
+        "sig-node",
+        "4569-cgroup-v1-maintenance-mode"
+      ],
+      "content_sha256": "4c7cc899df55eff7962ef605bd594e2c689d28b0c0a3324f7d7774d4132ffbf5",
+      "source_native_id": "keps/sig-node/4569-cgroup-v1-maintenance-mode#excerpt-1",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F035",
+      "path": [
+        "sig-node",
+        "4569-cgroup-v1-maintenance-mode"
+      ],
+      "content_sha256": "24d3e0da62be0d1c06a88b0f3365044f21b7e6eb79dbcdf439d8b13a32c935fe",
+      "source_native_id": "keps/sig-node/4569-cgroup-v1-maintenance-mode#excerpt-2",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F036",
+      "path": [
+        "sig-auth",
+        "3257-cluster-trust-bundles"
+      ],
+      "content_sha256": "bd78de3de48955f410e4d4d0889a7268f11bbf7b2411ec2819cd1a3ab063c886",
+      "source_native_id": "keps/sig-auth/3257-cluster-trust-bundles#excerpt-3",
+      "source_heading": "goals"
+    }
+  ],
+  "reference_scope": "Source-derived group/proposal hierarchy for a development-only difficulty and cost pilot."
+}

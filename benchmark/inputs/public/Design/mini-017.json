@@ -1,0 +1,185 @@
+{
+  "task_id": "mini-017",
+  "records": [
+    {
+      "id": "F001",
+      "format": "text",
+      "text": "Implementing kubetest2 deployers for all existing kubetest providers kubetest2 enables implementing custom deployers out-of-tree so replacing all of the deployers upstream is not a hard requirement Migrate all 1700+ e2e jobs away from the deprecated e2e test tools (e.g. scenarios, bootstrap, kubetes) This KEP only covers migrating all kubernetes/kubernetes release-blocking and merge-blocking jobs. We propose enforcing no further changes to the remaining deprecated tools to incentivize community migration and improvements to kubetest2. Other community efforts are already underway (e.g. removing the kubernetes_build scenario) Backporting changes to older release branches In general, no changes should be made to the release branches or their CI and the old jobs will age out. Decoupling from kubekins to a more minimal image The kubekins image has become a kitchen-sink over the years, used by more jobs than necessary, and containing more dependencies than required for effective kubetest2 usage Migrating kubekins away from bootstrap as a base image is only feasible once all jobs have migrated away from bootstrap, which is a non-goal of this KEP"
+    },
+    {
+      "id": "F002",
+      "format": "text",
+      "text": "Split the special environment and feature development labels: Clarify the semantic of a `[Feature:]` label. Introduce the `[FeatureGate:]` label with the stage (`[Alpha]`, `[Beta]`, etc.) addition, replace tags like `[NodeAlphaFeature]`.\n\nClean up labels that means whether special environment is needed: Eliminate the `[NodeFeature:]` label by renaming to `[Feature:]` when applicable. Document the meaning of `[NodeConformance]` label. Remove the `[NodeSpecialFeature:]` label. Introduce the `[Environment:Foo]` label to indicate the special environment that is not a standard OSS test infrastructure machines needed to run the feature."
+    },
+    {
+      "id": "F003",
+      "format": "text",
+      "text": "Kubernetes currently uses Kubetest as the interface for launching and running e2e tests. It also uses a set of scripts called “scenarios” for running common use cases such as setting up end-to-end tests or pushing CI builds. Kubetest and scenarios have both been deprecated, (2) for a while, with a recommendation to move jobs to kubetest2.\n\nThis KEP proposes a plan for migration/deprecation of CI jobs that are in the critical path of a release."
+    },
+    {
+      "id": "F004",
+      "format": "text",
+      "text": "This KEP is about moving External DNS out of the Kubernetes incubator. This section will cover the reasons why External DNS is useful and what the community would miss in case the project would be discontinued or moved under another organization. External DNS... Is the de facto solution to create DNS records for several Kubernetes resources. Is a vital component to achieve an experience close to a PaaS that many Kubernetes users try to replicate on top of Kubernetes, by allowing to automatically create DNS records for web applications."
+    },
+    {
+      "id": "F005",
+      "format": "text",
+      "text": "Our plan is to add functionality to our static analysis framework which is hosted in the main `k8s/k8s` repo, under `test/instrumentation`. Specifically, we will need to support: parsing variables multi-line strings evaluating buckets buckets which are defined via variables and consts evaluation of simple consts evaluation of simple variables\n\nWe will not attempt to parse metrics which: are constructed dynamically, i.e. through function calls which use function arguments as parameters in metric definitions, since some of those cannot be resolved until runtime. are constructed using custom prometheus collectors, for the same reasons as above.\n\nAs an aside, much of this work has already been done, but is stashed in a local repo."
+    },
+    {
+      "id": "F006",
+      "format": "text",
+      "text": "For the development (main/master) branch only, **NOT** the existing release branches: Create shadow canary jobs for each presubmit-kubernetes-blocking, release-blocking to use kubetest2 as optional, non-blocking Monitor these canary jobs till they are stable Make kubetest2 jobs non-optional, non-blocking Make kubetest2 jobs non-optional, blocking\n\nNo changes should be made to the release branches or their CI."
+    },
+    {
+      "id": "F007",
+      "format": "text",
+      "text": "Today the Kubernetes project delivers minor releases (e.g.: 1.13 or 1.14) every 3 months. The project provides bugfix support via patch releases (e.g.: 1.13.Y), with each minor release (e.g.: 1.13) having this patch release stream of support for approximately 9 months. This means a cluster operator must upgrade at least every 9 months to remain supported. Nine months is an irregular period of time relative to the planning, operations, and financial cycles of most companies."
+    },
+    {
+      "id": "F008",
+      "format": "text",
+      "text": "It is proposed to introduce a the option to configure additional presubmits inside the code repositories that are tested by prow via a file named `prow.yaml`.\n\nThis requires to change the existing `Config` struct to not expose a `Presubmits` property anymore, but instead getter functions to get all Presubmits with the ones from the `prow.yaml` added, if applicable.\n\nAdditionally, all components that need to access the `Presubmit` configuration need to be changed to use the new getters and to contain a git client which can be used to fetch the `Presubmit` config from inside the repo."
+    },
+    {
+      "id": "F009",
+      "format": "text",
+      "text": "The goals of this process are to enable: Anyone in the community (with the right permissions) to manage the distribution of Kubernetes images and binaries Fast, cost-efficient access to artifacts around the world through appropriate mirrors and distribution\n\nThis KEP will have succeeded when artifacts are all managed in the same manner and anyone in the community (with the right permissions) can manage these artifacts."
+    },
+    {
+      "id": "F010",
+      "format": "text",
+      "text": "We are introducing a new feature gate called `HostnameOverride`. When this feature gate is enabled, users can add the `hostnameOverride` field in the podSpec.\n\nThe `hostnameOverride` field has a length limitation of 64 characters and must adhere to the DNS subdomain names standard defined in RFC 1123.\n\nAdditionally, in the `generatePodSandboxConfig` method of kubelet, the pod's hostname will always be overridden with the value of `hostnameOverride`, and it will be written in the pod's `/etc/hosts`.\n\nFor Windows containers, we only set the container's hostname and do not create an `/etc/hosts` file for it (as we have previously made it clear that we do not create an `/etc/hosts` file for Windows containers).\n\nIf both `setHostnameAsFQDN` and `hostnameOverride` fields are set, or if both `hostNetwork` and `hostnameOverride` fields are set, we will reject the creation of the resource and return an error indicating that these fields are mutually exclusive with the `hostnameOverride` field.\n\nBased on the above design, after the KEP is implemented, we can achieve the following results.\n\nAs shown in the table, setting `hostnameOverride` will only change the hostname inside the pod and will not modify the DNS records in Kubernetes."
+    },
+    {
+      "id": "F011",
+      "format": "text",
+      "text": "There isn't much to say here, as the proposal is straightforward: we want to migrate the `kubernetes-monitoring/kubernetes-mixin` repository to `kubernetes-sigs/kubernetes-mixin` via a [GitHub repository transfer], and continue operations as they were before, with the same expectations. Users should be able to reference the new repository without any issues, and the mixins should continue to work as they did before, as the migration is mostly a change in ownership and location, rather than in functionality. The migration should be seamless for users, and the mixins should continue to be maintained and updated as they were before, with the same level of quality and reliability. Since GitHub's repository transfer mechanism automatically redirects all existing git operations (`clone`, `fetch`, `push`) and web links to the new location, existing references will continue to work without any additional CI automations or mirroring setups.\n\n[GitHub repository transfer]:\n\nAlso, as mentioned earlier, and most importantly, the migration should also help clarify the purpose and scope of the repository, and facilitate better collaboration and maintenance within the Kubernetes community."
+    },
+    {
+      "id": "F012",
+      "format": "text",
+      "text": "Running public image registries is very expensive and eats up a significant chunk of the project's Infrastructure budget. We built `registry.k8s.io` image registry to serve images from various origins around the world depending on the location of the user. For example, an a kops Kubernetes cluster in eu-west-1 can pull images from an AWS S3 bucket in the same region which is very fast and more importantly very cheap for the Kubernetes project.\n\nThere was a plan to redirect `k8s.gcr.io` to `registry.k8s.io` but it didn't work out so we backported the image registry defaults to 1.24, 1.23, and 1.22 so all the patch releases from December 2022 will using the new registry by default.\n\nWe are currently exceeding our budget as it will take quite a while for end users to upgrade Kubernetes to v1.25 so we want to incentivise our end users to move to the new registry as fast as possible by freezing the registry by 1.27. This would mean that all subsequent image releases will not be available on the old registry."
+    },
+    {
+      "id": "F013",
+      "format": "text",
+      "text": "The motivation for this KEP is to describe a process by which artifacts (container images, binaries) can be distributed by the community. Currently, the process by which images is both ad hoc in nature and limited to an arbitrary set of people who have the keys to the relevant repositories. Standardized access will ensure that people around the world have access to the same artifacts by the same names and that anyone in the project is capable (if given the right authority) to distribute images."
+    },
+    {
+      "id": "F014",
+      "format": "text",
+      "text": "The document started as an analysis of whether `NodeFeature` label needs to be renamed to simply `Feature` as it carries an identical semantics kubernetes/kubernetes#94289, but looking into it, scope needed to be extended into other labels currently being used, see also this discussion.\n\nDocument proposes changes into `Feature` label description, and additional labels that will make it clearer for contributors how to apply these labels."
+    },
+    {
+      "id": "F015",
+      "format": "text",
+      "text": "With the current DNS architecture, it is possible that pods with the highest DNS QPS have to reach out to a different node, if there is no local kube-dns instance. Having a local cache will help improve the latency in such scenarios. Skipping iptables DNAT and connection tracking will help reduce conntrack races and avoid UDP DNS entries filling up conntrack table. Connections from local caching agent to kube-dns can be upgraded to TCP. TCP conntrack entries will be removed on connection close in contrast with UDP entries that have to timeout (default `nf_conntrack_udp_timeout` is 30 seconds) Upgrading DNS queries from UDP to TCP would reduce tail latency attributed to dropped UDP packets and DNS timeouts usually up to 30s (3 retries x (5s timeout for A + 5s timeout for AAAA)). Since the nodelocal cache listens for UDP DNS queries, applications don't need to be changed. Metrics & visibility into dns requests at a node level. Neg caching can be re-enabled, thereby reducing number of queries to kube-dns. There are several open github issues proposing a local DNS Cache daemonset and scripts to run it: * This shows that there is interest in the wider Kubernetes community for a solution similar to the proposal here."
+    },
+    {
+      "id": "F016",
+      "format": "text",
+      "text": "Add native histogram support to the `component-base/metrics` package with: **Feature Gate**: A new `NativeHistograms` feature gate controlling whether K8s components expose metrics with native histogram format **Global Defaults**: Use sensible global defaults for native histogram configuration **Dual Exposition**: When enabled, expose both classic and native histogram formats\n\nThe control model is intentionally simple: K8s-side: Feature gate controls whether native histograms are exposed Prometheus-side: Per-job `scrape_native_histograms` (ref) controls what Prometheus ingests (Prometheus 3.x)"
+    },
+    {
+      "id": "F017",
+      "format": "text",
+      "text": "This KEP aims to migrate the `kubernetes-monitoring/kubernetes-mixin` repository under the `kubernetes-sigs` organization, to better reflect its Kubernetes-specific nature and to align with the organizational structure of Kubernetes-related projects. The mixins provided by the repository are a set of monitoring rules and dashboards that are fulfilled by CNCF graduated projects, but do not, and will not, engage any in-tree Kubernetes components directly, in any way.\n\nThis migration will help clarify the purpose and scope of the repository, and facilitate better collaboration and maintenance within the Kubernetes community."
+    },
+    {
+      "id": "F018",
+      "format": "text",
+      "text": "This KEP proposes adding support for Prometheus Native Histograms to Kubernetes component metrics. Starting with Prometheus v3.8.0, native histograms are supported as a stable feature. Native histograms use exponential bucket boundaries instead of fixed boundaries, providing significant storage efficiency (~10x reduction in time series count per histogram), improved query performance, and finer-grained visibility into distributions while maintaining full backward compatibility with existing monitoring infrastructure through a dual exposition strategy.\n\nThe implementation introduces a feature gate (`NativeHistograms`) to provide safe rollout and rollback capabilities. When enabled, Kubernetes components will expose histogram metrics in both classic and native formats simultaneously (when requesting a format that supports Native Histograms, such as PrometheusProto), ensuring existing dashboards and alerts continue to function while users can migrate to native histograms at their own pace. Rollback is handled primarily through Prometheus-side configuration (for Prometheus 3.x users) or via the K8s feature gate."
+    },
+    {
+      "id": "F019",
+      "format": "text",
+      "text": "Address end-user feedback regarding support time per release Define an annual support policy. Define any prerequisites for the policy. Set acceptance criteria for enacting the change in support policy. This should be supplemented by KEPs and PRs that address the implementation of the policy by the release team and Release Engineering (patch management). Clarify and confirm that the support period is defined based on time (e.g. 1 year) and not based on a specific number of releases (e.g. 3 or 4) given that the release cadence might change in the future."
+    },
+    {
+      "id": "F020",
+      "format": "text",
+      "text": "The metric stability framework was originally introduced with the intent of safeguarding significant metrics from being broken downstream. Metrics could be deemed `stable` or `alpha`, and only `stable` metrics would have stability guarantees.\n\nThis KEP intends to propose additional stability classes to extend on the existing metrics stability framework, such that we can achieve parity with the various stages of the feature release cycle."
+    },
+    {
+      "id": "F021",
+      "format": "text",
+      "text": "The Linux kernel limits the hostname field to 64 bytes (see sethostname(2)). If a hostname reaches this 64 byte kernel hostname limit, Kubernetes will fail to create the Pod Sandbox, causing the Pod to remain indefinitely in the `ContainerCreating` state.\n\nTo mitigate this issue, we will implement a validation during resource creation to check whether the value of hostnameOverride exceeds 64 bytes. Creation requests exceeding this limit will be denied.\n\nAfter enabling this feature, if users utilize it to create a group of Pods via Deployment or StatefulSet, multiple Pods with identical names may concentrate on a single node. This could lead to unintended consequences, though we haven't identified specific potential issues at this time."
+    },
+    {
+      "id": "F022",
+      "format": "text",
+      "text": "This feature will allow some traditional applications to join kubernetes in a more friendly way. Some older services may use hostname to determine permissions or service operations. When migrating services to k8s, the migration path will become confusing due to the hostname restrictions of the pod itself, because when we try to add a Fully Qualified Domain Name (FQDN) hostname to the pod, it will inevitably always carry the `cluster-suffix`, which will never be possible for services that expect to use DNS to match the hostname."
+    },
+    {
+      "id": "F023",
+      "format": "text",
+      "text": "Tests have various clarifiers - they may be testing the feature that is currently in development and depends on feature gate, test may require a special environment, or test may only work with specific hardware. Today a few labels are used to represent the combination of these \"dimensions\", in most cases a single label `[Feature:]` is used.\n\nThe universal nature of a single `[Feature:]` label makes it hard to apply it consistently and query tests.\n\nThere are a few specific problems we saw recently: There is no way to disable tests for a specific feature gate (example where it’s needed: It is a \"feature\" guarded by feature gate, but not marked as \"feature\". There are no tests validating that k8s works with ALL beta feature gates disabled. Creating such test would be hard with today's test labeling. Some tests are degraded in how `[Feature]` and `[NodeFeature]` labels are applied (for example: labels that we apply heavily depend on the environment tests are running on. For example, is not marked as `Feature`, even though it depends on the environment - if `test-handler` is not installed, test will not succeed. Similar thing to AppArmor tests."
+    },
+    {
+      "id": "F024",
+      "format": "text",
+      "text": "The image promotion process is described here. Please read it for full details.\n\nThis is the planned technical changes(grouped by repos): k-sigs/promo-tools merge k/k8s.io Fix clean up the contents of the `registry.k8s.io` folder. Most of the content should be in k/registry.k8s.io repository duplicate the top level folder `k8s.gcr.io` in the repo and call it `registry.k8s.io` k/test-infra blockade the k8s.gcr.io folder in k/k8s.io repository. blockade is a prow plugin that rejects PRs that modify specific folders/files. update the ProwJobs post-k8sio-image-promo and pull-k8sio-cip `thin-manifest-dir` flags to point to the new folder"
+    },
+    {
+      "id": "F025",
+      "format": "text",
+      "text": "This proposal aims to improve DNS performance by running a dns caching agent on cluster nodes as a Daemonset. In today's architecture, pods in ClusterFirst DNS mode reach out to a kube-dns serviceIP for DNS queries. This is translated to a kube-dns endpoint via iptables rules added by kube-proxy. With this new architecture, pods will reach out to the dns caching agent running on the same node, thereby avoiding iptables DNAT rules and connection tracking. The local caching agent will query kube-dns for cache misses of cluster hostnames(cluster.local suffix by default)."
+    },
+    {
+      "id": "F026",
+      "format": "text",
+      "text": "A nodeLocal dns cache runs on all cluster nodes. This is managed as an add-on, runs as a Daemonset. All pods using clusterDNS will now talk to the nodeLocal cache, which will query kube-dns in case of cache misses in cluster's configured DNS suffix and for all reverse lookups(in-addr.arpa and ip6.arpa). User-configured stubDomains will be passed on to this local agent. The node's resolv.conf will be used by this local agent for all other cache misses. One benefit of doing the non-cluster lookups on the nodes from which they are happening, rather than the kube-dns instances, is better use of per-node DNS resources in cloud. For instance, in a 10-node cluster with 3 kube-dns instances, the 3 nodes running kube-dns will end up resolving all external hostnames and can exhaust QPS quota. Spreading the queries across the 10 nodes will help alleviate this."
+    },
+    {
+      "id": "F027",
+      "format": "text",
+      "text": "Currently, all jobs for Prow are configured in a central `infra-config` repository that is in most cases distinct from the repositories whose code is being tested in presubmits. This poses severall challenges: It is not possible to see in a Pull Request that introduces a new presubmit if that presubmit will actually pass. The two workarounds for this are to either have both the job author and the reviewer use two CLIs to create a Pod from the job or to make the Job initially optional, verify it with a test Pull Request to the code repository, then make it mandatory. Both of these workarounds are cumbersome. The same issues apply when doing changes to the config of a presubmit When a project maintains multiple branches, e.G. because there are release branches, the maintainers must remember to create a copy of the presubmit in the `infra-config` repository. Otherwise it is easely possible that the presubmit becomes incompatible with one of the branches it is used in, because somone makes a change to its config and forgets to test against all branches. This is an additional step maintainers have to remember when branching off. If the `test-infra` repository is not public, outside collaborators are unable to change job configs. This may happen if an organization that uses Prow has a mixture of public and private repositories and chooses not to bear the maintenance overhead of multiple Prow instances."
+    },
+    {
+      "id": "F028",
+      "format": "text",
+      "text": "The goal of this KEP is to increase patch-fix support for each Kubernetes release from the current 9 months to 1 year. The primary motivation is to address an end-user request: Business cycles (financial, certification, sales, vacation, HR and others) are overwhelmingly annual, leading to many users desiring at least annual support cycles in projects on which they depend.\n\nWhen we say we provide patch support for a release, what do we mean? We will fix security issues in our Kubernetes code We will pick up security fixes from dependencies as they are made available, in specific versioned patch releases of the dependency in use We will not maintain forks of our major dependencies We will not attempt our own back ports of critical fixes to dependencies which are out of support from their own communities\n\nDetails of the expected tasks involved in implementing this policy are outlined below, the most major of which are: Review skew policies, identify which skews are derived from the number of supported versions, and identify new target skews (e.g. oldest kubelet against newest API server) Review deprecation policies, identify which deprecation periods are derived from the number of supported versions, and identify new target deprecation periods (e.g. deprecation period for GA features/APIs) Review support policies of external dependencies and identify/resolve gaps to ensure we do not claim longer support than the things we build on top of"
+    },
+    {
+      "id": "F029",
+      "format": "text",
+      "text": "The top level design will be to set up a global redirector HTTP service (`artifacts.k8s.io`) which knows how to serve HTTP and redirect requests to an appropriate mirror. This redirector will serve both binary and container image downloads. For container images, the HTTP redirector will redirect users to the appropriate geo-located container registry. For binary artifacts, the HTTP redirector will redirect to appropriate geo-located storage buckets.\n\nTo facilitate artifact promotion, each project, as necessary, will be given access to a project staging area relevant to their particular artifacts (either storage bucket or image registry). Each project is free to manage their assets in the staging area however they feel it is best to do so. However, end-users are not expected to access artifacts through the staging area.\n\nFor each artifact, there will be a configuration file checked into this repository. When a project wants to promote an image, they will file a PR in this repository to update their image promotion configuration to promote an artifact from staging to production. Once this PR is approved, automation that is running in the k8s project infrastructure (built using our [artifact promotion tooling][promo-tools]) will pick up this new configuration file and copy the relevant bits out to the production serving locations.\n\nImportantly, if a project needs to roll-back or remove an artifact, the same process will occur, so that the promotion tool needs to be capable of deleting images and artifacts as well as promoting them."
+    },
+    {
+      "id": "F030",
+      "format": "text",
+      "text": "We're proposing adding additional metadata fields to Kubernetes metrics. Specifically we want to add the following stability levels: `Internal` - representing internal usages of metrics (i.e. classes of metrics which do not correspond to features) or low-level metrics that a typical operator would not understand (or would not be able to react to them properly). `Beta` - representing a more mature stage in a feature metric, with greater stability guarantees than alpha or internal metrics, but less than `Stable`\n\nWe also propose amending the semantic meaning of an `Alpha` metric such that it represents the nascent stage of a KEP-proposed feature, rather than the entire class of metrics without stability guarantees.\n\nAdditionally we propose forced upgrades of metrics stability classes in the similar vein that features are not allowed to languish in `alpha` or `beta` stages, but this feature will not be available until the beta version of this KEP. For the alpha version of this KEP, we will implement the necessary changes to Kubernetes metrics framework, such that it supports the additional classes of metrics, without making changes to any existing metrics or their stability levels. As such, this KEP proposes changes to the metrics pipeline and the static analysis pieces of Kubernetes metrics framework."
+    },
+    {
+      "id": "F031",
+      "format": "text",
+      "text": "It is possible to version some or all presubmits of a given repository inside that repository in a `yaml` file This feature is optional and opt-in The triggering of presubmits on pull request creation or updates continues to work and includes the jobs that are managed inside the code repository Re-Running tests via the `/retest` command continues to work and includes the jobs that are managed inside the code repository Explicitly executing optional tests via the `/test <<myjob>>` command continues to work and includes all jobs that are managed inside the code repository All the existing defaulting and validation for Presubmit jobs is being used to default and validate jobs that are managed inside the code repository Pull Requests on which an error occurred during parsing, defaulting or validation of presubmits that are managed in the code repository are not considered as merge candidates by Tide Tide executes the presubmits that are defined inside the code repository when it re-tests Renamed blocking presubmits added via pull request trigger a migration on all in-flight PRs Removed blocking presubmits via pull request trigger a status retire on all in-flight PRs All existing functionality except for what is listed in the Risks and Mitigations section will continue to work when `inrepoconfig` is enabled All existing functionality will continue to work when `inrepoconfig` is not enabled"
+    },
+    {
+      "id": "F032",
+      "format": "text",
+      "text": "Freeze the `k8s.gcr.io` image by not pushing any new digests or tags after 1.27 release. The 1.27 release itself won't be available on `k8s.gcr.io`.\n\nI'm proposing that on the 1st of April 2023 (10 days before 1.27 is released): `k8s.gcr.io` is frozen and no new images will be published by any subproject. last 1.23 release on `k8s.gcr.io` will be 1.23.18 (goes EoL before the freeze) last 1.24 release on `k8s.gcr.io` will be 1.24.12 last 1.25 release on `k8s.gcr.io` will be 1.25.8 last 1.26 release on `k8s.gcr.io` will be 1.26.3 1.27.0 will not be available `k8s.gcr.io`"
+    },
+    {
+      "id": "F033",
+      "format": "text",
+      "text": "The following are risks that were identified: Low number of maintainers: we are currently facing issues keeping up with the number of pull requests and issues giving the low number of maintainers. The list of maintainers already shrunk from 8 maintainers to 4. Issues maintaining community contributed providers: we often lack access to external providers (i.e. InfoBlox, etc.) and this means that we cannot verify the implementations and/or run regression tests that go beyond unit testing."
+    },
+    {
+      "id": "F034",
+      "format": "text",
+      "text": "ExternalDNS started as a community project with the goal of unifying several existing projects that were trying to solve the same problem: create DNS records for Kubernetes resources on several DNS backends.\n\nWhen the project was proposed (see the original discussion), there were at least 3 existing implementations of the same functionality: Mate - DNS-controller from kops - Route53-kubernetes -\n\nExternalDNS’ goal from the beginning was to provide an officially supported solution to those problems.\n\nAfter two years of development, the project is still in the kubernetes-incubator.\n\nThe incubation has been officially discontinued and to quote @thockin \"Incubator projects should either become real projects in Kubernetes, shut themselves down, or move elsewhere\" (see original thread here).\n\nThis KEP proposes to move ExternalDNS to the main Kubernetes organization or kubernetes-sigs. The \"Proposal\" section details the reasons behind it."
+    },
+    {
+      "id": "F035",
+      "format": "text",
+      "text": "`kubernetes-monitoring/kubernetes-mixin` has provided the de-facto set of monitoring mixins tailered for the Kubernetes ecosystem for a long time, and has been widely adopted by users and vendors alike. The migration not only reflects the Kubernetes-specific nature of the repository, but also aims to foster better [collaboration and maintenance] within the Kubernetes community.\n\n[collaboration and maintenance]:"
+    },
+    {
+      "id": "F036",
+      "format": "text",
+      "text": "Kubernetes exposes hundreds of histogram metrics across its control plane components. These metrics are essential for monitoring cluster health, debugging performance issues, and ensuring service level objectives are met. However, classic Prometheus histograms have inherent limitations: **Storage overhead**: Each classic histogram creates multiple time series (one per bucket plus `_count` and `_sum`), leading to high storage costs at scale **Fixed bucket boundaries**: Predefined buckets may not align well with actual data distributions, causing accuracy issues and rendering bucket boundaries useless. For example, if a histogram uses default buckets like `[0.005, 0.01, 0.025, 0.05, 0.1, 0.25, 0.5, 1, 2.5, 5, 10]` seconds, a request completing in 1µs (0.000001s) falls into the same `le=\"0.005\"` bucket as a request completing in 4ms—a 4000x difference in latency becomes indistinguishable. Similarly, all requests between 1s and 2.5s are grouped together, hiding important performance variations\n\nPrometheus Native Histograms, introduced in Prometheus 2.40, address these limitations using exponential bucket boundaries with automatic adjustment. Kubernetes should support this modern, more efficient histogram format."
+    }
+  ]
+}

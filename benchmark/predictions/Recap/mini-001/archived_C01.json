@@ -1,0 +1,361 @@
+{
+  "assignments": [
+    {
+      "id": "F001",
+      "path": [
+        "Design_Meeting",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F002",
+      "path": [
+        "Review_Meeting",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F003",
+      "path": [
+        "Design_Meeting",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F004",
+      "path": [
+        "Design_Meeting",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F005",
+      "path": [
+        "Design_Meeting",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F006",
+      "path": [
+        "Review_Meeting",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F007",
+      "path": [
+        "Design_Meeting",
+        "Problems"
+      ]
+    },
+    {
+      "id": "F008",
+      "path": [
+        "Review_Meeting",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F009",
+      "path": [
+        "Review_Meeting",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F010",
+      "path": [
+        "Design_Meeting",
+        "Problems"
+      ]
+    },
+    {
+      "id": "F011",
+      "path": [
+        "Design_Meeting",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F012",
+      "path": [
+        "Review_Meeting",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F013",
+      "path": [
+        "Design_Meeting",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F014",
+      "path": [
+        "Review_Meeting",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F015",
+      "path": [
+        "Design_Meeting",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F016",
+      "path": [
+        "Design_Meeting",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F017",
+      "path": [
+        "Design_Meeting",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F018",
+      "path": [
+        "Review_Meeting",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F019",
+      "path": [
+        "Review_Meeting",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F020",
+      "path": [
+        "Design_Meeting",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F021",
+      "path": [
+        "Design_Meeting",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F022",
+      "path": [
+        "Review_Meeting",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F023",
+      "path": [
+        "Review_Meeting",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F024",
+      "path": [
+        "Design_Meeting",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F025",
+      "path": [
+        "Design_Meeting",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F026",
+      "path": [
+        "Review_Meeting",
+        "Problems"
+      ]
+    },
+    {
+      "id": "F027",
+      "path": [
+        "Review_Meeting",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F028",
+      "path": [
+        "Design_Meeting",
+        "Problems"
+      ]
+    },
+    {
+      "id": "F029",
+      "path": [
+        "Design_Meeting",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F030",
+      "path": [
+        "Review_Meeting",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F031",
+      "path": [
+        "Design_Meeting",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F032",
+      "path": [
+        "Design_Meeting",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F033",
+      "path": [
+        "Design_Meeting",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F034",
+      "path": [
+        "Design_Meeting",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F035",
+      "path": [
+        "Design_Meeting",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F036",
+      "path": [
+        "Design_Meeting",
+        "Problems"
+      ]
+    },
+    {
+      "id": "F037",
+      "path": [
+        "Review_Meeting",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F038",
+      "path": [
+        "Design_Meeting",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F039",
+      "path": [
+        "Review_Meeting",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F040",
+      "path": [
+        "Design_Meeting",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F041",
+      "path": [
+        "Design_Meeting",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F042",
+      "path": [
+        "Design_Meeting",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F043",
+      "path": [
+        "Review_Meeting",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F044",
+      "path": [
+        "Design_Meeting",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F045",
+      "path": [
+        "Design_Meeting",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F046",
+      "path": [
+        "Design_Meeting",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F047",
+      "path": [
+        "Design_Meeting",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F048",
+      "path": [
+        "Design_Meeting",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F049",
+      "path": [
+        "Review_Meeting",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F050",
+      "path": [
+        "Review_Meeting",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F051",
+      "path": [
+        "Design_Meeting",
+        "Overview"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,305 @@
+{
+  "assignments": [
+    {
+      "id": "F001",
+      "path": [
+        "ABFS Random Read Performance",
+        "issue"
+      ]
+    },
+    {
+      "id": "F002",
+      "path": [
+        "ABFS Random Read Performance",
+        "discussion"
+      ]
+    },
+    {
+      "id": "F003",
+      "path": [
+        "ABFS Random Read Performance",
+        "discussion"
+      ]
+    },
+    {
+      "id": "F004",
+      "path": [
+        "ABFS Rename Debug Logging",
+        "issue"
+      ]
+    },
+    {
+      "id": "F005",
+      "path": [
+        "ABFS Random Read Performance",
+        "discussion"
+      ]
+    },
+    {
+      "id": "F006",
+      "path": [
+        "Backport Retry Config to Branch-2",
+        "issue"
+      ]
+    },
+    {
+      "id": "F007",
+      "path": [
+        "ABFS HNS Configuration",
+        "issue"
+      ]
+    },
+    {
+      "id": "F008",
+      "path": [
+        "S3A SSL Timeout Issues",
+        "discussion"
+      ]
+    },
+    {
+      "id": "F009",
+      "path": [
+        "ABFS HTTP Metrics",
+        "issue"
+      ]
+    },
+    {
+      "id": "F010",
+      "path": [
+        "ABFS HNS Configuration",
+        "testing"
+      ]
+    },
+    {
+      "id": "F011",
+      "path": [
+        "S3A SSL Timeout Issues",
+        "issue"
+      ]
+    },
+    {
+      "id": "F012",
+      "path": [
+        "S3A SSL Timeout Issues",
+        "comment"
+      ]
+    },
+    {
+      "id": "F013",
+      "path": [
+        "S3A SSL Timeout Issues",
+        "discussion"
+      ]
+    },
+    {
+      "id": "F014",
+      "path": [
+        "Backport Retry Config to Branch-2",
+        "comment"
+      ]
+    },
+    {
+      "id": "F015",
+      "path": [
+        "S3A Certificate Verification",
+        "issue"
+      ]
+    },
+    {
+      "id": "F016",
+      "path": [
+        "ABFS Random Read Performance",
+        "discussion"
+      ]
+    },
+    {
+      "id": "F017",
+      "path": [
+        "ABFS Random Read Performance",
+        "discussion"
+      ]
+    },
+    {
+      "id": "F018",
+      "path": [
+        "S3A SSL Timeout Issues",
+        "discussion"
+      ]
+    },
+    {
+      "id": "F019",
+      "path": [
+        "S3A Retry Policy SSL Errors",
+        "issue"
+      ]
+    },
+    {
+      "id": "F020",
+      "path": [
+        "S3A SSL Timeout Issues",
+        "comment"
+      ]
+    },
+    {
+      "id": "F021",
+      "path": [
+        "S3A MapReduce Dependency",
+        "issue"
+      ]
+    },
+    {
+      "id": "F022",
+      "path": [
+        "S3A SSL Timeout Issues",
+        "comment"
+      ]
+    },
+    {
+      "id": "F023",
+      "path": [
+        "ABFS HTTP Metrics",
+        "review"
+      ]
+    },
+    {
+      "id": "F024",
+      "path": [
+        "S3A Dot Bucket Names",
+        "comment"
+      ]
+    },
+    {
+      "id": "F025",
+      "path": [
+        "ABFS HNS Configuration",
+        "testing"
+      ]
+    },
+    {
+      "id": "F026",
+      "path": [
+        "S3A Retry Policy SSL Errors",
+        "comment"
+      ]
+    },
+    {
+      "id": "F027",
+      "path": [
+        "ABFS HNS Configuration",
+        "description"
+      ]
+    },
+    {
+      "id": "F028",
+      "path": [
+        "ABFS HNS Configuration",
+        "commit"
+      ]
+    },
+    {
+      "id": "F029",
+      "path": [
+        "S3A Dot Bucket Names",
+        "comment"
+      ]
+    },
+    {
+      "id": "F030",
+      "path": [
+        "S3A Bulk Delete Iceberg",
+        "issue"
+      ]
+    },
+    {
+      "id": "F031",
+      "path": [
+        "S3A Bulk Delete Iceberg",
+        "comment"
+      ]
+    },
+    {
+      "id": "F032",
+      "path": [
+        "ABFS HTTP Metrics",
+        "review"
+      ]
+    },
+    {
+      "id": "F033",
+      "path": [
+        "S3A Dot Bucket Names",
+        "issue"
+      ]
+    },
+    {
+      "id": "F034",
+      "path": [
+        "ABFS HTTP Metrics",
+        "issue"
+      ]
+    },
+    {
+      "id": "F035",
+      "path": [
+        "S3A SSL Timeout Issues",
+        "discussion"
+      ]
+    },
+    {
+      "id": "F036",
+      "path": [
+        "Backport Retry Config to Branch-2",
+        "comment"
+      ]
+    },
+    {
+      "id": "F037",
+      "path": [
+        "Version Target Updates",
+        "comment"
+      ]
+    },
+    {
+      "id": "F038",
+      "path": [
+        "S3A Dot Bucket Names",
+        "comment"
+      ]
+    },
+    {
+      "id": "F039",
+      "path": [
+        "Version Target Updates",
+        "comment"
+      ]
+    },
+    {
+      "id": "F040",
+      "path": [
+        "S3A MapReduce Dependency",
+        "review"
+      ]
+    },
+    {
+      "id": "F041",
+      "path": [
+        "ABFS HNS Configuration",
+        "testing"
+      ]
+    },
+    {
+      "id": "F042",
+      "path": [
+        "ABFS HNS Configuration",
+        "commit"
+      ]
+    },
+    {
+      "id": "F043",
+      "path": [
+        "ABFS HNS Configuration",
+        "commit"
+      ]
+    }
+  ]
+}

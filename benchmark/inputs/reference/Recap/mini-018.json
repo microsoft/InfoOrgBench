@@ -1,0 +1,670 @@
+{
+  "task_id": "ami/mini-018",
+  "records": [
+    {
+      "id": "F001",
+      "path": [
+        "IS1000d",
+        "abstract"
+      ],
+      "content_sha256": "2fdcdebba8cd439f4de916b37528d8cad7f806126ee42ddc1fcc006992d3f95d"
+    },
+    {
+      "id": "F002",
+      "path": [
+        "IS1000d",
+        "decisions"
+      ],
+      "content_sha256": "617e5178ba39f76ccd516a5c9f6feec1b71016cc5b3aa1a2112e417bdb4b2e4f"
+    },
+    {
+      "id": "F003",
+      "path": [
+        "ES2003a",
+        "abstract"
+      ],
+      "content_sha256": "8f4ec1251e282da8d22cd0b3853280a9058140800d8ac1f003b7cd41aa47ba2a"
+    },
+    {
+      "id": "F004",
+      "path": [
+        "IS1000d",
+        "abstract"
+      ],
+      "content_sha256": "69843b4cebd1d51695e2dc2e7f1485afc57453f08ff66faa636f24e4b1de54e6"
+    },
+    {
+      "id": "F005",
+      "path": [
+        "IS1000d",
+        "abstract"
+      ],
+      "content_sha256": "9c758796ab7dea95320921dd17d971f6b87aadb2cca2fb33f2579e99c45be91d"
+    },
+    {
+      "id": "F006",
+      "path": [
+        "IS1000d",
+        "abstract"
+      ],
+      "content_sha256": "bb84b7faf5f8f0a095e68378f0d54453ab7f15a200f6f455a59b29f5a369f4f2"
+    },
+    {
+      "id": "F007",
+      "path": [
+        "IS1000d",
+        "decisions"
+      ],
+      "content_sha256": "0e74a6fc09b9f11d2450ded71e0967807834fdf7742a7dfe38ad181a16a07e0c"
+    },
+    {
+      "id": "F008",
+      "path": [
+        "IS1000d",
+        "decisions"
+      ],
+      "content_sha256": "b9291a164f8038d2d5d4132d9fd6e42899a8430b6e9b47e5ce320c20124f21f2"
+    },
+    {
+      "id": "F009",
+      "path": [
+        "ES2003a",
+        "abstract"
+      ],
+      "content_sha256": "3e4033dfde4a534ba13705319effab34fd8dd170089193df51008c5c8c3375a9"
+    },
+    {
+      "id": "F010",
+      "path": [
+        "IS1000d",
+        "decisions"
+      ],
+      "content_sha256": "eb7f86b876f20aa54b92bb35b0fe8fc4f23940c8d2a65a11a7ea2f77fdb8f03e"
+    },
+    {
+      "id": "F011",
+      "path": [
+        "IS1000d",
+        "abstract"
+      ],
+      "content_sha256": "f5bff464cacd7163bfaa6f725f084a8ef0a1f87ef941bfe0207e94e697dd5f13"
+    },
+    {
+      "id": "F012",
+      "path": [
+        "IS1000d",
+        "decisions"
+      ],
+      "content_sha256": "b82138ed44b034017103ea491a8641e7e930d08815949040d2af6f7df3bf1eee"
+    },
+    {
+      "id": "F013",
+      "path": [
+        "IS1001c",
+        "abstract"
+      ],
+      "content_sha256": "39a2b34050b94df5ab748ba0f0dddcc14345fe20047ee3e095a5d307be0393cd"
+    },
+    {
+      "id": "F014",
+      "path": [
+        "IS1000d",
+        "abstract"
+      ],
+      "content_sha256": "532cf24fb757f07d7bbc673d11ceaa0582962def83642f08f54acf58158767ab"
+    },
+    {
+      "id": "F015",
+      "path": [
+        "ES2003a",
+        "decisions"
+      ],
+      "content_sha256": "d186fc05b886fa826189ed1cf1cbc4c401d12715cc8eb58b6113b10d6aa32ead"
+    },
+    {
+      "id": "F016",
+      "path": [
+        "IS1001c",
+        "actions"
+      ],
+      "content_sha256": "1ac30923eb3728f9b820f8dd3fa8949107515aefe39a7d3aec3a1afc5e62f324"
+    },
+    {
+      "id": "F017",
+      "path": [
+        "IS1000d",
+        "abstract"
+      ],
+      "content_sha256": "b45a11693bd02ccc5e068941de94f1112f640b2bbe3bff00ff829a96008a7ead"
+    },
+    {
+      "id": "F018",
+      "path": [
+        "ES2003a",
+        "decisions"
+      ],
+      "content_sha256": "8e76bccfc1787b459eeaae81c79f3dd918c86bfe3fbe8ecb404fc8806e4210a8"
+    },
+    {
+      "id": "F019",
+      "path": [
+        "IS1000d",
+        "decisions"
+      ],
+      "content_sha256": "d6e70ac6a98db6fa9e6898267da02f8b5f89ca5359b395423867f7688d9d7546"
+    },
+    {
+      "id": "F020",
+      "path": [
+        "IS1001c",
+        "decisions"
+      ],
+      "content_sha256": "020c5f505983bedc8d218ac9c036c58a9fefd78db509b657021f908a6785b465"
+    },
+    {
+      "id": "F021",
+      "path": [
+        "IS1001c",
+        "abstract"
+      ],
+      "content_sha256": "7cbf9321e8ddb50f5578db7117a3a8594bab602a16348b88fb1d204c0e244b73"
+    },
+    {
+      "id": "F022",
+      "path": [
+        "ES2003a",
+        "abstract"
+      ],
+      "content_sha256": "705f1e8f4c0c6e48e6468e885b98944347a710b190de4a1648403031a151d412"
+    },
+    {
+      "id": "F023",
+      "path": [
+        "IS1001c",
+        "abstract"
+      ],
+      "content_sha256": "0d75d2b6fbaa94628ac909cc6bdad4197b32b263f33c0f86eb93821cba392510"
+    },
+    {
+      "id": "F024",
+      "path": [
+        "IS1001c",
+        "actions"
+      ],
+      "content_sha256": "a4554edc45212d1eee9bd337df5b414d6c7c182de3b2ea18eb7aa749d7508d19"
+    },
+    {
+      "id": "F025",
+      "path": [
+        "IS1000d",
+        "abstract"
+      ],
+      "content_sha256": "2334b499694acf3d68e99516a8259721781b81374ee9011cfacc637d9b057c3a"
+    },
+    {
+      "id": "F026",
+      "path": [
+        "IS1001c",
+        "abstract"
+      ],
+      "content_sha256": "47c7e32b845a1b6a952dab85344078288d3b061442ecd5ecdbb36d90be026ad5"
+    },
+    {
+      "id": "F027",
+      "path": [
+        "IS1000d",
+        "problems"
+      ],
+      "content_sha256": "b810a4d621babd8fbd56c2b7f2b49bc1a323d689fc21036c39787e5167a2adc0"
+    },
+    {
+      "id": "F028",
+      "path": [
+        "ES2003a",
+        "abstract"
+      ],
+      "content_sha256": "508667b5689ad525225c4ca8e85bdf66900c8c719a512744ae0793ce6b98e31e"
+    },
+    {
+      "id": "F029",
+      "path": [
+        "IS1000d",
+        "problems"
+      ],
+      "content_sha256": "991640455b358333f7ff292edd4179d6bb9507f756cf080a140d3318779e2f65"
+    },
+    {
+      "id": "F030",
+      "path": [
+        "IS1000d",
+        "decisions"
+      ],
+      "content_sha256": "a47f2228ff52418cae3857f95b3e20687c4a41ff97d3126d89a8a23e37821d37"
+    },
+    {
+      "id": "F031",
+      "path": [
+        "ES2003a",
+        "decisions"
+      ],
+      "content_sha256": "cc0f6ba7636a1e5ed937cc1160e13fcf01ea009597f1acd1163d6316ad94c5f5"
+    },
+    {
+      "id": "F032",
+      "path": [
+        "IS1001c",
+        "decisions"
+      ],
+      "content_sha256": "323ab2c6a2f642ddb944d3d531c598c4f664b13dc70f1027d623055730341e53"
+    },
+    {
+      "id": "F033",
+      "path": [
+        "ES2003a",
+        "problems"
+      ],
+      "content_sha256": "72c1aa9af0017f88fb7d706a111329f2af8ef1a9911de00b35fd5ebaef68f75a"
+    },
+    {
+      "id": "F034",
+      "path": [
+        "IS1001c",
+        "abstract"
+      ],
+      "content_sha256": "f3779eabf6cfcd6acfcd0fc55fa9f0aebc3cc968a289a89adfaa95d2c64fa80d"
+    },
+    {
+      "id": "F035",
+      "path": [
+        "IS1001c",
+        "abstract"
+      ],
+      "content_sha256": "39bf1aaf8eb2073097c11eddc4e3cdeb074acecdd9b80485f7ebe1265570e6c6"
+    },
+    {
+      "id": "F036",
+      "path": [
+        "ES2003a",
+        "problems"
+      ],
+      "content_sha256": "4f4064f27390a380dc5650a441178e373021b165e245fa359ed2e0150f048395"
+    },
+    {
+      "id": "F037",
+      "path": [
+        "IS1000d",
+        "problems"
+      ],
+      "content_sha256": "d263c0d0d0a099278e4760db90d3a19b24b75326656bd80e6bcc2422b675e2c9"
+    },
+    {
+      "id": "F038",
+      "path": [
+        "IS1001c",
+        "decisions"
+      ],
+      "content_sha256": "8154d40baee07fd048488cc800edd5c66ff13028806e66e7c7ce39201394db29"
+    },
+    {
+      "id": "F039",
+      "path": [
+        "IS1000d",
+        "abstract"
+      ],
+      "content_sha256": "c2b948fe110dd13cacf0e9e3755f146650b5f76d9b4037559ed0d14e55f6a12a"
+    },
+    {
+      "id": "F040",
+      "path": [
+        "IS1001c",
+        "abstract"
+      ],
+      "content_sha256": "33b0502b9c67123c90ba3000da204612c4eec81160a8ac99f7823d1bd3227ac5"
+    },
+    {
+      "id": "F041",
+      "path": [
+        "IS1000d",
+        "decisions"
+      ],
+      "content_sha256": "bb29c3229edac448f64c54f6262eb5007c326fcc82fcc03fd4baca0968289a4f"
+    },
+    {
+      "id": "F042",
+      "path": [
+        "IS1001c",
+        "abstract"
+      ],
+      "content_sha256": "b4d83c7fa0b7f188634c73ef3efba867af58888b2b110cce6b9a6f0db12bcb64"
+    },
+    {
+      "id": "F043",
+      "path": [
+        "IS1001c",
+        "decisions"
+      ],
+      "content_sha256": "8cb8a7ee215f68e16d51bd684d747d60f941e12e3be557c0c19d119ee3242d0d"
+    },
+    {
+      "id": "F044",
+      "path": [
+        "IS1000d",
+        "decisions"
+      ],
+      "content_sha256": "3c488098de48539af7b6c2969b509a8aeedc9a31f6937a12d09a40875a197702"
+    },
+    {
+      "id": "F045",
+      "path": [
+        "IS1001c",
+        "decisions"
+      ],
+      "content_sha256": "056cf0ac6e0c3e334745f663c6ee9095d1876320d30ac386ac7b2cf71e3f49a2"
+    },
+    {
+      "id": "F046",
+      "path": [
+        "IS1000d",
+        "abstract"
+      ],
+      "content_sha256": "de7505a04204418a327f9d7a431fa7ddba376c9ae8d9845050d23975e6d6e30e"
+    },
+    {
+      "id": "F047",
+      "path": [
+        "IS1001c",
+        "decisions"
+      ],
+      "content_sha256": "c6f4e3b1fcf6b060451548397e195c8e51d05c2929680f91d3bc220b62942759"
+    },
+    {
+      "id": "F048",
+      "path": [
+        "IS1000d",
+        "problems"
+      ],
+      "content_sha256": "375186087dd9c6acc76ac79138466e94ed472140bec9c0f06b48e444581ba712"
+    },
+    {
+      "id": "F049",
+      "path": [
+        "ES2003a",
+        "problems"
+      ],
+      "content_sha256": "ffa491c8c1781f1b1b534fad8f63013c5525c5e448e095cbda61bed0a9c0054f"
+    },
+    {
+      "id": "F050",
+      "path": [
+        "IS1001c",
+        "decisions"
+      ],
+      "content_sha256": "56d87863a8e1df1a8b2fb02447833f220d5cfbe67c0f7dcf9f83c66a9ecc1684"
+    },
+    {
+      "id": "F051",
+      "path": [
+        "ES2003a",
+        "actions"
+      ],
+      "content_sha256": "4126d09d93d0e3ff283cfdcd0b1a528d76ea9612c412a7a83379f6679fac7351"
+    }
+  ],
+  "provenance": [
+    {
+      "id": "F001",
+      "native_id": "IS1000d.elana.s.6",
+      "role": "summary_sentence"
+    },
+    {
+      "id": "F002",
+      "native_id": "IS1000d.elana.s.18",
+      "role": "summary_sentence"
+    },
+    {
+      "id": "F003",
+      "native_id": "ES2003a.rdhillon.s.4",
+      "role": "summary_sentence"
+    },
+    {
+      "id": "F004",
+      "native_id": "IS1000d.elana.s.10",
+      "role": "summary_sentence"
+    },
+    {
+      "id": "F005",
+      "native_id": "IS1000d.elana.s.5",
+      "role": "summary_sentence"
+    },
+    {
+      "id": "F006",
+      "native_id": "IS1000d.elana.s.8",
+      "role": "summary_sentence"
+    },
+    {
+      "id": "F007",
+      "native_id": "IS1000d.elana.s.17",
+      "role": "summary_sentence"
+    },
+    {
+      "id": "F008",
+      "native_id": "IS1000d.elana.s.16",
+      "role": "summary_sentence"
+    },
+    {
+      "id": "F009",
+      "native_id": "ES2003a.rdhillon.s.3",
+      "role": "summary_sentence"
+    },
+    {
+      "id": "F010",
+      "native_id": "IS1000d.elana.s.14",
+      "role": "summary_sentence"
+    },
+    {
+      "id": "F011",
+      "native_id": "IS1000d.elana.s.4",
+      "role": "summary_sentence"
+    },
+    {
+      "id": "F012",
+      "native_id": "IS1000d.elana.s.15",
+      "role": "summary_sentence"
+    },
+    {
+      "id": "F013",
+      "native_id": "IS1001c.JacquelinePalmer.s.3",
+      "role": "summary_sentence"
+    },
+    {
+      "id": "F014",
+      "native_id": "IS1000d.elana.s.1",
+      "role": "summary_sentence"
+    },
+    {
+      "id": "F015",
+      "native_id": "ES2003a.rdhillon.s.6",
+      "role": "summary_sentence"
+    },
+    {
+      "id": "F016",
+      "native_id": "IS1001c.JacquelinePalmer.s.10",
+      "role": "summary_sentence"
+    },
+    {
+      "id": "F017",
+      "native_id": "IS1000d.elana.s.9",
+      "role": "summary_sentence"
+    },
+    {
+      "id": "F018",
+      "native_id": "ES2003a.rdhillon.s.7",
+      "role": "summary_sentence"
+    },
+    {
+      "id": "F019",
+      "native_id": "IS1000d.elana.s.12",
+      "role": "summary_sentence"
+    },
+    {
+      "id": "F020",
+      "native_id": "IS1001c.JacquelinePalmer.s.13",
+      "role": "summary_sentence"
+    },
+    {
+      "id": "F021",
+      "native_id": "IS1001c.JacquelinePalmer.s.5",
+      "role": "summary_sentence"
+    },
+    {
+      "id": "F022",
+      "native_id": "ES2003a.rdhillon.s.2",
+      "role": "summary_sentence"
+    },
+    {
+      "id": "F023",
+      "native_id": "IS1001c.JacquelinePalmer.s.8",
+      "role": "summary_sentence"
+    },
+    {
+      "id": "F024",
+      "native_id": "IS1001c.JacquelinePalmer.s.9",
+      "role": "summary_sentence"
+    },
+    {
+      "id": "F025",
+      "native_id": "IS1000d.elana.s.3",
+      "role": "summary_sentence"
+    },
+    {
+      "id": "F026",
+      "native_id": "IS1001c.JacquelinePalmer.s.2",
+      "role": "summary_sentence"
+    },
+    {
+      "id": "F027",
+      "native_id": "IS1000d.elana.s.21",
+      "role": "summary_sentence"
+    },
+    {
+      "id": "F028",
+      "native_id": "ES2003a.rdhillon.s.1",
+      "role": "summary_sentence"
+    },
+    {
+      "id": "F029",
+      "native_id": "IS1000d.elana.s.24",
+      "role": "summary_sentence"
+    },
+    {
+      "id": "F030",
+      "native_id": "IS1000d.elana.s.13",
+      "role": "summary_sentence"
+    },
+    {
+      "id": "F031",
+      "native_id": "ES2003a.rdhillon.s.8",
+      "role": "summary_sentence"
+    },
+    {
+      "id": "F032",
+      "native_id": "IS1001c.JacquelinePalmer.s.15",
+      "role": "summary_sentence"
+    },
+    {
+      "id": "F033",
+      "native_id": "ES2003a.rdhillon.s.11",
+      "role": "summary_sentence"
+    },
+    {
+      "id": "F034",
+      "native_id": "IS1001c.JacquelinePalmer.s.6",
+      "role": "summary_sentence"
+    },
+    {
+      "id": "F035",
+      "native_id": "IS1001c.JacquelinePalmer.s.7",
+      "role": "summary_sentence"
+    },
+    {
+      "id": "F036",
+      "native_id": "ES2003a.rdhillon.s.10",
+      "role": "summary_sentence"
+    },
+    {
+      "id": "F037",
+      "native_id": "IS1000d.elana.s.22",
+      "role": "summary_sentence"
+    },
+    {
+      "id": "F038",
+      "native_id": "IS1001c.JacquelinePalmer.s.11",
+      "role": "summary_sentence"
+    },
+    {
+      "id": "F039",
+      "native_id": "IS1000d.elana.s.2",
+      "role": "summary_sentence"
+    },
+    {
+      "id": "F040",
+      "native_id": "IS1001c.JacquelinePalmer.s.1",
+      "role": "summary_sentence"
+    },
+    {
+      "id": "F041",
+      "native_id": "IS1000d.elana.s.20",
+      "role": "summary_sentence"
+    },
+    {
+      "id": "F042",
+      "native_id": "IS1001c.JacquelinePalmer.s.4",
+      "role": "summary_sentence"
+    },
+    {
+      "id": "F043",
+      "native_id": "IS1001c.JacquelinePalmer.s.12",
+      "role": "summary_sentence"
+    },
+    {
+      "id": "F044",
+      "native_id": "IS1000d.elana.s.19",
+      "role": "summary_sentence"
+    },
+    {
+      "id": "F045",
+      "native_id": "IS1001c.JacquelinePalmer.s.17",
+      "role": "summary_sentence"
+    },
+    {
+      "id": "F046",
+      "native_id": "IS1000d.elana.s.7",
+      "role": "summary_sentence"
+    },
+    {
+      "id": "F047",
+      "native_id": "IS1001c.JacquelinePalmer.s.14",
+      "role": "summary_sentence"
+    },
+    {
+      "id": "F048",
+      "native_id": "IS1000d.elana.s.23",
+      "role": "summary_sentence"
+    },
+    {
+      "id": "F049",
+      "native_id": "ES2003a.rdhillon.s.9",
+      "role": "summary_sentence"
+    },
+    {
+      "id": "F050",
+      "native_id": "IS1001c.JacquelinePalmer.s.16",
+      "role": "summary_sentence"
+    },
+    {
+      "id": "F051",
+      "native_id": "ES2003a.rdhillon.s.5",
+      "role": "summary_sentence"
+    }
+  ]
+}

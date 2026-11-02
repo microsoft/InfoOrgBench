@@ -1,0 +1,366 @@
+{
+  "task_id": "mini-017",
+  "records": [
+    {
+      "id": "F001",
+      "path": [
+        "sig-testing",
+        "2464-kubetest2-ci-migration"
+      ],
+      "content_sha256": "fd0f63cd9bf06669f0af53f7a5b8f1639230860259c6882dca3e0daf86e8b7df",
+      "source_native_id": "keps/sig-testing/2464-kubetest2-ci-migration#excerpt-2",
+      "source_heading": "non-goals"
+    },
+    {
+      "id": "F002",
+      "path": [
+        "sig-testing",
+        "3041-node-conformance-and-features"
+      ],
+      "content_sha256": "90441a9687ee4af42507bbb2cc1e01b77fffebd41d062df0dbb57f72311c7e69",
+      "source_native_id": "keps/sig-testing/3041-node-conformance-and-features#excerpt-3",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F003",
+      "path": [
+        "sig-testing",
+        "2464-kubetest2-ci-migration"
+      ],
+      "content_sha256": "619b0036ac91599443d1872bd90d0d0d670445d7eb853584e5964b9dd21d97cd",
+      "source_native_id": "keps/sig-testing/2464-kubetest2-ci-migration#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F004",
+      "path": [
+        "sig-network",
+        "2449-move-externalDNS-out-of-kubernetes-incubator"
+      ],
+      "content_sha256": "9dba5d706aef4773577e0be453fdc85aff880f2efff08770590bd6cf7142fe22",
+      "source_native_id": "keps/sig-network/2449-move-externalDNS-out-of-kubernetes-incubator#excerpt-2",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F005",
+      "path": [
+        "sig-instrumentation",
+        "3498-extending-stability"
+      ],
+      "content_sha256": "60c04a519792fcd6c0d7a349f0295b6314197172ccfd9050d34913db2b3d9e5b",
+      "source_native_id": "keps/sig-instrumentation/3498-extending-stability#excerpt-3",
+      "source_heading": "design details"
+    },
+    {
+      "id": "F006",
+      "path": [
+        "sig-testing",
+        "2464-kubetest2-ci-migration"
+      ],
+      "content_sha256": "fc3cfc922350ade8315545607060c1d822e9320d27090890364a233785526c10",
+      "source_native_id": "keps/sig-testing/2464-kubetest2-ci-migration#excerpt-3",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F007",
+      "path": [
+        "sig-release",
+        "1498-kubernetes-yearly-support-period"
+      ],
+      "content_sha256": "1dbca75c6ee4207aaa1cdcd05c4908eb41b12840fe17e6d4fded6a2d5c6806f2",
+      "source_native_id": "keps/sig-release/1498-kubernetes-yearly-support-period#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F008",
+      "path": [
+        "sig-testing",
+        "2291-presubmit-config-inside-the-tested-repo"
+      ],
+      "content_sha256": "92cbeafed5006ed215fa664ba89e242989235120c2c4a5c40fc903888ef21c33",
+      "source_native_id": "keps/sig-testing/2291-presubmit-config-inside-the-tested-repo#excerpt-3",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F009",
+      "path": [
+        "sig-release",
+        "1732-artifact-management"
+      ],
+      "content_sha256": "b4efcbfd413daa4dae95f46119e6fff9d43065c75ce43b5b9b28e2d0e569ce01",
+      "source_native_id": "keps/sig-release/1732-artifact-management#excerpt-2",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F010",
+      "path": [
+        "sig-network",
+        "4762-allow-arbitrary-fqdn-as-pod-hostname"
+      ],
+      "content_sha256": "27ffdf4fbf6e8ebc4c08e681440b9967826232af8eea8c5755a9dc195eb852c4",
+      "source_native_id": "keps/sig-network/4762-allow-arbitrary-fqdn-as-pod-hostname#excerpt-2",
+      "source_heading": "design details"
+    },
+    {
+      "id": "F011",
+      "path": [
+        "sig-instrumentation",
+        "5905-mixins-migration"
+      ],
+      "content_sha256": "e9b7d2763a64eb22c592857c729a0977a330006f004aae1744eb39d06bb90af0",
+      "source_native_id": "keps/sig-instrumentation/5905-mixins-migration#excerpt-3",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F012",
+      "path": [
+        "sig-release",
+        "3720-freezing-k8s-gcr-io"
+      ],
+      "content_sha256": "3996ff0cd791254afaaa066fc8b4755dcc32cbccf36306e2c20d921b76e7c9e7",
+      "source_native_id": "keps/sig-release/3720-freezing-k8s-gcr-io#excerpt-1",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F013",
+      "path": [
+        "sig-release",
+        "1732-artifact-management"
+      ],
+      "content_sha256": "58756197c3ae15b855a86bc092aa5f97041849647dcd067cbe04d7edf0d8f526",
+      "source_native_id": "keps/sig-release/1732-artifact-management#excerpt-1",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F014",
+      "path": [
+        "sig-testing",
+        "3041-node-conformance-and-features"
+      ],
+      "content_sha256": "d440ab29a2e6add1bc566fb39bf47d97311a5dd5523f59b18b2c46c9d625bf64",
+      "source_native_id": "keps/sig-testing/3041-node-conformance-and-features#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F015",
+      "path": [
+        "sig-network",
+        "1024-nodelocal-cache-dns"
+      ],
+      "content_sha256": "f29bb63e00523cb0da9ed9b1a5d447385687c5a4a45c2e40d3c8d1c4aec5a010",
+      "source_native_id": "keps/sig-network/1024-nodelocal-cache-dns#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F016",
+      "path": [
+        "sig-instrumentation",
+        "5808-native-histogram-support"
+      ],
+      "content_sha256": "38705306b5ee3cca08c846758f15854558f48fad685348a43b994bda11548f4e",
+      "source_native_id": "keps/sig-instrumentation/5808-native-histogram-support#excerpt-3",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F017",
+      "path": [
+        "sig-instrumentation",
+        "5905-mixins-migration"
+      ],
+      "content_sha256": "0dc8422d06bcebb3e8cd917eb3ed992aa04f10d451e9a491d0061cd882376bab",
+      "source_native_id": "keps/sig-instrumentation/5905-mixins-migration#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F018",
+      "path": [
+        "sig-instrumentation",
+        "5808-native-histogram-support"
+      ],
+      "content_sha256": "37edc68c0b798a9001dd68c88d7e30b8ff4a8268483c53f3589fe8aced0cfbba",
+      "source_native_id": "keps/sig-instrumentation/5808-native-histogram-support#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F019",
+      "path": [
+        "sig-release",
+        "1498-kubernetes-yearly-support-period"
+      ],
+      "content_sha256": "571ad90060f399994079f43cc42c5da1b97a42c22a28523012d63e9eb5bab203",
+      "source_native_id": "keps/sig-release/1498-kubernetes-yearly-support-period#excerpt-3",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F020",
+      "path": [
+        "sig-instrumentation",
+        "3498-extending-stability"
+      ],
+      "content_sha256": "8528160531144d5e4e1551b51d5869d3a1a6da4e3cacbf86aaf265349ac48dba",
+      "source_native_id": "keps/sig-instrumentation/3498-extending-stability#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F021",
+      "path": [
+        "sig-network",
+        "4762-allow-arbitrary-fqdn-as-pod-hostname"
+      ],
+      "content_sha256": "fcac98e1092e240459d203b459918623392d3642398bb79a68a98ba3b3020946",
+      "source_native_id": "keps/sig-network/4762-allow-arbitrary-fqdn-as-pod-hostname#excerpt-3",
+      "source_heading": "risks and mitigations"
+    },
+    {
+      "id": "F022",
+      "path": [
+        "sig-network",
+        "4762-allow-arbitrary-fqdn-as-pod-hostname"
+      ],
+      "content_sha256": "05a8f3261c22f6afb049f2e085ea6099536f73663cc692f79188beba5b32787d",
+      "source_native_id": "keps/sig-network/4762-allow-arbitrary-fqdn-as-pod-hostname#excerpt-1",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F023",
+      "path": [
+        "sig-testing",
+        "3041-node-conformance-and-features"
+      ],
+      "content_sha256": "578430c251a1d49a394e623a8b728a1e40ef6deb7299a345bdded18c5bce4fe3",
+      "source_native_id": "keps/sig-testing/3041-node-conformance-and-features#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F024",
+      "path": [
+        "sig-release",
+        "3720-freezing-k8s-gcr-io"
+      ],
+      "content_sha256": "d171b18f809ab753d885eef6a5822d6cf6a4fc76210964ba888c51e7040cf7ce",
+      "source_native_id": "keps/sig-release/3720-freezing-k8s-gcr-io#excerpt-3",
+      "source_heading": "design details"
+    },
+    {
+      "id": "F025",
+      "path": [
+        "sig-network",
+        "1024-nodelocal-cache-dns"
+      ],
+      "content_sha256": "34ee63e6e1496fc56401eca2f6011c0d9d8e8e958955e73e994800d6979d3680",
+      "source_native_id": "keps/sig-network/1024-nodelocal-cache-dns#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F026",
+      "path": [
+        "sig-network",
+        "1024-nodelocal-cache-dns"
+      ],
+      "content_sha256": "1d645e6d3c193e7a605efafdf1e6839365ea4b835d6d118032be401834158c6b",
+      "source_native_id": "keps/sig-network/1024-nodelocal-cache-dns#excerpt-3",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F027",
+      "path": [
+        "sig-testing",
+        "2291-presubmit-config-inside-the-tested-repo"
+      ],
+      "content_sha256": "93dd2ddf5faa92a6eafd6e77f6bf20f818e93084a93d105cd7f5d9380080035e",
+      "source_native_id": "keps/sig-testing/2291-presubmit-config-inside-the-tested-repo#excerpt-1",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F028",
+      "path": [
+        "sig-release",
+        "1498-kubernetes-yearly-support-period"
+      ],
+      "content_sha256": "eee88de55c9c45c846c7d3c106a0031804306caf5f9af5609166abf112c2b6f6",
+      "source_native_id": "keps/sig-release/1498-kubernetes-yearly-support-period#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F029",
+      "path": [
+        "sig-release",
+        "1732-artifact-management"
+      ],
+      "content_sha256": "d2c0978e04ab9ecadaf0ef191f23186451303514e919e6b8daa8d07cf9601b5b",
+      "source_native_id": "keps/sig-release/1732-artifact-management#excerpt-3",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F030",
+      "path": [
+        "sig-instrumentation",
+        "3498-extending-stability"
+      ],
+      "content_sha256": "ba1253ac0a0c23a17f4b6e84efac55225b852e642b696fff312bc8bb25433cce",
+      "source_native_id": "keps/sig-instrumentation/3498-extending-stability#excerpt-2",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F031",
+      "path": [
+        "sig-testing",
+        "2291-presubmit-config-inside-the-tested-repo"
+      ],
+      "content_sha256": "c31568a4ba6403721bdc2a47de52678f78a35e9486b7b4d771384ad57f5f3874",
+      "source_native_id": "keps/sig-testing/2291-presubmit-config-inside-the-tested-repo#excerpt-2",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F032",
+      "path": [
+        "sig-release",
+        "3720-freezing-k8s-gcr-io"
+      ],
+      "content_sha256": "4206f98c05ede9d8a13d30d082f8d27f21e02e7507489d87c23bb4b26c1d1b49",
+      "source_native_id": "keps/sig-release/3720-freezing-k8s-gcr-io#excerpt-2",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F033",
+      "path": [
+        "sig-network",
+        "2449-move-externalDNS-out-of-kubernetes-incubator"
+      ],
+      "content_sha256": "a7d40dfb5a1564862d553db149960259770aedc268664ebf5635667b3f9da3c9",
+      "source_native_id": "keps/sig-network/2449-move-externalDNS-out-of-kubernetes-incubator#excerpt-3",
+      "source_heading": "risks and mitigations"
+    },
+    {
+      "id": "F034",
+      "path": [
+        "sig-network",
+        "2449-move-externalDNS-out-of-kubernetes-incubator"
+      ],
+      "content_sha256": "394cb61ad441ca0530fe9b3f11d47bc6d01dbb72bcb956853f564461e271f110",
+      "source_native_id": "keps/sig-network/2449-move-externalDNS-out-of-kubernetes-incubator#excerpt-1",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F035",
+      "path": [
+        "sig-instrumentation",
+        "5905-mixins-migration"
+      ],
+      "content_sha256": "cb4016c71cda2f801af20091240e330bfea6987281ad8c6ce76436c3ccbbc38f",
+      "source_native_id": "keps/sig-instrumentation/5905-mixins-migration#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F036",
+      "path": [
+        "sig-instrumentation",
+        "5808-native-histogram-support"
+      ],
+      "content_sha256": "700a8082d3b8921550564e6258c5a565a47c2a0ab804706b65ec22ec5634a740",
+      "source_native_id": "keps/sig-instrumentation/5808-native-histogram-support#excerpt-2",
+      "source_heading": "motivation"
+    }
+  ],
+  "reference_scope": "Source-derived group/proposal hierarchy for a development-only difficulty and cost pilot."
+}

@@ -1,0 +1,305 @@
+{
+  "assignments": [
+    {
+      "id": "F001",
+      "path": [
+        "S3A improvements",
+        "Upload listing details"
+      ]
+    },
+    {
+      "id": "F002",
+      "path": [
+        "S3A improvements",
+        "SSL protocol failure timeout"
+      ]
+    },
+    {
+      "id": "F003",
+      "path": [
+        "S3A improvements",
+        "Credential tests with tokens"
+      ]
+    },
+    {
+      "id": "F004",
+      "path": [
+        "ABFS enhancements",
+        "Unbuffer support"
+      ]
+    },
+    {
+      "id": "F005",
+      "path": [
+        "ABFS enhancements",
+        "Parallel contract tests"
+      ]
+    },
+    {
+      "id": "F006",
+      "path": [
+        "ABFS enhancements",
+        "Unbuffer support"
+      ]
+    },
+    {
+      "id": "F007",
+      "path": [
+        "ABFS enhancements",
+        "Parallel contract tests"
+      ]
+    },
+    {
+      "id": "F008",
+      "path": [
+        "ABFS enhancements",
+        "Unbuffer support"
+      ]
+    },
+    {
+      "id": "F009",
+      "path": [
+        "S3A improvements",
+        "Dotted bucket SSL retries"
+      ]
+    },
+    {
+      "id": "F010",
+      "path": [
+        "S3A improvements",
+        "SSL protocol failure timeout"
+      ]
+    },
+    {
+      "id": "F011",
+      "path": [
+        "S3A improvements",
+        "Credential tests with tokens"
+      ]
+    },
+    {
+      "id": "F012",
+      "path": [
+        "ABFS enhancements",
+        "Common retry policy"
+      ]
+    },
+    {
+      "id": "F013",
+      "path": [
+        "S3A improvements",
+        "YARN log collection"
+      ]
+    },
+    {
+      "id": "F014",
+      "path": [
+        "ABFS enhancements",
+        "Unbuffer support"
+      ]
+    },
+    {
+      "id": "F015",
+      "path": [
+        "ABFS enhancements",
+        "Unbuffer support"
+      ]
+    },
+    {
+      "id": "F016",
+      "path": [
+        "S3A improvements",
+        "Credential tests with tokens"
+      ]
+    },
+    {
+      "id": "F017",
+      "path": [
+        "ABFS enhancements",
+        "Unbuffer support"
+      ]
+    },
+    {
+      "id": "F018",
+      "path": [
+        "S3A improvements",
+        "YARN log collection"
+      ]
+    },
+    {
+      "id": "F019",
+      "path": [
+        "S3A improvements",
+        "Dotted bucket SSL retries"
+      ]
+    },
+    {
+      "id": "F020",
+      "path": [
+        "ABFS enhancements",
+        "Parallel contract tests"
+      ]
+    },
+    {
+      "id": "F021",
+      "path": [
+        "S3A improvements",
+        "Public bucket encryption tests"
+      ]
+    },
+    {
+      "id": "F022",
+      "path": [
+        "S3A improvements",
+        "Dotted bucket SSL retries"
+      ]
+    },
+    {
+      "id": "F023",
+      "path": [
+        "S3A improvements",
+        "YARN log collection"
+      ]
+    },
+    {
+      "id": "F024",
+      "path": [
+        "S3A improvements",
+        "Dotted bucket SSL retries"
+      ]
+    },
+    {
+      "id": "F025",
+      "path": [
+        "S3A improvements",
+        "Object store trash"
+      ]
+    },
+    {
+      "id": "F026",
+      "path": [
+        "S3A improvements",
+        "Dotted bucket SSL retries"
+      ]
+    },
+    {
+      "id": "F027",
+      "path": [
+        "S3A improvements",
+        "Dotted bucket SSL retries"
+      ]
+    },
+    {
+      "id": "F028",
+      "path": [
+        "S3A improvements",
+        "Dotted bucket SSL retries"
+      ]
+    },
+    {
+      "id": "F029",
+      "path": [
+        "S3A improvements",
+        "SSL protocol failure timeout"
+      ]
+    },
+    {
+      "id": "F030",
+      "path": [
+        "ABFS enhancements",
+        "Driver metrics"
+      ]
+    },
+    {
+      "id": "F031",
+      "path": [
+        "ABFS enhancements",
+        "Rename failure logging"
+      ]
+    },
+    {
+      "id": "F032",
+      "path": [
+        "S3A improvements",
+        "SSL protocol failure timeout"
+      ]
+    },
+    {
+      "id": "F033",
+      "path": [
+        "S3A improvements",
+        "SSL protocol failure timeout"
+      ]
+    },
+    {
+      "id": "F034",
+      "path": [
+        "ABFS enhancements",
+        "Unbuffer support"
+      ]
+    },
+    {
+      "id": "F035",
+      "path": [
+        "S3A improvements",
+        "Dotted bucket SSL retries"
+      ]
+    },
+    {
+      "id": "F036",
+      "path": [
+        "S3A improvements",
+        "Dotted bucket SSL retries"
+      ]
+    },
+    {
+      "id": "F037",
+      "path": [
+        "S3A improvements",
+        "Upload listing details"
+      ]
+    },
+    {
+      "id": "F038",
+      "path": [
+        "S3A improvements",
+        "Upload listing details"
+      ]
+    },
+    {
+      "id": "F039",
+      "path": [
+        "ABFS enhancements",
+        "Token failure retries"
+      ]
+    },
+    {
+      "id": "F040",
+      "path": [
+        "S3A improvements",
+        "Credential tests with tokens"
+      ]
+    },
+    {
+      "id": "F041",
+      "path": [
+        "ABFS enhancements",
+        "Unbuffer support"
+      ]
+    },
+    {
+      "id": "F042",
+      "path": [
+        "S3A improvements",
+        "Upload listing details"
+      ]
+    },
+    {
+      "id": "F043",
+      "path": [
+        "ABFS enhancements",
+        "Token failure retries"
+      ]
+    }
+  ]
+}

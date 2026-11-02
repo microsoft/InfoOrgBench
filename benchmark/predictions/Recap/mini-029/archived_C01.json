@@ -1,0 +1,368 @@
+{
+  "assignments": [
+    {
+      "id": "F001",
+      "path": [
+        "Design Meeting 1",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F002",
+      "path": [
+        "Design Meeting 1",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F003",
+      "path": [
+        "Design Meeting 1",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F004",
+      "path": [
+        "Evaluation Meeting",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F005",
+      "path": [
+        "Design Meeting 1",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F006",
+      "path": [
+        "Design Meeting 1",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F007",
+      "path": [
+        "Design Meeting 1",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F008",
+      "path": [
+        "Design Meeting 1",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F009",
+      "path": [
+        "Evaluation Meeting",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F010",
+      "path": [
+        "Design Meeting 1",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F011",
+      "path": [
+        "Evaluation Meeting",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F012",
+      "path": [
+        "Evaluation Meeting",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F013",
+      "path": [
+        "Design Meeting 1",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F014",
+      "path": [
+        "Design Meeting 1",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F015",
+      "path": [
+        "Design Meeting 1",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F016",
+      "path": [
+        "Evaluation Meeting",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F017",
+      "path": [
+        "Design Meeting 1",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F018",
+      "path": [
+        "Design Meeting 1",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F019",
+      "path": [
+        "Design Meeting 1",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F020",
+      "path": [
+        "Evaluation Meeting",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F021",
+      "path": [
+        "Evaluation Meeting",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F022",
+      "path": [
+        "Evaluation Meeting",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F023",
+      "path": [
+        "Evaluation Meeting",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F024",
+      "path": [
+        "Design Meeting 1",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F025",
+      "path": [
+        "Design Meeting 1",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F026",
+      "path": [
+        "Design Meeting 1",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F027",
+      "path": [
+        "Design Meeting 1",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F028",
+      "path": [
+        "Design Meeting 1",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F029",
+      "path": [
+        "Design Meeting 1",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F030",
+      "path": [
+        "Design Meeting 1",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F031",
+      "path": [
+        "Evaluation Meeting",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F032",
+      "path": [
+        "Evaluation Meeting",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F033",
+      "path": [
+        "Evaluation Meeting",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F034",
+      "path": [
+        "Evaluation Meeting",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F035",
+      "path": [
+        "Design Meeting 1",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F036",
+      "path": [
+        "Design Meeting 1",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F037",
+      "path": [
+        "Design Meeting 1",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F038",
+      "path": [
+        "Evaluation Meeting",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F039",
+      "path": [
+        "Design Meeting 1",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F040",
+      "path": [
+        "Design Meeting 1",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F041",
+      "path": [
+        "Design Meeting 1",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F042",
+      "path": [
+        "Design Meeting 1",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F043",
+      "path": [
+        "Evaluation Meeting",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F044",
+      "path": [
+        "Design Meeting 1",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F045",
+      "path": [
+        "Design Meeting 1",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F046",
+      "path": [
+        "Design Meeting 1",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F047",
+      "path": [
+        "Design Meeting 1",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F048",
+      "path": [
+        "Evaluation Meeting",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F049",
+      "path": [
+        "Design Meeting 1",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F050",
+      "path": [
+        "Design Meeting 1",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F051",
+      "path": [
+        "Evaluation Meeting",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F052",
+      "path": [
+        "Design Meeting 1",
+        "Decisions"
+      ]
+    }
+  ]
+}

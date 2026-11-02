@@ -1,0 +1,17 @@
+# Secret-scanning configuration for gitleaks (https://github.com/gitleaks/gitleaks).
+title = "InfoOrgBench"
+
+[extend]
+useDefault = true
+
+[[allowlists]]
+description = """Upstream Apache Hadoop Jira text (HADOOP-18839) shows a docker command with a \
+placeholder MinIO secret key and root password for a local test container. Thread packets redistribute that \
+public text unchanged; it is not a credential for any live system."""
+condition = "AND"
+regexTarget = "match"
+regexes = [
+  '''MINIO_SECRET_KEY=Eevoh2wo0ui6ech0wu8oy3feiR3eicha''',
+  '''MINIO_ROOT_PASSWORD=iepaegaigi3ofa9TaephieSo1iecaesh''',
+]
+paths = ['''^benchmark/inputs/public/Thread/mini-\d{3}\.json$''']

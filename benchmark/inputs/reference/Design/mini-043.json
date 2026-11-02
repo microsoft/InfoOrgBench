@@ -1,0 +1,366 @@
+{
+  "task_id": "mini-043",
+  "records": [
+    {
+      "id": "F001",
+      "path": [
+        "sig-cloud-provider",
+        "2395-removing-in-tree-cloud-providers"
+      ],
+      "content_sha256": "790d482dc10d22d832adf496c76daef11ea8fe3912b49d2de0ad9acdce6dea7c",
+      "source_native_id": "keps/sig-cloud-provider/2395-removing-in-tree-cloud-providers#excerpt-1",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F002",
+      "path": [
+        "sig-node",
+        "5328-node-declared-features"
+      ],
+      "content_sha256": "804e5778a2e278b548b1633edfae2c8fecfbe9810c6d772e339a988ef1a7b0f3",
+      "source_native_id": "keps/sig-node/5328-node-declared-features#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F003",
+      "path": [
+        "sig-node",
+        "2008-forensic-container-checkpointing"
+      ],
+      "content_sha256": "6d44618464651751bc1e92d00d3d169b7f69e56cec99864ac561477c1015d939",
+      "source_native_id": "keps/sig-node/2008-forensic-container-checkpointing#excerpt-3",
+      "source_heading": "risks and mitigations"
+    },
+    {
+      "id": "F004",
+      "path": [
+        "sig-scheduling",
+        "6080-dra-derived-attributes"
+      ],
+      "content_sha256": "a61bc759c9ffb76a8b20f64b4d54e35dd1f731f65f6c7b6f3dca76494d83e906",
+      "source_native_id": "keps/sig-scheduling/6080-dra-derived-attributes#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F005",
+      "path": [
+        "sig-scheduling",
+        "5491-dra-list-types-for-attributes"
+      ],
+      "content_sha256": "003826137ea7d93f4396079785e0d9c1e96181d2918dfa04b32a9373bd1b5bbf",
+      "source_native_id": "keps/sig-scheduling/5491-dra-list-types-for-attributes#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F006",
+      "path": [
+        "sig-storage",
+        "1900-volume-snapshot-validation-webhook"
+      ],
+      "content_sha256": "c87dac86c32d98fefa90c75e29b964712a17e74684c9e7fa950d7a22279b54b4",
+      "source_native_id": "keps/sig-storage/1900-volume-snapshot-validation-webhook#excerpt-2",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F007",
+      "path": [
+        "sig-cloud-provider",
+        "1771-versioning-policy-for-external-cloud-providers"
+      ],
+      "content_sha256": "7a280d428200a328745549ea9c3db0e9a1baecc8ac72b726e7ca783abadabc22",
+      "source_native_id": "keps/sig-cloud-provider/1771-versioning-policy-for-external-cloud-providers#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F008",
+      "path": [
+        "sig-cloud-provider",
+        "1959-service-lb-class-field"
+      ],
+      "content_sha256": "ee09b55bdf365116aa5191366d5d81d85bba5265225a1f5deb1e02403e36f1ec",
+      "source_native_id": "keps/sig-cloud-provider/1959-service-lb-class-field#excerpt-3",
+      "source_heading": "design details"
+    },
+    {
+      "id": "F009",
+      "path": [
+        "sig-scheduling",
+        "5491-dra-list-types-for-attributes"
+      ],
+      "content_sha256": "3dd8afb0b513ba766d4eb83c07c5ef67a888f21d11c1e9339782a64874f88915",
+      "source_native_id": "keps/sig-scheduling/5491-dra-list-types-for-attributes#excerpt-3",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F010",
+      "path": [
+        "sig-storage",
+        "1900-volume-snapshot-validation-webhook"
+      ],
+      "content_sha256": "937d51ff5589e4a560e8296c6e968e448785099c091d6ab99e4b65530239d13a",
+      "source_native_id": "keps/sig-storage/1900-volume-snapshot-validation-webhook#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F011",
+      "path": [
+        "sig-scheduling",
+        "624-scheduling-framework"
+      ],
+      "content_sha256": "03fb7cf046188d6d16b22481320099f5e07a42fbddaa01712a3d45a00deea5e7",
+      "source_native_id": "keps/sig-scheduling/624-scheduling-framework#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F012",
+      "path": [
+        "sig-cloud-provider",
+        "1959-service-lb-class-field"
+      ],
+      "content_sha256": "12b0659070d9893c59c4c0321ebf5cd3aab4efe911250b26fe5ce72fd7e930d0",
+      "source_native_id": "keps/sig-cloud-provider/1959-service-lb-class-field#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F013",
+      "path": [
+        "sig-scheduling",
+        "624-scheduling-framework"
+      ],
+      "content_sha256": "e86a8ce1436149d1dd873d609dad4d83b1297472037ad353ba7515d6f1c4131d",
+      "source_native_id": "keps/sig-scheduling/624-scheduling-framework#excerpt-3",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F014",
+      "path": [
+        "sig-node",
+        "5978-cluster-resource-claim-template"
+      ],
+      "content_sha256": "043c0024e1be1d80037bab4bb58fa4211d3d1746a46649ac61c51ffca21651c4",
+      "source_native_id": "keps/sig-node/5978-cluster-resource-claim-template#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F015",
+      "path": [
+        "sig-cloud-provider",
+        "1771-versioning-policy-for-external-cloud-providers"
+      ],
+      "content_sha256": "2dd1833c3a94772c6737913ea795c96fc0a8a88810d6b0b7858a1e8c942f5069",
+      "source_native_id": "keps/sig-cloud-provider/1771-versioning-policy-for-external-cloud-providers#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F016",
+      "path": [
+        "sig-cloud-provider",
+        "2395-removing-in-tree-cloud-providers"
+      ],
+      "content_sha256": "57a1a80c6711063310cff006591c72447abf4e8a7ba8b306e80f778c148bd388",
+      "source_native_id": "keps/sig-cloud-provider/2395-removing-in-tree-cloud-providers#excerpt-3",
+      "source_heading": "drawbacks"
+    },
+    {
+      "id": "F017",
+      "path": [
+        "sig-scheduling",
+        "624-scheduling-framework"
+      ],
+      "content_sha256": "3c55fd9855f2469b857ca4cd5e058b41ff02c2cb60133a5e6ed8860b10140666",
+      "source_native_id": "keps/sig-scheduling/624-scheduling-framework#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F018",
+      "path": [
+        "sig-node",
+        "5328-node-declared-features"
+      ],
+      "content_sha256": "475bf945e2839feee4ea16580e0c489a9cb9b06c32f45f395014f2f01ed00ab0",
+      "source_native_id": "keps/sig-node/5328-node-declared-features#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F019",
+      "path": [
+        "sig-storage",
+        "2268-non-graceful-shutdown"
+      ],
+      "content_sha256": "225a59540a61eb5be91d31ebc246d672c6674b0ce7cb57b14547880d5a903866",
+      "source_native_id": "keps/sig-storage/2268-non-graceful-shutdown#excerpt-2",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F020",
+      "path": [
+        "sig-node",
+        "5978-cluster-resource-claim-template"
+      ],
+      "content_sha256": "9be7c8b3aad53ddf2a19b62328dedec5b78ff564b1c984d9fe258af59296ae55",
+      "source_native_id": "keps/sig-node/5978-cluster-resource-claim-template#excerpt-3",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F021",
+      "path": [
+        "sig-storage",
+        "1900-volume-snapshot-validation-webhook"
+      ],
+      "content_sha256": "492164332c8877fb6f8a4c38a498c417ceeb785fb9d8b01fdf263d2b19b6c842",
+      "source_native_id": "keps/sig-storage/1900-volume-snapshot-validation-webhook#excerpt-3",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F022",
+      "path": [
+        "sig-scheduling",
+        "6080-dra-derived-attributes"
+      ],
+      "content_sha256": "fe565b67e32dfb2a9c9cf84fc548b591f2d10b24ab677f146245c6abade307e2",
+      "source_native_id": "keps/sig-scheduling/6080-dra-derived-attributes#excerpt-3",
+      "source_heading": "risks and mitigations"
+    },
+    {
+      "id": "F023",
+      "path": [
+        "sig-node",
+        "2008-forensic-container-checkpointing"
+      ],
+      "content_sha256": "deb5b13dcdd6ffd0531f7521fc4a1217e6715f8a13d1eabcee433356a4603655",
+      "source_native_id": "keps/sig-node/2008-forensic-container-checkpointing#excerpt-1",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F024",
+      "path": [
+        "sig-cloud-provider",
+        "1959-service-lb-class-field"
+      ],
+      "content_sha256": "cb5a7580131d866e28fd52c232aa0730b3fd688d2a73580a65ed56eca188b22f",
+      "source_native_id": "keps/sig-cloud-provider/1959-service-lb-class-field#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F025",
+      "path": [
+        "sig-storage",
+        "3762-persistent-volume-last-phase-transition-time"
+      ],
+      "content_sha256": "a77b7bf7c4370e15162c438be715d8d5a447595bdf532438b68c8e192740ae59",
+      "source_native_id": "keps/sig-storage/3762-persistent-volume-last-phase-transition-time#excerpt-1",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F026",
+      "path": [
+        "sig-cloud-provider",
+        "2395-removing-in-tree-cloud-providers"
+      ],
+      "content_sha256": "183d91f7e9093af5e74cd29faa364b95922d679146a125b1f2a08a4be7f4b844",
+      "source_native_id": "keps/sig-cloud-provider/2395-removing-in-tree-cloud-providers#excerpt-2",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F027",
+      "path": [
+        "sig-node",
+        "2008-forensic-container-checkpointing"
+      ],
+      "content_sha256": "9bba0364572ed883dfd8fab3607a55f3c1d6fc6a8525851dc5d75fc4d4e5eab1",
+      "source_native_id": "keps/sig-node/2008-forensic-container-checkpointing#excerpt-2",
+      "source_heading": "user stories"
+    },
+    {
+      "id": "F028",
+      "path": [
+        "sig-node",
+        "5978-cluster-resource-claim-template"
+      ],
+      "content_sha256": "7f826c22a40312c709a38490d7c2486f36ae503d3416653de9cf114f0f561cc0",
+      "source_native_id": "keps/sig-node/5978-cluster-resource-claim-template#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F029",
+      "path": [
+        "sig-cloud-provider",
+        "1771-versioning-policy-for-external-cloud-providers"
+      ],
+      "content_sha256": "75666bda795d5d40cc14c315d716061f67938e2fee20d0b7e2ac3e23bcafaa69",
+      "source_native_id": "keps/sig-cloud-provider/1771-versioning-policy-for-external-cloud-providers#excerpt-3",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F030",
+      "path": [
+        "sig-scheduling",
+        "6080-dra-derived-attributes"
+      ],
+      "content_sha256": "19ec7cbab517eba3681face1b7432dcf70e13265869cbdf80a3b25794464fe30",
+      "source_native_id": "keps/sig-scheduling/6080-dra-derived-attributes#excerpt-2",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F031",
+      "path": [
+        "sig-scheduling",
+        "5491-dra-list-types-for-attributes"
+      ],
+      "content_sha256": "98e0a412aaed33393dd7b47c5fb6e9b6e28d70908bb7e9c94f95a88514b5cd10",
+      "source_native_id": "keps/sig-scheduling/5491-dra-list-types-for-attributes#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F032",
+      "path": [
+        "sig-storage",
+        "3762-persistent-volume-last-phase-transition-time"
+      ],
+      "content_sha256": "23a6408b7af3c482619f8bde1a2b9657119d345b96597a7c7ae421d9d320db3a",
+      "source_native_id": "keps/sig-storage/3762-persistent-volume-last-phase-transition-time#excerpt-2",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F033",
+      "path": [
+        "sig-node",
+        "5328-node-declared-features"
+      ],
+      "content_sha256": "46012561f71aedd432a9b89425a514275aeb1e9a0ab54e3bb0c9b91a2105ef7f",
+      "source_native_id": "keps/sig-node/5328-node-declared-features#excerpt-3",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F034",
+      "path": [
+        "sig-storage",
+        "2268-non-graceful-shutdown"
+      ],
+      "content_sha256": "1df606aef706f8004dd8cd4d4ade1edfbdc7da50ce1aae3318a41a6b227d21be",
+      "source_native_id": "keps/sig-storage/2268-non-graceful-shutdown#excerpt-3",
+      "source_heading": "non-goals"
+    },
+    {
+      "id": "F035",
+      "path": [
+        "sig-storage",
+        "2268-non-graceful-shutdown"
+      ],
+      "content_sha256": "29cb39776908943492ce19d069158d42e2acfb80722c8c4176997e369d07ef38",
+      "source_native_id": "keps/sig-storage/2268-non-graceful-shutdown#excerpt-1",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F036",
+      "path": [
+        "sig-storage",
+        "3762-persistent-volume-last-phase-transition-time"
+      ],
+      "content_sha256": "1e5ccee62a74b701832552c63f1459d919aa55881a2e2146846b3a406a118a4c",
+      "source_native_id": "keps/sig-storage/3762-persistent-volume-last-phase-transition-time#excerpt-3",
+      "source_heading": "design details"
+    }
+  ],
+  "reference_scope": "Source-derived group/proposal hierarchy for a development-only difficulty and cost pilot."
+}

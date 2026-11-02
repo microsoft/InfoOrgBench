@@ -1,0 +1,366 @@
+{
+  "task_id": "mini-004",
+  "records": [
+    {
+      "id": "F001",
+      "path": [
+        "sig-cloud-provider",
+        "2395-removing-in-tree-cloud-providers"
+      ],
+      "content_sha256": "183d91f7e9093af5e74cd29faa364b95922d679146a125b1f2a08a4be7f4b844",
+      "source_native_id": "keps/sig-cloud-provider/2395-removing-in-tree-cloud-providers#excerpt-2",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F002",
+      "path": [
+        "sig-architecture",
+        "1659-standard-topology-labels"
+      ],
+      "content_sha256": "8966c7ea541aa9953abbb70d6e93d3d363cdb4ee602d0b410e37146efa92f988",
+      "source_native_id": "keps/sig-architecture/1659-standard-topology-labels#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F003",
+      "path": [
+        "sig-cloud-provider",
+        "1959-service-lb-class-field"
+      ],
+      "content_sha256": "ee09b55bdf365116aa5191366d5d81d85bba5265225a1f5deb1e02403e36f1ec",
+      "source_native_id": "keps/sig-cloud-provider/1959-service-lb-class-field#excerpt-3",
+      "source_heading": "design details"
+    },
+    {
+      "id": "F004",
+      "path": [
+        "sig-testing",
+        "2420-reducing-kubernetes-build-maintenance"
+      ],
+      "content_sha256": "d62cfbddceeff87a93084322d8a29b34fd07ee35f303d97a98f9e02503a86af9",
+      "source_native_id": "keps/sig-testing/2420-reducing-kubernetes-build-maintenance#excerpt-3",
+      "source_heading": "drawbacks"
+    },
+    {
+      "id": "F005",
+      "path": [
+        "sig-architecture",
+        "4330-compatibility-versions"
+      ],
+      "content_sha256": "db3ac0abca4fa5fef2745cf3e9f1d8651f0768b3321a69834983317e3815b0f9",
+      "source_native_id": "keps/sig-architecture/4330-compatibility-versions#excerpt-3",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F006",
+      "path": [
+        "sig-cloud-provider",
+        "1959-service-lb-class-field"
+      ],
+      "content_sha256": "cb5a7580131d866e28fd52c232aa0730b3fd688d2a73580a65ed56eca188b22f",
+      "source_native_id": "keps/sig-cloud-provider/1959-service-lb-class-field#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F007",
+      "path": [
+        "sig-testing",
+        "2464-kubetest2-ci-migration"
+      ],
+      "content_sha256": "fc3cfc922350ade8315545607060c1d822e9320d27090890364a233785526c10",
+      "source_native_id": "keps/sig-testing/2464-kubetest2-ci-migration#excerpt-3",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F008",
+      "path": [
+        "sig-release",
+        "1729-rebase-images-to-distroless"
+      ],
+      "content_sha256": "4b51a3153f1c7c8882735d34d90f2ee61aca9d25aca12ce829125f47a5e14e23",
+      "source_native_id": "keps/sig-release/1729-rebase-images-to-distroless#excerpt-1",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F009",
+      "path": [
+        "sig-cloud-provider",
+        "2395-removing-in-tree-cloud-providers"
+      ],
+      "content_sha256": "790d482dc10d22d832adf496c76daef11ea8fe3912b49d2de0ad9acdce6dea7c",
+      "source_native_id": "keps/sig-cloud-provider/2395-removing-in-tree-cloud-providers#excerpt-1",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F010",
+      "path": [
+        "sig-testing",
+        "2291-presubmit-config-inside-the-tested-repo"
+      ],
+      "content_sha256": "c31568a4ba6403721bdc2a47de52678f78a35e9486b7b4d771384ad57f5f3874",
+      "source_native_id": "keps/sig-testing/2291-presubmit-config-inside-the-tested-repo#excerpt-2",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F011",
+      "path": [
+        "sig-testing",
+        "2464-kubetest2-ci-migration"
+      ],
+      "content_sha256": "fd0f63cd9bf06669f0af53f7a5b8f1639230860259c6882dca3e0daf86e8b7df",
+      "source_native_id": "keps/sig-testing/2464-kubetest2-ci-migration#excerpt-2",
+      "source_heading": "non-goals"
+    },
+    {
+      "id": "F012",
+      "path": [
+        "sig-release",
+        "1729-rebase-images-to-distroless"
+      ],
+      "content_sha256": "02264680882787a61acaf3be55eefb1d36d1540987027cd02d5acefdeefdd31e",
+      "source_native_id": "keps/sig-release/1729-rebase-images-to-distroless#excerpt-2",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F013",
+      "path": [
+        "sig-testing",
+        "2464-kubetest2-ci-migration"
+      ],
+      "content_sha256": "619b0036ac91599443d1872bd90d0d0d670445d7eb853584e5964b9dd21d97cd",
+      "source_native_id": "keps/sig-testing/2464-kubetest2-ci-migration#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F014",
+      "path": [
+        "sig-release",
+        "1498-kubernetes-yearly-support-period"
+      ],
+      "content_sha256": "571ad90060f399994079f43cc42c5da1b97a42c22a28523012d63e9eb5bab203",
+      "source_native_id": "keps/sig-release/1498-kubernetes-yearly-support-period#excerpt-3",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F015",
+      "path": [
+        "sig-architecture",
+        "1659-standard-topology-labels"
+      ],
+      "content_sha256": "fd256709e65fa47df9bbc2fb95b44283d4b3769677b3ab8fe04fded65f3f0857",
+      "source_native_id": "keps/sig-architecture/1659-standard-topology-labels#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F016",
+      "path": [
+        "sig-cloud-provider",
+        "1771-versioning-policy-for-external-cloud-providers"
+      ],
+      "content_sha256": "75666bda795d5d40cc14c315d716061f67938e2fee20d0b7e2ac3e23bcafaa69",
+      "source_native_id": "keps/sig-cloud-provider/1771-versioning-policy-for-external-cloud-providers#excerpt-3",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F017",
+      "path": [
+        "sig-testing",
+        "2291-presubmit-config-inside-the-tested-repo"
+      ],
+      "content_sha256": "93dd2ddf5faa92a6eafd6e77f6bf20f818e93084a93d105cd7f5d9380080035e",
+      "source_native_id": "keps/sig-testing/2291-presubmit-config-inside-the-tested-repo#excerpt-1",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F018",
+      "path": [
+        "sig-cloud-provider",
+        "1959-service-lb-class-field"
+      ],
+      "content_sha256": "12b0659070d9893c59c4c0321ebf5cd3aab4efe911250b26fe5ce72fd7e930d0",
+      "source_native_id": "keps/sig-cloud-provider/1959-service-lb-class-field#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F019",
+      "path": [
+        "sig-release",
+        "3027-slsa-compliance"
+      ],
+      "content_sha256": "2981ad02b1199f186526659e0490e08b436e7f27881f6a0e23427279a068b82a",
+      "source_native_id": "keps/sig-release/3027-slsa-compliance#excerpt-1",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F020",
+      "path": [
+        "sig-testing",
+        "2420-reducing-kubernetes-build-maintenance"
+      ],
+      "content_sha256": "fd1495d6729c332a4ed61cbaaf8ab97dc9710b4fa9457842335a09209cf90f12",
+      "source_native_id": "keps/sig-testing/2420-reducing-kubernetes-build-maintenance#excerpt-1",
+      "source_heading": "non-goals"
+    },
+    {
+      "id": "F021",
+      "path": [
+        "sig-architecture",
+        "960-conformance-behaviors"
+      ],
+      "content_sha256": "30d4b0711ac77dd2ecbe7193db45c2679bd2a3f4e6058ea607ee9f656307a020",
+      "source_native_id": "keps/sig-architecture/960-conformance-behaviors#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F022",
+      "path": [
+        "sig-release",
+        "3027-slsa-compliance"
+      ],
+      "content_sha256": "d5325fe41c7234bb90f3c9d1f6b71d6d3969ec5364d41470a9185e1d07c0d3e4",
+      "source_native_id": "keps/sig-release/3027-slsa-compliance#excerpt-3",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F023",
+      "path": [
+        "sig-release",
+        "1729-rebase-images-to-distroless"
+      ],
+      "content_sha256": "84fa7e900004df2e659f685866cd1c731793a16cff4bf48607affdc4948e1a6f",
+      "source_native_id": "keps/sig-release/1729-rebase-images-to-distroless#excerpt-3",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F024",
+      "path": [
+        "sig-testing",
+        "2291-presubmit-config-inside-the-tested-repo"
+      ],
+      "content_sha256": "92cbeafed5006ed215fa664ba89e242989235120c2c4a5c40fc903888ef21c33",
+      "source_native_id": "keps/sig-testing/2291-presubmit-config-inside-the-tested-repo#excerpt-3",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F025",
+      "path": [
+        "sig-architecture",
+        "4330-compatibility-versions"
+      ],
+      "content_sha256": "a5155557acbf24925f338646fd4a3e0ec5da2f5d1bbe5fcbed3f64579e651532",
+      "source_native_id": "keps/sig-architecture/4330-compatibility-versions#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F026",
+      "path": [
+        "sig-cloud-provider",
+        "2395-removing-in-tree-cloud-providers"
+      ],
+      "content_sha256": "57a1a80c6711063310cff006591c72447abf4e8a7ba8b306e80f778c148bd388",
+      "source_native_id": "keps/sig-cloud-provider/2395-removing-in-tree-cloud-providers#excerpt-3",
+      "source_heading": "drawbacks"
+    },
+    {
+      "id": "F027",
+      "path": [
+        "sig-architecture",
+        "960-conformance-behaviors"
+      ],
+      "content_sha256": "e8cac3f4700a6959902110df9985b676552fb79e884f117bf75b7d255faafedd",
+      "source_native_id": "keps/sig-architecture/960-conformance-behaviors#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F028",
+      "path": [
+        "sig-testing",
+        "2420-reducing-kubernetes-build-maintenance"
+      ],
+      "content_sha256": "fc6d6e1cbbfcffa8e21dbe141962ec686edcccaf6b282408cec0b2e576757668",
+      "source_native_id": "keps/sig-testing/2420-reducing-kubernetes-build-maintenance#excerpt-2",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F029",
+      "path": [
+        "sig-release",
+        "3027-slsa-compliance"
+      ],
+      "content_sha256": "e831511de60fd17e6608a25c0f201903fc9c9eca765720d128bf8dab85ab058e",
+      "source_native_id": "keps/sig-release/3027-slsa-compliance#excerpt-2",
+      "source_heading": "non-goals"
+    },
+    {
+      "id": "F030",
+      "path": [
+        "sig-architecture",
+        "1659-standard-topology-labels"
+      ],
+      "content_sha256": "0f6a7c4a0f48ef311fb0ebb7a59113480e9e1c9cc7b35171aeb9e123ccd8b75f",
+      "source_native_id": "keps/sig-architecture/1659-standard-topology-labels#excerpt-3",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F031",
+      "path": [
+        "sig-release",
+        "1498-kubernetes-yearly-support-period"
+      ],
+      "content_sha256": "eee88de55c9c45c846c7d3c106a0031804306caf5f9af5609166abf112c2b6f6",
+      "source_native_id": "keps/sig-release/1498-kubernetes-yearly-support-period#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F032",
+      "path": [
+        "sig-cloud-provider",
+        "1771-versioning-policy-for-external-cloud-providers"
+      ],
+      "content_sha256": "2dd1833c3a94772c6737913ea795c96fc0a8a88810d6b0b7858a1e8c942f5069",
+      "source_native_id": "keps/sig-cloud-provider/1771-versioning-policy-for-external-cloud-providers#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F033",
+      "path": [
+        "sig-release",
+        "1498-kubernetes-yearly-support-period"
+      ],
+      "content_sha256": "1dbca75c6ee4207aaa1cdcd05c4908eb41b12840fe17e6d4fded6a2d5c6806f2",
+      "source_native_id": "keps/sig-release/1498-kubernetes-yearly-support-period#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F034",
+      "path": [
+        "sig-cloud-provider",
+        "1771-versioning-policy-for-external-cloud-providers"
+      ],
+      "content_sha256": "7a280d428200a328745549ea9c3db0e9a1baecc8ac72b726e7ca783abadabc22",
+      "source_native_id": "keps/sig-cloud-provider/1771-versioning-policy-for-external-cloud-providers#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F035",
+      "path": [
+        "sig-architecture",
+        "4330-compatibility-versions"
+      ],
+      "content_sha256": "470b6f3e1b574f3cee2c1aec400e09eb9423a4629d0269753e51f2a4774fd062",
+      "source_native_id": "keps/sig-architecture/4330-compatibility-versions#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F036",
+      "path": [
+        "sig-architecture",
+        "960-conformance-behaviors"
+      ],
+      "content_sha256": "7995f1b3c1fdf0752b0bea080bfd71ca88fc66cb584e51a1b742ed1cf656515d",
+      "source_native_id": "keps/sig-architecture/960-conformance-behaviors#excerpt-3",
+      "source_heading": "goals"
+    }
+  ],
+  "reference_scope": "Source-derived group/proposal hierarchy for a development-only difficulty and cost pilot."
+}

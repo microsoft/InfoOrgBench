@@ -1,0 +1,366 @@
+{
+  "task_id": "mini-048",
+  "records": [
+    {
+      "id": "F001",
+      "path": [
+        "sig-node",
+        "1287-in-place-update-pod-resources"
+      ],
+      "content_sha256": "c6a7f21390ffe122132ff4d354d6923cc3d8a02cb0d46f0eb0e1d5afdfe61d47",
+      "source_native_id": "keps/sig-node/1287-in-place-update-pod-resources#excerpt-3",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F002",
+      "path": [
+        "sig-storage",
+        "5040-remove-gitrepo-driver"
+      ],
+      "content_sha256": "815d869b8b3cdafe181bc396351c1d140910ccef685ac80c4f050a3b6b5ce966",
+      "source_native_id": "keps/sig-storage/5040-remove-gitrepo-driver#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F003",
+      "path": [
+        "sig-storage",
+        "596-csi-inline-volumes"
+      ],
+      "content_sha256": "1d5be7f0023533fb7ec8efd55c3a927839ce012105a0d9974f44bd5c329ad6fa",
+      "source_native_id": "keps/sig-storage/596-csi-inline-volumes#excerpt-1",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F004",
+      "path": [
+        "sig-storage",
+        "596-csi-inline-volumes"
+      ],
+      "content_sha256": "12eaf6ffa44b4c8d08071b7b861c2d44ede7a3cc1f82da42daa4aa06dec88472",
+      "source_native_id": "keps/sig-storage/596-csi-inline-volumes#excerpt-3",
+      "source_heading": "alternatives"
+    },
+    {
+      "id": "F005",
+      "path": [
+        "sig-auth",
+        "3299-kms-v2-improvements"
+      ],
+      "content_sha256": "361a8ccfb97c3fea52bf274589d984c4ffcd23344c38bcfa86b670621d3bf23e",
+      "source_native_id": "keps/sig-auth/3299-kms-v2-improvements#excerpt-3",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F006",
+      "path": [
+        "sig-node",
+        "2413-seccomp-by-default"
+      ],
+      "content_sha256": "59a9d2d47d1514759f631974455f15deb810b616c0686963de48e86d9d8b571e",
+      "source_native_id": "keps/sig-node/2413-seccomp-by-default#excerpt-2",
+      "source_heading": "design details"
+    },
+    {
+      "id": "F007",
+      "path": [
+        "sig-storage",
+        "121-local-persistent-volumes"
+      ],
+      "content_sha256": "03b2f4ce9a1129f04945ae7a4c3409066b49161eeebde95e4e2ff013f6ac3874",
+      "source_native_id": "keps/sig-storage/121-local-persistent-volumes#excerpt-1",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F008",
+      "path": [
+        "sig-node",
+        "5526-pod-level-resource-managers"
+      ],
+      "content_sha256": "cb9732d9a4da1b9a4db54acb7792ad1f23456a89c3bcb86d0ecb0214084e4970",
+      "source_native_id": "keps/sig-node/5526-pod-level-resource-managers#excerpt-3",
+      "source_heading": "non-goals"
+    },
+    {
+      "id": "F009",
+      "path": [
+        "sig-api-machinery",
+        "1295-insecure-backend-proxy"
+      ],
+      "content_sha256": "b04c3a4ff9a7d904077eb01a3f63ef367a00691cb00e8582affd36fc6a32c079",
+      "source_native_id": "keps/sig-api-machinery/1295-insecure-backend-proxy#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F010",
+      "path": [
+        "sig-auth",
+        "2579-psp-replacement"
+      ],
+      "content_sha256": "87a7eb54961a0fbdfae5e983eddf1fef23b4701569da638119481a7454c7d765",
+      "source_native_id": "keps/sig-auth/2579-psp-replacement#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F011",
+      "path": [
+        "sig-api-machinery",
+        "5958-client-opt-out-managedfields"
+      ],
+      "content_sha256": "972f4513c1fe47feab29ef99a490975e1d42bd19e27e20d2b502ed1ec6557cc8",
+      "source_native_id": "keps/sig-api-machinery/5958-client-opt-out-managedfields#excerpt-2",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F012",
+      "path": [
+        "sig-auth",
+        "2579-psp-replacement"
+      ],
+      "content_sha256": "a10333184affaaf1f21e9f2d06f4b48ac5169a3c27985a370b276054d8618fb1",
+      "source_native_id": "keps/sig-auth/2579-psp-replacement#excerpt-3",
+      "source_heading": "risks and mitigations"
+    },
+    {
+      "id": "F013",
+      "path": [
+        "sig-storage",
+        "596-csi-inline-volumes"
+      ],
+      "content_sha256": "6b06770b7706befc41f1a8bf63c636116b556e2ed7d147d7e2a55c86267cdda4",
+      "source_native_id": "keps/sig-storage/596-csi-inline-volumes#excerpt-2",
+      "source_heading": "user stories"
+    },
+    {
+      "id": "F014",
+      "path": [
+        "sig-auth",
+        "3299-kms-v2-improvements"
+      ],
+      "content_sha256": "fd265c0eb30df41508cba81ae03c7d8e6166109e855b95da364dcacb5e655980",
+      "source_native_id": "keps/sig-auth/3299-kms-v2-improvements#excerpt-2",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F015",
+      "path": [
+        "sig-api-machinery",
+        "4153-declarative-validation"
+      ],
+      "content_sha256": "fb3bebb99bd39a8870d8ec533d144174cc3280c8940fed0fd5cdae4677d762d8",
+      "source_native_id": "keps/sig-api-machinery/4153-declarative-validation#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F016",
+      "path": [
+        "sig-auth",
+        "1393-oidc-discovery"
+      ],
+      "content_sha256": "b83998d51ce4ee1d26014e262a3ad4ff654d7428f44ebec4595b3995c8b507d3",
+      "source_native_id": "keps/sig-auth/1393-oidc-discovery#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F017",
+      "path": [
+        "sig-node",
+        "2413-seccomp-by-default"
+      ],
+      "content_sha256": "a22e90af98f0576ba4e4a6990421e9ef732933f2f8f4933b4f103f5b36ad5b60",
+      "source_native_id": "keps/sig-node/2413-seccomp-by-default#excerpt-3",
+      "source_heading": "risks and mitigations"
+    },
+    {
+      "id": "F018",
+      "path": [
+        "sig-node",
+        "2413-seccomp-by-default"
+      ],
+      "content_sha256": "0e01dc821b01e925628cece04f7ba5aa5c5fa64babbd02601603ed00e072ccb6",
+      "source_native_id": "keps/sig-node/2413-seccomp-by-default#excerpt-1",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F019",
+      "path": [
+        "sig-api-machinery",
+        "4153-declarative-validation"
+      ],
+      "content_sha256": "daddda712bd3a2ca69172199bed8053b720897149d12d0c57e3964bedd279075",
+      "source_native_id": "keps/sig-api-machinery/4153-declarative-validation#excerpt-3",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F020",
+      "path": [
+        "sig-auth",
+        "1393-oidc-discovery"
+      ],
+      "content_sha256": "95979bfd036967e23425ce0bfc9e71cd9e3ecedd12fbdceea6a2e1aa1d4a6bee",
+      "source_native_id": "keps/sig-auth/1393-oidc-discovery#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F021",
+      "path": [
+        "sig-api-machinery",
+        "5958-client-opt-out-managedfields"
+      ],
+      "content_sha256": "98aef72c0b98f7ae0578d9610d1e508ab333f10b389e1d760886b7d0ad9f269f",
+      "source_native_id": "keps/sig-api-machinery/5958-client-opt-out-managedfields#excerpt-3",
+      "source_heading": "non-goals"
+    },
+    {
+      "id": "F022",
+      "path": [
+        "sig-storage",
+        "121-local-persistent-volumes"
+      ],
+      "content_sha256": "23fb4b662a951d532b7de73bb165d1a34f28664219c2be7b5f48d20d27f47194",
+      "source_native_id": "keps/sig-storage/121-local-persistent-volumes#excerpt-3",
+      "source_heading": "non-goals"
+    },
+    {
+      "id": "F023",
+      "path": [
+        "sig-api-machinery",
+        "1295-insecure-backend-proxy"
+      ],
+      "content_sha256": "c3cb2b10f68b79bca65673a56e0f24237f3a4e008394fbea43209c8ea4f1ec2e",
+      "source_native_id": "keps/sig-api-machinery/1295-insecure-backend-proxy#excerpt-3",
+      "source_heading": "risks and mitigations"
+    },
+    {
+      "id": "F024",
+      "path": [
+        "sig-node",
+        "1287-in-place-update-pod-resources"
+      ],
+      "content_sha256": "fb40028567459dde08e40c688d3ca076ce531ceba2a2a76adb3064a8153f7540",
+      "source_native_id": "keps/sig-node/1287-in-place-update-pod-resources#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F025",
+      "path": [
+        "sig-auth",
+        "3299-kms-v2-improvements"
+      ],
+      "content_sha256": "8b7ad76f51129fc174268faa1b806f40ba22dcdea62059153cd1e85e6d3abaab",
+      "source_native_id": "keps/sig-auth/3299-kms-v2-improvements#excerpt-1",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F026",
+      "path": [
+        "sig-storage",
+        "121-local-persistent-volumes"
+      ],
+      "content_sha256": "c1570cdaa1707491989bf112115329d24e2e5b36182c016f2dcfe1cd1df6ca27",
+      "source_native_id": "keps/sig-storage/121-local-persistent-volumes#excerpt-2",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F027",
+      "path": [
+        "sig-node",
+        "5526-pod-level-resource-managers"
+      ],
+      "content_sha256": "f1a0492c8c25695dc0579d734363f1701a7da45c658f1de1de5010f795187faf",
+      "source_native_id": "keps/sig-node/5526-pod-level-resource-managers#excerpt-2",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F028",
+      "path": [
+        "sig-auth",
+        "1393-oidc-discovery"
+      ],
+      "content_sha256": "2c2891219a7641a9398343f4492b0467a42cbeeec55c7223bdfc6870b8bb6dc5",
+      "source_native_id": "keps/sig-auth/1393-oidc-discovery#excerpt-3",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F029",
+      "path": [
+        "sig-node",
+        "1287-in-place-update-pod-resources"
+      ],
+      "content_sha256": "02e43644d91bde5b9617377c0ba560f1102c79db5e8c738082333f6d76df37ef",
+      "source_native_id": "keps/sig-node/1287-in-place-update-pod-resources#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F030",
+      "path": [
+        "sig-storage",
+        "5040-remove-gitrepo-driver"
+      ],
+      "content_sha256": "1270d6861cc886adfbafd3130f671719e7b12afda8b7203ed99da30de03b1d4d",
+      "source_native_id": "keps/sig-storage/5040-remove-gitrepo-driver#excerpt-2",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F031",
+      "path": [
+        "sig-auth",
+        "2579-psp-replacement"
+      ],
+      "content_sha256": "a1ac8dd1cf5e753a87467f6948725e8a5d5d3b62158260d1a1f3fdcbf106a477",
+      "source_native_id": "keps/sig-auth/2579-psp-replacement#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F032",
+      "path": [
+        "sig-node",
+        "5526-pod-level-resource-managers"
+      ],
+      "content_sha256": "40c2a0ed8dcbb1d40a7ea0675c187022a71ca2cc2b42a80fc8de55c1c27097ae",
+      "source_native_id": "keps/sig-node/5526-pod-level-resource-managers#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F033",
+      "path": [
+        "sig-storage",
+        "5040-remove-gitrepo-driver"
+      ],
+      "content_sha256": "8d0f816fc5a31470df1a9effcaaa24104316cab646f36acb8cbdd9bab5b411f5",
+      "source_native_id": "keps/sig-storage/5040-remove-gitrepo-driver#excerpt-3",
+      "source_heading": "risks and mitigations"
+    },
+    {
+      "id": "F034",
+      "path": [
+        "sig-api-machinery",
+        "5958-client-opt-out-managedfields"
+      ],
+      "content_sha256": "a32ff4832407aabe7dd2dccccb98c6223fc91aafe595da64a74972915d2ad058",
+      "source_native_id": "keps/sig-api-machinery/5958-client-opt-out-managedfields#excerpt-1",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F035",
+      "path": [
+        "sig-api-machinery",
+        "1295-insecure-backend-proxy"
+      ],
+      "content_sha256": "f6372a705fd2f84d3ff3753cf901c63d8cd6468bcc33dd0dac66bcdbbb42652d",
+      "source_native_id": "keps/sig-api-machinery/1295-insecure-backend-proxy#excerpt-2",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F036",
+      "path": [
+        "sig-api-machinery",
+        "4153-declarative-validation"
+      ],
+      "content_sha256": "bbb83913b9f051195d73afaa079ad6da254c090f6e61eaceb61d2e63c9c85bb7",
+      "source_native_id": "keps/sig-api-machinery/4153-declarative-validation#excerpt-1",
+      "source_heading": "summary"
+    }
+  ],
+  "reference_scope": "Source-derived group/proposal hierarchy for a development-only difficulty and cost pilot."
+}

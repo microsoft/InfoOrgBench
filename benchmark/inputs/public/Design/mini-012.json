@@ -1,0 +1,185 @@
+{
+  "task_id": "mini-012",
+  "records": [
+    {
+      "id": "F001",
+      "format": "text",
+      "text": "This document summarizes and originates from this email thread, Proposal to drop kubectl cp. This document aims to solidify the future of `kubectl cp` as a tool that provides basic function of copying files between local environments and pods. Any advanced use cases such as those involving symlinks or modifying file permissions should be performed outside of `kubectl cp` through `kubectl exec`, addons, or shell commands."
+    },
+    {
+      "id": "F002",
+      "format": "text",
+      "text": "Currently: Only Googlers can publish packages. The packages get published on Google infrastructure. After publishing a new release but before sending out the release notification emails the process needs to be paused. Googlers need to build and publish the deb and rpm packages before the branch manager can continue and send the release announcement. We can only publish packages for stable releases right now. We use different packages in CI then we officially release.\n\nThis all prolongs the release process, it is a hard dependency on a small group of people from one company (and its infrastructure), and we only ever publish and test packages very late in the release process."
+    },
+    {
+      "id": "F003",
+      "format": "text",
+      "text": "Make the infrastructure generic and simple enough to be easily handed off to the CNCF Choose a Packages as a Service solution (e.g. Open Build Service...) or build the infrastructure manually. In case we build the infrastructure manually, we need at least: Storage buckets (to store the staged/released packages) or anything similar DNS entries (e.g. apt.kubernetes.io, ...) Package mirror (e.g. a self hosted aptly/artifactory/... or as a service) have multiple channels, e.g. `stable`, `dev`, `nightly` Run the package builds as part of [krel stage and release] Have a safe way to store the signing key and make it available to the release team and release tooling Making key available to the Release Team/Managers is not a requirement if using 'as a service' solution Automatically sign the repository and packages Automatically build and publish packages on a nightly basis (not required)\n\n[krel stage and release]:"
+    },
+    {
+      "id": "F004",
+      "format": "text",
+      "text": "The Horizontal Pod Autoscaler's reliance on external metrics creates a dependency on systems outside the Kubernetes cluster's control. These external systems (cloud provider APIs, third-party monitoring systems, message brokers, etc.) may experience: Network connectivity issues Rate limiting Service outages Authentication/authorization failures Degraded performance\n\nWhen external metrics become unavailable, the HPA cannot make informed scaling decisions, which can lead to: Workloads stuck at insufficient scale during traffic spikes Inability to respond to critical business metrics (e.g., queue depth, error rates) Over-dependence on external system reliability\n\nUnlike in-cluster resource metrics (CPU, memory) served by metrics-server, which are part of the cluster's core infrastructure, external metrics are inherently less reliable and outside the cluster operator's direct control."
+    },
+    {
+      "id": "F005",
+      "format": "text",
+      "text": "We initially considered multiple ways to \"diff\" resources, since we can consider multiple cases: There is the applied configuration, the one in the file, There is the last-applied-configuration, the one in the file that we applied the last time, There is the \"current live\" configuration, the one describing the existing state of the server, There is the \"future\" configuration of the server, if we did apply the configuration.\n\nAll the combinations of these diffs initially sounded useful, but after providing such a variant in `kubectl alpha diff`, we realized that the most relevant is actually \"current live\" configuration -> \"future\" configuration. This describes exactly the changes that are happening on the cluster."
+    },
+    {
+      "id": "F006",
+      "format": "text",
+      "text": "The approaches to rebase different containers can vary significantly due to the function of the containers, the cloud-providers’ release workflows, and legacy reasons (repo migration plans, retirement plans, etc). This section will discuss 4 main types of image rebasing strategies, and this should cover the majority of the kubernetes containers. The images are built via bazel. In such case, we will update the bazel BUILD rule to switch to the base image to distroless/static. This method applies for the core containers like kube-apiserver, kube-controller-manager, cloud-controller-manager, kube-scheduler. (See detailed solution in Core Master Images) The images have dependencies that are not supported by distroless/static. One typical example is the usage of shell. Previously, shell is widely used for redirecting glog output to a certain directory. This use case is no longer needed since we've switched from glog to klog which can accept a flag to specify the log output path. A generic approach is: Remove the dependencies that distroless/static doesn't support and then rebase the images to distroless (e.g. issue/1787. Meanwhile, we limit the introduction of new dependencies. (e.g. pr/74690) Images based \"FROM scratch\" is safe to switch to distroless/static directly. Images from kubernetes incubator won't be changed directly by this KEP and the release plan is not estimated here. We notify the project OWNERs and we defer to the OWNERs on whether or not those images should be updated."
+    },
+    {
+      "id": "F007",
+      "format": "text",
+      "text": "Being able to proactively understand how configuration changes affect the state of the cluster is a key piece of declarative configuration management. It allows integration into tools, but is equally important in manual deployments. Without diff, understanding the exact consequences of one's changes can be hard to grasp, especially when exposed to defaults and configurable mutating webhooks. It also provides a basic validation since the command will fail if something is rejected by the server."
+    },
+    {
+      "id": "F008",
+      "format": "text",
+      "text": "This will be our first cut at a significant area of functionality, and our goals are deliberately modest. We want to implement something useful but limited and get some experience before going further. Our precise modesty has not been fully agreed. Following is an initial stake in the ground. No coordination between apiservers nor with a load balancer is attempted. In this KEP each apiserver independently protects itself."
+    },
+    {
+      "id": "F009",
+      "format": "text",
+      "text": "Currently the HPA accepts multiple metric sources to calculate the number of replicas in the target, one of which is called `Resource`. The `Resource` type represents the resource usage of the pods in the scaling target. The resource metric source has the following structure:\n\nHere the `Name` is the name of the resource. Currently only `cpu` and `memory` are supported for this field. The other field is used to specify the target at which the HPA should maintain the resource usage by adding or removing pods."
+    },
+    {
+      "id": "F010",
+      "format": "text",
+      "text": "Rebasing the k8s images to distroless/static can make the images thinner, safer and less vulnerable.\n\nMeanwhile, it will drastically reduce churn on the total number of k8s images versions. Due to the fact that many images are based on debian base and a vulnerability in debian base (a couple times a month) will result in rebuilding every image, changing the image from debian base to distroless/static can reduce the total number of k8s image versions.\n\nWhat's more, it reduces the burden of managing and maintaining multiple k8s images from the security (e.g. CVE), compatibility and build process concerns."
+    },
+    {
+      "id": "F011",
+      "format": "text",
+      "text": "Server should validate that no extra fields are present or invalid (e.g. misspelled), nor are any fields duplicated (for json and yaml data). We must maintain compatibility with all existing clients, thus server side unknown field validation should be opt-in. kubectl should default to server-side validation against servers that support it. kubectl should provide the ability for a user to request no validation, or warning only validation, instead of strict server-side validation on a per-request basis."
+    },
+    {
+      "id": "F012",
+      "format": "text",
+      "text": "_Risk_: The OBS installation provided by SUSE is unable to serve the load generated by the Kubernetes project _Mitigation_: We can host our own mirrors and take some load from SUSE (e.g. on Equinix Metal) _Risk_: Building all the packages for all the distributions and their version takes too long to be done nightly or via cutting the release _Mitigation_: We do not deliver nightly packages or wait for packages to be published in the release pipeline."
+    },
+    {
+      "id": "F013",
+      "format": "text",
+      "text": "The Horizontal Pod Autoscaler (HPA) has a critical limitation in its pod selection mechanism: it collects metrics from all pods that match the target workload's label selector. This can lead to incorrect scaling decisions when unrelated pods (such as Jobs, CronJobs, or other Deployments) happen to share the same labels.\n\nThis often results in unexpected behavior such as: HPAs stuck at maxReplicas despite low actual usage in the target workload Unnecessary scaling events triggered by temporary workloads Unpredictable scaling behavior that's difficult to diagnose\n\nThis proposal adds a parameter to HPAs which ensures the HPA only considers pods that are actually owned by the target workload, through owner references, rather than all pods matching the label selector."
+    },
+    {
+      "id": "F014",
+      "format": "text",
+      "text": "An HPA is used to ensure that a scaling target is scaled up or down in such a way that the specificed current metric values are always maintained at a certain level. Resource based autoscaling is the most basic approach to autoscaling and has been present in the HPA spec since `v1`. In this mode the HPA controller fetches the current resource metrics for all the pods of a scaling target and then computes how many pods should be added or removed based on the current usage to achieve the target average usage."
+    },
+    {
+      "id": "F015",
+      "format": "text",
+      "text": "This document proposes a detailed plan for adding support for version-conversion of Kubernetes resources defined via Custom Resource Definitions (CRD). The API Server is extended to call out to a webhook at appropriate parts of the handler stack for CRDs.\n\nNo new resources are added; the CRD resource is extended to include conversion information as well as multiple schema definitions, one for each apiVersion that is to be served."
+    },
+    {
+      "id": "F016",
+      "format": "text",
+      "text": "`kubectl –validate=true` is the current mechanism to indicate that a request should fail if it specifies unknown fields on the object.\n\nThere are a few issues with this as highlighted by the previous effort to do server-side validation, primarily these issues include: Bug Fixes are utilized slower because client-side upgrades are hard to get in people’s hands. Each client needs to implement validation.\n\nThis is the last remaining step for removing client-side validation according to this comment Client-side validation is very painful\n\nAdditional problems have been highlighted in the relevant github issues: The community has been asking for this feature as recently as August 8th, 2021"
+    },
+    {
+      "id": "F017",
+      "format": "text",
+      "text": "The Horizontal Pod Autoscaler supports scaling of targets based on the resource usage of the pods in the target. The resource usage of pods is calculated as the sum of the individual container usage values of the pod. This is unsuitable for workloads where the usage of the containers are not strongly correlated or do not change in lockstep. This KEP suggests that when scaling based on resource usage the HPA also provide an option to consider the usages of individual containers to make scaling decisions."
+    },
+    {
+      "id": "F018",
+      "format": "text",
+      "text": "Bazel's removal will leverage existing project dependencies (Docker and Golang) to manage binary and container builds. Since Make is already relied upon for triggering specific behaviors, these targets will be be implemented with a function replacement for their existing Bazel function.\n\nFor example:\n\ncan be substituted for:\n\nIn addition, go's dependency management system (go modules) is already setup within the project. This can relieve the need for Gazelle to generate and update existing Bazel BUILD files.\n\nFor containerization, Docker's CLI is more than capable to script the required image bundles previously defined in BUILD files. Existing make targets can trigger docker directly to pull, build, or push CIP images. End-to-end tests, which rely on static image definitions, can utilize local archives committed to source control. When testing begins, docker will load these images from tarbal, removing the need to build images with Bazel all together."
+    },
+    {
+      "id": "F019",
+      "format": "text",
+      "text": "In order to diff the current configuration with the future configuration, we do the following: get the current object from the server, prepare an apply request that is sent with the `dryRun` flag and returns the hypothetical object, carefully insert the resourceVersion in the patch that we send, in order to make sure that we're patching and diffing the exact same object version we've seen to avoid diffing unrelated objects, save each of these objects in files with specific names using their GVK to avoid collisions, diff these files either using `diff(1)`, or using the binary provided in `KUBECTL_EXTERNAL_DIFF`."
+    },
+    {
+      "id": "F020",
+      "format": "text",
+      "text": "Following are some bad scenarios that can happen today and which should be preventable when this KEP is in place. Self-Maintenance crowded out. Some requests are for system self-maintenance, such as: node heartbeats, kubelet and kube-proxy work on pods, services, secrets, etc involved in the system's self-hosting, and leader elections for system controllers. In an overload scenario today there is no assurance of priority for these self-maintenance requests."
+    },
+    {
+      "id": "F021",
+      "format": "text",
+      "text": "The `kubectl cp` command has been the subject of multiple security vulnerability reports. CVE-2018-1002100 CVE-2019-1002101 CVE-2019-11246 CVE-2019-11249 To use `kubectl cp`, container images are required to have the tar binary. `kubectl cp` is not available when running containers from the minimal scratch image. Running from scratch is by itself a tactic to securing containers, as it encourages the best practice of limiting the tools packaged in an image to only what's required by a workload.\n\nThis proposal is that `kubectl cp` should perform only basic copying of files. Advanced features of file copying should be out of scope for `kubectl cp`."
+    },
+    {
+      "id": "F022",
+      "format": "text",
+      "text": "A CRD object now represents a group/kind with one or more versions. The CRD API (CustomResourceDefinitionSpec) is extended as follows: It has a place to register 1 webhook. it holds multiple \"versions\". Some fields which were part of the .spec are now per-version; namely Schema, Subresources, and AdditionalPrinterColumns. A Webhook Host is used to do conversion for a CRD. CRD authors will need to write a Webhook Host that accepts any version and returns any version. Toolkits like kube-builder and operator-sdk are expected to provide flows to assist users to generate Webhook Hosts."
+    },
+    {
+      "id": "F023",
+      "format": "text",
+      "text": "Fallback for resource metrics (CPU, memory from metrics-server) - these are in-cluster and should be addressed at the infrastructure level if unavailable Fallback for pods/object metrics - these use in-cluster APIs Fallback for custom metrics - may be considered in future based on alpha feedback Last-known-good metric value caching Automatic fallback value calculation Changing the HPA scaling algorithm"
+    },
+    {
+      "id": "F024",
+      "format": "text",
+      "text": "Complete (business-logic) server-side validation of every aspect of an object (i.e. we’re only focused on mismatched fields between the object in the request body and its schema). Protobuf support. Theoretically, unknown protobuf fields could occur if clients on version X send a request to the server of version less than X which does not recognize some of the fields (or a similar situation). We do not think it is worth supporting this use case initially and will error if clients attempt to validate schema server-side with protobuf data. Enhanced offline validation. Current client-side validation has been used as a form of offline validation to simply validate configs that have no intention of being actually applied to a server. Ideally users would have a supported way to perform offline validation, but that is outside the scope of this KEP."
+    },
+    {
+      "id": "F025",
+      "format": "text",
+      "text": "The vast majority of examples of how to use Kubernetes include YAML. These all use the most \"conventional\" YAML syntax, which is what `kubectl get -o yaml` also uses. Simple YAML is easy to read, but complex YAML can become very tricky. Some of the things that motivated this KEP are:\n\nWhitespace being significant means that readers and writers must track the nesting depth. While this does not sound too onerous, We have ample evidence that it is, in fact, very hard."
+    },
+    {
+      "id": "F026",
+      "format": "text",
+      "text": "Today the apiserver has a simple mechanism for protecting itself against CPU and memory overloads: max-in-flight limits for mutating and for readonly requests. Apart from the distinction between mutating and readonly, no other distinctions are made among requests; consequently there can be undesirable scenarios where one subset of the request load crowds out other parts of the request load. Also, the dispatching of these requests against two independent limits is not work-conserving."
+    },
+    {
+      "id": "F027",
+      "format": "text",
+      "text": "As an existing author of a CRD, I can update my API's schema, without breaking existing clients. To that end, I can write a CRD(s) that supports one kind with two (or more) versions. Users of this API can access an object via either version (v1 or v2), and are accessing the same underlying storage (assuming that I have properly defined how to convert between v1 and v2.) As a prospective user of CRDs, I don't know what schema changes I may need in the future, but I want to know that they will be possible before I chose CRDs (over EAS, or over a non-Kubernetes API)."
+    },
+    {
+      "id": "F028",
+      "format": "text",
+      "text": "`kubectl cp` should provide simple function of copying single file or directory between local environments and pods. Identify and document `kubectl exec` commands to address more advanced options for copying files. Provide users attempting to use `kubectl cp + symlinks/etc` with output showing comparable `kubectl exec ...| tar` cmds. It is up for a decision in this proposal whether the community prefers to implement the `shelling out to tar from within kubectl cp` or leave as suggestions in error output. Barring decision of the above, only the user stories listed below should be supported by `kubectl cp`. If additional user stories are added via shelling out to tar from kubectl, those will be outlined below."
+    },
+    {
+      "id": "F029",
+      "format": "text",
+      "text": "Specify a YAML dialect which is 100% compatible with existing parsers and tooling. Provide libraries and tooling for encoding and converting to this formatting, with stable (idempotent) conversion. Provide a KYAML output format for kubectl. Expand examples and documentation throughout the project to also show KYAML alongside the existing output. Address common YAML pitfalls through an opinionated formatting approach. Document the design and reasons for KYAML and the 100% compatibility with tooling expecting arbitrary YAML."
+    },
+    {
+      "id": "F030",
+      "format": "text",
+      "text": "Improve performance - The execution of e2e tests, building of containers or code does not need to speed up. Perceived or measured performance gains from proposed solutions is not a focus of this project.\n\nComplicate e2e test behavior - The behavior of e2e tests should change as little as possible when removing Bazel. Although deterministic image digests are required, desirable solutions must avoid adding complexity to the setup of e2e tests."
+    },
+    {
+      "id": "F031",
+      "format": "text",
+      "text": "We propose adding a new field to the HPA specification called `SelectionStrategy` that allows users to specify how pods should be selected for metric collection: If set to `LabelSelector` (default): Uses the current behavior of selecting all pods that match the target workload's label selector. If set to `OwnerReference`: Only selects pods that are owned by the target workload through owner references.\n\nThis enumerated type allows for future extension with additional selection strategies if needed, such as `Annotations` etc."
+    },
+    {
+      "id": "F032",
+      "format": "text",
+      "text": "Prow jobs must remain stable - While replacing existing Bazel infrastructure, it's important that any changes do not affect any Prow jobs. More specifically, the presubmit, postsubmit, and periodic jobs defined for CIP in kubernetes/test-infra are required for CI/CD. Any proposed solution should avoid interfering with these existing operations, and are crucial for future development and deployment.\n\nPreserving functionality of e2e tests - It’s important when removing Bazel to preserve the business logic of the e2e tests. However, both tests rely on the predictability of Docker digests when verifying image promotions. Therefore, proposed solutions must maintain static golden image digests. This may warrant the adoption of another technology which mimic’s Bazel’s behavior, or avoid image building altogether. Either way, both e2e tests must remain unaffected.\n\nCompletely remove Bazel from CIP - The result of this project must remove all references of Bazel. Therefore, machines running the CIP source code, such as existing Prow jobs, should no longer require the installation of Bazel for compilation or execution. Since reducing build maintenance is the primary reason behind removing Bazel, adding additional tools to the build process should be avoided."
+    },
+    {
+      "id": "F033",
+      "format": "text",
+      "text": "The Horizontal Pod Autoscaler (HPA) supports scaling workloads based on external metrics—metrics that originate from systems outside the Kubernetes cluster's control. These external systems include: Cloud provider APIs (e.g., AWS CloudWatch, Azure Monitor, GCP Monitoring) Third-party monitoring systems (e.g., Datadog, New Relic, Prometheus running externally) Message brokers and queues (e.g., AWS SQS, RabbitMQ, Kafka) Application-specific metrics services\n\nUnlike in-cluster resource metrics (CPU, memory served by metrics-server) or custom/object metrics (served by in-cluster custom metrics APIs), external metrics are inherently less reliable because they depend on systems outside the cluster operator's direct control."
+    },
+    {
+      "id": "F034",
+      "format": "text",
+      "text": "Use image gcr.io/distroless/static:latest as the only base image for the following kubernetes images Images based FROM scratch Images based on debian/alpine and only for the purpose of redirecting logs with shell. Images based on k8s.gcr.io/debian-base due to previous rebasing from busybox.\n\nHelp the community and contributors better understanding and maintaining the images. Set up the policy that only `distroless/static` and `k8s.gcr.io/debian-base` are used (as the base image) for the images hosted in the official k8s.gcr.io image repository. And if the image is based on debian-base, it should be documented in the exception list. Improve the presubmit prow test to guarantee that the upcoming k8s/kubernetes PRs won't introduce dependencies that distroless/static doesn't support. Document the base image list for important kubernetes components, including both core containers and important add-ons. Also, document the exception list (unable to base on distroless)."
+    },
+    {
+      "id": "F035",
+      "format": "text",
+      "text": "This KEP proposes to add a new output format for kubectl, called \"KYAML\" (as in `kubectl get -o kyaml ...`). This format is a strict subset (aka \"dialect\") of standard YAML, and so should be parseable by the existing ecosystem. This dialect seeks to emphasize syntactical choices which avoid many of the most common traps in YAML. For example, unlike standard YAML output, this dialect is not whitespace-sensitive, which makes it vastly easier to patch correctly in things like Helm charts.\n\nThis KEP further proposes to add KYAML as an additional, co-existing output alongside the existing YAML/JSON in project-owned documentation and examples."
+    },
+    {
+      "id": "F036",
+      "format": "text",
+      "text": "The HPA specification (v2) will be extended with a new field to control additional filtering of pods after the initial label selector matching:\n\nSince the added field is optional and its omission does not change the existing autoscaling behavior, this feature will only be added to the latest stable API version `pkg/apis/autoscaling/v2`. Older versions (i.e. `v1`, `v2beta1`, `v2beta2`) will not include the new field, but converters will be updated where needed to comply with [round-trip requirements][].\n\nPod Selection Process: Initial Label Selection (Always happens): The HPA first selects pods using the target workload's label selector This is the fundamental selection mechanism and remains unchanged Additional Filtering (Based on SelectionStrategy): `LabelSelector`(default): No additional filtering All pods that matched the label selector are used for metrics Maintains current behavior for backward compatibility `OwnerReference`: Further filters the label-selected pods Only keeps pods that are owned by the target workload through owner references Follows the ownership chain (e.g., Pods -> ReplicaSet -> Deployment) Excludes pods that matched labels but aren't in the ownership chain\n\nThe `HorizontalPodAutoscaler` API updated to add a new `SelectionStrategy` field to the `HorizontalPodAutoscalerSpec` object:\n\n[round-trip requirements]:"
+    }
+  ]
+}

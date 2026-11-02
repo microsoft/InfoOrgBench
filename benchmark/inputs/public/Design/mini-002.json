@@ -1,0 +1,185 @@
+{
+  "task_id": "mini-002",
+  "records": [
+    {
+      "id": "F001",
+      "format": "text",
+      "text": "To provide access to host network resources for **non-privileged** containers and pods. To provide a privileged mode for Hyper-V containers, or a method to run privileged process containers within a Hyper-V isolation boundary. This is a non-goal as running a Hyper-V container in the root namespace from within the isolation boundary is not supported. To enable privileged containers for Docker. This will only be for containerd. To align privileged containers with pod namespaces - this functionality may be addressed in a future KEP. Enabling the ability to mix privileged and non-privileged containers in the same Pod. (Multiple privileged containers running in the same Pod will be supported.)"
+    },
+    {
+      "id": "F002",
+      "format": "text",
+      "text": "Today, a list of all services that were running when a pod's containers are created is automatically injected to those containers as environment variables matching the syntax of Docker links. There is no way to disable this.\n\nDocker links have long been considered as a deprecated legacy feature of Docker since the introduction of networks and DNS. Likewise, in Kubernetes, DNS is to be preferred over service links.\n\nPossible issues with injected service links are: Accidental coupling. Incompatibilities with container images that no longer utilize service links and explicitly fail at startup time if certain service links are defined. Performance penalty in starting up pods for namespaces with many services"
+    },
+    {
+      "id": "F003",
+      "format": "text",
+      "text": "Cluster operators can define default spreading constraints for pods that don't provide any `pod.spec.topologySpreadConstraints`. Workloads are spread with the default constraints if they belong to the same service, replication controller, replica set or stateful set, and if they don't define `pod.spec.topologySpreadConstraints`. Provide a k8s default for `topologySpreadConstraints` that produces a priority equivalent to `DefaultPodTopologySpread`, so that this plugin can be deprecated in the future."
+    },
+    {
+      "id": "F004",
+      "format": "text",
+      "text": "Dynamic Resource Allocation (DRA) currently supports: parent-scoped shared integer counters via partitionable devices, and per-device request-driven consumable capacity via `allowMultipleAllocations`.\n\nHowever, there is no upstream mechanism that combines both capabilities so that: multiple related devices can consume from one shared parent-scoped capacity pool, and the consumed amount is determined by the request at allocation time.\n\nThis KEP proposes extending the existing DRA `sharedCounters` with `requestPolicy` support and adding a `valueFrom` mapping in `consumesCounters`, so that multiple related devices can consume request-driven amounts from shared counter sets during allocation, with scheduler accounting that prevents aggregate over-allocation.\n\nThe proposal is generic and applies to multiple hardware models. SR-IOV VF bandwidth accounting is one motivating use case, but not the only target."
+    },
+    {
+      "id": "F005",
+      "format": "text",
+      "text": "Enabling DSR and overlay networking mode support in Windows kube-proxy both have very little risk.\n\nFor DSR, the Windows Host Network Service handles all of the logic for managing network traffic; kube-proxy only needs to specify if DSR should be used when creating/sycing load balancer rules. Additionally, DSR must be enabled with a kube-proxy command switch (--enable-dsr=true) disabling DSR is can be performed by redeploying kube-proxy on Windows nodes.\n\nOverlay networking support in Windows has been used in the Windows CI pipelines running release-informing capz-windows-master jobs since K8s v1.20."
+    },
+    {
+      "id": "F006",
+      "format": "text",
+      "text": "With Pod Topology Spread, workload authors can define spreading rules for their loads based on the topology of the clusters. The spreading rules are defined in the `PodSpec`, thus they are tied to the pod.\n\nWe propose the introduction of configurable default spreading constraints, i.e. constraints that can be defined at the cluster level and are applied to pods that don't explicitly define spreading constraints. This way, all pods can be spread according to (likely better informed) constraints set by a cluster operator. Workload authors don't need to know the topology of the cluster they will be running on to have their pods spread. But if they do, they can still set their own spreading constraints if they have specific needs."
+    },
+    {
+      "id": "F007",
+      "format": "text",
+      "text": "Add new field `DefaultPodSysctls` to the Kubelet configuration. Allow node-level defaulting of namespaced kernel parameters for all pods, including **static** pods. Namespaced sysctls cover both safe and unsafe sysctls. Cover list: `kernel.shm*`, `kernel.msg*`, `kernel.sem`, `fs.mqueue.*`, `net.*`, `kernel.domainname`, `user.*`. Ensure that sysctls are only applied if the pod is namespaced for the corresponding subsystem (i.e., not using HostNetwork or HostIPC)."
+    },
+    {
+      "id": "F008",
+      "format": "text",
+      "text": "The current downscaling algorithm for ReplicaSets prefers to delete Pods that have been running for the least amount of time. This heuristic attempts to minimize disruption under the premise that newer Pods are likely to be serving a lesser amount of clients. However, the heuristic can be detrimental to high availability requirements: when a ReplicaSet lands in an imbalanced state across failure domains, the heuristic tends to preserve the imbalance after repeated up and down scales.\n\nWe propose a randomized approach to the downscale Pod victim selection algorithm of the ReplicaSet controller to mitigate ReplicaSet imbalance across failure domains."
+    },
+    {
+      "id": "F009",
+      "format": "text",
+      "text": "At a high level, the proposal is to modify the StatefulSet and Job controllers to set the pod index as a pod label at pod creation time (for jobs, this would only apply to jobs in Indexed completion mode). The details of this are outlined in the Design Details section below. StatefulSet pod label: `apps.kubernetes.io/pod-index` IndexedJob pod label: `batch.kubernetes.io/job-completion-index` (same as existing annotation)"
+    },
+    {
+      "id": "F010",
+      "format": "text",
+      "text": "Windows-based workloads still account for a significant portion of the enterprise software space. While containerization technologies emerged first in the UNIX ecosystem, Microsoft has made investments in recent years to enable support for containers in its Windows OS. As users of Windows increasingly turn to containers as the preferred abstraction for running software and modernizing existing applications, the Kubernetes ecosystem stands to benefit by becoming a cross-platform cluster manager."
+    },
+    {
+      "id": "F011",
+      "format": "text",
+      "text": "Currently, Kubernetes allows users to specify sysctls for individual pods via the securityContext.sysctls field in the Pod spec. However, in many production environments, node administrators often need to enforce consistent kernel parameter tuning across all workloads on a node or within a node pool/group. For example, high-performance networking or messaging applications may require specific `net.*` or `kernel.shm*` values to be set globally for all containers on specialized nodes. Setting these parameters manually in every Pod spec is error-prone and redundant. Furthermore, cluster operators may wish to manage these defaults at the infrastructure level (e.g., via Kubelet configuration) to ensure performance and stability without requiring application developers to be aware of the underlying host kernel tuning needs."
+    },
+    {
+      "id": "F012",
+      "format": "text",
+      "text": "Perform the entire scheduling cycle (including binding, DRA, etc) on `Deferred` resizes; the Scheduler should trigger preemption and nothing more. Coordinate with higher-level autoscalers such as VPA or CA on the preemption decision. This is considered out of scope for this KEP, but may be considered as a future enhancement. Changing the source of truth for resize allocations. The Kubelet remains responsible for evaluating incoming resize requests, and the scheduler must account for cases where the Kubelet's runtime decisions differ from the scheduler's calculated predictions."
+    },
+    {
+      "id": "F013",
+      "format": "text",
+      "text": "This enhancement allows application developers to choose whether their Pods will receive environment variables from services in their namespace. They can choose to disable them via the new `enableServiceLinks` field in `PodSpec`. The current behaviour will continue to be the default behaviour, but the developer may choose to disable these environment variables for certain workloads for reasons such as incompatibilities with other expected environment variables or scalability issues."
+    },
+    {
+      "id": "F014",
+      "format": "text",
+      "text": "In-Place Pod Resize reached GA in 1.35, allowing pod resizing without restarts. However, unlike traditional pod recreation, in-place resizes that exceed node capacity do not currently trigger the preemption of lower-priority pods. Instead, they remain in a `Deferred` resize status and require manual intervention. We propose that the Scheduler actively creates space for resize requests by preempting lower-priority pods, following the same preemption logic used when scheduling new pods."
+    },
+    {
+      "id": "F015",
+      "format": "text",
+      "text": "Extend the existing `sharedCounters` in `ResourceSlice` with `requestPolicy` support, and add a `valueFrom` mapping to `consumesCounters` so that devices can map inbound capacity requests to shared counters. Reuse existing `ResourceClaim` request syntax for capacity requests, with scheduler accounting performed against referenced shared counter sets.\n\nAt a high level: A driver publishes `sharedCounters` with counters that include `requestPolicy` (default, valid range, step). Each allocatable device references the shared counter set(s) it draws from via `consumesCounters`, using `valueFrom` to map capacity request keys to counters. A claim requests capacity using existing `capacity.requests` fields. During allocation, the scheduler resolves the `valueFrom` mappings, checks and consumes the requested amount from all relevant counter sets (device-specific and/or shared), rejecting candidates that would exceed any counter limit."
+    },
+    {
+      "id": "F016",
+      "format": "text",
+      "text": "Some resources are naturally parent-scoped and shared across multiple allocatable child devices. Examples include link bandwidth, shared memory channels, or scheduler-governed throughput budgets.\n\nIn these cases, publishing only child devices is desirable for user experience and hardware mapping, but scheduler-side accounting must still guard the aggregate shared parent budget.\n\nExisting DRA capabilities leave a gap: Partitionable counters are shared across devices, but consumption is static in `ResourceSlice` data. Consumable capacity is request-driven, but accounting is device-local.\n\nThis causes either over-advertisement, rigid static partitioning, or custom out-of-band admission behavior, all of which reduce correctness and portability."
+    },
+    {
+      "id": "F017",
+      "format": "text",
+      "text": "This proposal aims at allowing Pod resource requests & limits to be updated in-place, without a need to restart the Pod or its Containers.\n\nThe **core idea** behind the proposal is to make PodSpec mutable with regards to Resources, denoting **desired** resources. Additionally, PodStatus is extended to provide information about **actual** resources applied to the Pod and its Containers.\n\nThis document builds upon [proposal for live and in-place vertical scaling][] and [Vertical Resources Scaling in Kubernetes][].\n\n[proposal for live and in-place vertical scaling]:\n\n[Vertical Resources Scaling in Kubernetes]:\n\nThis proposal also aims to improve the Container Runtime Interface (CRI) APIs for managing a Container's CPU and memory resource configurations on the runtime. It seeks to extend UpdateContainerResources CRI API such that it works for Windows, and other future runtimes besides Linux. It also seeks to extend ContainerStatus CRI API to allow Kubelet to discover the current resources configured on a Container."
+    },
+    {
+      "id": "F018",
+      "format": "text",
+      "text": "DSR and Overlay networking mode support is already implemented in Windows kube-proxy and has been extensively tested in the Windows CI pipeline. This proposal is to promote the existing implementations to GA.\n\nAdditionally, DSR support on Windows is supported on both EKS and AKS. Both DSR and overlay networking support have been used in the Windows CI pipelines running release-informing jobs since K8s v1.20."
+    },
+    {
+      "id": "F019",
+      "format": "text",
+      "text": "The lack of privileged container support within the Windows container model has resulted in separate workarounds and privileged proxies for Windows workloads that are not required for Linux workloads. These workarounds have provided necessary functionality for key scenarios such as networking, storage, and device access, but have also presented many challenges, including increased available attack surfaces, complex change and update management, and scenario specific solutions. There is significant interest from the community for the Windows container model to support privileged containers and host network mode (which enable pods to be created in the host’s network compartment/namespace, as opposed to getting their own) to transition off such workarounds and align more closely with Linux support and operational models.\n\nFurthermore, since kube-proxy cannot be run as a privileged daemonset, it must either be run with a proxy or directly on the host as a service. In the case that it is run as a service, the admin kube config must be stored on the Windows node which poses a security concern. This is also true for networking daemons such as Flannel."
+    },
+    {
+      "id": "F020",
+      "format": "text",
+      "text": "Resources allocated to a Pod's Container(s) can require a change for various reasons: load handled by the Pod has increased significantly, and current resources are not sufficient, load has decreased significantly, and allocated resources are unused, resources have simply been set improperly.\n\nCurrently, changing resource allocation requires the Pod to be recreated since the PodSpec's Container Resources is immutable.\n\nWhile many stateless workloads are designed to withstand such a disruption, some are more sensitive, especially when using low number of Pod replicas.\n\nMoreover, for stateful or batch workloads, Pod restart is a serious disruption, resulting in lower availability or higher cost of running.\n\nAllowing Resources to be changed without recreating the Pod or restarting the Containers addresses this issue directly.\n\nAdditionally, In-Place Pod Vertical Scaling feature relies on Container Runtime Interface (CRI) to update CPU and/or memory requests/limits for a Pod's Container(s).\n\nThe current CRI API set has a few drawbacks that need to be addressed: UpdateContainerResources CRI API takes a parameter that describes Container resources to update for Linux Containers, and this may not work for Windows Containers or other potential non-Linux runtimes in the future. There is no CRI mechanism that lets Kubelet query and discover the CPU and memory limits configured on a Container from the Container runtime. The expected behavior from a runtime that handles UpdateContainerResources CRI API is not very well defined or documented."
+    },
+    {
+      "id": "F021",
+      "format": "text",
+      "text": "As an application developer, I want to be able to disable service link injection since the injected environment variables interfere with a Docker image that I am trying to run on Kubernetes. As an application developer, I want to be able to disable service link injection since I don't need it and it takes increasingly longer time to start pods as services are added to the namespace. As an application developer, I want to be able to disable service link injection since pods can fail to start if the environment variable list becomes too long. This can happen when there are >5,000 services in the same namespace."
+    },
+    {
+      "id": "F022",
+      "format": "text",
+      "text": "Primary: allow to change container resource requests & limits without necessarily restarting the container. Secondary: allow actors (users, VPA, StatefulSet, JobController) to decide how to proceed if in-place resource resize is not possible. Secondary: allow users to specify which Containers can be resized without a restart.\n\nAdditionally, this proposal has two goals for CRI: Modify UpdateContainerResources to allow it to work for Windows Containers, as well as Containers managed by other runtimes besides Linux, Provide CRI API mechanism to query the Container runtime for CPU and memory resource configurations that are currently applied to a Container.\n\nAn additional goal of this proposal is to better define and document the expected behavior of a Container runtime when handling resource updates."
+    },
+    {
+      "id": "F023",
+      "format": "text",
+      "text": "Privileged containers are containers that are enabled with similar access to the host as processes that run on the host directly. With privileged containers, users can package and distribute management operations and functionalities that require host access while retaining versioning and deployment methods provided by containers. Linux privileged containers are currently used for a variety of key scenarios in Kubernetes, including kube-proxy (via kubeadm), storage, and networking scenarios. Support for these scenarios in Windows currently requires workarounds via proxies or other implementations. This proposal aims to extend the Windows container model to support privileged containers. This proposal also aims to enable host network mode for privileged networking scenarios. Enabling privileged containers and host network mode for privileged containers would enable users to package and distribute key functionalities requiring host access."
+    },
+    {
+      "id": "F024",
+      "format": "text",
+      "text": "Certain users might be relaying in the existing downscaling heuristic. However, there are a number of reasons why we don't need to preserve such behavior as is: The behavior is not documented in the API or user docs, only in code. The heuristic is applied last, after other criteria have been applied. In particular, the heuristic doesn't apply when multiple Pods are in the same Node or if a particular Pod has had several container restarts. While users can enforce one Pod per Node with certain scheduling features, there is no workaround for other criteria. We are not proposing to entirely remove the heuristic, just make it more laxed. We are introducing a related feature that provides higher guarantees for downscaling order that users can migrate to."
+    },
+    {
+      "id": "F025",
+      "format": "text",
+      "text": "**Second class support**: Kubernetes contributors are likely to be thinking of Linux-based solutions to problems, as Linux remains the primary OS supported. Keeping Windows support working will be an ongoing burden potentially limiting the pace of development.\n\n**User experience**: Users today will need to use some combination of taints and node selectors in order to keep Linux and Windows workloads separated. In the best case this imposes a burden only on Windows users, but this is still less than ideal. The recommended approach is outlined below, with one of its main goals being that we should not break compatibility for existing Linux workloads"
+    },
+    {
+      "id": "F026",
+      "format": "text",
+      "text": "The feature is useful but not free of trade-offs, several of which are inherent to checkpoint/restore: Checkpoint and restore are not transparent to applications: in-memory secrets, tokens, environment values, and cached hostnames persist through a restore, so workloads must cooperate for correctness (see Risks and Mitigations). The checkpoint freeze window makes the source Pod temporarily unavailable, and there is no clean ecosystem mechanism yet to keep controllers from disrupting it without blackholing traffic (see Pod Lifecycle). Checkpoint archives can be large and consume node disk; robust lifecycle management (quotas, retention) is deferred to a follow-on, with an in-tree GC floor required for Beta. The asynchronous control flow adds moving parts (the kubelet writes status, scoped by `NodeRestriction`, and interrupted checkpoints are reconciled on kubelet restart) compared to a single synchronous call."
+    },
+    {
+      "id": "F027",
+      "format": "text",
+      "text": "There is strong interest in the community for adding support for workloads running on Microsoft Windows. This is non-trivial due to the significant differences in the implementation of Windows from the Linux-based OSes that have so far been supported by Kubernetes. This KEP will allow Windows nodes to be added to a Kubernetes cluster as compute nodes. With the introduction of Windows nodes, developers will be able to schedule Windows Server containers and run Windows-based applications on Kubernetes."
+    },
+    {
+      "id": "F028",
+      "format": "text",
+      "text": "We propose a randomized approach to the algorithm for Pod victim selection during ReplicaSet downscale: Sort ReplicaSet pods by pod UUID. The purpose of this is to obtain a pseudo-random shuffle of the pods (this also does not necessarily have to be the first step, it is just another comparison criteria). Obtain wall time, and add it to `ActivePodsWithRanks` Call sorting algorithm with a modified time comparison for start and creation timestamp.\n\nInstead of directly comparing timestamps, the algorithm compares the elapsed times since the creation and ready timestamps until the current time but in a logarithmic scale, floor rounded. These serve as sorting criteria. This has the effect of treating elapsed times as equals when they have the same scale. That is, Pods that have been running for a few nanoseconds are equal, but they are different from pods that have been running for a few seconds or a few days.\n\nFor example, let's assume the base 10 is used, then we have the following mapping for different durations:\n\nAn alternative interpretation for the base 10 is that, if a Pod has been running for more than 10 times the time as another Pod, then the second Pod would be deleted first.\n\nWhile base 10 is quite intuitive, it might be too aggressive on bucketing timestamps together. A base of 2 could be similarly intuitive and provide a better bucketing. But if documentation is not a problem, the natural base is a good choice as well."
+    },
+    {
+      "id": "F029",
+      "format": "text",
+      "text": "The introduction of In-Place Pod Resize gives platform teams new ways to optimize cloud resources without restarting pods, marking a significant shift in how Kubernetes operates. This is especially powerful when In-Place Pod Resize is integrated with higher-level autoscaling controllers such as VPA's new `InPlaceOrRecreate` mode. However, users currently lack a way to control scale-up behavior when a node lacks the capacity to fulfill the request. Consequently, workloads may face disruptions such as being moved to a larger node, or suffering an OOM-kill because memory could not be scaled up in-place.\n\nScheduler preemption eliminates the gap by introducing an configurable ability to free up capacity on a fully-utilized node to allow the scale up to succeed in-place."
+    },
+    {
+      "id": "F030",
+      "format": "text",
+      "text": "This proposal defines CRI APIs, kubelet support, and controllers together with Kubernetes objects for managing the lifecycle and artifacts of these operations to enable native support for Pod-level checkpoint and restore. The scope of the proposal is limited to warm start and fault-tolerance use cases, with outline of the API design to accommodate other use cases such as suspend/resume (with IP preservation) and live migration (streaming checkpoint data between nodes). These use cases will be addressed in future KEPs.\n\nThe core idea is to outline the minimal set of Container Runtime Interface (CRI) and kubelet extensions required for Pod-level checkpoint and restore, and to provide a clear path for iteratively building on top of these APIs to address the broader set of use cases and requirements.\n\nIn this KEP, checkpoints represent the runtime state of a Pod, where the checkpoint format and low-level implementation details are left to the container runtime (e.g., containerd, CRI-O), the OCI runtime (runc, crun), and the underlying checkpoint/restore mechanism (e.g., CRIU, gVisor).\n\nWhile Pod-level checkpointing is inspired by the existing [kubelet checkpoint] API and extends that container checkpointing mechanism to Pods, the restore functionality is a larger addition as Kubernetes currently supports container restore only via [OCI image annotations].\n\nThis proposal defines Pod-level checkpoint and restore as a single, cohesive feature as checkpointing without restore would be incomplete and impractical for the use cases motivating this work."
+    },
+    {
+      "id": "F031",
+      "format": "text",
+      "text": "In order for a workload (pod) to use `.spec.topologySpreadConstraints` (known as`PodTopologySpread` plugin or `EvenPodsSpreadPriority` in the old Policy API): Authors have to have an idea of the underlying topology. PodSpecs become less portable if their spreading constraints are tailored to a specific topology.\n\nOn the other hand, cluster operators know the underlying topology of the cluster, which makes them suitable to provide default spreading constraints for all workloads in their cluster."
+    },
+    {
+      "id": "F032",
+      "format": "text",
+      "text": "StatefulSets, similar to Indexed Jobs, assign a pod ordinal to each of their pods (this is analogous to the pod completion index for Indexed Jobs).\n\nIndexed Jobs set the pod index as an annotation, which means it can be utilized by the downward API, however, it cannot easily be used for selecting pods based on their index or filtering metrics/logs, or for doing things like routing network traffic to a pod with a specific index (e.g., index 0).\n\nStatefulSets include the pod index as part of the pod name. This means that the only way for a StatefulSet pod to know its own index is to parse the pod name, which is somewhat hacky solution. Furthermore, the pod index cannot be utilized by the downward API, nor used for use cases such as filtering metrics/logs or routing traffic to a pod with a specific index.\n\nTo address these issues, we propose to set the pod index as a **label** on pods for both StatefulSets and Indexed Jobs. This will allow the pod index to be utilized via the downward API, so StatefulSet pods can easily know their own index. In addition, this will allow metrics and logs to more easily be filtered by pod index, for both StatefulSets and Indexed Jobs."
+    },
+    {
+      "id": "F033",
+      "format": "text",
+      "text": "The StatefulSet controller will only need a minor update to the newStatefulSetPod function, to set the pod ordinal as the label `apps.kubernetes.io/pod-index`. This call is downstream from the newVersionedStatefulSetPod call, which generates the StatefulSet pods before creating them as necessary in CreateStatefulPod.\n\nSimilarly, the Job controller would need to add the completion index as a label here where it adds the corresponding annotation."
+    },
+    {
+      "id": "F034",
+      "format": "text",
+      "text": "The existing [kubelet checkpoint] API was originally inspired by the checkpoint/restore functionality of container engines such as Podman. However, unlike these container engines, Kubernetes is responsible for managing, scaling, and coordinating workloads across an entire cluster of machines. As a result, container-level checkpointing alone does not adequately support many Kubernetes-native workflows and higher-level operations that require preserving and restoring the full Pod state. This KEP aims to remove this barrier by enabling a Pod-level checkpoint and restore mechanism that is aligned with the core Kubernetes abstractions."
+    },
+    {
+      "id": "F035",
+      "format": "text",
+      "text": "Add support for new field `DefaultPodSysctls` in the Kubelet configuration. This field allows node administrators to define a set of namespaced kernel parameters (sysctls) that will be applied by default to all pods running on the node. These defaults are applied during pod sandbox creation, specifically for sysctls that are namespaced (e.g., within the network or IPC namespaces), provided the pod is not using the host namespace for those subsystems."
+    },
+    {
+      "id": "F036",
+      "format": "text",
+      "text": "DSR support was added to Windows Server 2019 as part of the May 2020 update. DSR provides performance optimizations by allowing the return traffic routed through load balancers to bypass the load balancer and respond directly to the client; reducing load on the load balancer and also reducing overall latency. More information on DSR on Windows can be found here.\n\nOverlay networking mode is a common networking mode used in Kubernetes clusters and is required by some for some important scenarios like network policy support with Calico CNI. Adding support for overlay networking mode in Windows kube-proxy will allow users to use more CNI solutions with Windows nodes."
+    }
+  ]
+}

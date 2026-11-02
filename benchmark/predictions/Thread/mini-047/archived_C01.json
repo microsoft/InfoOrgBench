@@ -1,0 +1,312 @@
+{
+  "assignments": [
+    {
+      "id": "F001",
+      "path": [
+        "HADOOP-15825",
+        "POM cleanup"
+      ]
+    },
+    {
+      "id": "F002",
+      "path": [
+        "S3a SSL timeout",
+        "Connection handling"
+      ]
+    },
+    {
+      "id": "F003",
+      "path": [
+        "Version updates",
+        "Bulk moves"
+      ]
+    },
+    {
+      "id": "F004",
+      "path": [
+        "HADOOP-15825",
+        "POM cleanup"
+      ]
+    },
+    {
+      "id": "F005",
+      "path": [
+        "HADOOP-15825",
+        "POM cleanup"
+      ]
+    },
+    {
+      "id": "F006",
+      "path": [
+        "HADOOP-15825",
+        "POM cleanup"
+      ]
+    },
+    {
+      "id": "F007",
+      "path": [
+        "S3a SSL timeout",
+        "Connection handling"
+      ]
+    },
+    {
+      "id": "F008",
+      "path": [
+        "S3Guard uploads",
+        "Display upload info"
+      ]
+    },
+    {
+      "id": "F009",
+      "path": [
+        "S3a SSL timeout",
+        "Connection handling"
+      ]
+    },
+    {
+      "id": "F010",
+      "path": [
+        "HADOOP-15825",
+        "POM cleanup"
+      ]
+    },
+    {
+      "id": "F011",
+      "path": [
+        "Version updates",
+        "Bulk moves"
+      ]
+    },
+    {
+      "id": "F012",
+      "path": [
+        "HADOOP-15825",
+        "ABFS namespace tests"
+      ]
+    },
+    {
+      "id": "F013",
+      "path": [
+        "HADOOP-16699",
+        "Add verbose ABFS logging"
+      ]
+    },
+    {
+      "id": "F014",
+      "path": [
+        "Shell rm trash",
+        "Object store bypass"
+      ]
+    },
+    {
+      "id": "F015",
+      "path": [
+        "HADOOP-15825",
+        "POM cleanup"
+      ]
+    },
+    {
+      "id": "F016",
+      "path": [
+        "HADOOP-15825",
+        "ABFS namespace tests"
+      ]
+    },
+    {
+      "id": "F017",
+      "path": [
+        "HADOOP-15825",
+        "ABFS namespace tests"
+      ]
+    },
+    {
+      "id": "F018",
+      "path": [
+        "HADOOP-15825",
+        "ABFS namespace tests"
+      ]
+    },
+    {
+      "id": "F019",
+      "path": [
+        "Version updates",
+        "Bulk moves"
+      ]
+    },
+    {
+      "id": "F020",
+      "path": [
+        "HADOOP-16699",
+        "Add verbose ABFS logging"
+      ]
+    },
+    {
+      "id": "F021",
+      "path": [
+        "HADOOP-15825",
+        "POM cleanup"
+      ]
+    },
+    {
+      "id": "F022",
+      "path": [
+        "HADOOP-16699",
+        "Add verbose ABFS logging"
+      ]
+    },
+    {
+      "id": "F023",
+      "path": [
+        "S3A credentials",
+        "DT exception handling"
+      ]
+    },
+    {
+      "id": "F024",
+      "path": [
+        "HADOOP-15825",
+        "POM cleanup"
+      ]
+    },
+    {
+      "id": "F025",
+      "path": [
+        "HADOOP-15825",
+        "ABFS namespace tests"
+      ]
+    },
+    {
+      "id": "F026",
+      "path": [
+        "HADOOP-16699",
+        "Add verbose ABFS logging"
+      ]
+    },
+    {
+      "id": "F027",
+      "path": [
+        "S3Guard uploads",
+        "Enhanced metadata"
+      ]
+    },
+    {
+      "id": "F028",
+      "path": [
+        "HADOOP-16699",
+        "Add verbose ABFS logging"
+      ]
+    },
+    {
+      "id": "F029",
+      "path": [
+        "Version updates",
+        "Bulk moves"
+      ]
+    },
+    {
+      "id": "F030",
+      "path": [
+        "HADOOP-15825",
+        "ABFS namespace tests"
+      ]
+    },
+    {
+      "id": "F031",
+      "path": [
+        "S3a SSL timeout",
+        "Connection handling"
+      ]
+    },
+    {
+      "id": "F032",
+      "path": [
+        "S3a SSL timeout",
+        "Connection handling"
+      ]
+    },
+    {
+      "id": "F033",
+      "path": [
+        "Version updates",
+        "Bulk moves"
+      ]
+    },
+    {
+      "id": "F034",
+      "path": [
+        "S3A credentials",
+        "DT exception handling"
+      ]
+    },
+    {
+      "id": "F035",
+      "path": [
+        "HADOOP-15825",
+        "ABFS OAuth tests"
+      ]
+    },
+    {
+      "id": "F036",
+      "path": [
+        "HADOOP-15825",
+        "ABFS OAuth tests"
+      ]
+    },
+    {
+      "id": "F037",
+      "path": [
+        "HADOOP-15825",
+        "ABFS namespace tests"
+      ]
+    },
+    {
+      "id": "F038",
+      "path": [
+        "HADOOP-16578",
+        "ABFS container API fix"
+      ]
+    },
+    {
+      "id": "F039",
+      "path": [
+        "HADOOP-13786",
+        "Remove transient HDFS"
+      ]
+    },
+    {
+      "id": "F040",
+      "path": [
+        "HADOOP-16699",
+        "Enhanced debug logs"
+      ]
+    },
+    {
+      "id": "F041",
+      "path": [
+        "HADOOP-16660",
+        "Backport retry config"
+      ]
+    },
+    {
+      "id": "F042",
+      "path": [
+        "S3a SSL timeout",
+        "Connection handling"
+      ]
+    },
+    {
+      "id": "F043",
+      "path": [
+        "Administrative",
+        "Duplicates"
+      ]
+    },
+    {
+      "id": "F044",
+      "path": [
+        "Version updates",
+        "Bulk moves"
+      ]
+    }
+  ]
+}

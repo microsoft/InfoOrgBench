@@ -1,0 +1,375 @@
+{
+  "assignments": [
+    {
+      "id": "F001",
+      "path": [
+        "ABFS improvements",
+        "Manifest committer rate limiting"
+      ]
+    },
+    {
+      "id": "F002",
+      "path": [
+        "ABFS improvements",
+        "Manifest committer rate limiting"
+      ]
+    },
+    {
+      "id": "F003",
+      "path": [
+        "ABFS improvements",
+        "Input stream unbuffer"
+      ]
+    },
+    {
+      "id": "F004",
+      "path": [
+        "S3A improvements",
+        "Delegation credential tests"
+      ]
+    },
+    {
+      "id": "F005",
+      "path": [
+        "ABFS improvements",
+        "Throttling authentication errors"
+      ]
+    },
+    {
+      "id": "F006",
+      "path": [
+        "ABFS improvements",
+        "Idempotency test authentication"
+      ]
+    },
+    {
+      "id": "F007",
+      "path": [
+        "S3A improvements",
+        "Remove HDFS dependency"
+      ]
+    },
+    {
+      "id": "F008",
+      "path": [
+        "ABFS improvements",
+        "Idempotency test authentication"
+      ]
+    },
+    {
+      "id": "F009",
+      "path": [
+        "ABFS improvements",
+        "Idempotency test authentication"
+      ]
+    },
+    {
+      "id": "F010",
+      "path": [
+        "ABFS improvements",
+        "Manifest committer rate limiting"
+      ]
+    },
+    {
+      "id": "F011",
+      "path": [
+        "ABFS improvements",
+        "Namespace authentication tests"
+      ]
+    },
+    {
+      "id": "F012",
+      "path": [
+        "ABFS improvements",
+        "Manifest committer rate limiting"
+      ]
+    },
+    {
+      "id": "F013",
+      "path": [
+        "ABFS improvements",
+        "Reuse common retry policy"
+      ]
+    },
+    {
+      "id": "F014",
+      "path": [
+        "ABFS improvements",
+        "Manifest committer rate limiting"
+      ]
+    },
+    {
+      "id": "F015",
+      "path": [
+        "ABFS improvements",
+        "Configuration documentation"
+      ]
+    },
+    {
+      "id": "F016",
+      "path": [
+        "S3A improvements",
+        "Fail fast on SSL errors"
+      ]
+    },
+    {
+      "id": "F017",
+      "path": [
+        "ABFS improvements",
+        "Namespace authentication tests"
+      ]
+    },
+    {
+      "id": "F018",
+      "path": [
+        "ABFS improvements",
+        "Manifest committer rate limiting"
+      ]
+    },
+    {
+      "id": "F019",
+      "path": [
+        "ABFS improvements",
+        "Manifest committer rate limiting"
+      ]
+    },
+    {
+      "id": "F020",
+      "path": [
+        "ABFS improvements",
+        "Namespace exception handling"
+      ]
+    },
+    {
+      "id": "F021",
+      "path": [
+        "S3A improvements",
+        "Fail fast on SSL errors"
+      ]
+    },
+    {
+      "id": "F022",
+      "path": [
+        "ABFS improvements",
+        "Namespace exception handling"
+      ]
+    },
+    {
+      "id": "F023",
+      "path": [
+        "S3A improvements",
+        "Fail fast on SSL errors"
+      ]
+    },
+    {
+      "id": "F024",
+      "path": [
+        "ABFS improvements",
+        "Input stream unbuffer"
+      ]
+    },
+    {
+      "id": "F025",
+      "path": [
+        "ABFS improvements",
+        "Manifest committer rate limiting"
+      ]
+    },
+    {
+      "id": "F026",
+      "path": [
+        "ABFS improvements",
+        "Retry count backport"
+      ]
+    },
+    {
+      "id": "F027",
+      "path": [
+        "ABFS improvements",
+        "Idempotency test authentication"
+      ]
+    },
+    {
+      "id": "F028",
+      "path": [
+        "ABFS improvements",
+        "Manifest committer rate limiting"
+      ]
+    },
+    {
+      "id": "F029",
+      "path": [
+        "ABFS improvements",
+        "Input stream unbuffer"
+      ]
+    },
+    {
+      "id": "F030",
+      "path": [
+        "ABFS improvements",
+        "Manifest committer rate limiting"
+      ]
+    },
+    {
+      "id": "F031",
+      "path": [
+        "S3A improvements",
+        "Fail fast on SSL errors"
+      ]
+    },
+    {
+      "id": "F032",
+      "path": [
+        "S3A improvements",
+        "Delegation credential tests"
+      ]
+    },
+    {
+      "id": "F033",
+      "path": [
+        "ABFS improvements",
+        "Manifest committer rate limiting"
+      ]
+    },
+    {
+      "id": "F034",
+      "path": [
+        "ABFS improvements",
+        "Reuse common retry policy"
+      ]
+    },
+    {
+      "id": "F035",
+      "path": [
+        "ABFS improvements",
+        "Manifest committer rate limiting"
+      ]
+    },
+    {
+      "id": "F036",
+      "path": [
+        "ABFS improvements",
+        "Input stream unbuffer"
+      ]
+    },
+    {
+      "id": "F037",
+      "path": [
+        "ABFS improvements",
+        "Input stream unbuffer"
+      ]
+    },
+    {
+      "id": "F038",
+      "path": [
+        "ABFS improvements",
+        "Manifest committer rate limiting"
+      ]
+    },
+    {
+      "id": "F039",
+      "path": [
+        "ABFS improvements",
+        "Throttling authentication errors"
+      ]
+    },
+    {
+      "id": "F040",
+      "path": [
+        "ABFS improvements",
+        "Input stream unbuffer"
+      ]
+    },
+    {
+      "id": "F041",
+      "path": [
+        "S3A improvements",
+        "Delegation credential tests"
+      ]
+    },
+    {
+      "id": "F042",
+      "path": [
+        "ABFS improvements",
+        "Input stream unbuffer"
+      ]
+    },
+    {
+      "id": "F043",
+      "path": [
+        "ABFS improvements",
+        "Configuration documentation"
+      ]
+    },
+    {
+      "id": "F044",
+      "path": [
+        "ABFS improvements",
+        "Idempotency test authentication"
+      ]
+    },
+    {
+      "id": "F045",
+      "path": [
+        "ABFS improvements",
+        "Manifest committer rate limiting"
+      ]
+    },
+    {
+      "id": "F046",
+      "path": [
+        "S3A improvements",
+        "Fail fast on SSL errors"
+      ]
+    },
+    {
+      "id": "F047",
+      "path": [
+        "ABFS improvements",
+        "Manifest committer rate limiting"
+      ]
+    },
+    {
+      "id": "F048",
+      "path": [
+        "ABFS improvements",
+        "Retry count backport"
+      ]
+    },
+    {
+      "id": "F049",
+      "path": [
+        "ABFS improvements",
+        "Idempotency test authentication"
+      ]
+    },
+    {
+      "id": "F050",
+      "path": [
+        "ABFS improvements",
+        "Retry count backport"
+      ]
+    },
+    {
+      "id": "F051",
+      "path": [
+        "S3A improvements",
+        "Fail fast on SSL errors"
+      ]
+    },
+    {
+      "id": "F052",
+      "path": [
+        "S3A improvements",
+        "Remove HDFS dependency"
+      ]
+    },
+    {
+      "id": "F053",
+      "path": [
+        "ABFS improvements",
+        "Manifest committer rate limiting"
+      ]
+    }
+  ]
+}

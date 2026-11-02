@@ -1,0 +1,366 @@
+{
+  "task_id": "mini-046",
+  "records": [
+    {
+      "id": "F001",
+      "path": [
+        "sig-storage",
+        "3762-persistent-volume-last-phase-transition-time"
+      ],
+      "content_sha256": "1e5ccee62a74b701832552c63f1459d919aa55881a2e2146846b3a406a118a4c",
+      "source_native_id": "keps/sig-storage/3762-persistent-volume-last-phase-transition-time#excerpt-3",
+      "source_heading": "design details"
+    },
+    {
+      "id": "F002",
+      "path": [
+        "sig-storage",
+        "3762-persistent-volume-last-phase-transition-time"
+      ],
+      "content_sha256": "a77b7bf7c4370e15162c438be715d8d5a447595bdf532438b68c8e192740ae59",
+      "source_native_id": "keps/sig-storage/3762-persistent-volume-last-phase-transition-time#excerpt-1",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F003",
+      "path": [
+        "sig-architecture",
+        "3935-oldest-node-newest-control-plane"
+      ],
+      "content_sha256": "74bb6354f3025e2b40590f655e7050829cc6014728eebccbdef209e9003f1492",
+      "source_native_id": "keps/sig-architecture/3935-oldest-node-newest-control-plane#excerpt-1",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F004",
+      "path": [
+        "sig-api-machinery",
+        "5080-ordered-namespace-deletion"
+      ],
+      "content_sha256": "6f42d77e8b46eed2b56a92f6183c238a049e57e6e9e9f353afd77ec6aacd6ddc",
+      "source_native_id": "keps/sig-api-machinery/5080-ordered-namespace-deletion#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F005",
+      "path": [
+        "sig-api-machinery",
+        "5080-ordered-namespace-deletion"
+      ],
+      "content_sha256": "d927fd105c0b0dd70b43f8203fb1906aabcfdc329bf531c833de2c54b89423b9",
+      "source_native_id": "keps/sig-api-machinery/5080-ordered-namespace-deletion#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F006",
+      "path": [
+        "sig-storage",
+        "989-extend-datasource"
+      ],
+      "content_sha256": "7c533d975239cb432603b2a001890193d41de51f0516ecd48d369f1332252c2a",
+      "source_native_id": "keps/sig-storage/989-extend-datasource#excerpt-2",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F007",
+      "path": [
+        "sig-node",
+        "753-sidecar-containers"
+      ],
+      "content_sha256": "0157f9efdc3ac500f67669853300d5841fa3f7e456440e54778a9b45cb089b11",
+      "source_native_id": "keps/sig-node/753-sidecar-containers#excerpt-1",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F008",
+      "path": [
+        "sig-architecture",
+        "4402-go-workspaces"
+      ],
+      "content_sha256": "f72384d30c445a8191026b8a1318577644d318d6b07773c4ae8faf66945fcbd6",
+      "source_native_id": "keps/sig-architecture/4402-go-workspaces#excerpt-2",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F009",
+      "path": [
+        "sig-api-machinery",
+        "598-crd-conversion-webhook"
+      ],
+      "content_sha256": "9a1d764d98ae5649f06233bf54678bff0a599b559d6dbb624e94bc1aad3b3579",
+      "source_native_id": "keps/sig-api-machinery/598-crd-conversion-webhook#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F010",
+      "path": [
+        "sig-api-machinery",
+        "4358-custom-resource-field-selectors"
+      ],
+      "content_sha256": "c1e7540632dbed5a7cb7a76804358550a64754bd458cdb50f48d9fc0ba42b3c7",
+      "source_native_id": "keps/sig-api-machinery/4358-custom-resource-field-selectors#excerpt-1",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F011",
+      "path": [
+        "sig-node",
+        "2411-cri-container-log-rotation"
+      ],
+      "content_sha256": "896d74946c5de21c4ca1938dcb99892e928ba989ae22adc47ceff0d384e54989",
+      "source_native_id": "keps/sig-node/2411-cri-container-log-rotation#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F012",
+      "path": [
+        "sig-api-machinery",
+        "4358-custom-resource-field-selectors"
+      ],
+      "content_sha256": "0a1308a91bd2cca6b719907999ea8db24ee9b0049e14fb94f745ca0230e2bca4",
+      "source_native_id": "keps/sig-api-machinery/4358-custom-resource-field-selectors#excerpt-3",
+      "source_heading": "user stories"
+    },
+    {
+      "id": "F013",
+      "path": [
+        "sig-architecture",
+        "3935-oldest-node-newest-control-plane"
+      ],
+      "content_sha256": "95d792cc5d9b431c1d11b095f0bdd7d2cc3c444390c63c878e468df3a9c2ba59",
+      "source_native_id": "keps/sig-architecture/3935-oldest-node-newest-control-plane#excerpt-3",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F014",
+      "path": [
+        "sig-api-machinery",
+        "4358-custom-resource-field-selectors"
+      ],
+      "content_sha256": "c12b12f5dd1270d709881111a4d63c5471d1254e4c421f83e27494035bcf7120",
+      "source_native_id": "keps/sig-api-machinery/4358-custom-resource-field-selectors#excerpt-2",
+      "source_heading": "non-goals"
+    },
+    {
+      "id": "F015",
+      "path": [
+        "sig-node",
+        "5999-h2c-container-probes"
+      ],
+      "content_sha256": "2b66b5222405b6ffbc2b0957ca6dadbe7af61f771de7abac8dd24348a5b51d18",
+      "source_native_id": "keps/sig-node/5999-h2c-container-probes#excerpt-3",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F016",
+      "path": [
+        "sig-storage",
+        "3762-persistent-volume-last-phase-transition-time"
+      ],
+      "content_sha256": "23a6408b7af3c482619f8bde1a2b9657119d345b96597a7c7ae421d9d320db3a",
+      "source_native_id": "keps/sig-storage/3762-persistent-volume-last-phase-transition-time#excerpt-2",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F017",
+      "path": [
+        "sig-storage",
+        "3141-prevent-volume-mode-conversion"
+      ],
+      "content_sha256": "d228ccbe8cb58360f384ee1dbab81e913e73a83d4958924688b0a6b3b827317f",
+      "source_native_id": "keps/sig-storage/3141-prevent-volume-mode-conversion#excerpt-3",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F018",
+      "path": [
+        "sig-storage",
+        "3141-prevent-volume-mode-conversion"
+      ],
+      "content_sha256": "11bca210b39fbcf3e2a7c4055dfd5e74b64388dbf31ce4a8edb4d630c57f177c",
+      "source_native_id": "keps/sig-storage/3141-prevent-volume-mode-conversion#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F019",
+      "path": [
+        "sig-api-machinery",
+        "5080-ordered-namespace-deletion"
+      ],
+      "content_sha256": "f8abebabf370059a06ba8949144f8caa109244952ce9e43343b5c95f20955930",
+      "source_native_id": "keps/sig-api-machinery/5080-ordered-namespace-deletion#excerpt-3",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F020",
+      "path": [
+        "sig-architecture",
+        "1618-conformance-profiles"
+      ],
+      "content_sha256": "81305f07ad0bc117bb52273a846e6fd81085b04cf67fc47eb7a94d0aed1233a6",
+      "source_native_id": "keps/sig-architecture/1618-conformance-profiles#excerpt-3",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F021",
+      "path": [
+        "sig-api-machinery",
+        "598-crd-conversion-webhook"
+      ],
+      "content_sha256": "41497f0d5d4fcac24f20798c4860e0c1a7435a43c73a3baba83455dfef661c08",
+      "source_native_id": "keps/sig-api-machinery/598-crd-conversion-webhook#excerpt-3",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F022",
+      "path": [
+        "sig-storage",
+        "989-extend-datasource"
+      ],
+      "content_sha256": "909a9b42bacee2aa564767b19df92f8be97823e5742aa5d882e463cc96189c35",
+      "source_native_id": "keps/sig-storage/989-extend-datasource#excerpt-3",
+      "source_heading": "non-goals"
+    },
+    {
+      "id": "F023",
+      "path": [
+        "sig-architecture",
+        "1618-conformance-profiles"
+      ],
+      "content_sha256": "bb18174f80cb52850f7c0fb484138bc14ab5bc4536444474f7b0582e7baacfaf",
+      "source_native_id": "keps/sig-architecture/1618-conformance-profiles#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F024",
+      "path": [
+        "sig-architecture",
+        "3935-oldest-node-newest-control-plane"
+      ],
+      "content_sha256": "d46f001e4315aef357f0405e93faed9203897a67b6cdca9260a065e4bf91d7e4",
+      "source_native_id": "keps/sig-architecture/3935-oldest-node-newest-control-plane#excerpt-2",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F025",
+      "path": [
+        "sig-node",
+        "5999-h2c-container-probes"
+      ],
+      "content_sha256": "35937ff3adb5ca065e95e97861def846007573fd260a158172042469d09b0d2a",
+      "source_native_id": "keps/sig-node/5999-h2c-container-probes#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F026",
+      "path": [
+        "sig-node",
+        "753-sidecar-containers"
+      ],
+      "content_sha256": "964dd062fe31cc926c35ee690314d5f18226be8521cba86dc8e7597c78244a48",
+      "source_native_id": "keps/sig-node/753-sidecar-containers#excerpt-3",
+      "source_heading": "non-goals"
+    },
+    {
+      "id": "F027",
+      "path": [
+        "sig-node",
+        "2411-cri-container-log-rotation"
+      ],
+      "content_sha256": "ded06e181e8c7ea525684ea6af0a7a991765d0a3aaa392ebcd59cbde70575fb2",
+      "source_native_id": "keps/sig-node/2411-cri-container-log-rotation#excerpt-3",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F028",
+      "path": [
+        "sig-node",
+        "753-sidecar-containers"
+      ],
+      "content_sha256": "7a1a3fd4a0b7b8889058091f59c761d0ca0f496a14181d560adaa5935584b2a6",
+      "source_native_id": "keps/sig-node/753-sidecar-containers#excerpt-2",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F029",
+      "path": [
+        "sig-api-machinery",
+        "598-crd-conversion-webhook"
+      ],
+      "content_sha256": "42168004d54d0c5114860094370fddda6d904082fe4e26ec183ee94c185d9c27",
+      "source_native_id": "keps/sig-api-machinery/598-crd-conversion-webhook#excerpt-2",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F030",
+      "path": [
+        "sig-architecture",
+        "4402-go-workspaces"
+      ],
+      "content_sha256": "fe5304ab81371d7c8c96b70257200aeefb640ad766bead2f9227a4b8b429b89f",
+      "source_native_id": "keps/sig-architecture/4402-go-workspaces#excerpt-3",
+      "source_heading": "risks and mitigations"
+    },
+    {
+      "id": "F031",
+      "path": [
+        "sig-storage",
+        "989-extend-datasource"
+      ],
+      "content_sha256": "41430ff4328a117d19ae28487c774ec513b70767773cf7b4f433f23701081eec",
+      "source_native_id": "keps/sig-storage/989-extend-datasource#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F032",
+      "path": [
+        "sig-node",
+        "2411-cri-container-log-rotation"
+      ],
+      "content_sha256": "2c226d74224eb8b1eb559a7051a44560240dcec039d4f8c632d2554be85ea750",
+      "source_native_id": "keps/sig-node/2411-cri-container-log-rotation#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F033",
+      "path": [
+        "sig-architecture",
+        "4402-go-workspaces"
+      ],
+      "content_sha256": "836c9b2b3f71adcc1e15985bd7ffbbaa2dd5e34eeaeabee0b0615e5e57e70fdc",
+      "source_native_id": "keps/sig-architecture/4402-go-workspaces#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F034",
+      "path": [
+        "sig-node",
+        "5999-h2c-container-probes"
+      ],
+      "content_sha256": "2d20cdd44f4eef3d07ff1d144ef080705ce4e47fddd39f3f879dabe2a43f50cc",
+      "source_native_id": "keps/sig-node/5999-h2c-container-probes#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F035",
+      "path": [
+        "sig-storage",
+        "3141-prevent-volume-mode-conversion"
+      ],
+      "content_sha256": "35fc1748d6ce011f709a94b3ab2065d720fabfe202dbe4466181bf19360f71f5",
+      "source_native_id": "keps/sig-storage/3141-prevent-volume-mode-conversion#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F036",
+      "path": [
+        "sig-architecture",
+        "1618-conformance-profiles"
+      ],
+      "content_sha256": "3ddf6ba6a066cd3e596d978925ce439bd49222bb3293d5b6770ed3965d1fa5ce",
+      "source_native_id": "keps/sig-architecture/1618-conformance-profiles#excerpt-1",
+      "source_heading": "summary"
+    }
+  ],
+  "reference_scope": "Source-derived group/proposal hierarchy for a development-only difficulty and cost pilot."
+}

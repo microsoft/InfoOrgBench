@@ -1,0 +1,250 @@
+{
+  "task_id": "ami/mini-037",
+  "records": [
+    {
+      "id": "F001",
+      "format": "text",
+      "text": "Whether to use titanium or a spongy material."
+    },
+    {
+      "id": "F002",
+      "format": "text",
+      "text": "He suggests that they could have one of two kinds of power supplies- the usual batteries or rechargable ones if there is to be a base station and they could place solar cells on top for times when the lighting is good."
+    },
+    {
+      "id": "F003",
+      "format": "text",
+      "text": "They agree on having base station with the remote."
+    },
+    {
+      "id": "F004",
+      "format": "text",
+      "text": "The project manager opens the meeting, stating that it is about conceptual design."
+    },
+    {
+      "id": "F005",
+      "format": "text",
+      "text": "The remote will use push buttons."
+    },
+    {
+      "id": "F006",
+      "format": "text",
+      "text": "Eventually they decide to make the device the shape of a banana."
+    },
+    {
+      "id": "F007",
+      "format": "text",
+      "text": "The industrial desiger tells them they will use a regular chip rather than the advanced one since pricing is a factor."
+    },
+    {
+      "id": "F008",
+      "format": "text",
+      "text": "The user interface designer will work on the user interface design."
+    },
+    {
+      "id": "F009",
+      "format": "text",
+      "text": "Whether creating a fancy remote would adhere to the project budget."
+    },
+    {
+      "id": "F010",
+      "format": "text",
+      "text": "The remote will have a base station, a button on the base station to press, 2 scroll wheels for the channels and volume, a turbo button (possibly underneath the device), and an on/off button for the TV."
+    },
+    {
+      "id": "F011",
+      "format": "text",
+      "text": "They do not yet seem set about the idea of making it a banana shape, and one group member feels that the shape is not handy."
+    },
+    {
+      "id": "F012",
+      "format": "text",
+      "text": "The case of the remote will be made of rubber."
+    },
+    {
+      "id": "F013",
+      "format": "text",
+      "text": "They have the option of using that technology."
+    },
+    {
+      "id": "F014",
+      "format": "text",
+      "text": "The team then discussed and made decisions on what energy sources, chips, case materials, and buttons to use."
+    },
+    {
+      "id": "F015",
+      "format": "text",
+      "text": "There is concern that the shape is not handy and might make the product less marketable- that would be a problem since they have to meet the fifty million euros profit goal."
+    },
+    {
+      "id": "F016",
+      "format": "text",
+      "text": "The remote will contain a hard plastic inner shell to protect the interior."
+    },
+    {
+      "id": "F017",
+      "format": "text",
+      "text": "Since they can only charge twenty-five euro they decide to eliminate the LCD screen idea."
+    },
+    {
+      "id": "F018",
+      "format": "text",
+      "text": "The team then discussed their target group and whether to use titanium or a spongy material in their design."
+    },
+    {
+      "id": "F019",
+      "format": "text",
+      "text": "After that the project manager has them discuss/reiterate the decisions made during the meeting:  no LCD screen, the remote will have a base station, a RF for beeping, a button on the base station to press, possibly a stylish banana-shape for the control, 2 scroll wheels to control the volume and channels at the thumb level, a turbo button perhaps underneath the device, on/off button for the TV."
+    },
+    {
+      "id": "F020",
+      "format": "text",
+      "text": "He suggests putting two scroll wheels- one for changing the channel and another for the volume."
+    },
+    {
+      "id": "F021",
+      "format": "text",
+      "text": "He talks about using plastic with elasticity so that the remote would not break into pieces if it fell, which relates to their earlier discussion about giving it a spongy design."
+    },
+    {
+      "id": "F022",
+      "format": "text",
+      "text": "The marketing expert presented findings from trend watching reports and discussed her personal preferences in how to incorporate the results of the trend watching reports into the appearance of the remote."
+    },
+    {
+      "id": "F023",
+      "format": "text",
+      "text": "Thus far, LCD and ASR have been ruled out."
+    },
+    {
+      "id": "F024",
+      "format": "text",
+      "text": "The user interface designer examined the interfaces of existing products and discussed using menus within an interface using push buttons which operate like a scroll wheel."
+    },
+    {
+      "id": "F025",
+      "format": "text",
+      "text": "Then they move on to the three presentations."
+    },
+    {
+      "id": "F026",
+      "format": "text",
+      "text": "The user could simply press a button on the base station and the remote control would start beeping."
+    },
+    {
+      "id": "F027",
+      "format": "text",
+      "text": "The project manager opened the meeting and went over the minutes of the previous meeting."
+    },
+    {
+      "id": "F028",
+      "format": "text",
+      "text": "After that the interface specialist talks about having a base station for the purpose of finding the remote control when lost."
+    },
+    {
+      "id": "F029",
+      "format": "text",
+      "text": "Plastic is also less costly than other options of wood or titanum."
+    },
+    {
+      "id": "F030",
+      "format": "text",
+      "text": "The marketing expert will work on a product evaluation."
+    },
+    {
+      "id": "F031",
+      "format": "text",
+      "text": "The marketing expert has to look up product evaluation."
+    },
+    {
+      "id": "F032",
+      "format": "text",
+      "text": "The industrial designer will work on the look and feel of the design."
+    },
+    {
+      "id": "F033",
+      "format": "text",
+      "text": "The marketing expert is first to present, and he talks about making a pleasant-looking device, particularly one that favors current trends."
+    },
+    {
+      "id": "F034",
+      "format": "text",
+      "text": "Before the next meeting, the interface specialist and industrial designer have to work together on the user interface and the look/feel design."
+    },
+    {
+      "id": "F035",
+      "format": "text",
+      "text": "In addition, he talks about giving the control a double curve, curves on both the sides so that it is easy to hold and handle."
+    },
+    {
+      "id": "F036",
+      "format": "text",
+      "text": "The remote will use a kinetic battery."
+    },
+    {
+      "id": "F037",
+      "format": "text",
+      "text": "He also included a turbo button for speed, which he thinks every design should have."
+    },
+    {
+      "id": "F038",
+      "format": "text",
+      "text": "He restates the last meeting's descision that they will not do speech recognition technology but says they still have to decide whether to use an LCD screen."
+    },
+    {
+      "id": "F039",
+      "format": "text",
+      "text": "They go on to have discussion, with one member suggesting that they make the banana more stylized so that it looks less like a banana- for example, it could be silver."
+    },
+    {
+      "id": "F040",
+      "format": "text",
+      "text": "Two of the team members will create a prototype using modeling clay"
+    },
+    {
+      "id": "F041",
+      "format": "text",
+      "text": "The trend watching reports indicated that products need to reflect a fruit and vegetable theme, sponginess, fanciness, and technological innovation."
+    },
+    {
+      "id": "F042",
+      "format": "text",
+      "text": "They then begin talking about using a fruit, vegetable, or natural object as the shape of the remote, the logo, or for the buttons."
+    },
+    {
+      "id": "F043",
+      "format": "text",
+      "text": "Next, the user interface specialist presents."
+    },
+    {
+      "id": "F044",
+      "format": "text",
+      "text": "He annouces that the technology division of their company has developed an integrated programmeable sample speaker unit, which would allow a person to have a conversation with the remote control."
+    },
+    {
+      "id": "F045",
+      "format": "text",
+      "text": "Whether to use a kinetic battery."
+    },
+    {
+      "id": "F046",
+      "format": "text",
+      "text": "He shows them his plan what the remote control could look like and the features it might have."
+    },
+    {
+      "id": "F047",
+      "format": "text",
+      "text": "The group has not yet agreed on whether the remote should be banana-shaped."
+    },
+    {
+      "id": "F048",
+      "format": "text",
+      "text": "The industrial designer discussed options for energy sources, materials, case shapes, and interface components such as buttons and LCD screens."
+    },
+    {
+      "id": "F049",
+      "format": "text",
+      "text": "Lastly, the industrial designer presents, discussing the power source of the remote control."
+    }
+  ]
+}

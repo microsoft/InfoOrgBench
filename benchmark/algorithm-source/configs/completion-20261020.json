@@ -1,0 +1,74 @@
+{
+  "schema_version": 1,
+  "study_id": "completion-20261020",
+  "scorer_commit": "6e5af354790109f8b85e691da289edec6b3f110f",
+  "code_base_commit": "87b5a3e9ede8b3bdbfd8f4d9eb393656c5976365",
+  "families": {"Recap": "ami", "Thread": "hadoop-jira", "Design": "kubernetes"},
+  "tasks_per_family": 50,
+  "source_bundles": {"Recap": "B04", "Thread": "B04", "Design": "B03"},
+  "bundle_sha256": {
+    "B04": "88797efff13139415b6f258fb214ab06d442af33e56109c00df73a36e7f97ced",
+    "B03": "3750fae2aec87dc08e0f74c28d02f868d1806aeb8fcd8853a9bb7a120700c24c"
+  },
+  "inclusion": "Every manifest task in the declared family; no result-dependent exclusion or selection.",
+  "run_order": "Ascending sha256('20261020-full|' + family + '|' + canonical_task_id).",
+  "public_fields": ["id", "format", "text"],
+  "features": ["text"],
+  "primary_lambda": 0.2,
+  "diagnostic_lambdas": [0.0, 0.1, 0.2, 0.3, 0.4],
+  "primary_methods": ["filed_flat", "fixed_cut", "silhouette", "random_silhouette_shape"],
+  "thread_diagnostics": ["silhouette_identifier_masked", "random_identifier_masked_shape"],
+  "random_seeds": [0, 1, 2, 3, 4],
+  "expected_predictions": 1500,
+  "fixed_cut": "Exactly the archived pilot predictor with cuts 0.7 and 0.9; no tuning.",
+  "silhouette": {
+    "tfidf": {"lowercase": true, "strip_accents": "unicode", "stop_words": "english",
+      "token_pattern": "(?u)\\b\\w\\w+\\b", "ngram_range": [1, 2], "sublinear_tf": true,
+      "norm": "l2", "max_features": 5000},
+    "distance": "cosine",
+    "linkage": "average",
+    "upper_candidate_counts": "2 through min(ceil(sqrt(n)), n-1)",
+    "lower_candidate_counts": "3 through min(floor(n/2), n-1)",
+    "pair_constraint": "lower_count >= 2 * upper_count",
+    "objective": "Equal mean of record-level silhouette at the upper and lower cuts of one dendrogram.",
+    "tie_break": "Objective rounded to 12 decimals, then fewer total clusters, then fewer lower clusters, then fewer upper clusters.",
+    "duplicate_rule": "Exclude candidate cuts that split any feature-identical pair with cosine distance <= 1e-12.",
+    "zero_vectors": "Zero-zero distance 0, zero-nonzero distance 1; no vocabulary or identical vectors gives a flat tree.",
+    "no_valid_pair": "One top folder with the best admissible cut from the union of candidate counts as the lower level; no admissible silhouette cut gives a flat tree.",
+    "labels": "Opaque record IDs sorted before fitting; generic output labels."
+  },
+  "identifier_masking": {
+    "scope": "Thread feature-view-only diagnostic; original output record bytes remain unchanged.",
+    "patterns": [
+      "\\b(?:HADOOP|HDFS|YARN|MAPREDUCE|SPARK|TEZ)-\\d+\\b",
+      "\\b(?:PR|pull request)\\s*#?\\s*\\d+\\b|github\\.com/\\S+/pull/\\d+",
+      "\\bKEP(?:[-\\s:#]+)?\\d+\\b",
+      "\\bsig[-\\s][a-z][a-z0-9-]*\\b"
+    ],
+    "replacement": "single space",
+    "case_sensitive": false,
+    "interpretation": "Effect on this lexical procedure including its chosen shape; no agent-memorization claim."
+  },
+  "source_sensitivity": {
+    "unit_definitions": {
+      "Recap_primary": "AMI meeting-series prefix matching ^((?:ES|IS|TS)\\d{4})[a-d]$; otherwise preserve full meeting ID and flag it.",
+      "Recap_secondary": "Full meeting path.",
+      "Thread": "Parent issue path; descriptive only, three source parents.",
+      "Design_primary": "Full owning-group/proposal path.",
+      "Design_secondary": "Owning-group path."
+    },
+    "rule": "For each unit remove every packet containing it. Summarize remaining task means; no arbitrary single-cluster assignment.",
+    "empty_remainder": "Explicit undefined value and removed-task count.",
+    "small_remainder": "Retain descriptive mean with its denominator; flag fewer than five remaining packets.",
+    "inference": "No confidence interval, independent-packet bootstrap or p-value."
+  },
+  "mechanisms": {
+    "partitions": "ARI at first non-common folder and full leaf path; exact/refinement and split/merge counts separately.",
+    "privileged_repair": "For a reference parent with one subgroup whose leaf set exactly matches one predicted top folder, merge its predicted leaf folders. Fixed scorer before/after; explicitly reference-assisted, never a fair baseline.",
+    "archived_trees": "Only actual retained assignments with verified record/reference bindings; missing trees stay unavailable."
+  },
+  "archive_eligibility": "ReAct-FC only: 50 named tasks per family, verified declared public-record/reference identity, numeric per-task S, structure-score-v1 lambda 0.2, no unscored/quality filter. Disclose metadata, prompts, budgets and attempt selection. Missing evidence is explicit NA; no controlled-effects claim.",
+  "exposure": "Previously exposed, overlapping existing development inputs; not confirmatory or source-disjoint.",
+  "falsifier": "A strong simple baseline matching or exceeding archived agent outcomes weakens agent-specific challenge claims; preserve all such findings without retuning.",
+  "live": "Blocked by the unchanged provider hold. No model preflight or source call is admitted."
+}

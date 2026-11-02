@@ -1,0 +1,389 @@
+{
+  "assignments": [
+    {
+      "id": "F001",
+      "path": [
+        "Release-management",
+        "version-updates"
+      ]
+    },
+    {
+      "id": "F002",
+      "path": [
+        "HADOOP-S3A-ssl",
+        "cert-issues"
+      ]
+    },
+    {
+      "id": "F003",
+      "path": [
+        "HADOOP-19089",
+        "ABFS-XAttr-root-path"
+      ]
+    },
+    {
+      "id": "F004",
+      "path": [
+        "HADOOP-13203",
+        "S3A-read-policy"
+      ]
+    },
+    {
+      "id": "F005",
+      "path": [
+        "HADOOP-19089",
+        "ABFS-XAttr-root-path"
+      ]
+    },
+    {
+      "id": "F006",
+      "path": [
+        "HADOOP-15245",
+        "S3A-lazy-seek"
+      ]
+    },
+    {
+      "id": "F007",
+      "path": [
+        "HADOOP-ABFS",
+        "driver-metrics"
+      ]
+    },
+    {
+      "id": "F008",
+      "path": [
+        "HADOOP-15245",
+        "S3A-lazy-seek"
+      ]
+    },
+    {
+      "id": "F009",
+      "path": [
+        "Release-management",
+        "version-updates"
+      ]
+    },
+    {
+      "id": "F010",
+      "path": [
+        "HADOOP-S3A-ssl",
+        "cert-issues"
+      ]
+    },
+    {
+      "id": "F011",
+      "path": [
+        "HADOOP-shell",
+        "rm-trash-bypass"
+      ]
+    },
+    {
+      "id": "F012",
+      "path": [
+        "HADOOP-S3A",
+        "credentials-tests"
+      ]
+    },
+    {
+      "id": "F013",
+      "path": [
+        "Release-management",
+        "version-updates"
+      ]
+    },
+    {
+      "id": "F014",
+      "path": [
+        "HADOOP-13203",
+        "S3A-read-policy"
+      ]
+    },
+    {
+      "id": "F015",
+      "path": [
+        "HADOOP-13203",
+        "S3A-read-policy"
+      ]
+    },
+    {
+      "id": "F016",
+      "path": [
+        "HADOOP-19089",
+        "ABFS-XAttr-root-path"
+      ]
+    },
+    {
+      "id": "F017",
+      "path": [
+        "HADOOP-S3A-ssl",
+        "cert-issues"
+      ]
+    },
+    {
+      "id": "F018",
+      "path": [
+        "HADOOP-19089",
+        "ABFS-XAttr-root-path"
+      ]
+    },
+    {
+      "id": "F019",
+      "path": [
+        "Release-management",
+        "version-updates"
+      ]
+    },
+    {
+      "id": "F020",
+      "path": [
+        "HADOOP-19089",
+        "ABFS-XAttr-root-path"
+      ]
+    },
+    {
+      "id": "F021",
+      "path": [
+        "HADOOP-19089",
+        "ABFS-XAttr-root-path"
+      ]
+    },
+    {
+      "id": "F022",
+      "path": [
+        "HADOOP-15245",
+        "S3A-lazy-seek"
+      ]
+    },
+    {
+      "id": "F023",
+      "path": [
+        "HADOOP-19089",
+        "ABFS-XAttr-root-path"
+      ]
+    },
+    {
+      "id": "F024",
+      "path": [
+        "HADOOP-19089",
+        "ABFS-XAttr-root-path"
+      ]
+    },
+    {
+      "id": "F025",
+      "path": [
+        "Release-management",
+        "version-updates"
+      ]
+    },
+    {
+      "id": "F026",
+      "path": [
+        "HADOOP-19089",
+        "ABFS-XAttr-root-path"
+      ]
+    },
+    {
+      "id": "F027",
+      "path": [
+        "HADOOP-19089",
+        "ABFS-XAttr-root-path"
+      ]
+    },
+    {
+      "id": "F028",
+      "path": [
+        "HADOOP-15245",
+        "S3A-lazy-seek"
+      ]
+    },
+    {
+      "id": "F029",
+      "path": [
+        "HADOOP-19089",
+        "ABFS-XAttr-root-path"
+      ]
+    },
+    {
+      "id": "F030",
+      "path": [
+        "HADOOP-S3A",
+        "credentials-tests"
+      ]
+    },
+    {
+      "id": "F031",
+      "path": [
+        "HADOOP-S3A-ssl",
+        "cert-issues"
+      ]
+    },
+    {
+      "id": "F032",
+      "path": [
+        "HADOOP-13786",
+        "remove-hdfs-transient-dep"
+      ]
+    },
+    {
+      "id": "F033",
+      "path": [
+        "HADOOP-19089",
+        "ABFS-XAttr-root-path"
+      ]
+    },
+    {
+      "id": "F034",
+      "path": [
+        "HADOOP-15245",
+        "S3A-lazy-seek"
+      ]
+    },
+    {
+      "id": "F035",
+      "path": [
+        "Release-management",
+        "version-updates"
+      ]
+    },
+    {
+      "id": "F036",
+      "path": [
+        "HADOOP-S3A-ssl",
+        "cert-issues"
+      ]
+    },
+    {
+      "id": "F037",
+      "path": [
+        "HADOOP-S3Guard",
+        "uploads-info"
+      ]
+    },
+    {
+      "id": "F038",
+      "path": [
+        "HADOOP-S3Guard",
+        "uploads-info"
+      ]
+    },
+    {
+      "id": "F039",
+      "path": [
+        "HADOOP-15245",
+        "S3A-lazy-seek"
+      ]
+    },
+    {
+      "id": "F040",
+      "path": [
+        "Release-management",
+        "version-updates"
+      ]
+    },
+    {
+      "id": "F041",
+      "path": [
+        "Release-management",
+        "version-updates"
+      ]
+    },
+    {
+      "id": "F042",
+      "path": [
+        "HADOOP-13203",
+        "S3A-read-policy"
+      ]
+    },
+    {
+      "id": "F043",
+      "path": [
+        "Release-management",
+        "version-updates"
+      ]
+    },
+    {
+      "id": "F044",
+      "path": [
+        "HADOOP-13786",
+        "remove-hdfs-transient-dep"
+      ]
+    },
+    {
+      "id": "F045",
+      "path": [
+        "HADOOP-19089",
+        "ABFS-XAttr-root-path"
+      ]
+    },
+    {
+      "id": "F046",
+      "path": [
+        "HADOOP-S3A-ssl",
+        "cert-issues"
+      ]
+    },
+    {
+      "id": "F047",
+      "path": [
+        "HADOOP-S3A-ssl",
+        "cert-issues"
+      ]
+    },
+    {
+      "id": "F048",
+      "path": [
+        "HADOOP-S3A-ssl",
+        "cert-issues"
+      ]
+    },
+    {
+      "id": "F049",
+      "path": [
+        "Release-management",
+        "version-updates"
+      ]
+    },
+    {
+      "id": "F050",
+      "path": [
+        "HADOOP-19385",
+        "iceberg-bulk-delete"
+      ]
+    },
+    {
+      "id": "F051",
+      "path": [
+        "HADOOP-19089",
+        "ABFS-XAttr-root-path"
+      ]
+    },
+    {
+      "id": "F052",
+      "path": [
+        "Release-management",
+        "version-updates"
+      ]
+    },
+    {
+      "id": "F053",
+      "path": [
+        "Release-management",
+        "version-updates"
+      ]
+    },
+    {
+      "id": "F054",
+      "path": [
+        "HADOOP-ABFS",
+        "random-read-perf"
+      ]
+    },
+    {
+      "id": "F055",
+      "path": [
+        "HADOOP-19089",
+        "ABFS-XAttr-root-path"
+      ]
+    }
+  ]
+}

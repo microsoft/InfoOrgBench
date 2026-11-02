@@ -1,0 +1,403 @@
+{
+  "assignments": [
+    {
+      "id": "F001",
+      "path": [
+        "InitialDesign",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F002",
+      "path": [
+        "InitialDesign",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F003",
+      "path": [
+        "InitialDesign",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F004",
+      "path": [
+        "InitialDesign",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F005",
+      "path": [
+        "InitialDesign",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F006",
+      "path": [
+        "InitialDesign",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F007",
+      "path": [
+        "InitialDesign",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F008",
+      "path": [
+        "InitialDesign",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F009",
+      "path": [
+        "InitialDesign",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F010",
+      "path": [
+        "InitialDesign",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F011",
+      "path": [
+        "InitialDesign",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F012",
+      "path": [
+        "InitialDesign",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F013",
+      "path": [
+        "InitialDesign",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F014",
+      "path": [
+        "InitialDesign",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F015",
+      "path": [
+        "InitialDesign",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F016",
+      "path": [
+        "InitialDesign",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F017",
+      "path": [
+        "InitialDesign",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F018",
+      "path": [
+        "InitialDesign",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F019",
+      "path": [
+        "InitialDesign",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F020",
+      "path": [
+        "InitialDesign",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F021",
+      "path": [
+        "InitialDesign",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F022",
+      "path": [
+        "InitialDesign",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F023",
+      "path": [
+        "InitialDesign",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F024",
+      "path": [
+        "InitialDesign",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F025",
+      "path": [
+        "InitialDesign",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F026",
+      "path": [
+        "InitialDesign",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F027",
+      "path": [
+        "InitialDesign",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F028",
+      "path": [
+        "InitialDesign",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F029",
+      "path": [
+        "InitialDesign",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F030",
+      "path": [
+        "InitialDesign",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F031",
+      "path": [
+        "InitialDesign",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F032",
+      "path": [
+        "InitialDesign",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F033",
+      "path": [
+        "InitialDesign",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F034",
+      "path": [
+        "InitialDesign",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F035",
+      "path": [
+        "InitialDesign",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F036",
+      "path": [
+        "InitialDesign",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F037",
+      "path": [
+        "InitialDesign",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F038",
+      "path": [
+        "InitialDesign",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F039",
+      "path": [
+        "InitialDesign",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F040",
+      "path": [
+        "InitialDesign",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F041",
+      "path": [
+        "InitialDesign",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F042",
+      "path": [
+        "InitialDesign",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F043",
+      "path": [
+        "DesignReview",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F044",
+      "path": [
+        "DesignReview",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F045",
+      "path": [
+        "DesignReview",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F046",
+      "path": [
+        "DesignReview",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F047",
+      "path": [
+        "DesignReview",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F048",
+      "path": [
+        "DesignReview",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F049",
+      "path": [
+        "DesignReview",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F050",
+      "path": [
+        "DesignReview",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F051",
+      "path": [
+        "DesignReview",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F052",
+      "path": [
+        "DesignReview",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F053",
+      "path": [
+        "DesignReview",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F054",
+      "path": [
+        "DesignReview",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F055",
+      "path": [
+        "DesignReview",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F056",
+      "path": [
+        "DesignReview",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F057",
+      "path": [
+        "DesignReview",
+        "Issues"
+      ]
+    }
+  ]
+}

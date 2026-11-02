@@ -1,0 +1,366 @@
+{
+  "task_id": "mini-007",
+  "records": [
+    {
+      "id": "F001",
+      "path": [
+        "sig-windows",
+        "2258-node-log-query"
+      ],
+      "content_sha256": "a9ffbf7cdaf4ea439573ee87dff0a3a8b2444344546ee3a4e5be9b58e3f5b3e0",
+      "source_native_id": "keps/sig-windows/2258-node-log-query#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F002",
+      "path": [
+        "sig-auth",
+        "4317-pod-certificates"
+      ],
+      "content_sha256": "53718030cf78477316ea9d1bde7dbc8b88d40d785951c03c90e0236b3429d901",
+      "source_native_id": "keps/sig-auth/4317-pod-certificates#excerpt-3",
+      "source_heading": "risks and mitigations"
+    },
+    {
+      "id": "F003",
+      "path": [
+        "sig-instrumentation",
+        "5808-native-histogram-support"
+      ],
+      "content_sha256": "38705306b5ee3cca08c846758f15854558f48fad685348a43b994bda11548f4e",
+      "source_native_id": "keps/sig-instrumentation/5808-native-histogram-support#excerpt-3",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F004",
+      "path": [
+        "sig-auth",
+        "4317-pod-certificates"
+      ],
+      "content_sha256": "2d833719c02537df88a4edfe07925875d7d2e365961aa1a13d2fd9c6879f7a6e",
+      "source_native_id": "keps/sig-auth/4317-pod-certificates#excerpt-1",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F005",
+      "path": [
+        "sig-auth",
+        "4633-anonymous-auth-configurable-endpoints"
+      ],
+      "content_sha256": "4044a73e0964a4e04644e6da2ef3ef1a6d120d40d30e9d98884ac7fd13648577",
+      "source_native_id": "keps/sig-auth/4633-anonymous-auth-configurable-endpoints#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F006",
+      "path": [
+        "sig-auth",
+        "4633-anonymous-auth-configurable-endpoints"
+      ],
+      "content_sha256": "51103ab66bc245f26243e63c12c6051c84353a4731f53279e7732108aa387ab9",
+      "source_native_id": "keps/sig-auth/4633-anonymous-auth-configurable-endpoints#excerpt-3",
+      "source_heading": "design details"
+    },
+    {
+      "id": "F007",
+      "path": [
+        "sig-node",
+        "5554-in-place-update-pod-resources-alongside-static-cpu-manager-policy"
+      ],
+      "content_sha256": "bd3c2366e931b4d2fb2e7f9dfb972417dd07529c3c3c6628f7ad1f59451b9349",
+      "source_native_id": "keps/sig-node/5554-in-place-update-pod-resources-alongside-static-cpu-manager-policy#excerpt-1",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F008",
+      "path": [
+        "sig-node",
+        "5554-in-place-update-pod-resources-alongside-static-cpu-manager-policy"
+      ],
+      "content_sha256": "2899e50cd2768c25fdb4f51ae94d91f1aa40c42bf5f87fe20bd6f0641f1a04ee",
+      "source_native_id": "keps/sig-node/5554-in-place-update-pod-resources-alongside-static-cpu-manager-policy#excerpt-3",
+      "source_heading": "risks and mitigations"
+    },
+    {
+      "id": "F009",
+      "path": [
+        "sig-instrumentation",
+        "5207-metrics-k8s-io-api-definition"
+      ],
+      "content_sha256": "5bad8236bf94677813c998d1c987df3461920984eed3434eaafeae31dd070ae7",
+      "source_native_id": "keps/sig-instrumentation/5207-metrics-k8s-io-api-definition#excerpt-3",
+      "source_heading": "design details"
+    },
+    {
+      "id": "F010",
+      "path": [
+        "sig-windows",
+        "1043-windows-security-context"
+      ],
+      "content_sha256": "821343aafc8af703b61411064ee67b61940f94f945b41cd311c0c31e46e1eab6",
+      "source_native_id": "keps/sig-windows/1043-windows-security-context#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F011",
+      "path": [
+        "sig-node",
+        "2371-cri-pod-container-stats"
+      ],
+      "content_sha256": "2335553b89405fdbe5d0b8af9c19573fe8f69b7d640f8d0a3cf5a04fe06b5f48",
+      "source_native_id": "keps/sig-node/2371-cri-pod-container-stats#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F012",
+      "path": [
+        "sig-node",
+        "127-user-namespaces"
+      ],
+      "content_sha256": "f6d810008bf60e72a49bfb2067bbf18b52efd45442124df9b9c2a337a66c5d9a",
+      "source_native_id": "keps/sig-node/127-user-namespaces#excerpt-2",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F013",
+      "path": [
+        "sig-auth",
+        "5018-dra-adminaccess"
+      ],
+      "content_sha256": "a40408131af85720eb927f2cb9b69ef61272dce11caf8051f30830147e1329d7",
+      "source_native_id": "keps/sig-auth/5018-dra-adminaccess#excerpt-3",
+      "source_heading": "risks and mitigations"
+    },
+    {
+      "id": "F014",
+      "path": [
+        "sig-windows",
+        "1122-windows-csi-support"
+      ],
+      "content_sha256": "5a79f0a8072e0f241ab9609d0de0a39381862a0ec20d6752fb7a88831dd9d5f4",
+      "source_native_id": "keps/sig-windows/1122-windows-csi-support#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F015",
+      "path": [
+        "sig-auth",
+        "5018-dra-adminaccess"
+      ],
+      "content_sha256": "39ae737a172287747ee3230a47b57ee0feb8fb9b11f78ec18555f481d63d2f9b",
+      "source_native_id": "keps/sig-auth/5018-dra-adminaccess#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F016",
+      "path": [
+        "sig-instrumentation",
+        "5808-native-histogram-support"
+      ],
+      "content_sha256": "37edc68c0b798a9001dd68c88d7e30b8ff4a8268483c53f3589fe8aced0cfbba",
+      "source_native_id": "keps/sig-instrumentation/5808-native-histogram-support#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F017",
+      "path": [
+        "sig-node",
+        "5554-in-place-update-pod-resources-alongside-static-cpu-manager-policy"
+      ],
+      "content_sha256": "c177a760f2cea18057c8654da731d88a6a2cdd11a51cebf4157f9353aedb5d55",
+      "source_native_id": "keps/sig-node/5554-in-place-update-pod-resources-alongside-static-cpu-manager-policy#excerpt-2",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F018",
+      "path": [
+        "sig-windows",
+        "2258-node-log-query"
+      ],
+      "content_sha256": "3d87c8ddbe3f2c0ccec554f1d64ff24994b59a5635ce2aa75e402a5749a07527",
+      "source_native_id": "keps/sig-windows/2258-node-log-query#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F019",
+      "path": [
+        "sig-auth",
+        "5018-dra-adminaccess"
+      ],
+      "content_sha256": "f7aabd2d8cec190fe85cd52bfdd1c40cda2e2bb7dd2219ea412108c7580d5609",
+      "source_native_id": "keps/sig-auth/5018-dra-adminaccess#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F020",
+      "path": [
+        "sig-auth",
+        "4633-anonymous-auth-configurable-endpoints"
+      ],
+      "content_sha256": "2c976f152b5f7145662f8d0a100bbc0d9fc7126e6f945e944091a532b2892cb8",
+      "source_native_id": "keps/sig-auth/4633-anonymous-auth-configurable-endpoints#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F021",
+      "path": [
+        "sig-node",
+        "127-user-namespaces"
+      ],
+      "content_sha256": "2440e59177f1cd706c0aec016244b5ee6059973487f3eb25eae690c03c0ab211",
+      "source_native_id": "keps/sig-node/127-user-namespaces#excerpt-3",
+      "source_heading": "non-goals"
+    },
+    {
+      "id": "F022",
+      "path": [
+        "sig-windows",
+        "1043-windows-security-context"
+      ],
+      "content_sha256": "029ddf4b318d252b725e2ebf862dee0e0efa4658bfd6c80958dfce807a42fef5",
+      "source_native_id": "keps/sig-windows/1043-windows-security-context#excerpt-3",
+      "source_heading": "non-goals"
+    },
+    {
+      "id": "F023",
+      "path": [
+        "sig-windows",
+        "1043-windows-security-context"
+      ],
+      "content_sha256": "d665b373c0ccc7140993b6c767c549e0047b70cd956bc05e316bfba347353230",
+      "source_native_id": "keps/sig-windows/1043-windows-security-context#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F024",
+      "path": [
+        "sig-windows",
+        "1122-windows-csi-support"
+      ],
+      "content_sha256": "569926051e6d97e1487823f8aaa40fb6d4012db00645a02c6893cbb51113969d",
+      "source_native_id": "keps/sig-windows/1122-windows-csi-support#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F025",
+      "path": [
+        "sig-windows",
+        "1122-windows-csi-support"
+      ],
+      "content_sha256": "26e83b19e077b471b452feef49360ce84e92b219c20d37bfdbadd01e60f350b5",
+      "source_native_id": "keps/sig-windows/1122-windows-csi-support#excerpt-3",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F026",
+      "path": [
+        "sig-node",
+        "2371-cri-pod-container-stats"
+      ],
+      "content_sha256": "7858800f1e9a477d369ed9082873d2ddbce9456a0c1656182e0cc219ae16e309",
+      "source_native_id": "keps/sig-node/2371-cri-pod-container-stats#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F027",
+      "path": [
+        "sig-instrumentation",
+        "5808-native-histogram-support"
+      ],
+      "content_sha256": "700a8082d3b8921550564e6258c5a565a47c2a0ab804706b65ec22ec5634a740",
+      "source_native_id": "keps/sig-instrumentation/5808-native-histogram-support#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F028",
+      "path": [
+        "sig-windows",
+        "2258-node-log-query"
+      ],
+      "content_sha256": "7379871740882a3b43fb2398aee0531a4446db6da2f5951e4a16ee2ed653e0f6",
+      "source_native_id": "keps/sig-windows/2258-node-log-query#excerpt-3",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F029",
+      "path": [
+        "sig-instrumentation",
+        "5207-metrics-k8s-io-api-definition"
+      ],
+      "content_sha256": "103f2b6a5fcaf36f3ec15cb5080239ed18947b3ea78cd090ca362174e9f68fb5",
+      "source_native_id": "keps/sig-instrumentation/5207-metrics-k8s-io-api-definition#excerpt-2",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F030",
+      "path": [
+        "sig-instrumentation",
+        "1748-pod-resource-metrics"
+      ],
+      "content_sha256": "5da8607fa862abfde469c9b649e6745d1391af6b733ae98170ce4c522ac2a7b5",
+      "source_native_id": "keps/sig-instrumentation/1748-pod-resource-metrics#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F031",
+      "path": [
+        "sig-auth",
+        "4317-pod-certificates"
+      ],
+      "content_sha256": "f88ff7b1d45499cc42469511ff26e3cc5acc109f937483068f04629b0cb5ed95",
+      "source_native_id": "keps/sig-auth/4317-pod-certificates#excerpt-2",
+      "source_heading": "non-goals"
+    },
+    {
+      "id": "F032",
+      "path": [
+        "sig-instrumentation",
+        "1748-pod-resource-metrics"
+      ],
+      "content_sha256": "d5eb6c32be0b3e034d5dfbad291d17ac2a31bcfde6e9e00583650f7905078875",
+      "source_native_id": "keps/sig-instrumentation/1748-pod-resource-metrics#excerpt-2",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F033",
+      "path": [
+        "sig-instrumentation",
+        "5207-metrics-k8s-io-api-definition"
+      ],
+      "content_sha256": "22944853aafd5d86a125a02553fa94df96b22f5a492fd8cc5a1fb8176bb3c2b8",
+      "source_native_id": "keps/sig-instrumentation/5207-metrics-k8s-io-api-definition#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F034",
+      "path": [
+        "sig-node",
+        "2371-cri-pod-container-stats"
+      ],
+      "content_sha256": "071ec4472698eeed99fd9030a1bdba5691c696f22f21f62541b2596d9de7a4d3",
+      "source_native_id": "keps/sig-node/2371-cri-pod-container-stats#excerpt-3",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F035",
+      "path": [
+        "sig-node",
+        "127-user-namespaces"
+      ],
+      "content_sha256": "b49b04e90eed392a931e12a43d6adf0fc56f3596b5c960e4b7b512419bfe55ba",
+      "source_native_id": "keps/sig-node/127-user-namespaces#excerpt-1",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F036",
+      "path": [
+        "sig-instrumentation",
+        "1748-pod-resource-metrics"
+      ],
+      "content_sha256": "64a92b676c16ab5ffc36222fa54bb4155608021210cc013c137ba88330508df4",
+      "source_native_id": "keps/sig-instrumentation/1748-pod-resource-metrics#excerpt-3",
+      "source_heading": "alternatives"
+    }
+  ],
+  "reference_scope": "Source-derived group/proposal hierarchy for a development-only difficulty and cost pilot."
+}

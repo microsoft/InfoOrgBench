@@ -1,0 +1,333 @@
+{
+  "assignments": [
+    {
+      "id": "F001",
+      "path": [
+        "Prototype",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F002",
+      "path": [
+        "Design Review",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F003",
+      "path": [
+        "Prototype",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F004",
+      "path": [
+        "Design Review",
+        "Evaluation"
+      ]
+    },
+    {
+      "id": "F005",
+      "path": [
+        "Design Review",
+        "Costing"
+      ]
+    },
+    {
+      "id": "F006",
+      "path": [
+        "Design Review",
+        "Evaluation"
+      ]
+    },
+    {
+      "id": "F007",
+      "path": [
+        "Design Review",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F008",
+      "path": [
+        "Design Review",
+        "Costing"
+      ]
+    },
+    {
+      "id": "F009",
+      "path": [
+        "Design Review",
+        "Costing"
+      ]
+    },
+    {
+      "id": "F010",
+      "path": [
+        "Design Review",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F011",
+      "path": [
+        "Design Review",
+        "Costing"
+      ]
+    },
+    {
+      "id": "F012",
+      "path": [
+        "Design Review",
+        "Evaluation"
+      ]
+    },
+    {
+      "id": "F013",
+      "path": [
+        "Design Review",
+        "Evaluation"
+      ]
+    },
+    {
+      "id": "F014",
+      "path": [
+        "Design Review",
+        "Evaluation"
+      ]
+    },
+    {
+      "id": "F015",
+      "path": [
+        "Design Review",
+        "Costing"
+      ]
+    },
+    {
+      "id": "F016",
+      "path": [
+        "Design Review",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F017",
+      "path": [
+        "Design Review",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F018",
+      "path": [
+        "Design Review",
+        "Reflection"
+      ]
+    },
+    {
+      "id": "F019",
+      "path": [
+        "Design Review",
+        "Evaluation"
+      ]
+    },
+    {
+      "id": "F020",
+      "path": [
+        "Design Review",
+        "Reflection"
+      ]
+    },
+    {
+      "id": "F021",
+      "path": [
+        "Design Review",
+        "Evaluation"
+      ]
+    },
+    {
+      "id": "F022",
+      "path": [
+        "Design Review",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F023",
+      "path": [
+        "Prototype",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F024",
+      "path": [
+        "Design Review",
+        "Costing"
+      ]
+    },
+    {
+      "id": "F025",
+      "path": [
+        "Design Review",
+        "Evaluation"
+      ]
+    },
+    {
+      "id": "F026",
+      "path": [
+        "Prototype",
+        "Design"
+      ]
+    },
+    {
+      "id": "F027",
+      "path": [
+        "Prototype",
+        "Design"
+      ]
+    },
+    {
+      "id": "F028",
+      "path": [
+        "Prototype",
+        "Design"
+      ]
+    },
+    {
+      "id": "F029",
+      "path": [
+        "Design Review",
+        "Evaluation"
+      ]
+    },
+    {
+      "id": "F030",
+      "path": [
+        "Prototype",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F031",
+      "path": [
+        "Design Review",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F032",
+      "path": [
+        "Prototype",
+        "Design"
+      ]
+    },
+    {
+      "id": "F033",
+      "path": [
+        "Prototype",
+        "Design"
+      ]
+    },
+    {
+      "id": "F034",
+      "path": [
+        "Prototype",
+        "Design"
+      ]
+    },
+    {
+      "id": "F035",
+      "path": [
+        "Prototype",
+        "Design"
+      ]
+    },
+    {
+      "id": "F036",
+      "path": [
+        "Prototype",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F037",
+      "path": [
+        "Prototype",
+        "Design"
+      ]
+    },
+    {
+      "id": "F038",
+      "path": [
+        "Prototype",
+        "Design"
+      ]
+    },
+    {
+      "id": "F039",
+      "path": [
+        "Prototype",
+        "Design"
+      ]
+    },
+    {
+      "id": "F040",
+      "path": [
+        "Prototype",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F041",
+      "path": [
+        "Prototype",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F042",
+      "path": [
+        "Prototype",
+        "Design"
+      ]
+    },
+    {
+      "id": "F043",
+      "path": [
+        "Design Review",
+        "Reflection"
+      ]
+    },
+    {
+      "id": "F044",
+      "path": [
+        "Design Review",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F045",
+      "path": [
+        "Design Review",
+        "Costing"
+      ]
+    },
+    {
+      "id": "F046",
+      "path": [
+        "Design Review",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F047",
+      "path": [
+        "Design Review",
+        "Costing"
+      ]
+    }
+  ]
+}

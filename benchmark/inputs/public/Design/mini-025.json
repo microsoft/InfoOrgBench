@@ -1,0 +1,185 @@
+{
+  "task_id": "mini-025",
+  "records": [
+    {
+      "id": "F001",
+      "format": "text",
+      "text": "The Horizontal Pod Autoscaler supports scaling of targets based on the resource usage of the pods in the target. The resource usage of pods is calculated as the sum of the individual container usage values of the pod. This is unsuitable for workloads where the usage of the containers are not strongly correlated or do not change in lockstep. This KEP suggests that when scaling based on resource usage the HPA also provide an option to consider the usages of individual containers to make scaling decisions."
+    },
+    {
+      "id": "F002",
+      "format": "text",
+      "text": "The CSI spec gains four RPCs, the Kubernetes API gains three optional status fields, and the kubelet and apiserver gain one feature gate. That is the entire user-visible surface. The controller plugin learns to answer either \"give me all volumes that currently have adverse conditions\" (paginated, via `ControllerListVolumeHealth`) or \"what's the condition of *this* volume\" (via `ControllerGetVolumeHealth`)."
+    },
+    {
+      "id": "F003",
+      "format": "text",
+      "text": "Node lifecycle state is a cross-cutting concern. Kubelet, node lifecycle controller, workload controllers, the scheduler, autoscalers, operators, admins, and external maintenance systems can all observe pieces of the Node's lifecycle, but there is no well-known place where an admin can publish \"this Node is in x lifecycle state\", which would explain certain Pod behaviors.\n\nThe absence of a shared lifecycle signal leads to duplicated and fragile interpretation. One controller may infer lifecycle state from Node readiness. Others may look at taints. Some controllers watch Pods, map them back to Nodes, inspect Node conditions, and apply its own ignore policy. There are operators that publish annotations or labels that only its own components understand. These approaches work locally, but they do not create reusable lifecycle data that can be used cooperatively with core Kubernetes controllers and they do not provide a stable endpoint for admins or users.\n\nKubernetes already uses well-known Node conditions for shared Node state such as `Ready`, `MemoryPressure`, `DiskPressure`, `PIDPressure`, and `NetworkUnavailable`. This KEP extends that model by proposing new Node conditions for Node Lifecycle. First, publish well-known Node lifecycle signals, then make core controllers use those signals for better status reporting."
+    },
+    {
+      "id": "F004",
+      "format": "text",
+      "text": "The `HorizontalPodAutoscaler` API is updated to add a new `tolerance` field to the `HPAScalingRules` object:\n\nThis new tolerance will be used in the autoscaling controller [replica_calculator.go][]. The current logic is:\n\nIt will be replaced by:\n\nSince the added field is optional and its omission does not change the existing autoscaling behavior, this feature will only be added to the latest stable API version `pkg/apis/autoscaling/v2`. Older versions (i.e. `v1`, `v2beta1`, `v2beta2`) will not include the new field, but converters will be updated where needed to comply with [round-trip requirements][].\n\nThe feature presented in this KEP only allows users to tune an existing parameter, and as such doesn't require any new HPA Events or modify any Status. The validation logic will be updated to ensure that the `tolerance` field cannot be set to a negative value.\n\n[replica_calculator.go]: [round-trip requirements]:"
+    },
+    {
+      "id": "F005",
+      "format": "text",
+      "text": "This KEP defines reporting, not reaction. Kubernetes will not start gating scheduling, admission, or volume reconciliation on health values. Future KEPs may layer behavior on top (a CSIDriver opt-in to prevent pod scheduling on `Inaccessible` volumes is a natural next step), but they are out of scope here.\n\nThe error vocabulary is also deliberately small. It does not cover storage-backend specifics like multipath loss, capacity exhaustion, or disk-level performance degradation. Those signals belong in the `reason` field, where drivers can name them precisely without forcing every CO to learn a new enum value.\n\nIn-tree volume plugins are out of scope; this design applies only to CSI drivers."
+    },
+    {
+      "id": "F006",
+      "format": "text",
+      "text": "Provide a CSI-spec-level mechanism for drivers to report per-volume health from the controller, per-volume health from the node (including for volumes that have not been successfully published), and overall storage-backend health from a node. Surface those reports on stable Kubernetes API status fields: controller-side volume health on `PersistentVolumeClaim.Status.HealthStatus`, node-side per-volume health on `Pod.Status.VolumeHealth`, and node-side backend health on `CSINode.Status.StorageHealth`. Define a small, machine-parseable error vocabulary (`Inaccessible`, `DataLoss`, `Degraded`, `StorageUnreachable`, `StorageDegraded`) that admits driver-specific elaboration via `reason` and `message`. The vocabulary is intentionally extensible: future CSI spec revisions MAY add values, drivers that adopt a newer spec MAY report them alongside existing ones, and COs MUST tolerate values they do not recognize. A CO that does not recognize a value SHOULD surface it for observability and MUST NOT misclassify it as healthy. Make health reporting opt-in per driver (via CSI capabilities) and per cluster (via the `CSIVolumeHealth` feature gate). A driver that implements no health capability is not probed and incurs no cost. Keep ownership consistent with the existing Node Authorizer model: nodes never write PVC status."
+    },
+    {
+      "id": "F007",
+      "format": "text",
+      "text": "Add a well-known `GracefulNodeShutdownInProgress` Node condition type. Add well-known lifecycle Node condition types for drain and maintenance: `DrainInProgress`, `Drained`, `MaintenancePlanned`, and `MaintenanceInProgress`. Define condition semantics that let Kubernetes and admins communicate lifecycle state relevant to workload availability. Establish a Kubernetes-owned lifecycle signal that future core controllers and ecosystem tools can consume. Provide an asynchronous building block that can be extended without changing the initial condition."
+    },
+    {
+      "id": "F008",
+      "format": "text",
+      "text": "OpenAPI is an open specification for defining types and operations on those types. The Kubernetes API server has supported it fully since version 1.15, meaning one can query an API server to get a detailed list of the types it understands, including any Custom Resources that it knows about. Clients can use this information to correctly instantiate those types and make calls on the server. Kustomize uses a hard-coded snapshot of the kubernetes API taken at version 1.19 to help it understand field types and most importantly, merge keys to use when patching type instances."
+    },
+    {
+      "id": "F009",
+      "format": "text",
+      "text": "This proposal aims to: make containers implementing the sidecar pattern first class citizens inside a Pod solve a Job completion issue when sidecars should run continuously allow mixing initContainers and sidecars for a choreographed startup sequence allow easy injection of sidecar containers in any Pod (to be evaluated after alpha) allow to implement sidecar containers that will guaranteed to be running longer than regular containers"
+    },
+    {
+      "id": "F010",
+      "format": "text",
+      "text": "Allow pods to mount any local block or filesystem based volume. Allow pods to mount dedicated local disks, or channeled partitions as volumes for IOPS isolation. Allow pods do access local volumes without root privileges. Allow pods to access local volumes without needing to understand the storage layout on every node. Persist local volumes and provide data gravity for pods. Any pod using the local volume will be scheduled to the same node that the local volume is on. Allow pods to specify local storage as part of a Deployment or StatefulSet. Allow administrators to set up and configure local volumes with simple methods. Do not require administrators to manage the local volumes once provisioned for a node."
+    },
+    {
+      "id": "F011",
+      "format": "text",
+      "text": "Define exclusive condition ownership, locking, or handoff. Define a contractual relationship between controllers reading and writing the condition. Define kubelet recovery behavior for lost Graceful Node Shutdown state. Define all the well-known conditions for a Node's lifecycle. Define a synchronous lifecycle state model. Define lifecycle policy or decide what every lifecycle condition means. Design in this KEP how every workload controller consumes these conditions."
+    },
+    {
+      "id": "F012",
+      "format": "text",
+      "text": "This proposal doesn't aim to: support arbitrary dependencies graphs between containers act as a security control to enforce that pod containers only run while the sidecar is healthy. Restart of sidecar containers is a best effort allow to enforce security boundaries to sidecar containers different that other containers. For example, allow Istio to run privileged to configure ip tables and disable other containers from doing so (alpha) support containers termination ordering"
+    },
+    {
+      "id": "F013",
+      "format": "text",
+      "text": "The primary risks involve potential disruptions for users who have not yet migrated to cgroup v2: **Existing clusters running cgroup v1**: Users running Kubernetes on hosts with cgroup v1 will need to either: Migrate their hosts to cgroup v2 (recommended) Explicitly set `FailCgroupV1=false` to continue using cgroup v1 (not recommended) **Workload compatibility**: Users depending on technologies that require specific versions for cgroup v2 support: OpenJDK / HotSpot: jdk8u372, 11.0.16, 15 and later NodeJs 20.3.0 or later IBM Semeru Runtimes: jdk8u345-b01, 11.0.16.0, 17.0.4.0, 18.0.2.0 and later IBM SDK Java Technology Edition Version (IBM Java): 8.0.7.15 and later Third-party monitoring and security agents need to support cgroup v2 **oom.group**: In cgroup v2, the kernel community introduced a feature to allow the Out-of-Memory (OOM) killer to terminate an entire group of processes as an indivisible unit. Users who need the cgroup v1 behavior can toggle `singleProcessOOMKill` to true on the kubelet config. This will allow the kernel to kill the process that triggers OOMs without killing the rest of the processes.\n\n**Mitigations**: Provide comprehensive migration documentation and guidance Change the KubeletConfig field FailCgroupV1 to false. Clear warning messages when cgroup v1 is detected Community support through migration period Advance notice through multiple release cycles"
+    },
+    {
+      "id": "F014",
+      "format": "text",
+      "text": "Kubernetes drops support for gitRepo volume types by removing the in-tree driver that actually mounts the volume in the pod. In this case we will still keep the gitRepo volume in the API. Pods with gitRepo volumes will be admitted by kube-apiserver however, kubelet will fail to run them with an appropriate error message.\n\nThis removal is similar to removal of support for glusterfs which was deprecated in v1.25 and removed in v1.26."
+    },
+    {
+      "id": "F015",
+      "format": "text",
+      "text": "Currently the HPA accepts multiple metric sources to calculate the number of replicas in the target, one of which is called `Resource`. The `Resource` type represents the resource usage of the pods in the scaling target. The resource metric source has the following structure:\n\nHere the `Name` is the name of the resource. Currently only `cpu` and `memory` are supported for this field. The other field is used to specify the target at which the HPA should maintain the resource usage by adding or removing pods."
+    },
+    {
+      "id": "F016",
+      "format": "text",
+      "text": "We propose removing support for the in-tree gitRepo volume driver. We aren't proposing removing gitVOlumes from the Kubernetes API, meaning pods with gitRepo volumes will be admitted by kube-apiserver but kubelets with the feature-gate GitRepoVolumeDriver set to false will not run them and return an appropriate error to the user.\n\nWe acknowledge that this is highly unusual, but there are mitigating circumstances: gitRepo volume types can be exploited to gain remote code execution as root on the nodes as shown in CVE-2024-10220 gitRepo has perfectly workable alternatives: Using git-sync Using an initContainer. See for more details gitRepo has been deprecated for a long time and is unmaintained gitRepo has low usage (based on limited data) there exists precedent for removing volume drivers which were unmaintained like glusterfs\n\nGiven this, we think kubernetes should EOL this feature with urgency."
+    },
+    {
+      "id": "F017",
+      "format": "text",
+      "text": "We propose to add a new field to the existing [`HPAScalingRules`][] object: `tolerance`: (float) the minimum change (from 1.0) in the desired-to-actual metrics ratio for the horizontal pod autoscaler to consider scaling. Must be greater than or equal to 0.\n\nThe `tolerance` field is optional, and when not specified the HPA will continue to use the value of the global `--horizontal-pod-autoscaler-tolerance` as the tolerance for scaling calculations.\n\nSince there are separate `HPAScalingRules` objects defined for an HPA's `spec.behavior.scaleUp` and `spec.behavior.scaleDown`, it is possible to specify different `tolerance` values for scaling up vs. scaling down.\n\n[HPAScalingRules]:"
+    },
+    {
+      "id": "F018",
+      "format": "text",
+      "text": "An HPA is used to ensure that a scaling target is scaled up or down in such a way that the specificed current metric values are always maintained at a certain level. Resource based autoscaling is the most basic approach to autoscaling and has been present in the HPA spec since `v1`. In this mode the HPA controller fetches the current resource metrics for all the pods of a scaling target and then computes how many pods should be added or removed based on the current usage to achieve the target average usage."
+    },
+    {
+      "id": "F019",
+      "format": "text",
+      "text": "The Horizontal Pod Autoscaler's reliance on external metrics creates a dependency on systems outside the Kubernetes cluster's control. These external systems (cloud provider APIs, third-party monitoring systems, message brokers, etc.) may experience: Network connectivity issues Rate limiting Service outages Authentication/authorization failures Degraded performance\n\nWhen external metrics become unavailable, the HPA cannot make informed scaling decisions, which can lead to: Workloads stuck at insufficient scale during traffic spikes Inability to respond to critical business metrics (e.g., queue depth, error rates) Over-dependence on external system reliability\n\nUnlike in-cluster resource metrics (CPU, memory) served by metrics-server, which are part of the cluster's core infrastructure, external metrics are inherently less reliable and outside the cluster operator's direct control."
+    },
+    {
+      "id": "F020",
+      "format": "text",
+      "text": "Fallback for resource metrics (CPU, memory from metrics-server) - these are in-cluster and should be addressed at the infrastructure level if unavailable Fallback for pods/object metrics - these use in-cluster APIs Fallback for custom metrics - may be considered in future based on alpha feedback Last-known-good metric value caching Automatic fallback value calculation Changing the HPA scaling algorithm"
+    },
+    {
+      "id": "F021",
+      "format": "text",
+      "text": "Following the official kubernetes deprecation policy it is required to keep a generally available element of user-facing component to be available at minimum 12 months or 2 releases. We're proposing to proceed with the deprecation and removal of kustomize in the following stages: v1.31 (alpha) - announce the deprecation of `kubectl kustomize` subcommand, `--kustomize` flag from all the subcommands using it, and from `kubectl version` output. v1.31 - v1.33 - gather feedback from users, and publish kustomize in krew index. v1.34 - v1.35 (beta) - disable kustomize by default from kubectl. Entirely remove kustomize in v1.36 (planned as first release of 2026)."
+    },
+    {
+      "id": "F022",
+      "format": "text",
+      "text": "In Kubernetes, there are two main types of storage: remote and local.\n\nRemote storage is typically used with persistent volumes where the data can persist beyond the lifetime of the pod.\n\nLocal storage is typically used with ephemeral volumes where the data only persists during the lifetime of the pod.\n\nThere is increasing demand for using local storage as persistent volumes, especially for distributed filesystems and databases such as GlusterFS and Cassandra. The main motivations for using persistent local storage, instead of persistent remote storage include: Performance: Local SSDs achieve higher IOPS and throughput than many remote storage solutions. Cost: Operational costs may be reduced by leveraging existing local storage, especially in bare metal environments. Network storage can be expensive to setup and maintain, and it may not be necessary for certain applications."
+    },
+    {
+      "id": "F023",
+      "format": "text",
+      "text": "When kustomize applies a strategic merge patch, it makes use of the kyaml merging libraries. First, it uses the kyaml walker code, which utilizes the kustomize/kyaml/openapi library. With the openapi library, it does two things:\n\n1) Makes a call to `openapi.initSchema()`, which loads the builtin kubernetes OpenAPI schema into a global schema variable for all other functions to use 2) Retrieves the patch strategy and merge keys from the schema (`openapi.GetPatchStrategyAndKeyList()`)\n\nInstead of loading the builtin schema, `openapi.initSchema()` should read the schema from a file if specified (and default to the builtin schema if there is no file specified). The kustomize/kyaml/openapi library already has a function `openapi.SchemaFromFile(path string)` that can load in an OpenAPI schema from a file.\n\nKustomize would have to make the kustomization’s openapi/path field available to `openapi.initSchema()` so that it can load the schema from the specified file.\n\nAdditional logic would be added to handle overlays; as kustomize recursively processes kustomizations, the schema would have to be reinitialized at each step to account for potentially different schemas in each kustomization.\n\nThe `kustomize openapi fetch` command (to fetch OpenAPI data from the user’s current cluster) should be implemented mostly in cli-utils so that any other programs that want to have a similar command can share the underlying code."
+    },
+    {
+      "id": "F024",
+      "format": "text",
+      "text": "Server-Side Apply has been a major new feature of Kubernetes, and has landed as GA in Kubernetes v1.22. Unfortunately, while the feature is accessible through `kubectl apply –server-side=true`, new objects, existing objects, and even previously server-side applied objects are still client-side applied by default unless the proper flag value is specified. The main reason is that Server-Side Apply is not entirely backwards compatible with client-side, and breaking users of `kubectl apply` now would come with a cost.\n\nWe’re proposing a way forward toward toggling the `--server-side` flag by default."
+    },
+    {
+      "id": "F025",
+      "format": "text",
+      "text": "The Horizontal Pod Autoscaler (HPA) supports scaling workloads based on external metrics—metrics that originate from systems outside the Kubernetes cluster's control. These external systems include: Cloud provider APIs (e.g., AWS CloudWatch, Azure Monitor, GCP Monitoring) Third-party monitoring systems (e.g., Datadog, New Relic, Prometheus running externally) Message brokers and queues (e.g., AWS SQS, RabbitMQ, Kafka) Application-specific metrics services\n\nUnlike in-cluster resource metrics (CPU, memory served by metrics-server) or custom/object metrics (served by in-cluster custom metrics APIs), external metrics are inherently less reliable because they depend on systems outside the cluster operator's direct control."
+    },
+    {
+      "id": "F026",
+      "format": "text",
+      "text": "The concept of sidecar containers has been around since the early days of Kubernetes. A clear example is this Kubernetes blog post from 2015 mentioning the sidecar pattern.\n\nOver the years the sidecar pattern has become more common in applications, gained popularity and the use cases are getting more diverse. The current Kubernetes primitives handle that well, but they fall short for several use cases and force weird work-arounds in the applications.\n\nThe next sections expand on what the current problems are. But, to give more context, it is important to highlight that some companies are already using a fork of Kubernetes with this sidecar functionality added (not all implementations are the same, but more than one company has a fork for this)."
+    },
+    {
+      "id": "F027",
+      "format": "text",
+      "text": "While changing from client-side to server-side is difficult because it will break some people's expectations and might break some scripts too, but the feature is required none-the-less for its benefits, for users: Users are missing out on Server-Side Apply feature because they don't know they can use it Having both server-side and client-side feature is confusing for users who've tried the feature, and changing from one to the other can cause odd behaviors Some flags in kubectl are meant for this historical CSA while some flags are meant for SSA, causing even more confusion strategic-merge-patch (SMP) is not maintained and broken, a frustrating situation for users\n\nFor maintainers: Many workflows need to be considered for both paradigms, making maintenance of kubectl more difficult kubectl has a lot of code to maintain SMP and other client-side apply mechanisms. Removing the feature can greatly reduce the complexity of kubectl Removes some ugly server-side code meant to deal with transition from client-side apply to server-side apply\n\nA lot of the benefits of using server-side apply has already been discussed in blog-posts, see"
+    },
+    {
+      "id": "F028",
+      "format": "text",
+      "text": "**Disable cgroup v1 support by default**: Set the kubelet flag `FailCgroupV1` to `true` by default, effectively making cgroup v1 unsupported unless explicitly enabled. **Clear messaging**: Update warning messages and events to reflect that cgroup v1 is now deprecated rather than in maintenance mode. **Documentation updates**: Update all relevant documentation to reflect the deprecated status of cgroup v1 and provide migration guidance. **Preparation for removal**: This change prepares the codebase for eventual removal of cgroup v1 support in future releases. **Community alignment**: Provide clear signals to the Kubernetes community about the deprecation timeline and encourage adoption of cgroup v2. **Remove cgroup v1 code**: Removing the code is the next logic step once we stop testing it. This will clean up the codebase. **Update system-validators**: system-validator should react correctly to kubelet not starting on a cgroup v1 node. See issue for more details."
+    },
+    {
+      "id": "F029",
+      "format": "text",
+      "text": "The feature, in its alpha phase, consists of adding a new `auto` value to the `--server-side` flag for `kubectl apply` (and corresponding `kubectl diff`) while keeping `false` as the default value. All the other values for the flag would continue to work as expected (for reference, `false` continues to client-side apply, and `true` continues to server-side apply). The meaning of `auto` goes as follows: Resources continue to be fetched (GET) before-hand If the resource has a kubectl `last-applied` annotation, we infer that the resource is client-side applied, and we continue to client-side apply that resource If the resource is new (GET returns 404), the resource is server-side applied If the resource already exists but doesn't have the `last-applied` annotation, the resource is server-side applied."
+    },
+    {
+      "id": "F030",
+      "format": "text",
+      "text": "The biggest risk is in breaking users. Despite being deprecated for years, there may be some users who are still using it and their workloads would be broken when their clusters are upgraded.\n\nWe plan to mitigate the risk by: Allowing users to opt-in to re-enabling the driver for 3 versions to give them enough time to fix workloads Announcing the change via release notes, updates to the gitRepo documentation and publishing kubernetes release blog for this feature so that customers are aware and can take action before they upgrade We will update the gitRepo volume documentation to say it say that the driver has been disabled by default and add information about alternative approaches. We will also document how users can turn on the gitRepo volume driver however, we will add a warning educating users on why they shouldn't do that."
+    },
+    {
+      "id": "F031",
+      "format": "text",
+      "text": "Kustomize was brought into kubectl shortly after its initial release. The main motivation back then was to expand declarative support for kubernetes objects. Over the past decade of kubernetes existence multiple, various tools for customization and templating has been development. Given that, current kubectl maintainers feel that promoting one tool over the other should not be the role of the project.\n\nMoreover, decoupling both projects will allow them to move at separate pace. The current kubernetes release cycle doesn't match that of kustomize, oftentimes risking users of kubectl to work with outdated version of kustomize.\n\nLastly, some of the kustomize dependencies has already been problematic to the core kubernetes project, so removing kustomize will allow us to minimize the dependency graph and the size of kubectl binary."
+    },
+    {
+      "id": "F032",
+      "format": "text",
+      "text": "[Horizontal Pod Autoscaler][] (HPA) regularly estimates how many replicas a given Deployment (or other resource with a `/scale` subresource) should instantiate. HPAs define one (or more) metrics (e.g. CPU utilization) on which autoscaling is based. The number of replicas is derived from the ratio between the *expected* and *current* value of this metric ([Algorithm details][]).\n\nFor example, for a workload with 100 `currentReplicas` and a usage ratio (`currentMetricValue`/`desiredMetricValue`) of 1.07, the calculated `desiredReplicas` would be 107 (100 * 1.07).\n\nHowever, to avoid flapping, scaling actions are skipped if the usage ratio is approximately 1, within a globally-configurable *tolerance*, set to 10% by default. In the example above, no scaling action would take place, since the ratio is within this tolerance.\n\nThis proposal adds a parameter to HPAs allowing users to configure this tolerance per HPA resource. For the example above, we could configure the tolerance in the workload's HPA to 5%, which would allow the scale-up to 107 replicas to proceed.\n\n[Horizontal Pod Autoscaler]: [Algorithm details]:"
+    },
+    {
+      "id": "F033",
+      "format": "text",
+      "text": "In the `openapi` field of a kustomization file, a user may specify a path to an OpenAPI schema file to use instead of whatever version was compiled in to kustomize. Add a `kustomize openapi fetch` command that will fetch the OpenAPI schema from the user’s current cluster Create the necessary conditions to merge open API data - e.g. read one large file containing the full kubernetes native type set, and one or more relatively small files containing custom resource data (this would eliminate the need to first load CRDs into an API server then fetch everything back as one large blow)."
+    },
+    {
+      "id": "F034",
+      "format": "text",
+      "text": "In version 1.31 of kubectl we will implement warnings, such that all users of `kubectl kustomize` will be informed that the subcommand is deprecated and they will be directed to use standalone kustomize, or switch to kustomize plugin. Users of `--kustomize` flag will be informed that the flag is deprecated, and will be directed to use standalone kustomize.\n\nThe above warnings will be implemented behind a `KUBECTL_LEGACY_KUSTOMIZE` environment variable which starting from v1.31 will be on by default. Users interested in trying out kubectl without kustomize will be able to disable the aforementioned environment variable.\n\nIn version 1.34 we will disable the environment variable, disabling access to kustomize by default in kubectl. At this point in time users will still have the option to enable this mechanism back using `KUBECTL_LEGACY_KUSTOMIZE`.\n\nIn version 1.36 lock `KUBECTL_LEGACY_KUSTOMIZE` to off by default, but leaving the kustomize code base in kubectl for one more release.\n\nFinally, in version 1.37 entirely drop kustomize from kubectl."
+    },
+    {
+      "id": "F035",
+      "format": "text",
+      "text": "**Breaking change**: This represents a breaking change for clusters running on cgroup v1 hosts that upgrade without preparation. **Migration burden**: Users who have not yet migrated to cgroup v2 will be forced to either migrate or explicitly override the default behavior. **Ecosystem readiness**: Some users may still rely on environments or workloads that are not fully ready for cgroup v2. **Support burden**: Increased support requests from users who encounter issues during the transition."
+    },
+    {
+      "id": "F036",
+      "format": "text",
+      "text": "Node preparation to setup disks for an environment including, but not limited to: partitioning, RAID, and formatting. Allow pods to release their local volume bindings and lose that volume's data during failure conditions, such as node, storage or scheduling failures, where the volume is not accessible for some user-configurable time. Dynamic provisioning of local volumes. Provide data availability for a local volume beyond its local node. Support the use of HostPath volumes and Local PVs on the same volume."
+    }
+  ]
+}

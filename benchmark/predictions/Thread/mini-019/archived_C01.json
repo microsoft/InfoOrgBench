@@ -1,0 +1,361 @@
+{
+  "assignments": [
+    {
+      "id": "F001",
+      "path": [
+        "general-comments",
+        "metadata"
+      ]
+    },
+    {
+      "id": "F002",
+      "path": [
+        "S3A-credentials-tests",
+        "issue"
+      ]
+    },
+    {
+      "id": "F003",
+      "path": [
+        "HADOOP-14707-filesystem-capabilities",
+        "patch-review"
+      ]
+    },
+    {
+      "id": "F004",
+      "path": [
+        "HADOOP-16699-verbose-logging",
+        "patch-review"
+      ]
+    },
+    {
+      "id": "F005",
+      "path": [
+        "HADOOP-14707-filesystem-capabilities",
+        "patch-review"
+      ]
+    },
+    {
+      "id": "F006",
+      "path": [
+        "HADOOP-16699-verbose-logging",
+        "patch-review"
+      ]
+    },
+    {
+      "id": "F007",
+      "path": [
+        "HADOOP-14707-filesystem-capabilities",
+        "patch-review"
+      ]
+    },
+    {
+      "id": "F008",
+      "path": [
+        "HADOOP-18759-retry-policy",
+        "task"
+      ]
+    },
+    {
+      "id": "F009",
+      "path": [
+        "HADOOP-17576-distcp-objectstore",
+        "discussion"
+      ]
+    },
+    {
+      "id": "F010",
+      "path": [
+        "general-comments",
+        "metadata"
+      ]
+    },
+    {
+      "id": "F011",
+      "path": [
+        "HADOOP-16578-filesystemexists",
+        "task"
+      ]
+    },
+    {
+      "id": "F012",
+      "path": [
+        "HADOOP-16404-blocksize",
+        "patch-review"
+      ]
+    },
+    {
+      "id": "F013",
+      "path": [
+        "HADOOP-17015-idempotency-tests",
+        "patch-review"
+      ]
+    },
+    {
+      "id": "F014",
+      "path": [
+        "HADOOP-16404-blocksize",
+        "auth-fix"
+      ]
+    },
+    {
+      "id": "F015",
+      "path": [
+        "general-comments",
+        "metadata"
+      ]
+    },
+    {
+      "id": "F016",
+      "path": [
+        "HADOOP-17576-distcp-objectstore",
+        "discussion"
+      ]
+    },
+    {
+      "id": "F017",
+      "path": [
+        "HADOOP-16687-namespace-tests",
+        "test-results"
+      ]
+    },
+    {
+      "id": "F018",
+      "path": [
+        "general-comments",
+        "metadata"
+      ]
+    },
+    {
+      "id": "F019",
+      "path": [
+        "HADOOP-16699-verbose-logging",
+        "patch-review"
+      ]
+    },
+    {
+      "id": "F020",
+      "path": [
+        "HADOOP-14707-filesystem-capabilities",
+        "patch-review"
+      ]
+    },
+    {
+      "id": "F021",
+      "path": [
+        "S3A-assumed-role",
+        "task"
+      ]
+    },
+    {
+      "id": "F022",
+      "path": [
+        "HADOOP-17054-abfsclient-auth",
+        "fix"
+      ]
+    },
+    {
+      "id": "F023",
+      "path": [
+        "HADOOP-14707-filesystem-capabilities",
+        "patch-review"
+      ]
+    },
+    {
+      "id": "F024",
+      "path": [
+        "HADOOP-14707-filesystem-capabilities",
+        "patch-review"
+      ]
+    },
+    {
+      "id": "F025",
+      "path": [
+        "HADOOP-16404-blocksize",
+        "patch-review"
+      ]
+    },
+    {
+      "id": "F026",
+      "path": [
+        "HADOOP-14707-filesystem-capabilities",
+        "patch-review"
+      ]
+    },
+    {
+      "id": "F027",
+      "path": [
+        "HADOOP-16404-blocksize",
+        "patch-review"
+      ]
+    },
+    {
+      "id": "F028",
+      "path": [
+        "HADOOP-17576-distcp-objectstore",
+        "discussion"
+      ]
+    },
+    {
+      "id": "F029",
+      "path": [
+        "HADOOP-16687-namespace-tests",
+        "test-results"
+      ]
+    },
+    {
+      "id": "F030",
+      "path": [
+        "S3A-credentials-tests",
+        "issue"
+      ]
+    },
+    {
+      "id": "F031",
+      "path": [
+        "HADOOP-16699-verbose-logging",
+        "patch-review"
+      ]
+    },
+    {
+      "id": "F032",
+      "path": [
+        "HADOOP-16699-verbose-logging",
+        "patch-review"
+      ]
+    },
+    {
+      "id": "F033",
+      "path": [
+        "HADOOP-14707-filesystem-capabilities",
+        "patch-review"
+      ]
+    },
+    {
+      "id": "F034",
+      "path": [
+        "HADOOP-17576-distcp-objectstore",
+        "discussion"
+      ]
+    },
+    {
+      "id": "F035",
+      "path": [
+        "general-comments",
+        "metadata"
+      ]
+    },
+    {
+      "id": "F036",
+      "path": [
+        "HADOOP-16404-blocksize",
+        "patch-review"
+      ]
+    },
+    {
+      "id": "F037",
+      "path": [
+        "general-comments",
+        "metadata"
+      ]
+    },
+    {
+      "id": "F038",
+      "path": [
+        "general-comments",
+        "metadata"
+      ]
+    },
+    {
+      "id": "F039",
+      "path": [
+        "HADOOP-16404-blocksize",
+        "patch-review"
+      ]
+    },
+    {
+      "id": "F040",
+      "path": [
+        "HADOOP-17054-abfsclient-auth",
+        "fix"
+      ]
+    },
+    {
+      "id": "F041",
+      "path": [
+        "general-comments",
+        "metadata"
+      ]
+    },
+    {
+      "id": "F042",
+      "path": [
+        "general-comments",
+        "metadata"
+      ]
+    },
+    {
+      "id": "F043",
+      "path": [
+        "HADOOP-17054-abfsclient-auth",
+        "fix"
+      ]
+    },
+    {
+      "id": "F044",
+      "path": [
+        "general-comments",
+        "metadata"
+      ]
+    },
+    {
+      "id": "F045",
+      "path": [
+        "S3A-yarn-logging",
+        "task"
+      ]
+    },
+    {
+      "id": "F046",
+      "path": [
+        "HADOOP-14707-filesystem-capabilities",
+        "patch-review"
+      ]
+    },
+    {
+      "id": "F047",
+      "path": [
+        "HADOOP-14707-filesystem-capabilities",
+        "patch-review"
+      ]
+    },
+    {
+      "id": "F048",
+      "path": [
+        "general-comments",
+        "metadata"
+      ]
+    },
+    {
+      "id": "F049",
+      "path": [
+        "general-comments",
+        "metadata"
+      ]
+    },
+    {
+      "id": "F050",
+      "path": [
+        "HADOOP-14707-filesystem-capabilities",
+        "patch-review"
+      ]
+    },
+    {
+      "id": "F051",
+      "path": [
+        "general-comments",
+        "metadata"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,185 @@
+{
+  "task_id": "mini-019",
+  "records": [
+    {
+      "id": "F001",
+      "format": "text",
+      "text": "This KEP proposes adding topology support to volume snapshots in Kubernetes by extending the `VolumeSnapshotContentSpec` object with a `NodeAffinity` field and enforcing topology compatibility when restoring volumes from snapshots. Currently, volume snapshots lack any topology information, creating a gap that prevents topology-aware scheduling and features.\n\nThe enhancement has two parts. First, topology information will be added to volume snapshot contents by returning the topology in the CSI `CreateSnapshotResponse` and stored in the resulting `VolumeSnapshotContent`. Second, topology enforcement ensures that volumes restored from snapshots are provisioned in compatible topologies: For `WaitForFirstConsumer` volume binding: an out-of-tree scheduler plugin (in `kubernetes-sigs/scheduler-plugins`) will filter nodes whose topology is incompatible with the snapshot's `NodeAffinity`, ensuring the selected node leads to provisioning in a compatible topology. For `Immediate` volume binding: the external-provisioner will intersect the snapshot's `NodeAffinity` with the StorageClass's `AllowedTopologies` to select a compatible topology for provisioning.\n\nThis prevents provisioning failures or silent data inaccessibility regardless of volume binding mode."
+    },
+    {
+      "id": "F002",
+      "format": "text",
+      "text": "Introduce `Composition` as a new API `kind` recognized by `kustomize build`. A `Composition` must be defined in a `composition.yaml` file. Inclusion of both `composition.yaml` and `kustomization.yaml` in the target directory of a build will be considered an error.\n\nThe `Composition` API enables users to: Define a list of transformer configuration that intermingles built-in and plugin transformers. Import transformers from another `Composition` and add them to the list. Override an imported transformer's fields with new values. Reorder the list of transformers prior to execution.\n\nOnce a user has written a `Composition`, they can run `kustomize build` to turn it into a list of Kubernetes resources that they can commit to git, the same way they would with `Kustomization`.\n\nTo provide this experience, Kustomize will need to do the following during builds: Consolidate the `Composition` and its imports into a finalized list of transformers (which may be plugins). Execute each transformer in sequence (no changes to plugin execution are proposed by this KEP). Pass the output of each transformer as the input to the next."
+    },
+    {
+      "id": "F003",
+      "format": "text",
+      "text": "This design is centered around generating a new UID for each envelope operation similar to UID generation in admission review requests here:\n\nA new UID field will be added to the `EncryptRequest` and `DecryptRequest` structs in the kms-plugin interface. The field is a pointer to a string. If the feature gate is disabled, the UID field will be nil and this results in byte equivalent data on the wire when compared to a 1.23 API server.\n\nThe UID generated in the kube-apiserver will be used: For logging in the kube-apiserver. All envelope operations to the kms-plugin will be logged with the corresponding UID. The UID will be logged using a wrapper in the kube-apiserver to ensure that the UID is logged in the same format and is always logged. In addition to the UID, the kube-apiserver will also log non-sensitive metadata such as name, namespace and GroupVersionResource of the object that triggered the envelope operation. Sent to the kms-plugin as part of the `EncryptRequest` and `DecryptRequest` structs."
+    },
+    {
+      "id": "F004",
+      "format": "text",
+      "text": "The goal of this KEP is to increase patch-fix support for each Kubernetes release from the current 9 months to 1 year. The primary motivation is to address an end-user request: Business cycles (financial, certification, sales, vacation, HR and others) are overwhelmingly annual, leading to many users desiring at least annual support cycles in projects on which they depend.\n\nWhen we say we provide patch support for a release, what do we mean? We will fix security issues in our Kubernetes code We will pick up security fixes from dependencies as they are made available, in specific versioned patch releases of the dependency in use We will not maintain forks of our major dependencies We will not attempt our own back ports of critical fixes to dependencies which are out of support from their own communities\n\nDetails of the expected tasks involved in implementing this policy are outlined below, the most major of which are: Review skew policies, identify which skews are derived from the number of supported versions, and identify new target skews (e.g. oldest kubelet against newest API server) Review deprecation policies, identify which deprecation periods are derived from the number of supported versions, and identify new target deprecation periods (e.g. deprecation period for GA features/APIs) Review support policies of external dependencies and identify/resolve gaps to ensure we do not claim longer support than the things we build on top of"
+    },
+    {
+      "id": "F005",
+      "format": "text",
+      "text": "Because we didn't take volume capacity into account when scheduling a pod that can run in multiple topologies. A large PV may be used by a PVC with a small capacity request, even if there are many suitable small PVs in other topologies. PVCs with a large capacity request may not find feasible PVs to use if too many large PVs are consumed by PVCs with a small capacity request.\n\nLike CPU, Memory resources, the scheduler should take volume capacity into account in scheduling pods to ensure balanced resource usage."
+    },
+    {
+      "id": "F006",
+      "format": "text",
+      "text": "By design, the variant system of Kustomize is based on an inheritance model and suggests that a base application is parameterized by stacking overlays on top of it. While intuitive at first sight, this approach falls short of deploying multivariate applications, i.e., ones that: ship with numerous opt-in features and corresponding configuration options target dissimilar audiences with different needs and scopes (developers, admins, customers, testers etc.) run on multiple cloud platforms (on-prem, Minikube, GKE, EKS, AKS, etc.)\n\nThe problem is that modular applications cannot always be expressed in a tall hierarchy while preserving all combinations of available features."
+    },
+    {
+      "id": "F007",
+      "format": "text",
+      "text": "We considered using the AuditID from the kube-apiserver request that generated the envelope operation. This approach has the following drawbacks: AuditID can be configured by the user with the `Audit-ID` header in the API server request. Multiple requests can be sent to the kube-apiserver with the same Audit-ID. Not all API server requests will generate an envelope operation. The API server caches DEKs and for the DEK that's available in the cache, the kube-apiserver will not generate an envelope operation. Since not all calls to the KMS correspond to an audit log, using audit ID is not complete for correlating calls from kube-apiserver->kms-plugin->KMS."
+    },
+    {
+      "id": "F008",
+      "format": "text",
+      "text": "Running public image registries is very expensive and eats up a significant chunk of the project's Infrastructure budget. We built `registry.k8s.io` image registry to serve images from various origins around the world depending on the location of the user. For example, an a kops Kubernetes cluster in eu-west-1 can pull images from an AWS S3 bucket in the same region which is very fast and more importantly very cheap for the Kubernetes project.\n\nThere was a plan to redirect `k8s.gcr.io` to `registry.k8s.io` but it didn't work out so we backported the image registry defaults to 1.24, 1.23, and 1.22 so all the patch releases from December 2022 will using the new registry by default.\n\nWe are currently exceeding our budget as it will take quite a while for end users to upgrade Kubernetes to v1.25 so we want to incentivise our end users to move to the new registry as fast as possible by freezing the registry by 1.27. This would mean that all subsequent image releases will not be available on the old registry."
+    },
+    {
+      "id": "F009",
+      "format": "text",
+      "text": "Freeze the `k8s.gcr.io` image by not pushing any new digests or tags after 1.27 release. The 1.27 release itself won't be available on `k8s.gcr.io`.\n\nI'm proposing that on the 1st of April 2023 (10 days before 1.27 is released): `k8s.gcr.io` is frozen and no new images will be published by any subproject. last 1.23 release on `k8s.gcr.io` will be 1.23.18 (goes EoL before the freeze) last 1.24 release on `k8s.gcr.io` will be 1.24.12 last 1.25 release on `k8s.gcr.io` will be 1.25.8 last 1.26 release on `k8s.gcr.io` will be 1.26.3 1.27.0 will not be available `k8s.gcr.io`"
+    },
+    {
+      "id": "F010",
+      "format": "text",
+      "text": "Address end-user feedback regarding support time per release Define an annual support policy. Define any prerequisites for the policy. Set acceptance criteria for enacting the change in support policy. This should be supplemented by KEPs and PRs that address the implementation of the policy by the release team and Release Engineering (patch management). Clarify and confirm that the support period is defined based on time (e.g. 1 year) and not based on a specific number of releases (e.g. 3 or 4) given that the release cadence might change in the future."
+    },
+    {
+      "id": "F011",
+      "format": "text",
+      "text": "Today the Kubernetes project delivers minor releases (e.g.: 1.13 or 1.14) every 3 months. The project provides bugfix support via patch releases (e.g.: 1.13.Y), with each minor release (e.g.: 1.13) having this patch release stream of support for approximately 9 months. This means a cluster operator must upgrade at least every 9 months to remain supported. Nine months is an irregular period of time relative to the planning, operations, and financial cycles of most companies."
+    },
+    {
+      "id": "F012",
+      "format": "text",
+      "text": "Kustomize Standalone Sub Command\n\nPublish the `kustomize build` command as `kubectl kustomize`. Update documentation to demonstrate using kustomize as `kubectl kustomize <dir> | kubectl apply -f -`.\n\n`kubectl kustomize` takes a single argument with is the location of a directory containing a file named `kustomization.yaml` and writes to stdout the kustomized Resource Config.\n\nIf the directory does not contain a `kustomization.yaml` file, it returns an error.\n\nDefer deeper integration into ResourceBuilder (e.g. `kubectl apply -k <dir>`) as a follow up after discussing the precise UX and technical tradeoffs. (i.e. deeper integration is more delicate and can be done independently.)"
+    },
+    {
+      "id": "F013",
+      "format": "text",
+      "text": "With volume topology-aware scheduling in place, the scheduler filters nodes considering volume topology constraints. However, scheduler picks the smallest matching volumes in each topology but does not try to prioritize nodes in different topologies based on volume capacity. This leads to a waste of resources which we should avoid.\n\nThis KEP continues the work proposed here, to enable the scheduler to favor the node which has the most fit PV."
+    },
+    {
+      "id": "F014",
+      "format": "text",
+      "text": "Introduce a set of verbs with prefix of `impersonate-on:<mode>:`, e.g. `impersonate-on:user-info:create` and `impersonate-on:arbitrary-node:get`. The impersonator needs to have these verbs with certain resources to impersonate. Introduce verbs in the `impersonate:<mode>` format: `impersonate:user-info` limits the impersonator to impersonate \"generic\" users. The resources must be `users`/`uids`/`groups`/`userextras` and the user must not be a node (username with a prefix of `system:node:`) and the user must not be a service account (username with a prefix of `system:serviceaccount:`)."
+    },
+    {
+      "id": "F015",
+      "format": "text",
+      "text": "Solve common kubectl user friction (such as those defined in the Motivation section) by publishing kustomize functionality from kubectl to complement commands which are targeted at declarative workflows. Complement commands targeted at declarative workflows: `kubectl apply`, `kubectl diff` Complement the *server-side apply* initiative targeted at improving declarative workflows.\n\nUser friction solved through capabilities such as: Generating Resource Config for Resources with data frequently populated from other sources - ConfigMap and Secret Performing common cross-cutting transformations intended to be applied across Resource Configs - e.g. name prefixing / suffixing, labeling, annotating, namespacing, imageTag setting. Performing flexible targeted transformations intended to be applied to specific Resource Configs - e.g. strategic patch, json patch Composing and layering Resource Config with schema-aware transformations Facilitating rolling updates to Resources such as ConfigMaps and Secrets via Resource Config transformations Facilitating creation of Resources that require the creation to be ordered - e.g. namespaces, crds"
+    },
+    {
+      "id": "F016",
+      "format": "text",
+      "text": "**Background:** Kubectl Apply\n\nKubectl apply is intended to provide a declarative workflow for working with the Kubernetes API. Similar to kustomize, `apply` (client-side) pre-processes Resource Config and transforms it into Kubernetes patches sent to the apiserver (transformation is a function of live cluster state and Resource Config). Apply addresses user friction such as: updating Resources from Resource Config without wiping out control-plane defined fields (e.g."
+    },
+    {
+      "id": "F017",
+      "format": "text",
+      "text": "_Risk_: The OBS installation provided by SUSE is unable to serve the load generated by the Kubernetes project _Mitigation_: We can host our own mirrors and take some load from SUSE (e.g. on Equinix Metal) _Risk_: Building all the packages for all the distributions and their version takes too long to be done nightly or via cutting the release _Mitigation_: We do not deliver nightly packages or wait for packages to be published in the release pipeline."
+    },
+    {
+      "id": "F018",
+      "format": "text",
+      "text": "The only way to correlate a successful/failed envelope operation today is to use the approximate timestamp of the operation to check events in kube-apiserver, kms-plugin and KMS. There is no guarantee that the timestamp of the operation is the same as the timestamp of the corresponding event in KMS. This KEP proposes extending the signature of the kms-plugin interface to include the transaction ID (to be generated by the kube-apiserver), which kms-plugin could pass to KMS. This transaction ID will be logged with additional metadata such a secret name and namespace for the envelope operation. Similarly, the transaction ID will be logged in the kms-plugin and optionally passed to KMS."
+    },
+    {
+      "id": "F019",
+      "format": "text",
+      "text": "Make the infrastructure generic and simple enough to be easily handed off to the CNCF Choose a Packages as a Service solution (e.g. Open Build Service...) or build the infrastructure manually. In case we build the infrastructure manually, we need at least: Storage buckets (to store the staged/released packages) or anything similar DNS entries (e.g. apt.kubernetes.io, ...) Package mirror (e.g. a self hosted aptly/artifactory/... or as a service) have multiple channels, e.g. `stable`, `dev`, `nightly` Run the package builds as part of [krel stage and release] Have a safe way to store the signing key and make it available to the release team and release tooling Making key available to the Release Team/Managers is not a requirement if using 'as a service' solution Automatically sign the repository and packages Automatically build and publish packages on a nightly basis (not required)\n\n[krel stage and release]:"
+    },
+    {
+      "id": "F020",
+      "format": "text",
+      "text": "We have a scheduler plugin called VolumeBinding to filter the nodes based on volume topology constraints. After the filter phase, there is a reduced set of nodes that can fit a pod and filtered smallest statically provisioned PV(s) in each node topology.\n\nWe can add `Score` interfaces to score nodes based on pod's unbound PVCs and filtered PVs.\n\nThe score is calculated in two steps:\n\n1) First, we group pod's unbound PVCs and corresponding statically provisioned PVs by storage class. For PVCs/PVs in each storage class, we calculate requested to capacity ratio using the following formula:\n\nThe utilization ranges from 0 to 100.\n\nWe can tune this formula by applying utilization shape points, which is used in `RequestedToCapacityRatio`.\n\nBy default, we use this shape points to get linear scores between [0, 100] utilization.\n\nThe score ranges from 0 to `MaxNodeScore` (100).\n\nOptionally, users can configure customized utilization shape points, e.g.\n\nThe score of utilization below 50 will be 0, and the score of utilization of 90 will be 4 (`3 + (5 - 3) * (90 - 80) / (100 - 80)`).\n\n2) Then, we add them together and divides by the number of storage classes."
+    },
+    {
+      "id": "F021",
+      "format": "text",
+      "text": "The image promotion process is described here. Please read it for full details.\n\nThis is the planned technical changes(grouped by repos): k-sigs/promo-tools merge k/k8s.io Fix clean up the contents of the `registry.k8s.io` folder. Most of the content should be in k/registry.k8s.io repository duplicate the top level folder `k8s.gcr.io` in the repo and call it `registry.k8s.io` k/test-infra blockade the k8s.gcr.io folder in k/k8s.io repository. blockade is a prow plugin that rejects PRs that modify specific folders/files. update the ProwJobs post-k8sio-image-promo and pull-k8sio-cip `thin-manifest-dir` flags to point to the new folder"
+    },
+    {
+      "id": "F022",
+      "format": "text",
+      "text": "Currently: Only Googlers can publish packages. The packages get published on Google infrastructure. After publishing a new release but before sending out the release notification emails the process needs to be paused. Googlers need to build and publish the deb and rpm packages before the branch manager can continue and send the release announcement. We can only publish packages for stable releases right now. We use different packages in CI then we officially release.\n\nThis all prolongs the release process, it is a hard dependency on a small group of people from one company (and its infrastructure), and we only ever publish and test packages very late in the release process."
+    },
+    {
+      "id": "F023",
+      "format": "text",
+      "text": "Remove the `system:unauthenticated` subject group from the default `system:discovery` and `system:basic-user` ClusterRoleBindings Create a new default ClusterRole which prominently, explicitly documents its intent to freely disclose information (e.g. `system:public-info-viewer`) and contains the `GET /healthz`, `/version` and `/version/` PolicyRules. Create a new default ClusterRoleBinding for the new ClusterRole, which grants the `system:(un)authenticated` subject groups access."
+    },
+    {
+      "id": "F024",
+      "format": "text",
+      "text": "This enhancement emerged from discussions in the 11/27/2025 Kubernetes CSI Implementation Meeting (see notes) around implementing cross-region snapshot cloning capabilities in Kubernetes. During the discussions, it became clear that topology support in snapshots is a prerequisite for a feature of this kind. Rather than implementing snapshot cloning without the proper topology foundations, it was decided to first establish topology for snapshots, creating a solid base for future enhancements.\n\nA PR for adding topology for snapshots to the CSI Spec was previously in review (Add Topology for Snapshot #274). At the time features such as cross region snapshot cloning or specifying snapshot final placement were not considered and as such there was no valid use case(s) to justify implementing this so further development/review was halted.\n\nWhile CSI volumes have comprehensive topology support, snapshots operate without any topology context. The lack of topology information in snapshots is the problem that this KEP addresses by establishing topology awareness as an optional capability of the volume snapshot."
+    },
+    {
+      "id": "F025",
+      "format": "text",
+      "text": "Kustomize provides an intuitive way to manage Kubernetes applications in a purely declarative manner. However, it seems to struggle with applications that mix multiple, optional features on demand, affecting different aspects of a base configuration.\n\nThis enhancement proposal introduces components, a new kind of Kustomization that allows users to define reusable kustomizations. Components can be included from higher-level overlays to create variants of an application, with a subset of its features enabled.\n\nThe community has shown strong interest in this feature and has been actively discussing it in"
+    },
+    {
+      "id": "F026",
+      "format": "text",
+      "text": "Add topology information to `VolumeSnapshotContent` objects via a mutable `NodeAffinity` field. Extend CSI spec to support optional topology fields in `CreateSnapshotRequest` and `CreateSnapshotResponse`. Provide an out-of-tree scheduler plugin (in `kubernetes-sigs/scheduler-plugins`) that enforces topology compatibility when scheduling pods with PVCs that reference a snapshot as their data source with `WaitForFirstConsumer` volume binding, ensuring the scheduler only selects nodes whose topology is compatible with the snapshot's `NodeAffinity`. Ensure the external-provisioner intersects the snapshot's `NodeAffinity` with `StorageClass.AllowedTopologies` when provisioning volumes from snapshot data sources with `Immediate` volume binding mode."
+    },
+    {
+      "id": "F027",
+      "format": "text",
+      "text": "Today an impersonator can impersonate another user if the impersonator has the permission of\n\nHowever, current impersonation mechanism is the \"unrestricted impersonation\" (or \"legacy impersonation\"), the impersonator can get more power through impersonation. And because of this, it is strongly suggested not to allow the controller to impersonate. More detailed discussion is in this issue\n\nThere are use cases that needs a controller to be able to impersonate: A controller impersonates a node the controller is running on. This happens when per-node agents (CNI plugins for instance), want to read pods on a given node instead of unrestricted pod access. A controller runs as a deputy, receives request from the user, and impersonates the user to start/stop virtual machine or access vm console managed by kubevirt.\n\nThis proposal is to introduce additional permissions for impersonation, so that any impersonator can impersonate in a more restricted way."
+    },
+    {
+      "id": "F028",
+      "format": "text",
+      "text": "This KEP does NOT propose the addition of other types of DataSource including Populators This KEP does NOT propose support for special cases like \"out of band\" cloning (support for back ends that don't have Cloning features), that sort of implementation would fall under Populators. This KEP does NOT propose any ability to shrink a PVC during a Clone request (e.g. it's considered an invalid request to clone PVC-a with a size of 10Gib to a PVC with a requested size of less than 10Gib, expansion is \"ok\" if the driver supports it but it's not required) This KEP does NOT propose adding any ability to transfer a Clone to a different Namespace, the new PVC (Clone) will be in the same Namespace as the origin that was specified. This also means that since this is namespaced, a user can not request a Clone of a PVC that is another Namespace. A user can only request a Clone of PVCs in his or her Namespace. Cloning will only be available in CSI, cloning features will NOT be added to existing in-tree plugins or Flex drivers Cloning will only be available within the same storage class (see Implementation Details section for more info)"
+    },
+    {
+      "id": "F029",
+      "format": "text",
+      "text": "This KEP proposes adding support for specifying existing PVCs in the DataSource field to indicate a user would like to Clone a Volume. Note that this KEP also applies ONLY to dynamic provisioner, and ONLY CSI Provisioner's.\n\nFor the purpose of this KEP, a Clone is defined as a duplicate of an existing Kubernetes Volume that can be consumed as any standard Volume would be. The only difference is that upon provisioning, rather than creating a \"new\" empty Volume, the back end device creates an exact duplicate of the specified Volume.\n\nClones are different than Snapshots. A Clone results in a new, duplicate volume being provisioned from an existing volume -- it counts against the users volume quota, it follows the same create flow and validation checks as any other volume provisioning request, it has the same life cycle and work flow. Snapshots, on the other hand, results in a point-in-time copy of a volume that is not, itself, a usable volume -- it can be used to either to provision a new volume (pre-populated with the snapshot data) or to restore the existing volume to a previous state (represented by the snapshot)."
+    },
+    {
+      "id": "F030",
+      "format": "text",
+      "text": "One of the work items resulting from the CVE-2018-1002105 post-mortem was to investigate hardening the default RBAC discovery ClusterRoleBindings (i.e. `system:discovery` and `system:basic-user`) to limit potential avenues for similar attack. Additionally, the fact that API extensions are exposed by the default discovery bindings is surprising to some and represents a potential privacy concern (e.g. `GET /apis/self-flying-cars.unicorn.vc/v1/`)."
+    },
+    {
+      "id": "F031",
+      "format": "text",
+      "text": "Develop an API (`kind`) for Kustomize that is focused on plugin-based workflows.\n\nA successful implementation of this API should have the following characteristics: It must be easy to recursively compose and modify lists of plugins in a way that yields an overall configuration structure that reflects the user's intent. Plugin orchestration must be central to the new API format. Built-in and plugin transformer config should be treated the same way in the new API. The new API must cleanly integrate with the existing Kustomize tool (i.e. `kustomize build`) as well as existing Kustomize kinds."
+    },
+    {
+      "id": "F032",
+      "format": "text",
+      "text": "Create a new kustomization type called `Component`, and a new kustomization field called `components`.\n\nA kustomization that is marked as a `Component` has basically the same capabilities as a normal kustomization. The main distinction is that they are evaluated **after** the resources of the parent kustomization (overlay or component) have been accumulated, and **on top** of them. This means that: A component with transformers can transform the resources that an overlay has previously specified in the `resources` field. Components with patches do not have to include the target resource in their `resources` field. Multiple components can extend and transform the same set of resources **sequentially**. This is in contrast to overlays, which cannot alter the same base resources, because they clone and extend them **in parallel**.\n\nIn order to create a component, a user can add the following to its `kustomization.yaml`:\n\nIn order to use a component, the user can refer to it in their `kustomization.yaml` via the `components` field:\n\nNote that a component cannot be added to the `resources:` list, and a resource/`Kustomization` cannot be added to the `components:` list."
+    },
+    {
+      "id": "F033",
+      "format": "text",
+      "text": "Add ability to specify a PVC in a users Namespace as a DataSource Add Core PVC Object to the permitted DataSource types to API Validation Provide ability to pass Clone intent to a CSI Plugin that reports it supports Clone capability Proposal is limited to allowing a user to specify a Clone request, and for that Clone request to be passed to CSI Plugins that report support for cloning via capabilities"
+    },
+    {
+      "id": "F034",
+      "format": "text",
+      "text": "To protect default clusters from unauthenticated access entirely (already achievable via `--anonymous-auth=false`), or to add support for more granular schema discovery. There are several non-sensitive and legitimate use-cases for unauthenticated calls, such as `/healthz` liveliness checks and returning useful information about the cluster to `kubectl version`, that we don't wish to break. To prevent _namespace_ admins from granting namespace-level permissions to anonymous users. To protect the CRD names and details from _authenticated_ users. To address other, more fundamental, discovery-related bugs uncovered in CVE-2018-1002105, e.g.: *"
+    },
+    {
+      "id": "F035",
+      "format": "text",
+      "text": "Define required permission rules for the impersonator to impersonate on certain resource/verb. Provide clear example on what permission the impersonator and user should have for the impersonator to impersonate user's certain verbs on certain resources. This is an opt-in feature and existing impersonation flows keep working as-is. Client side semantics of impersonation is unchanged, the existing impersonation headers are re-used and no new headers are added."
+    },
+    {
+      "id": "F036",
+      "format": "text",
+      "text": "The `Kustomization` API was designed around built-in Kustomize transformer, generator and validator operations applied to Kustomize bases. While plugin transformers can be invoked via the appropriate field, `Kustomization` is suboptimal for workflows that are primarily composed of Kustomize plugins. Challenges with the current approach include: **Sequencing of built-in and plugin transformers is static**."
+    }
+  ]
+}

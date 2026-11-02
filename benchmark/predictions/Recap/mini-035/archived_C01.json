@@ -1,0 +1,340 @@
+{
+  "assignments": [
+    {
+      "id": "F001",
+      "path": [
+        "Meeting1",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F002",
+      "path": [
+        "Meeting2",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F003",
+      "path": [
+        "Meeting2",
+        "Discussion"
+      ]
+    },
+    {
+      "id": "F004",
+      "path": [
+        "Meeting1",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F005",
+      "path": [
+        "Meeting1",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F006",
+      "path": [
+        "Meeting2",
+        "Discussion"
+      ]
+    },
+    {
+      "id": "F007",
+      "path": [
+        "Meeting2",
+        "Discussion"
+      ]
+    },
+    {
+      "id": "F008",
+      "path": [
+        "Meeting1",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F009",
+      "path": [
+        "Meeting1",
+        "Discussion"
+      ]
+    },
+    {
+      "id": "F010",
+      "path": [
+        "Meeting1",
+        "Discussion"
+      ]
+    },
+    {
+      "id": "F011",
+      "path": [
+        "Meeting1",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F012",
+      "path": [
+        "Meeting1",
+        "Discussion"
+      ]
+    },
+    {
+      "id": "F013",
+      "path": [
+        "Meeting1",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F014",
+      "path": [
+        "Meeting1",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F015",
+      "path": [
+        "Meeting1",
+        "Discussion"
+      ]
+    },
+    {
+      "id": "F016",
+      "path": [
+        "Meeting1",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F017",
+      "path": [
+        "Meeting1",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F018",
+      "path": [
+        "Meeting1",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F019",
+      "path": [
+        "Meeting1",
+        "Discussion"
+      ]
+    },
+    {
+      "id": "F020",
+      "path": [
+        "Meeting2",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F021",
+      "path": [
+        "Meeting1",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F022",
+      "path": [
+        "Meeting1",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F023",
+      "path": [
+        "Meeting1",
+        "Discussion"
+      ]
+    },
+    {
+      "id": "F024",
+      "path": [
+        "Meeting1",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F025",
+      "path": [
+        "Meeting2",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F026",
+      "path": [
+        "Meeting2",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F027",
+      "path": [
+        "Meeting1",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F028",
+      "path": [
+        "Meeting1",
+        "Discussion"
+      ]
+    },
+    {
+      "id": "F029",
+      "path": [
+        "Meeting1",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F030",
+      "path": [
+        "Meeting1",
+        "Discussion"
+      ]
+    },
+    {
+      "id": "F031",
+      "path": [
+        "Meeting1",
+        "Discussion"
+      ]
+    },
+    {
+      "id": "F032",
+      "path": [
+        "Meeting1",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F033",
+      "path": [
+        "Meeting2",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F034",
+      "path": [
+        "Meeting1",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F035",
+      "path": [
+        "Meeting2",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F036",
+      "path": [
+        "Meeting2",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F037",
+      "path": [
+        "Meeting1",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F038",
+      "path": [
+        "Meeting1",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F039",
+      "path": [
+        "Meeting1",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F040",
+      "path": [
+        "Meeting1",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F041",
+      "path": [
+        "Meeting1",
+        "Discussion"
+      ]
+    },
+    {
+      "id": "F042",
+      "path": [
+        "Meeting1",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F043",
+      "path": [
+        "Meeting1",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F044",
+      "path": [
+        "Meeting1",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F045",
+      "path": [
+        "Meeting1",
+        "Discussion"
+      ]
+    },
+    {
+      "id": "F046",
+      "path": [
+        "Meeting1",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F047",
+      "path": [
+        "Meeting1",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F048",
+      "path": [
+        "Meeting1",
+        "Actions"
+      ]
+    }
+  ]
+}

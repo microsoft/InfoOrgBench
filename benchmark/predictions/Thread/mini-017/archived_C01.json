@@ -1,0 +1,347 @@
+{
+  "assignments": [
+    {
+      "id": "F001",
+      "path": [
+        "ABFS-delegation-token-npe",
+        "issue-description"
+      ]
+    },
+    {
+      "id": "F002",
+      "path": [
+        "maintenance",
+        "version-tracking"
+      ]
+    },
+    {
+      "id": "F003",
+      "path": [
+        "shell-rm-trash",
+        "issue-description"
+      ]
+    },
+    {
+      "id": "F004",
+      "path": [
+        "ABFS-namespace-auth",
+        "test-results-variants"
+      ]
+    },
+    {
+      "id": "F005",
+      "path": [
+        "ABFS-namespace-auth",
+        "test-results-variants"
+      ]
+    },
+    {
+      "id": "F006",
+      "path": [
+        "S3A-skip-optimization",
+        "pr-discussion"
+      ]
+    },
+    {
+      "id": "F007",
+      "path": [
+        "maintenance",
+        "version-tracking"
+      ]
+    },
+    {
+      "id": "F008",
+      "path": [
+        "ABFS-delegation-token",
+        "discussion"
+      ]
+    },
+    {
+      "id": "F009",
+      "path": [
+        "ABFS-http-operation",
+        "pr-discussion"
+      ]
+    },
+    {
+      "id": "F010",
+      "path": [
+        "S3A-credentials-provider",
+        "test-output"
+      ]
+    },
+    {
+      "id": "F011",
+      "path": [
+        "S3A-skip-optimization",
+        "pr-discussion"
+      ]
+    },
+    {
+      "id": "F012",
+      "path": [
+        "S3A-read-retry",
+        "pr-discussion"
+      ]
+    },
+    {
+      "id": "F013",
+      "path": [
+        "ABFS-verbose-logging",
+        "issue-description"
+      ]
+    },
+    {
+      "id": "F014",
+      "path": [
+        "S3A-encryption-tests",
+        "issue-description"
+      ]
+    },
+    {
+      "id": "F015",
+      "path": [
+        "S3A-skip-optimization",
+        "pr-discussion"
+      ]
+    },
+    {
+      "id": "F016",
+      "path": [
+        "S3A-ssl-certificate-issue",
+        "discussion"
+      ]
+    },
+    {
+      "id": "F017",
+      "path": [
+        "S3A-read-retry",
+        "issue-description"
+      ]
+    },
+    {
+      "id": "F018",
+      "path": [
+        "ABFS-verbose-logging",
+        "pr-discussion"
+      ]
+    },
+    {
+      "id": "F019",
+      "path": [
+        "maintenance",
+        "version-tracking"
+      ]
+    },
+    {
+      "id": "F020",
+      "path": [
+        "S3A-skip-optimization",
+        "pr-discussion"
+      ]
+    },
+    {
+      "id": "F021",
+      "path": [
+        "S3A-read-retry",
+        "pr-discussion"
+      ]
+    },
+    {
+      "id": "F022",
+      "path": [
+        "ABFS-delegation-token-npe",
+        "resolution"
+      ]
+    },
+    {
+      "id": "F023",
+      "path": [
+        "ABFS-config-docs",
+        "issue-description"
+      ]
+    },
+    {
+      "id": "F024",
+      "path": [
+        "ABFS-delegation-token-npe",
+        "resolution"
+      ]
+    },
+    {
+      "id": "F025",
+      "path": [
+        "ABFS-delegation-token-npe",
+        "resolution"
+      ]
+    },
+    {
+      "id": "F026",
+      "path": [
+        "S3A-path-style-access",
+        "issue-discussion"
+      ]
+    },
+    {
+      "id": "F027",
+      "path": [
+        "S3A-path-style-access",
+        "solution"
+      ]
+    },
+    {
+      "id": "F028",
+      "path": [
+        "S3A-read-retry",
+        "pr-discussion"
+      ]
+    },
+    {
+      "id": "F029",
+      "path": [
+        "ABFS-verbose-logging",
+        "pr-discussion"
+      ]
+    },
+    {
+      "id": "F030",
+      "path": [
+        "ABFS-config-docs",
+        "related-issues"
+      ]
+    },
+    {
+      "id": "F031",
+      "path": [
+        "S3A-ssl-certificate-issue",
+        "discussion"
+      ]
+    },
+    {
+      "id": "F032",
+      "path": [
+        "S3A-skip-optimization",
+        "pr-discussion"
+      ]
+    },
+    {
+      "id": "F033",
+      "path": [
+        "maintenance",
+        "version-tracking"
+      ]
+    },
+    {
+      "id": "F034",
+      "path": [
+        "ABFS-verbose-logging",
+        "pr-discussion"
+      ]
+    },
+    {
+      "id": "F035",
+      "path": [
+        "S3A-skip-optimization",
+        "issue-description"
+      ]
+    },
+    {
+      "id": "F036",
+      "path": [
+        "S3A-ssl-certificate-issue",
+        "discussion"
+      ]
+    },
+    {
+      "id": "F037",
+      "path": [
+        "S3A-credentials-provider",
+        "issue-description"
+      ]
+    },
+    {
+      "id": "F038",
+      "path": [
+        "S3A-path-style-access",
+        "solution"
+      ]
+    },
+    {
+      "id": "F039",
+      "path": [
+        "shell-rm-trash",
+        "metadata"
+      ]
+    },
+    {
+      "id": "F040",
+      "path": [
+        "S3A-ssl-certificate-issue",
+        "issue-description"
+      ]
+    },
+    {
+      "id": "F041",
+      "path": [
+        "maintenance",
+        "version-tracking"
+      ]
+    },
+    {
+      "id": "F042",
+      "path": [
+        "ABFS-namespace-auth",
+        "issue-description"
+      ]
+    },
+    {
+      "id": "F043",
+      "path": [
+        "ABFS-verbose-logging",
+        "pr-discussion"
+      ]
+    },
+    {
+      "id": "F044",
+      "path": [
+        "ABFS-config-docs",
+        "related-issues"
+      ]
+    },
+    {
+      "id": "F045",
+      "path": [
+        "ABFS-delegation-token",
+        "discussion"
+      ]
+    },
+    {
+      "id": "F046",
+      "path": [
+        "ABFS-http-operation",
+        "pr-discussion"
+      ]
+    },
+    {
+      "id": "F047",
+      "path": [
+        "ABFS-http-operation",
+        "pr-discussion"
+      ]
+    },
+    {
+      "id": "F048",
+      "path": [
+        "ABFS-namespace-auth",
+        "test-results"
+      ]
+    },
+    {
+      "id": "F049",
+      "path": [
+        "ABFS-http-operation",
+        "issue-description"
+      ]
+    }
+  ]
+}

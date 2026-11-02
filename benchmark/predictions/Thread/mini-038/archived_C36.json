@@ -1,0 +1,396 @@
+{
+  "assignments": [
+    {
+      "id": "F001",
+      "path": [
+        "ABFS driver",
+        "Account-specific HNS config"
+      ]
+    },
+    {
+      "id": "F002",
+      "path": [
+        "ABFS driver",
+        "Account-specific HNS config"
+      ]
+    },
+    {
+      "id": "F003",
+      "path": [
+        "ABFS driver",
+        "Revert root xattrs"
+      ]
+    },
+    {
+      "id": "F004",
+      "path": [
+        "ABFS driver",
+        "Account-specific HNS config"
+      ]
+    },
+    {
+      "id": "F005",
+      "path": [
+        "ABFS driver",
+        "Revert root xattrs"
+      ]
+    },
+    {
+      "id": "F006",
+      "path": [
+        "ABFS driver",
+        "Account-specific HNS config"
+      ]
+    },
+    {
+      "id": "F007",
+      "path": [
+        "ABFS driver",
+        "Account-specific HNS config"
+      ]
+    },
+    {
+      "id": "F008",
+      "path": [
+        "ABFS driver",
+        "Revert root xattrs"
+      ]
+    },
+    {
+      "id": "F009",
+      "path": [
+        "ABFS driver",
+        "Verbose trace logging"
+      ]
+    },
+    {
+      "id": "F010",
+      "path": [
+        "ABFS driver",
+        "China authentication"
+      ]
+    },
+    {
+      "id": "F011",
+      "path": [
+        "ABFS driver",
+        "China authentication"
+      ]
+    },
+    {
+      "id": "F012",
+      "path": [
+        "ABFS driver",
+        "Verbose trace logging"
+      ]
+    },
+    {
+      "id": "F013",
+      "path": [
+        "ABFS driver",
+        "Revert root xattrs"
+      ]
+    },
+    {
+      "id": "F014",
+      "path": [
+        "ABFS driver",
+        "Revert root xattrs"
+      ]
+    },
+    {
+      "id": "F015",
+      "path": [
+        "ABFS driver",
+        "Account-specific HNS config"
+      ]
+    },
+    {
+      "id": "F016",
+      "path": [
+        "ABFS driver",
+        "Account-specific HNS config"
+      ]
+    },
+    {
+      "id": "F017",
+      "path": [
+        "ABFS driver",
+        "Revert root xattrs"
+      ]
+    },
+    {
+      "id": "F018",
+      "path": [
+        "ABFS driver",
+        "Verbose trace logging"
+      ]
+    },
+    {
+      "id": "F019",
+      "path": [
+        "ABFS driver",
+        "Account-specific HNS config"
+      ]
+    },
+    {
+      "id": "F020",
+      "path": [
+        "ABFS driver",
+        "Verbose trace logging"
+      ]
+    },
+    {
+      "id": "F021",
+      "path": [
+        "ABFS driver",
+        "China authentication"
+      ]
+    },
+    {
+      "id": "F022",
+      "path": [
+        "ABFS driver",
+        "Account-specific HNS config"
+      ]
+    },
+    {
+      "id": "F023",
+      "path": [
+        "ABFS driver",
+        "Account-specific HNS config"
+      ]
+    },
+    {
+      "id": "F024",
+      "path": [
+        "ABFS driver",
+        "Account-specific HNS config"
+      ]
+    },
+    {
+      "id": "F025",
+      "path": [
+        "ABFS driver",
+        "Revert root xattrs"
+      ]
+    },
+    {
+      "id": "F026",
+      "path": [
+        "ABFS driver",
+        "Revert root xattrs"
+      ]
+    },
+    {
+      "id": "F027",
+      "path": [
+        "ABFS driver",
+        "Account-specific HNS config"
+      ]
+    },
+    {
+      "id": "F028",
+      "path": [
+        "ABFS driver",
+        "Account-specific HNS config"
+      ]
+    },
+    {
+      "id": "F029",
+      "path": [
+        "ABFS driver",
+        "Verbose trace logging"
+      ]
+    },
+    {
+      "id": "F030",
+      "path": [
+        "ABFS driver",
+        "China authentication"
+      ]
+    },
+    {
+      "id": "F031",
+      "path": [
+        "ABFS driver",
+        "Auth failure throttling"
+      ]
+    },
+    {
+      "id": "F032",
+      "path": [
+        "ABFS driver",
+        "Account-specific HNS config"
+      ]
+    },
+    {
+      "id": "F033",
+      "path": [
+        "ABFS driver",
+        "Account-specific HNS config"
+      ]
+    },
+    {
+      "id": "F034",
+      "path": [
+        "ABFS driver",
+        "Account-specific HNS config"
+      ]
+    },
+    {
+      "id": "F035",
+      "path": [
+        "ABFS driver",
+        "Verbose trace logging"
+      ]
+    },
+    {
+      "id": "F036",
+      "path": [
+        "ABFS driver",
+        "Account-specific HNS config"
+      ]
+    },
+    {
+      "id": "F037",
+      "path": [
+        "ABFS driver",
+        "Account-specific HNS config"
+      ]
+    },
+    {
+      "id": "F038",
+      "path": [
+        "ABFS driver",
+        "Account-specific HNS config"
+      ]
+    },
+    {
+      "id": "F039",
+      "path": [
+        "ABFS driver",
+        "Account-specific HNS config"
+      ]
+    },
+    {
+      "id": "F040",
+      "path": [
+        "ABFS driver",
+        "Account-specific HNS config"
+      ]
+    },
+    {
+      "id": "F041",
+      "path": [
+        "ABFS driver",
+        "Revert root xattrs"
+      ]
+    },
+    {
+      "id": "F042",
+      "path": [
+        "ABFS driver",
+        "Account-specific HNS config"
+      ]
+    },
+    {
+      "id": "F043",
+      "path": [
+        "ABFS driver",
+        "Reuse common retry policies"
+      ]
+    },
+    {
+      "id": "F044",
+      "path": [
+        "ABFS driver",
+        "Reuse common retry policies"
+      ]
+    },
+    {
+      "id": "F045",
+      "path": [
+        "ABFS driver",
+        "Revert root xattrs"
+      ]
+    },
+    {
+      "id": "F046",
+      "path": [
+        "ABFS driver",
+        "Auth failure throttling"
+      ]
+    },
+    {
+      "id": "F047",
+      "path": [
+        "ABFS driver",
+        "Account-specific HNS config"
+      ]
+    },
+    {
+      "id": "F048",
+      "path": [
+        "ABFS driver",
+        "Account-specific HNS config"
+      ]
+    },
+    {
+      "id": "F049",
+      "path": [
+        "ABFS driver",
+        "Revert root xattrs"
+      ]
+    },
+    {
+      "id": "F050",
+      "path": [
+        "ABFS driver",
+        "Account-specific HNS config"
+      ]
+    },
+    {
+      "id": "F051",
+      "path": [
+        "ABFS driver",
+        "Account-specific HNS config"
+      ]
+    },
+    {
+      "id": "F052",
+      "path": [
+        "ABFS driver",
+        "Revert root xattrs"
+      ]
+    },
+    {
+      "id": "F053",
+      "path": [
+        "ABFS driver",
+        "Revert root xattrs"
+      ]
+    },
+    {
+      "id": "F054",
+      "path": [
+        "ABFS driver",
+        "China authentication"
+      ]
+    },
+    {
+      "id": "F055",
+      "path": [
+        "ABFS driver",
+        "Revert root xattrs"
+      ]
+    },
+    {
+      "id": "F056",
+      "path": [
+        "ABFS driver",
+        "Account-specific HNS config"
+      ]
+    }
+  ]
+}

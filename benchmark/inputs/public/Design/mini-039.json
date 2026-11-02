@@ -1,0 +1,185 @@
+{
+  "task_id": "mini-039",
+  "records": [
+    {
+      "id": "F001",
+      "format": "text",
+      "text": "In short, our solution to this problem follows *Increase performance* of tests by using persistent Deployments. *Increase understandability* by defining network scenario objects which can easily by modified and reused between tests, and outputting the entire contents of the truth table for each test, in some manner. *Increase completeness* by using a logical truth table which tests connectivity/disconnectivity for each scenario above. *Increase extensibility* by leveraging the scenario objects and the completeness checking functionality above. *Increase debuggability* by leveraging the performance changes above. *Audit all existing tests and upstream issues* For logical redundancy and consistency. If a test is missing, we'll add it. If redundant, we'll remove it if necessary. All issues upstream such as - will also be audited and implement as needed as part of this enhancment."
+    },
+    {
+      "id": "F002",
+      "format": "text",
+      "text": "In practice, workloads may scale vertically up to a certain point but then must partition horizontally. The system scales up and down horizontally with partition and at the same time provides a software layer to manage key attributes such as iops/throughput independently from capacity.\n\nCurrently after CreateVolume with provider specific parameters pass in storage class, Kubernetes does not handle update of volume attributes other than capacity. The only way to achieve this is to use the cloud provider's API directly to modify iops and throughput. This creates frictions of managing storage resources on k8s. Allowing Resources to be changed without managing it through different provider's APIs directly simplifies this whole process."
+    },
+    {
+      "id": "F003",
+      "format": "text",
+      "text": "Scheduling performance is crucial. One of the bottlenecks is the API calls done during the scheduling cycle. The binding cycle is already asynchronous, but it would still be beneficial to re-evaluate whether the current model of busy-waiting goroutines is good long-term.\n\nMaking one universal approach for handling API calls in the kube-scheduler could allow these calls to be consistent and better control the number of dispatched goroutines. Already asynchronous calls could also be migrated to this approach."
+    },
+    {
+      "id": "F004",
+      "format": "text",
+      "text": "Provide an alternative to mutating webhooks for the vast majority of mutating admission use cases. Provide the in-tree extensions needed to build policy frameworks for Kubernetes, again without requiring webhooks for the vast majority of use cases. Provide an out-of-tree implementation of this enhancement (using a webhook) that is supported by the Kubernetes org to provide this enhancement functionality to Kubernetes versions where this enhancement is not available. Provide core functionality as a library so that use cases like GitOps, CI/CD pipelines, and auditing can run the same CEL validation checks that the API server does."
+    },
+    {
+      "id": "F005",
+      "format": "text",
+      "text": "A large proportion of mutating admission needs are for relatively simple operations such as setting a label, setting a field, or adding a sidecar container to a pod. These mutations can be expressed trivially in only a few lines of CEL, eliminating the developmental and operational complexity of a webhook.\n\nOffering CEL based mutation also has other fundamental advantages over webhooks. CEL mutations can be declared in a way that allows the kube-apiserver to introspect the mutation and extract useful information about which fields the mutation operation reads and writes. This information can be leveraged to do things like finding order for mutating admission policies that minimizes the need for reinvocation. Also, in-process mutation is sufficiently fast, especially when compared with webhooks, that it is reasonable to re-run mutations to do things like validate that multiple muation policy is still applied after all other mutating admission operations have been applied."
+    },
+    {
+      "id": "F006",
+      "format": "text",
+      "text": "Prioritize high-importance updates (like binding) over low-importance ones if updates to the kube-apiserver get throttled. Change how the already asynchronous procedures, such as the binding cycle or asynchronous preemption goroutines, actually work. They should remain asynchronous and continue to wait for the API calls to finish before proceeding. Any further refinements to these stages could be added in future revisions of this KEP or in the separate ones."
+    },
+    {
+      "id": "F007",
+      "format": "text",
+      "text": "The current network policy tests have a few issues which, without increasing technical debt, can be addressed architecturally. *Incompleteness*: Current tests do not confirm that a common set of negative scenarios for different policies are actually negative. They also do not confirm a complete set of *positive* connectivity before starting tests (note: 4 out of the existing 25 tests actually do *some* positive control validation before applying policies, and all tests do positive validation *after* policy application)."
+    },
+    {
+      "id": "F008",
+      "format": "text",
+      "text": "While running different scalability tests we observed that restarting watches may cause significant load on kube-apiserver when watcher is observing a small percentage of changes (due to field or label selector). In extreme cases, reestablishing such watcher may even lead to falling out of history window and \"resource version too old\" errors (that requires full relist for that watcher).\n\nThe reason for that is the fact that even if the last item received by watcher has resourceVersion rv1, we may already know that there aren't any changes a given watcher is interested in up to rv2 (rv1 < rv2), but we don't have any way of communicating it to the watcher. As a result, when restarting a watch, client again sends rv1 as a starting point, and we process all events with resourceVersion between rv1 and rv2 again unnecessarily.\n\nThe proposal presents a proper solution for that problem."
+    },
+    {
+      "id": "F009",
+      "format": "text",
+      "text": "This enhancement emerged from discussions in the 11/27/2025 Kubernetes CSI Implementation Meeting (see notes) around implementing cross-region snapshot cloning capabilities in Kubernetes. During the discussions, it became clear that topology support in snapshots is a prerequisite for a feature of this kind. Rather than implementing snapshot cloning without the proper topology foundations, it was decided to first establish topology for snapshots, creating a solid base for future enhancements.\n\nA PR for adding topology for snapshots to the CSI Spec was previously in review (Add Topology for Snapshot #274). At the time features such as cross region snapshot cloning or specifying snapshot final placement were not considered and as such there was no valid use case(s) to justify implementing this so further development/review was halted.\n\nWhile CSI volumes have comprehensive topology support, snapshots operate without any topology context. The lack of topology information in snapshots is the problem that this KEP addresses by establishing topology awareness as an optional capability of the volume snapshot."
+    },
+    {
+      "id": "F010",
+      "format": "text",
+      "text": "This KEP proposes adding topology support to volume snapshots in Kubernetes by extending the `VolumeSnapshotContentSpec` object with a `NodeAffinity` field and enforcing topology compatibility when restoring volumes from snapshots. Currently, volume snapshots lack any topology information, creating a gap that prevents topology-aware scheduling and features.\n\nThe enhancement has two parts. First, topology information will be added to volume snapshot contents by returning the topology in the CSI `CreateSnapshotResponse` and stored in the resulting `VolumeSnapshotContent`. Second, topology enforcement ensures that volumes restored from snapshots are provisioned in compatible topologies: For `WaitForFirstConsumer` volume binding: an out-of-tree scheduler plugin (in `kubernetes-sigs/scheduler-plugins`) will filter nodes whose topology is incompatible with the snapshot's `NodeAffinity`, ensuring the selected node leads to provisioning in a compatible topology. For `Immediate` volume binding: the external-provisioner will intersect the snapshot's `NodeAffinity` with the StorageClass's `AllowedTopologies` to select a compatible topology for provisioning.\n\nThis prevents provisioning failures or silent data inaccessibility regardless of volume binding mode."
+    },
+    {
+      "id": "F011",
+      "format": "text",
+      "text": "We propose introducing a new type of watch event called `Bookmark`. With that change, the possible watch event types will be:\n\nWatch event with type Bookmark will represent information that all the objects up to a given resourceVersion has been processed for a given watcher. So even if the last event of other types contained object with resourceVersion rv1, receiving a bookmark with resourceVersion rv2 means that there aren't any interesting objects for that watcher in between."
+    },
+    {
+      "id": "F012",
+      "format": "text",
+      "text": "Sometimes a user may expand a PVC to a size which may not be supported by underlying storage provider. Lets say PVC size was 10GB and user expanded it to 500GB but underlying storage provider can not support 500GB volume for some reason. We want to make it easier for user to retry re-sizing by requesting more reasonable value say - 100GB.\n\nProblem in allowing users to reduce size is - a malicious user can use this feature to abuse the quota system. They can do so by rapidly expanding and then shrinking the PVC. In general - both CSI and in-tree volume plugins have been designed to never perform actual shrink on underlying volume, but it can fool the quota system in believing the user is using less storage than he/she actually is.\n\nTo solve this problem - we propose that although users are allowed to reduce size of their PVC (as long as requested size > `pvc.Status.Capacity`), quota calculation will use `max(pvc.Spec.Capacity, pvc.Status.AllocatedResources)` and reduction in `pvc.Status.AllocatedResources` is only done by resize-controller after previously issued expansion has failed with some kind of terminal failure."
+    },
+    {
+      "id": "F013",
+      "format": "text",
+      "text": "This feature will allow some traditional applications to join kubernetes in a more friendly way. Some older services may use hostname to determine permissions or service operations. When migrating services to k8s, the migration path will become confusing due to the hostname restrictions of the pod itself, because when we try to add a Fully Qualified Domain Name (FQDN) hostname to the pod, it will inevitably always carry the `cluster-suffix`, which will never be possible for services that expect to use DNS to match the hostname."
+    },
+    {
+      "id": "F014",
+      "format": "text",
+      "text": "The scheduler doesn't actively clear a Pod's `schedulingGates` field. This means if some controller is ill-implemented, some Pods may stay in Pending state incorrectly. If you noticed a Pod stays in Pending state for a long time and it carries non-nil `schedulingGates`, you may find out which component owns the gate(s) (via `.spec.managedFields`) and report the symptom to the component owner. Faulty controllers may forget to remove the Pod's `schedulingGates`, and hence results in a large number of unschedulable Pods. In Alpha, we don't limit the number of unschedulable Pods caused by potential faulty controllers. We will evaluate necessary options in the future to mitigate potential abuse. End-users may be confused by no scheduling events in the output of `kubectl describe pod xyz`. We will provide detailed documentation, along with metrics, tooling (kubectl) and(or) events."
+    },
+    {
+      "id": "F015",
+      "format": "text",
+      "text": "Watch API is one of the fundaments of Kubernetes API. The recommended pattern for using watch API is to retrieve a collection of resources using consistent list and then initiate a watch starting from a resourceVersion returned by the list operation. If the client watch is disconnected, a new one can be restarted from the last returned resourceVersion.\n\nThis proposal make restarting watches cheaper from kube-apiserver performance perspective."
+    },
+    {
+      "id": "F016",
+      "format": "text",
+      "text": "New Feature Flag: `CRDValidationRatcheting`\n\nWhen enabled, this flag allows updates to custom resources that fail validation to succeed if the validation errors were on unchanged keypaths.\n\nFor example:\n\nTake this CRD schema:\n\nAssume we have applied the following resource to our cluster:\n\nNow, lets assume the CRD schema was changed to tighten validation:\n\nWhen a controller attempts to change one field they get an error:\n\nEven more sadly, users of SSA submitting just a patch with the new field get rejected for fields that were not included in their patch. The following patch yields the same error for SSA users:\n\nThe feature proposed in this KEP would allow this change, since `myField` was unaltered from the original object. If `myField` was changed, the new value would have to pass the new validation rule to be written."
+    },
+    {
+      "id": "F017",
+      "format": "text",
+      "text": "We are introducing a new feature gate called `HostnameOverride`. When this feature gate is enabled, users can add the `hostnameOverride` field in the podSpec.\n\nThe `hostnameOverride` field has a length limitation of 64 characters and must adhere to the DNS subdomain names standard defined in RFC 1123.\n\nAdditionally, in the `generatePodSandboxConfig` method of kubelet, the pod's hostname will always be overridden with the value of `hostnameOverride`, and it will be written in the pod's `/etc/hosts`.\n\nFor Windows containers, we only set the container's hostname and do not create an `/etc/hosts` file for it (as we have previously made it clear that we do not create an `/etc/hosts` file for Windows containers).\n\nIf both `setHostnameAsFQDN` and `hostnameOverride` fields are set, or if both `hostNetwork` and `hostnameOverride` fields are set, we will reject the creation of the resource and return an error indicating that these fields are mutually exclusive with the `hostnameOverride` field.\n\nBased on the above design, after the KEP is implemented, we can achieve the following results.\n\nAs shown in the table, setting `hostnameOverride` will only change the hostname inside the pod and will not modify the DNS records in Kubernetes."
+    },
+    {
+      "id": "F018",
+      "format": "text",
+      "text": "Remove barriers blocking CRD authors from widening value validations Remove barriers blocking CRD authors from tightening value validations Remove barriers blocking Kubernetes from widening validations Remove barriers blocking Kubernetes from tightening validations Do this automatically for all CRDs installed into clusters with the feature enabled Performance Goals: Constant/negligible persistent overhead Up to 5% time overhead for resource writes (apiserver_request_duration_seconds) Correctness, defined as: not allowing invalid values which would fail a known schema."
+    },
+    {
+      "id": "F019",
+      "format": "text",
+      "text": "There are currently two officially supported kube-proxy backends for Linux: `iptables` and `ipvs`. (The original `userspace` backend was deprecated several releases ago and removed from the tree in 1.26.)\n\nThe `iptables` mode of kube-proxy is currently the default, and it is generally considered \"good enough\" for most use cases. Nonetheless, there are good arguments for replacing it with a new `nftables` mode."
+    },
+    {
+      "id": "F020",
+      "format": "text",
+      "text": "The `kubescheduler.config.k8s.io` API has been in alpha stage for several releases. In release 1.18, we introduced `v1alpha2`, including important changes such as: The removal of the old Policy API in favor of plugin configurations, that align with the new scheduler framework. The introduction of scheduling profiles, that allow a scheduler to appear as multiple schedulers under different configurations.\n\nA configuration API allows cluster administrators to build, validate and version their configurations in a more robust way than using command line flags.\n\nGraduating this API to Beta is a sign of its maturity that would encourage wider usage."
+    },
+    {
+      "id": "F021",
+      "format": "text",
+      "text": "A user may expand a PersistentVolumeClaim(PVC) to a size which may not be supported by underlying storage provider. In which case - typically expansion controller forever tries to expand the volume and keeps failing. We want to make it easier for users to recover from expansion failures, so that user can retry volume expansion with values that may succeed.\n\nTo enable recovery, this proposal relaxes API validation for PVC objects to allow reduction in requested size. This KEP also adds a new field called `pvc.Status.AllocatedResources` to allow resource quota to be tracked accurately if user reduces size of their PVCs."
+    },
+    {
+      "id": "F022",
+      "format": "text",
+      "text": "The default kube-proxy implementation on Linux is currently based on iptables. IPTables was the preferred packet filtering and processing system in the Linux kernel for many years (starting with the 2.4 kernel in 2001). However, problems with iptables led to the development of a successor, nftables, first made available in the 3.13 kernel in 2014, and growing increasingly featureful and usable as a replacement for iptables since then. Development on iptables has mostly stopped, with new features and performance improvements primarily going into nftables instead.\n\nThis KEP proposes the creation of a new official/supported nftables backend for kube-proxy. While it is hoped that this backend will eventually replace both the `iptables` and `ipvs` backends and become the default kube-proxy mode on Linux, that replacement/deprecation would be handled in a separate future KEP."
+    },
+    {
+      "id": "F023",
+      "format": "text",
+      "text": "We propose a new field `.spec.schedulingGates` to the Pod API. The field is defaulted to nil (equivalent to an empty map).\n\nFor Pods carrying non-nil `.spec.schedulingGates`, they will be \"parked\" in scheduler's internal unschedulablePods pool, and only get tried when the field is mutated to nil.\n\nPractically, this field can be initialized by a single client and(or) multiple mutating webhooks, and afterwards each gate entry can be removed by external integrators when certain criteria is met."
+    },
+    {
+      "id": "F024",
+      "format": "text",
+      "text": "At a high level, CR validation in kubernetes has four components: `kube-openapi`-based `Validate` using `*spec.Schema` StructuralSchema-based Meta, TypeMeta, ListSet/Map validation CEL Validators using a CEL schema interface type Embedded Objects\n\nEach of these validation paths will need to have their `ValidateUpdate(old, new)` codepath modified to: Take an option to enable the feature Ignore errors which occur both on the `old` and `new` objects Return ignored errors in a separate list"
+    },
+    {
+      "id": "F025",
+      "format": "text",
+      "text": "There are a few ways to make API calls asynchronous. They are introduced below to facilitate discussion and identify the most suitable solution.\n\nThese questions have to be answered: 1) How to handle Pod rescheduling while waiting for the API call to complete 2) What component should handle the API calls\n\nAlso, races (collisions) between multiple API calls for a single object should be mitigated by the design.\n\nNote that this KEP focuses on making individual API calls asynchronous. Some procedures, such as the binding cycle or asynchronous preemption, will still be separate goroutines with the ability to wait for the (async) API calls to finish. This way, dependencies between calls that rely on each other won't need to be implemented."
+    },
+    {
+      "id": "F026",
+      "format": "text",
+      "text": "As part of this KEP we do not intend to actually support shrinking of underlying volume. As part of this KEP when user intends to recover from volume expansion failures, they must recover to a size slightly larger than original size of the volume. For example - if user expanded a volume from `10Gi` to `100Gi` and expansion to `100Gi` is failing, then we only permit recovery to a size greater than `10Gi`, for example - `11Gi` or anything higher than `10Gi`."
+    },
+    {
+      "id": "F027",
+      "format": "text",
+      "text": "For the most part, `kubescheduler.config.k8s.io/v1beta1` will be a copy of `kubescheduler.config.k8s.io/v1alpha2`, with the following differences: [ ] `.bindTimeoutSeconds` will be an argument for `VolumeBinding` plugin. [ ] `.profiles[*].plugins.unreserve` will be removed. [ ] Embedded types of `RequestedToCapacityRatio` will include missing json tags and will be decoded with a case-sensitive decoder."
+    },
+    {
+      "id": "F028",
+      "format": "text",
+      "text": "The kube-scheduler configuration API `kubescheduler.config.k8s.io` was in alpha for several releases. We graduated it to beta in 1.19 as `v1beta1`. We introduced `v1beta2` and `v1beta3` in 1.22 and 1.23 respectively. And it was graduated to GA in 1.25 as `v1`. The `v1beta2` was marked as deprecated in 1.25 and will be removed in 1.28. `v1beta3` will be marked as deprecated in 1.26 and removed in 1.29."
+    },
+    {
+      "id": "F029",
+      "format": "text",
+      "text": "Pods are currently considered ready for scheduling once created. Kubernetes scheduler does its due diligence to find nodes to place all pending Pods. However, in a real-world case, some Pods may stay in a \"miss-essential-resources\" state for a long period. These pods actually churn the scheduler (and downstream integrators like Cluster AutoScaler) in an unnecessary manner.\n\nLacking the knob to flag Pods as scheduling-paused/ready wastes scheduling cycles on retrying Pods that are determined to be unschedulable. As a result, it delays the scheduling of other Pods, and also lowers the overall scheduling throughput. Moreover, it imposes restrictions to vendors to develop some in-house features (such as hierarchical quota) natively.\n\nOn the other hand, a condition `{type:PodScheduled, reason:Unschedulable}` works as canonical info exposed by scheduler to guide downstream integrators (e.g., ClusterAutoscaler) to supplement cluster resources. Our solution should not break this contract.\n\nThis proposal describes APIs and mechanics to allow users/controllers to control when a pod is ready to be considered for scheduling."
+    },
+    {
+      "id": "F030",
+      "format": "text",
+      "text": "The Linux kernel limits the hostname field to 64 bytes (see sethostname(2)). If a hostname reaches this 64 byte kernel hostname limit, Kubernetes will fail to create the Pod Sandbox, causing the Pod to remain indefinitely in the `ContainerCreating` state.\n\nTo mitigate this issue, we will implement a validation during resource creation to check whether the value of hostnameOverride exceeds 64 bytes. Creation requests exceeding this limit will be denied.\n\nAfter enabling this feature, if users utilize it to create a group of Pods via Deployment or StatefulSet, multiple Pods with identical names may concentrate on a single node. This could lead to unintended consequences, though we haven't identified specific potential issues at this time."
+    },
+    {
+      "id": "F031",
+      "format": "text",
+      "text": "Add topology information to `VolumeSnapshotContent` objects via a mutable `NodeAffinity` field. Extend CSI spec to support optional topology fields in `CreateSnapshotRequest` and `CreateSnapshotResponse`. Provide an out-of-tree scheduler plugin (in `kubernetes-sigs/scheduler-plugins`) that enforces topology compatibility when scheduling pods with PVCs that reference a snapshot as their data source with `WaitForFirstConsumer` volume binding, ensuring the scheduler only selects nodes whose topology is compatible with the snapshot's `NodeAffinity`. Ensure the external-provisioner intersects the snapshot's `NodeAffinity` with `StorageClass.AllowedTopologies` when provisioning volumes from snapshot data sources with `Immediate` volume binding mode."
+    },
+    {
+      "id": "F032",
+      "format": "text",
+      "text": "Design and implement an `nftables` mode for kube-proxy. Consider various fixes to legacy `iptables` mode behavior. Do not enable the `route_localnet` sysctl. Add a more restrictive startup mode to kube-proxy, which will error out if the configuration is invalid (e.g., \"`--detect-local-mode ClusterCIDR`\" without specifying \"`--cluster-cidr`\") or incomplete (e.g., partially-dual-stack but not fully-dual-stack)."
+    },
+    {
+      "id": "F033",
+      "format": "text",
+      "text": "OS-level IO volume attributes, for example cgroup policy Inter-pod volume attributes. This KEP is restricted to what attributes can be defined on a volume. Scheduling based on total specific volume attributes limits of a node. For example, total throughput for many cloud provider network attached storage volumes is limited by instance network bandwidth and may prevent achieving the provisioned IO. Scheduling to mitigate these factors is out of scope but it should be considered as a future extension of this KEP."
+    },
+    {
+      "id": "F034",
+      "format": "text",
+      "text": "Cloud providers and storage vendors offer volumes which allow specifying IO quality of service (Performance) parameters like IOPS or throughput and tuning them as workloads operate. (1, 2, 3, 4, 5, 6). While these parameters can be specified as storage class parameters to be set at provisioning time, Kubernetes has no API which allows changing them. Only capacity can be changed through the volume expansion API. This KEP proposes an extension to the Kubernetes Persistent Volume API to allow users to dynamically control these volume options."
+    },
+    {
+      "id": "F035",
+      "format": "text",
+      "text": "We propose that the current NetworkPolicy test suite which comprises 25 tests, and can take 30 minutes to 1 hour to run, should be drastically improved both in terms of readability, performance, coverage, and scalability. The mechanism we propose for this includes building a \"Reachability matrix\" for evaluating all pod connectivities, while also building reusable APIs for designing tests in a more modular way for the future.\n\nIn summary, this involves: Defining (redefining in some cases) the common set of test scenarios for all network policy tests and increasing performance by reusing a set of containers. Rearchitecting network policy tests to enhance readibility and reusability. Provide comprehnsive coverage for NetworkPolicy communication matrices by using a truth-table approach to define connectivity. Introduce time to conversion tests to measure performance against perturbed state at scale."
+    },
+    {
+      "id": "F036",
+      "format": "text",
+      "text": "Before getting into all the individual fields and capabilities, let's look at the general \"shape\" of the API. Very similar to what we have in ValidatingAdmissionPolicy, this API separates policy definition from policy configuration by splitting responsibilities across resources. The resources involved are: Policy definitions (MutatingAdmissionPolicy) Policy bindings (MutatingAdmissionPolicyBinding) Policy param resources (custom resources or config maps)\n\nThe idea is to leverage the CEL power of the object construction and allow users to define how they want to mutate the admission request through CEL expression."
+    }
+  ]
+}

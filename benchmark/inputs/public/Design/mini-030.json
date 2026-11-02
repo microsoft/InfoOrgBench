@@ -1,0 +1,185 @@
+{
+  "task_id": "mini-030",
+  "records": [
+    {
+      "id": "F001",
+      "format": "text",
+      "text": "Service account keys are used by kube-apiserver for JWT signing and authentication. Keys are stored on the disk and are loaded by kube-apiserver during process start time. Key management for service account keys is entirely within the cluster and is less flexible in that the signing keys remain the same for the lifetime of the process. This KEP proposes updates that will allow Kubernetes distributions to integrate with key management solutions of their choice (eg: HSMs, cloud KMSes)."
+    },
+    {
+      "id": "F002",
+      "format": "text",
+      "text": "This KEP proposes to add a built-in admission controller \"DenyServiceExternalIPs\", which rejects any CREATE or UPDATE operation which adds a new value to `Service.spec.externalIPs`. Existing values will be tolerated and may be removed.\n\nThe number of rejected operations will be exposed by the standard admission metrics (`apiserver_admission_controller_admission_duration_seconds_bucket{name=\"DenyServiceExternalIPs\",rejected=\"true\", ...}`)."
+    },
+    {
+      "id": "F003",
+      "format": "text",
+      "text": "Updating/replacing `netutils.ParseIPSloppy` and `netutils.ParseCIDRSloppy`. (There is a separate plan for this.) Providing `netip.Addr`/`netip.Prefix`-based utilities or increasing the usage of those types. (There is a separate plan for this.) Adding cluster-level warnings/logs/events when invalid IP/CIDR values are seen in old objects, so admins can ensure that they eventually get fixed. (This was originally listed as a Goal, but was not implemented.) Allowing immutable fields to be fixed if they are invalid."
+    },
+    {
+      "id": "F004",
+      "format": "text",
+      "text": "This design is centered around a change to the `CertificateSigningRequestSpec` structs found in the `k8s.io/api/certificates/v1` and `k8s.io/api/certificates/v1beta1` packages.\n\nA new optional `ExpirationSeconds` field will be added to this struct. The go doc comment describes the behavior of this field. A `*int32` is used because the field is optional and must not overflow JSON parsers (an unsigned type is avoided as we want to provide a detailed validation error on a negative input instead of a difficult to understand decoding error).\n\nThe name `expirationSeconds` was chosen to match existing art in the token request API. Similarly, the minimum valid duration was chosen to match the token request API as well. As this is a security related field, individuals may be encouraged to set this value to the minimum valid value to maximize security. Since a certificate with a short lifetime will require frequent rotation before the current certificate expires (say at `80%` the lifetime of the certificate given that CSR approval and signing is asynchronous which necessitates a buffer), `10` minutes seems like an appropriate minimum to prevent accidental DOS against the CSR API. Furthermore, `10` minutes is a short enough lifetime that revocation is not of concern.\n\nMetrics will be included to show if requested expirations are being extended or truncated (i.e. is the requested duration being honored by the signer)."
+    },
+    {
+      "id": "F005",
+      "format": "text",
+      "text": "Kubernetes's validation of IP addresses and CIDR strings (e.g. \"`192.168.0.0/24`\") in API fields has historically been too lax, accepting any string accepted by the underlying functions (`net.ParseIP` and `net.ParseCIDR`) even though in some cases these strings had ambiguous meanings that could lead to security problems. After [golang 1.17 changed the handling of IP addresses with leading \"0\"s] to avoid [CVE-2021-29923], there was consensus that we should eventually update API validation to be stricter as well, but we did not do this right away, because we didn't want to retroactively invalidate existing API objects. This KEP sets forth the plan for finally moving forward on that.\n\n[golang 1.17 changed the handling of IP addresses with leading \"0\"s]: [CVE-2021-29923]:"
+    },
+    {
+      "id": "F006",
+      "format": "text",
+      "text": "Replace PodSecurityPolicy with a new built-in admission controller that enforces the [Pod Security Standards]. Policy enforcement is controlled at the namespace level through labels Policies can be applied in 3 modes. Multiple modes can apply to a single namespace. Enforcing: policy violations cause the pod to be rejected Audit: policy violations trigger an audit annotation, but are otherwise allowed Warning: policy violations trigger a user-facing warning, but are otherwise allowed An optional per-mode version label can be used to pin the policy to the version that shipped with a given Kubernetes minor version (e.g. `v1.18`) Dry-run of namespace updates is supported to test enforcing policy changes against existing pods. Policy exemptions can be statically configured based on (requesting) user, RuntimeClass, or namespace. A request meeting exemption criteria is ignored by the admission plugin.\n\n[Pod Security Standards]:"
+    },
+    {
+      "id": "F007",
+      "format": "text",
+      "text": "As the number of supported client, server, and node platforms has increased, the size of the test tarball has increased as well. As of Kubernetes v1.13.2, the official `kubernetes-test.tar.gz` is approximately 1.2GB; previous releases ranged from 1.3 - 1.5GB. Several years ago, there were complaints that the \"full\" `kubernetes.tar.gz` release tarball was too big at 1.4G. Many of the motivations for breaking up that tarball echo into this proposal.\n\nThe Bazel effort is another driving motivation. It's possible to build all release artifacts solely using Bazel, and there is progress being made on supporting cross-compilation of binary artifacts, but combining multiple target platforms in one Bazel call is currently not well-supported. Separating this tarball would make it easier to ensure that we can use Bazel t produce identical artifacts as the non-Bazel build."
+    },
+    {
+      "id": "F008",
+      "format": "text",
+      "text": "We propose the introduction of a new feature gate named `UserNamespacesHostNetworkSupport`.\n\nWhen this feature gate is disabled (the default state), the kube-apiserver will maintain the current validation behavior, rejecting any Pod spec that includes both `spec.hostNetwork: true` and `spec.hostUsers: false`.\n\nWhen the `UserNamespacesHostNetworkSupport` feature gate is enabled, we will relax this validation check."
+    },
+    {
+      "id": "F009",
+      "format": "text",
+      "text": "Ease of rotation. At present, kube-apiserver loads service account keys at process start time and the keys remain the same for the life-time of the process. Thus, rotating keys require a kube-apiserver to restart. External key management eliminates the need to restart. Enhanced security. kube-apiserver loads service account keys from a file on the disk. This means anyone with privileged access to the kube-apiserver configuration / filesystem could exfiltrate signing material. An external signer that never returns signing material would mitigate this risk."
+    },
+    {
+      "id": "F010",
+      "format": "text",
+      "text": "It is possible to version some or all presubmits of a given repository inside that repository in a `yaml` file This feature is optional and opt-in The triggering of presubmits on pull request creation or updates continues to work and includes the jobs that are managed inside the code repository Re-Running tests via the `/retest` command continues to work and includes the jobs that are managed inside the code repository Explicitly executing optional tests via the `/test <<myjob>>` command continues to work and includes all jobs that are managed inside the code repository All the existing defaulting and validation for Presubmit jobs is being used to default and validate jobs that are managed inside the code repository Pull Requests on which an error occurred during parsing, defaulting or validation of presubmits that are managed in the code repository are not considered as merge candidates by Tide Tide executes the presubmits that are defined inside the code repository when it re-tests Renamed blocking presubmits added via pull request trigger a migration on all in-flight PRs Removed blocking presubmits via pull request trigger a status retire on all in-flight PRs All existing functionality except for what is listed in the Risks and Mitigations section will continue to work when `inrepoconfig` is enabled All existing functionality will continue to work when `inrepoconfig` is not enabled"
+    },
+    {
+      "id": "F011",
+      "format": "text",
+      "text": "It is proposed to introduce a the option to configure additional presubmits inside the code repositories that are tested by prow via a file named `prow.yaml`.\n\nThis requires to change the existing `Config` struct to not expose a `Presubmits` property anymore, but instead getter functions to get all Presubmits with the ones from the `prow.yaml` added, if applicable.\n\nAdditionally, all components that need to access the `Presubmit` configuration need to be changed to use the new getters and to contain a git client which can be used to fetch the `Presubmit` config from inside the repo."
+    },
+    {
+      "id": "F012",
+      "format": "text",
+      "text": "The service controller in the Kubernetes cloud controller manager (KCCM) configures the load balancer and its corresponding health check (HC) following service related events. The configured health check is then used by the load balancer as to determine which instances are candidates for traffic load balancing. For certain cloud providers (GCP): the KCCM configures the HC to target the Kubernetes service proxy for this information."
+    },
+    {
+      "id": "F013",
+      "format": "text",
+      "text": "The Kubernetes release artifacts include a \"mondo\" test tarball which includes both \"portable\" test sources (such as shell scripts and image manifests) as well as platform-specific test binaries for all supported client, node, and server platforms.\n\nThis KEP proposes replacing the monolith test tarball with platform-specific tarballs, matching the existing pattern used for the client, node, and server tarballs."
+    },
+    {
+      "id": "F014",
+      "format": "text",
+      "text": "Certificates issued through the certificate signing requests API are not revocable today. Furthermore, clients lack a way to control the duration of the issued certificate. Certificate approvers may have trust distinctions for different clients. For example, if an approver knows that a client stores their private key in a HSM, they may be willing to approve for a longer certificate duration. Signers lack a per-CSR mechanism to control the certificate duration, and thus are forced to learn this information out of band. The built-in signers use the same duration for all issued certificates, with the default being a one year certificate lifespan (that is irrevocable without rotating the signer).\n\nTo increase the overall security of the Kubernetes ecosystem and allow clients to request a particular duration for issued certificates, we propose extending the Kubernetes certificates signing request API with a new optional spec field that can be used to request a particular duration."
+    },
+    {
+      "id": "F015",
+      "format": "text",
+      "text": "Aligning cloud provider HCs for `eTP:Cluster` services. Cloud providers like Azure/AWS do not configure their HCs to point to the service proxy. Instead they connect to the `NodePort` defined for the service. As to have them benefit from the proposals of this KEP, they would need to change their implementation. That Kube-proxy includes its `healthz` state AND its current answer w.r.t the local endpoints, when it answers to the HC for `eTP:Local` services. Kube-proxy is currently defined as \"unhealthy\" when `2 * syncPeriod` passes in which it knows that it needs to update the data plane (iptables/ipvs), but has not actually done so. Not including the `healthz` state can cause Kube-proxy to indicate to a load balancer that it should send traffic to a Node simply because the endpoint is scheduled there, even though Kube-proxy might not be healthy and successfully managed to write the rules required for actually being able to forward traffic to the endpoint. This has however been agreed is a bug and will be treated as such, as opposed to following the KEP cycle for it."
+    },
+    {
+      "id": "F016",
+      "format": "text",
+      "text": "**Risk:** New token generation and validation could suffer a performance difference due to communication over a socket and a potential remote RPC call (will vary for different signer implementations).\n\n**Mitigation:** Performance overhead will be benchmarked and documented for integrators. **Risk:** Signing and verifying tokens over a grpc API carries the risk of a server side request forgery, where a malicious client could generate tokens.\n\n**Mitigation:** The API will only be accessible over a unix socket protected by standard file permissions; This is already done for other sensitive integrations like KMS. Documentation will be added to ensure that distributions limit the socket to privileged or specific uids. **Risk:** With an external signer, token headers and claims can diverge from that in existing JWTs as signed by kube-apiserver.\n\n**Mitigation:** External signers will only return signature and header while kube-apiserver will assemble the JWT. This will allow kube-apiserver to validate the header and control the claims."
+    },
+    {
+      "id": "F017",
+      "format": "text",
+      "text": "The primary motivation is to enhance the security of Kubernetes control plane components. Many control plane components, such as the `kube-apiserver` and `kube-controller-manager` often run as static Pods and are configured with `hostNetwork: true` to bind to node ports or interact directly with the host's network stack.\n\nCurrently, a validation rule in the kube-apiserver prevents the combination of `hostNetwork: true` and `hostUsers: false`. This KEP aims to remove that barrier."
+    },
+    {
+      "id": "F018",
+      "format": "text",
+      "text": "One simple admission controller should be enough to disable this misfeature. Unfortunately it can not be on by default (that would be breaking).\n\nThis means that platform-providers may need to expose an option to control this. While we generally try to avoid mixing knobs that cluster-users would set with knobs that cluster-providers own, it seems reasonable to close this as soon as possible and consider better answers when we have more cases to generalize from. See \"Alternatives\" below for more.\n\nSee \"Proposal\" above."
+    },
+    {
+      "id": "F019",
+      "format": "text",
+      "text": "This proposal is in response to CVE-2020-8554: \"Man in the middle using LoadBalancer or ExternalIPs\".\n\nFundamentally the `Service.spec.externalIPs[]` feature is bad. It predates `Service.spec.type=LoadBalancer` and, now that we have that, has very few use-cases. In short an unprivileged user can hijack an IP address via a Service spec. In contrast, `type=LoadBalancer` uses Service status, which most normal users should not be allowed to write.\n\nThis KEP proposes to block the use of ExternalIPs via a built-in admission controller. The justification for this, as opposed to a webhook, is that 99% of users will never use this feature, and making them ALL run a webhook seems terrible."
+    },
+    {
+      "id": "F020",
+      "format": "text",
+      "text": "Support importing github.com/kubernetes/kubernetes as a library This has never been supported, and is orthogonal to the decision of maintaining duplicate build systems Code under kubernetes/kubernetes/src/staging/k8s.io/foo is intended to be imported as k8s.io/foo from the staged copies at github.com/kubernetes/foo; anything else is internal-only and not supported for import, bazel or otherwise. Removing Bazel from sub-projects other than the core repo Bazel comes with tradeoffs, each subproject can make its own decision in this regard. This KEP **only** covers the main Kubernetes repository, and nothing else. Improving the previously existing make build We should strongly consider improving the implementation and behavior of this build in the future, but this is largely orthogonal to whether we should consider maintaining two build systems. An anticipated outcome of this KEP is increased bandwidth available to improve our single build system."
+    },
+    {
+      "id": "F021",
+      "format": "text",
+      "text": "This feature is only developer facing, which removes a large class of risks.\n\nThe largest remaining risk is that the build tags fall out of date, or are burdensome to continue updating, which leads to the dockerless Kubelet build breaking and/or being costly to maintain. This risk grows the longer the dockerless Kubelet exists (i.e. the longer it takes to move `dockershim` out of tree/have Docker support the CRI). Fortunately, these risks can be mitigated via the CI tooling discussed earlier."
+    },
+    {
+      "id": "F022",
+      "format": "text",
+      "text": "Add support for a `--config-dir` flag to the kubelet to allow users to specify a drop-in directory, which will override the configuration for the Kubelet located at `/etc/kubernetes/kubelet.conf` Extend kubelet configuration parsing code to handle files in the drop-in directory. Define Kubernetes best-practices for configuration definitions, similarly to API conventions. This is intended for other maintainers who would wish to setup a configuration object that works well with drop-in directories. Add ability to easily view the effective configuration that is being used by kubelet."
+    },
+    {
+      "id": "F023",
+      "format": "text",
+      "text": "The make system works best from x86 (though it can cross compile all platforms), largely due to a [bug in the kube-cross image build] and some other small oversights. Improving the existing make system is an explicit non-goal of this KEP, but we support addressing these oversights, and expect the outcome of this KEP will naturally increase available bandwidth to do so. A few other issues related to CGO / $CC on non-amd64 build hosts have already received pull requests / fixes."
+    },
+    {
+      "id": "F024",
+      "format": "text",
+      "text": "Add support for a drop-in configuration directory for the Kubelet. This directory can be specified via a `--config-dir` flag, and configuration files will be processed in alphanumeric order. The flag will be empty by default and if not specified, drop-in support will not be enabled. During the alpha phase, we introduced an environment variable called `KUBELET_CONFIG_DROPIN_DIR_ALPHA` to control the drop-in configuration directory for testing purposes. In the beta phase, we plan to leave the `--config-dir` flag unset by default, which aligns with the behavior of the `--config` flag. Users are encouraged to opt in by specifying their desired configuration directory. Additionally, we will enhance the feature with E2E testing and streamline the configuration process. As part of this optimization, we will remove the `KUBELET_CONFIG_DROPIN_DIR_ALPHA` environment variable, simplifying configuration management. The feature will be enabled by default during the beta phase, and we will evaluate its status in future releases."
+    },
+    {
+      "id": "F025",
+      "format": "text",
+      "text": "Pod Security Policy is deprecated as of Kubernetes v1.21. There were numerous problems with PSP that lead to the decision to deprecate it, rather than promote it to GA, including: Policy authorization model - Policies are bound to the requesting user OR the pod’s service account Granting permission to the user is intuitive, but breaks controllers Dual model weakens security Rollout challenges - PSP fails closed in the absence of policy The feature can never be enabled by default Need 100% coverage before rolling out (and no dry-run / audit mode) Leads to insufficient test coverage Inconsistent & unbounded API - Can lead to confusion and errors, and highlights lack of flexibility API has grown organically and has many internal inconsistencies (usability challenge) Unclear how to decide what should be part of PSP (e.g. fine-grained volume restrictions) Doesn’t compose well Mutation priority can be unexpected\n\nHowever, we still feel that Kubernetes should include a mechanism to prevent privilege escalation through the create-pod permission."
+    },
+    {
+      "id": "F026",
+      "format": "text",
+      "text": "The `UserNamespacesHostNetworkSupport` feature integrates with the NodeDeclaredFeatures framework to ensure that Pods requiring the combination of `hostNetwork: true` and `hostUsers: false` are only scheduled onto nodes that explicitly declare support for this feature. The feature relies on the `UserNamespacesHostNetwork` field in CRI-API's `RuntimeFeatures` to determine whether the container runtime supports this combination."
+    },
+    {
+      "id": "F027",
+      "format": "text",
+      "text": "**Future proofing:** The policy versioning aspects of this proposal are designed to anticipate breaking changes to policies, either in light of new threats or new knobs added to pods. However, if there is a new feature that needs to be restricted but doesn't have a sensible hardcoded requirement, we would be put in a hard place. Hopefully the adoption of this proposal will discourage such fields from being added."
+    },
+    {
+      "id": "F028",
+      "format": "text",
+      "text": "Currently, all jobs for Prow are configured in a central `infra-config` repository that is in most cases distinct from the repositories whose code is being tested in presubmits. This poses severall challenges: It is not possible to see in a Pull Request that introduces a new presubmit if that presubmit will actually pass. The two workarounds for this are to either have both the job author and the reviewer use two CLIs to create a Pod from the job or to make the Job initially optional, verify it with a test Pull Request to the code repository, then make it mandatory. Both of these workarounds are cumbersome. The same issues apply when doing changes to the config of a presubmit When a project maintains multiple branches, e.G. because there are release branches, the maintainers must remember to create a copy of the presubmit in the `infra-config` repository. Otherwise it is easely possible that the presubmit becomes incompatible with one of the branches it is used in, because somone makes a change to its config and forgets to test against all branches. This is an additional step maintainers have to remember when branching off. If the `test-infra` repository is not public, outside collaborators are unable to change job configs. This may happen if an organization that uses Prow has a mixture of public and private repositories and chooses not to bear the maintenance overhead of multiple Prow instances."
+    },
+    {
+      "id": "F029",
+      "format": "text",
+      "text": "An alternative to creating a new field in the Kubernetes CSR REST API would be to add an optional but critical x509 extension to the PEM encoded x509 CSR contained in the `spec.request` field. This extension would then serve to communicate the desired `expirationSeconds`. It is unclear what encoding format would be used for this extension, perhaps ASN.1 or JSON. This approach offer no benefits over the design presented above, and would likely make it far more difficult to adopt this functionality in the Kubernetes ecosystem."
+    },
+    {
+      "id": "F030",
+      "format": "text",
+      "text": "For the development (main/master) branch only, **NOT** the existing release branches: Switch remaining CI usage (mostly a few presubmits) to use the make build. Most of CI already uses the make builds, excluding some presubmits, we will need to switch these (generally a flag flip in the CI configuration). Most of periodic testing consumes pre-uploaded binaries from the make builds, and does not build at all. These will require no changes. In areas where the make build generates fewer artifacts or exercises fewer paths than bazel, we will err on the side of parity with artifacts that end up in a kubernetes/kubernetes release Remove the bazel build and associated tooling. There are multiple scripts and LOTS of files related wholly to the bazel build in Kubernetes. Once we are confident that CI is no longer reliant on them we can remove these and relieving the maintenance toil.\n\nNo changes should be made to the release branches or their CI."
+    },
+    {
+      "id": "F031",
+      "format": "text",
+      "text": "Changing the underlying build system. Both the make/shell-based build system and the Bazel-based build system will be affected, but users can continue to use their existing workflow. Removing cruft from the test tarballs. Likely, there are binaries and portable sources no longer being used anywhere, but we won't prune them with this effort. Changing what is released independent of the test tarball; i.e. whether we should make test binaries able to be downloaded directly from GCS."
+    },
+    {
+      "id": "F032",
+      "format": "text",
+      "text": "Our goals follow from our motivation: Support building Kubelet, from the `master` branch, without any \"Docker-specific\" code and without any dependency on `docker/docker`. As mentioned previously, we imagine the resulting binaries to be used to test the different paths for deleting/moving out-of-tree all \"Docker-specific\" code. Draw clear delineations, with CI support, for what code in Kubelet can and cannot be \"Docker-specific\" and depend on `docker/docker`."
+    },
+    {
+      "id": "F033",
+      "format": "text",
+      "text": "The motivation for each change is: Nodes used as intermediate nexthop for `eTP:Cluster` services would allow all connections passing through the node while it is being terminated, to gracefully shutdown. Adding this new `/livez` path will allow vendors / users of Kube-proxy to specify a `livenessProbe` which isn't impacted by any node termination indicator. It will indicate Kube-proxy health, only, just as is the case today. This is a low-hanging fruit which requires modifying the Kube-proxy DeamonSet spec to opt-in on. Cloud providers have very different ways of ascertaining if a load balancer should target a specific node for `eTP:Cluster` services. We would like to highlight the benefits of certain methods and pitfalls of others, in a formal document, so that this is known. The hope is that this allows the information to act as a source of knowledge for how to adapt their implementations to the mechanics of a Kubernetes cluster."
+    },
+    {
+      "id": "F034",
+      "format": "text",
+      "text": "One alternative would be to do nothing.\n\nAnother alternative could be waiting to address \"Docker-specific\" code in the Kubelet until we have more momentum around one of the longer-term solutions discussed above. If we waited, we could delete \"Docker-specific\" code entirely, instead of just compiling without it.\n\nFinally, we could attempt to have a long-running branch in which all \"Docker-specific\" code has been deleted, instead of attempting to support compiling a dockerless Kubelet from master."
+    },
+    {
+      "id": "F035",
+      "format": "text",
+      "text": "Update the validation of all IP-valued and CIDR-valued API fields in core (`k8s.io/api`) types to require stricter validation, to avoid potential security problems with ambiguously-parsable IPs/CIDRs. Don't require pre-existing invalid fields to be fixed on unrelated updates. E.g., if an existing Service has `clusterIP: 172.030.099.099`, allow a user to change the Service's `selector` without being forced to fix the bad `clusterIP` at the same time. This will initially be behind a feature gate. Before that, do a few releases where IP/CIDR values that would be invalid according to the new rules cause apiserver warnings. (This is [already done for IPs and CIDRs in Service].) For all new IP/CIDR-valued API fields, require that IPv6 addresses be in canonical form (e.g., `\"fc99::123\"`, not `\"FC99:0:0::0123\"`). (\"New fields\" here effectively means \"since v1.27\", because all of the IP/CIDR-valued fields added since then already had that validation requirement anyway.) For \"legacy\" fields, add apiserver warnings for IPv6 addresses in non-canonical form. Update the [CEL IP/CIDR validation helpers] to use the same code as the new core API validation. (The CEL helpers already have the correct semantics; this is just about not having two separate implementations.)\n\n[already done for IPs and CIDRs in Service]: [CEL IP/CIDR validation helpers]:"
+    },
+    {
+      "id": "F036",
+      "format": "text",
+      "text": "A common pattern for software configuration in linux is support for a drop-in configuration directory. The location of this directory is often based on a corresponding configuration file. For instance, `/etc/security/limits` can be overridden by files in `/etc/security/limits.d`. This pattern is useful for a number of reasons, though a large motivation here is to allow files to be owned by a single owner. If multiple processes are vying for changing the same file, then they could stamp over each other's changes and possibly race against each other, creating TOCTOU problems.\n\nComponents in Kubernetes can similarly be configured by multiple entities and preventing races between them is cumbersome. There has been past work in the Kubelet to have a Dynamic Configuration, but resolving between multiple entities and a last known good state was also complicated. Since the Kubelet is the node agent, and is often distributed as a package on the host operating system along with the container runtime, configuring it similarly to other host processes seems clear. This paves the path for continuing the pattern of drop-in configuration for the Kubelet."
+    }
+  ]
+}

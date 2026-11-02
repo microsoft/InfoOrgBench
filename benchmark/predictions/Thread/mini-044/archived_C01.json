@@ -1,0 +1,305 @@
+{
+  "assignments": [
+    {
+      "id": "F001",
+      "path": [
+        "HADOOP-16850",
+        "multipart-metadata"
+      ]
+    },
+    {
+      "id": "F002",
+      "path": [
+        "HADOOP-16857",
+        "ssl-retry-policy"
+      ]
+    },
+    {
+      "id": "F003",
+      "path": [
+        "HADOOP-16858",
+        "dt-credentials-tests"
+      ]
+    },
+    {
+      "id": "F004",
+      "path": [
+        "HADOOP-16859",
+        "unbuffer-support"
+      ]
+    },
+    {
+      "id": "F005",
+      "path": [
+        "HADOOP-16860",
+        "parallel-tests"
+      ]
+    },
+    {
+      "id": "F006",
+      "path": [
+        "HADOOP-16860",
+        "parallel-tests"
+      ]
+    },
+    {
+      "id": "F007",
+      "path": [
+        "HADOOP-16860",
+        "parallel-tests"
+      ]
+    },
+    {
+      "id": "F008",
+      "path": [
+        "HADOOP-16857",
+        "ssl-retry-policy"
+      ]
+    },
+    {
+      "id": "F009",
+      "path": [
+        "HADOOP-16857",
+        "ssl-retry-policy"
+      ]
+    },
+    {
+      "id": "F010",
+      "path": [
+        "HADOOP-16857",
+        "ssl-retry-policy"
+      ]
+    },
+    {
+      "id": "F011",
+      "path": [
+        "HADOOP-16859",
+        "version-updates"
+      ]
+    },
+    {
+      "id": "F012",
+      "path": [
+        "HADOOP-18759",
+        "abfs-retry-refactor"
+      ]
+    },
+    {
+      "id": "F013",
+      "path": [
+        "HADOOP-16860",
+        "version-updates"
+      ]
+    },
+    {
+      "id": "F014",
+      "path": [
+        "HADOOP-16859",
+        "unbuffer-support"
+      ]
+    },
+    {
+      "id": "F015",
+      "path": [
+        "HADOOP-16859",
+        "unbuffer-support"
+      ]
+    },
+    {
+      "id": "F016",
+      "path": [
+        "HADOOP-16859",
+        "version-updates"
+      ]
+    },
+    {
+      "id": "F017",
+      "path": [
+        "HADOOP-16859",
+        "unbuffer-support"
+      ]
+    },
+    {
+      "id": "F018",
+      "path": [
+        "HADOOP-16860",
+        "version-updates"
+      ]
+    },
+    {
+      "id": "F019",
+      "path": [
+        "HADOOP-17049",
+        "ssl-handshake-errors"
+      ]
+    },
+    {
+      "id": "F020",
+      "path": [
+        "HADOOP-16858",
+        "dt-credentials-tests"
+      ]
+    },
+    {
+      "id": "F021",
+      "path": [
+        "HADOOP-17056",
+        "encryption-public-buckets"
+      ]
+    },
+    {
+      "id": "F022",
+      "path": [
+        "HADOOP-17049",
+        "ssl-handshake-errors"
+      ]
+    },
+    {
+      "id": "F023",
+      "path": [
+        "HADOOP-17088",
+        "yarn-log-s3a"
+      ]
+    },
+    {
+      "id": "F024",
+      "path": [
+        "HADOOP-17013",
+        "dot-bucket-names"
+      ]
+    },
+    {
+      "id": "F025",
+      "path": [
+        "HADOOP-17106",
+        "trash-bypass"
+      ]
+    },
+    {
+      "id": "F026",
+      "path": [
+        "HADOOP-17013",
+        "dot-bucket-names"
+      ]
+    },
+    {
+      "id": "F027",
+      "path": [
+        "HADOOP-17049",
+        "ssl-handshake-errors"
+      ]
+    },
+    {
+      "id": "F028",
+      "path": [
+        "HADOOP-17013",
+        "dot-bucket-names"
+      ]
+    },
+    {
+      "id": "F029",
+      "path": [
+        "HADOOP-17049",
+        "ssl-handshake-errors"
+      ]
+    },
+    {
+      "id": "F030",
+      "path": [
+        "HADOOP-17104",
+        "abfs-metrics"
+      ]
+    },
+    {
+      "id": "F031",
+      "path": [
+        "HADOOP-16281",
+        "abfs-rename-debug"
+      ]
+    },
+    {
+      "id": "F032",
+      "path": [
+        "HADOOP-17049",
+        "ssl-handshake-errors"
+      ]
+    },
+    {
+      "id": "F033",
+      "path": [
+        "HADOOP-16857",
+        "ssl-retry-policy"
+      ]
+    },
+    {
+      "id": "F034",
+      "path": [
+        "HADOOP-16859",
+        "unbuffer-support"
+      ]
+    },
+    {
+      "id": "F035",
+      "path": [
+        "HADOOP-17013",
+        "dot-bucket-names"
+      ]
+    },
+    {
+      "id": "F036",
+      "path": [
+        "HADOOP-17013",
+        "dot-bucket-names"
+      ]
+    },
+    {
+      "id": "F037",
+      "path": [
+        "HADOOP-16859",
+        "version-updates"
+      ]
+    },
+    {
+      "id": "F038",
+      "path": [
+        "HADOOP-16860",
+        "version-updates"
+      ]
+    },
+    {
+      "id": "F039",
+      "path": [
+        "HADOOP-17105",
+        "abfs-token-retry"
+      ]
+    },
+    {
+      "id": "F040",
+      "path": [
+        "HADOOP-16858",
+        "dt-credentials-tests"
+      ]
+    },
+    {
+      "id": "F041",
+      "path": [
+        "HADOOP-16859",
+        "unbuffer-support"
+      ]
+    },
+    {
+      "id": "F042",
+      "path": [
+        "HADOOP-17061",
+        "s3guard-upload-info"
+      ]
+    },
+    {
+      "id": "F043",
+      "path": [
+        "HADOOP-16857",
+        "ssl-retry-policy"
+      ]
+    }
+  ]
+}

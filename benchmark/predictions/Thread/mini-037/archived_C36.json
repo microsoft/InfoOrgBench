@@ -1,0 +1,375 @@
+{
+  "assignments": [
+    {
+      "id": "F001",
+      "path": [
+        "S3A improvements",
+        "DistCp preservation"
+      ]
+    },
+    {
+      "id": "F002",
+      "path": [
+        "ABFS improvements",
+        "HNS configuration"
+      ]
+    },
+    {
+      "id": "F003",
+      "path": [
+        "ABFS improvements",
+        "HNS configuration"
+      ]
+    },
+    {
+      "id": "F004",
+      "path": [
+        "ABFS improvements",
+        "HNS configuration"
+      ]
+    },
+    {
+      "id": "F005",
+      "path": [
+        "ABFS improvements",
+        "Token failure retries"
+      ]
+    },
+    {
+      "id": "F006",
+      "path": [
+        "ABFS improvements",
+        "Non-HNS OAuth tests"
+      ]
+    },
+    {
+      "id": "F007",
+      "path": [
+        "ABFS improvements",
+        "Configuration documentation"
+      ]
+    },
+    {
+      "id": "F008",
+      "path": [
+        "ABFS improvements",
+        "Rename failure logging"
+      ]
+    },
+    {
+      "id": "F009",
+      "path": [
+        "ABFS backoff optimization",
+        "Connection timeout retry"
+      ]
+    },
+    {
+      "id": "F010",
+      "path": [
+        "ABFS improvements",
+        "HNS configuration"
+      ]
+    },
+    {
+      "id": "F011",
+      "path": [
+        "ABFS improvements",
+        "HTTP operation timings"
+      ]
+    },
+    {
+      "id": "F012",
+      "path": [
+        "ABFS improvements",
+        "Rename failure logging"
+      ]
+    },
+    {
+      "id": "F013",
+      "path": [
+        "ABFS improvements",
+        "HTTP operation timings"
+      ]
+    },
+    {
+      "id": "F014",
+      "path": [
+        "S3A improvements",
+        "DistCp preservation"
+      ]
+    },
+    {
+      "id": "F015",
+      "path": [
+        "ABFS improvements",
+        "Parallel contract tests"
+      ]
+    },
+    {
+      "id": "F016",
+      "path": [
+        "S3A improvements",
+        "DistCp preservation"
+      ]
+    },
+    {
+      "id": "F017",
+      "path": [
+        "S3A improvements",
+        "DistCp preservation"
+      ]
+    },
+    {
+      "id": "F018",
+      "path": [
+        "ABFS improvements",
+        "Non-HNS OAuth tests"
+      ]
+    },
+    {
+      "id": "F019",
+      "path": [
+        "ABFS improvements",
+        "Non-HNS OAuth tests"
+      ]
+    },
+    {
+      "id": "F020",
+      "path": [
+        "S3A improvements",
+        "Delegation token credential tests"
+      ]
+    },
+    {
+      "id": "F021",
+      "path": [
+        "S3A improvements",
+        "DistCp preservation"
+      ]
+    },
+    {
+      "id": "F022",
+      "path": [
+        "ABFS improvements",
+        "Non-HNS OAuth tests"
+      ]
+    },
+    {
+      "id": "F023",
+      "path": [
+        "ABFS improvements",
+        "Container API backport"
+      ]
+    },
+    {
+      "id": "F024",
+      "path": [
+        "S3A improvements",
+        "DistCp preservation"
+      ]
+    },
+    {
+      "id": "F025",
+      "path": [
+        "ABFS improvements",
+        "HTTP operation timings"
+      ]
+    },
+    {
+      "id": "F026",
+      "path": [
+        "ABFS improvements",
+        "Non-HNS OAuth tests"
+      ]
+    },
+    {
+      "id": "F027",
+      "path": [
+        "AWS SDK v2 migration",
+        "HEAD metadata headers"
+      ]
+    },
+    {
+      "id": "F028",
+      "path": [
+        "S3A improvements",
+        "DistCp preservation"
+      ]
+    },
+    {
+      "id": "F029",
+      "path": [
+        "ABFS improvements",
+        "HNS configuration"
+      ]
+    },
+    {
+      "id": "F030",
+      "path": [
+        "S3A improvements",
+        "DistCp preservation"
+      ]
+    },
+    {
+      "id": "F031",
+      "path": [
+        "ABFS backoff optimization",
+        "Connection timeout retry"
+      ]
+    },
+    {
+      "id": "F032",
+      "path": [
+        "ABFS improvements",
+        "Parallel contract tests"
+      ]
+    },
+    {
+      "id": "F033",
+      "path": [
+        "ABFS improvements",
+        "HTTP operation timings"
+      ]
+    },
+    {
+      "id": "F034",
+      "path": [
+        "ABFS improvements",
+        "Non-HNS OAuth tests"
+      ]
+    },
+    {
+      "id": "F035",
+      "path": [
+        "S3A improvements",
+        "DistCp preservation"
+      ]
+    },
+    {
+      "id": "F036",
+      "path": [
+        "ABFS improvements",
+        "HTTP operation timings"
+      ]
+    },
+    {
+      "id": "F037",
+      "path": [
+        "ABFS improvements",
+        "Configuration documentation"
+      ]
+    },
+    {
+      "id": "F038",
+      "path": [
+        "ABFS backoff optimization",
+        "Connection timeout retry"
+      ]
+    },
+    {
+      "id": "F039",
+      "path": [
+        "S3A improvements",
+        "Delegation token credential tests"
+      ]
+    },
+    {
+      "id": "F040",
+      "path": [
+        "ABFS improvements",
+        "Token failure retries"
+      ]
+    },
+    {
+      "id": "F041",
+      "path": [
+        "S3A improvements",
+        "DistCp preservation"
+      ]
+    },
+    {
+      "id": "F042",
+      "path": [
+        "ABFS improvements",
+        "HNS configuration"
+      ]
+    },
+    {
+      "id": "F043",
+      "path": [
+        "ABFS improvements",
+        "Container API backport"
+      ]
+    },
+    {
+      "id": "F044",
+      "path": [
+        "S3A improvements",
+        "DistCp preservation"
+      ]
+    },
+    {
+      "id": "F045",
+      "path": [
+        "ABFS backoff optimization",
+        "Connection timeout retry"
+      ]
+    },
+    {
+      "id": "F046",
+      "path": [
+        "ABFS improvements",
+        "Token failure retries"
+      ]
+    },
+    {
+      "id": "F047",
+      "path": [
+        "S3A improvements",
+        "DistCp preservation"
+      ]
+    },
+    {
+      "id": "F048",
+      "path": [
+        "S3A improvements",
+        "Remove HDFS dependency"
+      ]
+    },
+    {
+      "id": "F049",
+      "path": [
+        "S3A improvements",
+        "Remove HDFS dependency"
+      ]
+    },
+    {
+      "id": "F050",
+      "path": [
+        "S3A improvements",
+        "DistCp preservation"
+      ]
+    },
+    {
+      "id": "F051",
+      "path": [
+        "S3A improvements",
+        "Remove HDFS dependency"
+      ]
+    },
+    {
+      "id": "F052",
+      "path": [
+        "ABFS improvements",
+        "Non-HNS OAuth tests"
+      ]
+    },
+    {
+      "id": "F053",
+      "path": [
+        "ABFS improvements",
+        "Non-HNS OAuth tests"
+      ]
+    }
+  ]
+}

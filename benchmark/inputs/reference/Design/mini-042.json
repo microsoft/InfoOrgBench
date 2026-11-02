@@ -1,0 +1,366 @@
+{
+  "task_id": "mini-042",
+  "records": [
+    {
+      "id": "F001",
+      "path": [
+        "sig-cli",
+        "2257-kui"
+      ],
+      "content_sha256": "cb575bf6237239e76e82e9a76b86c30bb8c8aea32ad5d49182656ac0b867a719",
+      "source_native_id": "keps/sig-cli/2257-kui#excerpt-1",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F002",
+      "path": [
+        "sig-cli",
+        "2257-kui"
+      ],
+      "content_sha256": "8e8aca9e586c03c6486d4c05799acbd1d04c00cb8768a76393c5897adcd6d1ea",
+      "source_native_id": "keps/sig-cli/2257-kui#excerpt-2",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F003",
+      "path": [
+        "sig-cli",
+        "2257-kui"
+      ],
+      "content_sha256": "221c492b58f5a1374fd23e442cb6e1bb4f2653e8cf56fec0a81b3790883c84b9",
+      "source_native_id": "keps/sig-cli/2257-kui#excerpt-3",
+      "source_heading": "non-goals"
+    },
+    {
+      "id": "F004",
+      "path": [
+        "sig-cli",
+        "4706-deprecate-and-remove-kustomize"
+      ],
+      "content_sha256": "fbb84fac8e2330a8ba53e830c11799d9c83bc7729b58ed163a0c468e0e79e8bb",
+      "source_native_id": "keps/sig-cli/4706-deprecate-and-remove-kustomize#excerpt-3",
+      "source_heading": "design details"
+    },
+    {
+      "id": "F005",
+      "path": [
+        "sig-instrumentation",
+        "4785-resource-state-metrics"
+      ],
+      "content_sha256": "f16ef8dbb9eeb70d53a432b6ed82ecea2bfac7e82c69cddcebacdc8f9c8fb164",
+      "source_native_id": "keps/sig-instrumentation/4785-resource-state-metrics#excerpt-1",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F006",
+      "path": [
+        "sig-api-machinery",
+        "692-crd-openapi-schema"
+      ],
+      "content_sha256": "e382a268dff45952280536eefbd186f3e18cc586427f436d0c09bdc87b1d32b7",
+      "source_native_id": "keps/sig-api-machinery/692-crd-openapi-schema#excerpt-2",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F007",
+      "path": [
+        "sig-apps",
+        "2214-indexed-job"
+      ],
+      "content_sha256": "88845628fd2b49e8e7d17cfdc6fa0b2956ce635b95cd40f1c4ed8a88638fd6b2",
+      "source_native_id": "keps/sig-apps/2214-indexed-job#excerpt-3",
+      "source_heading": "risks and mitigations"
+    },
+    {
+      "id": "F008",
+      "path": [
+        "sig-apps",
+        "961-maxunavailable-for-statefulset"
+      ],
+      "content_sha256": "7b821872af2e739718bbfd6b1c0a4adaaf78af265abc7807e6ac897d853e849c",
+      "source_native_id": "keps/sig-apps/961-maxunavailable-for-statefulset#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F009",
+      "path": [
+        "sig-apps",
+        "3850-backoff-limits-per-index-for-indexed-jobs"
+      ],
+      "content_sha256": "310d7b0a7fa8534f8d9bf7835dc176498429afbb51b54cc7da42f058190cbc54",
+      "source_native_id": "keps/sig-apps/3850-backoff-limits-per-index-for-indexed-jobs#excerpt-3",
+      "source_heading": "design details"
+    },
+    {
+      "id": "F010",
+      "path": [
+        "sig-api-machinery",
+        "2558-publish-version-openapi"
+      ],
+      "content_sha256": "0732c0ebecb259aa23e3c14e6ed35c221e08bd99c2b05578c6bd65e3ecc9aa66",
+      "source_native_id": "keps/sig-api-machinery/2558-publish-version-openapi#excerpt-1",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F011",
+      "path": [
+        "sig-cli",
+        "2377-Kustomize"
+      ],
+      "content_sha256": "c02fa3073433a6c1538a0aaeb7ce988eb3dd8838d1054731bca47ac75f2f4bef",
+      "source_native_id": "keps/sig-cli/2377-Kustomize#excerpt-3",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F012",
+      "path": [
+        "sig-api-machinery",
+        "2558-publish-version-openapi"
+      ],
+      "content_sha256": "9c9f974416de8fe90a6e32ad3d37b69565961714dc42eb6e460cbaf3eecd58ec",
+      "source_native_id": "keps/sig-api-machinery/2558-publish-version-openapi#excerpt-3",
+      "source_heading": "non-goals"
+    },
+    {
+      "id": "F013",
+      "path": [
+        "sig-instrumentation",
+        "383-new-event-api-ga-graduation"
+      ],
+      "content_sha256": "a0747149baa2457bf99853a9ac1c42c28638311a44fe3366233f33a75a8b139a",
+      "source_native_id": "keps/sig-instrumentation/383-new-event-api-ga-graduation#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F014",
+      "path": [
+        "sig-apps",
+        "3850-backoff-limits-per-index-for-indexed-jobs"
+      ],
+      "content_sha256": "60b7ee4d812e898acf9ac334caa5d99a99664dcc1fa429340c9ece1fad812cb7",
+      "source_native_id": "keps/sig-apps/3850-backoff-limits-per-index-for-indexed-jobs#excerpt-1",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F015",
+      "path": [
+        "sig-cli",
+        "2377-Kustomize"
+      ],
+      "content_sha256": "a2d19bf37a0a21840a904c72aca53787e3ba14aeb938ec33f0a5a9f71e67cc74",
+      "source_native_id": "keps/sig-cli/2377-Kustomize#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F016",
+      "path": [
+        "sig-api-machinery",
+        "5073-declarative-validation-with-validation-gen"
+      ],
+      "content_sha256": "562a8130a5072512eca7f0496b22c23db830737ad6b77bc3dee19368dee06925",
+      "source_native_id": "keps/sig-api-machinery/5073-declarative-validation-with-validation-gen#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F017",
+      "path": [
+        "sig-instrumentation",
+        "4785-resource-state-metrics"
+      ],
+      "content_sha256": "ab7a4896bc325e132f90142e2cb1e18992b5524a9e44e32477941b174eb72061",
+      "source_native_id": "keps/sig-instrumentation/4785-resource-state-metrics#excerpt-2",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F018",
+      "path": [
+        "sig-cli",
+        "4706-deprecate-and-remove-kustomize"
+      ],
+      "content_sha256": "747fad5c46adb653464008379671322daa441a47be5755e4a1fa9f169d3fae38",
+      "source_native_id": "keps/sig-cli/4706-deprecate-and-remove-kustomize#excerpt-2",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F019",
+      "path": [
+        "sig-api-machinery",
+        "5073-declarative-validation-with-validation-gen"
+      ],
+      "content_sha256": "1ec5a8400bd029150a5aba35de7ee7e61df97e4885575a27640360b3663df5a2",
+      "source_native_id": "keps/sig-api-machinery/5073-declarative-validation-with-validation-gen#excerpt-2",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F020",
+      "path": [
+        "sig-apps",
+        "2214-indexed-job"
+      ],
+      "content_sha256": "32df314e424e6bc876aa72dbbc93174eadec63a6d4c01fdee01ca114a793ce26",
+      "source_native_id": "keps/sig-apps/2214-indexed-job#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F021",
+      "path": [
+        "sig-api-machinery",
+        "692-crd-openapi-schema"
+      ],
+      "content_sha256": "ba05a0a1025fb89f2a1058aa4e48f3ce865334fa0437d9aa982a0df0125ddf19",
+      "source_native_id": "keps/sig-api-machinery/692-crd-openapi-schema#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F022",
+      "path": [
+        "sig-apps",
+        "961-maxunavailable-for-statefulset"
+      ],
+      "content_sha256": "25e652177fc356546d939c2673c8fef3b4704d46f33662d3c409165c65ee1ae9",
+      "source_native_id": "keps/sig-apps/961-maxunavailable-for-statefulset#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F023",
+      "path": [
+        "sig-api-machinery",
+        "692-crd-openapi-schema"
+      ],
+      "content_sha256": "a976c232983ae5ce1ae267a6e670090484847ed192997228d157619d2539db8f",
+      "source_native_id": "keps/sig-api-machinery/692-crd-openapi-schema#excerpt-3",
+      "source_heading": "risks and mitigations"
+    },
+    {
+      "id": "F024",
+      "path": [
+        "sig-apps",
+        "3850-backoff-limits-per-index-for-indexed-jobs"
+      ],
+      "content_sha256": "e07a4ad3fd9c6af68d660160eb69e4ba4c3ef24745494577c8e614ebcaa4756f",
+      "source_native_id": "keps/sig-apps/3850-backoff-limits-per-index-for-indexed-jobs#excerpt-2",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F025",
+      "path": [
+        "sig-api-machinery",
+        "5073-declarative-validation-with-validation-gen"
+      ],
+      "content_sha256": "e301334ea9581c78863c12d1ad4a767f9170a201051c505820f5de0d3cdf93c2",
+      "source_native_id": "keps/sig-api-machinery/5073-declarative-validation-with-validation-gen#excerpt-3",
+      "source_heading": "non-goals"
+    },
+    {
+      "id": "F026",
+      "path": [
+        "sig-instrumentation",
+        "3498-extending-stability"
+      ],
+      "content_sha256": "8528160531144d5e4e1551b51d5869d3a1a6da4e3cacbf86aaf265349ac48dba",
+      "source_native_id": "keps/sig-instrumentation/3498-extending-stability#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F027",
+      "path": [
+        "sig-instrumentation",
+        "4785-resource-state-metrics"
+      ],
+      "content_sha256": "aea17266494abf335e029489938f632c71f5c50468d802905133f2bf31d28d9f",
+      "source_native_id": "keps/sig-instrumentation/4785-resource-state-metrics#excerpt-3",
+      "source_heading": "design details"
+    },
+    {
+      "id": "F028",
+      "path": [
+        "sig-cli",
+        "4706-deprecate-and-remove-kustomize"
+      ],
+      "content_sha256": "41eb9f96f903b90b52fb1f33d9b367a96abe6e0cb90cb0a540e5c2bb92fe22f3",
+      "source_native_id": "keps/sig-cli/4706-deprecate-and-remove-kustomize#excerpt-1",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F029",
+      "path": [
+        "sig-apps",
+        "961-maxunavailable-for-statefulset"
+      ],
+      "content_sha256": "2c331e3a7186dfb6356855fcd8c9dcf1ed1e6fbefe8be8ceaabb0f4fff8e2515",
+      "source_native_id": "keps/sig-apps/961-maxunavailable-for-statefulset#excerpt-3",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F030",
+      "path": [
+        "sig-instrumentation",
+        "383-new-event-api-ga-graduation"
+      ],
+      "content_sha256": "57c21db9af1fb6bd115ea976a6c053a9c228f85a620cf53ab8ba9fd49f4f7c3a",
+      "source_native_id": "keps/sig-instrumentation/383-new-event-api-ga-graduation#excerpt-3",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F031",
+      "path": [
+        "sig-apps",
+        "2214-indexed-job"
+      ],
+      "content_sha256": "0e34c71801176e7668afced19550be2527382fea8f8987e7863915c1a5b7a2c4",
+      "source_native_id": "keps/sig-apps/2214-indexed-job#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F032",
+      "path": [
+        "sig-instrumentation",
+        "383-new-event-api-ga-graduation"
+      ],
+      "content_sha256": "652e5cf4dc9653042477ce66a44421e608904351e2bc5a09c05d6c324b179243",
+      "source_native_id": "keps/sig-instrumentation/383-new-event-api-ga-graduation#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F033",
+      "path": [
+        "sig-api-machinery",
+        "2558-publish-version-openapi"
+      ],
+      "content_sha256": "82b7fb566786f35b7f6ac96da452cc7dcea5274dc8b97fb9094799d6f8ad4764",
+      "source_native_id": "keps/sig-api-machinery/2558-publish-version-openapi#excerpt-2",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F034",
+      "path": [
+        "sig-cli",
+        "2377-Kustomize"
+      ],
+      "content_sha256": "4eee581af4f2c438d2bdc97e0f9300eb2a4dffc6bd619b79973db6d2d00429e1",
+      "source_native_id": "keps/sig-cli/2377-Kustomize#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F035",
+      "path": [
+        "sig-instrumentation",
+        "3498-extending-stability"
+      ],
+      "content_sha256": "60c04a519792fcd6c0d7a349f0295b6314197172ccfd9050d34913db2b3d9e5b",
+      "source_native_id": "keps/sig-instrumentation/3498-extending-stability#excerpt-3",
+      "source_heading": "design details"
+    },
+    {
+      "id": "F036",
+      "path": [
+        "sig-instrumentation",
+        "3498-extending-stability"
+      ],
+      "content_sha256": "ba1253ac0a0c23a17f4b6e84efac55225b852e642b696fff312bc8bb25433cce",
+      "source_native_id": "keps/sig-instrumentation/3498-extending-stability#excerpt-2",
+      "source_heading": "proposal"
+    }
+  ],
+  "reference_scope": "Source-derived group/proposal hierarchy for a development-only difficulty and cost pilot."
+}

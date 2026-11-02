@@ -1,0 +1,235 @@
+{
+  "task_id": "ami/mini-017",
+  "records": [
+    {
+      "id": "F001",
+      "format": "text",
+      "text": "They also complained that remotes had too many buttons, and suggested incorporating a screen to simplify the interface but retain all of the functions."
+    },
+    {
+      "id": "F002",
+      "format": "text",
+      "text": "They also suggested making the remote water-resistant and including a clip."
+    },
+    {
+      "id": "F003",
+      "format": "text",
+      "text": "Similarly, using an extra base station would probably be too costly."
+    },
+    {
+      "id": "F004",
+      "format": "text",
+      "text": "An expanded target group may have to be taken into account in order to achieve the projected sales and profits."
+    },
+    {
+      "id": "F005",
+      "format": "text",
+      "text": "The project manager will add the minutes into the project folder."
+    },
+    {
+      "id": "F006",
+      "format": "text",
+      "text": "The ID will present the components concept."
+    },
+    {
+      "id": "F007",
+      "format": "text",
+      "text": "The Industrial Designer will research the working design and components."
+    },
+    {
+      "id": "F008",
+      "format": "text",
+      "text": "They complained that remotes got lost too easily, and suggested using a locator function."
+    },
+    {
+      "id": "F009",
+      "format": "text",
+      "text": "It would be a good idea to integrate a mechanism for finding the remote control, when the user loses it."
+    },
+    {
+      "id": "F010",
+      "format": "text",
+      "text": "The target group will be people below 40."
+    },
+    {
+      "id": "F011",
+      "format": "text",
+      "text": "They cannot install a special button on a TV, and using a special signal, like clapping, is tricky, because it needs to be differentiated from normal sounds."
+    },
+    {
+      "id": "F012",
+      "format": "text",
+      "text": "Power-saving LED's are available, but these could be more expensive."
+    },
+    {
+      "id": "F013",
+      "format": "text",
+      "text": "The industrial designer will look into what would be an appropriate technology to help users find their remote, when it is lost."
+    },
+    {
+      "id": "F014",
+      "format": "text",
+      "text": "Despite that, customers may want them to be on a remote; furthermore, they can be designed in a more attractive way."
+    },
+    {
+      "id": "F015",
+      "format": "text",
+      "text": "The group discussed their experiences with remote controls."
+    },
+    {
+      "id": "F016",
+      "format": "text",
+      "text": "The design can focus on such customer needs, like finding a mechanism to locate a lost remote."
+    },
+    {
+      "id": "F017",
+      "format": "text",
+      "text": "The UI will present the user interface concept."
+    },
+    {
+      "id": "F018",
+      "format": "text",
+      "text": "A recharging cradle can be added to compensate for the extra energy consumption."
+    },
+    {
+      "id": "F019",
+      "format": "text",
+      "text": "There was a challenge regarding the need of the digit channels, based on the fact that they are not often used, and they also look dull."
+    },
+    {
+      "id": "F020",
+      "format": "text",
+      "text": "The discussion also focused on their replacement with speech recognition, as the latter helps with locating the remote as well."
+    },
+    {
+      "id": "F021",
+      "format": "text",
+      "text": "The functions of the remote will include a back button to switch between two channels, volume, program selection, and speech recognition, with a focus on simplicity of design."
+    },
+    {
+      "id": "F022",
+      "format": "text",
+      "text": "A single, large, round button can be used for both volume and channel selection by using the four separate quadrants."
+    },
+    {
+      "id": "F023",
+      "format": "text",
+      "text": "LED's would signify extra energy consumption."
+    },
+    {
+      "id": "F024",
+      "format": "text",
+      "text": "The use of infrared, energy-efficient power source and cheap circuit was suggested."
+    },
+    {
+      "id": "F025",
+      "format": "text",
+      "text": "However, this solution may prove too expensive."
+    },
+    {
+      "id": "F026",
+      "format": "text",
+      "text": "The Marketing Expert will research user requirements."
+    },
+    {
+      "id": "F027",
+      "format": "text",
+      "text": "The Project Manager instructed the Industrial Designer to research the working design and components, the User Interface Designer to research the technical functions, and the Marketing Expert to research user requirements."
+    },
+    {
+      "id": "F028",
+      "format": "text",
+      "text": "The function of the remote is relatively simple: by pressing a button a current is passed to the chip, and defines what signal is to be sent to the receiver (the TV) via infrared."
+    },
+    {
+      "id": "F029",
+      "format": "text",
+      "text": "The group introduced themselves to each other."
+    },
+    {
+      "id": "F030",
+      "format": "text",
+      "text": "The User Interface Designer will research the technical functions."
+    },
+    {
+      "id": "F031",
+      "format": "text",
+      "text": "It also transpires that customers like innovative technology like speech recognition."
+    },
+    {
+      "id": "F032",
+      "format": "text",
+      "text": "It's difficult to choose a technique to find a lost remote."
+    },
+    {
+      "id": "F033",
+      "format": "text",
+      "text": "Another button to switch between two channels could also be implemented."
+    },
+    {
+      "id": "F034",
+      "format": "text",
+      "text": "The remote could light up via LED's placed inside."
+    },
+    {
+      "id": "F035",
+      "format": "text",
+      "text": "The marketing expert will need to find information on current trends."
+    },
+    {
+      "id": "F036",
+      "format": "text",
+      "text": "The group practiced using the meeting-room equipment by drawing on the whiteboard."
+    },
+    {
+      "id": "F037",
+      "format": "text",
+      "text": "There are some new requirements for the project: the device will have to be for TV only, they should ignore the teletext function, as it is dated, and, also, the remote should be recognisable as a Real Reaction product."
+    },
+    {
+      "id": "F038",
+      "format": "text",
+      "text": "LED's can be used to light up the remote."
+    },
+    {
+      "id": "F039",
+      "format": "text",
+      "text": "The UI preferred an easy-to-use remote to a multi-function one."
+    },
+    {
+      "id": "F040",
+      "format": "text",
+      "text": "The latter would be preferable to implementing a backlight into the remote."
+    },
+    {
+      "id": "F041",
+      "format": "text",
+      "text": "Adding such features may complicate the design and escalate costs."
+    },
+    {
+      "id": "F042",
+      "format": "text",
+      "text": "The remote will also include volume and program selection, and speech recognition."
+    },
+    {
+      "id": "F043",
+      "format": "text",
+      "text": "The Project Manager presented the projected profit and price point."
+    },
+    {
+      "id": "F044",
+      "format": "text",
+      "text": "Functions like zapping are very prevalent, as well as complaints about remotes being easy to lose."
+    },
+    {
+      "id": "F045",
+      "format": "text",
+      "text": "Using them sparsely, as in mobile phones, could bring down the cost."
+    },
+    {
+      "id": "F046",
+      "format": "text",
+      "text": "The Project Manager discussed the goals for the project and gave an agenda for the project as a whole."
+    }
+  ]
+}

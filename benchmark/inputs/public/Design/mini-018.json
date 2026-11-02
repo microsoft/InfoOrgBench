@@ -1,0 +1,185 @@
+{
+  "task_id": "mini-018",
+  "records": [
+    {
+      "id": "F001",
+      "format": "text",
+      "text": "The Horizontal Pod Autoscaler supports scaling of targets based on the resource usage of the pods in the target. The resource usage of pods is calculated as the sum of the individual container usage values of the pod. This is unsuitable for workloads where the usage of the containers are not strongly correlated or do not change in lockstep. This KEP suggests that when scaling based on resource usage the HPA also provide an option to consider the usages of individual containers to make scaling decisions."
+    },
+    {
+      "id": "F002",
+      "format": "text",
+      "text": "The main risk of this proposal is that the lifecycle of sidecar containers will be changed, which could potentially break existing behavior. To mitigate this risk, we will introduce several e2e tests and peer review to ensure that the changes are safe.\n\nThere is no security impact of this proposal.\n\nThe UX impact of this proposal is minimal, as it adds an expected behavior to the lifecycle of sidecar containers."
+    },
+    {
+      "id": "F003",
+      "format": "text",
+      "text": "As `ScaledToZero` is no explicit property, applying a new Deployment with `replicas: 0` and HPA `minReplicas: 0` can be confusing as the Deployment will never scale.\n\nThis needs should be documented and is detectable by looking at the existing `ScalingActive` condition.\n\nIn the future pausing the HPA can become an explicit feature and the implicit pausing via `replicas: 0` can be deprecate to remove this confusing."
+    },
+    {
+      "id": "F004",
+      "format": "text",
+      "text": "Allowing PriorityClasses to be non-preempting is important for running batch workloads.\n\nBatch workloads typically have a backlog of work, with unscheduled pods. Higher-priority workloads can be assigned a higher priority via a PriorityClass, but this may result in pods with partially-completed work being preempted. Adding the non-preempting option allows users to prioritize the scheduling queue, without discarding incomplete work."
+    },
+    {
+      "id": "F005",
+      "format": "text",
+      "text": "With the addition of scaling based on object and external metrics it became possible to automatically adjust the number of running replicas based on an application provided metric. A typical use-case case for this is scaling the number of queue consumers based on the length of the consumed queue.\n\nIn cases of a frequently idle queue or a less latency-sensitive workload, there is no need to keep one replica running at all times. Instead, you can dynamically scale to zero replicas, especially for workloads with high resource demands, such as those requiring GPUs. This approach not only reduces costs but also has significant energy-saving potential, particularly as GPU workloads become more prevalent. When replicas are scaled to zero, the HPA must also be capable of scaling back up as soon as messages become available."
+    },
+    {
+      "id": "F006",
+      "format": "text",
+      "text": "PriorityClasses are a GA feature as on 1.14, which impact the scheduling and eviction of pods. Pods are be scheduled according to descending priority. If a pod cannot be scheduled due to insufficient resources, lower-priority pods will be preempted to make room.\n\nThis proposal makes the preempting behavior optional for a PriorityClass, by adding a new field to PriorityClasses, which in turn populates PodSpec. If a pod is waiting to be scheduled, and it does not have preemption enabled, it will not trigger preemption of other pods."
+    },
+    {
+      "id": "F007",
+      "format": "text",
+      "text": "This proposal introduces an API to define constraints on a PodGroup (a collection of pods within a Workload) requiring it to be scheduled onto a specific subset of nodes or resources.\n\nWe support one type of constraints: **Topology Constraint (Node Label Co-location)**: Ensures all pods in a PodGroup are placed onto nodes sharing a common topological characteristic (e.g., same rack), defined by a specific node label.\n\nThe scheduler is extended to interpret these new PodGroup level scheduling constraints and similarly to scheduling pods on nodes (available scheduling options), find a \"Placement\" for this PodGroup among the feasible options (subsets of nodes) that satisfies them."
+    },
+    {
+      "id": "F008",
+      "format": "text",
+      "text": "The reason for this KEP is that restarting sidecar containers during Pod termination requires fundamental changes to the Pod lifecycle, and such changes cannot be introduced in beta (enabled by default) without risking disruption to users.\n\nOn the other hand, the code for sidecar containers is already well tested, and we are confident that many use cases will benefit from them even without the restart during Pod termination.\n\nFor this reason, we are introducing a separate feature gate for the sidecar containers KEP to decouple the two features and allow users to use sidecar containers without the refactoring required for the restart during Pod termination."
+    },
+    {
+      "id": "F009",
+      "format": "text",
+      "text": "An HPA is used to ensure that a scaling target is scaled up or down in such a way that the specificed current metric values are always maintained at a certain level. Resource based autoscaling is the most basic approach to autoscaling and has been present in the HPA spec since `v1`. In this mode the HPA controller fetches the current resource metrics for all the pods of a scaling target and then computes how many pods should be added or removed based on the current usage to achieve the target average usage."
+    },
+    {
+      "id": "F010",
+      "format": "text",
+      "text": "The following behaviors should be maintained during pod termination: sidecar containers restarting liveness, readiness and startup probing container lifecycle hooks running service account token rotation secret and configmap volume updates\n\nAlso, container termination should be non-blocking, which will fix issue #121398 a container cannot restart when there is any terminating container in the same pod."
+    },
+    {
+      "id": "F011",
+      "format": "text",
+      "text": "##### Client Hanging Indefinitely:\n\nWith the `timeout` filter enabled, it sends a `504 GatewayTimeout` response or an `error` to the client, if the request handler it is executing asynchronously does not return within the allotted deadline. If the client application does not enforce any client-side timeout, for example: not setting a timeout to the underlying `http.Client` or `http.Transport` object not setting a deadline to the `Context` object of an `http.Request`\n\n> It's worth noting that `client-go` does not enforce any global timeout by default."
+    },
+    {
+      "id": "F012",
+      "format": "text",
+      "text": "Introduce a new static policy option to optimize CPU assignments by prioritizing alignment with uncore cache groupings. The `prefer-align-cpus-by-uncorecache` option, enabled on an opt-in basis, attempts to allocate CPUs to each container in a way that minimizes the number of uncore caches used, if possible. Add a new member called `uncorecacheId` into the CPUInfo struct that tracks whether the CPU is part of a split uncore cache. Topology struct already contains CPUDetails which is a map of CPUInfo. CPUInfo knows about NUMA, socket, and core IDs associated with a CPU. Functionality to support this was merged in cadvisor with these pull-requests cadvisor/pr-2849 and cadvisor/pr-2847 Handle enablement of the policy option in pkg/kubelet/cm/cpumanager/policy_options.go and check the validity of the user flag and capability of the system. If the node CPU topology does not support split uncore caches, enabling this feature will not impact on the default CPU allocation behavior. For platforms where SMT is enabled, `prefer-align-cpus-by-uncorecache` can be enabled along with `full-pcpus-only` and enforce full core assignment with uncore cache alignment."
+    },
+    {
+      "id": "F013",
+      "format": "text",
+      "text": "With custom-metrics-based autoscaling, users frequently ask how to select more specific metrics in their metric storage. For instance, a user might have message queue statefulset with several queues producing metrics:\n\nSuppose they have a pool of works that they wish to scale for each queue. In the current-day HPA, it's non-trivial to allow selecting the metric for a specific queue. Current suggestions are metric-backend-specific (for instance, you could create a Prometheus recording rule to relabel or rename the metric), and often involve making external changes to the metrics pipeline.\n\nWith the addition of the metrics label selector, users could simply select the queue using the label selector:\n\nSimilarly, in discussions of scaling on queues, being able to divide a target backlog length by the number of available pods is often useful -- for instance, a backlog length of 3 might be acceptable if there are three pods processing items, but not if there is only one."
+    },
+    {
+      "id": "F014",
+      "format": "text",
+      "text": "[Horizontal Pod Autoscaler][] (HPA) automatically scales the number of pods in any resource which supports the `scale` subresource based on observed CPU or memory utilization (or, with custom metrics support, on some other application-provided metrics) from one to many replicas. This proposal adds support for scaling from zero to many replicas and back to zero for object and external metrics.\n\nScaling to zero is particularly effective for cost reduction when individual pods demand substantial resource requests, such as dedicated CPUs or GPUs. Since CPU and memory utilization can only be measured on running pods, scaling to zero will be limited to object and external metrics.\n\n[Horizontal Pod Autoscaler]:"
+    },
+    {
+      "id": "F015",
+      "format": "text",
+      "text": "We have several motivating examples for supporting partitionable devices with DRA, with the first two described in detail in this document. Additional details of the other use-cases can be found here. Partitioning a single GPU into smaller partitions. Multi-host scheduling of interconnected TPUs. SR-IOV Multi-host logical groupings to avoid deadlocks in LeaderWorkSet scheduling Single-host allocations of multiple TPUs in valid topologies Single-host allocations of multiple Inferentia and Trainium device in valid topologies"
+    },
+    {
+      "id": "F016",
+      "format": "text",
+      "text": "A new feature flag `PerHandlerReadWriteTimeout` will be introduced, when enabled: On start-up, the kube-apiserver will not add the timeout filter to the request handler chain. To every incoming non long-running request, the kube-apiserver will apply a request-scoped read/write deadline. Use a synchronous finisher in place of the the asynchronous finisher that is used today in order to asynchronously execute the admission and storage handling of mutating request(s). On the other hand, the synchronous finisher will execute the request in the same goroutine.\n\nWe also need to maintain parity in terms of observability - the logs/metrics that are generated for requests that time out today, should also be available when this feature is enabled."
+    },
+    {
+      "id": "F017",
+      "format": "text",
+      "text": "The `External` metric source type in the HPA currently supports passing a metric label selectors, which is passed to the custom metrics API (custom.metrics.k8s.io) to select a more specific metrics series. This allows users to more easily make use of existing metrics structure, without need to manipulate their metrics labeling and ingestion externally.\n\nAdditionally, it supports the `targetAverageValue` field, which allows artificially dividing an external metric by the number of replicas in the target scalable.\n\nThis proposal brings both of those fields to the `Object` metric source type, and further brings the selector field to the `Pods` metric source type, making both types more flexible and bringing them in line with the `External` metrics types."
+    },
+    {
+      "id": "F018",
+      "format": "text",
+      "text": "This KEP proposes to introduce a new CPU Manager static policy option, \"prefer-align-cpus-by-uncorecache\", that groups CPU resources by uncore cache where possible. An uncore cache, also known as the last-level-cache, refers to the cache that exists at a shared level among CPU cores, unlike low-level caches which are dedicated per individual core. The opt-in feature changes the CPU assignment algorithm to recognize and sort CPUs by uncore cache, and then allocate CPUs aligned to the fewest uncore caches as possible. This is primarily beneficial for CPU architectures that utilize multiple uncore caches, or split uncore caches, within the processor. In cases where the number of CPUs requested exceeds the number of CPUs grouped in a uncore cache, the algorithm attempts to align allocations at a best-effort policy to reduce assignments of CPUs across minimal uncore caches. If the CPU Manager cannot align optimally, it will still admit the workload as before. Uncore cache assignment will be preferred but not a strict requirement for this feature."
+    },
+    {
+      "id": "F019",
+      "format": "text",
+      "text": "The new gRPC health probe enables developers to probe gRPC health servers from the node. This allows them to stop using workarounds such as this grpc-health-probe paired with `exec` probes.\n\nIt allows natively running health checks on gRPC services without deploying additional binaries as well as other benefits outlined in the announcement.\n\nA limitation in the current implementation is that it only supports gRPC servers that do not leverage TLS connections. Even if they are not concerned about certificate verification for the health check, a connection cannot be established at all if the server is expecting TLS and the client is not.\n\nThis enhancement aims to add configuration options to enable TLS on the gRPC probe."
+    },
+    {
+      "id": "F020",
+      "format": "text",
+      "text": "Given we're changing the existing behavior, there is a risk of breaking some clients. To mitigate it, we will introduce all the logic behind two separate feature gates [to allow for disablement if needed]: WatchCacheInitializationPostStartHook (Beta, enabled by default since 1.36): handling the logic of the new post-start hook. There is a risk of kube-apiserver not initializing if this hook has issues, hence it started as Beta disabled by default. By 1.36 we managed to collect enough production data to justify enabling it by default. ResilientWatchCacheInitialization (Beta, enabled by default since 1.31): Handles the changes to returning 429 errors instead of keeping the requests hanging. The risk is visibly lower (and 429 errors were already returned before, even in small clusters where priority-levels are small enough to often admit only 1-2 inflight requests at once anyway) so the feature was enabled by default. This feature has proven stable and is targeting GA in 1.34."
+    },
+    {
+      "id": "F021",
+      "format": "text",
+      "text": "Currently the HPA accepts multiple metric sources to calculate the number of replicas in the target, one of which is called `Resource`. The `Resource` type represents the resource usage of the pods in the scaling target. The resource metric source has the following structure:\n\nHere the `Name` is the name of the resource. Currently only `cpu` and `memory` are supported for this field. The other field is used to specify the target at which the HPA should maintain the resource usage by adding or removing pods."
+    },
+    {
+      "id": "F022",
+      "format": "text",
+      "text": "Watchcache is a caching layer inside kube-apiserver that is eventually consistent cache of cluster state stored in etcd - both the state itself as well as the most recent history of transaction log. It is critical to achieve the control plane scalability thanks to its built-in indexing and deduplicating of the same work needed e.g. to distribute the same watch even to multiple watches.\n\nHowever, there are several issues when watchcache is either not yet initialized on kube-apiserver startup or requires re-initialization due to not keeping up with load later on. Both of these cases may lead to significant overload of the whole control plane (including etcd), in worst case even bringing it down.\n\nThe goal of this KEP is to describe the current issues and provide the path for addressing or at least mitigating them to avoid those control plane outages."
+    },
+    {
+      "id": "F023",
+      "format": "text",
+      "text": "Watchcache is mostly delegating all the write operations to the next layer (being etcd3 implementation of storage interface). The only thing it is doing (for Update and Delete calls) is trying to get the current state of the object from its cache to avoid the need of reading it from etcd (in case of conflict it may still be needed, but in huge amount of situations it allows to avoid this roundtrip)."
+    },
+    {
+      "id": "F024",
+      "format": "text",
+      "text": "**Complexity:** This proposal adds significant logic to the kube-scheduler framework, specifically the \"Placement\" abstraction and the simulation loop (Phase 2). **Performance:** Generating and simulating a large number of Placements (e.g., every rack in a massive cluster) could be computationally expensive. **Mitigation:** Pre-filtering of Placements will be implemented to discard clearly infeasible Placements (insufficient total resources) before the expensive pod-level simulation."
+    },
+    {
+      "id": "F025",
+      "format": "text",
+      "text": "Introduce the ability for \"structured parameters\" DRA to allocate both full devices and fixed-size partitions of full devices (across multiple dimensions). Both full devices and their valid set of partitions must be explicitly listed in a ResourceSlice for the scheduler to consider them for allocation. Keep the user-facing mechanism to request a full device or one of its partitions the same. In 1.31, it is already possible to select a device partition via a `Resourceclaim`, so long as the device vendor has pre-partitioned its devices and advertised them in a `ResourceSlice`. The user-facing mechanism to select these devices shouldn't change -- only the ability for the vendor to advertise \"overlapping\" partitions, such that the scheduler will never allocate conflicting ones at the same time."
+    },
+    {
+      "id": "F026",
+      "format": "text",
+      "text": "Add a Preempting field to both PodSpec and PriorityClass. This field will default to true, for backwards compatibility.\n\nIf Preempting is true for a pod, the scheduler will preempt lower priority pods to schedule this pod, as is current behavior.\n\nIf Preempting is false, a pod of that priority will not preempt other pods.\n\nSetting the Preempting field in PriorityClass provides a straightforward interface, and allows ResourceQuotas to restrict preemption.\n\nPriorityClass type example:\n\nThe Preempting field in PodSpec will be populated during pod admission, similarly to how the PriorityClass Value is populated. Storing the Preempting field in the pod spec has several benefits: The scheduler does not need to be aware of PiorityClasses, as all relevant information is in the pod. Mutating PriorityClass objects does not impact existing pods. Kubelets can set Preempting on static pods.\n\nPodSpec type example:\n\nThis feature should be gated in alpha, provisionally under the gate `NonPreemptingPriority`.\n\nDocumentation must be updated to reflect the new feature, and changes to PriorityClass/PodSpec fields."
+    },
+    {
+      "id": "F027",
+      "format": "text",
+      "text": "One of the original use-cases for Dynamic Resource Allocation (DRA) was the ability to dynamically allocate partitions of a full device (in addition to the full device itself). Whereas the traditional device plugin API forces users to statically partition devices ahead of time, DRA was designed to allow those partitions to be created on demand. This leads to increased resource utilization as the size of each partitioned device can be matched in real-time to the workload requesting it."
+    },
+    {
+      "id": "F028",
+      "format": "text",
+      "text": "The autoscaling/v2 API will be updated the following way:\n\nNotice that the `metricName` field is replaced with a new `metric` field, which encapsulates both the metric name, and an optional label selector, which takes the form of a standard kubernetes label selector.\n\nThe `targetXXX` fields are replaced by a unified `Target` field that contains the different target types. The `target` field in the Object metric source type is renamed to `describedObject`, since the `target` field is now taken, and to more accurately describe its purpose.\n\nThe `External` source is updated slightly to match the new form of the `Pods` and `Object` sources.\n\nThese changes necessitate a second beta of `autoscaling/v2`: `autoscaling/v2beta2`.\n\nSimilarly, corresponding changes need to be made to the custom metrics API:\n\nThis will also require bumping the custom metrics API to `custom.metrics.k8s.io/v1beta2`.\n\n**Note that if a metrics pipeline works in such a way that multiple series are matched by a label selector, it's the metrics adapter's job to deal with it, similarly to the way things current work with the custom metrics API.**"
+    },
+    {
+      "id": "F029",
+      "format": "text",
+      "text": "We propose enhancements to the Kubernetes API to support **Server-Side Watch Sharding**. This allows clients to request a filtered stream of events based on a consistent hashing strategy determined by the client. Clients specify a new `selector` parameter utilizing specific grammar (e.g., `selector=shardRange(object.metadata.uid, start, end)`) in their `ListOptions`. The API server computes the hash of the target field for each object and only dispatches events that fall within the requested range. This enables efficient horizontal scaling of controllers by ensuring each replica only processes the data it owns, reducing network ingress and deserialization overhead."
+    },
+    {
+      "id": "F030",
+      "format": "text",
+      "text": "Traditional CPU architectures commonoly employ a monolithic uncore cache design where all CPU cores share equal access to a unified uncore cache. To address scalability challenges, CPU architectures are adopting a modular design. One such example is the split uncore cache architecture, where subsets of CPU cores are grouped with dedicated uncore caches, and these modular units are interconnected to form the complete processor."
+    },
+    {
+      "id": "F031",
+      "format": "text",
+      "text": "**Coordination**: This proposal does not implement the coordination logic for clients. Clients are still responsible for determining their shard ranges. **Resharding**: The API server does not manage shard rebalancing strategies; By providing the raw hash ranges, clients can implement their own consistent hashing strategies if needed. This is future work that we are interested in, but is out of scope for this KEP. **Sharding KCM**: Sharding KCM is a complex topic that is outside the scope of this KEP. We are working on the fundamental building blocks that can enable sharding for KCM in the future. We want to eventually move towards a full sharding system, and this KEP acts as the initial step."
+    },
+    {
+      "id": "F032",
+      "format": "text",
+      "text": "WATCH requests are outside the scope of this proposal. Today, the `timeout` handler does not handle any long-running requests including WATCH, it only handles short (non long-running) requests. The scope of this proposal is the same, short (non long-running) requests only. Today, for any WATCH, if we inspect the context of the request, it would not have any deadline. if we want to enable read/write deadline for WATCH, then an orthogonal effort to wire the context of a WATCH request with a proper deadline is a prerequisite, and such effort is outside the scope of this proposal. All other long-running requests are also outside the scope of this proposal."
+    },
+    {
+      "id": "F033",
+      "format": "text",
+      "text": "As Kubernetes clusters grow, the volume of events for core resources like `Pods` increases significantly due to high churn. Many controllers need to scale to handle this load.\n\nHistorically, most controllers choose to scale vertically (e.g., `kube-controller-manager`), as there is no native support for sharding or partitioning the watch stream. Some specialized controllers (e.g., `kube-state-metrics`) have implemented their own client-side horizontal sharding to distribute work.\n\nHowever, client-side sharding has a critical limitation: it does not reduce the incoming event volume per replica. Every replica still receives the full stream of events, paying the CPU and network cost to deserialize everything, only to discard items not belonging to their shard. Functionally, this makes horizontal scaling of the watch stream impossible. This results in: Wasted network bandwidth and overhead (N replicas * Full Stream). Wasted CPU and Memory on clients for processing irrelevant events.\n\nThe goal of this proposal is to address this bottleneck. By moving filtering to the API server, we provide the primitive needed to: Allow vertically scaled controllers to eventually adopt sharded architectures. Enable existing horizontally scalable controllers to scale efficiently without the \"full stream\" penalty.\n\nWe propose moving the filtering logic \"upstream\" to the Kubernetes API Server. By filtering events at the source, we ensure that each controller replica receives only the data it is responsible for."
+    },
+    {
+      "id": "F034",
+      "format": "text",
+      "text": "**Scheduling Latency:** Evaluating multiple placements involves running filter/score plugins multiple times (multiple attempts to schedule a PodGroup considering all topology options). **Mitigation:** Implement early placement rejection optimization to stop feasibility checks for placements which cannot fit gang scheduled PodGroups. **Complexity of Pod Group Scheduling:** Scheduling heterogeneous Pod Groups can be complex. **Mitigation:** We support only sequential processing of pods within a PodGroup, avoiding complex backtracking or parallel processing."
+    },
+    {
+      "id": "F035",
+      "format": "text",
+      "text": "We often deploy internal gRPC services on our cluster. These deployments provide internal services and it's simple to add the health server to them so they can be verified through a single interface.\n\nIt's also worth noting we have an internal CA that signs certs for communicating with these servers and all of them use TLS.\n\nCurrently, we are using the exec probe for readiness and liveness configured as:\n\nWe would really like to switch to the gRPC probes introduced in 1.24 but are unable to do so since there is no way to configure it to use a TLS connection when reaching out to the health server.\n\nInstead we must continue to rely on the exec probe and cannot reap the benefits described in the announcement."
+    },
+    {
+      "id": "F036",
+      "format": "text",
+      "text": "**Nested `tls` struct with `mode` field.** The Previous KEP proposal added a `tls` sub-struct to `GRPCAction` with a `mode` field (`NoVerify`). The presence of the struct indicated TLS should be used. This was rejected by reviewers because the probe will never validate certificates (it connects to localhost/pod IP), so a nested struct adds unnecessary complexity. A flat `mode` field on `GRPCAction` is simpler and sufficient.\n\n**Boolean `tls` flag.** A simple `tls: true/false` boolean was discussed. This was rejected in favor of a string enum (`mode`) to allow explicit naming of the connection type (`\"TLS\"`, `\"Plaintext\"`) and to leave room for future values without a breaking API change."
+    }
+  ]
+}

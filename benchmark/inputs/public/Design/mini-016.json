@@ -1,0 +1,185 @@
+{
+  "task_id": "mini-016",
+  "records": [
+    {
+      "id": "F001",
+      "format": "text",
+      "text": "The goal of this feature is to allow a StatefulSet to be migrated (cross namespace, cross cluster, split into segments) without disrupting the underlying application.\n\nA StatefulSet of `N` replicas implicitly numbers pods from ordinal `0` to `N-1`. The end ordinal (`N-1`) can be controlled with the `replicas` field. The goal of this feature is to allow a StatefulSet’s first ordinal to start from any natural number `k`. This enables StatefulSet ordinals from `k` to `N+k-1`"
+    },
+    {
+      "id": "F002",
+      "format": "text",
+      "text": "StatefulSets currently offer two update strategies: `OnDelete` (manual) and `RollingUpdate` (automatic, default). When using `RollingUpdate` with the default `podManagementPolicy: OrderedReady`, StatefulSets follow sequential ordering where each individual pod must be Running and Ready before the controller proceeds to update the next pod. Even with the `maxUnavailable` option (which allows multiple pods to be updated simultaneously), the controller still requires each pod to reach Ready state before moving forward but stuck pods halt the entire update process."
+    },
+    {
+      "id": "F003",
+      "format": "text",
+      "text": "This feature is motivated by the use case of orchestrating the migration of a StatefulSet across a namespace or a Kubernetes cluster without disruption. Existing approaches to this problem include: Backup and restore: This approach takes a backup of an application (StatefulSet, underlying storage), and re-creates it in a different location. This introduces application downtime, the duration of time between old StatefulSet termination and new StatefulSet recreation."
+    },
+    {
+      "id": "F004",
+      "format": "text",
+      "text": "This KEP propses a new, mutually exclusive sibling field to `additionalPrinterColumns[].jsonPath` called `additionalPrinterColumns[].expression`. This field allows defining printer column values using CEL (Common Expression Language) expressions that evaluate to strings.\n\nTo support this, the `CustomResourceColumnDefinition` struct will be extended to accept CEL expressions for printer columns, and the API server will evaluate these expressions dynamically when responding to `Table` requests (e.g., `kubectl get`), producing richer, computed, or combined column outputs."
+    },
+    {
+      "id": "F005",
+      "format": "text",
+      "text": "There are resources in Kubernetes which have immutable fields by design, i.e. after creation of an object, those fields cannot be mutated anymore. E.g. a pod's specification is mostly unchangeable once it is created. To change the pod, it must be deleted, recreated and rescheduled. Users want to implement the same kind of read-only semantics for CustomResources, for example: Today this is only possible with the unreasonable development overhead of a webhook."
+    },
+    {
+      "id": "F006",
+      "format": "text",
+      "text": "As the Kubernetes project matures, and is used as the foundation for other projects, production distributions are expected to increase in stability, reliability, and consistency. The Kubernetes conformance project is an important aspect of ensuring consistency across distributions. A production distribution should not be required to enable non-GA features or REST APIs in order to pass conformance tests.\n\nBeta dependencies can be grouped into several categories: Kubernetes components requiring beta REST APIs with no stable alternatives (kubelet's use of the beta CertificateSigningRequest endpoints for cert rotation is a borderline example; cert rotation is not a required feature, but all our setup and test tools make use of it) Kubernetes components requiring beta REST APIs with stable alternatives (for example, kube-scheduler accidentally switched to using the beta Events REST API in 1.16) Kubernetes components requiring behavior enabled by beta feature gates Kubernetes conformance tests requiring calls to beta REST APIs Kubernetes conformance tests exercising behavior enabled by beta feature gates\n\nFor each category, we should identify and resolve existing dependencies, and prevent future occurrences."
+    },
+    {
+      "id": "F007",
+      "format": "text",
+      "text": "Build a comprehensive in-tree policy framework. We believe the ecosystem is best equipped to explore and develop policy frameworks. We're focusing on building an extensible enforcement point into admission control that can be used to build policy frameworks. Examples of what policy frameworks might do beyond this enhancement might do: Auditing already written resources Building out libraries for code reuse Validating Kubernetes resource YAML files adhere to a policy in a CI/CD pipeline Mutation support. While we believe this enhancement could be extended in the future to support mutations, we believe it is best handled as a separate enhancement. That said, we need to keep mutation in mind in this KEP to ensure we design it in such a way that we don't obviously paint ourselves into a corner where mutation would be difficult to introduce later. Full feature parity with validating admission webhooks. For example, this enhancement is not expected to ever support making requests to external systems. Replace the admission controllers compiled into the API server. Static or on-initialization specification of admission config. This is a needed feature but should be solved in a general way and not in this KEP (xref:"
+    },
+    {
+      "id": "F008",
+      "format": "text",
+      "text": "Modifying the existing states of deployment controller Changing the definition of statuses Introduce new api for existing conditions To properly implement Progressing condition. `.spec.progressDeadlineSeconds` field has to be introduced as part of an additional KEP in DaemonSet and StatefulSet to describe the time when the controllers should declare the workload as `failed`. consider adding Conditions field to CronJob"
+    },
+    {
+      "id": "F009",
+      "format": "text",
+      "text": "Today CRD additionalPrinterColumns only supports JSONPath. This is done today with TableConvertor that converts objects to `metav1.Table`. Once we create a CRD, a new TableConvertor object will be created along with it. The TableConvertor is what processes the output for additionalPrinterColumns when we query for custom resources. The JSONPath is validated during the CRD validation and is parsed when the TableConvertor is created. We propose extending the CRD API as well as the `TableConvertor` logic to handle CEL expressions alongside the existing JSONPath logic without changing any of the current behaviour."
+    },
+    {
+      "id": "F010",
+      "format": "text",
+      "text": "Add a new `Recreate` update strategy type to StatefulSet, providing a third option alongside `OnDelete` and `RollingUpdate` Align StatefulSet update strategies with Deployment patterns for API consistency Enable automated recovery from stuck pod states without manual intervention Provide a simple, predictable update behavior for workloads that can tolerate downtime Support use cases like CI/CD environments, stateless applications, external storage applications, and LeaderWorkerSet patterns Add `Progressing` state condition to `StatefulSet` status for all strategies"
+    },
+    {
+      "id": "F011",
+      "format": "text",
+      "text": "A lot of fields in APIs tend to be \"immutable\", they can't be changed after creation. This is true for example for many of the fields in pods. There is currently no way to declaratively specify that fields are immutable, and one has to rely on either built-in validation for core types, or have to build a validating webhooks for CRDs.\n\nProviding a new `// +immutable` marker would help to make the API more descriptive to users to help API developers by verifying these assertions automatically and to publish this information via OpenAPI."
+    },
+    {
+      "id": "F012",
+      "format": "text",
+      "text": "Allow users to make full use of the yearly support period Streamline upgrade paths for nodes / node pools to minimize required workload churn Validate oldest supported node components work with latest control plane components Update the Kubernetes version skew policy to indicate node components from the oldest supported minor version work with control plane components from the newest supported minor version, starting with Kubernetes `v1.25` nodes and `v1.28` control planes."
+    },
+    {
+      "id": "F013",
+      "format": "text",
+      "text": "Make it possible to easily disable all beta REST APIs and features Add support for disabling built-in REST API versions of the form `v[0-9]+beta[0-9]+` to the Kubernetes API server with `--runtime-config api/beta=false` Parallels existing use of `--runtime-config api/all=false` For completeness, we can also add support for disabling built-in REST API versions of the form `v[0-9]+alpha[0-9]+` to the Kubernetes API server with `--runtime-config api/alpha=false` Add support for disabling beta feature gates to all components with `--feature-gates AllBeta=false` Parallels existing use of `--feature-gates AllAlpha=false` Identify existing beta REST APIs/features required by Kubernetes components or conformance tests Iteratively run a conformance test with all beta REST APIs and features disabled Identify failures due to uses of beta features/REST APIs Open issues for owners of the relevant tests or components to remove the beta dependency Construct an exemption list of beta features/REST APIs currently required to pass conformance Prevent introduction of new required beta dependencies in Kubernetes components or conformance tests Set up a merge-blocking CI job running conformance tests with all beta REST APIs and features disabled except the exemptions constructed in step 2. Resolve existing dependencies on beta REST APIs/features required by Kubernetes components or conformance tests Track issues opened in step 2 As each dependency is resolved, remove it from the exemption list"
+    },
+    {
+      "id": "F014",
+      "format": "text",
+      "text": "Change default behavior of StatefulSet updates (opt-in via explicit `type: Recreate` configuration) Add timeout-based progressive failure detection (use Recreate for simplicity) Change Recreate deletion semantics (all pods are always deleted simultaneously but recreate ordering follows `podManagementPolicy`) Replace Deployment-style revision management (StatefulSets continue to directly manage Pods)"
+    },
+    {
+      "id": "F015",
+      "format": "text",
+      "text": "Ease of rotation. At present, kube-apiserver loads service account keys at process start time and the keys remain the same for the life-time of the process. Thus, rotating keys require a kube-apiserver to restart. External key management eliminates the need to restart. Enhanced security. kube-apiserver loads service account keys from a file on the disk. This means anyone with privileged access to the kube-apiserver configuration / filesystem could exfiltrate signing material. An external signer that never returns signing material would mitigate this risk."
+    },
+    {
+      "id": "F016",
+      "format": "text",
+      "text": "Provide an alternative to webhooks for the vast majority of validating admission use cases. Provide the in-tree extensions needed to build policy frameworks for Kubernetes, again without requiring webhooks for the vast majority of use cases. Make good use of CEL type checking. This becomes complicated when considering that CRD schemas can be changed at any time and that not all fields of built in types exist in an older Kubernetes version. Provide a polyfill implementation that is supported by the Kubernetes org to provide this enhancement functionality to Kubernetes versions where this enhancement is not available. Provide core functionality as a library so that use cases like GitOps, CI/CD pipelines, and auditing can run the same CEL validation checks that the API server does."
+    },
+    {
+      "id": "F017",
+      "format": "text",
+      "text": "The current Dynamic Resource Allocation (DRA) feature enables users to request resources but lacks a mechanism for cluster administrators to gain privileged access to devices already in use by other users. This limitation restricts administrators from performing tasks like: Monitoring device health or status. Performing diagnostics and troubleshooting on devices shared across users.\n\nEnabling such administrative tasks without compromising security is critical to cluster operations. Non-admin users gaining access to devices in use by others could result in: Unauthorized access to confidential information about device usage. Potential conflicts or misuse of shared hardware.\n\nAs the adoption of DRA expands, the inability of administrators to perform privileged device introspection becomes a bottleneck for cluster operations, particularly in shared environments where devices are critical resources."
+    },
+    {
+      "id": "F018",
+      "format": "text",
+      "text": "extend the CRD API to be able to specify immutability for fields. publish the immutability field of CRDs via OpenAPI as vendor extension. verify immutability on CR update and patch requests. propose a source code marker to be consumed by kubebuilder and openapi-gen. the semantics of immutability must be driven by: we do not break/change old CRD persistence semantics. the user-observed equality used for immutability checks must match the equality on persisted objects. I.e. if `StorageRoundtrip(object)` is the object returned by a create or update call, then we want that `StorageRoundtrip(a) == StorageRoundtrip(b)` is the equality used for comparing `a` and `b` **only modulo the order in `x-kubernetes-list-type: set` arrays**. If that check fails, a request is rejected because of immutability conflict. the mechanism must extend to the addition of protobuf or other encodings which unify values like empty, null and undefined. the use for existing native types in order to replace complex validation code with a simple declarative marker on the types. the restriction of the equality to only map keys, but not their values. the allowance of addition and/or deletion of map keys. the allowance of addition and/or deletion of keys in array of list-type `map`."
+    },
+    {
+      "id": "F019",
+      "format": "text",
+      "text": "Introduce the metadata necessary to configure features/APIs/storage-versions/validation rules to match the behavior of an older Kubernetes release version A Kubernetes binary with emulation version set to N, will pass the conformance and e2e tests from Kubernetes release version N. A Kubernetes binary with emulation version set to N does not enable any changes (storage versions, CEL feature, features) that would prevent it from being rolled back to N-1. The most recent Kubernetes version supports emulation version being set to the full range of supported versions. In alpha we intend to support: `--emulation-version` range of `binaryMinorVersion`..`binaryMinorVersion-1` In beta, we intend to extend support to: `--emulation-version` range of `binaryMinorVersion`..`binaryMinorVersion-3` `--min-compatibility-version` to `emulationVersion`..`binaryMinorVersion-3`"
+    },
+    {
+      "id": "F020",
+      "format": "text",
+      "text": "Add a configuration to to begin testing 3 version node / control plane skew Identify in-flight feature enablement plans from SIGs that rely on a maximum of 2 version node / control plane skew, and the node version when those plans would be complete Choose the minimum node version to begin supporting 3-version skew that avoids disrupting the plans identified in step 2 1.25 nodes / 1.28 control planes Update the Kubernetes version skew policy as part of the release identified in step 3 Update identified KEPs that need to adjust timelines Update the \"Production Readiness Review - Version Skew Strategy\" portion of the KEP template to remind KEP authors of max supported skews"
+    },
+    {
+      "id": "F021",
+      "format": "text",
+      "text": "The notion of more granular steps in Kubernetes upgrades is attractive because it is more rigorous about how we step through a Kubernetes control-plane upgrade, introducing potentially corrupting data (i.e. data only present in N+1 and not in N) only in later stages of the upgrade process. For example, upgrading from Kubernetes 1.30 to 1.31 while keeping the emulation version at 1.30 would enable a cluster administrator to validate that the new Kubernetes binary version is working as desired before exposing any feature changes introduced in 1.31 to cluster users, and without writing and data to storage at newer API versions."
+    },
+    {
+      "id": "F022",
+      "format": "text",
+      "text": "The Kubernetes yearly support period already makes annual upgrades possible. Users can upgrade to latest patch versions to pick up security fixes, and do 3 sequential minor version upgrades once a year to \"catch up\" to the latest supported minor version. However, since the tested/supported skew between nodes and control planes is currently limited to 2 versions, a 3-version upgrade would have to update nodes twice to stay within supported skew."
+    },
+    {
+      "id": "F023",
+      "format": "text",
+      "text": "**Risk:** New token generation and validation could suffer a performance difference due to communication over a socket and a potential remote RPC call (will vary for different signer implementations).\n\n**Mitigation:** Performance overhead will be benchmarked and documented for integrators. **Risk:** Signing and verifying tokens over a grpc API carries the risk of a server side request forgery, where a malicious client could generate tokens.\n\n**Mitigation:** The API will only be accessible over a unix socket protected by standard file permissions; This is already done for other sensitive integrations like KMS. Documentation will be added to ensure that distributions limit the socket to privileged or specific uids. **Risk:** With an external signer, token headers and claims can diverge from that in existing JWTs as signed by kube-apiserver.\n\n**Mitigation:** External signers will only return signature and header while kube-apiserver will assemble the JWT. This will allow kube-apiserver to validate the header and control the claims."
+    },
+    {
+      "id": "F024",
+      "format": "text",
+      "text": "This feature makes the assumption that an admin will only perform read-only monitoring and troubleshooting operations. However, it is possible that an admin also performs write access to the device. This risk can be mitigated by the DRA driver to ensure AdminAccess ResourceClaims can only execute read-only operations on the device. We can add a warning in the driver documentation. However, what additional permissions are granted or needed for admin operations is up to the DRA driver implementation."
+    },
+    {
+      "id": "F025",
+      "format": "text",
+      "text": "Identify existing beta REST APIs and features required by Kubernetes components so they can be graduated or the dependencies removed Identify existing beta REST APIs and features required by conformance tests so the tests can be rewritten to remove those dependencies Prevent new beta REST APIs and features from being required by Kubernetes components or conformance tests Demonstrate passing conformance tests on a cluster with all beta REST APIs and features disabled"
+    },
+    {
+      "id": "F026",
+      "format": "text",
+      "text": "As the Dynamic Resource Allocation (DRA) feature evolves, cluster administrators require a privileged mode, referred to as DRAAdminAccess, to securely access devices already in use by other users. This mode enables administrators to perform tasks such as monitoring the health and status of all devices while ensuring that regular users can only run containers on devices explicitly claimed by their workloads.\n\nThis KEP proposes a mechanism for cluster administrators to mark a request in a ResourceClaim or ResourceClaimTemplate with an admin access flag. This flag allows privileged access to devices, enabling administrative tasks without compromising security. Access to this mode is restricted to users authorized to create ResourceClaim or ResourceClaimTemplate objects in namespaces marked with the DRA admin label, ensuring that non-administrative users cannot misuse this feature.\n\nNote: Administrator workloads should not interfere with the application workloads. If that cannot be supported due to hardware restrictions or that the administrator workload is too demanding, then administrators should request exclusive access for specific admin task such that no other claims are allocated."
+    },
+    {
+      "id": "F027",
+      "format": "text",
+      "text": "We intend to introduce version compatibility and emulation options to Kubernetes control plane components to make upgrades safer by increasing the granularity of steps available to cluster administrators.\n\nWe will introduce a `--emulation-version` flag to emulate the capabiliites (APIs, features, ...) of a prior Kubernetes release version. When used, the capabilities available will match the emulated version. Any capabilities present in the binary version that were introduced after the emulation version will be unavailable and any capabilities removed after the emulation version will be available. This enables a binary version to emulate the behavior of a previous version with sufficient fidelity that interoperability with other system components can be defined in terms of the emulated version.\n\nWe will also introduce a `--min-compatibility-version` flag to control the minimum version a control plane component is compatible with (in terms of storage versions, validation rules, ...). When used, the component tolerates workloads that expect the behavior of the specified minimum compatibility version, component skew ranges extend based on the minimum compatibility version, and rollbacks can be performed back to the specified minimum compatibility version."
+    },
+    {
+      "id": "F028",
+      "format": "text",
+      "text": "Remove the `system:unauthenticated` subject group from the default `system:discovery` and `system:basic-user` ClusterRoleBindings Create a new default ClusterRole which prominently, explicitly documents its intent to freely disclose information (e.g. `system:public-info-viewer`) and contains the `GET /healthz`, `/version` and `/version/` PolicyRules. Create a new default ClusterRoleBinding for the new ClusterRole, which grants the `system:(un)authenticated` subject groups access."
+    },
+    {
+      "id": "F029",
+      "format": "text",
+      "text": "**StatefulSet Spec Changes**\n\nA new struct is introduced to the `StatefulSetSpec`. In this KEP, the field only has a single field `Start`. A struct is added (rather than putting `start` directly into `spec`) to allow for the ordinals struct to change over time. If future use cases of StatefulSet require further ordinal controls (eg: ordinal numbering based on failure domains), new fields related to the numbering and grouping of StatefulSet ordinals can be added to this struct.\n\n**Control Loop Changes**\n\nIn the main control loop, StatefulSet will attempt to create pod replicas `[k, N+k-1]` When scaling up pods: If ordinal `i` in range `[k, N+k-1]` does not exist, pod `i` will be created. When scaling down pods: If ordinal `j` exists but is not in range `[k, N+k-1]`), pod `j` will be terminated. **RollingUpdate Partition Changes**\n\nSince `ordinals.start` changes the offset of the replica ordinals, this affects the `partition` field used for RollingUpdate. As `partition` specifies an ordinal index, the partition field must be in the range `[k, N+k-1]`, to be valid."
+    },
+    {
+      "id": "F030",
+      "format": "text",
+      "text": "Service account keys are used by kube-apiserver for JWT signing and authentication. Keys are stored on the disk and are loaded by kube-apiserver during process start time. Key management for service account keys is entirely within the cluster and is less flexible in that the signing keys remain the same for the lifetime of the process. This KEP proposes updates that will allow Kubernetes distributions to integrate with key management solutions of their choice (eg: HSMs, cloud KMSes)."
+    },
+    {
+      "id": "F031",
+      "format": "text",
+      "text": "One of the work items resulting from the CVE-2018-1002105 post-mortem was to investigate hardening the default RBAC discovery ClusterRoleBindings (i.e. `system:discovery` and `system:basic-user`) to limit potential avenues for similar attack. Additionally, the fact that API extensions are exposed by the default discovery bindings is surprising to some and represents a potential privacy concern (e.g. `GET /apis/self-flying-cars.unicorn.vc/v1/`)."
+    },
+    {
+      "id": "F032",
+      "format": "text",
+      "text": "The current status of a workload can be depicted via its conditions. It can be a subset of: Progressing: designates the state of the latest rollout. Available: designates if the required number of available replicas is `available`. ReplicaFailure: ReplicaSet failed to create/delete a Pod. Suspended: execution of a Job is suspended. Complete: Job run to a completion, or rollout completed (via Progressing condition). Failed: Job failed to complete, or rollout failed to progress (via Progressing condition). Waiting (Job only): waiting for at least one Pod to run. Running (Job only): at least one Pod of a Job is running.\n\nWorkload controllers should have above conditions (when applicable) to reflect their states."
+    },
+    {
+      "id": "F033",
+      "format": "text",
+      "text": "Currently, when creating CustomResourceDefinitions you can define a map of `additionalPrinterColumns` that would be displayed when querying the custom resources with kubectl. This list of `additionalPrinterColumns` are defined using JSON paths. If your CustomResourceDefinition is defined in the following manner, running `kubectl get mycrd myresource` would yield the following response.\n\nThis approach has a few limitations such as not being able to support arrays, missing support for processing conditionals, not being able to compute column value from multiple fields and difficulty with formatting dates as duration from another timestamp.\n\nWith the advent of CEL, we can provide an alternative input for `additionalPrinterColumns` to represent the value in CEL for more complicated table readings. This would be added along with the existing JSON path and users can define `additionalPrinterColumns` for their CRDs in either JSON path or as a CEL expression."
+    },
+    {
+      "id": "F034",
+      "format": "text",
+      "text": "To protect default clusters from unauthenticated access entirely (already achievable via `--anonymous-auth=false`), or to add support for more granular schema discovery. There are several non-sensitive and legitimate use-cases for unauthenticated calls, such as `/healthz` liveliness checks and returning useful information about the cluster to `kubectl version`, that we don't wish to break. To prevent _namespace_ admins from granting namespace-level permissions to anonymous users. To protect the CRD names and details from _authenticated_ users. To address other, more fundamental, discovery-related bugs uncovered in CVE-2018-1002105, e.g.: *"
+    },
+    {
+      "id": "F035",
+      "format": "text",
+      "text": "This KEP will lower the infrastructure barrier to enforcing customizable policies as well as providing primitives that help the community establish and adhere to best practices of both K8s and its extensions. Currently the way custom policies are enforced are via admission webhooks. Admission webhooks are extremely flexible, but have a few drawbacks as compared to in-process policy enforcement: They require building infrastructure to host the admission webhook."
+    },
+    {
+      "id": "F036",
+      "format": "text",
+      "text": "We are proposing a new field called `.spec.progressDeadlineSeconds` to DaemonSet and StatefulSet as part of a additional KEP whose default value will be set to the max value of int32 (i.e. 2147483647) by default, which means \"no deadline\". In this mode, DaemonSet and StatefulSet controllers will behave exactly like its current behavior but with no `Failed` mode as they're either `Progressing` or `Complete`."
+    }
+  ]
+}

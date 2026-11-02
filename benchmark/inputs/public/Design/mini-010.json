@@ -1,0 +1,185 @@
+{
+  "task_id": "mini-010",
+  "records": [
+    {
+      "id": "F001",
+      "format": "text",
+      "text": "Add a new field, `trafficDistribution`, to the Service specification. This field will serve as preference or hint for the underlying implementation to consider while making routing decisions. It does not offer strict routing guarantees.\n\nThe field will support the following initial values: `PreferClose`: Indicates a preference for routing traffic to endpoints in the same zone as the client.\n\n(For background on the name `PreferClose` and its definition, see the \"An alternative definition of PreferClose\" section)\n\nThe absence of a value indicates no specific routing preference. In this case, the user delegates the routing decision to the implementation, allowing it to apply its best-effort strategy.\n\nImplementations SHOULD support the standard values. While some flexibility in interpretation is permitted, implementations should aim to align their behavior with the described intent of these preferences as closely as possible."
+    },
+    {
+      "id": "F002",
+      "format": "text",
+      "text": "This document proposes to add new field to StatefulSet's RollingUpdate configuration settings (`.spec.updateStrategy.rollingUpdate`) called `maxUnavailable`, which will allow setting the maximum number of pods that can be unavailable during the update. This new field can be an absolute, positive number (eg. `5`) or a percentage of desired pods (ex: `10%`). When the field is not specified, it will default to 1 to maintain previous behavior of rolling one pod at a time."
+    },
+    {
+      "id": "F003",
+      "format": "text",
+      "text": "To track whether an endpoint is terminating, a `terminating` and `serving` field would be added as part of the `EndpointCondition` type in the EndpointSlice API.\n\nNOTE: A nil value for `Terminating` indicates that the endpoint is not terminating.\n\nUpdates to endpointslice controller: include pods with a deletion timestamp in endpointslice any pod with a deletion timestamp will have condition.terminating = true any terminating pod must have condition.ready = false. the new `serving` condition is set based on pod readiness regardless of terminating state."
+    },
+    {
+      "id": "F004",
+      "format": "text",
+      "text": "The Horizontal Pod Autoscaler's reliance on external metrics creates a dependency on systems outside the Kubernetes cluster's control. These external systems (cloud provider APIs, third-party monitoring systems, message brokers, etc.) may experience: Network connectivity issues Rate limiting Service outages Authentication/authorization failures Degraded performance\n\nWhen external metrics become unavailable, the HPA cannot make informed scaling decisions, which can lead to: Workloads stuck at insufficient scale during traffic spikes Inability to respond to critical business metrics (e.g., queue depth, error rates) Over-dependence on external system reliability\n\nUnlike in-cluster resource metrics (CPU, memory) served by metrics-server, which are part of the cluster's core infrastructure, external metrics are inherently less reliable and outside the cluster operator's direct control."
+    },
+    {
+      "id": "F005",
+      "format": "text",
+      "text": "With custom-metrics-based autoscaling, users frequently ask how to select more specific metrics in their metric storage. For instance, a user might have message queue statefulset with several queues producing metrics:\n\nSuppose they have a pool of works that they wish to scale for each queue. In the current-day HPA, it's non-trivial to allow selecting the metric for a specific queue. Current suggestions are metric-backend-specific (for instance, you could create a Prometheus recording rule to relabel or rename the metric), and often involve making external changes to the metrics pipeline.\n\nWith the addition of the metrics label selector, users could simply select the queue using the label selector:\n\nSimilarly, in discussions of scaling on queues, being able to divide a target backlog length by the number of available pods is often useful -- for instance, a backlog length of 3 might be acceptable if there are three pods processing items, but not if there is only one."
+    },
+    {
+      "id": "F006",
+      "format": "text",
+      "text": "In this KEP, we are proposing to introduce an ability to specify that contents of a particular Secret/ConfigMap should be immutable for its whole lifetime. For those Secrets/ConfigMap, Kubelets will not be trying to watch/poll for changes to updated mounts for their Pods. Given there are a lot of users not really taking advantage of automatic updates of Secrets/ConfigMaps due to consequences described above, this will allow them to: protect themselves better for accidental bad updates that could cause outages of their applications achieve better performance of their cluster thanks to significant reduction of load on apiserver"
+    },
+    {
+      "id": "F007",
+      "format": "text",
+      "text": "We are proposing a new field called `.spec.progressDeadlineSeconds` to DaemonSet and StatefulSet as part of a additional KEP whose default value will be set to the max value of int32 (i.e. 2147483647) by default, which means \"no deadline\". In this mode, DaemonSet and StatefulSet controllers will behave exactly like its current behavior but with no `Failed` mode as they're either `Progressing` or `Complete`."
+    },
+    {
+      "id": "F008",
+      "format": "text",
+      "text": "Malicious users may expose a vulnerability in the kernel by exploiting this gap. Here is an example of how a malicious user can exploit this gap to crash the kernel. User creates a `PVC` with `volumeMode: Block` and runs a pod with it. User writes malformed ext4 data to it (simple dd) User takes snapshot of this volume. User creates a `PVC` with `volumeMode: Filesystem` from the above snapshot. User uses this `PVC` in a pod."
+    },
+    {
+      "id": "F009",
+      "format": "text",
+      "text": "The `External` metric source type in the HPA currently supports passing a metric label selectors, which is passed to the custom metrics API (custom.metrics.k8s.io) to select a more specific metrics series. This allows users to more easily make use of existing metrics structure, without need to manipulate their metrics labeling and ingestion externally.\n\nAdditionally, it supports the `targetAverageValue` field, which allows artificially dividing an external metric by the number of replicas in the target scalable.\n\nThis proposal brings both of those fields to the `Object` metric source type, and further brings the selector field to the `Pods` metric source type, making both types more flexible and bringing them in line with the `External` metrics types."
+    },
+    {
+      "id": "F010",
+      "format": "text",
+      "text": "The current status of a workload can be depicted via its conditions. It can be a subset of: Progressing: designates the state of the latest rollout. Available: designates if the required number of available replicas is `available`. ReplicaFailure: ReplicaSet failed to create/delete a Pod. Suspended: execution of a Job is suspended. Complete: Job run to a completion, or rollout completed (via Progressing condition). Failed: Job failed to complete, or rollout failed to progress (via Progressing condition). Waiting (Job only): waiting for at least one Pod to run. Running (Job only): at least one Pod of a Job is running.\n\nWorkload controllers should have above conditions (when applicable) to reflect their states."
+    },
+    {
+      "id": "F011",
+      "format": "text",
+      "text": "The most popular and the most convinient way of consuming Secrets and ConfigMaps by Pods is consuming it as a file. However, any update to a Secret or ConfigMap object is quickly (roughly within a minute) reflected in updates of the file mounted for *all* Pods consuming them. That means, that a bad update (push) of Secret and/or ConfigMap can very quickly break the whole appplication.\n\nThe recommended approach for upgrading applications are obviously rolling upgrades. For Secrets/ConfigMaps this is translating to creating a new object and updating PodTemplate with the reference to it. However, that doesn't protect users from outages caused by accidental bad updates of existing Secrets and/or ConfigMaps.\n\nMoreover, the feature of updating Secrets/ConfigMaps for running Pods is also expensive from scalability/performance point of view. Every Kubelet has to watch (default) or periodically poll every unique Secret and ConfigMap referenced by any of the Pods it is running."
+    },
+    {
+      "id": "F012",
+      "format": "text",
+      "text": "Since some CSI drivers(AzureFile for example) - don't support chmod/chown - we propose that fsgroup of pod to be provided to the CSI driver on `NodeStageVolume` and `NodePublishVolume` CSI RPC calls. This will allow the CSI driver to apply `fsgroup` as a mount option on `NodeStageVolume` or `NodePublishVolume` and kubelet can be freed from responsibility of applying recursive ownership and permission change.\n\nThis feature hence becomes a prerequisite of CSI migration of Azure file driver and removal of Azure Cloud Provider."
+    },
+    {
+      "id": "F013",
+      "format": "text",
+      "text": "**Strict Routing Guarantees:** The `trafficDistribution` field will not enforce deterministic routing paths. It serves as a mechanism for expressing hints and preferences that implementations can consider when making routing decisions. **Replacement of Traffic Policies:** The new field is complementary to `internalTrafficPolicy` and `externalTrafficPolicy`. It does not aim to substitute their role in enforcing strict traffic locality. **Immediate Support for All Possible Heuristics:** The initial implementation focuses on a core set of heuristics. Addition of new heuristics (like `Local` for Node local preference) could be explored in future refinements. (See"
+    },
+    {
+      "id": "F014",
+      "format": "text",
+      "text": "We propose a randomized approach to the algorithm for Pod victim selection during ReplicaSet downscale: Sort ReplicaSet pods by pod UUID. The purpose of this is to obtain a pseudo-random shuffle of the pods (this also does not necessarily have to be the first step, it is just another comparison criteria). Obtain wall time, and add it to `ActivePodsWithRanks` Call sorting algorithm with a modified time comparison for start and creation timestamp.\n\nInstead of directly comparing timestamps, the algorithm compares the elapsed times since the creation and ready timestamps until the current time but in a logarithmic scale, floor rounded. These serve as sorting criteria. This has the effect of treating elapsed times as equals when they have the same scale. That is, Pods that have been running for a few nanoseconds are equal, but they are different from pods that have been running for a few seconds or a few days.\n\nFor example, let's assume the base 10 is used, then we have the following mapping for different durations:\n\nAn alternative interpretation for the base 10 is that, if a Pod has been running for more than 10 times the time as another Pod, then the second Pod would be deleted first.\n\nWhile base 10 is quite intuitive, it might be too aggressive on bucketing timestamps together. A base of 2 could be similarly intuitive and provide a better bucketing. But if documentation is not a problem, the natural base is a good choice as well."
+    },
+    {
+      "id": "F015",
+      "format": "text",
+      "text": "The autoscaling/v2 API will be updated the following way:\n\nNotice that the `metricName` field is replaced with a new `metric` field, which encapsulates both the metric name, and an optional label selector, which takes the form of a standard kubernetes label selector.\n\nThe `targetXXX` fields are replaced by a unified `Target` field that contains the different target types. The `target` field in the Object metric source type is renamed to `describedObject`, since the `target` field is now taken, and to more accurately describe its purpose.\n\nThe `External` source is updated slightly to match the new form of the `Pods` and `Object` sources.\n\nThese changes necessitate a second beta of `autoscaling/v2`: `autoscaling/v2beta2`.\n\nSimilarly, corresponding changes need to be made to the custom metrics API:\n\nThis will also require bumping the custom metrics API to `custom.metrics.k8s.io/v1beta2`.\n\n**Note that if a metrics pipeline works in such a way that multiple series are matched by a label selector, it's the metrics adapter's job to deal with it, similarly to the way things current work with the custom metrics API.**"
+    },
+    {
+      "id": "F016",
+      "format": "text",
+      "text": "API changes to Service: Add a new field `spec.allocateLoadBalancerNodePorts: true|false`. `allocateLoadBalancerNodePorts` defaults to true, preserving existing behavior for Service Type=LoadBalancer. On create, if `allocateLoadBalancerNodePorts: false`, don't allocate node ports. On update, if `allocateLoadBalancerNodePorts: false` don't allocate new node ports but do not deallocate existing node ports if set. On update, set `nodePort: 0` (by removing the field) to deallocate a node port, a new port will not be re-allocated if `allocateLoadBalancerNodePorts: false`. On delete, node ports are deallocated regardless of `allocateLoadBalancerNodePorts`."
+    },
+    {
+      "id": "F017",
+      "format": "text",
+      "text": "Tracking the terminating state of endpoints poses some scalability concerns as each terminating endpoint adds additional writes to the API. Today, a terminating pod results in 1 write in Endpoints (removing the endpoint). With the proposed changes, each terminating endpoint could result in at least 2 writes (ready -> terminating -> removed) and possibly more depending on how many times readiness changes during termination."
+    },
+    {
+      "id": "F018",
+      "format": "text",
+      "text": "We are updating CSI specs by adding additional field called `volume_mount_group` to `NodeStageVolume` and `NodePublishVolume` RPC calls. The CSI proposal is available at - .\n\nThe CSI spec change is deliberately trying to avoid asking drivers to use supplied `fsGroup` as a generic handle for ownership and permissions. The reason being - Kubernetes may expect ownership and permissions to be in a way that is very platform/OS specific. We do not think CSI driver is right place to enforce all kind of different permissions expected by Kubernetes. The full scope of that discussion is out of scope for this enhancement and interested folks can follow along on -"
+    },
+    {
+      "id": "F019",
+      "format": "text",
+      "text": "With the addition of scaling based on object and external metrics it became possible to automatically adjust the number of running replicas based on an application provided metric. A typical use-case case for this is scaling the number of queue consumers based on the length of the consumed queue.\n\nIn cases of a frequently idle queue or a less latency-sensitive workload, there is no need to keep one replica running at all times. Instead, you can dynamically scale to zero replicas, especially for workloads with high resource demands, such as those requiring GPUs. This approach not only reduces costs but also has significant energy-saving potential, particularly as GPU workloads become more prevalent. When replicas are scaled to zero, the HPA must also be capable of scaling back up as soon as messages become available."
+    },
+    {
+      "id": "F020",
+      "format": "text",
+      "text": "We propose to extend `ConfigMap` and `Secret` types with an additional field:\n\nIf unset or set to false, all updates (including the change of the value of Immutable field itself) remain possible.\n\nIf set to true, the machinery in apiserver will reject: any updates explicitly changing keys and/or values stored in Secrets and/or ConfigMaps any updates explicitly changing the value of `Immutable` field itself (marking Secret/ConfigMap as immutable cannot be reverted)\n\nNote that mutating ObjectMetadata will remain to be possible independently of the value of Immutable field to: not break object lifeycle (e.g. by introducing a deadlock if Finalizers are set) allow rotating certificates used for encryption at rest\n\nBased on the value of `Immutable` field Kubelet will or will not: start a watch (or periodic polling) of a given Secret/ConfigMap perform updates of files mounted to a Pod based on updates of the Kubernetes object"
+    },
+    {
+      "id": "F021",
+      "format": "text",
+      "text": "As `ScaledToZero` is no explicit property, applying a new Deployment with `replicas: 0` and HPA `minReplicas: 0` can be confusing as the Deployment will never scale.\n\nThis needs should be documented and is detectable by looking at the existing `ScalingActive` condition.\n\nIn the future pausing the HPA can become an explicit feature and the implicit pausing via `replicas: 0` can be deprecate to remove this confusing."
+    },
+    {
+      "id": "F022",
+      "format": "text",
+      "text": "The current downscaling algorithm for ReplicaSets prefers to delete Pods that have been running for the least amount of time. This heuristic attempts to minimize disruption under the premise that newer Pods are likely to be serving a lesser amount of clients. However, the heuristic can be detrimental to high availability requirements: when a ReplicaSet lands in an imbalanced state across failure domains, the heuristic tends to preserve the imbalance after repeated up and down scales.\n\nWe propose a randomized approach to the downscale Pod victim selection algorithm of the ReplicaSet controller to mitigate ReplicaSet imbalance across failure domains."
+    },
+    {
+      "id": "F023",
+      "format": "text",
+      "text": "The purpose of this enhancement is to implement maxUnavailable for StatefulSet during RollingUpdate. When a StatefulSet’s `.spec.updateStrategy.type` is set to `RollingUpdate`, the StatefulSet controller will delete and recreate each Pod in the StatefulSet. The updating of each Pod currently happens one at a time. With support for `maxUnavailable`, the updating will proceed `maxUnavailable` number of pods at a time."
+    },
+    {
+      "id": "F024",
+      "format": "text",
+      "text": "**Enhanced User Control:** Provide users with a knob to specify a preference that MAY influence the traffic routing of a Kubernetes Service. **Guidance for Implementations:** Offer standard routing preference values that implementations can choose to recognize and support, promoting a degree of commonality. **Flexibility:** Allow implementations to interpret and support standard heuristics in a manner that aligns with their capabilities and design. **Extensibility:** Enable Kubernetes implementations to introduce and support innovative routing strategies (for example, those based on topology, latency, or other custom heuristics) that can evolve alongside users needs and infrastructure capabilities."
+    },
+    {
+      "id": "F025",
+      "format": "text",
+      "text": "Users can leverage the `VolumeSnapshot` feature, which GA'd in Kubernetes 1.20, to create a `PersistentVolumeClaim` or `PVC` from a previously taken VolumeSnapshot. This is done by pointing the `Spec.dataSource` parameter of the `PVC` to an existing `VolumeSnapshot` instance. There is no logic that validates whether the original volume mode of the `PVC`, whose snapshot was taken, matches the volume mode of the newly created `PVC` that is being created from the existing `VolumeSnapshot`. This KEP proposes a solution to prevent unauthorized conversion of the volume mode during such an operation."
+    },
+    {
+      "id": "F026",
+      "format": "text",
+      "text": "Consider the following scenarios: My containers publish metrics to a time series system. If I am using a Deployment, each rolling update creates a new pod name and hence the metrics published by this new pod starts a new time series which makes tracking metrics for the application difficult. While this could be mitigated, it requires some tricks on the time series collection side. It would be so much better, If we could use a StatefulSet object so my object names doesnt change and hence all metrics goes to a single time series."
+    },
+    {
+      "id": "F027",
+      "format": "text",
+      "text": "This KEP proposes to keep \"terminating\" pods in the set of endpoints in EndpointSlice with additions to the API to indicate whether a given endpoint is terminating or not. If consumers of the API (e.g. kube-proxy) are required to treat terminating endpoints differently, they may do so by checking this condition.\n\nThe criteria for a ready endpoint (pod phase + readiness probe) will not change based on the terminating state of pods, but consumers of the API may choose to prefer endpoints that are both ready and not terminating."
+    },
+    {
+      "id": "F028",
+      "format": "text",
+      "text": "Fallback for resource metrics (CPU, memory from metrics-server) - these are in-cluster and should be addressed at the infrastructure level if unavailable Fallback for pods/object metrics - these use in-cluster APIs Fallback for custom metrics - may be considered in future based on alpha feedback Last-known-good metric value caching Automatic fallback value calculation Changing the HPA scaling algorithm"
+    },
+    {
+      "id": "F029",
+      "format": "text",
+      "text": "Add a new field `allocateLoadBalancerNodePorts` to `Service.Spec` that allows a user to opt out of node ports for Service Type=LoadBalancer. if `allocateLoadBalancerNodePort: true`, allocate node ports for Service Type=LB, this is the existing behavior today and will be the default value. if `allocateLoadBalancerNodePort: false`, stop allocating new node ports but don't deallocate existing node ports. if `allocateLoadBalancerNodePort: false`, and a user wants to disable node ports on existing Services, they need to remove the nodePort field explicitly.\n\nWhen a user relies on `kubectl apply` to fill in the node port field, the node port would never be deallocated since the existing node ports from the server will always be merged prior to update. A user must send an explicit update request for the Service using something like `kubectl edit svc` or building a controller to update all Services in a cluster."
+    },
+    {
+      "id": "F030",
+      "format": "text",
+      "text": "There are several implementations of Service Type=LoadBalancer API today that do not consume the node ports automatically allocated by Kubernetes. Some examples include but are not limited to: MetalLB kube-router\n\nThe drawbacks of allocating unused node ports are that: the number of load balancers is now limited to the number of available node ports. Less if each load balancer consumes multiple node ports. node ports are exposed for an LB even though they are not used -- unecessarily exposed ports can fail regulatory/compliance requirements\n\nFor clusters that have integrations for Service Type=LoadBalancer but don't require node ports should have the option to disable node port allocation."
+    },
+    {
+      "id": "F031",
+      "format": "text",
+      "text": "Certain users might be relaying in the existing downscaling heuristic. However, there are a number of reasons why we don't need to preserve such behavior as is: The behavior is not documented in the API or user docs, only in code. The heuristic is applied last, after other criteria have been applied. In particular, the heuristic doesn't apply when multiple Pods are in the same Node or if a particular Pod has had several container restarts. While users can enforce one Pod per Node with certain scheduling features, there is no workaround for other criteria. We are not proposing to entirely remove the heuristic, just make it more laxed. We are introducing a related feature that provides higher guarantees for downscaling order that users can migrate to."
+    },
+    {
+      "id": "F032",
+      "format": "text",
+      "text": "The Horizontal Pod Autoscaler (HPA) supports scaling workloads based on external metrics—metrics that originate from systems outside the Kubernetes cluster's control. These external systems include: Cloud provider APIs (e.g., AWS CloudWatch, Azure Monitor, GCP Monitoring) Third-party monitoring systems (e.g., Datadog, New Relic, Prometheus running externally) Message brokers and queues (e.g., AWS SQS, RabbitMQ, Kafka) Application-specific metrics services\n\nUnlike in-cluster resource metrics (CPU, memory served by metrics-server) or custom/object metrics (served by in-cluster custom metrics APIs), external metrics are inherently less reliable because they depend on systems outside the cluster operator's direct control."
+    },
+    {
+      "id": "F033",
+      "format": "text",
+      "text": "[Horizontal Pod Autoscaler][] (HPA) automatically scales the number of pods in any resource which supports the `scale` subresource based on observed CPU or memory utilization (or, with custom metrics support, on some other application-provided metrics) from one to many replicas. This proposal adds support for scaling from zero to many replicas and back to zero for object and external metrics.\n\nScaling to zero is particularly effective for cost reduction when individual pods demand substantial resource requests, such as dedicated CPUs or GPUs. Since CPU and memory utilization can only be measured on running pods, scaling to zero will be limited to object and external metrics.\n\n[Horizontal Pod Autoscaler]:"
+    },
+    {
+      "id": "F034",
+      "format": "text",
+      "text": "Modifying the existing states of deployment controller Changing the definition of statuses Introduce new api for existing conditions To properly implement Progressing condition. `.spec.progressDeadlineSeconds` field has to be introduced as part of an additional KEP in DaemonSet and StatefulSet to describe the time when the controllers should declare the workload as `failed`. consider adding Conditions field to CronJob"
+    },
+    {
+      "id": "F035",
+      "format": "text",
+      "text": "Currently for most volume plugins kubelet applies fsgroup ownership and permission-based changes by recursively `chown`ing and `chmod`ing the files and directories inside a volume. For certain CSI drivers this may not be possible because `chown` and `chmod` are unix primitives and underlying CSI driver may not support them. This enhancement proposes providing the CSI driver with fsgroup as an explicit field so as CSI driver can apply this on mount time."
+    },
+    {
+      "id": "F036",
+      "format": "text",
+      "text": "The proposal aims to mitigate this issue by modifying the `VolumeSnapshotContent` API spec as well as the control flows of `snapshot-controller` and `external-provisioner`. `VolumeSnapshotContent` API will include a field that denotes the volume mode of the volume that the snapshot was created from. This proposal also introduces a new annotation on the `VolumeSnapshotContent` resource that a trusted user (like a backup software) needs to apply on a VolumeSnapshot.\n\nBy introducing these changes, we will leverage existing user access rights to determine whether the volume mode of a volume can be altered when a `PVC` is being created from a `VolumeSnapshot`."
+    }
+  ]
+}

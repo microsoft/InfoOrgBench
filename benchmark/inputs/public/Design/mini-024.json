@@ -1,0 +1,185 @@
+{
+  "task_id": "mini-024",
+  "records": [
+    {
+      "id": "F001",
+      "format": "text",
+      "text": "With this enhancement, Kubernetes Developers will declare validation rules using IDL tags in the `types.go` files that to define the Kubernetes native API types. For example:\n\nIn this example, both `+validationRule`, `+minimum` and `+maximum` are IDL tags.\n\nThe declarative validation rules will be used by the kube-apiserver to validate API requests.\n\nThe declarative validation rules will also be included in the published OpenAPI:\n\nIt is important to note that the declarative validation will use the same set of validation options available today for CRDs. namely: JSON Schema value validations (e.g. `format`, `maxItems`) CEL Validation Rules (e.g. `self.replicas <= self.maxReplicas`) Relevant merge strategy declarations (e.g. `listType=set`)"
+    },
+    {
+      "id": "F002",
+      "format": "text",
+      "text": "The number of etcd objects required scales at O(N) where N is the number of services. That seems reasonable (the largest number of services today is limited by the bitmap size ~32k). etcd memory use is proportional to the number of keys, but there are other objects like Pods and Secrets that use a much higher number of objects. 1-2 million keys in etcd is a reasonable upper bound in a cluster, and this has not a big impact (<10%). The objects described here are smaller than most other Kube objects (especially pods), so the etcd storage size is still reasonable.\n\nxref: Clayton Coleman"
+    },
+    {
+      "id": "F003",
+      "format": "text",
+      "text": "The approaches to rebase different containers can vary significantly due to the function of the containers, the cloud-providers’ release workflows, and legacy reasons (repo migration plans, retirement plans, etc). This section will discuss 4 main types of image rebasing strategies, and this should cover the majority of the kubernetes containers. The images are built via bazel. In such case, we will update the bazel BUILD rule to switch to the base image to distroless/static. This method applies for the core containers like kube-apiserver, kube-controller-manager, cloud-controller-manager, kube-scheduler. (See detailed solution in Core Master Images) The images have dependencies that are not supported by distroless/static. One typical example is the usage of shell. Previously, shell is widely used for redirecting glog output to a certain directory. This use case is no longer needed since we've switched from glog to klog which can accept a flag to specify the log output path. A generic approach is: Remove the dependencies that distroless/static doesn't support and then rebase the images to distroless (e.g. issue/1787. Meanwhile, we limit the introduction of new dependencies. (e.g. pr/74690) Images based \"FROM scratch\" is safe to switch to distroless/static directly. Images from kubernetes incubator won't be changed directly by this KEP and the release plan is not estimated here. We notify the project OWNERs and we defer to the OWNERs on whether or not those images should be updated."
+    },
+    {
+      "id": "F004",
+      "format": "text",
+      "text": "Rebasing the k8s images to distroless/static can make the images thinner, safer and less vulnerable.\n\nMeanwhile, it will drastically reduce churn on the total number of k8s images versions. Due to the fact that many images are based on debian base and a vulnerability in debian base (a couple times a month) will result in rebuilding every image, changing the image from debian base to distroless/static can reduce the total number of k8s image versions.\n\nWhat's more, it reduces the burden of managing and maintaining multiple k8s images from the security (e.g. CVE), compatibility and build process concerns."
+    },
+    {
+      "id": "F005",
+      "format": "text",
+      "text": "The main goal of this KEP is to define the highest possible SLSA compliance as final objective in enhancing the Kubernetes release process. While providing a roadmap this KEP can be considered complete when a SLSA level is deemed as not implementable by the community at large (see Graduation Criteria).\n\nIt is also the goal of this KEP to produce full documentation about changes to technical and human processes, tooling, and all artifacts produced as of the compliance effort. The documentation effort shall include complete specifications of provenance attestations and software bill of materials as well as handbook updates for contributors to follow."
+    },
+    {
+      "id": "F006",
+      "format": "text",
+      "text": "The motivation for this KEP is to describe a process by which artifacts (container images, binaries) can be distributed by the community. Currently, the process by which images is both ad hoc in nature and limited to an arbitrary set of people who have the keys to the relevant repositories. Standardized access will ensure that people around the world have access to the same artifacts by the same names and that anyone in the project is capable (if given the right authority) to distribute images."
+    },
+    {
+      "id": "F007",
+      "format": "text",
+      "text": "Kubernetes API validation rules are currently written by hand, which makes them difficult for users to access directly, review, maintain, and test. Declarative validation will benefit Kubernetes maintainers: It will make it easier to develop, maintain and review APIs. It will make it easier programatically inspect and analyze the API, enabling new tools and improved documentation. It will enable improvements to the API machinery."
+    },
+    {
+      "id": "F008",
+      "format": "text",
+      "text": "The main focus of the KEP is on the separation of concerns between `NodeLifecycleController` and `TaintEvictionController`, which will improve code organization and enable future extensions to `TaintEvictionController`. While it is true that the separation allows cluster operators to build custom `TaintEvictionController` and disable the default `TaintEvictionController`, this is a side-effect of the change rather than the main goal. the KEP emphasizes the benefits of the separation of concerns and briefly mention the option to disable the default TaintEvictionController as a potential side-effect.\n\nThe non-goals are the following. Introduce extra maintenance burden or regression after the code reorganization Introduce incompatible behavior of `NodeLifecycleController` or `TaintEvictionController` Extend and enhance the current built-in APIs for customization of node taint-based eviction, including additional fields, more flexible communication protocols, webhooks and CRD references, etc. Actual extension and enhancement of the current `TaintEvictionController`."
+    },
+    {
+      "id": "F009",
+      "format": "text",
+      "text": "Declare and define `MaxDNSSearchPathsExpanded` to `32` and `MaxDNSSearchListCharsExpanded` to `2048` Add the feature gate `ExpandedDNSConfig` (see Feature Enablement and Rollback) If the feature gate `ExpandedDNSConfig` is enabled, replace `MaxDNSSearchPaths` with `MaxDNSSearchPathsExpanded` and replace `MaxDNSSearchListChars` with `MaxDNSSearchListCharsExpanded` to allow expanded DNS configuration"
+    },
+    {
+      "id": "F010",
+      "format": "text",
+      "text": "The kubelet heartbeat logic already written will be re-used. The lease creation and heart beat will be managed by the `start-kube-apiserver-identity-lease-controller` post-start-hook and expired leases will be garbage collected by the `start-kube-apiserver-identity-lease-garbage-collector` post-start-hook in kube-apiserver. The refresh rate, lease duration will be configurable through kube-apiserver flags\n\nThe format of the lease will be `kube-apiserver-<hash-using-hostname>`. A hash based on the hostname is used for two reasons: To ensure that a `kube-apiserver` that is restarting will attempt to obtain its previous lease, avoiding system churn when a kube-apiserver Lease is garbage collected. Avoiding the need to truncate the lease name when using longer hostnames that exceed the 64 character limit for object names, which can lead to naming conflicts.\n\nEach lease will have a `kubernetes.io/hostname` label with the actual hostname seen by kube-apiserver which cluster admins can use to determine which kube-apiserver owns a Lease object. However, the holder identity of the lease (`lease.spec.holderIdentity`) will be uniquely generated per start-up, which can be used as an indicator for ownership churn of the lease. All kube-apiserver leases will also have a component label `k8s.io/component=kube-apiserver`.\n\nIn the future, we may consider providing a flag in `kube-apiserver` to override the lease name, but we don't anticipate needing this today."
+    },
+    {
+      "id": "F011",
+      "format": "text",
+      "text": "In Kubernetes, `NodeLifecycleController` applies predefined `NoExecute` taints (e.g., `Unreachable`, `NotReady`) when the nodes are determined to be unhealthy. After the nodes get tainted, `TaintManager` does its due diligence to start deleting running pods on those nodes based on `NoExecute` taints, which can be added by anyone.\n\nIn this KEP, we propose to decouple `TaintManager` that performs taint-based pod eviction from `NodeLifecycleController` and make them two separate controllers: `NodeLifecycleController` to add taints to unhealthy nodes and `TaintEvictionController` to perform pod deletion on nodes tainted with NoExecute effect.\n\nThis separation not only improves code organization but also makes it easier to improve `TaintEvictionController` or build custom implementations of the taint based eviction."
+    },
+    {
+      "id": "F012",
+      "format": "text",
+      "text": "Vast majority (95%+) of hand written validation are replaced with declarative validation. The remaining hand written rules will primarily be rules that _should not_ be published as part of the API, usually because server side state is involved in the validation decision. `types.go` files become the de-facto IDL of Kubernetes for native types. It is worthing noting that `+enum` support, `+default` support and similar enhancements all moved our API development forward in this direction. This enhancement is an attempt to continue that story arc. API Validations and Defaults are readable and manageable. The IDL should be a joy to use for API authors, reviewers and maintainers. Common Complex relationships have simple-to-express idioms in the IDL. CRDs and native types are validated and published in OpenAPI in a consistent and uniform way. Improvement we make to CEL to enable declarative validation of native types will be made available to CRD authors and vis-versa. No change to error message structure for clients. Difference to clients is limited to minimal changes to error detail strings."
+    },
+    {
+      "id": "F013",
+      "format": "text",
+      "text": "We propose to work on SLSA compliance in a predictable manner. As we move up the SLSA hardening levels, more and more stakeholders will be required to weigh in and to provide perspective about the required enhancements. Starting with SLSA 1, which is mostly a documentation effort, we plan to start having the discussions and presenting the necessary KEPs to work our way up.\n\nThe ideal outcome of this KEP would be to have a Kubernetes release process that complies with SLSA Level 4, meaning it is shielded from the most common threats to software supply chains. However, changes to reach level 4 may not be feasible.\n\nIf the changes that need to be conducted are deemed too disruptive or even destructive to other areas of the project (development velocity, contributor experience, policy, etc), the community may declare a specific SLSA level to be unimplementable. In that scenario, we would work on the rest of the SLSA requirements and consider this KEP complete."
+    },
+    {
+      "id": "F014",
+      "format": "text",
+      "text": "Creating a ResourceSlicePatch is racing with on-going scheduling attempts. This is unavoidable. Removing a device from a ResourceSlice has the same problem: updates need to reach the scheduler before it can consider them. Evaluating a patch on the client-side instead of having a controller update slices mitigates this risk by shortening the time window where updates must be sent to the scheduler.\n\nFrom a security perspective, permission to patch device attributes is expected to be limited to privileged users who already have the ability to add or remove DRA drivers, so there won't be a substantial difference.\n\nPerformance in the scheduler could be an issue. This will be mitigated by caching the patched devices and (re-)applying patches only when they or the device definitions change, which should be rare.\n\nPatching directly in the informer event handlers may be fast enough. If it turns out to slow down those handlers too much, then a workqueue with workers may be needed to decouple updating the cache from the events which trigger updating and to avoid slowing down the informers.\n\nThe scheduler's \"slice changed\" cluster events must be driven by that cache, not the original informers, otherwise a ResourceSlice or ResourceSlicePatch change could trigger a pod scheduling attempt before the slice cache is up-to-date again."
+    },
+    {
+      "id": "F015",
+      "format": "text",
+      "text": "This KEP does not aim to propose concrete technical implementation details or process improvements to achieve each SLSA level. As a framework, SLSA provides an incomplete roadmap to guide our implementation while it leaves the rest to the project. Some of these changes need a discussion and KEP by themselves, and we will be working on them as we advance.\n\nThe changes that need to be conducted include technical improvements (signing of artifacts, metadata generation, etc), setting up cryptographic key management systems and policy, VCS (GitHub) management, code review practices, and more. None of those concrete enhancements are under the scope of this document."
+    },
+    {
+      "id": "F016",
+      "format": "text",
+      "text": "Kubernetes today limits DNS configuration according to the obsolete criteria. As recent DNS resolvers allow an arbitrary number of search paths, a new feature gate `ExpandedDNSConfig` will be introduced. With this feature, kubernetes allows more DNS search paths and longer list of DNS search paths to keep up with recent DNS resolvers.\n\nConfirmed that expanded DNS configuration is supported by `glibc 2.17-323` `glibc 2.28` `musl libc 1.22` `pure Go 1.10 resolver` `pure Go 1.16 resolver`"
+    },
+    {
+      "id": "F017",
+      "format": "text",
+      "text": "The proposal is to implement a new allocator logic that uses 2 new API Objects: ServiceCIDR and IPAddress, and allow users to dynamically increase the number of Services IPs available by creating new ServiceCIDRs. The new allocator will be able to \"automagically\" consume IPs from any ServiceCIDR available, we can think about this model, as the same as adding more disks to a Storage system to increase the capacity."
+    },
+    {
+      "id": "F018",
+      "format": "text",
+      "text": "Resource version is currently defined as an opaque string from the view of a client, with the only operation that is supported being equality comparisons. This differs from the internal apiserver implementation, where it is clearly defined as a monotonically incrementing integer. There are increasing requirements being required from clients consuming object metadata, where stronger comparisons than just equality are required.\n\nWe propose to extend some of the guarantees that the apiserver uses to the client as well, particularly the ability to consume the resource version as an integer, and the ability to compare resource versions to each other for more than equality. Clients can use the new semantics in order to determine the relative order of two different resource versions from the same resource."
+    },
+    {
+      "id": "F019",
+      "format": "text",
+      "text": "The goals for this KEP are fairly straightforward, firstly we will expose a utility function that clients can use on the resource version to check comparisons between resource versions. This will take two resource version strings and return an integer indicating the ordering relationship between them, or an error if the resource version strings were malformed. Along with that we will update the documentation to specify that a ResourceVersion must be a monotonically increasing integer.\n\nSecond, we will create conformance tests to ensure that a conformant cluster abides by the new constraints to the resource version. This should be essentially every cluster in production but will give us the guarantee that users will be unaffected by the new constraints."
+    },
+    {
+      "id": "F020",
+      "format": "text",
+      "text": "Make `kube-apiserver` allow expanded DNS configuration when validating Pod's or PodTemplate's `DNSConfig` Make `kubelet` allow expanded DNS configuration when validating `resolvConf` Make `kubelet` allow expanded DNS configuration when validating actual DNS resolver configuration composed of `cluster domain suffixes`(e.g. default.svc.cluster.local, svc.cluster.local, cluster.local), kubelet's `resolvConf` and Pod's `DNSConfig`"
+    },
+    {
+      "id": "F021",
+      "format": "text",
+      "text": "Use image gcr.io/distroless/static:latest as the only base image for the following kubernetes images Images based FROM scratch Images based on debian/alpine and only for the purpose of redirecting logs with shell. Images based on k8s.gcr.io/debian-base due to previous rebasing from busybox.\n\nHelp the community and contributors better understanding and maintaining the images. Set up the policy that only `distroless/static` and `k8s.gcr.io/debian-base` are used (as the base image) for the images hosted in the official k8s.gcr.io image repository. And if the image is based on debian-base, it should be documented in the exception list. Improve the presubmit prow test to guarantee that the upcoming k8s/kubernetes PRs won't introduce dependencies that distroless/static doesn't support. Document the base image list for important kubernetes components, including both core containers and important add-ons. Also, document the exception list (unable to base on distroless)."
+    },
+    {
+      "id": "F022",
+      "format": "text",
+      "text": "Similar to the node heartbeats, a kube-apiserver will store its ID in a Lease object. All kube-apiserver Leases will be stored in the `kube-system` namespace.\n\nThe lease creation and heart beat will be managed by the `start-kube-apiserver-identity-lease-controller` post start hook and expired leases will be garbage collected by the `start-kube-apiserver-identity-lease-garbage-collector` post start hook in kube-apiserver."
+    },
+    {
+      "id": "F023",
+      "format": "text",
+      "text": "Extensibility - it's obvious that what is proposed in this KEP will not be a final step and we will be evolving it. How can we ensure that we will not put ourselves into a corner.\n\nMitigation: We enumerate potential extensions after the detailed design and briefly sketch how the proposed design can be extended to accommodate these. Incompatible scheduler profiles - different scheduling profiles may enable different sets of plugins and if only subset of profiles enable `GangScheduling` plugin (responsible also for workload-aware preemption), we may break the expectations.\n\nMitigation: We will document that `GangScheduling` plugin has to be enabled in all profiles or the logic will need to be reimplemented by other custom plugins. Eventually we may consider builtin validation, but we make it out of scope for this KEP. Scalability - finding the optimal set of pod groups/pods to preempt is computationally expensive problem, however we need to ensure it can be used even in the largest Kubernetes clusters.\n\nMitigation: We propose a simplified algorithm that is computationally feasible at the cost of providing \"reasonably good\" preemption victim candidates."
+    },
+    {
+      "id": "F024",
+      "format": "text",
+      "text": "Compared with a single combined controller, the risks of using two separate controllers include the following. Slightly increase the communication overhead from applying node taints to performing pod eviction. Make cancellation of pod eviction and un-tainting nodes harder.\n\nHowever, the performance overhead of the split controllers is expected to be small, and pod eviction cancellation and un-tainting nodes are not common use cases. Splitting `NodeLifecycleController` is more beneficial by promoting a cleaner design and enhancing the overall maintainability and extensibility in the long term."
+    },
+    {
+      "id": "F025",
+      "format": "text",
+      "text": "The dynamic coordinated storage version API needs such a list to garbage collect stale records. The API priority and fairness feature needs a unique identifier for an apiserver reporting its concurrency limit.\n\nCurrently, such a list is already maintained in the “kubernetes” endpoints, where the kube-apiservers’ advertised IP addresses are the IDs. However it is not working in all flavors of Kubernetes deployments. For example, if there is a load balancer for the cluster, where the advertise IP address is set to the IP address of the load balancer, all three kube-apiservers will have the same advertise IP address."
+    },
+    {
+      "id": "F026",
+      "format": "text",
+      "text": "Change the way how individual pods (not being part of workloads) are preempted Provide the most optimal preemption algorithm from day 1 Address arbitrary preemption policies (more preemption policies will be needed, but these should be added in a followup KEPs) Introduce workload-awareness for handling different kinds of disruptions (e.g. caused by hardware failures) including kubelet eviction Design rescheduling for workloads that will be preempted (rescheduling will be addressed in a separate dedicated KEP) Change the preemption principle of avoiding preemption if a workload/pod can be scheduled without it. If we decide to change that it will be addressed in a dedicated KEP. Propose any tradeoff between preemption and cluster scale-up. Design workload-level preemption triggered by external schedulers Handling non-uniform priorities across PodGroups Full support for Topology Aware Scheduling. This will be provided in TAS KEP."
+    },
+    {
+      "id": "F027",
+      "format": "text",
+      "text": "With Dynamic Resource Allocation (DRA), DRA drivers publish information about the devices that they manage in ResourceSlices. This information is used by the scheduler when selecting devices for user requests in ResourceClaims.\n\nThis KEP adds a Kubernetes API that privileged users, typically cluster administrators or control plane controllers, can use to override or extend that information. This can be permanent as part of the installation of a DRA driver to adapt the driver to the cluster or temporary as part of cluster maintenance. An extension of the API adds taints."
+    },
+    {
+      "id": "F028",
+      "format": "text",
+      "text": "The intent to patch device attributes must be recorded persistently so that it is preserved even when a ResourceSlice gets removed or updated. To achieve this, a new cluster-scoped ResourceSlicePatch type gets added. A single ResourceSlicePatch object specifies device attributes that apply to all devices matching a CEL expression (i.e. the same way as users select devices in a ResourceClaim) and/or some additional criteria (device class, driver/pool/device name).\n\nThe scheduler must merge these additional attributes with the ones provided by the DRA drivers on-the-fly while it gathers information about available devices."
+    },
+    {
+      "id": "F029",
+      "format": "text",
+      "text": "There are certain API objects that may not conform to this specification. Controllers must gracefully handle these objects, which is why we provide an error type to the function signature. These cases will only occur on non conformant clusters and certain aggregated apiservers however, since we will be adding conformance tests to ensure compatibility.\n\nSome examples of api objects which aren't versioned on a monotonically increasing int are metrics-server calico Porch\n\nAll of these however are non numerical in nature or do not support complex operations which may require listing. Our helper function will just error on these objects and will not support certain features that having a versioned object would have. These type of objects are the main reason to provide an error type as part of the return value of the helper. Since we define that as part of the spec, the caller will have to error or fallback to a less efficient implementation if the underlying resource versions are not compatible."
+    },
+    {
+      "id": "F030",
+      "format": "text",
+      "text": "The goals of this process are to enable: Anyone in the community (with the right permissions) to manage the distribution of Kubernetes images and binaries Fast, cost-efficient access to artifacts around the world through appropriate mirrors and distribution\n\nThis KEP will have succeeded when artifacts are all managed in the same manner and anyone in the community (with the right permissions) can manage these artifacts."
+    },
+    {
+      "id": "F031",
+      "format": "text",
+      "text": "Kubernetes provides the NetworkPolicy resource to control traffic within a cluster. NetworkPolicy focuses on expressing a developer's intent to secure their applications. However, it was not intended to be used for cluster scoped administrative traffic control, which is reflected by its design: NetworkPolicy uses a \"implicit isolation\" model, which means that once a policy is applied to certain workloads, they are automatically isolated (in the direction specified by the policy) and anything allowed needs to be explicitly called out. It has no concept of explicit \"deny\" rules, because the application deployer can simply refrain from allowing the things they want to deny. The commutative nature of NetworkPolicy can make certain filtering intents difficult to express. Thus, in order to satisfy the needs of a cluster admin, we propose to introduce a new API that captures the administrator's intent."
+    },
+    {
+      "id": "F032",
+      "format": "text",
+      "text": "The goals for this KEP are to satisfy the following key user stories: As a cluster administrator, I want to enforce irrevocable in-cluster guardrails that all workloads must adhere to in order to guarantee the safety of my clusters. In particular I want to enforce certain network level access controls that are cluster scoped and cannot be overridden or bypassed by namespace scoped NetworkPolicies."
+    },
+    {
+      "id": "F033",
+      "format": "text",
+      "text": "Our mission is to solve the most common use cases that cluster admins have. That is, we don't want to solve for every possible policy permutation a user can think of. Instead, we want to design an API that addresses 90-95% use cases while keeping the mental model easy to understand and use. The focus of this KEP is on cluster scoped controls for east-west traffic within a cluster, meaning that an AdminNetworkPolicyPeer is _always_ defined as a set of in cluster objects. Cluster scoped controls for north-south traffic may be addressed via future versions of the api resources introduced in this or other future KEPs. For the time being, the AdminNetworkPolicy resource introduced by this KEP will never affect north-south traffic, and thus also don't override or bypass NetworkPolicies with ipBlock rules that select external traffic."
+    },
+    {
+      "id": "F034",
+      "format": "text",
+      "text": "One alternative considered as a short-term workaround for unnecessary preemption was the introduction of \"delayed preemption\". The proposed delayed preemption mechanism was structured as follows: Modify the `DefaultPreemption` plugin to just compute preemptions, without actuating them. Extend the `PostFilterResult` to include a set of victims (in addition to the existing `NominationInfo`). This will allows to clearly decouple the computation from actuation."
+    },
+    {
+      "id": "F035",
+      "format": "text",
+      "text": "Any change unrelated to Services Any generalization of the API model that can evolve onto something different, like an IPAM API, or collide with existing APIs like Ingress and GatewayAPI. NodePorts use the same allocation model than ClusterIPs, but it is totally out of scope of this KEP. However, this KEP can be a proof that a similar model will work for NodePorts too. Change the default IPFamily used for Services IP allocation, the defaulting depends on the services.spec.IPFamily and services.spec.IPFamilyPolicy, a simple webhook or an admission plugin can set this fields to the desired default, so the allocation logic doesn't have to handle it. Removing the apiserver flags that define the service IP CIDRs, though that may be possible in the future. Any admin or cluster wide process related to Services, like automating the default Service CIDR range, though, this KEP will implement the behaviours and primitives necessaries to perform those kind of operations automatically."
+    },
+    {
+      "id": "F036",
+      "format": "text",
+      "text": "The top level design will be to set up a global redirector HTTP service (`artifacts.k8s.io`) which knows how to serve HTTP and redirect requests to an appropriate mirror. This redirector will serve both binary and container image downloads. For container images, the HTTP redirector will redirect users to the appropriate geo-located container registry. For binary artifacts, the HTTP redirector will redirect to appropriate geo-located storage buckets.\n\nTo facilitate artifact promotion, each project, as necessary, will be given access to a project staging area relevant to their particular artifacts (either storage bucket or image registry). Each project is free to manage their assets in the staging area however they feel it is best to do so. However, end-users are not expected to access artifacts through the staging area.\n\nFor each artifact, there will be a configuration file checked into this repository. When a project wants to promote an image, they will file a PR in this repository to update their image promotion configuration to promote an artifact from staging to production. Once this PR is approved, automation that is running in the k8s project infrastructure (built using our [artifact promotion tooling][promo-tools]) will pick up this new configuration file and copy the relevant bits out to the production serving locations.\n\nImportantly, if a project needs to roll-back or remove an artifact, the same process will occur, so that the promotion tool needs to be capable of deleting images and artifacts as well as promoting them."
+    }
+  ]
+}

@@ -1,0 +1,185 @@
+{
+  "task_id": "mini-046",
+  "records": [
+    {
+      "id": "F001",
+      "format": "text",
+      "text": "Changes required for this KEP: kube-apiserver extend PersistentVolumeStatus type with `LastPhaseTransitionTime` field: update the timestamp whenever PV transitions to a different phase (`pv.Status.Phase`) allow `LastPhaseTransitionTime` to be updated by users if needed reset the timestamp in `LastPhaseTransitionTime` to `nil` only when feature gate is disabled and `LastPhaseTransitionTime` is not initialized (time is zero)"
+    },
+    {
+      "id": "F002",
+      "format": "text",
+      "text": "Some users have experienced data loss when using `Delete` retain policy and reverted to a safer `Retain` policy. With `Retain` policy all volumes that are retained and left unclaimed have their phase is set to `Released`. As the released volumes pile up over time admins want to perform manual cleanup based on the time when the volume was last used, which is when the volume transitioned to `Released` phase.\n\nWe can approach the solution in a more generic way and record a timestamp of when the volume transitioned to any phase, not just to `Released` phase. This allows anyone, including our perf tests, to measure time e.g. between a PV `Pending` and `Bound`. This can be also useful for providing metrics and SLOs."
+    },
+    {
+      "id": "F003",
+      "format": "text",
+      "text": "The Kubernetes yearly support period already makes annual upgrades possible. Users can upgrade to latest patch versions to pick up security fixes, and do 3 sequential minor version upgrades once a year to \"catch up\" to the latest supported minor version. However, since the tested/supported skew between nodes and control planes is currently limited to 2 versions, a 3-version upgrade would have to update nodes twice to stay within supported skew."
+    },
+    {
+      "id": "F004",
+      "format": "text",
+      "text": "This kep introduces an opinionated deletion process in the Kubernetes namespace deletion to ensure secure deletion of resources within a namespace. The current deletion process is semi-random, which may lead to security gaps or unintended behavior, such as Pods persisting after the deletion of their associated NetworkPolicies. By implementing an opinionated deletion mechanism, the Pods will be deleted before other resources with respects logical and security dependencies. This design enhances the security and reliability of Kubernetes by mitigating risks arising from the non-deterministic deletion order."
+    },
+    {
+      "id": "F005",
+      "format": "text",
+      "text": "The existing random deletion process for resources in a namespace poses significant challenges, particularly in environments with strict security requirements. One critical issue is the potential for a Pod to remain active after its associated NetworkPolicy has been deleted, leaving it exposed to unrestricted network access. This creates a security vulnerability during the cleanup process.\n\nAdditionally, the lack of a defined deletion order can lead to operational inconsistencies, where any sort of safety guard resources (not just NetworkPolicy) are deleted before their guarded resources (e.g., Pods), resulting in unnecessary disruptions or errors.\n\nBy introducing an opinionated deletion process, this proposal aims to: Enhance Security: Ensure resources like NetworkPolicies remain in effect until all dependent resources have been safely terminated. Increase Predictability: Provide a consistent and logical cleanup process for namespace deletion, reducing unintended side effects.\n\nThis opinionated deletion approach aligns with Kubernetes' principles of reliability, security, and extensibility, providing a solid foundation for managing resource cleanup in complex environments."
+    },
+    {
+      "id": "F006",
+      "format": "text",
+      "text": "Add ability to specify a PVC in a users Namespace as a DataSource Add Core PVC Object to the permitted DataSource types to API Validation Provide ability to pass Clone intent to a CSI Plugin that reports it supports Clone capability Proposal is limited to allowing a user to specify a Clone request, and for that Clone request to be passed to CSI Plugins that report support for cloning via capabilities"
+    },
+    {
+      "id": "F007",
+      "format": "text",
+      "text": "The concept of sidecar containers has been around since the early days of Kubernetes. A clear example is this Kubernetes blog post from 2015 mentioning the sidecar pattern.\n\nOver the years the sidecar pattern has become more common in applications, gained popularity and the use cases are getting more diverse. The current Kubernetes primitives handle that well, but they fall short for several use cases and force weird work-arounds in the applications.\n\nThe next sections expand on what the current problems are. But, to give more context, it is important to highlight that some companies are already using a fork of Kubernetes with this sidecar functionality added (not all implementations are the same, but more than one company has a fork for this)."
+    },
+    {
+      "id": "F008",
+      "format": "text",
+      "text": "This KEP proposes to add a `go.work` file (checked in) and fix all the tools that break because of that. At the end, there will be no reliance on GOPATH. verify and update scripts can use normal Go conventions for building and running code. Abominations like `run-in-gopath.sh` will be deleted. The implementation will come in several waves, which will have to be sequenced across k8s.io/kubernetes, k8s.io/gengo, and k8s.io/kube-openapi repos."
+    },
+    {
+      "id": "F009",
+      "format": "text",
+      "text": "This document proposes a detailed plan for adding support for version-conversion of Kubernetes resources defined via Custom Resource Definitions (CRD). The API Server is extended to call out to a webhook at appropriate parts of the handler stack for CRDs.\n\nNo new resources are added; the CRD resource is extended to include conversion information as well as multiple schema definitions, one for each apiVersion that is to be served."
+    },
+    {
+      "id": "F010",
+      "format": "text",
+      "text": "All Kubernetes APIs support field selection for metadata.name, metadata.namespace.\n\nAdditionally, built-in APIs support field selection on specific fields such as status.phase for Pods, but CustomResourceDefinitions lack equivalent functionality.\n\nWithout this enhancement, an extension author that wants to be be able to filter resources might choose to: Organize data into a label even though it should be a spec or status field. Double writing data both to a label and a spec or status field.\n\nBoth of these should be avoided. We should enable extension authors structure their APIs according to best practices, not based on data access patterns."
+    },
+    {
+      "id": "F011",
+      "format": "text",
+      "text": "Container runtimes that communicate with the kubelet via the Container Runtime Interface (CRI) needed a container log management system. The kubelet was already in charge of determining the container log file path and passing that down to the container runtime so that it can write the container logs there. Thus making the kubelet in charge of rotating the container logs allows the kubelet to manage and access the logs directly without having to call the container runtime. An added advantage of this is that logging agents can ingest files directly without any further integrations with the container runtime."
+    },
+    {
+      "id": "F012",
+      "format": "text",
+      "text": "CustomResourceDefinition author wishes to provide filtered access by a field Author adds the field to an allow list in the CustomResourceDefinition User uses `--field-selector` in kubectl to filter a list response. User first needs to know what field selectors are available and what values the selectable fields might have. Places user might look: discovery, CRD resource. User filter by: a single field multiple fields both fields and labels Controller watches custom resources while filtering with field selectors. Controller provides a FieldSelector string in ListOptions"
+    },
+    {
+      "id": "F013",
+      "format": "text",
+      "text": "Add a configuration to to begin testing 3 version node / control plane skew Identify in-flight feature enablement plans from SIGs that rely on a maximum of 2 version node / control plane skew, and the node version when those plans would be complete Choose the minimum node version to begin supporting 3-version skew that avoids disrupting the plans identified in step 2 1.25 nodes / 1.28 control planes Update the Kubernetes version skew policy as part of the release identified in step 3 Update identified KEPs that need to adjust timelines Update the \"Production Readiness Review - Version Skew Strategy\" portion of the KEP template to remind KEP authors of max supported skews"
+    },
+    {
+      "id": "F014",
+      "format": "text",
+      "text": "Arbitrary field selection. This proposal is to support field selection for a small allow list of fields. Expanding support to include all fields is complicated by: Fields contained in, or nested under, lists or maps. The costs to apiserver of evaluating filters on objects or maintaining indices. Lack of direct support for filtering in etcd. Support for conversions, casts or other transforms of field values beyond the automatic cast to string required for field selection. More sophisticated field selection logic. Possible approaches include: CEL based field selection, enhancements to field selection such as set based operators like provided for labels (\"in\", \"not in\"), OR clauses, pattern matching... See the \"CEL as an accelerated predicate language\" section \"Future Work\" for more details on what makes this challenging."
+    },
+    {
+      "id": "F015",
+      "format": "text",
+      "text": "Add a `Protocol *HTTPProtocol` field to the existing `HTTPGetAction` struct. When set to `HTTP2` (with the default `scheme: HTTP`), the kubelet performs the HTTP GET over HTTP/2 cleartext with prior knowledge (h2c) instead of the default HTTP/1.1. When nil or unset, behavior is unchanged (HTTP/1.1), preserving full backward compatibility. The field is gated by the `H2CContainerProbe` feature gate on both kube-apiserver (API validation) and kubelet (probe execution).\n\nThis approach reuses the existing `httpGet` path, port, and header semantics that operators already know, and is naturally extensible to future protocols (e.g., HTTP/3)."
+    },
+    {
+      "id": "F016",
+      "format": "text",
+      "text": "We need to update API server to support the newly proposed field and set a value of the new timestamp field when a volume transitions to a different phase. The timestamp field must be set to current time also for newly created volumes.\n\nThe value of the field is not intended for use by any other Kubernetes components at this point and should be used only as a convenience feature for cluster admins. Cluster admins should be able to list and sort PersistentVolumes based on a timestamp which indicates when the volume transitioned to a different state."
+    },
+    {
+      "id": "F017",
+      "format": "text",
+      "text": "The proposal aims to mitigate this issue by modifying the `VolumeSnapshotContent` API spec as well as the control flows of `snapshot-controller` and `external-provisioner`. `VolumeSnapshotContent` API will include a field that denotes the volume mode of the volume that the snapshot was created from. This proposal also introduces a new annotation on the `VolumeSnapshotContent` resource that a trusted user (like a backup software) needs to apply on a VolumeSnapshot.\n\nBy introducing these changes, we will leverage existing user access rights to determine whether the volume mode of a volume can be altered when a `PVC` is being created from a `VolumeSnapshot`."
+    },
+    {
+      "id": "F018",
+      "format": "text",
+      "text": "Users can leverage the `VolumeSnapshot` feature, which GA'd in Kubernetes 1.20, to create a `PersistentVolumeClaim` or `PVC` from a previously taken VolumeSnapshot. This is done by pointing the `Spec.dataSource` parameter of the `PVC` to an existing `VolumeSnapshot` instance. There is no logic that validates whether the original volume mode of the `PVC`, whose snapshot was taken, matches the volume mode of the newly created `PVC` that is being created from the existing `VolumeSnapshot`. This KEP proposes a solution to prevent unauthorized conversion of the volume mode during such an operation."
+    },
+    {
+      "id": "F019",
+      "format": "text",
+      "text": "Introduce an Opinionated Deletion Order: Implement a mechanism while namespace deletion to prioritize the deletion of certain resource types before others based on logical dependencies and security considerations (e.g., Pods deleted before NetworkPolicies).2 Maintain Predictability and Consistency: Provide a more deterministic deletion process to improve user confidence and debugging during namespace cleanup. Integrate with Existing Kubernetes Concepts: Build on the namespace deletion’s current architecture without introducing breaking changes to existing APIs or workflows. Be safe - don’t introduce unresolvable deadlocks. Make the most common dependency - workloads and the policies that govern them - safe by default for all types of policies, including CRDs, unless specifically opted out."
+    },
+    {
+      "id": "F020",
+      "format": "text",
+      "text": "Design and implement a mechanism to express profiles in the conformance behavior definitions. Design and implement a mechanism to validate whether a cluster conforms to each profile. Document guidance on how to choose the scope of individual profiles. The total number of profiles should be restricted. Document guidance on how to decide the profile in which a new feature belongs. This could result in a modification of an existing profile or a creation of a new profile. Define a base profile and at least one other profile."
+    },
+    {
+      "id": "F021",
+      "format": "text",
+      "text": "A CRD object now represents a group/kind with one or more versions. The CRD API (CustomResourceDefinitionSpec) is extended as follows: It has a place to register 1 webhook. it holds multiple \"versions\". Some fields which were part of the .spec are now per-version; namely Schema, Subresources, and AdditionalPrinterColumns. A Webhook Host is used to do conversion for a CRD. CRD authors will need to write a Webhook Host that accepts any version and returns any version. Toolkits like kube-builder and operator-sdk are expected to provide flows to assist users to generate Webhook Hosts."
+    },
+    {
+      "id": "F022",
+      "format": "text",
+      "text": "This KEP does NOT propose the addition of other types of DataSource including Populators This KEP does NOT propose support for special cases like \"out of band\" cloning (support for back ends that don't have Cloning features), that sort of implementation would fall under Populators. This KEP does NOT propose any ability to shrink a PVC during a Clone request (e.g. it's considered an invalid request to clone PVC-a with a size of 10Gib to a PVC with a requested size of less than 10Gib, expansion is \"ok\" if the driver supports it but it's not required) This KEP does NOT propose adding any ability to transfer a Clone to a different Namespace, the new PVC (Clone) will be in the same Namespace as the origin that was specified. This also means that since this is namespaced, a user can not request a Clone of a PVC that is another Namespace. A user can only request a Clone of PVCs in his or her Namespace. Cloning will only be available in CSI, cloning features will NOT be added to existing in-tree plugins or Flex drivers Cloning will only be available within the same storage class (see Implementation Details section for more info)"
+    },
+    {
+      "id": "F023",
+      "format": "text",
+      "text": "The current set of conforming behaviors represents only a small subset of Kubernetes functionality. This means that users and software packagers cannot simply rely on the statement that a vendor’s offering is “Certified Kubernetes” to know that the software will run successfully. For instance, an application packaged as a Helm chart may use a PersistentVolume. Because that feature is not part of the conformance program, there are valid, Certified Kubernetes distributions that do not support it, and therefore the application deployment will not succeed."
+    },
+    {
+      "id": "F024",
+      "format": "text",
+      "text": "Allow users to make full use of the yearly support period Streamline upgrade paths for nodes / node pools to minimize required workload churn Validate oldest supported node components work with latest control plane components Update the Kubernetes version skew policy to indicate node components from the oldest supported minor version work with control plane components from the newest supported minor version, starting with Kubernetes `v1.25` nodes and `v1.28` control planes."
+    },
+    {
+      "id": "F025",
+      "format": "text",
+      "text": "HTTP/2 cleartext (h2c) is widely used where TLS terminates at the edge while workloads speak plain HTTP/2 on the pod network (e.g. gRPC). The IETF HTTP/2 spec defines cleartext prior-knowledge connections, and mainstream HTTP libraries already support h2c. Kubernetes probes should speak that protocol instead of forcing a separate HTTP/1.1-only listener.\n\nThis KEP adds a `protocol` field to the existing `httpGet` probe handler, allowing operators to select the HTTP version independently of the URI scheme. When `protocol: HTTP2` is set (with the default `scheme: HTTP`), the kubelet performs the HTTP GET over HTTP/2 with prior knowledge instead of HTTP/1.1. Operators are no longer forced to run a second HTTP/1.1-only probe port or fall back to a `tcpSocket` probe that only confirms the socket is open rather than a valid HTTP-level response."
+    },
+    {
+      "id": "F026",
+      "format": "text",
+      "text": "This proposal doesn't aim to: support arbitrary dependencies graphs between containers act as a security control to enforce that pod containers only run while the sidecar is healthy. Restart of sidecar containers is a best effort allow to enforce security boundaries to sidecar containers different that other containers. For example, allow Istio to run privileged to configure ip tables and disable other containers from doing so (alpha) support containers termination ordering"
+    },
+    {
+      "id": "F027",
+      "format": "text",
+      "text": "The kubelet assigns the log path for a container and runtime writes the container output to that path The kubelet periodically checks the disk space occupied by the container logs and rotates them if necessary After the logs are rotated, the kubelet sends a signal to the container runtime to re-open the log file The kubelet exposes a consistent log directory structure with metadata so that any logging agent can integrate with it"
+    },
+    {
+      "id": "F028",
+      "format": "text",
+      "text": "This proposal aims to: make containers implementing the sidecar pattern first class citizens inside a Pod solve a Job completion issue when sidecars should run continuously allow mixing initContainers and sidecars for a choreographed startup sequence allow easy injection of sidecar containers in any Pod (to be evaluated after alpha) allow to implement sidecar containers that will guaranteed to be running longer than regular containers"
+    },
+    {
+      "id": "F029",
+      "format": "text",
+      "text": "As an existing author of a CRD, I can update my API's schema, without breaking existing clients. To that end, I can write a CRD(s) that supports one kind with two (or more) versions. Users of this API can access an object via either version (v1 or v2), and are accessing the same underlying storage (assuming that I have properly defined how to convert between v1 and v2.) As a prospective user of CRDs, I don't know what schema changes I may need in the future, but I want to know that they will be possible before I chose CRDs (over EAS, or over a non-Kubernetes API)."
+    },
+    {
+      "id": "F030",
+      "format": "text",
+      "text": "There's not a clean way to do this. Go workspaces DOES NOT work with our symlinks-in-vendor hack, and all of our tools do not work without it. We have a LOT of tools and the hacks run DEEP. We have a decade of legacy to scrub off. Worse, many of our tools make dubious assumptions about the interchangeability of Go package paths (e.g. \"example.com/foo/bar\") and disk paths. Those assumptions held as long as we used GOPATH, BARELY held with staging modules, and break totally in workspaces."
+    },
+    {
+      "id": "F031",
+      "format": "text",
+      "text": "This KEP proposes adding support for specifying existing PVCs in the DataSource field to indicate a user would like to Clone a Volume. Note that this KEP also applies ONLY to dynamic provisioner, and ONLY CSI Provisioner's.\n\nFor the purpose of this KEP, a Clone is defined as a duplicate of an existing Kubernetes Volume that can be consumed as any standard Volume would be. The only difference is that upon provisioning, rather than creating a \"new\" empty Volume, the back end device creates an exact duplicate of the specified Volume.\n\nClones are different than Snapshots. A Clone results in a new, duplicate volume being provisioned from an existing volume -- it counts against the users volume quota, it follows the same create flow and validation checks as any other volume provisioning request, it has the same life cycle and work flow. Snapshots, on the other hand, results in a point-in-time copy of a volume that is not, itself, a usable volume -- it can be used to either to provision a new volume (pre-populated with the snapshot data) or to restore the existing volume to a previous state (represented by the snapshot)."
+    },
+    {
+      "id": "F032",
+      "format": "text",
+      "text": "The CRIContainerLogRotation feature gate was implemented in v1.10 and has been in Beta stage since v1.11. We would like to identify any gaps in the implementation of this feature so that we can promote it to stable as it has already been in production use for quite some time now. With this feature gate, the kubelet is in charge of managing the container log directory structure as well as rotating the logs when a certain (user configurable) limit is reached."
+    },
+    {
+      "id": "F033",
+      "format": "text",
+      "text": "The main Kubernetes git repo (github.com/kubernetes/kubernetes, colloquially called \"k/k\") is the embodiment of evolution. When it was created, the only way to build Go applications was GOPATH. Over time we built tooling which understood GOPATH, and it leaked into many parts of our build, test, and release systems. Then Go added modules, in part because GOPATH was unpleasant and had a tendency to leak into tools. We adopted modules, but we also added the idea of \"staging\" repositories - a way to eat our cake and have, too. We get the benefits of a monorepo (atomic commits, fast iteration across repos) and then publish those to standalone repos for downstream consumption. To make this work with modules, we abused GOPATH even harder and wrote even more tools.\n\nThe Go project saw what we (and others) were doing and did not like it. So they created workspaces. They basically created a solution that is purpose-built for us.\n\nThis KEP proposes that we adopt Go workspaces and bring our tooling up to modern standards. In fact, the author started this work in 2021 or 2022, discovering issues along the way that the Go team has worked to resolve.\n\nThis is not a user-facing change. No k8s cluster-user or cluster-admin should know or care that this happened. On the surface, it seems like something that should not warrant a KEP, but: a) KEPs are how we communicate big changes; b) This is a big change; c) There's some ecosystem impact to developers"
+    },
+    {
+      "id": "F034",
+      "format": "text",
+      "text": "H2c is a mature, IETF-standardized protocol supported by all major HTTP libraries, and it is already widely used in-cluster wherever TLS terminates outside the pod. That makes it a natural fit for first-class probe support.\n\nToday the kubelet supports `httpGet`, `tcpSocket`, `grpc`, and `exec`, but none of these can speak HTTP/2 to a cleartext port. Operators must either bolt on an HTTP/1.1 listener or settle for a `tcpSocket` probe that gives no application-level health signal.\n\nAdding h2c does introduce an HTTP/2 client dependency, but the cost is justified: it matches how services already listen, mirrors what `https` probes already do after TLS, and keeps health checks declarative rather than forcing workloads into `exec` workarounds.\n\nSee the upstream discussion for community experience reports motivating this enhancement."
+    },
+    {
+      "id": "F035",
+      "format": "text",
+      "text": "Malicious users may expose a vulnerability in the kernel by exploiting this gap. Here is an example of how a malicious user can exploit this gap to crash the kernel. User creates a `PVC` with `volumeMode: Block` and runs a pod with it. User writes malformed ext4 data to it (simple dd) User takes snapshot of this volume. User creates a `PVC` with `volumeMode: Filesystem` from the above snapshot. User uses this `PVC` in a pod."
+    },
+    {
+      "id": "F036",
+      "format": "text",
+      "text": "Currently there is a single set of conformance tests which are used to cover all vendor and cloud provider Kubernetes offerings. Any given offering must pass all conformance tests in order to be conforming. Therefore, the conformance tests are limited to non-optional, GA features, in order to avoid excluding offerings that do not implement an optional feature.\n\nHowever, to meet the overall goal of the program - workload portability - it is necessary to ensure that optional features, when available, are implemented in a consistent manner. This KEP proposes the use of sets of functionality (behaviors), referred to as “profiles”, and the mechanisms used to define and validate those profiles."
+    }
+  ]
+}

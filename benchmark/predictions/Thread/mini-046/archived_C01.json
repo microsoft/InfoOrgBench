@@ -1,0 +1,305 @@
+{
+  "assignments": [
+    {
+      "id": "F001",
+      "path": [
+        "HADOOP-17002",
+        "HNS-config-test"
+      ]
+    },
+    {
+      "id": "F002",
+      "path": [
+        "HADOOP-16163",
+        "DT-NPE-issue"
+      ]
+    },
+    {
+      "id": "F003",
+      "path": [
+        "S3A-SDK",
+        "header-processing"
+      ]
+    },
+    {
+      "id": "F004",
+      "path": [
+        "maintenance",
+        "merge-notifications"
+      ]
+    },
+    {
+      "id": "F005",
+      "path": [
+        "maintenance",
+        "bulk-updates"
+      ]
+    },
+    {
+      "id": "F006",
+      "path": [
+        "HADOOP-18759",
+        "retry-policy-refactor"
+      ]
+    },
+    {
+      "id": "F007",
+      "path": [
+        "S3A-concurrent",
+        "parallel-rename-timeout"
+      ]
+    },
+    {
+      "id": "F008",
+      "path": [
+        "maintenance",
+        "merge-notifications"
+      ]
+    },
+    {
+      "id": "F009",
+      "path": [
+        "YARN-S3A",
+        "log-collection"
+      ]
+    },
+    {
+      "id": "F010",
+      "path": [
+        "S3A-auth",
+        "assumed-role-credentials"
+      ]
+    },
+    {
+      "id": "F011",
+      "path": [
+        "HADOOP-16859",
+        "unbuffer-support"
+      ]
+    },
+    {
+      "id": "F012",
+      "path": [
+        "HADOOP-16163",
+        "DT-NPE-resolution"
+      ]
+    },
+    {
+      "id": "F013",
+      "path": [
+        "HADOOP-17002",
+        "HNS-config-test"
+      ]
+    },
+    {
+      "id": "F014",
+      "path": [
+        "HADOOP-16859",
+        "unbuffer-support"
+      ]
+    },
+    {
+      "id": "F015",
+      "path": [
+        "HADOOP-15229",
+        "openfile-api"
+      ]
+    },
+    {
+      "id": "F016",
+      "path": [
+        "maintenance",
+        "release-management"
+      ]
+    },
+    {
+      "id": "F017",
+      "path": [
+        "maintenance",
+        "bulk-updates"
+      ]
+    },
+    {
+      "id": "F018",
+      "path": [
+        "HADOOP-17002",
+        "HNS-config-implementation"
+      ]
+    },
+    {
+      "id": "F019",
+      "path": [
+        "HADOOP-16578",
+        "filesystem-exists-fix"
+      ]
+    },
+    {
+      "id": "F020",
+      "path": [
+        "HADOOP-16155",
+        "S3A-read-fix"
+      ]
+    },
+    {
+      "id": "F021",
+      "path": [
+        "maintenance",
+        "PR-notifications"
+      ]
+    },
+    {
+      "id": "F022",
+      "path": [
+        "HADOOP-16163",
+        "DT-NPE-fix"
+      ]
+    },
+    {
+      "id": "F023",
+      "path": [
+        "S3A-concurrent",
+        "parallel-rename-timeout"
+      ]
+    },
+    {
+      "id": "F024",
+      "path": [
+        "HADOOP-16163",
+        "DT-NPE-resolution"
+      ]
+    },
+    {
+      "id": "F025",
+      "path": [
+        "HADOOP-17002",
+        "HNS-config-documentation"
+      ]
+    },
+    {
+      "id": "F026",
+      "path": [
+        "HADOOP-16155",
+        "S3A-read-fix"
+      ]
+    },
+    {
+      "id": "F027",
+      "path": [
+        "HADOOP-16859",
+        "unbuffer-support"
+      ]
+    },
+    {
+      "id": "F028",
+      "path": [
+        "HADOOP-16163",
+        "DT-NPE-issue"
+      ]
+    },
+    {
+      "id": "F029",
+      "path": [
+        "HADOOP-17576",
+        "implementation-status"
+      ]
+    },
+    {
+      "id": "F030",
+      "path": [
+        "HADOOP-15229",
+        "openfile-api"
+      ]
+    },
+    {
+      "id": "F031",
+      "path": [
+        "HADOOP-16859",
+        "unbuffer-support"
+      ]
+    },
+    {
+      "id": "F032",
+      "path": [
+        "HADOOP-16859",
+        "unbuffer-support"
+      ]
+    },
+    {
+      "id": "F033",
+      "path": [
+        "HADOOP-16859",
+        "unbuffer-support"
+      ]
+    },
+    {
+      "id": "F034",
+      "path": [
+        "maintenance",
+        "release-management"
+      ]
+    },
+    {
+      "id": "F035",
+      "path": [
+        "ABFS-random-read",
+        "performance-improvement"
+      ]
+    },
+    {
+      "id": "F036",
+      "path": [
+        "ABFS-random-read",
+        "performance-improvement"
+      ]
+    },
+    {
+      "id": "F037",
+      "path": [
+        "HADOOP-16859",
+        "unbuffer-support"
+      ]
+    },
+    {
+      "id": "F038",
+      "path": [
+        "HADOOP-16859",
+        "unbuffer-support"
+      ]
+    },
+    {
+      "id": "F039",
+      "path": [
+        "HADOOP-16163",
+        "DT-NPE-resolution"
+      ]
+    },
+    {
+      "id": "F040",
+      "path": [
+        "ABFS-throttling",
+        "auth-errors"
+      ]
+    },
+    {
+      "id": "F041",
+      "path": [
+        "ABFS-random-read",
+        "performance-improvement"
+      ]
+    },
+    {
+      "id": "F042",
+      "path": [
+        "S3A-concurrent",
+        "parallel-rename-timeout"
+      ]
+    },
+    {
+      "id": "F043",
+      "path": [
+        "HADOOP-17002",
+        "HNS-config-documentation"
+      ]
+    }
+  ]
+}

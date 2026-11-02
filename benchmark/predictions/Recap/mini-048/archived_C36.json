@@ -1,0 +1,333 @@
+{
+  "assignments": [
+    {
+      "id": "F001",
+      "path": [
+        "Finder_remote_design",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F002",
+      "path": [
+        "Modular_design_review",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F003",
+      "path": [
+        "Rubber_remote_design",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F004",
+      "path": [
+        "LCD_prototype_review",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F005",
+      "path": [
+        "Rubber_remote_design",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F006",
+      "path": [
+        "LCD_prototype_review",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F007",
+      "path": [
+        "Finder_remote_design",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F008",
+      "path": [
+        "Modular_design_review",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F009",
+      "path": [
+        "LCD_prototype_review",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F010",
+      "path": [
+        "Finder_remote_design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F011",
+      "path": [
+        "Rubber_remote_design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F012",
+      "path": [
+        "Modular_design_review",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F013",
+      "path": [
+        "Rubber_remote_design",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F014",
+      "path": [
+        "Rubber_remote_design",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F015",
+      "path": [
+        "LCD_prototype_review",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F016",
+      "path": [
+        "Modular_design_review",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F017",
+      "path": [
+        "Modular_design_review",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F018",
+      "path": [
+        "Modular_design_review",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F019",
+      "path": [
+        "Finder_remote_design",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F020",
+      "path": [
+        "Rubber_remote_design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F021",
+      "path": [
+        "Finder_remote_design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F022",
+      "path": [
+        "Finder_remote_design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F023",
+      "path": [
+        "LCD_prototype_review",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F024",
+      "path": [
+        "Modular_design_review",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F025",
+      "path": [
+        "Finder_remote_design",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F026",
+      "path": [
+        "Modular_design_review",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F027",
+      "path": [
+        "Finder_remote_design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F028",
+      "path": [
+        "Finder_remote_design",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F029",
+      "path": [
+        "Modular_design_review",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F030",
+      "path": [
+        "Modular_design_review",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F031",
+      "path": [
+        "Rubber_remote_design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F032",
+      "path": [
+        "LCD_prototype_review",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F033",
+      "path": [
+        "Finder_remote_design",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F034",
+      "path": [
+        "LCD_prototype_review",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F035",
+      "path": [
+        "Finder_remote_design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F036",
+      "path": [
+        "LCD_prototype_review",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F037",
+      "path": [
+        "Rubber_remote_design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F038",
+      "path": [
+        "LCD_prototype_review",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F039",
+      "path": [
+        "Modular_design_review",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F040",
+      "path": [
+        "Finder_remote_design",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F041",
+      "path": [
+        "LCD_prototype_review",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F042",
+      "path": [
+        "Rubber_remote_design",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F043",
+      "path": [
+        "Modular_design_review",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F044",
+      "path": [
+        "Finder_remote_design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F045",
+      "path": [
+        "Rubber_remote_design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F046",
+      "path": [
+        "Rubber_remote_design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F047",
+      "path": [
+        "Finder_remote_design",
+        "Overview"
+      ]
+    }
+  ]
+}

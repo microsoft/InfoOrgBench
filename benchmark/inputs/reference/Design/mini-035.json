@@ -1,0 +1,366 @@
+{
+  "task_id": "mini-035",
+  "records": [
+    {
+      "id": "F001",
+      "path": [
+        "sig-network",
+        "5311-relaxed-validation-for-service-names"
+      ],
+      "content_sha256": "3575e28b975c201b1417ea39fd6aadf40d8982a4752a9d4566a53d273046cb39",
+      "source_native_id": "keps/sig-network/5311-relaxed-validation-for-service-names#excerpt-2",
+      "source_heading": "design details"
+    },
+    {
+      "id": "F002",
+      "path": [
+        "sig-network",
+        "3836-kube-proxy-improved-ingress-connectivity-reliability"
+      ],
+      "content_sha256": "568e654c4350d695890a7aaff1aba90504b85725b3831984be926c37c861c08d",
+      "source_native_id": "keps/sig-network/3836-kube-proxy-improved-ingress-connectivity-reliability#excerpt-3",
+      "source_heading": "non-goals"
+    },
+    {
+      "id": "F003",
+      "path": [
+        "sig-node",
+        "3085-pod-conditions-for-starting-completition-of-sandbox-creation"
+      ],
+      "content_sha256": "d7df5c6bcf17096e9bb8df3d5045095e58bba0cbc6e4ae2988880d17c0a67679",
+      "source_native_id": "keps/sig-node/3085-pod-conditions-for-starting-completition-of-sandbox-creation#excerpt-3",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F004",
+      "path": [
+        "sig-cli",
+        "2227-kubectl-default-container"
+      ],
+      "content_sha256": "dde501bf35dbbc41ece9d20a97c02f79f4841e4e5fc889122bcf7ff530fe429f",
+      "source_native_id": "keps/sig-cli/2227-kubectl-default-container#excerpt-3",
+      "source_heading": "user stories"
+    },
+    {
+      "id": "F005",
+      "path": [
+        "sig-scheduling",
+        "5598-opportunistic-batching"
+      ],
+      "content_sha256": "db006d4620a61b4d6ea378eb5d37abe7f32fe8af773a19941c8910c9c25a9195",
+      "source_native_id": "keps/sig-scheduling/5598-opportunistic-batching#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F006",
+      "path": [
+        "sig-scheduling",
+        "5598-opportunistic-batching"
+      ],
+      "content_sha256": "7753cd25d436dd5485f50d191a5efff4381e74506717b5329c4baeb1149ad93f",
+      "source_native_id": "keps/sig-scheduling/5598-opportunistic-batching#excerpt-3",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F007",
+      "path": [
+        "sig-network",
+        "5311-relaxed-validation-for-service-names"
+      ],
+      "content_sha256": "a64292df7e874db68af5307f4bb912435a5660ac8ccb6583b81c0d95c850d973",
+      "source_native_id": "keps/sig-network/5311-relaxed-validation-for-service-names#excerpt-1",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F008",
+      "path": [
+        "sig-cli",
+        "2227-kubectl-default-container"
+      ],
+      "content_sha256": "b2e63551fb787f33874f284157124a7429aa9b201fe6c1d9413b97808aa08a20",
+      "source_native_id": "keps/sig-cli/2227-kubectl-default-container#excerpt-1",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F009",
+      "path": [
+        "sig-network",
+        "1672-tracking-terminating-endpoints"
+      ],
+      "content_sha256": "29c3d6a4d7a0617e3115f0f410c95350fffaeb359e98fc80e105cf5cc5840a66",
+      "source_native_id": "keps/sig-network/1672-tracking-terminating-endpoints#excerpt-3",
+      "source_heading": "risks and mitigations"
+    },
+    {
+      "id": "F010",
+      "path": [
+        "sig-cli",
+        "1802-kustomize-components"
+      ],
+      "content_sha256": "153b1e1baccd7bc3c06e24e37e444aaa78174e20b11a6a832a0ee1aed672e6c8",
+      "source_native_id": "keps/sig-cli/1802-kustomize-components#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F011",
+      "path": [
+        "sig-cli",
+        "1802-kustomize-components"
+      ],
+      "content_sha256": "3531e6928a649939d084218b7072f1046a69b4f47218648fd166e1ca8d45a796",
+      "source_native_id": "keps/sig-cli/1802-kustomize-components#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F012",
+      "path": [
+        "sig-node",
+        "277-ephemeral-containers"
+      ],
+      "content_sha256": "0ada1875efa1370962e3d833b06147cd77dc57159d3d289e6cbc088db05312d1",
+      "source_native_id": "keps/sig-node/277-ephemeral-containers#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F013",
+      "path": [
+        "sig-scheduling",
+        "6089-was-controller-apis"
+      ],
+      "content_sha256": "bc74b619a0a5a11f7354011e5585c226cb5e5bd3a01fbf925f3a410d649f4f28",
+      "source_native_id": "keps/sig-scheduling/6089-was-controller-apis#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F014",
+      "path": [
+        "sig-scheduling",
+        "5598-opportunistic-batching"
+      ],
+      "content_sha256": "993277a2f67f042d95259b3f24cf4fb7808e2021b2e8ca8901d388f1c9afab19",
+      "source_native_id": "keps/sig-scheduling/5598-opportunistic-batching#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F015",
+      "path": [
+        "sig-node",
+        "2413-seccomp-by-default"
+      ],
+      "content_sha256": "59a9d2d47d1514759f631974455f15deb810b616c0686963de48e86d9d8b571e",
+      "source_native_id": "keps/sig-node/2413-seccomp-by-default#excerpt-2",
+      "source_heading": "design details"
+    },
+    {
+      "id": "F016",
+      "path": [
+        "sig-network",
+        "3836-kube-proxy-improved-ingress-connectivity-reliability"
+      ],
+      "content_sha256": "1aa18174cbd0dfbc9e7e5762ad1a39dbf1679a8029b42536ac09dc7db9930172",
+      "source_native_id": "keps/sig-network/3836-kube-proxy-improved-ingress-connectivity-reliability#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F017",
+      "path": [
+        "sig-cli",
+        "1802-kustomize-components"
+      ],
+      "content_sha256": "7986d8093cd9a4e24a35fa879346a2950801adbb5d724411686eb5f56b54435b",
+      "source_native_id": "keps/sig-cli/1802-kustomize-components#excerpt-3",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F018",
+      "path": [
+        "sig-network",
+        "5311-relaxed-validation-for-service-names"
+      ],
+      "content_sha256": "2ae92eb54a00f54c8736c58d04ccbda925f8f7f5e407e33186d3f0c0cd6fa41a",
+      "source_native_id": "keps/sig-network/5311-relaxed-validation-for-service-names#excerpt-3",
+      "source_heading": "risks and mitigations"
+    },
+    {
+      "id": "F019",
+      "path": [
+        "sig-node",
+        "277-ephemeral-containers"
+      ],
+      "content_sha256": "70f8bcd8e713d00dfb3cef3cf027fb4ed8121f4efe601f0c79a1f2077ff1d2d3",
+      "source_native_id": "keps/sig-node/277-ephemeral-containers#excerpt-3",
+      "source_heading": "non-goals"
+    },
+    {
+      "id": "F020",
+      "path": [
+        "sig-scheduling",
+        "6089-was-controller-apis"
+      ],
+      "content_sha256": "daf2d0df5b08022a64f39010cd1385da20f125f6d91bb2454ecd81b81e6dca82",
+      "source_native_id": "keps/sig-scheduling/6089-was-controller-apis#excerpt-2",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F021",
+      "path": [
+        "sig-node",
+        "3085-pod-conditions-for-starting-completition-of-sandbox-creation"
+      ],
+      "content_sha256": "4197eb36349e4cfa4d742da574e1d6ed7b9ed00acfe7c74475be9ce08429ae38",
+      "source_native_id": "keps/sig-node/3085-pod-conditions-for-starting-completition-of-sandbox-creation#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F022",
+      "path": [
+        "sig-cli",
+        "2377-Kustomize"
+      ],
+      "content_sha256": "a2d19bf37a0a21840a904c72aca53787e3ba14aeb938ec33f0a5a9f71e67cc74",
+      "source_native_id": "keps/sig-cli/2377-Kustomize#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F023",
+      "path": [
+        "sig-network",
+        "1672-tracking-terminating-endpoints"
+      ],
+      "content_sha256": "a64b56adb0241abd8145e42a543394d89f85fe1917bfd5e48d7705eb40d68198",
+      "source_native_id": "keps/sig-network/1672-tracking-terminating-endpoints#excerpt-1",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F024",
+      "path": [
+        "sig-cli",
+        "2377-Kustomize"
+      ],
+      "content_sha256": "c02fa3073433a6c1538a0aaeb7ce988eb3dd8838d1054731bca47ac75f2f4bef",
+      "source_native_id": "keps/sig-cli/2377-Kustomize#excerpt-3",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F025",
+      "path": [
+        "sig-scheduling",
+        "5501-reflect-preenqueue-rejections-in-pod-status"
+      ],
+      "content_sha256": "f517ff53afbe3f7ed9487c8de5378ff79d485f25b55c40962ab605171db5438e",
+      "source_native_id": "keps/sig-scheduling/5501-reflect-preenqueue-rejections-in-pod-status#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F026",
+      "path": [
+        "sig-scheduling",
+        "5501-reflect-preenqueue-rejections-in-pod-status"
+      ],
+      "content_sha256": "05d494c1759cd6376ca487366e4b483a96331d4c9b44239ea8d9f38ed60fdf7d",
+      "source_native_id": "keps/sig-scheduling/5501-reflect-preenqueue-rejections-in-pod-status#excerpt-3",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F027",
+      "path": [
+        "sig-node",
+        "2413-seccomp-by-default"
+      ],
+      "content_sha256": "a22e90af98f0576ba4e4a6990421e9ef732933f2f8f4933b4f103f5b36ad5b60",
+      "source_native_id": "keps/sig-node/2413-seccomp-by-default#excerpt-3",
+      "source_heading": "risks and mitigations"
+    },
+    {
+      "id": "F028",
+      "path": [
+        "sig-cli",
+        "2377-Kustomize"
+      ],
+      "content_sha256": "4eee581af4f2c438d2bdc97e0f9300eb2a4dffc6bd619b79973db6d2d00429e1",
+      "source_native_id": "keps/sig-cli/2377-Kustomize#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F029",
+      "path": [
+        "sig-cli",
+        "2227-kubectl-default-container"
+      ],
+      "content_sha256": "7a878a19b771a6dcc86351d9b9a187545281e9ba6b41dc53099813713276d2e4",
+      "source_native_id": "keps/sig-cli/2227-kubectl-default-container#excerpt-2",
+      "source_heading": "design details"
+    },
+    {
+      "id": "F030",
+      "path": [
+        "sig-network",
+        "1672-tracking-terminating-endpoints"
+      ],
+      "content_sha256": "5b8bd2d3519052fcf8653706a3df5421eebca57ad7ec2cf960752dbac29d3427",
+      "source_native_id": "keps/sig-network/1672-tracking-terminating-endpoints#excerpt-2",
+      "source_heading": "design details"
+    },
+    {
+      "id": "F031",
+      "path": [
+        "sig-network",
+        "3836-kube-proxy-improved-ingress-connectivity-reliability"
+      ],
+      "content_sha256": "6e2d69797a50fd16d4c13008487b8adb6e83498245e5fa97e06a9c824f355728",
+      "source_native_id": "keps/sig-network/3836-kube-proxy-improved-ingress-connectivity-reliability#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F032",
+      "path": [
+        "sig-scheduling",
+        "5501-reflect-preenqueue-rejections-in-pod-status"
+      ],
+      "content_sha256": "644a96e7c4bc9eb96d0f151c91eba655fd962fc7ea81aafed1311d46b3562ee0",
+      "source_native_id": "keps/sig-scheduling/5501-reflect-preenqueue-rejections-in-pod-status#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F033",
+      "path": [
+        "sig-node",
+        "277-ephemeral-containers"
+      ],
+      "content_sha256": "75849ab203152a8f7695059c1e4e12aee834f8beb4911be1d3d26137c39f2370",
+      "source_native_id": "keps/sig-node/277-ephemeral-containers#excerpt-2",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F034",
+      "path": [
+        "sig-node",
+        "2413-seccomp-by-default"
+      ],
+      "content_sha256": "0e01dc821b01e925628cece04f7ba5aa5c5fa64babbd02601603ed00e072ccb6",
+      "source_native_id": "keps/sig-node/2413-seccomp-by-default#excerpt-1",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F035",
+      "path": [
+        "sig-scheduling",
+        "6089-was-controller-apis"
+      ],
+      "content_sha256": "cd09e75bed88fb64a669bab25c6bf37ecefa37011e2fe74d862fe858876896d0",
+      "source_native_id": "keps/sig-scheduling/6089-was-controller-apis#excerpt-3",
+      "source_heading": "non-goals"
+    },
+    {
+      "id": "F036",
+      "path": [
+        "sig-node",
+        "3085-pod-conditions-for-starting-completition-of-sandbox-creation"
+      ],
+      "content_sha256": "be99a83801656bb4b25096835210af0a23fbbc3b53dc4a6f2c10c1ec39f5eee0",
+      "source_native_id": "keps/sig-node/3085-pod-conditions-for-starting-completition-of-sandbox-creation#excerpt-2",
+      "source_heading": "motivation"
+    }
+  ],
+  "reference_scope": "Source-derived group/proposal hierarchy for a development-only difficulty and cost pilot."
+}

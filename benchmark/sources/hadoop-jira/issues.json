@@ -1,0 +1,344 @@
+{
+  "source": "Apache Hadoop issue tracker (Jira)",
+  "project_url": "https://issues.apache.org/jira/projects/HADOOP",
+  "retrieved": "September-October 2026",
+  "note": "Issue text is not included in this repository. Download each response yourself from rest_url and save it under save_as; then run build_thread.py. original_response_sha256 identifies the response used in the study; a newer response still works if the selected comments, descriptions and statuses are unchanged.",
+  "issues": [
+    {
+      "key": "HADOOP-13585",
+      "browse_url": "https://issues.apache.org/jira/browse/HADOOP-13585",
+      "rest_url": "https://issues.apache.org/jira/rest/api/2/issue/HADOOP-13585?fields=summary,description,parent,status,comment,subtasks",
+      "save_as": "HADOOP-13585.json",
+      "original_response_sha256": "de3718956c4eefc4f034787b6721a4e65a8081ac977055425b6625e77ebbab36",
+      "original_response_bytes": 5487
+    },
+    {
+      "key": "HADOOP-14639",
+      "browse_url": "https://issues.apache.org/jira/browse/HADOOP-14639",
+      "rest_url": "https://issues.apache.org/jira/rest/api/2/issue/HADOOP-14639?fields=summary,description,parent,status,comment,subtasks",
+      "save_as": "HADOOP-14639.json",
+      "original_response_sha256": "3e6e0ec6b8aa5cb122bd3044cfa3ab1ddeaec30b255c23fac0bb13abf5a290b7",
+      "original_response_bytes": 4987
+    },
+    {
+      "key": "HADOOP-14707",
+      "browse_url": "https://issues.apache.org/jira/browse/HADOOP-14707",
+      "rest_url": "https://issues.apache.org/jira/rest/api/2/issue/HADOOP-14707?fields=summary,description,parent,status,comment,subtasks",
+      "save_as": "HADOOP-14707.json",
+      "original_response_sha256": "cc16e96ac6a32e1442395b2d042edc7e3fa30b9af0bb5c11883c746b17d9b507",
+      "original_response_bytes": 39694
+    },
+    {
+      "key": "HADOOP-15245",
+      "browse_url": "https://issues.apache.org/jira/browse/HADOOP-15245",
+      "rest_url": "https://issues.apache.org/jira/rest/api/2/issue/HADOOP-15245?fields=summary,description,parent,status,comment,subtasks",
+      "save_as": "HADOOP-15245.json",
+      "original_response_sha256": "388c7516185e37e66a943833f69264fb04d309dd4da33c065e3b3e769258868d",
+      "original_response_bytes": 25574
+    },
+    {
+      "key": "HADOOP-15570",
+      "browse_url": "https://issues.apache.org/jira/browse/HADOOP-15570",
+      "rest_url": "https://issues.apache.org/jira/rest/api/2/issue/HADOOP-15570?fields=summary,description,parent,status,comment,subtasks",
+      "save_as": "HADOOP-15570.json",
+      "original_response_sha256": "215c35d55d6cec41d2aacc133baf262f313fa8471a18782434bed72f49709dfd",
+      "original_response_bytes": 7142
+    },
+    {
+      "key": "HADOOP-15631",
+      "browse_url": "https://issues.apache.org/jira/browse/HADOOP-15631",
+      "rest_url": "https://issues.apache.org/jira/rest/api/2/issue/HADOOP-15631?fields=summary,description,parent,status,comment,subtasks",
+      "save_as": "HADOOP-15631.json",
+      "original_response_sha256": "142afd3121eb9bc044bfe3275b03221fcc2097c05061c2f3fedfd10f25b33aad",
+      "original_response_bytes": 6962
+    },
+    {
+      "key": "HADOOP-15825",
+      "browse_url": "https://issues.apache.org/jira/browse/HADOOP-15825",
+      "rest_url": "https://issues.apache.org/jira/rest/api/2/issue/HADOOP-15825?fields=summary,description,parent,status,comment,subtasks",
+      "save_as": "HADOOP-15825.json",
+      "original_response_sha256": "728a5a8d1a2c5b6ea05e3f45181f17771da9af05408fab79d26afb782e94222f",
+      "original_response_bytes": 26631
+    },
+    {
+      "key": "HADOOP-16155",
+      "browse_url": "https://issues.apache.org/jira/browse/HADOOP-16155",
+      "rest_url": "https://issues.apache.org/jira/rest/api/2/issue/HADOOP-16155?fields=summary,description,parent,status,comment,subtasks",
+      "save_as": "HADOOP-16155.json",
+      "original_response_sha256": "7c224f2d7f3b4c4506a8a2f154732b4797ccd7f4e7b3484bf7a37e57b346c84b",
+      "original_response_bytes": 3687
+    },
+    {
+      "key": "HADOOP-16163",
+      "browse_url": "https://issues.apache.org/jira/browse/HADOOP-16163",
+      "rest_url": "https://issues.apache.org/jira/rest/api/2/issue/HADOOP-16163?fields=summary,description,parent,status,comment,subtasks",
+      "save_as": "HADOOP-16163.json",
+      "original_response_sha256": "e46f9c6291383998b5b7010be6c3ad0f482bd7384de3a20fdd32d9ccf126f681",
+      "original_response_bytes": 14854
+    },
+    {
+      "key": "HADOOP-16317",
+      "browse_url": "https://issues.apache.org/jira/browse/HADOOP-16317",
+      "rest_url": "https://issues.apache.org/jira/rest/api/2/issue/HADOOP-16317?fields=summary,description,parent,status,comment,subtasks",
+      "save_as": "HADOOP-16317.json",
+      "original_response_sha256": "f10db337990190fb448e5511aa63cc1402277d40c25878905e7d3148efd152f9",
+      "original_response_bytes": 12546
+    },
+    {
+      "key": "HADOOP-16404",
+      "browse_url": "https://issues.apache.org/jira/browse/HADOOP-16404",
+      "rest_url": "https://issues.apache.org/jira/rest/api/2/issue/HADOOP-16404?fields=summary,description,parent,status,comment,subtasks",
+      "save_as": "HADOOP-16404.json",
+      "original_response_sha256": "b1c995ca60d36c8dc654417739c1784f8c6d213d2fb34f0fa98d356ab384611c",
+      "original_response_bytes": 28978
+    },
+    {
+      "key": "HADOOP-16498",
+      "browse_url": "https://issues.apache.org/jira/browse/HADOOP-16498",
+      "rest_url": "https://issues.apache.org/jira/rest/api/2/issue/HADOOP-16498?fields=summary,description,parent,status,comment,subtasks",
+      "save_as": "HADOOP-16498.json",
+      "original_response_sha256": "c228824bc85d93be84c86a20a9aa60e2630204486471293d842066fcd4e4378d",
+      "original_response_bytes": 9431
+    },
+    {
+      "key": "HADOOP-16574",
+      "browse_url": "https://issues.apache.org/jira/browse/HADOOP-16574",
+      "rest_url": "https://issues.apache.org/jira/rest/api/2/issue/HADOOP-16574?fields=summary,description,parent,status,comment,subtasks",
+      "save_as": "HADOOP-16574.json",
+      "original_response_sha256": "a6b62321787220b4ecb3945308079c73717678aed64eaebe9516244bcba03039",
+      "original_response_bytes": 10277
+    },
+    {
+      "key": "HADOOP-16631",
+      "browse_url": "https://issues.apache.org/jira/browse/HADOOP-16631",
+      "rest_url": "https://issues.apache.org/jira/rest/api/2/issue/HADOOP-16631?fields=summary,description,parent,status,comment,subtasks",
+      "save_as": "HADOOP-16631.json",
+      "original_response_sha256": "bfbe3d7acf9a9d85aa0f1cc5db7caf96c34b1227e9cdd69ce2923281b3ff1670",
+      "original_response_bytes": 5875
+    },
+    {
+      "key": "HADOOP-16659",
+      "browse_url": "https://issues.apache.org/jira/browse/HADOOP-16659",
+      "rest_url": "https://issues.apache.org/jira/rest/api/2/issue/HADOOP-16659?fields=summary,description,parent,status,comment,subtasks",
+      "save_as": "HADOOP-16659.json",
+      "original_response_sha256": "db1587e6b25cc9c8cfeb101705af97280390a581ba254d7e444f27b91109b49e",
+      "original_response_bytes": 3407
+    },
+    {
+      "key": "HADOOP-16699",
+      "browse_url": "https://issues.apache.org/jira/browse/HADOOP-16699",
+      "rest_url": "https://issues.apache.org/jira/rest/api/2/issue/HADOOP-16699?fields=summary,description,parent,status,comment,subtasks",
+      "save_as": "HADOOP-16699.json",
+      "original_response_sha256": "9dfcb35c6a251abf8bdc17e10f05d4102bcb5f7d9064977afe7100b9144764ee",
+      "original_response_bytes": 21368
+    },
+    {
+      "key": "HADOOP-16778",
+      "browse_url": "https://issues.apache.org/jira/browse/HADOOP-16778",
+      "rest_url": "https://issues.apache.org/jira/rest/api/2/issue/HADOOP-16778?fields=summary,description,parent,status,comment,subtasks",
+      "save_as": "HADOOP-16778.json",
+      "original_response_sha256": "054e269aa8b0cb5efaa4a02a77d803aec597c486d06579af8e3acf37753df32c",
+      "original_response_bytes": 8178
+    },
+    {
+      "key": "HADOOP-16859",
+      "browse_url": "https://issues.apache.org/jira/browse/HADOOP-16859",
+      "rest_url": "https://issues.apache.org/jira/rest/api/2/issue/HADOOP-16859?fields=summary,description,parent,status,comment,subtasks",
+      "save_as": "HADOOP-16859.json",
+      "original_response_sha256": "913a6492d96e0cf7490f748715b65c8b2ac9abb02e62207937c1806b40e60d0a",
+      "original_response_bytes": 28260
+    },
+    {
+      "key": "HADOOP-17002",
+      "browse_url": "https://issues.apache.org/jira/browse/HADOOP-17002",
+      "rest_url": "https://issues.apache.org/jira/rest/api/2/issue/HADOOP-17002?fields=summary,description,parent,status,comment,subtasks",
+      "save_as": "HADOOP-17002.json",
+      "original_response_sha256": "7e262eac88e63171a9ca2314625ed03aceac71d878891f4534eb11eff22f63e8",
+      "original_response_bytes": 9887
+    },
+    {
+      "key": "HADOOP-17017",
+      "browse_url": "https://issues.apache.org/jira/browse/HADOOP-17017",
+      "rest_url": "https://issues.apache.org/jira/rest/api/2/issue/HADOOP-17017?fields=summary,description,parent,status,comment,subtasks",
+      "save_as": "HADOOP-17017.json",
+      "original_response_sha256": "d54ee314137c94754c9465178312dbc6631e9eeb3ce61bf2ba24a66a2d40d743",
+      "original_response_bytes": 23755
+    },
+    {
+      "key": "HADOOP-17054",
+      "browse_url": "https://issues.apache.org/jira/browse/HADOOP-17054",
+      "rest_url": "https://issues.apache.org/jira/rest/api/2/issue/HADOOP-17054?fields=summary,description,parent,status,comment,subtasks",
+      "save_as": "HADOOP-17054.json",
+      "original_response_sha256": "4a6a5579cd3657acab5b55ed1531ad4552fcc5f1857cf7bd6a82b2435f9fc616",
+      "original_response_bytes": 9816
+    },
+    {
+      "key": "HADOOP-17093",
+      "browse_url": "https://issues.apache.org/jira/browse/HADOOP-17093",
+      "rest_url": "https://issues.apache.org/jira/rest/api/2/issue/HADOOP-17093?fields=summary,description,parent,status,comment,subtasks",
+      "save_as": "HADOOP-17093.json",
+      "original_response_sha256": "bb2fedb72a35498a0862e7a85d9dab54e9e1a8f4ca6b3dad717de0ff8207bfa0",
+      "original_response_bytes": 2496
+    },
+    {
+      "key": "HADOOP-17149",
+      "browse_url": "https://issues.apache.org/jira/browse/HADOOP-17149",
+      "rest_url": "https://issues.apache.org/jira/rest/api/2/issue/HADOOP-17149?fields=summary,description,parent,status,comment,subtasks",
+      "save_as": "HADOOP-17149.json",
+      "original_response_sha256": "feefc1cf30d6490a370acdcd4c6211711d011385341c9afb542e2efe8fcdb4cc",
+      "original_response_bytes": 4974
+    },
+    {
+      "key": "HADOOP-17163",
+      "browse_url": "https://issues.apache.org/jira/browse/HADOOP-17163",
+      "rest_url": "https://issues.apache.org/jira/rest/api/2/issue/HADOOP-17163?fields=summary,description,parent,status,comment,subtasks",
+      "save_as": "HADOOP-17163.json",
+      "original_response_sha256": "34519c6433c99786aec44e119600bc72e56b25556b3f04eb08b670d65ea3cf1a",
+      "original_response_bytes": 5964
+    },
+    {
+      "key": "HADOOP-17503",
+      "browse_url": "https://issues.apache.org/jira/browse/HADOOP-17503",
+      "rest_url": "https://issues.apache.org/jira/rest/api/2/issue/HADOOP-17503?fields=summary,description,parent,status,comment,subtasks",
+      "save_as": "HADOOP-17503.json",
+      "original_response_sha256": "a81ebe73e1cf61671161f6f7f48b8aed34aa6e55432e1b9e114cf1e48c3d573f",
+      "original_response_bytes": 3431
+    },
+    {
+      "key": "HADOOP-17652",
+      "browse_url": "https://issues.apache.org/jira/browse/HADOOP-17652",
+      "rest_url": "https://issues.apache.org/jira/rest/api/2/issue/HADOOP-17652?fields=summary,description,parent,status,comment,subtasks",
+      "save_as": "HADOOP-17652.json",
+      "original_response_sha256": "bfac9dbee5b634bd2b4bbbaf4629e16197296e564aef3c3be1bba15aac8d2005",
+      "original_response_bytes": 3847
+    },
+    {
+      "key": "HADOOP-18273",
+      "browse_url": "https://issues.apache.org/jira/browse/HADOOP-18273",
+      "rest_url": "https://issues.apache.org/jira/rest/api/2/issue/HADOOP-18273?fields=summary,description,parent,status,comment,subtasks",
+      "save_as": "HADOOP-18273.json",
+      "original_response_sha256": "8d318d234c27dcf3a7d9d7f1b10f0e9ee8eedc3f768b8b5ef562602972743ddb",
+      "original_response_bytes": 31961
+    },
+    {
+      "key": "HADOOP-18605",
+      "browse_url": "https://issues.apache.org/jira/browse/HADOOP-18605",
+      "rest_url": "https://issues.apache.org/jira/rest/api/2/issue/HADOOP-18605?fields=summary,description,parent,status,comment,subtasks",
+      "save_as": "HADOOP-18605.json",
+      "original_response_sha256": "5b157dce039d9f2ea49162b94d9d9ce5d614e8f01bcaacfa6a61c79bb99974d8",
+      "original_response_bytes": 2386
+    },
+    {
+      "key": "HADOOP-18759",
+      "browse_url": "https://issues.apache.org/jira/browse/HADOOP-18759",
+      "rest_url": "https://issues.apache.org/jira/rest/api/2/issue/HADOOP-18759?fields=summary,description,parent,status,comment,subtasks",
+      "save_as": "HADOOP-18759.json",
+      "original_response_sha256": "732ed16e85749a71a9a01a376fecf95d156a8118f8d6508484b4763b9a1065bb",
+      "original_response_bytes": 8185
+    },
+    {
+      "key": "HADOOP-18839",
+      "browse_url": "https://issues.apache.org/jira/browse/HADOOP-18839",
+      "rest_url": "https://issues.apache.org/jira/rest/api/2/issue/HADOOP-18839?fields=summary,description,parent,status,comment,subtasks",
+      "save_as": "HADOOP-18839.json",
+      "original_response_sha256": "4854e48870765fd4be1c2b514b78b55b22e264e3d0c1b65dba2d6a2c49abbad9",
+      "original_response_bytes": 31134
+    },
+    {
+      "key": "HADOOP-18841",
+      "browse_url": "https://issues.apache.org/jira/browse/HADOOP-18841",
+      "rest_url": "https://issues.apache.org/jira/rest/api/2/issue/HADOOP-18841?fields=summary,description,parent,status,comment,subtasks",
+      "save_as": "HADOOP-18841.json",
+      "original_response_sha256": "03ae8f010db33c74f27d5befe40dc1e38556e8f65c2a9cb2f9ba11a3b326ce35",
+      "original_response_bytes": 2578
+    },
+    {
+      "key": "HADOOP-18875",
+      "browse_url": "https://issues.apache.org/jira/browse/HADOOP-18875",
+      "rest_url": "https://issues.apache.org/jira/rest/api/2/issue/HADOOP-18875?fields=summary,description,parent,status,comment,subtasks",
+      "save_as": "HADOOP-18875.json",
+      "original_response_sha256": "326f370a2ec442a517c555b5e3598c867e0802d041d949f269dd0d9781f7682c",
+      "original_response_bytes": 10828
+    },
+    {
+      "key": "HADOOP-19023",
+      "browse_url": "https://issues.apache.org/jira/browse/HADOOP-19023",
+      "rest_url": "https://issues.apache.org/jira/rest/api/2/issue/HADOOP-19023?fields=summary,description,parent,status,comment,subtasks",
+      "save_as": "HADOOP-19023.json",
+      "original_response_sha256": "1d36a112f786a67ee04cc222d6439c5e7829bec72a73ba398ab45beb684922c9",
+      "original_response_bytes": 11539
+    },
+    {
+      "key": "HADOOP-19089",
+      "browse_url": "https://issues.apache.org/jira/browse/HADOOP-19089",
+      "rest_url": "https://issues.apache.org/jira/rest/api/2/issue/HADOOP-19089?fields=summary,description,parent,status,comment,subtasks",
+      "save_as": "HADOOP-19089.json",
+      "original_response_sha256": "f2c3c902f09dd283fc9ad8161a08de63b4deb33bed0b759302062bfc01cc201a",
+      "original_response_bytes": 44152
+    },
+    {
+      "key": "HADOOP-19093",
+      "browse_url": "https://issues.apache.org/jira/browse/HADOOP-19093",
+      "rest_url": "https://issues.apache.org/jira/rest/api/2/issue/HADOOP-19093?fields=summary,description,parent,status,comment,subtasks",
+      "save_as": "HADOOP-19093.json",
+      "original_response_sha256": "2c0a275da656a6e596951aef0912667210f1337475b1b5c118c5abf055d28ccb",
+      "original_response_bytes": 69515
+    },
+    {
+      "key": "HADOOP-19104",
+      "browse_url": "https://issues.apache.org/jira/browse/HADOOP-19104",
+      "rest_url": "https://issues.apache.org/jira/rest/api/2/issue/HADOOP-19104?fields=summary,description,parent,status,comment,subtasks",
+      "save_as": "HADOOP-19104.json",
+      "original_response_sha256": "5a1d2b8801c37ff52583fdbc0dce4f670f432ef2b7208c3070842877e8c35264",
+      "original_response_bytes": 3060
+    },
+    {
+      "key": "HADOOP-19157",
+      "browse_url": "https://issues.apache.org/jira/browse/HADOOP-19157",
+      "rest_url": "https://issues.apache.org/jira/rest/api/2/issue/HADOOP-19157?fields=summary,description,parent,status,comment,subtasks",
+      "save_as": "HADOOP-19157.json",
+      "original_response_sha256": "b3edfcc9bc0ee1dd3016b1bdc5d8201480a30ce8a2a3ecc2389d535d4ccd5725",
+      "original_response_bytes": 13605
+    },
+    {
+      "key": "HADOOP-19284",
+      "browse_url": "https://issues.apache.org/jira/browse/HADOOP-19284",
+      "rest_url": "https://issues.apache.org/jira/rest/api/2/issue/HADOOP-19284?fields=summary,description,parent,status,comment,subtasks",
+      "save_as": "HADOOP-19284.json",
+      "original_response_sha256": "4627a2b5161539857ad5d98a334716becf87a1a4e96b2647e6bdd066593c06c4",
+      "original_response_bytes": 97143
+    },
+    {
+      "key": "HADOOP-19388",
+      "browse_url": "https://issues.apache.org/jira/browse/HADOOP-19388",
+      "rest_url": "https://issues.apache.org/jira/rest/api/2/issue/HADOOP-19388?fields=summary,description,parent,status,comment,subtasks",
+      "save_as": "HADOOP-19388.json",
+      "original_response_sha256": "191937069252fd4881b512f1f933d382425daa0673e2488f1f8600c06981762a",
+      "original_response_bytes": 3220
+    },
+    {
+      "key": "HADOOP-19590",
+      "browse_url": "https://issues.apache.org/jira/browse/HADOOP-19590",
+      "rest_url": "https://issues.apache.org/jira/rest/api/2/issue/HADOOP-19590?fields=summary,description,parent,status,comment,subtasks",
+      "save_as": "HADOOP-19590.json",
+      "original_response_sha256": "8b207a168cb5833910f69e0529544c0f828cfecffc8e441b450f08cdf41a2516",
+      "original_response_bytes": 2121
+    },
+    {
+      "key": "HADOOP-19676",
+      "browse_url": "https://issues.apache.org/jira/browse/HADOOP-19676",
+      "rest_url": "https://issues.apache.org/jira/rest/api/2/issue/HADOOP-19676?fields=summary,description,parent,status,comment,subtasks",
+      "save_as": "HADOOP-19676.json",
+      "original_response_sha256": "a517b129770b04e79f0a9770f5b78f32475661e4e986815fbbac95092a9dd499",
+      "original_response_bytes": 3234
+    },
+    {
+      "key": "HADOOP-19767",
+      "browse_url": "https://issues.apache.org/jira/browse/HADOOP-19767",
+      "rest_url": "https://issues.apache.org/jira/rest/api/2/issue/HADOOP-19767?fields=summary,description,parent,status,comment,subtasks",
+      "save_as": "HADOOP-19767.json",
+      "original_response_sha256": "a25054529e16593494a2dbc4a896729e1c139216f830ba307f6ffc8f5e376ab6",
+      "original_response_bytes": 228686
+    }
+  ]
+}

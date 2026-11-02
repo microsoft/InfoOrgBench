@@ -1,0 +1,319 @@
+{
+  "assignments": [
+    {
+      "id": "F001",
+      "path": [
+        "ABFS improvements",
+        "Delegation token test NPE"
+      ]
+    },
+    {
+      "id": "F002",
+      "path": [
+        "Blobstore compatibility",
+        "DistCp attribute preservation"
+      ]
+    },
+    {
+      "id": "F003",
+      "path": [
+        "ABFS improvements",
+        "China authentication"
+      ]
+    },
+    {
+      "id": "F004",
+      "path": [
+        "ABFS improvements",
+        "SharedKey idempotency tests"
+      ]
+    },
+    {
+      "id": "F005",
+      "path": [
+        "Blobstore compatibility",
+        "DistCp attribute preservation"
+      ]
+    },
+    {
+      "id": "F006",
+      "path": [
+        "ABFS improvements",
+        "Random read performance"
+      ]
+    },
+    {
+      "id": "F007",
+      "path": [
+        "ABFS improvements",
+        "China authentication"
+      ]
+    },
+    {
+      "id": "F008",
+      "path": [
+        "ABFS improvements",
+        "Delegation token test NPE"
+      ]
+    },
+    {
+      "id": "F009",
+      "path": [
+        "Blobstore compatibility",
+        "DistCp attribute preservation"
+      ]
+    },
+    {
+      "id": "F010",
+      "path": [
+        "Blobstore compatibility",
+        "DistCp attribute preservation"
+      ]
+    },
+    {
+      "id": "F011",
+      "path": [
+        "ABFS improvements",
+        "Random read performance"
+      ]
+    },
+    {
+      "id": "F012",
+      "path": [
+        "Blobstore compatibility",
+        "DistCp attribute preservation"
+      ]
+    },
+    {
+      "id": "F013",
+      "path": [
+        "S3A improvements",
+        "Assumed role credentials"
+      ]
+    },
+    {
+      "id": "F014",
+      "path": [
+        "Blobstore compatibility",
+        "DistCp attribute preservation"
+      ]
+    },
+    {
+      "id": "F015",
+      "path": [
+        "ABFS improvements",
+        "SharedKey idempotency tests"
+      ]
+    },
+    {
+      "id": "F016",
+      "path": [
+        "ABFS improvements",
+        "China authentication"
+      ]
+    },
+    {
+      "id": "F017",
+      "path": [
+        "ABFS improvements",
+        "SharedKey idempotency tests"
+      ]
+    },
+    {
+      "id": "F018",
+      "path": [
+        "Blobstore compatibility",
+        "DistCp attribute preservation"
+      ]
+    },
+    {
+      "id": "F019",
+      "path": [
+        "S3A improvements",
+        "Upload listing details"
+      ]
+    },
+    {
+      "id": "F020",
+      "path": [
+        "ABFS improvements",
+        "Delegation token test NPE"
+      ]
+    },
+    {
+      "id": "F021",
+      "path": [
+        "ABFS improvements",
+        "SharedKey idempotency tests"
+      ]
+    },
+    {
+      "id": "F022",
+      "path": [
+        "Blobstore compatibility",
+        "DistCp attribute preservation"
+      ]
+    },
+    {
+      "id": "F023",
+      "path": [
+        "ABFS improvements",
+        "Random read performance"
+      ]
+    },
+    {
+      "id": "F024",
+      "path": [
+        "ABFS improvements",
+        "Delegation token test NPE"
+      ]
+    },
+    {
+      "id": "F025",
+      "path": [
+        "Blobstore compatibility",
+        "DistCp attribute preservation"
+      ]
+    },
+    {
+      "id": "F026",
+      "path": [
+        "ABFS improvements",
+        "HTTP timing metrics"
+      ]
+    },
+    {
+      "id": "F027",
+      "path": [
+        "Blobstore compatibility",
+        "DistCp attribute preservation"
+      ]
+    },
+    {
+      "id": "F028",
+      "path": [
+        "Blobstore compatibility",
+        "DistCp attribute preservation"
+      ]
+    },
+    {
+      "id": "F029",
+      "path": [
+        "Blobstore compatibility",
+        "DistCp attribute preservation"
+      ]
+    },
+    {
+      "id": "F030",
+      "path": [
+        "Blobstore compatibility",
+        "DistCp attribute preservation"
+      ]
+    },
+    {
+      "id": "F031",
+      "path": [
+        "ABFS improvements",
+        "China authentication"
+      ]
+    },
+    {
+      "id": "F032",
+      "path": [
+        "ABFS improvements",
+        "Random read performance"
+      ]
+    },
+    {
+      "id": "F033",
+      "path": [
+        "ABFS improvements",
+        "Delegation token test NPE"
+      ]
+    },
+    {
+      "id": "F034",
+      "path": [
+        "AWS SDK v2 migration",
+        "HEAD metadata headers"
+      ]
+    },
+    {
+      "id": "F035",
+      "path": [
+        "ABFS improvements",
+        "SharedKey idempotency tests"
+      ]
+    },
+    {
+      "id": "F036",
+      "path": [
+        "S3A improvements",
+        "Upload listing details"
+      ]
+    },
+    {
+      "id": "F037",
+      "path": [
+        "ABFS improvements",
+        "Random read performance"
+      ]
+    },
+    {
+      "id": "F038",
+      "path": [
+        "AWS SDK v2 migration",
+        "HEAD metadata headers"
+      ]
+    },
+    {
+      "id": "F039",
+      "path": [
+        "ABFS improvements",
+        "China authentication"
+      ]
+    },
+    {
+      "id": "F040",
+      "path": [
+        "ABFS improvements",
+        "HTTP timing metrics"
+      ]
+    },
+    {
+      "id": "F041",
+      "path": [
+        "S3A improvements",
+        "Upload listing details"
+      ]
+    },
+    {
+      "id": "F042",
+      "path": [
+        "ABFS improvements",
+        "HTTP timing metrics"
+      ]
+    },
+    {
+      "id": "F043",
+      "path": [
+        "S3A improvements",
+        "Assumed role credentials"
+      ]
+    },
+    {
+      "id": "F044",
+      "path": [
+        "ABFS improvements",
+        "HTTP timing metrics"
+      ]
+    },
+    {
+      "id": "F045",
+      "path": [
+        "ABFS improvements",
+        "Delegation token test NPE"
+      ]
+    }
+  ]
+}

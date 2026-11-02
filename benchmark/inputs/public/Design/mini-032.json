@@ -1,0 +1,185 @@
+{
+  "task_id": "mini-032",
+  "records": [
+    {
+      "id": "F001",
+      "format": "text",
+      "text": "Embedding requester information. This is discussed further in the alternatives considered section, and a future KEP may revisit this. Embedding information beyond the immutable Node name and UID into the token. We aim to mimic what is done with the ref fields for secret, pod and serviceaccount (not introduce any additional properties). Changing default behaviour of the SA authenticator to enforce the referenced Node object still exists."
+    },
+    {
+      "id": "F002",
+      "format": "text",
+      "text": "Native Golang based resources do pruning as a consequence of the JSON unmarshalling algorithm. This is has become a fundamental behaviour of Kubernetes API semantics that CustomResources break. Pruning enforces consistency of data stored in etcd. Objects cannot suddenly render unaccessible because unexpected data breaks decoding. Even if unexpected data in etcd is of the right type and does not break decoding, it has not gone through validation, and probably an admission webhook either does not exist for many CRDs or it won't have implemented pruning behaviour. Pruning at the decoding step enforces this (scenario: applying a new CR instance with new fields against a cluster with an old CRD manifest). Pruning is a counter-measure to security attacks which make use of knowledge of future versions of APIs with new security relevant fields. Without pruning an attacker can prepare CustomResources with privileged fields set. On version upgrade of the cluster, these fields can suddenly become alive and lead to unallowed behaviour."
+    },
+    {
+      "id": "F003",
+      "format": "text",
+      "text": "Today every multicluster scheduler publishes its own API to convey where a workload should run, forcing downstream tools such as GitOps engine, workload orchestrator, progressive rollout controller, or AI/ML pipeline to understand a scheduler-specific API. This KEP introduces a vendor neutral `PlacementDecision` API that standardizes the output of multicluster placement calculations. A `PlacementDecision` object is data only: a namespaced list of chosen clusters whose referenced names must map one-to-one to `ClusterProfile`s as defined by the ClusterProfile API."
+    },
+    {
+      "id": "F004",
+      "format": "text",
+      "text": "Today, the certificates.k8s.io API group provides a flexible, pluggable mechanism for workloads running within the cluster to request certificates. However, certificates only have meaning in relation to a trust anchor set. Most signers in a Kubernetes cluster don't issue publicly-trusted certificates, but Kubernetes lacks a standardized mechanism for signers to distribute their trust anchors to workloads."
+    },
+    {
+      "id": "F005",
+      "format": "text",
+      "text": "Improve pod restart backoff logic to better match the actual load it creates and meet emerging use cases Quantify and expose risks to node stability resulting from decreased and/or hetereogeneous backoff configurations Empirically derive defaults and allowable thresholds that approximate current node stability Provide a simple UX that does not require changes for the majority of workloads Must work for Jobs and sidecar containers"
+    },
+    {
+      "id": "F006",
+      "format": "text",
+      "text": "Starting with Kubernetes 1.22, a new `CPUManager` flag has facilitated the use of `CPUManager` Policy options(#2625) which enable users to customize their behavior based on workload requirements without having to introduce an entirely new policy. These policy options work together to ensure an optimized cpu set is allocated for workloads running on a cluster. The two policy options that already exist are `full-pcpus-only`(#2625) and `distribute-cpus-across-numa` (#2902). With this KEP, a new `CPUManager` policy option is introduced which ensures that all CPUs on a socket are considered to be aligned. Thus, the `CPUManager` will send a broader set of preferred hints to `TopologyManager`, enabling the increased likelihood of the best hint to be socket aligned with respect to CPU and other devices managed by `DeviceManager`."
+    },
+    {
+      "id": "F007",
+      "format": "text",
+      "text": "Today, `kube-apiserver` does not authenticate itself to admission webhooks by default. Any entity with service network access can send requests to a webhook endpoint and impersonate `kube-apiserver`. CVE-2025-1974 demonstrated real-world consequences of this class of vulnerability.\n\nThe introduction of the capability to authenticate API Servers consists of three main additions. First, webhook authentication clients will be updated to request a service account token from `kube-apiserver`, and to present the credential to the admission webhook. Second, `kube-apiserver` will be updated to dispense those tokens to authenticated and authorized principals. Third, a token verification library will be introduced for use by webhook maintainers.\n\nThis KEP augments the `TokenRequest` API to allow for the client to request claims in the JWT token to which `kube-apiserver` attests. In addition, tokens intended for admission webhooks will be bound to an webhook configuration object (either validating or mutating). The specifics of these changes are discussed in detail in the design details section.\n\nA list of terms is provided below for disambiguation, and to prevent awkward sentence constructions."
+    },
+    {
+      "id": "F008",
+      "format": "text",
+      "text": "Provide a Kubernetes data type that holds X.509 trust anchors for use wherever a set of X.509 trust anchors is needed. Make it easy for signer implementations (certificates/v1 or otherwise) to publish their relevant trust anchors for use within the cluster. Make it easy for workloads that need access to the trust anchors that back a particular certificates/v1 signer to access them within the container filesystem."
+    },
+    {
+      "id": "F009",
+      "format": "text",
+      "text": "Alpha stage: Introduce a system partition with a dedicated cgroup hierarchy for system Pods (e.g., kube-system namespace). Support memory limiting via the system partition's cgroup root. Support setting a dedicated CPU set for system partition Pods. Kubelet treats system and default partitions independently for resource allocation and overcommit logic. System partition is statically defined via kubelet configuration. System partition shares resources with kubelet, container runtime, and other host processes.\n\nAfter the first alpha: Scheduling integration to target Pods to the system partition. Additional resource isolation between system and default partitions."
+    },
+    {
+      "id": "F010",
+      "format": "text",
+      "text": "We propose to add a new `CPUManager` policy option called `align-by-socket` to the `static` policy of `CPUManager`. With this policy option, the `CPUManager` will prefer those hints in which all CPUs are within same socket in addition to exisiting hints which require minimum NUMA nodes. With this policy option CPUs will be considered aligned at socket boundary instead of NUMA boundary during allocation. Thus if best hint consist of NUMA nodes within one socket, `CPUManager` may try to assign available CPUs from all NUMA nodes of socket."
+    },
+    {
+      "id": "F011",
+      "format": "text",
+      "text": "Namespaces are not guaranteed to have any 'identifying' labels by the Kubernetes API. This means that to select a namespace by name, on would have to use a field selector. This encumberance makes it hard to write default NetworkPolicies, and also makes its tricky to create other kinds of \"label-driven\" namespace functionality in the K8s api.\n\nThe idea of this KEP is to propose that namespaces are always ensured, by the API server, to have a *immutable label matching the metadata.name of the namespace*, which thus allows one to build label selectors to include/exclude namespaces by name, without having write access to a namespace (which is required to label it manually).\n\nThis was initially envisioned as a workaround to a limitation in the network policy API, but has emerged as a potential to other problems which may be solved by default namespace labels."
+    },
+    {
+      "id": "F012",
+      "format": "text",
+      "text": "Define a minimal API to support service discovery and consumption across clusters. Consume a service in another cluster. Consume a service deployed in multiple clusters as a single service. When a service is consumed from another cluster its behavior should be predictable and consistent with how it would be consumed within its own cluster. Allow gradual rollout of changes in a multi-cluster environment. Create building blocks for multi-cluster tooling. Support multiple implementations. Leave room for future extension and new use cases."
+    },
+    {
+      "id": "F013",
+      "format": "text",
+      "text": "Currently, built-in API types are written as Go structures annotated with markers to add additional semantics. This method has inspired controller-tools who has re-used and improved on that technique for building CRDs. We're proposing using the `// +default` marker to declaratively define defaults (and have kubebuilder use that as well) since that mechanism still doesn't exist for built-in. This proposal tries to bridge that gap."
+    },
+    {
+      "id": "F014",
+      "format": "text",
+      "text": "There are many reasons why a K8s user may want to split their deployments across multiple clusters, but still retain mutual dependencies between workloads running in those clusters. Today the cluster is a hard boundary, and a service is opaque to a remote K8s consumer that would otherwise be able to make use of metadata (e.g. endpoint topology) to better direct traffic. To support failover or temporarily during migration, users may want to consume services spread across clusters, but today that requires non-trivial bespoke solutions.\n\nThe Multi-Cluster Services API aims to fix these problems."
+    },
+    {
+      "id": "F015",
+      "format": "text",
+      "text": "Any entity with service network access can send requests to an admission webhook endpoint. If the webhook does not authenticate the caller, an attacker can probe for policy information, trigger unintended side effects, or exploit the webhook's own privileges within the cluster. Opt-in mechanisms for authenticating the kube-apiserver to webhooks exist (client certs, bearer tokens, or basic auth via a kubeconfig file configured through `--admission-control-config-file`), but they require manual credential management and an API server restart to change."
+    },
+    {
+      "id": "F016",
+      "format": "text",
+      "text": "Token projection and alternative audiences on JWTs issued by the apiserver enable an external entity to validate the identity and certain properties (e.g. associated ServiceAccount or Pod) of the caller. When attempting to verify a token associated with a Pod, it is not possible to verify that the Pod is associated with a specific Node without `get`ing the relevant Pod object (embedded as a private claim in the JWT) and cross-referencing the named `spec.nodeName`."
+    },
+    {
+      "id": "F017",
+      "format": "text",
+      "text": "Kubernetes#57291, with over 250 positive reactions and in the top five upvoted issues in k/k, covers a range of suggestions to change the rate of decay for the backoff delay or the criteria to restart the backoff counter, in some cases requesting to make this behavior tunable per node, per container, and/or per exit code. Anecdotally, there are use cases representative of some of Kubernetes' most rapidly growing workload types like gaming and AI/ML that would benefit from this behavior being different for varying types of containers."
+    },
+    {
+      "id": "F018",
+      "format": "text",
+      "text": "Embedding information about the Node that a pod is running on into signed JWTs. Make it easier to track the actions a single token has taken, and cross-reference that back to the origin of the token (via audit log inspection). Provide a means of checking whether a Pod's token is associated with the same Node as it was associated with when the initial TokenRequest was made (via an extra field that can be observed from the TokenReview API)."
+    },
+    {
+      "id": "F019",
+      "format": "text",
+      "text": "The goal is to add a new `// +default` marker to our current built-in Go IDL. That marker will be transformed into the OpenAPI `default` field and then routed to defaulting functions so that defaulting can be done declaratively. This new marker would also be introduced in kubebuilder, and we will make the behavior equivalent between built-in types and CRDs so that built-in types can be directly used in kubebuilder, and the declarative defaults will be automatically carried along."
+    },
+    {
+      "id": "F020",
+      "format": "text",
+      "text": "CustomResources store arbitrary JSON data without following the typical Kubernetes API behaviour to prune unknown fields. This makes CRDs different, but also leads to security and general data consistency concerns because it is unclear what is actually stored in etcd.\n\nThis KEP proposes to add pruning of all fields which are not specified in the OpenAPI validation schemas given in the CRD.\n\nPruning will be opt-in in v1beta1 of `apiextensions.k8s.io` via\n\ni.e. CRDs created in v1beta1 default to disabled pruning.\n\n**Pruning will be enabled for every CRD created in v1** and we will hide `preserveUnknownFields` in v1 in that case.\n\nPruning can be disabled for subtrees of CustomResources by setting the `x-kubernetes-preserve-unknown-fields: true` vendor extension. This allows to store arbitrary JSON or RawExtensions. This will even be possible at the root level, even in v1. Adding that in every to each object in a schema leads to the old behaviour.\n\nPruning requires _structural schemas_ (as described in KEP Vanilla OpenAPI Subset: Structural Schema) for all defined versions. Validation will reject the CRD with `preserveUnknownFields: false` otherwise."
+    },
+    {
+      "id": "F021",
+      "format": "text",
+      "text": "We propose to label all namespaces, by default, with a reserved label of “kubernetes.io/metadata.name” and set it to the namespace's name. This will allow any resource with a `namespaceSelector` field (such as NetworkPolicy, MutatingWebhookConfiguration etc) to select (or exclude with `notIn`) these namespaces by explicitly matching on the namespace's name with traditional label selector mechanisms. If this label is missing, it is added by the apiserver as a default. If this label is deleted, it is added by the apiserver as a default. defaults.go mutates namespaces on read, to always have the label `kubernetes.io/metadata.name=obj.Name`, this effectively means a mutation would be an allowed no-op, since the apiserver would always overwrite the value of this field. api clients always see this default label, because of this mutation."
+    },
+    {
+      "id": "F022",
+      "format": "text",
+      "text": "There is currently no standard way to connect or even think about Kubernetes services beyond the cluster boundary, but we increasingly see users deploy applications across multiple clusters designed to work in concert. This KEP proposes a new API to extend the service concept across multiple clusters. It aims for minimal additional configuration, making multi-cluster services as easy to use as in-cluster services, and leaves room for multiple implementations.\n\n*Converted from this original proposal doc.*"
+    },
+    {
+      "id": "F023",
+      "format": "text",
+      "text": "the API proposed by this KEP aims to Provide a reliable, consistent, and automated approach for any multi-cluster application (framework, toolset) to discover available clusters and take actions accordingly, in a way similar to service discovery works in a microservice architecture. Through the inventory, the application can query for a list of clusters to access, or watch for an ever-flowing stream of cluster lifecycle events which the application can act upon timely, such as auto-scaling, upgrades, failures, and connectivity issues. Provide a simple, clear interface for human operators to understand clusters under management. Provide a standardized, pluggable mechanism for obtaining credentials to access clusters represented by ClusterProfile objects. The proposed approach is to leverage plugins for retrieving the credentials from an issuer recognized by the target cluster. The controller using ClusterProfile would use a library to run a local executable which would retrieve the credentials for the current controller and a given clusterprofile. Plugins would be exec'ed by the controller so that they don't need be built-in the binary, allowing flexibility into writing their own access plugins and still leveraging multicluster controllers written by the community. We propose to reuse the exec approach and protocol used for external credentials in Kubeconfig (but not the configuration part of kubeconfig). Finally, in order to retrieve the endpoint for the cluster, we standardize the property names that are used in ClusterProfile."
+    },
+    {
+      "id": "F024",
+      "format": "text",
+      "text": "In the absence of a standard mechanism for trust distribution, a few different approaches have emerged: The trust anchors necessary for connecting to kube-apiserver are distributed using a ConfigMap that is automatically injected into every namespace. Kubernetes webhooks and aggregated API servers are configured with a static trust anchor set embedded in their config (which complicates rotation). At least one signer implementation uses a cluster-scoped CRD to distribute trust anchors to workloads.\n\nEach of these approaches has downsides: Creating a ConfigMap in every namespace requires granting over-broad permissions to the responsible controller (create ConfigMaps in **all** namespaces). Static trust anchor sets embedded directly in configuration complicate the job of rotating the backing CA's roots of trust. CRDs work well, but are inappropriate for use by core APIs.\n\nEach of these approaches would be simplified by an in-tree mechanism for distributing trust anchor sets."
+    },
+    {
+      "id": "F025",
+      "format": "text",
+      "text": "Isolating system daemonsets from user workloads is a longstanding problem with numerous DIY solutions and no obvious winner. Today, system Pods and user Pods share the same resource boundaries — system Pods can burst into user resources and vice versa. This makes it impossible to guarantee that critical system components have the resources they need, or that user workloads are free from system interference.\n\nThis problem is increasingly important as Kubernetes targets new workload types: **Traditional workloads**: Benefit from overcommit, but need basic separation so a misbehaving system daemon doesn’t destabilize user Pods. **HPC workloads**: Require minimal system interference and strict resource isolation. These workloads need system components constrained to a small, bounded resource footprint. **Telco workloads**: Optimized for low-latency and especially sensitive to interference from CPU-stealing workloads. A stronger isolation boundary between system and user workloads minimizes noise and is critical to minimize latency. **AI/ML workloads**: Use specialized devices and need a responsive management layer that is sandboxed and guaranteed its own resources, without competing with the user workload.\n\nA dedicated system partition solves these problems by giving system Pods their own resource-limited cgroup hierarchy, eliminating interference between the management layer and user workloads."
+    },
+    {
+      "id": "F026",
+      "format": "text",
+      "text": "`kube-apiserver` authenticates itself to admission webhooks by default, without requiring manual credential configuration. Aggregated API servers can authenticate themselves to admission webhooks using the same mechanism. Minimal manual setup involved, both for webhook maintainers and cluster administrators. The KEP authors believe firmly that friction prevents adoption. The default behavior of webhook authentication clients is to procure a token and provide it to webhooks. The design does not break webhooks that have not yet adopted token verification. `kube-apiserver` authorizes webhook authentication clients at token issuance, and will refuse to provide a token to unauthorized principals. Setting up the requisite permissions for token acquisition should be simple and easy. The token is scoped to a subset of resources about which its bearer may contact the webhook. Tokens may alternatively be scoped per-webhook (by audience). The design is backward compatible: existing kubeconfig-based webhook authentication setups continue to work without modification. Defining the webhook-side verification go library. Supporting both `client-go` and `controller-runtime`. Tokens must be reviewable by `TokenReview`, although the webhook library **WILL NOT** use `TokenReview` by default to avoid unnecessary round trips."
+    },
+    {
+      "id": "F027",
+      "format": "text",
+      "text": "This API aims to solve the following problems: Reduce integration burden: Enable consumers to write ONE integration that works with ANY scheduler implementing this API, instead of writing separate integrations for each scheduler. Enable scheduler portability: Allow organizations to switch schedulers (e.g., from OCM to Clusternet) without rewriting consumer code. Enable consumer portability: Allow new consumers (e.g., Argo CD, MultiKueue) to work with all schedulers by implementing one standard API. Simplify RBAC: Provide one resource schema for consumers to `get/list/watch`, instead of different permissions for each scheduler's API. Support placement delegation: Enable external placement controllers to be plugged into any consumer. Align with ClusterProfile: Ensure direct mapping to `ClusterProfile` inventory for cluster references.\n\nTechnical goals: Define a namespaced, minimalistic, data-only `PlacementDecision` API that lists selected clusters. Support continuous rescheduling where decision lists may be updated over time. Guarantee that every (`clusterNamespace`, `clusterName`) pair matches a `ClusterProfile` in the fleet (enforced via admission). Provide label and naming conventions so consumers can retrieve all slices of one decision via label selector or deterministic naming. Leave room for scheduler-specific implementations and workload-aware placement logic."
+    },
+    {
+      "id": "F028",
+      "format": "text",
+      "text": "We assume the CRD has _structural schemas_ (as defined in KEP Vanilla OpenAPI Subset: Structural Schema).\n\nWe propose to derive the value-validation-less variant of the structural schema (trivial by definition of _structural schema_) and recursively follow the given CustomResource instance and the structural schema, removing fields from the former if they are not specified in the `properties` of the latter. Skip field removal in that recursion step (not for children) if `additionalProperties` is defined in the schema. return a deserialization error if the CustomResource instance JSON value and the type in the structural schema do not match fields of `metav1.TypeMeta` (`apiVersion` and `kind`) and `metav1.ObjectMeta` at the object root are implicitly specified. `metav1.ObjectMeta` is always pruned.\n\nNote that in (2) `additionalProperties: <any-schema>` stops field removal on that level. This includes `additionalProperties: false`, compare examples (4) and (5).\n\nWe do this in the serializer just after the binary payload has been unmarshalled into an `map[string]interface{}` for the request body and when reading from etcd, compare the yellow boxes in the following figure:\n\n!Decoding steps which must prune\n\nWe will also prune after mutating webhooks have been run."
+    },
+    {
+      "id": "F029",
+      "format": "text",
+      "text": "Having a new `// +default` marker for built-in types has several important benefits: It's more convenient for types authors. The types and their behaviors are easier to understand since they are described together. They are less error-prone, and discourage people from using anti-patterns like \"cross-field dependency defaults\" (default depends on another field), non-deterministic or complicated defaults. These patterns might be useful in limited circumstances, but it should be easier to do the right thing in most cases. Removes the inconsistency with CRDs that already support this mechanism, and improves embedding of types from k8s.io/api into CRDs, which is currently cumbersome. Solves bug where associative keys needs to either be required or defaulted. Default keys will now be able to be specified in the OpenAPI for built-in types, and SSA will be able to fill in the missing keys."
+    },
+    {
+      "id": "F030",
+      "format": "text",
+      "text": "In , we discussed several ways to implement network policies that select namespaces by name, rather than by relying on labels which may be unknown, or uneditable by people writing policies, or untrustworthy.\n\nThis was inspired by a broad community ask to target namespaces in this manner, as evidenced by issues such as kubernetes #88253, and the larger set of user feedback obtained in user stories.\n\nIt’s also worth noting that there are at least 2 other NamespaceSelector APIs in k/k - Validating and Mutating webhooks. They will inevitably need similar API evolution, but we don't need to do that as part of this KEP.\n\nIt turns out that alternate solutions: Break the old API in fundamental ways that are questionable in terms of cost/benefit, add nesting complexity to the network policy API, wherein certain “subsets” of the API were not usable together. This is not “bad”, but it is suboptimal and introduces redundant semantics. This is avoidable if we could assume, in all cases, that namespaces have a default label, thereby leveraging existing functionalities offered by label selectors.\n\nThere may also be many other usecases where the security or permissions boundary might be conveniently defined in terms of a namepsace name, and that such a namespace definition would be most easily referenced by a default label."
+    },
+    {
+      "id": "F031",
+      "format": "text",
+      "text": "A typical multicluster setup involves two key components: Scheduler: examines the fleet (`ClusterProfile` objects), and other signals/metrics and decides *where* a workload should land. Consumer: GitOps engine, workload orchestrator, progressive rollout controller, AI/ML pipeline read that decision and act (for example, by creating Work objects). Today's problem: Every scheduler publishes its own API to convey placement decisions, forcing each consumer to write custom integration code for every scheduler they want to support."
+    },
+    {
+      "id": "F032",
+      "format": "text",
+      "text": "Node System Partition introduces a dedicated partition on a Node for system Pods (e.g., kube-system workloads), isolating them from user workloads. The system partition has its own cgroup hierarchy with dedicated CPU set and memory limits, ensuring system Pods cannot interfere with user Pods and vice versa.\n\nThere are a few DIY solutions for system daemon isolation, but this KEP is needed because enforcing memory limits requires a separate cgroup hierarchy, and integrating that with kubelet functions like metrics collection and eviction is impossible to implement as a plugin.\n\nThis KEP is scoped to a single system partition. Supporting arbitrary user-defined partitions is a non-goal."
+    },
+    {
+      "id": "F033",
+      "format": "text",
+      "text": "With the evolution of CPU architectures, the number of NUMA nodes per socket has increased. The devices managed by `DeviceManager` may not be uniformly distributed across all NUMA nodes. Thus there can be scenarios where perfect alignment between devices and CPU may not be possible. Latency sensitive applications desire resources to be aligned at least within the same socket if NUMA alignment is not possible for optimal performance. By default, the `CPUManager` prefers CPU allocations which require a minimum number of NUMA nodes. However, if the NUMA nodes selected for allocation are spread across sockets, it results in degraded performance. By ensuring the selected NUMA nodes are socket aligned, predictable performance can be achieved. The best possible alignment of CPUs with other resources(viz. Which are managed by `DeviceManager`) is crucial to guarantee predictable performance for latency sensitive applications."
+    },
+    {
+      "id": "F034",
+      "format": "text",
+      "text": "Establish a standardized ClusterProfile API to represent clusters. Lay the groundwork for multi-cluster tooling by providing a foundational component. Accommodate multiple implementations to encourage flexibility and adoption. Allow for future extensions and new use cases by leaving room for further development and enhancements. A unified API, such as this one, is most effective when platform extension authors can use it as a foundational tool to create extensions compatible with multiple providers. Allow cluster managers of different types to create ClusterProfiles in the same inventory. Provide a library for controllers to obtain credentials for a cluster represented by a ClusterProfile Allow cluster managers to provide a method to obtain credentials that doesn't require to be embedded into the controller code and recompiling. Be a secure mechanism for credential obtention and storage."
+    },
+    {
+      "id": "F035",
+      "format": "text",
+      "text": "This effort is NOT intending to support fully user-specified configuration, to cap risk to node stability This effort is purposefully NOT implementing more complex heuristics by kubelet (e.g. system state, workload specific factors, or by detecting anomalous workload behavior) to focus on better benchmarking and observability and address common use cases with easily modelled changes first This effort is NOT changing the independent backoff curve for image pulls"
+    },
+    {
+      "id": "F036",
+      "format": "text",
+      "text": "Provide a standard reference implementation. Define specific implementation details beyond general API behavior. Offering functionalities related to multi-cluster orchestration. Define the Consumer registration API Define the mechanism for shipping plugins to be used by the controllers and their delivery in the controller image/pod. Design plugin or a library for plugins Mandate Federated workload identity / OIDC frameworks (though they are recommended)"
+    }
+  ]
+}

@@ -1,0 +1,185 @@
+{
+  "task_id": "mini-034",
+  "records": [
+    {
+      "id": "F001",
+      "format": "text",
+      "text": "_Inter-device connectivity:_ Decide device assignments based on direct device interconnects. This issue can be separated from socket locality. Inter-device topology can be considered entirely within the scope of the Device Manager, after which it can emit possible socket affinities. The policy to reach that decision can start simple and iterate to include support for arbitrary inter-device graphs. _HugePages:_ This proposal assumes that pre-allocated HugePages are spread among the available memory nodes in the system. We further assume the operating system provides best-effort local page allocation for containers (as long as sufficient HugePages are free on the local memory node. _CNI:_ Changing the Container Networking Interface is out of scope for this proposal. However, this design should be extensible enough to accommodate network interface locality if the CNI adds support in the future. This limitation is potentially mitigated by the possibility to use the device plugin API as a stopgap solution for specialized networking requirements."
+    },
+    {
+      "id": "F002",
+      "format": "text",
+      "text": "The volume snapshot feature allows creating/deleting volume snapshots, and the ability to create new volumes from a snapshot natively using the Kubernetes API. However, application consistency is not guaranteed. An user has to figure out how to quiece an application before taking a snapshot and unquiece it after taking the snapshot.\n\nSo we want to introduce an `ExecutionHook` to facilitate the quiesce and unquiesce actions when taking a snapshot. There is an existing lifecycle hook in the `Container` struct. The lifecycle hook is called immediately after a container is created or immediately before a container is terminated. The proposed execution hook is not tied to the start or termination time of the container. It can be triggered on demand by callers (users or controllers) and the status will be updated dynamically."
+    },
+    {
+      "id": "F003",
+      "format": "text",
+      "text": "The primary risk involves potential disruptions for users who migrate to cgroup v2 with incompatible workloads.\n\nUsers depending on the following technologies will need to ensure they are using the specified versions or later, which support cgroup v2: OpenJDK / HotSpot: jdk8u372, 11.0.16, 15 and later NodeJs 20.3.0 or later IBM Semeru Runtimes: jdk8u345-b01, 11.0.16.0, 17.0.4.0, 18.0.2.0 and later IBM SDK Java Technology Edition Version (IBM Java): 8.0.7.15 and later If users run any third-party monitoring and security agents that depend on the cgroup file system, they need to update the agents to a version that supports cgroup v2.\n\nMitigations include providing clear documentation on the migration process, offering community support for common issues encountered during migration, and keeping the cgroup v1 support in the maintenance mode for allowing users additional time to switch to cgroup v2 without any major disruptions."
+    },
+    {
+      "id": "F004",
+      "format": "text",
+      "text": "We need to ensure we do not break existing union types. This can be done by not forcing existing unions to conform to the newly proposed union semantics. Integration testing with older types should give us the confidence to be sure we have done so. There is a lot of risk for errors when there exists skew between clients and server. In the section on normalization, we discuss mitigating these risks."
+    },
+    {
+      "id": "F005",
+      "format": "text",
+      "text": "As a storage provider, I want to use the CSI API to develop drivers that can mount ephemeral volumes that follow the lifecycles of pods where they are embedded. This feature would allow me to create drivers that work similarly to how the in-tree Secrets or ConfigMaps driver works. My ephemeral CSI driver should allow me to inject arbitrary data into a pod using a volume mount point inside the pod. As a user I want to be able to define pod specs with embedded ephemeral CSI volumes that are created/mounted when the pod is deployed and are deleted when the pod goes away."
+    },
+    {
+      "id": "F006",
+      "format": "text",
+      "text": "The general ExecutionHook API has two parts, spec and status. The hook spec has two piece of information, what are the commands to execute and where to execute them. In many use cases, different hooks share the same commands and user or controller will create many hooks for execution repeatedly. To reduce the work of copying the same execution commands in different hooks, we also propose a second API, HookAction to record the execution commands which can be referenced by ExecutionHook API."
+    },
+    {
+      "id": "F007",
+      "format": "text",
+      "text": "Provide a simple mechanism for API authors to label fields of a resource as members of a oneOf, in order to receive standardized validation and normalization, rather than having to author it themeselves per resource as currently done as a workaround in various validation functions (e.g. `pkg/apis/<group>/validation/validation.go`). Validation - ensuring only one member field is set (or at most one if desired). Normalization - ensuring the API server can understand the intent of clients that are unable to update/modify fields the clients are unaware of due to version skew."
+    },
+    {
+      "id": "F008",
+      "format": "text",
+      "text": "Today, `kube-apiserver` allows one to configure the authorization chain using a set of command line flags of the format `--authorization-*`. And cluster administrators can only enable one webhook as a part of the authorization chain using the `--authorization-modes` flag. This limits admins from creating authorization chains with multiple webhooks that validate requests in a certain order. This proposal makes the case for a more structured config to define the authorization chain for `kube-apiserver` and allowing multiple webhooks with well-defined parameters and enabling fine grained control like explicit Deny authorizer."
+    },
+    {
+      "id": "F009",
+      "format": "text",
+      "text": "improve readiness times for clusters with a large number of encrypted resources reduce the likelihood of hitting the KMS rate limit enable partially automated key rotation for the latest key without API server restarts improve KMS plugin health check reliability improve observability of envelop operations between kube-apiserver, KMS plugins and KMS if this v2 API reaches beta in release M, the existing v1beta1 gRPC API will be deprecated at release M (or any later release) if this v2 API reaches GA in release N, the existing v1beta1 gRPC API will be disabled by default at N, stop supporting writes at N+3, and removed at release N+6 (the existing key rotation dance of using multiple providers will be used to migrate from v1beta1 to v2)"
+    },
+    {
+      "id": "F010",
+      "format": "text",
+      "text": "a combined \"Kubernetes-CSI release\": each component gets released separately. It is the responsibility of a CSI driver maintainer to pick and test sidecar releases for a combined deployment of that driver. The hostpath deployment example can be used as a starting point, but it's not going to be able to test all the possible combinations of features that a specific CSI driver may need. change responsibilities among the kubernetes-csi maintainers: as before, each component will have some main maintainer who is responsible for releasing updates of that component automatically generate release notes: this will be covered by a separate, future KEP"
+    },
+    {
+      "id": "F011",
+      "format": "text",
+      "text": "Publish feature gate associated with an API field for built-in API types in OpenAPI to document the mapping of API fields with their feature gates. Document the current prerelease status of an API field by publishing the prerelease status of the field and the minimum Kubernetes version for the prerelease in OpenAPI. Validate that the feature gate mentioned in the API field comment is a valid feature gate."
+    },
+    {
+      "id": "F012",
+      "format": "text",
+      "text": "Performance, Health Check, Observability and Rotation: Support re-using DEK when the KEK key ID is stable Expand `EncryptionConfiguration` to support a new KMSv2 configuration Add v2alpha1 `KeyManagementService` proto service contract in Kubernetes to include `key_id` and additional metadata in `annotations` to support key rotation `key_id`: the KMS Key ID, stable identifier, changed to trigger key rotation and storage migration `annotations`: structured data, can be used for debugging, recovery, opaque to API server, stored unencrypted, etc."
+    },
+    {
+      "id": "F013",
+      "format": "text",
+      "text": "An increasing number of systems leverage a combination of CPUs and hardware accelerators to support latency-critical execution and high-throughput parallel computation. These include workloads in fields such as telecommunications, scientific computing, machine learning, financial services and data analytics. Such hybrid systems comprise a high performance environment.\n\nIn order to extract the best performance, optimizations related to CPU isolation and memory and device locality are required. However, in Kubernetes, these optimizations are handled by a disjoint set of components.\n\nThis proposal provides a mechanism to coordinate fine-grained hardware resource assignments for different components in Kubernetes."
+    },
+    {
+      "id": "F014",
+      "format": "text",
+      "text": "Consistent reads may be served from cache so long as: A consistent (quorum) read is first made to etcd to get the latest \"revision\" The data in the watch cache no older than the latest \"revision\" just from etcd\n\netcd watches support \"progress events\", which provide an updated revision and a guarantee that all future watch events will be newer than the that revision. Etcd client can request a progress notification from server. The progress notification allow the etcd watcher to know how up-to-date the watch stream is. This is thanks to [bookmarkable] property of etcd watch that guarantees that all events with revision below progress notification have been delivered.\n\nThis KEP summarizes how we can take advantage of progress events efficiently determine how up-to-date kubernetes watch caches are then serve reads from the watch cache when they are sufficiently up-to-date.\n\n[bookmarkable]:"
+    },
+    {
+      "id": "F015",
+      "format": "text",
+      "text": "This proposal is to introduce an API (ExecutionHook) for dynamically executing user’s commands in a pod/container or a group of pods/containers and a controller (ExecutionHookController) to manage the hook lifecycle. ExecutionHook provides a general mechanism for users to trigger hook commands in their containers for their different use cases. Different options have been evaluated to decide how this ExecutionHook should be managed and executed. The preferred option is described in the Proposal section. The other options are discussed in the Alternatives section."
+    },
+    {
+      "id": "F016",
+      "format": "text",
+      "text": "Bugs in cpumanager can cause the kubelet to crash, or workloads to start with incorrect pinning. This can be mitigated with comprehensive testing and improving the observability of the system (see metrics).\n\nWhile the cpumanager core policy has seen no changes except for bugfixes since a while, we introduced the cpumanager options policy framework to enable the fine tuning of the static policy. This area is more active, so bugs introduced with policy options can cause the kubelet to crash. To mitigate this risk, we can make sure each policy option can be disabled independently, and is not coupled with others, avoiding cascading failures or unnecessary coupling. Graduation and testing criteria are deferred to the KEPs tracking the implementation of these features."
+    },
+    {
+      "id": "F017",
+      "format": "text",
+      "text": "Provide an API-driven contract from the system to a user: \"if you are a Guaranteed pod with 1 or more cores of cpu, the system will try to make sure that the pod gets its cpu quota primarily from reserved core(s), resulting in fewer context switches and higher cache affinity\". Support the case where in a given pod, one container is latency-critical and another is not (e.g. auxiliary side-car containers responsible for log forwarding, metrics collection and the like.) Do not cap CPU quota for guaranteed containers that are granted exclusive cores, since that would be antithetical to (1) above. Take physical processor topology into account in the CPU affinity policy."
+    },
+    {
+      "id": "F018",
+      "format": "text",
+      "text": "So far, the process for tagging and building components has been fairly manual, with some assistance by Travis CI. There has been no automatic testing of the release candidates on a Kubernetes cluster, neither as stand-alone deployment of individual components nor as full end-to-end (E2E) testing of several Kubernetes-CSI components. Testing the stable releases of the components is included in the automatic Kubernetes testing, but running those tests against pre-release components had to be done manually.\n\nWith CSI support reaching GA in Kubernetes 1.13, it is time to define and follow a less work-intensive and more predictable approach."
+    },
+    {
+      "id": "F019",
+      "format": "text",
+      "text": "Instead of allowing CSI drivers that support both ephemeral and persistent volumes and passing the `csi.storage.k8s.io/ephemeral` hint, a simpler solution would have been to require that a driver gets deployed twice, once for for each kind of volume. That was rejected because a driver might manage some resource that is shared between both kinds of volumes, like local disks (LVM) or persistent memory (PMEM). Having to deploy the driver twice would have made the driver implementation more complex."
+    },
+    {
+      "id": "F020",
+      "format": "text",
+      "text": "**Performance**: Today, when the kube-apiserver is restarted in a cluster and a LIST secret call is made (this applies to all resources encrypted at rest, which secrets tend to always be part of), due to the serial processing of LIST requests and the data encryption key (DEK) cache being empty, the initialization of informers may take significant time as a result of the large number of consecutive trips to the KMS plugin -> external KMS for all the DEKs that have been generated so far."
+    },
+    {
+      "id": "F021",
+      "format": "text",
+      "text": "**Feature gate**\n\nWhen a new field is added to an existing API version, a feature gate is added to control the enablement of the new field. Sometimes feature gates are also used when a new `Kind` is added. The feature gates are defined in [`kube_features.go`]. The comments for each of these feature gates in [`kube_features.go`] lists the prerelease status of the feature gate and the minimum Kubernetes version for the particular prerelease."
+    },
+    {
+      "id": "F022",
+      "format": "text",
+      "text": "Poor or unpredictable performance observed compared to virtual machine based orchestration systems. Application latency and lower CPU throughput compared to VMs due to cpu quota being fulfilled across all cores, rather than exclusive cores, which results in fewer context switches and higher cache affinity. Unacceptable latency attributed to the OS process scheduler, especially for “fast” virtual network functions (want to approach line rate on modern server NICs.)"
+    },
+    {
+      "id": "F023",
+      "format": "text",
+      "text": "Replace path to kubeconfig file for webhooks by allowing auth configuration within the new file structure Allow ordering of super user authorizer (always allow user group; `system:masters`) so that it can be moved from the beginning of the auth chain. Deciding whether ABAC should be continued to be used by the users.\n\n> Note: The above may be revisited in future alpha iterations of this KEP or as a separate KEP (for e.g., the superuser authorizer)"
+    },
+    {
+      "id": "F024",
+      "format": "text",
+      "text": "Today, the certificates.k8s.io API group provides a flexible, pluggable mechanism for workloads running within the cluster to request certificates. However, certificates only have meaning in relation to a trust anchor set. Most signers in a Kubernetes cluster don't issue publicly-trusted certificates, but Kubernetes lacks a standardized mechanism for signers to distribute their trust anchors to workloads."
+    },
+    {
+      "id": "F025",
+      "format": "text",
+      "text": "A CSI driver may be able to support either PV/PVC-originated or pod spec originated volumes. When a volume definition is embedded inside a pod spec, it is considered to be an `ephemeral inline` volume request and can only participate in *mount/unmount* volume operation calls. Ephemeral inline volume requests have the following characteristics: The inline volume spec will not contain nor require a `volumeHandle`. The CSI Kubelet plugin will internally generate a `volumeHandle` which is passed to the driver. Using existing strategy, the volumeHandle will be cached for future volume operations (i.e. unmount). The Kubelet will send mount related calls to CSI drivers: Kubelet will have access to both podUID and pod namespace during mount/Setup operations. Secrets references can be fully realized during mount/Setup phase and sent to driver. The Kubelet will send unmount related calls to CSI drivers: The cached volumeHandle will be sent to the driver during unmount/Teardown phase."
+    },
+    {
+      "id": "F026",
+      "format": "text",
+      "text": "Modern data model definitions like OpenAPI v3 and protobuf (versions 2 and 3) have a keyword to implement “oneof” or \"union\". They allow APIs to have a better semantics, typically as a way to say “only one of the given fields can be set”. We currently have multiple occurrences of this semantics in kubernetes core types, at least: VolumeSource is a structure that holds the definition of all the possible volume types, only one of them must be set, it doesn't have a discriminator. DeploymentStrategy is a structure that has a discrminator \"DeploymentStrategyType\" which decides if \"RollingUpate\" should be set\n\nThe problem with the lack of solution is that: The API is implicit, and people don't know how to use it Clients can't know how to deal with that, especially if they can't parse the OpenAPI Server can't understand the user intent and normalize the object properly"
+    },
+    {
+      "id": "F027",
+      "format": "text",
+      "text": "Support publishing versioning information for built-in `Kind`s. This may be added in the future but is not in scope in the alpha status of this KEP. Support publishing field-level versioning for custom resources in OpenAPI. Publish the default status of a feature gate (enabled/disabled by default) in OpenAPI. Allow parsing comment tags on feature gates in [`kube_features.go`]. Update the Kubernetes API reference docs to include the field-level versioning information (out of scope of this KEP, can be done in a follow up)."
+    },
+    {
+      "id": "F028",
+      "format": "text",
+      "text": "Define a configuration file format for configuring Kubernetes API Server Authorization chain. Allow ordered definition of authorization modes. Allow definition of multiple webhooks in the authorization chain while all other types of authorizers should at most be specified once. Allow resource/user based pre-filtering of webhooks using CEL to prevent unnecessary invocations. Enable user to define the policy when a webhook can't be reached due to network errors etc. Enable automatic reload of the configuration."
+    },
+    {
+      "id": "F029",
+      "format": "text",
+      "text": "Multiple components in the Kubelet make decisions about system topology-related assignments: CPU manager The CPU manager makes decisions about the set of CPUs a container is allowed to run on. The only implemented policy as of v1.8 is the static one, which does not change assignments for the lifetime of a container. Device manager The device manager makes concrete device assignments to satisfy container resource requirements. Generally devices are attached to one peripheral interconnect. If the device manager and the CPU manager are misaligned, all communication between the CPU and the device can incur an additional hop over the processor interconnect fabric. Container Network Interface (CNI) NICs including SR-IOV Virtual Functions have affinity to one socket, with measurable performance ramifications.\n\n*Related Issues:* [Hardware topology awareness at node level (including NUMA)][k8s-issue-49964] [Discover nodes with NUMA architecture][nfd-issue-84] [Support VF interrupt binding to specified CPU][sriov-issue-10] [Proposal: CPU Affinity and NUMA Topology Awareness][proposal-affinity]\n\nNote that all of these concerns pertain only to multi-socket systems. Correct behavior requires that the kernel receive accurate topology information from the underlying hardware (typically via the SLIT table). See section 5.2.16 and 5.2.17 of the ACPI Specification for more information."
+    },
+    {
+      "id": "F030",
+      "format": "text",
+      "text": "Do nothing: Leaves the \"stale read\" problem unsolved, although we have a PR fixing reflector relist which helps mitigate the larger issue. Does not impact scale or performance.\n\nAllow clients to manage the initial resource version they provide to reflectors, but don’t implement this optimization: Many clients will most likely continue to use resourceVersion=”0” even if it violates their consistency needs Clients that transition to use resourceVersion=”” will pay a high scale/performance cost We don't expect clients to attempt to keep track of the last resourceVersion they observed. If they do attempt this, we are concerned that they might get it wrong and introduce subtle and difficult to debug issues as a result.\n\nDo a dynamic fallback based on watch cache wait time. We expect watch being starved to happen very rarely, meaning its logic needs to be very simple to ensure it works properly. Simple fallback will rather not do a better job then just a manual fallback."
+    },
+    {
+      "id": "F031",
+      "format": "text",
+      "text": "Pushing a new release image is triggered by setting a tag. Unless there is a build failure, the result of the automatic build becomes the latest release, without any further manual checking. There are multiple risks: automatic testing of a single component cannot catch all bugs, so some bugs might make it into a tagged release the wrong revision gets tagged by the maintainer the build process itself is buggy and pushes a corrupt image\n\nTo mitigate this, maintainers can do a trial release first by tagging a `-rc` version and doing additional manual tests with the result.\n\nBut ultimately the safeguard against such failures is that new CSI sidecar containers only get used in a production cluster after packagers of a CSI driver update the deployment files for their driver."
+    },
+    {
+      "id": "F032",
+      "format": "text",
+      "text": "In the absence of a standard mechanism for trust distribution, a few different approaches have emerged: The trust anchors necessary for connecting to kube-apiserver are distributed using a ConfigMap that is automatically injected into every namespace. Kubernetes webhooks and aggregated API servers are configured with a static trust anchor set embedded in their config (which complicates rotation). At least one signer implementation uses a cluster-scoped CRD to distribute trust anchors to workloads.\n\nEach of these approaches has downsides: Creating a ConfigMap in every namespace requires granting over-broad permissions to the responsible controller (create ConfigMaps in **all** namespaces). Static trust anchor sets embedded directly in configuration complicate the job of rotating the backing CA's roots of trust. CRDs work well, but are inappropriate for use by core APIs.\n\nEach of these approaches would be simplified by an in-tree mechanism for distributing trust anchor sets."
+    },
+    {
+      "id": "F033",
+      "format": "text",
+      "text": "Serving reads from the watch cache is more performant and scalable than reading them from etcd, deserializing them, applying selectors, converting them to the desired version and then garbage collecting all the objects that were allocated during the whole process. We will need to measure the impact to performance and scalability, but we have enough data and experience from prior work with the watch cache to be confident there is significant scale/perf opportunity here, and we would like to introduce an alpha implementation."
+    },
+    {
+      "id": "F034",
+      "format": "text",
+      "text": "The Linux kernel community has made cgroup v2 the focus for new features, offering better functionality, a more consistent interface, and improved scalability. As a result, major Linux distributions and projects like systemd are phasing out support for cgroup v1. This trend puts pressure on Kubernetes to follow suit.\n\nBy shifting cgroup v1 support to maintenance mode, Kubernetes can stay in line with these changes, ensuring compatibility and taking advantage of the improvements in cgroup v2. This transition encourages the use of a more secure and efficient technology while acknowledging that the broader ecosystem, including essential components like the Linux kernel and systemd, is moving beyond cgroup v1.\n\nFor those needing long-term support for cgroup v1, it's important to note that this KEP reflects a broader shift in the ecosystem. The reality is that many critical dependencies are moving to cgroup v2, making it necessary for Kubernetes to adapt accordingly."
+    },
+    {
+      "id": "F035",
+      "format": "text",
+      "text": "**Feature Freeze**: No new features will be added to the cgroup v1 support code. The existing functionality of cgroup v1 will be considered complete and stable. **e2e Testing**: Maintain a set of e2e tests to ensure ongoing validation of cgroup v1 for the currently supported features **Security Maintenance**: Kubernetes community may provide security fixes for Critical and Important CVEs related to cgroup v1 as long as the release is not in end of life. **Best-Effort Bug Fixes**: Address critical security vulnerabilities in cgroup v1 on priority. Major bugs in cgroup v1 will be evaluated and potentially fixed if a feasible solution exists. Acknowledging that some bugs, particularly those requiring substantial changes, may not be resolvable given the constraints around maintaining cgroup v1 support, some issues may need fixes in the kernel or other dependencies that may not happen and so will not be fixed. **Migration Support**: Provide clear and practical migration guidance for users using cgroup v1, facilitating a smoother transition to cgroup v2. **Enhancing cgroup v2 Support**: Address all known pending bugs in Kubernetes’ cgroup v2 support to ensure it reaches a level of reliability and functionality that encourages users to transition from cgroup v1."
+    },
+    {
+      "id": "F036",
+      "format": "text",
+      "text": "Provide a Kubernetes data type that holds X.509 trust anchors for use wherever a set of X.509 trust anchors is needed. Make it easy for signer implementations (certificates/v1 or otherwise) to publish their relevant trust anchors for use within the cluster. Make it easy for workloads that need access to the trust anchors that back a particular certificates/v1 signer to access them within the container filesystem."
+    }
+  ]
+}

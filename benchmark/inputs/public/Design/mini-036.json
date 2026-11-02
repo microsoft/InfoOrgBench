@@ -1,0 +1,185 @@
+{
+  "task_id": "mini-036",
+  "records": [
+    {
+      "id": "F001",
+      "format": "text",
+      "text": "This KEP proposes adding support for specifying existing PVCs in the DataSource field to indicate a user would like to Clone a Volume. Note that this KEP also applies ONLY to dynamic provisioner, and ONLY CSI Provisioner's.\n\nFor the purpose of this KEP, a Clone is defined as a duplicate of an existing Kubernetes Volume that can be consumed as any standard Volume would be. The only difference is that upon provisioning, rather than creating a \"new\" empty Volume, the back end device creates an exact duplicate of the specified Volume.\n\nClones are different than Snapshots. A Clone results in a new, duplicate volume being provisioned from an existing volume -- it counts against the users volume quota, it follows the same create flow and validation checks as any other volume provisioning request, it has the same life cycle and work flow. Snapshots, on the other hand, results in a point-in-time copy of a volume that is not, itself, a usable volume -- it can be used to either to provision a new volume (pre-populated with the snapshot data) or to restore the existing volume to a previous state (represented by the snapshot)."
+    },
+    {
+      "id": "F002",
+      "format": "text",
+      "text": "This KEP defines reporting, not reaction. Kubernetes will not start gating scheduling, admission, or volume reconciliation on health values. Future KEPs may layer behavior on top (a CSIDriver opt-in to prevent pod scheduling on `Inaccessible` volumes is a natural next step), but they are out of scope here.\n\nThe error vocabulary is also deliberately small. It does not cover storage-backend specifics like multipath loss, capacity exhaustion, or disk-level performance degradation. Those signals belong in the `reason` field, where drivers can name them precisely without forcing every CO to learn a new enum value.\n\nIn-tree volume plugins are out of scope; this design applies only to CSI drivers."
+    },
+    {
+      "id": "F003",
+      "format": "text",
+      "text": "This KEP does NOT propose the addition of other types of DataSource including Populators This KEP does NOT propose support for special cases like \"out of band\" cloning (support for back ends that don't have Cloning features), that sort of implementation would fall under Populators. This KEP does NOT propose any ability to shrink a PVC during a Clone request (e.g. it's considered an invalid request to clone PVC-a with a size of 10Gib to a PVC with a requested size of less than 10Gib, expansion is \"ok\" if the driver supports it but it's not required) This KEP does NOT propose adding any ability to transfer a Clone to a different Namespace, the new PVC (Clone) will be in the same Namespace as the origin that was specified. This also means that since this is namespaced, a user can not request a Clone of a PVC that is another Namespace. A user can only request a Clone of PVCs in his or her Namespace. Cloning will only be available in CSI, cloning features will NOT be added to existing in-tree plugins or Flex drivers Cloning will only be available within the same storage class (see Implementation Details section for more info)"
+    },
+    {
+      "id": "F004",
+      "format": "text",
+      "text": "`kubectl cp` should provide simple function of copying single file or directory between local environments and pods. Identify and document `kubectl exec` commands to address more advanced options for copying files. Provide users attempting to use `kubectl cp + symlinks/etc` with output showing comparable `kubectl exec ...| tar` cmds. It is up for a decision in this proposal whether the community prefers to implement the `shelling out to tar from within kubectl cp` or leave as suggestions in error output. Barring decision of the above, only the user stories listed below should be supported by `kubectl cp`. If additional user stories are added via shelling out to tar from kubectl, those will be outlined below."
+    },
+    {
+      "id": "F005",
+      "format": "text",
+      "text": "The `kubectl cp` command has been the subject of multiple security vulnerability reports. CVE-2018-1002100 CVE-2019-1002101 CVE-2019-11246 CVE-2019-11249 To use `kubectl cp`, container images are required to have the tar binary. `kubectl cp` is not available when running containers from the minimal scratch image. Running from scratch is by itself a tactic to securing containers, as it encourages the best practice of limiting the tools packaged in an image to only what's required by a workload.\n\nThis proposal is that `kubectl cp` should perform only basic copying of files. Advanced features of file copying should be out of scope for `kubectl cp`."
+    },
+    {
+      "id": "F006",
+      "format": "text",
+      "text": "The CSI spec gains four RPCs, the Kubernetes API gains three optional status fields, and the kubelet and apiserver gain one feature gate. That is the entire user-visible surface. The controller plugin learns to answer either \"give me all volumes that currently have adverse conditions\" (paginated, via `ControllerListVolumeHealth`) or \"what's the condition of *this* volume\" (via `ControllerGetVolumeHealth`)."
+    },
+    {
+      "id": "F007",
+      "format": "text",
+      "text": "This KEP proposes factoring *kube-apiserver* and *kube-controller-manager* to build on one or multiple new staging repositories that consume `k/apiserver` but have a bigger, carefully chosen subset of the functionality of *kube-apiserver* and *kube-controller-manager* such that it is reusable.\n\nThe factoring will be progressive: we will start with new repo(s) adding nothing to `k/apiserver`, refactor in-place and then progressively move generic functionality from *kube-apiserver* and *kube-controller-manager* to the new repositories.\n\nThe suggested naming of the new repository(ies) is `k/generic-controlplane` (`-apiserver/-controllers`; for simplicity we drop these suffixes in this document until the names are finalized). Choosing the exact name(s) and split of packages will be part of the process of implementation."
+    },
+    {
+      "id": "F008",
+      "format": "text",
+      "text": "Arbitrary field selection. This proposal is to support field selection for a small allow list of fields. Expanding support to include all fields is complicated by: Fields contained in, or nested under, lists or maps. The costs to apiserver of evaluating filters on objects or maintaining indices. Lack of direct support for filtering in etcd. Support for conversions, casts or other transforms of field values beyond the automatic cast to string required for field selection. More sophisticated field selection logic. Possible approaches include: CEL based field selection, enhancements to field selection such as set based operators like provided for labels (\"in\", \"not in\"), OR clauses, pattern matching... See the \"CEL as an accelerated predicate language\" section \"Future Work\" for more details on what makes this challenging."
+    },
+    {
+      "id": "F009",
+      "format": "text",
+      "text": "Extend the existing `sharedCounters` in `ResourceSlice` with `requestPolicy` support, and add a `valueFrom` mapping to `consumesCounters` so that devices can map inbound capacity requests to shared counters. Reuse existing `ResourceClaim` request syntax for capacity requests, with scheduler accounting performed against referenced shared counter sets.\n\nAt a high level: A driver publishes `sharedCounters` with counters that include `requestPolicy` (default, valid range, step). Each allocatable device references the shared counter set(s) it draws from via `consumesCounters`, using `valueFrom` to map capacity request keys to counters. A claim requests capacity using existing `capacity.requests` fields. During allocation, the scheduler resolves the `valueFrom` mappings, checks and consumes the requested amount from all relevant counter sets (device-specific and/or shared), rejecting candidates that would exceed any counter limit."
+    },
+    {
+      "id": "F010",
+      "format": "text",
+      "text": "As always: every PR transforms a working system into a working system, and PRs are of manageable size. Improve factoring of *kube-apiserver* through layering on-top of `k/generic-controlplane`, reducing complexity through more explicit structure and reduction of code in `k/k`. `k/generic-controlplane` will provide a `sample-generic-controlplane` binary a modular, further customizable (in code) library suitable to build a working kube-based control plane without vendoring k/k. `k/generic-controlplane` will (optionally) include the ability to define resources by CustomResourceDefinition objects. `k/generic-controlplane` will be able to (optionally) delegate handling of some kinds of objects to another server, as directed by APIService objects. `k/generic-controlplane` will allow customization (in code) of which generic (native) resources like secrets, configmaps, admission webhooks, RBAC, etc. are served. `k/generic-controlplane` will not include the definitions of the resources in Kubernetes for the management of containerized workloads. For example, the excluded resources include: nodes, pods, daemonsets, ingresses, services, persistentvolumes. `k/generic-controlplane` as a library will be agnostic to being used in separate binaries or in an all-in-one binary, both in a *hyperkube*-like subcommand way, and in an all-in-one *k3s* like way."
+    },
+    {
+      "id": "F011",
+      "format": "text",
+      "text": "Aggregation for OpenAPI v2 already consumes a non-negligible amount of resources, naively adding in an aggregation for v3 will double the workload when the OpenAPI needs to be re-aggregated. Splitting by group-version partially mitigates this problem because when a resource is changed, only a small subset of groups will need to be reaggregated compared to the current behavior of re-aggregating everything."
+    },
+    {
+      "id": "F012",
+      "format": "text",
+      "text": "This document summarizes and originates from this email thread, Proposal to drop kubectl cp. This document aims to solidify the future of `kubectl cp` as a tool that provides basic function of copying files between local environments and pods. Any advanced use cases such as those involving symlinks or modifying file permissions should be performed outside of `kubectl cp` through `kubectl exec`, addons, or shell commands."
+    },
+    {
+      "id": "F013",
+      "format": "text",
+      "text": "With Pod Topology Spread, workload authors can define spreading rules for their loads based on the topology of the clusters. The spreading rules are defined in the `PodSpec`, thus they are tied to the pod.\n\nWe propose the introduction of configurable default spreading constraints, i.e. constraints that can be defined at the cluster level and are applied to pods that don't explicitly define spreading constraints. This way, all pods can be spread according to (likely better informed) constraints set by a cluster operator. Workload authors don't need to know the topology of the cluster they will be running on to have their pods spread. But if they do, they can still set their own spreading constraints if they have specific needs."
+    },
+    {
+      "id": "F014",
+      "format": "text",
+      "text": "Sometimes a user may expand a PVC to a size which may not be supported by underlying storage provider. Lets say PVC size was 10GB and user expanded it to 500GB but underlying storage provider can not support 500GB volume for some reason. We want to make it easier for user to retry re-sizing by requesting more reasonable value say - 100GB.\n\nProblem in allowing users to reduce size is - a malicious user can use this feature to abuse the quota system. They can do so by rapidly expanding and then shrinking the PVC. In general - both CSI and in-tree volume plugins have been designed to never perform actual shrink on underlying volume, but it can fool the quota system in believing the user is using less storage than he/she actually is.\n\nTo solve this problem - we propose that although users are allowed to reduce size of their PVC (as long as requested size > `pvc.Status.Capacity`), quota calculation will use `max(pvc.Spec.Capacity, pvc.Status.AllocatedResources)` and reduction in `pvc.Status.AllocatedResources` is only done by resize-controller after previously issued expansion has failed with some kind of terminal failure."
+    },
+    {
+      "id": "F015",
+      "format": "text",
+      "text": "This proposal introduces an API to define constraints on a PodGroup (a collection of pods within a Workload) requiring it to be scheduled onto a specific subset of nodes or resources.\n\nWe support one type of constraints: **Topology Constraint (Node Label Co-location)**: Ensures all pods in a PodGroup are placed onto nodes sharing a common topological characteristic (e.g., same rack), defined by a specific node label.\n\nThe scheduler is extended to interpret these new PodGroup level scheduling constraints and similarly to scheduling pods on nodes (available scheduling options), find a \"Placement\" for this PodGroup among the feasible options (subsets of nodes) that satisfies them."
+    },
+    {
+      "id": "F016",
+      "format": "text",
+      "text": "In the `GeneratorArgs` section of a kustomization file, a user may specify a plugin type, and a specific instance of that type, for generating key:value pairs. The specification will allow for any number of plugin types, and any number of instances of those types. The first type supported will be goplugins, to enable kustomize source code contributors to add custom KV generators without the need to maintain a kustomize source code fork.\n\nKustomize maintainers expect developers who use a goplugin to understand that a kustomize binary and any goplugins expected to work with it must be compiled on the same machine with the same compiler against the same set of (transitive) libraries. _It's the developers responsibility to bundle the binary and shared libraries together in a container image for actual use._ Other kinds of plugins, e.g. an _execute this binary_ plugin, should be subsequently easy to add, and could be appropriate for end user use (but would require consideration in a KEP first)."
+    },
+    {
+      "id": "F017",
+      "format": "text",
+      "text": "Some resources are naturally parent-scoped and shared across multiple allocatable child devices. Examples include link bandwidth, shared memory channels, or scheduler-governed throughput budgets.\n\nIn these cases, publishing only child devices is desirable for user experience and hardware mapping, but scheduler-side accounting must still guard the aggregate shared parent budget.\n\nExisting DRA capabilities leave a gap: Partitionable counters are shared across devices, but consumption is static in `ResourceSlice` data. Consumable capacity is request-driven, but accounting is device-local.\n\nThis causes either over-advertisement, rigid static partitioning, or custom out-of-band admission behavior, all of which reduce correctness and portability."
+    },
+    {
+      "id": "F018",
+      "format": "text",
+      "text": "A user may expand a PersistentVolumeClaim(PVC) to a size which may not be supported by underlying storage provider. In which case - typically expansion controller forever tries to expand the volume and keeps failing. We want to make it easier for users to recover from expansion failures, so that user can retry volume expansion with values that may succeed.\n\nTo enable recovery, this proposal relaxes API validation for PVC objects to allow reduction in requested size. This KEP also adds a new field called `pvc.Status.AllocatedResources` to allow resource quota to be tracked accurately if user reduces size of their PVCs."
+    },
+    {
+      "id": "F019",
+      "format": "text",
+      "text": "As part of this KEP we do not intend to actually support shrinking of underlying volume. As part of this KEP when user intends to recover from volume expansion failures, they must recover to a size slightly larger than original size of the volume. For example - if user expanded a volume from `10Gi` to `100Gi` and expansion to `100Gi` is failing, then we only permit recovery to a size greater than `10Gi`, for example - `11Gi` or anything higher than `10Gi`."
+    },
+    {
+      "id": "F020",
+      "format": "text",
+      "text": "The current API of `SecretGenerator` looks like this:\n\nThe proposed API would look like this:\n\nThe `kvSources` specified with `pluginType: builtin` are reformulations of existing key:value generators currently invoked by the existing `dataSources` specification.\n\nA `kvSource` with `pluginType: Go` and `name: myplugin` would attempt to load the file\n\nand access the loaded plugin via the interface\n\nThis clearly describes how the plugin must be formulated.\n\nThe loading implementation would look something like this:\n\nAn example plugin would look like this:\n\nA developer - not an end user - would compile the goplugin and main program like this:\n\nthen bake the build artifacts into a container image for use by an end user or continuous delivery bot."
+    },
+    {
+      "id": "F021",
+      "format": "text",
+      "text": "The proposal is to publish OpenAPI v3 schemas at the `/openapi/v3/apis/{group}/{version}` endpoint for all resources. Instead of aggregating everything into one schema, we will publish separate schemas per resource group-version. The aggregated schema will not be published at the openapi/v3 endpoint and the endpoint will instead be used for discovery purposes. For users who still need to retrieve the entire OpenAPI spec (not recommended), we will offer a client side utility to aggregate all the endpoints."
+    },
+    {
+      "id": "F022",
+      "format": "text",
+      "text": "Cluster operators can define default spreading constraints for pods that don't provide any `pod.spec.topologySpreadConstraints`. Workloads are spread with the default constraints if they belong to the same service, replication controller, replica set or stateful set, and if they don't define `pod.spec.topologySpreadConstraints`. Provide a k8s default for `topologySpreadConstraints` that produces a priority equivalent to `DefaultPodTopologySpread`, so that this plugin can be deprecated in the future."
+    },
+    {
+      "id": "F023",
+      "format": "text",
+      "text": "All Kubernetes APIs support field selection for metadata.name, metadata.namespace.\n\nAdditionally, built-in APIs support field selection on specific fields such as status.phase for Pods, but CustomResourceDefinitions lack equivalent functionality.\n\nWithout this enhancement, an extension author that wants to be be able to filter resources might choose to: Organize data into a label even though it should be a spec or status field. Double writing data both to a label and a spec or status field.\n\nBoth of these should be avoided. We should enable extension authors structure their APIs according to best practices, not based on data access patterns."
+    },
+    {
+      "id": "F024",
+      "format": "text",
+      "text": "Introduce `Composition` as a new API `kind` recognized by `kustomize build`. A `Composition` must be defined in a `composition.yaml` file. Inclusion of both `composition.yaml` and `kustomization.yaml` in the target directory of a build will be considered an error.\n\nThe `Composition` API enables users to: Define a list of transformer configuration that intermingles built-in and plugin transformers. Import transformers from another `Composition` and add them to the list. Override an imported transformer's fields with new values. Reorder the list of transformers prior to execution.\n\nOnce a user has written a `Composition`, they can run `kustomize build` to turn it into a list of Kubernetes resources that they can commit to git, the same way they would with `Kustomization`.\n\nTo provide this experience, Kustomize will need to do the following during builds: Consolidate the `Composition` and its imports into a finalized list of transformers (which may be plugins). Execute each transformer in sequence (no changes to plugin execution are proposed by this KEP). Pass the output of each transformer as the input to the next."
+    },
+    {
+      "id": "F025",
+      "format": "text",
+      "text": "**Scheduling Latency:** Evaluating multiple placements involves running filter/score plugins multiple times (multiple attempts to schedule a PodGroup considering all topology options). **Mitigation:** Implement early placement rejection optimization to stop feasibility checks for placements which cannot fit gang scheduled PodGroups. **Complexity of Pod Group Scheduling:** Scheduling heterogeneous Pod Groups can be complex. **Mitigation:** We support only sequential processing of pods within a PodGroup, avoiding complex backtracking or parallel processing."
+    },
+    {
+      "id": "F026",
+      "format": "text",
+      "text": "Kubernetes resources and types can be described through their OpenAPI definitions, currently served as OpenAPI v2 at the $cluster/openapi/v2 cluster endpoint. With the introduction of CRDs, users provide an OpenAPI v3 spec to describe the resource. Since kubernetes only publishes OpenAPI v2, these definitions are converted into an OpenAPI v2 definition before being aggregated and served at the /openapi/v2 endpoint. OpenAPI v3 is more expressive than v2, and the conversion results in the loss of some information. Some of the type definitions are just transformed into “accept anything” definitions because of our lack of ability to perform a better conversion and limitations in kubectl. Some efforts at improving the OpenAPI (eg: enum support) are targeted to bo bundled with OpenAPI v3.\n\nAdditionally, since kubernetes aggregate the OpenAPI v2 spec for all specs into one endpoint, whenever a spec is modified the entire spec is updated and all clients will need to redownload the spec. Depending on the size and number of CRDs, this is not an inexpensive operation."
+    },
+    {
+      "id": "F027",
+      "format": "text",
+      "text": "Develop an API (`kind`) for Kustomize that is focused on plugin-based workflows.\n\nA successful implementation of this API should have the following characteristics: It must be easy to recursively compose and modify lists of plugins in a way that yields an overall configuration structure that reflects the user's intent. Plugin orchestration must be central to the new API format. Built-in and plugin transformer config should be treated the same way in the new API. The new API must cleanly integrate with the existing Kustomize tool (i.e. `kustomize build`) as well as existing Kustomize kinds."
+    },
+    {
+      "id": "F028",
+      "format": "text",
+      "text": "The `Kustomization` API was designed around built-in Kustomize transformer, generator and validator operations applied to Kustomize bases. While plugin transformers can be invoked via the appropriate field, `Kustomization` is suboptimal for workflows that are primarily composed of Kustomize plugins. Challenges with the current approach include: **Sequencing of built-in and plugin transformers is static**."
+    },
+    {
+      "id": "F029",
+      "format": "text",
+      "text": "In order for a workload (pod) to use `.spec.topologySpreadConstraints` (known as`PodTopologySpread` plugin or `EvenPodsSpreadPriority` in the old Policy API): Authors have to have an idea of the underlying topology. PodSpecs become less portable if their spreading constraints are tailored to a specific topology.\n\nOn the other hand, cluster operators know the underlying topology of the cluster, which makes them suitable to provide default spreading constraints for all workloads in their cluster."
+    },
+    {
+      "id": "F030",
+      "format": "text",
+      "text": "CustomResourceDefinition author wishes to provide filtered access by a field Author adds the field to an allow list in the CustomResourceDefinition User uses `--field-selector` in kubectl to filter a list response. User first needs to know what field selectors are available and what values the selectable fields might have. Places user might look: discovery, CRD resource. User filter by: a single field multiple fields both fields and labels Controller watches custom resources while filtering with field selectors. Controller provides a FieldSelector string in ListOptions"
+    },
+    {
+      "id": "F031",
+      "format": "text",
+      "text": "A working kube-based control plane is more than just an apiserver component built on `k/apiserver`. It includes standard resources (depending on context namespaces, CRDs, RBAC, secrets, configmaps), and standard controllers (think of garbage collection, namespace deletion, etc.). *kube-apiserver* today is a bundle of those resources with container orchestration, *kube-controller-manager* equally for the corresponding controllers.\n\nSeparating the generic parts from container orchestration will allow new use-cases building upon `k/apimachinery` and `k/apiserver`, while keeping a unified codebase and ecosystem, and by improving the factoring of *kube-apiserver* for easier maintenance due to less complexity by clear layering."
+    },
+    {
+      "id": "F032",
+      "format": "text",
+      "text": "Kustomize users want to generate Kubernetes Secret objects from general key:value (KV) pairs where the value is supposed to be a secret. Users want to generate these pairs through integration with secret management tools (e.g. see comments on [692][execRemoval]).\n\nCurrently Kustomize only supports reading secret values from local files which raises security concerns about file lifetime and access. Reading secret values from the execution of arbitrary \"commands\" in a kustomization.yaml file introduces concerns in a world where kustomization files can be used directly from the internet when a user runs `kustomize build`. This proposal describes the syntax for a new key:value generator plugin framework supporting an arbitrary number of plugin types to generate key:value pairs."
+    },
+    {
+      "id": "F033",
+      "format": "text",
+      "text": "Provide a CSI-spec-level mechanism for drivers to report per-volume health from the controller, per-volume health from the node (including for volumes that have not been successfully published), and overall storage-backend health from a node. Surface those reports on stable Kubernetes API status fields: controller-side volume health on `PersistentVolumeClaim.Status.HealthStatus`, node-side per-volume health on `Pod.Status.VolumeHealth`, and node-side backend health on `CSINode.Status.StorageHealth`. Define a small, machine-parseable error vocabulary (`Inaccessible`, `DataLoss`, `Degraded`, `StorageUnreachable`, `StorageDegraded`) that admits driver-specific elaboration via `reason` and `message`. The vocabulary is intentionally extensible: future CSI spec revisions MAY add values, drivers that adopt a newer spec MAY report them alongside existing ones, and COs MUST tolerate values they do not recognize. A CO that does not recognize a value SHOULD surface it for observability and MUST NOT misclassify it as healthy. Make health reporting opt-in per driver (via CSI capabilities) and per cluster (via the `CSIVolumeHealth` feature gate). A driver that implements no health capability is not probed and incurs no cost. Keep ownership consistent with the existing Node Authorizer model: nodes never write PVC status."
+    },
+    {
+      "id": "F034",
+      "format": "text",
+      "text": "Add ability to specify a PVC in a users Namespace as a DataSource Add Core PVC Object to the permitted DataSource types to API Validation Provide ability to pass Clone intent to a CSI Plugin that reports it supports Clone capability Proposal is limited to allowing a user to specify a Clone request, and for that Clone request to be passed to CSI Plugins that report support for cloning via capabilities"
+    },
+    {
+      "id": "F035",
+      "format": "text",
+      "text": "Dynamic Resource Allocation (DRA) currently supports: parent-scoped shared integer counters via partitionable devices, and per-device request-driven consumable capacity via `allowMultipleAllocations`.\n\nHowever, there is no upstream mechanism that combines both capabilities so that: multiple related devices can consume from one shared parent-scoped capacity pool, and the consumed amount is determined by the request at allocation time.\n\nThis KEP proposes extending the existing DRA `sharedCounters` with `requestPolicy` support and adding a `valueFrom` mapping in `consumesCounters`, so that multiple related devices can consume request-driven amounts from shared counter sets during allocation, with scheduler accounting that prevents aggregate over-allocation.\n\nThe proposal is generic and applies to multiple hardware models. SR-IOV VF bandwidth accounting is one motivating use case, but not the only target."
+    },
+    {
+      "id": "F036",
+      "format": "text",
+      "text": "**Complexity:** This proposal adds significant logic to the kube-scheduler framework, specifically the \"Placement\" abstraction and the simulation loop (Phase 2). **Performance:** Generating and simulating a large number of Placements (e.g., every rack in a massive cluster) could be computationally expensive. **Mitigation:** Pre-filtering of Placements will be implemented to discard clearly infeasible Placements (insufficient total resources) before the expensive pod-level simulation."
+    }
+  ]
+}

@@ -1,0 +1,361 @@
+{
+  "assignments": [
+    {
+      "id": "F001",
+      "path": [
+        "Concept-design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F002",
+      "path": [
+        "Concept-design",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F003",
+      "path": [
+        "Yellow-prototype-review",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F004",
+      "path": [
+        "Potato-prototype-review",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F005",
+      "path": [
+        "Concept-design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F006",
+      "path": [
+        "Potato-prototype-review",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F007",
+      "path": [
+        "Potato-prototype-review",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F008",
+      "path": [
+        "Concept-design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F009",
+      "path": [
+        "Concept-design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F010",
+      "path": [
+        "Concept-design",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F011",
+      "path": [
+        "Concept-design",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F012",
+      "path": [
+        "Yellow-prototype-review",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F013",
+      "path": [
+        "Yellow-prototype-review",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F014",
+      "path": [
+        "Potato-prototype-review",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F015",
+      "path": [
+        "Potato-prototype-review",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F016",
+      "path": [
+        "Potato-prototype-review",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F017",
+      "path": [
+        "Concept-design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F018",
+      "path": [
+        "Yellow-prototype-review",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F019",
+      "path": [
+        "Potato-prototype-review",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F020",
+      "path": [
+        "Concept-design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F021",
+      "path": [
+        "Yellow-prototype-review",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F022",
+      "path": [
+        "Concept-design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F023",
+      "path": [
+        "Yellow-prototype-review",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F024",
+      "path": [
+        "Yellow-prototype-review",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F025",
+      "path": [
+        "Yellow-prototype-review",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F026",
+      "path": [
+        "Concept-design",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F027",
+      "path": [
+        "Potato-prototype-review",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F028",
+      "path": [
+        "Concept-design",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F029",
+      "path": [
+        "Potato-prototype-review",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F030",
+      "path": [
+        "Potato-prototype-review",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F031",
+      "path": [
+        "Potato-prototype-review",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F032",
+      "path": [
+        "Concept-design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F033",
+      "path": [
+        "Concept-design",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F034",
+      "path": [
+        "Potato-prototype-review",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F035",
+      "path": [
+        "Potato-prototype-review",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F036",
+      "path": [
+        "Concept-design",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F037",
+      "path": [
+        "Concept-design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F038",
+      "path": [
+        "Potato-prototype-review",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F039",
+      "path": [
+        "Potato-prototype-review",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F040",
+      "path": [
+        "Concept-design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F041",
+      "path": [
+        "Concept-design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F042",
+      "path": [
+        "Potato-prototype-review",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F043",
+      "path": [
+        "Concept-design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F044",
+      "path": [
+        "Concept-design",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F045",
+      "path": [
+        "Yellow-prototype-review",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F046",
+      "path": [
+        "Yellow-prototype-review",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F047",
+      "path": [
+        "Concept-design",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F048",
+      "path": [
+        "Potato-prototype-review",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F049",
+      "path": [
+        "Yellow-prototype-review",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F050",
+      "path": [
+        "Potato-prototype-review",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F051",
+      "path": [
+        "Potato-prototype-review",
+        "Overview"
+      ]
+    }
+  ]
+}

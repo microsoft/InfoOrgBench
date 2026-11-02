@@ -1,0 +1,366 @@
+{
+  "task_id": "mini-031",
+  "records": [
+    {
+      "id": "F001",
+      "path": [
+        "sig-storage",
+        "5538-csi-sa-tokens-secrets-field"
+      ],
+      "content_sha256": "5258ea85d7eb53c06b4077bfdfe26a6e0baf42a94419fc8f3a3da7b71209aed1",
+      "source_native_id": "keps/sig-storage/5538-csi-sa-tokens-secrets-field#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F002",
+      "path": [
+        "sig-api-machinery",
+        "5589-gogo-dependency"
+      ],
+      "content_sha256": "e101ee8a6d72d91006a101addf39236741f1fba16a9298d75cb30967de34a14a",
+      "source_native_id": "keps/sig-api-machinery/5589-gogo-dependency#excerpt-2",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F003",
+      "path": [
+        "sig-cli",
+        "2382-kustomize-exec-secret-generator"
+      ],
+      "content_sha256": "3d690bc843ebb05afffe2aaca2359b90e8f43a4d8f5a58efff4bc249032c92a1",
+      "source_native_id": "keps/sig-cli/2382-kustomize-exec-secret-generator#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F004",
+      "path": [
+        "sig-api-machinery",
+        "5589-gogo-dependency"
+      ],
+      "content_sha256": "43bd0e6269335f5bef3c5280dc88bd046ce22b5c12b24b42a374613df8e894b7",
+      "source_native_id": "keps/sig-api-machinery/5589-gogo-dependency#excerpt-3",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F005",
+      "path": [
+        "sig-storage",
+        "121-local-persistent-volumes"
+      ],
+      "content_sha256": "23fb4b662a951d532b7de73bb165d1a34f28664219c2be7b5f48d20d27f47194",
+      "source_native_id": "keps/sig-storage/121-local-persistent-volumes#excerpt-3",
+      "source_heading": "non-goals"
+    },
+    {
+      "id": "F006",
+      "path": [
+        "sig-network",
+        "2595-expanded-dns-config"
+      ],
+      "content_sha256": "2a79845f4058e81c8ebf95f9c89374eae11afc595e4fb61b30652e40d476b4dc",
+      "source_native_id": "keps/sig-network/2595-expanded-dns-config#excerpt-3",
+      "source_heading": "design details"
+    },
+    {
+      "id": "F007",
+      "path": [
+        "sig-storage",
+        "5538-csi-sa-tokens-secrets-field"
+      ],
+      "content_sha256": "54a4c6202060213767996ba0a26b311c8ff3b648105fea73f0d32fb97a12f8ab",
+      "source_native_id": "keps/sig-storage/5538-csi-sa-tokens-secrets-field#excerpt-3",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F008",
+      "path": [
+        "sig-storage",
+        "695-skip-permission-change"
+      ],
+      "content_sha256": "4f05778077a0fe52edc0164fde780e8014bb236cef29052b8738fdb34b4dcb0e",
+      "source_native_id": "keps/sig-storage/695-skip-permission-change#excerpt-3",
+      "source_heading": "non-goals"
+    },
+    {
+      "id": "F009",
+      "path": [
+        "sig-network",
+        "2595-expanded-dns-config"
+      ],
+      "content_sha256": "984ed15612afe5514eb0afe4803c29e084ddca998ff12d3a6c8ca2bcce95b571",
+      "source_native_id": "keps/sig-network/2595-expanded-dns-config#excerpt-2",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F010",
+      "path": [
+        "sig-network",
+        "784-kube-proxy-component-config"
+      ],
+      "content_sha256": "98ede58d7ceb3724494158f8936ecf73b8fe5801f7d263b7778f751583c18b68",
+      "source_native_id": "keps/sig-network/784-kube-proxy-component-config#excerpt-2",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F011",
+      "path": [
+        "sig-api-machinery",
+        "6178-concurrent-watch-object-decode"
+      ],
+      "content_sha256": "a8e26c07f90256ccb48400ae363e8351c9ec4ce0e3281b5706e51a0b9f522d43",
+      "source_native_id": "keps/sig-api-machinery/6178-concurrent-watch-object-decode#excerpt-3",
+      "source_heading": "design details"
+    },
+    {
+      "id": "F012",
+      "path": [
+        "sig-api-machinery",
+        "6178-concurrent-watch-object-decode"
+      ],
+      "content_sha256": "458698595575999145427a7d39af2c9054de431a497a58ab0cc84a31c2ac05a8",
+      "source_native_id": "keps/sig-api-machinery/6178-concurrent-watch-object-decode#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F013",
+      "path": [
+        "sig-api-machinery",
+        "5589-gogo-dependency"
+      ],
+      "content_sha256": "ccb6533f11ce27453983ff2c43b6e06995a74b4382d9659818f4238e5abfba48",
+      "source_native_id": "keps/sig-api-machinery/5589-gogo-dependency#excerpt-1",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F014",
+      "path": [
+        "sig-cli",
+        "3805-ssa-default"
+      ],
+      "content_sha256": "0a69dfa144fa0f8ea4c894d64c9ed8e6345d3bbdb128f7e466f6dd874642314f",
+      "source_native_id": "keps/sig-cli/3805-ssa-default#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F015",
+      "path": [
+        "sig-api-machinery",
+        "1295-insecure-backend-proxy"
+      ],
+      "content_sha256": "f6372a705fd2f84d3ff3753cf901c63d8cd6468bcc33dd0dac66bcdbbb42652d",
+      "source_native_id": "keps/sig-api-machinery/1295-insecure-backend-proxy#excerpt-2",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F016",
+      "path": [
+        "sig-api-machinery",
+        "6178-concurrent-watch-object-decode"
+      ],
+      "content_sha256": "3063ebdeccbf048f58004189246ffd5a6c62a7d46c01c795213b68ec8b5f67f6",
+      "source_native_id": "keps/sig-api-machinery/6178-concurrent-watch-object-decode#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F017",
+      "path": [
+        "sig-cli",
+        "3805-ssa-default"
+      ],
+      "content_sha256": "069d52d6d8d549771b5a29f1e7ccb65daecb0181edb712dce22cf08414a93bd6",
+      "source_native_id": "keps/sig-cli/3805-ssa-default#excerpt-3",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F018",
+      "path": [
+        "sig-cli",
+        "2382-kustomize-exec-secret-generator"
+      ],
+      "content_sha256": "403c4719a273b62042e63740f6fc2dd854d7e1b2814887840027398d0df8320d",
+      "source_native_id": "keps/sig-cli/2382-kustomize-exec-secret-generator#excerpt-3",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F019",
+      "path": [
+        "sig-network",
+        "784-kube-proxy-component-config"
+      ],
+      "content_sha256": "b2b78488d55bba7f3f8071e48d67b264fca860b7974879b72d917e4d5cbc6540",
+      "source_native_id": "keps/sig-network/784-kube-proxy-component-config#excerpt-1",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F020",
+      "path": [
+        "sig-cli",
+        "2906-kustomize-function-catalog"
+      ],
+      "content_sha256": "28df1b5429fb57a57f9e41b79f76caf4e7f9cb61c9472d76f8d4475056143d33",
+      "source_native_id": "keps/sig-cli/2906-kustomize-function-catalog#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F021",
+      "path": [
+        "sig-cli",
+        "3805-ssa-default"
+      ],
+      "content_sha256": "c5787713e32e2613ecf8923220821b81e3dc30c8bf97bb92213d007312d307b9",
+      "source_native_id": "keps/sig-cli/3805-ssa-default#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F022",
+      "path": [
+        "sig-network",
+        "614-SCTP-support"
+      ],
+      "content_sha256": "cc1847bed628a33ef3a55725543cd55436714d0c9e8731f623b291286d2eb53f",
+      "source_native_id": "keps/sig-network/614-SCTP-support#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F023",
+      "path": [
+        "sig-cli",
+        "2906-kustomize-function-catalog"
+      ],
+      "content_sha256": "75e73da8a27bc41b56469735c4f955628cfc993069ea2d0fd1cc07664ef02408",
+      "source_native_id": "keps/sig-cli/2906-kustomize-function-catalog#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F024",
+      "path": [
+        "sig-api-machinery",
+        "1295-insecure-backend-proxy"
+      ],
+      "content_sha256": "b04c3a4ff9a7d904077eb01a3f63ef367a00691cb00e8582affd36fc6a32c079",
+      "source_native_id": "keps/sig-api-machinery/1295-insecure-backend-proxy#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F025",
+      "path": [
+        "sig-cli",
+        "2906-kustomize-function-catalog"
+      ],
+      "content_sha256": "b90814c9297117dfcab868ddc0cc26c96d377ad33192a88fcd740aa0d4cde725",
+      "source_native_id": "keps/sig-cli/2906-kustomize-function-catalog#excerpt-3",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F026",
+      "path": [
+        "sig-storage",
+        "695-skip-permission-change"
+      ],
+      "content_sha256": "fe9f8c28b25b66236cf5dea5bad29e437ff46f0c206acc68d840c61faffd3c77",
+      "source_native_id": "keps/sig-storage/695-skip-permission-change#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F027",
+      "path": [
+        "sig-api-machinery",
+        "1295-insecure-backend-proxy"
+      ],
+      "content_sha256": "c3cb2b10f68b79bca65673a56e0f24237f3a4e008394fbea43209c8ea4f1ec2e",
+      "source_native_id": "keps/sig-api-machinery/1295-insecure-backend-proxy#excerpt-3",
+      "source_heading": "risks and mitigations"
+    },
+    {
+      "id": "F028",
+      "path": [
+        "sig-network",
+        "614-SCTP-support"
+      ],
+      "content_sha256": "62efd5011c2f8cf3c839d547ccf1ccc2787acc9df14ef4fb03bd538b17a90bb0",
+      "source_native_id": "keps/sig-network/614-SCTP-support#excerpt-2",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F029",
+      "path": [
+        "sig-storage",
+        "121-local-persistent-volumes"
+      ],
+      "content_sha256": "c1570cdaa1707491989bf112115329d24e2e5b36182c016f2dcfe1cd1df6ca27",
+      "source_native_id": "keps/sig-storage/121-local-persistent-volumes#excerpt-2",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F030",
+      "path": [
+        "sig-network",
+        "2595-expanded-dns-config"
+      ],
+      "content_sha256": "28acc9aad48c571806df51ac83a1fee25ea2f0a6baaddef79dade5eb417f2e80",
+      "source_native_id": "keps/sig-network/2595-expanded-dns-config#excerpt-1",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F031",
+      "path": [
+        "sig-storage",
+        "695-skip-permission-change"
+      ],
+      "content_sha256": "0032fddbaabf7524026b84247782859e84017ca56ec9933e24dc5a44ef36a266",
+      "source_native_id": "keps/sig-storage/695-skip-permission-change#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F032",
+      "path": [
+        "sig-storage",
+        "121-local-persistent-volumes"
+      ],
+      "content_sha256": "03b2f4ce9a1129f04945ae7a4c3409066b49161eeebde95e4e2ff013f6ac3874",
+      "source_native_id": "keps/sig-storage/121-local-persistent-volumes#excerpt-1",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F033",
+      "path": [
+        "sig-network",
+        "784-kube-proxy-component-config"
+      ],
+      "content_sha256": "2c92c6cecd37be927febe095a02bdbe162b00f64499bc0d0f6f1e046a21ebe45",
+      "source_native_id": "keps/sig-network/784-kube-proxy-component-config#excerpt-3",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F034",
+      "path": [
+        "sig-storage",
+        "5538-csi-sa-tokens-secrets-field"
+      ],
+      "content_sha256": "d75e5b7d7d42e06f2c0e465c0fcb7b6615d4d5e77f056c9064c8e09b8b7d0ffa",
+      "source_native_id": "keps/sig-storage/5538-csi-sa-tokens-secrets-field#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F035",
+      "path": [
+        "sig-cli",
+        "2382-kustomize-exec-secret-generator"
+      ],
+      "content_sha256": "c56d0f1e223ae81af8974d996f121faa1871ef4865fd740342ebec3976ea55d5",
+      "source_native_id": "keps/sig-cli/2382-kustomize-exec-secret-generator#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F036",
+      "path": [
+        "sig-network",
+        "614-SCTP-support"
+      ],
+      "content_sha256": "a32ec7077bc9e66c09e87f8711f50c9fa9f020a578da623d5b567415ac648a39",
+      "source_native_id": "keps/sig-network/614-SCTP-support#excerpt-3",
+      "source_heading": "non-goals"
+    }
+  ],
+  "reference_scope": "Source-derived group/proposal hierarchy for a development-only difficulty and cost pilot."
+}

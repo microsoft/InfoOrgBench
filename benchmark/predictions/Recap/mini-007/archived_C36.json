@@ -1,0 +1,382 @@
+{
+  "assignments": [
+    {
+      "id": "F001",
+      "path": [
+        "Stationary-voice-design",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F002",
+      "path": [
+        "Remote-kickoff",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F003",
+      "path": [
+        "Stationary-voice-design",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F004",
+      "path": [
+        "Curved-remote-design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F005",
+      "path": [
+        "Stationary-voice-design",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F006",
+      "path": [
+        "Remote-kickoff",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F007",
+      "path": [
+        "Remote-kickoff",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F008",
+      "path": [
+        "Remote-kickoff",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F009",
+      "path": [
+        "Remote-kickoff",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F010",
+      "path": [
+        "Curved-remote-design",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F011",
+      "path": [
+        "Curved-remote-design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F012",
+      "path": [
+        "Remote-kickoff",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F013",
+      "path": [
+        "Stationary-voice-design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F014",
+      "path": [
+        "Curved-remote-design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F015",
+      "path": [
+        "Curved-remote-design",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F016",
+      "path": [
+        "Stationary-voice-design",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F017",
+      "path": [
+        "Stationary-voice-design",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F018",
+      "path": [
+        "Stationary-voice-design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F019",
+      "path": [
+        "Curved-remote-design",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F020",
+      "path": [
+        "Stationary-voice-design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F021",
+      "path": [
+        "Remote-kickoff",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F022",
+      "path": [
+        "Curved-remote-design",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F023",
+      "path": [
+        "Stationary-voice-design",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F024",
+      "path": [
+        "Stationary-voice-design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F025",
+      "path": [
+        "Curved-remote-design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F026",
+      "path": [
+        "Stationary-voice-design",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F027",
+      "path": [
+        "Curved-remote-design",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F028",
+      "path": [
+        "Curved-remote-design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F029",
+      "path": [
+        "Curved-remote-design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F030",
+      "path": [
+        "Stationary-voice-design",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F031",
+      "path": [
+        "Remote-kickoff",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F032",
+      "path": [
+        "Curved-remote-design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F033",
+      "path": [
+        "Stationary-voice-design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F034",
+      "path": [
+        "Curved-remote-design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F035",
+      "path": [
+        "Curved-remote-design",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F036",
+      "path": [
+        "Remote-kickoff",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F037",
+      "path": [
+        "Stationary-voice-design",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F038",
+      "path": [
+        "Curved-remote-design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F039",
+      "path": [
+        "Stationary-voice-design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F040",
+      "path": [
+        "Curved-remote-design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F041",
+      "path": [
+        "Remote-kickoff",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F042",
+      "path": [
+        "Remote-kickoff",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F043",
+      "path": [
+        "Remote-kickoff",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F044",
+      "path": [
+        "Curved-remote-design",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F045",
+      "path": [
+        "Curved-remote-design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F046",
+      "path": [
+        "Remote-kickoff",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F047",
+      "path": [
+        "Curved-remote-design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F048",
+      "path": [
+        "Curved-remote-design",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F049",
+      "path": [
+        "Remote-kickoff",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F050",
+      "path": [
+        "Stationary-voice-design",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F051",
+      "path": [
+        "Remote-kickoff",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F052",
+      "path": [
+        "Stationary-voice-design",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F053",
+      "path": [
+        "Curved-remote-design",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F054",
+      "path": [
+        "Remote-kickoff",
+        "Decisions"
+      ]
+    }
+  ]
+}

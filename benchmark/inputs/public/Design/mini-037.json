@@ -1,0 +1,185 @@
+{
+  "task_id": "mini-037",
+  "records": [
+    {
+      "id": "F001",
+      "format": "text",
+      "text": "There are cases where implementations implement different things for the same application protocol names. That has already caused issues for certain implementations to interoperate, with the possibility of more in the future. (See the example with GKE and Istio under Motivation)\n\nThis KEP suggests a different description for the `AppProtocol` field and proposes to declare standard Kubernetes protocol names for common protocols that are not IANA service names."
+    },
+    {
+      "id": "F002",
+      "format": "text",
+      "text": "Some Kubernetes clients need to communicate with the API Server using a bi-directional streaming protocol, instead of the standard HTTP request/response mechanism. A streaming protocol provides the ability to read and write arbitrary data messages between the client and server, instead of providing a single response to a client request. For example, the commands `kubectl exec`, `kubectl attach`, and `kubectl port-forward` both benefit from a bi-directional streaming protocol (`kubectl cp` is build on top of `kubectl exec` primitives so it utilizes streaming as well). Currently, the bi-directional streaming solution for these `kubectl` commands is SPDY/3.1. For the communication leg between `kubectl` and the API Server, this enhancement transitions the bi-directional streaming protocol to WebSockets from SPDY/3.1."
+    },
+    {
+      "id": "F003",
+      "format": "text",
+      "text": "Device Plugin and DRA do not have a good failure handling strategy defined. With proliferation of workloads using devices (like GPU), variable quality of devices, and overcommitting of data centers on power, there are cases when devices can fail temporarily or permanently and k8s need to handle this natively.\n\nToday, the typical design is for jobs consuming a failing device to fail with a specific error code whenever possible. For long running workloads, K8s will keep restarting the workload without reallocating it on a different device. So the container will be in crash loop backoff with limited information on why it is crashing.\n\nExposing unhealthy devices in Pod Status will provide a generic way to understand that the failure is related to the unhealthy device, and be able to respond to this properly."
+    },
+    {
+      "id": "F004",
+      "format": "text",
+      "text": "This proposal gives users the ability to set a pod’s hostname to its Fully Qualified Domain Name (FQDN). A new PodSpec field `setHostnameAsFQDN` will be introduced. When a user sets this field to true, its Linux kernel hostname field (the nodename field of struct utsname) will be set to its fully qualified domain name (FQDN). Hence, both uname -n and hostname --fqdn will return the pod’s FQDN. The new PodSpec field `setHostnameAsFQDN` will default to `false` to preserve current behavior, i.e., setting the hostname field of the kernel to the pod's shortname.\n\nRelated Kubernetes issue #1791."
+    },
+    {
+      "id": "F005",
+      "format": "text",
+      "text": "With the current DNS architecture, it is possible that pods with the highest DNS QPS have to reach out to a different node, if there is no local kube-dns instance. Having a local cache will help improve the latency in such scenarios. Skipping iptables DNAT and connection tracking will help reduce conntrack races and avoid UDP DNS entries filling up conntrack table. Connections from local caching agent to kube-dns can be upgraded to TCP. TCP conntrack entries will be removed on connection close in contrast with UDP entries that have to timeout (default `nf_conntrack_udp_timeout` is 30 seconds) Upgrading DNS queries from UDP to TCP would reduce tail latency attributed to dropped UDP packets and DNS timeouts usually up to 30s (3 retries x (5s timeout for A + 5s timeout for AAAA)). Since the nodelocal cache listens for UDP DNS queries, applications don't need to be changed. Metrics & visibility into dns requests at a node level. Neg caching can be re-enabled, thereby reducing number of queries to kube-dns. There are several open github issues proposing a local DNS Cache daemonset and scripts to run it: * This shows that there is interest in the wider Kubernetes community for a solution similar to the proposal here."
+    },
+    {
+      "id": "F006",
+      "format": "text",
+      "text": "**Second class support**: Kubernetes contributors are likely to be thinking of Linux-based solutions to problems, as Linux remains the primary OS supported. Keeping Windows support working will be an ongoing burden potentially limiting the pace of development.\n\n**User experience**: Users today will need to use some combination of taints and node selectors in order to keep Linux and Windows workloads separated. In the best case this imposes a burden only on Windows users, but this is still less than ideal. The recommended approach is outlined below, with one of its main goals being that we should not break compatibility for existing Linux workloads"
+    },
+    {
+      "id": "F007",
+      "format": "text",
+      "text": "This KEP proposes to add a built-in admission controller \"DenyServiceExternalIPs\", which rejects any CREATE or UPDATE operation which adds a new value to `Service.spec.externalIPs`. Existing values will be tolerated and may be removed.\n\nThe number of rejected operations will be exposed by the standard admission metrics (`apiserver_admission_controller_admission_duration_seconds_bucket{name=\"DenyServiceExternalIPs\",rejected=\"true\", ...}`)."
+    },
+    {
+      "id": "F008",
+      "format": "text",
+      "text": "Today it is difficult to know when a Pod is using a device that has failed or is temporarily unhealthy. This makes troubleshooting of Pod crashes hard or impossible. This KEP will fix this by exposing device health via Pod Status. This KEP is intentionally scoped small, but can be extended later to expose more device information to troubleshoot Pod devices placement issues (for example, validating that related Pods are allocated on connected devices)."
+    },
+    {
+      "id": "F009",
+      "format": "text",
+      "text": "Enabling DSR and overlay networking mode support in Windows kube-proxy both have very little risk.\n\nFor DSR, the Windows Host Network Service handles all of the logic for managing network traffic; kube-proxy only needs to specify if DSR should be used when creating/sycing load balancer rules. Additionally, DSR must be enabled with a kube-proxy command switch (--enable-dsr=true) disabling DSR is can be performed by redeploying kube-proxy on Windows nodes.\n\nOverlay networking support in Windows has been used in the Windows CI pipelines running release-informing capz-windows-master jobs since K8s v1.20."
+    },
+    {
+      "id": "F010",
+      "format": "text",
+      "text": "The lack of direct support for specifying application protocols for ports and the widespread use of implementation-specific annotations to mitigate it had led Kubernetes to add the `AppProtocol` field to the port spec.\n\nWhile this is a good solution - we never came with recommended standards other than IANA standard service names or a domain prefixed protocol.\n\nThis loose definition has led us to; Have instances where implementations do different things for common protocols. Have no support for implementations interoperability with different domain prefixed protocols (or a mix domain prefixed and non prefixed protocol) for the same port.\n\nOne good example for the first bullet is `HTTP2`. In GKE you can use `appProtocol: HTTP2` and it will describe HTTP2 over TLS ( While in Istio it will be h2c (HTTP2 over cleartext).\n\nThat creates a problem where users with GKE and Istio in their cluster can have very different behaviors for the same `appProtocol` value."
+    },
+    {
+      "id": "F011",
+      "format": "text",
+      "text": "This is a new protocol and an experimental feature, it will be behind a feature flag and will not graduate to beta until the protocol and its implementation are mature.\n\nThe protocol is still a Draft, however, it is not likely it change too much at this stage before is published as RFC.\n\nThe golang implementation tries to be as much compatible as possible with the golang standard library, but it is not fully compatible. It also brings a considerable amount of dependencies."
+    },
+    {
+      "id": "F012",
+      "format": "text",
+      "text": "This feature would increase the interoperability of Kubernetes with legacy applications. Traditionally, Unix and certain Linux distributions, such as RedHat and CentOS, have recommended setting the kernel hostname field to the host FQDN. As a consequence, many applications created before Kubernetes rely on this behavior. Having this feature would help containerize existing applications without deep, risky code changes."
+    },
+    {
+      "id": "F013",
+      "format": "text",
+      "text": "This proposal gives users the ability to set a pod’s hostname to its FQDN. A new PodSpec field named `setHostnameAsFQDN` will be introduced, with type `*bool`.\n\nThe values of `setHostnameAsFQDN` are: `nil` (default): The Linux kernel hostname field (the nodename field of struct utsname) of a pod will be set to its shortname. This is the current behavior. `False`: Same as `nil` `True`: The Linux kernel hostname field (the nodename field of struct utsname) of a pod will be set to its fully qualified domain name (FQDN). FQDN is determined as described here)"
+    },
+    {
+      "id": "F014",
+      "format": "text",
+      "text": "**No post mortem health status for terminated pods:** For batch jobs using `RestartPolicy: Never`, device health status will not be updated after the pod terminates. This means \"post mortem\" troubleshooting for batch jobs cannot rely on this field. The race condition between pod termination and health updates would require significant complexity to fix (tombstoning ClaimInfo entries in the DRA manager), which was deemed not worth the benefit. See Issue #132978."
+    },
+    {
+      "id": "F015",
+      "format": "text",
+      "text": "A nodeLocal dns cache runs on all cluster nodes. This is managed as an add-on, runs as a Daemonset. All pods using clusterDNS will now talk to the nodeLocal cache, which will query kube-dns in case of cache misses in cluster's configured DNS suffix and for all reverse lookups(in-addr.arpa and ip6.arpa). User-configured stubDomains will be passed on to this local agent. The node's resolv.conf will be used by this local agent for all other cache misses. One benefit of doing the non-cluster lookups on the nodes from which they are happening, rather than the kube-dns instances, is better use of per-node DNS resources in cloud. For instance, in a 10-node cluster with 3 kube-dns instances, the 3 nodes running kube-dns will end up resolving all external hostnames and can exhaust QPS quota. Spreading the queries across the 10 nodes will help alleviate this."
+    },
+    {
+      "id": "F016",
+      "format": "text",
+      "text": "Today informers are the primary source of LIST requests. The LIST is used to get a consistent snapshot of data to build up a client-side in-memory cache. The primary issue with LIST requests is unpredictable memory consumption. The actual usage depends on many factors like the page size, applied filters (e.g. label selectors), query parameters, and sizes of individual objects. See the Appendix section for more details on potential sources of LIST request and their impact on memory."
+    },
+    {
+      "id": "F017",
+      "format": "text",
+      "text": "Kubernetes clusters defaulted to HTTP/2 for the control plane communications to solve all the performance and reliability problems caused by the previous protocol HTTP/1. However, there are some notable exceptions: communication between apiserver and webhooks. communication that use SPDY or websockets\n\nHTTP/3 solves some of the HTTP/2 problems, mainly the Head of Line Blocking problem because it uses QUIC RFC9000 for the transport layer, improving the performance and the resilience of the control plane.\n\nDespite the HTTP/3 protocol, as January 2022, is still an Internet Draft, it is already supported by 73% of running web browsers, and there is also a golang implementation that is being used by known projects and companies.\n\nHaving support for HTTP/3 will allow the project to have early feedback, and the possibility to influence it."
+    },
+    {
+      "id": "F018",
+      "format": "text",
+      "text": "This proposal aims to improve DNS performance by running a dns caching agent on cluster nodes as a Daemonset. In today's architecture, pods in ClusterFirst DNS mode reach out to a kube-dns serviceIP for DNS queries. This is translated to a kube-dns endpoint via iptables rules added by kube-proxy. With this new architecture, pods will reach out to the dns caching agent running on the same node, thereby avoiding iptables DNAT rules and connection tracking. The local caching agent will query kube-dns for cache misses of cluster hostnames(cluster.local suffix by default)."
+    },
+    {
+      "id": "F019",
+      "format": "text",
+      "text": "The SPDY streaming protocol has been deprecated since 2015, and by now many proxies, gateways, and load-balancers do not support SPDY. Our effort to modernize the streaming protocol between Kubernetes clients and the API Server using WebSockets is necessary to enable the aforementioned intermediaries. WebSockets is a currently supported standardized protocol ( that guarantees compatibility and interoperability with the different components and programming languages. Finally, WebSockets is preferrable to HTTP/2.0 because the updated HTTP standard does not support streaming well. The decision to forego HTTP/2.0 is discussed at greater length in the Alternatives Section."
+    },
+    {
+      "id": "F020",
+      "format": "text",
+      "text": "The feature is isolated to a specific policy option `strict-cpu-reservation` under `cpuManagerPolicyOptions`. Concern for feature impact on best-effort workloads, the workloads that do not have resource requests, is brought up. Kube-scheduler schedules pods on node allocatable (total - reserved). For best-effort pods, kube-scheduler uses default request values when scoring the nodes, see and but the scheduler does not use the default request values when fitting the nodes i.e."
+    },
+    {
+      "id": "F021",
+      "format": "text",
+      "text": "IMPORTANT: THIS KEP HAS BEEN DEFERRED UNTIL HTTP/3 IS SUPPORTED BY THE GOLANG STANDARD LIBRARY\n\nOne of the main advantages of HTTP/3 is increased performance, specifically around fetching multiple objects simultaneously. With HTTP/2, any interruption (packet loss) in the TCP connection blocks all streams (Head of line blocking).\n\nIn addition, HTTP/3 offers 0-RTT support, which means that subsequent connections can start up much faster by eliminating the TLS acknowledgement from the server when setting up the connection. This means the client can start requesting data much faster than with a full TLS negotiation."
+    },
+    {
+      "id": "F022",
+      "format": "text",
+      "text": "Troubleshooting issues with control-plane and worker nodes typically requires a cluster administrator to SSH into the nodes for debugging. While certain issues will require being on the node, issues with the kube-proxy or kubelet, to name a couple, could be solved by perusing their logs. However this too requires the administrator to SSH access into the nodes. Having a way for them to view the logs using a kubelet API or kubectl plugin will significantly simplify their troubleshooting."
+    },
+    {
+      "id": "F023",
+      "format": "text",
+      "text": "protect kube-apiserver and its node against list-based OOM attacks considerably reduce (temporary) memory footprint of LISTs, down from O(watchers\\*page-size\\*object-size\\*5) to O(watchers\\*constant), constant around 2 MB. > Example: > > 512 watches of 400mb data: 512*500*2MB*5=2.5TB ↘ 2 GB > > racing with Golang GC to free this temporary memory before being OOM'ed. reduce etcd load by serving from watch cache get a replacement for paginated lists from watch-cache, which is not feasible without major investment enforce consistency in the sense of freshness of the returned list be backward compatible with new client -> old server fix the long-standing \"stale reads from the cache\" issue,"
+    },
+    {
+      "id": "F024",
+      "format": "text",
+      "text": "DSR support was added to Windows Server 2019 as part of the May 2020 update. DSR provides performance optimizations by allowing the return traffic routed through load balancers to bypass the load balancer and respond directly to the client; reducing load on the load balancer and also reducing overall latency. More information on DSR on Windows can be found here.\n\nOverlay networking mode is a common networking mode used in Kubernetes clusters and is required by some for some important scenarios like network policy support with Calico CNI. Adding support for overlay networking mode in Windows kube-proxy will allow users to use more CNI solutions with Windows nodes."
+    },
+    {
+      "id": "F025",
+      "format": "text",
+      "text": "Provide a cluster administrator with a streaming view of logs using a kubelet API without them having to implement a client side reader or logging into the node. This would work for: Services on Linux worker and control plane nodes: That have systemd / journald support. That have services that log to `/var/log/` Windows worker nodes (all supported variants) that log to `C:\\var\\log`, and Application logs."
+    },
+    {
+      "id": "F026",
+      "format": "text",
+      "text": "A Kubernetes cluster administrator has to log in to the relavant control-plane or worker nodes to view the logs of the API server, kubelet etc. Or they would have to implement a client side reader. A simpler and more elegant method would be to allow them to use a kubelet API or kubectl plugin to also view these logs similar to using it for other interactions with the cluster. Given the sensitive nature of the information in node logs, this feature will only be available to cluster administrators."
+    },
+    {
+      "id": "F027",
+      "format": "text",
+      "text": "DSR and Overlay networking mode support is already implemented in Windows kube-proxy and has been extensively tested in the Windows CI pipeline. This proposal is to promote the existing implementations to GA.\n\nAdditionally, DSR support on Windows is supported on both EKS and AKS. Both DSR and overlay networking support have been used in the Windows CI pipelines running release-informing jobs since K8s v1.20."
+    },
+    {
+      "id": "F028",
+      "format": "text",
+      "text": "~~Kubernetes supports the `appProtocol` field to provide a way to specify an application protocol for each Service port.~~\n\nKubernetes `appProtocol` field is used as a hint for implementations to configure the protocol used between the implementation and the application it exposes.\n\nThe documentation for this field says that:\n\nThis KEP proposes to declare standard Kubernetes protocol names for common protocols that are not IANA standard service names.\n\nThose common protocols will be well defined strings prefixed with ‘kubernetes.io’. `kubernetes.io/h2c` as an example."
+    },
+    {
+      "id": "F029",
+      "format": "text",
+      "text": "Windows-based workloads still account for a significant portion of the enterprise software space. While containerization technologies emerged first in the UNIX ecosystem, Microsoft has made investments in recent years to enable support for containers in its Windows OS. As users of Windows increasingly turn to containers as the preferred abstraction for running software and modernizing existing applications, the Kubernetes ecosystem stands to benefit by becoming a cross-platform cluster manager."
+    },
+    {
+      "id": "F030",
+      "format": "text",
+      "text": "This proposal is in response to CVE-2020-8554: \"Man in the middle using LoadBalancer or ExternalIPs\".\n\nFundamentally the `Service.spec.externalIPs[]` feature is bad. It predates `Service.spec.type=LoadBalancer` and, now that we have that, has very few use-cases. In short an unprivileged user can hijack an IP address via a Service spec. In contrast, `type=LoadBalancer` uses Service status, which most normal users should not be allowed to write.\n\nThis KEP proposes to block the use of ExternalIPs via a built-in admission controller. The justification for this, as opposed to a webhook, is that 99% of users will never use this feature, and making them ALL run a webhook seems terrible."
+    },
+    {
+      "id": "F031",
+      "format": "text",
+      "text": "There is strong interest in the community for adding support for workloads running on Microsoft Windows. This is non-trivial due to the significant differences in the implementation of Windows from the Linux-based OSes that have so far been supported by Kubernetes. This KEP will allow Windows nodes to be added to a Kubernetes cluster as compute nodes. With the introduction of Windows nodes, developers will be able to schedule Windows Server containers and run Windows-based applications on Kubernetes."
+    },
+    {
+      "id": "F032",
+      "format": "text",
+      "text": "Transition the bi-directional streaming protocol from SPDY/3.1 to WebSockets for `kubectl exec`, `kubectl attach`, `kubectl cp`, and `kubectl port-forward` for the communication leg between `kubectl` and the API Server. Extend the WebSockets communication leg from the API Server to Kubelet. After this extension, WebSockets streaming will occur between `kubectl` and Kubelet (proxied through the API Server)."
+    },
+    {
+      "id": "F033",
+      "format": "text",
+      "text": "In order to lower memory consumption while getting a list of data and make it more predictable, we propose to use streaming from the watch-cache instead of paging from etcd. Initially, the proposed changes will be applied to informers as they are usually the heaviest users of LIST requests (see Appendix section for more details on how informers operate today). The primary idea is to use standard WATCH request mechanics for getting a stream of individual objects, but to use it for LISTs."
+    },
+    {
+      "id": "F034",
+      "format": "text",
+      "text": "Starting with Kubernetes 1.22, a new `CPUManager` flag has facilitated the use of `CPUManager` Policy options (#2625) which enable users to customize their behavior based on workload requirements without having to introduce an entirely new policy. These policy options work together to ensure an optimized cpu set is allocated for workloads running on a cluster. The policy options that already exist are `full-pcpus-only` (#2625) and `distribute-cpus-across-numa` (#2902) and `align-by-socket` (#3327) and `distribute-cpus-across-cores` (#4176). With this KEP, a new `CPUManager` policy option `strict-cpu-reservation` is introduced which ensures that `reservedSystemCPUs` are strictly reserved for system daemons or interrupt processing and are not used by burstable and best-effort pods."
+    },
+    {
+      "id": "F035",
+      "format": "text",
+      "text": "One simple admission controller should be enough to disable this misfeature. Unfortunately it can not be on by default (that would be breaking).\n\nThis means that platform-providers may need to expose an option to control this. While we generally try to avoid mixing knobs that cluster-users would set with knobs that cluster-providers own, it seems reasonable to close this as soon as possible and consider better answers when we have more cases to generalize from. See \"Alternatives\" below for more.\n\nSee \"Proposal\" above."
+    },
+    {
+      "id": "F036",
+      "format": "text",
+      "text": "The static policy is used to reduce latency or improve performance. If you want to move system daemons or interrupt processing to dedicated cores, the obvious way is use the `reservedSystemCPUs` option. But in current implementation this isolation is implemented only for guaranteed pods with integer CPU requests not for burstable and best-effort pods (and guaranteed pods with fractional CPU requests). Admission is only comparing the cpu requests against the allocatable cpus. Since the cpu limit are higher than the request, it allows burstable and best-effort pods to use up the capacity of `reservedSystemCPUs` and cause host OS services to starve in real life deployments."
+    }
+  ]
+}

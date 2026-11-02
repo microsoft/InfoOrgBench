@@ -1,0 +1,319 @@
+{
+  "assignments": [
+    {
+      "id": "F001",
+      "path": [
+        "Fruit-prototype-review",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F002",
+      "path": [
+        "Project-kickoff",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F003",
+      "path": [
+        "Snail-prototype-review",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F004",
+      "path": [
+        "Snail-prototype-review",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F005",
+      "path": [
+        "Snail-prototype-review",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F006",
+      "path": [
+        "Project-kickoff",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F007",
+      "path": [
+        "Snail-prototype-review",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F008",
+      "path": [
+        "Project-kickoff",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F009",
+      "path": [
+        "Snail-prototype-review",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F010",
+      "path": [
+        "Snail-prototype-review",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F011",
+      "path": [
+        "Snail-prototype-review",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F012",
+      "path": [
+        "Project-kickoff",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F013",
+      "path": [
+        "Snail-prototype-review",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F014",
+      "path": [
+        "Project-kickoff",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F015",
+      "path": [
+        "Fruit-prototype-review",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F016",
+      "path": [
+        "Snail-prototype-review",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F017",
+      "path": [
+        "Fruit-prototype-review",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F018",
+      "path": [
+        "Fruit-prototype-review",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F019",
+      "path": [
+        "Snail-prototype-review",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F020",
+      "path": [
+        "Fruit-prototype-review",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F021",
+      "path": [
+        "Fruit-prototype-review",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F022",
+      "path": [
+        "Fruit-prototype-review",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F023",
+      "path": [
+        "Snail-prototype-review",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F024",
+      "path": [
+        "Snail-prototype-review",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F025",
+      "path": [
+        "Snail-prototype-review",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F026",
+      "path": [
+        "Project-kickoff",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F027",
+      "path": [
+        "Fruit-prototype-review",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F028",
+      "path": [
+        "Snail-prototype-review",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F029",
+      "path": [
+        "Fruit-prototype-review",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F030",
+      "path": [
+        "Snail-prototype-review",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F031",
+      "path": [
+        "Fruit-prototype-review",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F032",
+      "path": [
+        "Fruit-prototype-review",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F033",
+      "path": [
+        "Snail-prototype-review",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F034",
+      "path": [
+        "Snail-prototype-review",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F035",
+      "path": [
+        "Fruit-prototype-review",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F036",
+      "path": [
+        "Snail-prototype-review",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F037",
+      "path": [
+        "Project-kickoff",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F038",
+      "path": [
+        "Fruit-prototype-review",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F039",
+      "path": [
+        "Project-kickoff",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F040",
+      "path": [
+        "Fruit-prototype-review",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F041",
+      "path": [
+        "Snail-prototype-review",
+        "Issues"
+      ]
+    },
+    {
+      "id": "F042",
+      "path": [
+        "Snail-prototype-review",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F043",
+      "path": [
+        "Fruit-prototype-review",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F044",
+      "path": [
+        "Project-kickoff",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F045",
+      "path": [
+        "Fruit-prototype-review",
+        "Issues"
+      ]
+    }
+  ]
+}

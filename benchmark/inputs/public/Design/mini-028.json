@@ -1,0 +1,185 @@
+{
+  "task_id": "mini-028",
+  "records": [
+    {
+      "id": "F001",
+      "format": "text",
+      "text": "As we consider problems like cross-zone network traffic being a chargeable resource in most public clouds, we started to build an API for topology in Services. We tried to think through how that API would map to existing load-balancer implementations which may already understand topology, and we realized 3 things.\n\n1) Cloud-ish load-balancers do not have arbitrary topology APIs and can't easily adapt to that. 2) Other systems have standardized on two or three levels of topology (e.g. the [Envoy locality API]). 3) Nobody is really complaining about this.\n\nIn trying to simplify the way Service topology might work, we are proposing that standardizing on a small set of well-defined topology concepts will be a net win for the project at almost no cost to what users are actually doing with Kubernetes.\n\n[Envoy locality API]:"
+    },
+    {
+      "id": "F002",
+      "format": "text",
+      "text": "The Kubernetes API server's memory usage presents a significant challenge, particularly when dealing with large resources and LIST requests. Users can easily issue **list** requests that retrieve gigabytes of data, especially with CustomResourceDefinitions (CRDs). Custom resources often suffer from significant data bloat when encoded in JSON.\n\nCurrent API server response encoders were designed with smaller responses in mind, assuming they could allocate the entire response in a single contiguous memory block. This assumption breaks down with the scale of data returned by large **list** requests. Even well-intentioned users can create naive controllers that issue multiple concurrent **list** requests without properly handling the responses. This can lead to the API server holding entire responses in memory for extended periods, sometimes minutes, while waiting for the controller to process them.\n\nThe resulting unpredictable memory usage forces administrators to significantly over-provision API server memory to accommodate potential spikes."
+    },
+    {
+      "id": "F003",
+      "format": "text",
+      "text": "We propose a change to the Kubelet API authorization to provide more fine-grained control so that logging and monitoring agents that interact with the Kubelet directly can do so while adhering to the least privilege principle. Currently, the Kubelet API authorization uses a coarse authorization scheme, where actions like reading health status and the ability to exec into a pod require the same RBAC permissions.\n\nWe also propose that we document the kubelt API endpoints that we are adding fine-grained authorization for as these were previously undocumented."
+    },
+    {
+      "id": "F004",
+      "format": "text",
+      "text": "The different kube-proxy implementations (at least ipvs and iptables), as of today, are binding the External IPs of the LoadBalancer Service to each node. (iptables are creating some rules to redirect packets directly to the service and ipvs is binding the IP to one interface on the node). This feature exists because: To redirect pod traffic that is intended for LoadBalancer IP directly to the service, bypassing the loadbalancer for path optimization. Some LBs are sending packet with the destination IP equal to the LB IP, so the IP needs to be routed directly to the right service (otherwise looping back and forth)\n\nThis enhancement proposes a way to make these features configurable, giving the cloud provider, a way to disable the behaviour of kube-proxy. The best way would be to set a default behaviour at the cloud controller level."
+    },
+    {
+      "id": "F005",
+      "format": "text",
+      "text": "This KEP proposes adding server-side streaming RPCs to CRI's `List*` operations. Currently, these APIs return all results in a single unary response, causing failures on nodes with 10k+ containers when responses exceed the 16 MB gRPC message limit. The proposed solution introduces new streaming RPCs (e.g., `StreamContainers`, `StreamPodSandboxes`) that stream results one item at a time, bypassing the per-message size limit."
+    },
+    {
+      "id": "F006",
+      "format": "text",
+      "text": "Kubernetes has always taken the position that \"topology is arbitrary\", and designs dealing with topology have had to take that into account. Even so, the project has two commonly assumed labels - `topology.kubernetes.io/region` and `topology.kubernetes.io/zone` - which are used in many components, generally hard-coded and not extensible. Those labels have relatively well understood meanings, and (so far) have been sufficient to represent what most people need.\n\nThis KEP proposes to declare those labels, and possibly one more, as \"standard\" and give them more well-defined meanings and semantics. APIs that handle topology can still handle arbitrary topology keys, but these common ones may be handled automatically."
+    },
+    {
+      "id": "F007",
+      "format": "text",
+      "text": "Guarantee enforcement from startup: File-configured admission policies and webhooks MUST be active before the API server begins processing requests. There must be no gap during startup when requests are handled but admission controls are not yet active. Isolated universe: Manifest-based admission control exists in a tightly scoped and isolated universe. It may not reference API resources, nor vice-versa."
+    },
+    {
+      "id": "F008",
+      "format": "text",
+      "text": "We intend to introduce version compatibility and emulation options to Kubernetes control plane components to make upgrades safer by increasing the granularity of steps available to cluster administrators.\n\nWe will introduce a `--emulation-version` flag to emulate the capabiliites (APIs, features, ...) of a prior Kubernetes release version. When used, the capabilities available will match the emulated version. Any capabilities present in the binary version that were introduced after the emulation version will be unavailable and any capabilities removed after the emulation version will be available. This enables a binary version to emulate the behavior of a previous version with sufficient fidelity that interoperability with other system components can be defined in terms of the emulated version.\n\nWe will also introduce a `--min-compatibility-version` flag to control the minimum version a control plane component is compatible with (in terms of storage versions, validation rules, ...). When used, the component tolerates workloads that expect the behavior of the specified minimum compatibility version, component skew ranges extend based on the minimum compatibility version, and rollbacks can be performed back to the specified minimum compatibility version."
+    },
+    {
+      "id": "F009",
+      "format": "text",
+      "text": "Only clean up iptables and IPVS proxy rules if `--cleanup` is set. If `--cleanup` is not set, start kube-proxy without cleaning up any existing rules.\n\nFor example, remove code like this where kube-proxy attempts to clean up proxy rules in a proxy mode it is not using.\n\nWith proxy clean up always requiring an explicit request from the user, we will also recommend users to reboot their nodes if they choose to switch between proxy modes. This was always expected but not documented/vocalized well enough. The `--cleanup` flag should only be used in the event that a node reboot is not an option. Accompanying a proxy mode switch with a node reboot ensures that any state in the kernel associated with the previous proxy mode is cleared. This expectation should be well documented in the release notes, the Kubernetes docs, and in kube-proxy's help command."
+    },
+    {
+      "id": "F010",
+      "format": "text",
+      "text": "Removing support for cleaning up other proxy modes has been suggested. For example, if a user wished to change proxy modes, rather than running `kube-proxy --cleanup`, users would be advised to restart the worker node. Continue to support automatic/implicit clean up of proxy rules by fixing any existing bugs where overlapping rules are removed. Though we can continue to support this, doing so correctly is not trivial. The overlapping rulesets between the existing proxy modes makes it difficult to fix this without adding more complexity to kube-proxy or changing the proxy rules in an incompatible way."
+    },
+    {
+      "id": "F011",
+      "format": "text",
+      "text": "Kubernetes has always taken the position that \"topology is arbitrary\", and designs dealing with topology have had to take that into account. Even so, the project has two commonly assumed labels - `topology.kubernetes.io/region` and `topology.kubernetes.io/zone` - which are used in many components, generally hard-coded and not extensible. Those labels have relatively well understood meanings, and (so far) have been sufficient to represent what most people need.\n\nThis KEP proposes to document those labels as \"standard\" and give them more rigorous definitions. This also proposes that we discuss and decide whether a third level of topology is needed and if so, define it in the same manner as the existing labels.\n\nThe resulting definitions should be specific enough that users and implementors understand what they mean, but not so rigid that they can not map them to the nearest constructs available in most environments."
+    },
+    {
+      "id": "F012",
+      "format": "text",
+      "text": "The solution would be to add a new field in the `loadBalancer` field of a `Service`'s `status`, like `ipMode`. This new field will be used by kube-proxy in order to not bind the Load Balancer's External IP to the node (in both IPVS and iptables mode). The value `VIP` would be the default one (if not set for instance), keeping the current behaviour. The value `Proxy` would be used in order to disable the the shortcut.\n\nSince the `EnsureLoadBalancer` returns a `LoadBalancerStatus`, the Cloud Controller Manager can optionally set the `ipMode` field before returning the status."
+    },
+    {
+      "id": "F013",
+      "format": "text",
+      "text": "Example problems today: User does POST, then changes something and applies: surprise! User does an apply, then `kubectl edit`, then applies again: surprise! User does GET, edits locally, then apply: surprise! User tweaks some annotations, then applies: surprise! Alice applies something, then Bob applies something: surprise!\n\nWhy can't a smaller change fix the problems? Why hasn't it already been fixed? Too many components need to change to deliver a fix Organic evolution and lack of systematic approach It is hard to make fixes that cohere instead of interfere without a clear model of the feature Lack of API support meant client-side implementation The client sends a PATCH to the server, which necessitated strategic merge patch--as no patch format conveniently captures the data type that is actually needed. Tactical errors: SMP was not easy to version, fixing anything required client and server changes and a 2 release deprecation period. The implications of our schema were not understood, leading to bugs. e.g., non-positional lists, sets, undiscriminated unions, implicit context Complex and confusing defaulting behavior (e.g., Always pull policy from :latest) Non-declarative-friendly API behavior (e.g., selector updates)"
+    },
+    {
+      "id": "F014",
+      "format": "text",
+      "text": "Historically the `/healthz` and `/pods` endpoints were available on the unauthenticated kubelet read-only port(10255) but kubelet read-only port is disabled by default and enabling the port is considered a security worst practice. This has caused a lot of monitoring and logging agents to switch to using the kubelet authenticated port (10250). However, the Kubelet API on the authenticated(10250) port currently uses a very coarse scheme for authorizing requests. For example, reading `/healthz` and calling `/exec/…` (i.e. execute arbitrary code) require the same `proxy` subresource. So, if an application needs to say `list` `pods` on the node, as many monitoring and logging agents do, they must be granted the `proxy` subresource in RBAC. Doing so grants many other powerful permissions to these agents which could be exploited by an attacker to escalate privilege."
+    },
+    {
+      "id": "F015",
+      "format": "text",
+      "text": "This KEP proposes adding file-based manifests to the kube-apiserver to configure admission webhooks and policies on startup. These policies would exist outside of the Kubernetes API, enabling operators and platforms to implement admission controls that: Are guaranteed to be active before the API server begins processing requests Cannot be bypassed or modified through the Kubernetes API Can protect API-based admission control resources themselves (ValidatingAdmissionPolicy, MutatingAdmissionPolicy, ValidatingWebhookConfiguration, MutatingWebhookConfiguration, etc.)\n\nThis is achieved by augmenting the `AdmissionConfiguration` schema to include paths to manifest files containing webhook and policy configurations that are loaded at API server startup and watched for changes at runtime.\n\nFor beta, this KEP also proposes excluding the same set of authentication and authorization virtual resources from `ValidatingAdmissionWebhook` and `MutatingAdmissionWebhook` that `ValidatingAdmissionPolicy` and `MutatingAdmissionPolicy` already exclude. See Webhook Virtual Resource Exclusion for details."
+    },
+    {
+      "id": "F016",
+      "format": "text",
+      "text": "There's not a clean way to do this. Go workspaces DOES NOT work with our symlinks-in-vendor hack, and all of our tools do not work without it. We have a LOT of tools and the hacks run DEEP. We have a decade of legacy to scrub off. Worse, many of our tools make dubious assumptions about the interchangeability of Go package paths (e.g. \"example.com/foo/bar\") and disk paths. Those assumptions held as long as we used GOPATH, BARELY held with staging modules, and break totally in workspaces."
+    },
+    {
+      "id": "F017",
+      "format": "text",
+      "text": "**Pod-level Aware Hint Generation:** The CPU and Memory managers, acting as hint providers for the Topology Manager, will be updated to recognize and use `pod.spec.resources`. When the scope is `pod`, they will generate a single hint for the entire pod's resource budget. When the scope is `container`, they will continue to generate hints on a per-container basis. **Implement Hybrid Allocation Logic:** The CPU and Memory managers will implement a hybrid allocation strategy that is determined by the Topology Manager's scope: **Pod Scope:** The Topology Manager will perform a NUMA alignment for the entire pod based on `pod.spec.resources`, respecting the `topology-manager-policy`, which may result in a single or multi-NUMA node allocation. The resulting pod-wide allocation is then partitioned by the CPU and Memory managers, exclusive slices are carved out for `Guaranteed` containers, while the remainder forms a shared pool for all other containers. This enables a single pod to host a mix of containers with and without dedicated resource guarantees. **Container Scope:** The existing per-container allocation logic will be preserved. This logic will be enhanced to support pods that achieve a `Guaranteed` QoS class via `pod.spec.resources`, enabling a powerful mixed-model: individual containers that are `Guaranteed` can receive exclusive, NUMA-aligned resources, while other containers in the same pod can run in the node's shared pool, with their overall resource consumption enforced by the pod's `pod.spec.resources` budget."
+    },
+    {
+      "id": "F018",
+      "format": "text",
+      "text": "There are numerous problems with the current behaviour: Some cloud providers (Scaleway, Tencent Cloud, ...) are using the LB's external IP (or a private IP) as source IP when sending packets to the cluster. This is a problem in the ipvs mode of kube-proxy since the IP is bounded to an interface and healthchecks from the LB are never coming back. Some cloud providers (DigitalOcean, Scaleway, ...) have features at the LB level (TLS termination, PROXY protocol, ...). Bypassing the LB means missing these features when the packet arrives at the service (leading to protocols errors).\n\nSo, giving options to these cloud providers to disable the actual behaviour would be very valuable.\n\nCurrently there is some hacky workaround that set the `Hostname` on the `Service` in order to bypass kube-proxy binding (AWS and DigitalOcean for instance), but as stated, it's a bit hacky. This KEP should also give a solution to this hack."
+    },
+    {
+      "id": "F019",
+      "format": "text",
+      "text": "(Please note that when this KEP was started, the KEP process was much less well defined and we have been treating this as a requirements / mission statement document; KEPs have evolved into more than that.)\n\nA brief list of the changes: Apply will be moved to the control plane. The original design is in a google doc; joining the kubernetes-dev or kubernetes-announce list will grant permission to see it."
+    },
+    {
+      "id": "F020",
+      "format": "text",
+      "text": "Historically, kube-proxy has been built with a \"clean up\" functionality that allows it to find and remove any proxy rule that it created. This functionality runs in two steps. The first step requires an explicit request from the user by setting the `--cleanup` flag in which case kube-proxy would attempt to remove proxy rules associated with all its proxy modes and then exit. The second step is done automatically by kube-proxy on start-up in which kube-proxy would detect and remove any proxy rules associated with the proxy modes it was not currently using.\n\nWe've learned by now that trying to automatically clean up proxy rules is prone to bugs due to the complex dependency between all the proxy modes and the Linux kernel. There are overlapping proxy rules between the iptables and IPVS proxy modes which can result in connectivity issues during start-up as kube-proxy attempts to clean up these overlapping rules. In the worse case scenario, kube-proxy will flush active iptable chains every time it is restarted. This KEP aims to simplify this clean up logic, and as a result, make kube-proxy's behavior more predictable and safe."
+    },
+    {
+      "id": "F021",
+      "format": "text",
+      "text": "This KEP proposes to add a `go.work` file (checked in) and fix all the tools that break because of that. At the end, there will be no reliance on GOPATH. verify and update scripts can use normal Go conventions for building and running code. Abominations like `run-in-gopath.sh` will be deleted. The implementation will come in several waves, which will have to be sequenced across k8s.io/kubernetes, k8s.io/gengo, and k8s.io/kube-openapi repos."
+    },
+    {
+      "id": "F022",
+      "format": "text",
+      "text": "The main Kubernetes git repo (github.com/kubernetes/kubernetes, colloquially called \"k/k\") is the embodiment of evolution. When it was created, the only way to build Go applications was GOPATH. Over time we built tooling which understood GOPATH, and it leaked into many parts of our build, test, and release systems. Then Go added modules, in part because GOPATH was unpleasant and had a tendency to leak into tools. We adopted modules, but we also added the idea of \"staging\" repositories - a way to eat our cake and have, too. We get the benefits of a monorepo (atomic commits, fast iteration across repos) and then publish those to standalone repos for downstream consumption. To make this work with modules, we abused GOPATH even harder and wrote even more tools.\n\nThe Go project saw what we (and others) were doing and did not like it. So they created workspaces. They basically created a solution that is purpose-built for us.\n\nThis KEP proposes that we adopt Go workspaces and bring our tooling up to modern standards. In fact, the author started this work in 2021 or 2022, discovering issues along the way that the Go team has worked to resolve.\n\nThis is not a user-facing change. No k8s cluster-user or cluster-admin should know or care that this happened. On the surface, it seems like something that should not warrant a KEP, but: a) KEPs are how we communicate big changes; b) This is a big change; c) There's some ecosystem impact to developers"
+    },
+    {
+      "id": "F023",
+      "format": "text",
+      "text": "Add new authorization subresources for `healthz` and `pods` endpoint while supporting the old coarse grained proxy authorization subresources as shown in the table below.\n\nThis way users who were previously using the `proxy` authorization subresource to grant access to the `/healthz` kubelet endpoint can update their ClusterRole or Role by replacing the `proxy` subresource with the `healthz` subresource."
+    },
+    {
+      "id": "F024",
+      "format": "text",
+      "text": "Today, most policy enforcement in Kubernetes is implemented through: `MutatingAdmissionWebhook` and `ValidatingAdmissionWebhook` plugins using webhook configurations `ValidatingAdmissionPolicy` (VAP) and `MutatingAdmissionPolicy` (MAP) for CEL-based policies\n\nThese admission controls are registered by creating API objects (`MutatingWebhookConfiguration`, `ValidatingWebhookConfiguration`, `ValidatingAdmissionPolicy`, `MutatingAdmissionPolicy`, and their binding resources). This creates several gaps: Bootstrap gap: Policy enforcement is not active until these objects are created and picked up by the dynamic admission controller. This creates a window during initial cluster setup where policies are not yet enforced. Self-protection gap: Cluster administrators cannot protect webhook and policy configurations from deletion or modification, as these objects are not themselves subject to webhook admission (to prevent circular dependencies). A malicious or misconfigured actor with sufficient privileges can delete critical admission policies. Etcd dependency: Current admission configurations depend on etcd availability. If etcd is unavailable or corrupted, admission policies may not be loaded correctly.\n\nThis KEP aims to address these issues by providing a file-based mechanism for configuring admission controls that operates independently of the Kubernetes API."
+    },
+    {
+      "id": "F025",
+      "format": "text",
+      "text": "**Consistency during modifications**: Containers are created/deleted frequently during streaming. It is the runtime's responsibility to maintain consistency and ensure no duplicate containers appear across the streamed results. **Kubelet atomic view**: Kubelet is designed to see an atomic view of all pods.\n\nMitigation: Kubelet creates a wrapper function that receives all streamed items and presents the aggregated result as a single list to the caller. **Stream interruption**: If the runtime crashes or the stream is interrupted mid-transfer, partial results are discarded.\n\nMitigation: Kubelet discards any partial results received so far and retries the entire streaming call. This is no worse than the unary RPC failure case."
+    },
+    {
+      "id": "F026",
+      "format": "text",
+      "text": "Implementing streaming decoders in clients. This KEP focuses on protecting the API server's memory usage. Clients can utilize existing mechanisms like pagination or WatchList to manage large datasets. Implementing streaming encoders for all content types (e.g. `YAML`, `as=Table`). This KEP focuses on the most commonly used and resource-intensive content types to address the most impactful cases first. Implementing streaming for CBOR encoding at this time. CBOR support will be considered as part of a broader effort related to CBOR serialization in Kubernetes and tracked separately."
+    },
+    {
+      "id": "F027",
+      "format": "text",
+      "text": "\"Apply\" is intended to allow users and systems to cooperatively determine the desired state of an object. The resulting system should: Be robust to changes made by other users, systems, defaulters (including mutating admission control webhooks), and object schema evolution. Be agnostic about prior steps in a CI/CD system (and not require such a system). Have low cognitive burden: For integrators: a single API concept supports all object types; integrators have to learn one thing total, not one thing per operation per api object. Client side logic should be kept to a minimum; CURL should be sufficient to use the apply feature. For users: looking at a config change, it should be intuitive what the system will do. The “magic” is easy to understand and invoke. Error messages should--to the extent possible--tell users why they had a conflict, not just what the conflict was. Error messages should be delivered at the earliest possible point of intervention.\n\nGoal: The control plane delivers a comprehensive solution.\n\nGoal: Apply can be called by non-go languages and non-kubectl clients. (e.g., via CURL.)"
+    },
+    {
+      "id": "F028",
+      "format": "text",
+      "text": "**Changing the Kubernetes QoS Model:** This KEP leverages the existing QoS calculation, which correctly prioritizes `pod.spec.resources` when the `PodLevelResources` feature is active. We are not proposing any changes to this fundamental model. **Introducing New User-Facing APIs or Policy Options:** This enhancement extends the behavior of the existing `static` (CPU Manager) and `Static` (Memory Manager) policies, along with the `pod` and `container` scopes. It does not introduce new policies (e.g., a \"shared\" policy) or policy options. **Supporting Non-Guaranteed Pods for Exclusive Allocation:** The mechanisms for exclusive, NUMA-aligned resources described in this KEP apply only to pods that have a `Guaranteed` QoS class. **Supporting In-Place Pod Vertical Scaling:** This KEP is focused on the initial allocation of resources at pod startup. The interaction between pod-level resource management and the In-Place Pod Vertical Scaling feature is out of scope."
+    },
+    {
+      "id": "F029",
+      "format": "text",
+      "text": "Introduce the metadata necessary to configure features/APIs/storage-versions/validation rules to match the behavior of an older Kubernetes release version A Kubernetes binary with emulation version set to N, will pass the conformance and e2e tests from Kubernetes release version N. A Kubernetes binary with emulation version set to N does not enable any changes (storage versions, CEL feature, features) that would prevent it from being rolled back to N-1. The most recent Kubernetes version supports emulation version being set to the full range of supported versions. In alpha we intend to support: `--emulation-version` range of `binaryMinorVersion`..`binaryMinorVersion-1` In beta, we intend to extend support to: `--emulation-version` range of `binaryMinorVersion`..`binaryMinorVersion-3` `--min-compatibility-version` to `emulationVersion`..`binaryMinorVersion-3`"
+    },
+    {
+      "id": "F030",
+      "format": "text",
+      "text": "This KEP proposes implementing streaming encoding for collections (responses to **list**) that are served by the Kubernetes API server. Existing encoders marshall response into one block allocating GBs of data and keeping it until client reads the whole response. For large LIST responses, this leads to excessive memory consumption in the API server. Streaming the encoding process can significantly reduce memory usage, improving scalability and cost-efficiency."
+    },
+    {
+      "id": "F031",
+      "format": "text",
+      "text": "The notion of more granular steps in Kubernetes upgrades is attractive because it is more rigorous about how we step through a Kubernetes control-plane upgrade, introducing potentially corrupting data (i.e. data only present in N+1 and not in N) only in later stages of the upgrade process. For example, upgrading from Kubernetes 1.30 to 1.31 while keeping the emulation version at 1.30 would enable a cluster administrator to validate that the new Kubernetes binary version is working as desired before exposing any feature changes introduced in 1.31 to cluster users, and without writing and data to storage at newer API versions."
+    },
+    {
+      "id": "F032",
+      "format": "text",
+      "text": "The adoption of IPv6 has increased in recent years, and customers are requesting IPv6 support in Kubernetes clusters. To this end, the support of IPv6-only clusters was added as an alpha feature in Kubernetes Version 1.9. Clusters can now be run in either IPv4-only, IPv6-only, or in a \"single-pod-IP-aware\" dual-stack configuration. This \"single-pod-IP-aware\" dual-stack support is limited by the following restrictions: Some CNI network plugins are capable of assigning dual-stack addresses on a pod, but Kubernetes is aware of only one address per pod."
+    },
+    {
+      "id": "F033",
+      "format": "text",
+      "text": "Cross-family connectivity: IPv4-to-IPv6 and IPv6-to-IPv4 connectivity is considered outside of the scope of this proposal. (As a possible future enhancement, the Kubernetes NGINX ingress controller could be modified to load balance to both IPv4 and IPv6 addresses for each endpoint. With such a change, it's possible that an external IPv4 client could access a Kubernetes service via an IPv6 pod address, and vice versa)."
+    },
+    {
+      "id": "F034",
+      "format": "text",
+      "text": "This KEP proposes extending the Kubelet's Topology, CPU, and Memory Managers to support pod-level resource specifications. This enhancement evolves the resource managers from a strictly per-container allocation model to a pod-centric one, that enables them to use `pod.spec.resources` to perform NUMA alignment for the pod as a whole, and introduces a partitioning scheme to manage resources for containers within that pod-level grouping. This change introduces a more flexible and powerful resource management model, particularly for performance-sensitive workloads."
+    },
+    {
+      "id": "F035",
+      "format": "text",
+      "text": "**Story 1: High CronJob Churn**\n\nAs a cluster operator running hundreds of CronJobs, I want kubelet to successfully list containers even when thousands of completed job containers exist, so that new pods can be scheduled without hitting gRPC limits.\n\n**Story 2: CI/CD Node**\n\nAs a platform engineer managing CI nodes that run many short-lived containers, I want to avoid kubelet failures when container counts spike, so that CI pipelines remain reliable."
+    },
+    {
+      "id": "F036",
+      "format": "text",
+      "text": "Pod Connectivity: IPv4-to-IPv4 and IPv6-to-IPv6 access between pods Access to External Servers: IPv4-to-IPv4 and IPv6-to-IPv6 access from pods to external servers NGINX Ingress Controller Access: Access from IPv4 and/or IPv6 external clients to Kubernetes services via the Kubernetes NGINX Ingress Controller. Dual-stack support for Kubernetes service IPs, NodePorts, and ExternalIPs Functionality tested with the Bridge CNI plugin, PTP CNI plugin, and Host-Local IPAM plugins as references Maintain backwards-compatible support for IPv4-only and IPv6-only clusters"
+    }
+  ]
+}

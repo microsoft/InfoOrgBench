@@ -1,0 +1,527 @@
+{
+  "task_id": "ami/mini-043",
+  "records": [
+    {
+      "id": "F001",
+      "path": [
+        "ES2015a",
+        "actions"
+      ],
+      "content_sha256": "b8568469d33ee7964e93f0bc2a5bff69cb2b13962b93d7597751321c6662400b"
+    },
+    {
+      "id": "F002",
+      "path": [
+        "ES2015a",
+        "actions"
+      ],
+      "content_sha256": "b09d5e53454a149c68b2d021b69d11dcfd710dd730111bfc78cf9e3acd88542a"
+    },
+    {
+      "id": "F003",
+      "path": [
+        "ES2015a",
+        "abstract"
+      ],
+      "content_sha256": "0bd5f4687d36536008696fc706d13883d1a6163f22c52e66a185082305956b34"
+    },
+    {
+      "id": "F004",
+      "path": [
+        "TS3003d",
+        "decisions"
+      ],
+      "content_sha256": "49c3cb50098bcced44591d2d8f66abc71ee7a4c7cdc2cc041e3345ff2575bf7e"
+    },
+    {
+      "id": "F005",
+      "path": [
+        "TS3003d",
+        "abstract"
+      ],
+      "content_sha256": "d34a55beb247912a26d32184c7be8a24cc8da311af32453977210529735b1cee"
+    },
+    {
+      "id": "F006",
+      "path": [
+        "TS3003d",
+        "decisions"
+      ],
+      "content_sha256": "aa4a0071e150bb1c592d85ca6a5215cab9cc7205b7cd7d3a353eb97a96a4cb6e"
+    },
+    {
+      "id": "F007",
+      "path": [
+        "TS3003d",
+        "problems"
+      ],
+      "content_sha256": "2c2b92e338c193302e91ec9da5396ba30a9265e241d90249b0c080887ad15bbd"
+    },
+    {
+      "id": "F008",
+      "path": [
+        "TS3003d",
+        "abstract"
+      ],
+      "content_sha256": "2f8a2d097807a0d4aba4de3c453ca60dff59cc0b15f71c7a45c12ee8eac05dfd"
+    },
+    {
+      "id": "F009",
+      "path": [
+        "TS3003d",
+        "abstract"
+      ],
+      "content_sha256": "61846f506d43aaf2600c979567ca38a979e7f49f58116ea4f665f9231bf02c0e"
+    },
+    {
+      "id": "F010",
+      "path": [
+        "TS3003d",
+        "abstract"
+      ],
+      "content_sha256": "e70d29633180528de6e9d98651ce20b954bdefe39552ac1744642264aaa01592"
+    },
+    {
+      "id": "F011",
+      "path": [
+        "TS3003d",
+        "abstract"
+      ],
+      "content_sha256": "2ed827f53e08f15437fcb6afce8967f7c9763a12d43e4814a29995da77e01493"
+    },
+    {
+      "id": "F012",
+      "path": [
+        "TS3003d",
+        "decisions"
+      ],
+      "content_sha256": "97b55469af1137d71b06e7ac96fa7a04eeb7aec5f523ee4e77caf7a04c80717e"
+    },
+    {
+      "id": "F013",
+      "path": [
+        "ES2015a",
+        "decisions"
+      ],
+      "content_sha256": "7de017d9b2cdf221c9be1bf1fad693ca160c50e8806b31d7417ed6fd5c5b0933"
+    },
+    {
+      "id": "F014",
+      "path": [
+        "TS3003d",
+        "abstract"
+      ],
+      "content_sha256": "03e27cdae4adb3d945e60797725cd520990ece256aa9eb325ccf06178d390a38"
+    },
+    {
+      "id": "F015",
+      "path": [
+        "TS3003d",
+        "decisions"
+      ],
+      "content_sha256": "6fd6100e11b087d9fc3d02cdac261a391549823a89736155077775fc50714a12"
+    },
+    {
+      "id": "F016",
+      "path": [
+        "TS3003d",
+        "abstract"
+      ],
+      "content_sha256": "04c42e699b1090cddad0f7d2e766f654a65a38075b0cc28605984610fd764016"
+    },
+    {
+      "id": "F017",
+      "path": [
+        "ES2015a",
+        "decisions"
+      ],
+      "content_sha256": "581079289abf197991084d8873a8cdd5089cae9c9bf42bd5261ae55722f8a7d5"
+    },
+    {
+      "id": "F018",
+      "path": [
+        "TS3003d",
+        "decisions"
+      ],
+      "content_sha256": "60ef66e85df7fb46874a55f3d22e84d71e6ce7375c55f7022781286fb047f1c2"
+    },
+    {
+      "id": "F019",
+      "path": [
+        "ES2015a",
+        "decisions"
+      ],
+      "content_sha256": "1747192a7f1167088cea27e763d911ee76c74169c9c0f7d4bfec7b017568597f"
+    },
+    {
+      "id": "F020",
+      "path": [
+        "ES2015a",
+        "abstract"
+      ],
+      "content_sha256": "b13eb7350c7e7abee6dda8be8fe4e7b796162ff1b9c57d1d44136782038ecab3"
+    },
+    {
+      "id": "F021",
+      "path": [
+        "TS3003d",
+        "problems"
+      ],
+      "content_sha256": "0b817d5df4631e964847e2d0e6d9273fac952fe57ddc8715d675228c22b4ddee"
+    },
+    {
+      "id": "F022",
+      "path": [
+        "TS3003d",
+        "abstract"
+      ],
+      "content_sha256": "7336ae8ae1dcf59bc848d0994e72f62fb2d3fcf43a53ee861ea08461ba7196c1"
+    },
+    {
+      "id": "F023",
+      "path": [
+        "TS3003d",
+        "abstract"
+      ],
+      "content_sha256": "5399ec8261a664838dde38117c3991eb58572f70da1e0e009a9a33f95e3b1b3e"
+    },
+    {
+      "id": "F024",
+      "path": [
+        "TS3003d",
+        "abstract"
+      ],
+      "content_sha256": "527e4942f298f5b836bd0b80715262fb25ea1a2d94ced8578c30e012473d9c4c"
+    },
+    {
+      "id": "F025",
+      "path": [
+        "TS3003d",
+        "abstract"
+      ],
+      "content_sha256": "d46a7d5882d632238ec2078ab628fdc249a24caeb7a8613ce4f3cc91350a426d"
+    },
+    {
+      "id": "F026",
+      "path": [
+        "ES2015a",
+        "actions"
+      ],
+      "content_sha256": "8001d9c3e77f2bab170f713a51853e8e783ca06b173995757c7d20ca3bf675b5"
+    },
+    {
+      "id": "F027",
+      "path": [
+        "TS3003d",
+        "decisions"
+      ],
+      "content_sha256": "d5fb4b6a5010f796f22e415a5166dd5f8a9b19c4ad39b1c224cab2a7d2f9d7c7"
+    },
+    {
+      "id": "F028",
+      "path": [
+        "TS3003d",
+        "problems"
+      ],
+      "content_sha256": "2d66aeb46326a04af85abdf49ffb946de2a9218a597c365174c71b739a8fef50"
+    },
+    {
+      "id": "F029",
+      "path": [
+        "ES2015a",
+        "abstract"
+      ],
+      "content_sha256": "30145c75c3ee9625b08866884d25e2e21e509e497c02fe99c3b48696d368db8e"
+    },
+    {
+      "id": "F030",
+      "path": [
+        "ES2015a",
+        "abstract"
+      ],
+      "content_sha256": "c28203ccf1f027da85222344739ea9dfa6d97e66e004fb86f3e670a167833469"
+    },
+    {
+      "id": "F031",
+      "path": [
+        "TS3003d",
+        "decisions"
+      ],
+      "content_sha256": "4c6af355503bcd703cd0f30924adbe65cd22c441fa636891b05a6124ae898777"
+    },
+    {
+      "id": "F032",
+      "path": [
+        "ES2015a",
+        "actions"
+      ],
+      "content_sha256": "bf98ed0ac96fe13fcb32ab2fdb3f3b7d771e7da5031e2c1fa2b2d9dd79dd3a3d"
+    },
+    {
+      "id": "F033",
+      "path": [
+        "ES2015a",
+        "decisions"
+      ],
+      "content_sha256": "8d9ffbc02a7d8534ad3c035d1588aa6e982885f239bb0c96c91fc14ba3e81eb5"
+    },
+    {
+      "id": "F034",
+      "path": [
+        "TS3003d",
+        "actions"
+      ],
+      "content_sha256": "e08522d171a453de746270b28f938d0144dfa877eeb07e2612dfa265c6129198"
+    },
+    {
+      "id": "F035",
+      "path": [
+        "ES2015a",
+        "abstract"
+      ],
+      "content_sha256": "ef8a7ea2330ceea0da194f5bec4429647b6c20f644161bb5d968c36894738b98"
+    },
+    {
+      "id": "F036",
+      "path": [
+        "TS3003d",
+        "problems"
+      ],
+      "content_sha256": "bec9dc8df245769d63cbc1ff9d44c123b2a2392977674153681b8987eda5112d"
+    },
+    {
+      "id": "F037",
+      "path": [
+        "TS3003d",
+        "decisions"
+      ],
+      "content_sha256": "4b2a66da24d1e86b15c19da2cdcf3139d51cc31046c3d8a5257533d1845bc1c6"
+    },
+    {
+      "id": "F038",
+      "path": [
+        "ES2015a",
+        "abstract"
+      ],
+      "content_sha256": "11a834f3fad65fef1872b26b1b05191c200033dd0005249190a2fa473d3e5adc"
+    },
+    {
+      "id": "F039",
+      "path": [
+        "ES2015a",
+        "decisions"
+      ],
+      "content_sha256": "c4d92e3c55f3f5e6d21bb71557e5bf2b586809a435b667e354905e5f32ea869e"
+    },
+    {
+      "id": "F040",
+      "path": [
+        "TS3003d",
+        "problems"
+      ],
+      "content_sha256": "e527b3d6a255f8854bcb1f40007544447af85b2739c4c201712785e3a16785a9"
+    }
+  ],
+  "provenance": [
+    {
+      "id": "F001",
+      "native_id": "ES2015a.elana.s.10",
+      "role": "summary_sentence"
+    },
+    {
+      "id": "F002",
+      "native_id": "ES2015a.elana.s.9",
+      "role": "summary_sentence"
+    },
+    {
+      "id": "F003",
+      "native_id": "ES2015a.elana.s.1",
+      "role": "summary_sentence"
+    },
+    {
+      "id": "F004",
+      "native_id": "TS3003d.vkaraisk.s.13",
+      "role": "summary_sentence"
+    },
+    {
+      "id": "F005",
+      "native_id": "TS3003d.vkaraisk.s.6",
+      "role": "summary_sentence"
+    },
+    {
+      "id": "F006",
+      "native_id": "TS3003d.vkaraisk.s.15",
+      "role": "summary_sentence"
+    },
+    {
+      "id": "F007",
+      "native_id": "TS3003d.vkaraisk.s.21",
+      "role": "summary_sentence"
+    },
+    {
+      "id": "F008",
+      "native_id": "TS3003d.vkaraisk.s.10",
+      "role": "summary_sentence"
+    },
+    {
+      "id": "F009",
+      "native_id": "TS3003d.vkaraisk.s.5",
+      "role": "summary_sentence"
+    },
+    {
+      "id": "F010",
+      "native_id": "TS3003d.vkaraisk.s.3",
+      "role": "summary_sentence"
+    },
+    {
+      "id": "F011",
+      "native_id": "TS3003d.vkaraisk.s.9",
+      "role": "summary_sentence"
+    },
+    {
+      "id": "F012",
+      "native_id": "TS3003d.vkaraisk.s.18",
+      "role": "summary_sentence"
+    },
+    {
+      "id": "F013",
+      "native_id": "ES2015a.elana.s.15",
+      "role": "summary_sentence"
+    },
+    {
+      "id": "F014",
+      "native_id": "TS3003d.vkaraisk.s.1",
+      "role": "summary_sentence"
+    },
+    {
+      "id": "F015",
+      "native_id": "TS3003d.vkaraisk.s.14",
+      "role": "summary_sentence"
+    },
+    {
+      "id": "F016",
+      "native_id": "TS3003d.vkaraisk.s.2",
+      "role": "summary_sentence"
+    },
+    {
+      "id": "F017",
+      "native_id": "ES2015a.elana.s.11",
+      "role": "summary_sentence"
+    },
+    {
+      "id": "F018",
+      "native_id": "TS3003d.vkaraisk.s.17",
+      "role": "summary_sentence"
+    },
+    {
+      "id": "F019",
+      "native_id": "ES2015a.elana.s.12",
+      "role": "summary_sentence"
+    },
+    {
+      "id": "F020",
+      "native_id": "ES2015a.elana.s.3",
+      "role": "summary_sentence"
+    },
+    {
+      "id": "F021",
+      "native_id": "TS3003d.vkaraisk.s.25",
+      "role": "summary_sentence"
+    },
+    {
+      "id": "F022",
+      "native_id": "TS3003d.vkaraisk.s.4",
+      "role": "summary_sentence"
+    },
+    {
+      "id": "F023",
+      "native_id": "TS3003d.vkaraisk.s.8",
+      "role": "summary_sentence"
+    },
+    {
+      "id": "F024",
+      "native_id": "TS3003d.vkaraisk.s.11",
+      "role": "summary_sentence"
+    },
+    {
+      "id": "F025",
+      "native_id": "TS3003d.vkaraisk.s.7",
+      "role": "summary_sentence"
+    },
+    {
+      "id": "F026",
+      "native_id": "ES2015a.elana.s.8",
+      "role": "summary_sentence"
+    },
+    {
+      "id": "F027",
+      "native_id": "TS3003d.vkaraisk.s.19",
+      "role": "summary_sentence"
+    },
+    {
+      "id": "F028",
+      "native_id": "TS3003d.vkaraisk.s.24",
+      "role": "summary_sentence"
+    },
+    {
+      "id": "F029",
+      "native_id": "ES2015a.elana.s.4",
+      "role": "summary_sentence"
+    },
+    {
+      "id": "F030",
+      "native_id": "ES2015a.elana.s.5",
+      "role": "summary_sentence"
+    },
+    {
+      "id": "F031",
+      "native_id": "TS3003d.vkaraisk.s.16",
+      "role": "summary_sentence"
+    },
+    {
+      "id": "F032",
+      "native_id": "ES2015a.elana.s.7",
+      "role": "summary_sentence"
+    },
+    {
+      "id": "F033",
+      "native_id": "ES2015a.elana.s.13",
+      "role": "summary_sentence"
+    },
+    {
+      "id": "F034",
+      "native_id": "TS3003d.vkaraisk.s.12",
+      "role": "summary_sentence"
+    },
+    {
+      "id": "F035",
+      "native_id": "ES2015a.elana.s.2",
+      "role": "summary_sentence"
+    },
+    {
+      "id": "F036",
+      "native_id": "TS3003d.vkaraisk.s.23",
+      "role": "summary_sentence"
+    },
+    {
+      "id": "F037",
+      "native_id": "TS3003d.vkaraisk.s.20",
+      "role": "summary_sentence"
+    },
+    {
+      "id": "F038",
+      "native_id": "ES2015a.elana.s.6",
+      "role": "summary_sentence"
+    },
+    {
+      "id": "F039",
+      "native_id": "ES2015a.elana.s.14",
+      "role": "summary_sentence"
+    },
+    {
+      "id": "F040",
+      "native_id": "TS3003d.vkaraisk.s.22",
+      "role": "summary_sentence"
+    }
+  ]
+}

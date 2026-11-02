@@ -1,0 +1,235 @@
+{
+  "task_id": "ami/mini-049",
+  "records": [
+    {
+      "id": "F001",
+      "format": "text",
+      "text": "Whether to use changable covers."
+    },
+    {
+      "id": "F002",
+      "format": "text",
+      "text": "The marketing expert discussed the results of trend-watching reports and his preference for a banana-like remote for younger people and a traditional remote for older people."
+    },
+    {
+      "id": "F003",
+      "format": "text",
+      "text": "Whether to use hard or soft rubber."
+    },
+    {
+      "id": "F004",
+      "format": "text",
+      "text": "The team then made decisions regarding energy sources, components, and the remote interface."
+    },
+    {
+      "id": "F005",
+      "format": "text",
+      "text": "The Project Manager instructed the Marketing Expert to examine competitors' remotes, the User Interface Designer to research possible shapes and colors, and the Industrial Designer to research possible materials and the necessary internal components of the device."
+    },
+    {
+      "id": "F006",
+      "format": "text",
+      "text": "The remote will be a radiaclly different shape."
+    },
+    {
+      "id": "F007",
+      "format": "text",
+      "text": "The case will be single curved."
+    },
+    {
+      "id": "F008",
+      "format": "text",
+      "text": "The remote will have a scrolling device."
+    },
+    {
+      "id": "F009",
+      "format": "text",
+      "text": "The group discusses using a battery that will last 5-10 years or a solar combined with a battery."
+    },
+    {
+      "id": "F010",
+      "format": "text",
+      "text": "He tells them some new project requirements given by management."
+    },
+    {
+      "id": "F011",
+      "format": "text",
+      "text": "The user interface designer discussed how speech recognition could be useful to users who often lose their remotes, the layout of the interface, and the option to include a scroll device on the side of the remote to access a menu containing extra features."
+    },
+    {
+      "id": "F012",
+      "format": "text",
+      "text": "The remote will not include a pen."
+    },
+    {
+      "id": "F013",
+      "format": "text",
+      "text": "Position of buttons."
+    },
+    {
+      "id": "F014",
+      "format": "text",
+      "text": "The interface specialist presents, showing examples of two different products- one that is user-centered and another that is engineering-centered and giving personal preference to the simpler one because it is easier to use and has fewer buttons."
+    },
+    {
+      "id": "F015",
+      "format": "text",
+      "text": "The marketing expert presents, talking about user functionality requirements taken from research of 100 people."
+    },
+    {
+      "id": "F016",
+      "format": "text",
+      "text": "What type of battery to use - long-lasting ordinary battery or solar + regular battery."
+    },
+    {
+      "id": "F017",
+      "format": "text",
+      "text": "They also discussed the shape and the number of functions in the main interface."
+    },
+    {
+      "id": "F018",
+      "format": "text",
+      "text": "The remote will be for television only."
+    },
+    {
+      "id": "F019",
+      "format": "text",
+      "text": "After the project manager opened the meeting, the industrial designer discussed his preference for making a remote which is single-curved, made of rubber, contains an LCD, has a docking station to recharge the batteries, and uses a simple chip."
+    },
+    {
+      "id": "F020",
+      "format": "text",
+      "text": "The remote will be extremely simple."
+    },
+    {
+      "id": "F021",
+      "format": "text",
+      "text": "What sort of batteries to use."
+    },
+    {
+      "id": "F022",
+      "format": "text",
+      "text": "The case will be made of rubber."
+    },
+    {
+      "id": "F023",
+      "format": "text",
+      "text": "They discussed making a universal remote with a locator function."
+    },
+    {
+      "id": "F024",
+      "format": "text",
+      "text": "What shape the remote should be."
+    },
+    {
+      "id": "F025",
+      "format": "text",
+      "text": "Whether the remote requires a CPU."
+    },
+    {
+      "id": "F026",
+      "format": "text",
+      "text": "They briefly review their discussions and close the meeting."
+    },
+    {
+      "id": "F027",
+      "format": "text",
+      "text": "Next the industrial designer presents, explaining how a remote control works and giving personal preference to a remote which has a large energy source such as a rechargable battery or battery dock."
+    },
+    {
+      "id": "F028",
+      "format": "text",
+      "text": "Device will incorporate company logo and colors."
+    },
+    {
+      "id": "F029",
+      "format": "text",
+      "text": "The User Interface Designer will research possible shapes and colors for the device."
+    },
+    {
+      "id": "F030",
+      "format": "text",
+      "text": "The project manager opens the meeting by going through notes from the last meeting, recapping the topics covered."
+    },
+    {
+      "id": "F031",
+      "format": "text",
+      "text": "The group discussed their initial ideas about the features that they wanted to integrate into the design."
+    },
+    {
+      "id": "F032",
+      "format": "text",
+      "text": "Color of remote."
+    },
+    {
+      "id": "F033",
+      "format": "text",
+      "text": "They discuss the possibility of making a remote that hides less frequently used buttons, one that uses voices recognition to eliminate buttons altogether, or one that combines the two functions."
+    },
+    {
+      "id": "F034",
+      "format": "text",
+      "text": "The remote will use a chip on print."
+    },
+    {
+      "id": "F035",
+      "format": "text",
+      "text": "The Marketing Expert will examine the features and design of competitors' remotes."
+    },
+    {
+      "id": "F036",
+      "format": "text",
+      "text": "Whether to use voice recognition."
+    },
+    {
+      "id": "F037",
+      "format": "text",
+      "text": "Whether to include a pen to use with the touchscreen on the remote."
+    },
+    {
+      "id": "F038",
+      "format": "text",
+      "text": "The trend-watching reports indicated that products should be fancy, innovative, easy to use, in fruity colors, in soft and spongy materials, and in hard materials in autumn colors with square shapes with round edges if appealing to elderly people."
+    },
+    {
+      "id": "F039",
+      "format": "text",
+      "text": "Teletext no longer important given rise of internet and thus will not be used."
+    },
+    {
+      "id": "F040",
+      "format": "text",
+      "text": "The Industrial Designer will research possible materials and the necessary internal components of the device."
+    },
+    {
+      "id": "F041",
+      "format": "text",
+      "text": "The remote will contain a microphone for speech recognition."
+    },
+    {
+      "id": "F042",
+      "format": "text",
+      "text": "The remote will have few buttons, but the main ones such as channel, volume, on/off."
+    },
+    {
+      "id": "F043",
+      "format": "text",
+      "text": "Position of a microphone on the remote."
+    },
+    {
+      "id": "F044",
+      "format": "text",
+      "text": "The remote will use rechargeable batteries which recharge in a docking station."
+    },
+    {
+      "id": "F045",
+      "format": "text",
+      "text": "The team discussed case shapes, color options, types of rubber, and dimensions."
+    },
+    {
+      "id": "F046",
+      "format": "text",
+      "text": "The industrial designer and user interface designer will work together on a prototype drawing on a smart board"
+    }
+  ]
+}

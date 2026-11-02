@@ -1,0 +1,185 @@
+{
+  "task_id": "mini-048",
+  "records": [
+    {
+      "id": "F001",
+      "format": "text",
+      "text": "Primary: allow to change container resource requests & limits without necessarily restarting the container. Secondary: allow actors (users, VPA, StatefulSet, JobController) to decide how to proceed if in-place resource resize is not possible. Secondary: allow users to specify which Containers can be resized without a restart.\n\nAdditionally, this proposal has two goals for CRI: Modify UpdateContainerResources to allow it to work for Windows Containers, as well as Containers managed by other runtimes besides Linux, Provide CRI API mechanism to query the Container runtime for CPU and memory resource configurations that are currently applied to a Container.\n\nAn additional goal of this proposal is to better define and document the expected behavior of a Container runtime when handling resource updates."
+    },
+    {
+      "id": "F002",
+      "format": "text",
+      "text": "We propose removing support for the in-tree gitRepo volume driver. We aren't proposing removing gitVOlumes from the Kubernetes API, meaning pods with gitRepo volumes will be admitted by kube-apiserver but kubelets with the feature-gate GitRepoVolumeDriver set to false will not run them and return an appropriate error to the user.\n\nWe acknowledge that this is highly unusual, but there are mitigating circumstances: gitRepo volume types can be exploited to gain remote code execution as root on the nodes as shown in CVE-2024-10220 gitRepo has perfectly workable alternatives: Using git-sync Using an initContainer. See for more details gitRepo has been deprecated for a long time and is unmaintained gitRepo has low usage (based on limited data) there exists precedent for removing volume drivers which were unmaintained like glusterfs\n\nGiven this, we think kubernetes should EOL this feature with urgency."
+    },
+    {
+      "id": "F003",
+      "format": "text",
+      "text": "A CSI driver may be able to support either PV/PVC-originated or pod spec originated volumes. When a volume definition is embedded inside a pod spec, it is considered to be an `ephemeral inline` volume request and can only participate in *mount/unmount* volume operation calls. Ephemeral inline volume requests have the following characteristics: The inline volume spec will not contain nor require a `volumeHandle`. The CSI Kubelet plugin will internally generate a `volumeHandle` which is passed to the driver. Using existing strategy, the volumeHandle will be cached for future volume operations (i.e. unmount). The Kubelet will send mount related calls to CSI drivers: Kubelet will have access to both podUID and pod namespace during mount/Setup operations. Secrets references can be fully realized during mount/Setup phase and sent to driver. The Kubelet will send unmount related calls to CSI drivers: The cached volumeHandle will be sent to the driver during unmount/Teardown phase."
+    },
+    {
+      "id": "F004",
+      "format": "text",
+      "text": "Instead of allowing CSI drivers that support both ephemeral and persistent volumes and passing the `csi.storage.k8s.io/ephemeral` hint, a simpler solution would have been to require that a driver gets deployed twice, once for for each kind of volume. That was rejected because a driver might manage some resource that is shared between both kinds of volumes, like local disks (LVM) or persistent memory (PMEM). Having to deploy the driver twice would have made the driver implementation more complex."
+    },
+    {
+      "id": "F005",
+      "format": "text",
+      "text": "Performance, Health Check, Observability and Rotation: Support re-using DEK when the KEK key ID is stable Expand `EncryptionConfiguration` to support a new KMSv2 configuration Add v2alpha1 `KeyManagementService` proto service contract in Kubernetes to include `key_id` and additional metadata in `annotations` to support key rotation `key_id`: the KMS Key ID, stable identifier, changed to trigger key rotation and storage migration `annotations`: structured data, can be used for debugging, recovery, opaque to API server, stored unencrypted, etc."
+    },
+    {
+      "id": "F006",
+      "format": "text",
+      "text": "The feature gate `SeccompDefault` will ensure that the API graduation can be done in the standard Kubernetes way. The implementation will be mainly a switch from `Unconfined` to `RuntimeDefault`. This will only apply if the corresponding kubelet configuration `SeccompDefault` or the new CLI flag `--seccomp-default` is enabled together with the feature gate.\n\nDocumentation around the feature will be added to the k/website seccomp section."
+    },
+    {
+      "id": "F007",
+      "format": "text",
+      "text": "In Kubernetes, there are two main types of storage: remote and local.\n\nRemote storage is typically used with persistent volumes where the data can persist beyond the lifetime of the pod.\n\nLocal storage is typically used with ephemeral volumes where the data only persists during the lifetime of the pod.\n\nThere is increasing demand for using local storage as persistent volumes, especially for distributed filesystems and databases such as GlusterFS and Cassandra. The main motivations for using persistent local storage, instead of persistent remote storage include: Performance: Local SSDs achieve higher IOPS and throughput than many remote storage solutions. Cost: Operational costs may be reduced by leveraging existing local storage, especially in bare metal environments. Network storage can be expensive to setup and maintain, and it may not be necessary for certain applications."
+    },
+    {
+      "id": "F008",
+      "format": "text",
+      "text": "**Changing the Kubernetes QoS Model:** This KEP leverages the existing QoS calculation, which correctly prioritizes `pod.spec.resources` when the `PodLevelResources` feature is active. We are not proposing any changes to this fundamental model. **Introducing New User-Facing APIs or Policy Options:** This enhancement extends the behavior of the existing `static` (CPU Manager) and `Static` (Memory Manager) policies, along with the `pod` and `container` scopes. It does not introduce new policies (e.g., a \"shared\" policy) or policy options. **Supporting Non-Guaranteed Pods for Exclusive Allocation:** The mechanisms for exclusive, NUMA-aligned resources described in this KEP apply only to pods that have a `Guaranteed` QoS class. **Supporting In-Place Pod Vertical Scaling:** This KEP is focused on the initial allocation of resources at pod startup. The interaction between pod-level resource management and the In-Place Pod Vertical Scaling feature is out of scope."
+    },
+    {
+      "id": "F009",
+      "format": "text",
+      "text": "When trying to get logs for a pod, it is possible for a kubelet to have an expired serving certificate. If a client chooses, it should be possible to bypass the default behavior of the kube-apiserver and allow the kube-apiserver to skip TLS verification of the kubelet to allow gathering logs. This is safe because the kube-apiserver's credentials are always client certificates which cannot be replayed by an evil-kubelet and risk is contained to an evil-kubelet returning false log data. If the user has chosen to accept this risk, we should allow it for the same reason we have an option for `--insecure-skip-tls-verify`."
+    },
+    {
+      "id": "F010",
+      "format": "text",
+      "text": "Replace PodSecurityPolicy with a new built-in admission controller that enforces the [Pod Security Standards]. Policy enforcement is controlled at the namespace level through labels Policies can be applied in 3 modes. Multiple modes can apply to a single namespace. Enforcing: policy violations cause the pod to be rejected Audit: policy violations trigger an audit annotation, but are otherwise allowed Warning: policy violations trigger a user-facing warning, but are otherwise allowed An optional per-mode version label can be used to pin the policy to the version that shipped with a given Kubernetes minor version (e.g. `v1.18`) Dry-run of namespace updates is supported to test enforcing policy changes against existing pods. Policy exemptions can be statically configured based on (requesting) user, RuntimeClass, or namespace. A request meeting exemption criteria is ignored by the admission plugin.\n\n[Pod Security Standards]:"
+    },
+    {
+      "id": "F011",
+      "format": "text",
+      "text": "Reduce API server serialization CPU by eliminating the work of encoding `managedFields` for clients that do not need it. The savings are proportional to the `managedFields` share of each object, which varies by the number of field managers. Reduce network transfer sizes between the API server and clients proportionally to the `managedFields` overhead (up to 60% per the SSA KEP), unblocking support for larger resource sizes and reducing LIST/WATCH timeout risk. Reduce client-side memory allocations and GC overhead by eliminating the need to allocate and immediately discard `managedFields` data structures. Migrate in-tree clients (`kube-controller-manager`, `kube-scheduler`) from client-side informer transforms to server-side opt-out, moving the cost savings from the client to the entire request path."
+    },
+    {
+      "id": "F012",
+      "format": "text",
+      "text": "**Future proofing:** The policy versioning aspects of this proposal are designed to anticipate breaking changes to policies, either in light of new threats or new knobs added to pods. However, if there is a new feature that needs to be restricted but doesn't have a sensible hardcoded requirement, we would be put in a hard place. Hopefully the adoption of this proposal will discourage such fields from being added."
+    },
+    {
+      "id": "F013",
+      "format": "text",
+      "text": "As a storage provider, I want to use the CSI API to develop drivers that can mount ephemeral volumes that follow the lifecycles of pods where they are embedded. This feature would allow me to create drivers that work similarly to how the in-tree Secrets or ConfigMaps driver works. My ephemeral CSI driver should allow me to inject arbitrary data into a pod using a volume mount point inside the pod. As a user I want to be able to define pod specs with embedded ephemeral CSI volumes that are created/mounted when the pod is deployed and are deleted when the pod goes away."
+    },
+    {
+      "id": "F014",
+      "format": "text",
+      "text": "improve readiness times for clusters with a large number of encrypted resources reduce the likelihood of hitting the KMS rate limit enable partially automated key rotation for the latest key without API server restarts improve KMS plugin health check reliability improve observability of envelop operations between kube-apiserver, KMS plugins and KMS if this v2 API reaches beta in release M, the existing v1beta1 gRPC API will be deprecated at release M (or any later release) if this v2 API reaches GA in release N, the existing v1beta1 gRPC API will be disabled by default at N, stop supporting writes at N+3, and removed at release N+6 (the existing key rotation dance of using multiple providers will be used to migrate from v1beta1 to v2)"
+    },
+    {
+      "id": "F015",
+      "format": "text",
+      "text": "Kubernetes API validation rules are currently written by hand, which makes them difficult for users to access directly, review, maintain, and test. Declarative validation will benefit Kubernetes maintainers: It will make it easier to develop, maintain and review APIs. It will make it easier programatically inspect and analyze the API, enabling new tools and improved documentation. It will enable improvements to the API machinery."
+    },
+    {
+      "id": "F016",
+      "format": "text",
+      "text": "The Kubernetes API server generates (signs) JSON Web Tokens that are meant to authenticate Kubernetes service accounts (KSA). The API server can indeed authenticate these tokens, but in general, no other system can: there is no standard way to get the public portion of the keypair used to sign KSA tokens. Systems (\"relying parties\") that want to authenticate KSA tokens must either send them back to the API server (via `TokenReview`) or use some provider-specific method to get the authentication key.\n\nIf a relying party could obtain trusted metadata about the service account token provider, in particular the issuer (`iss`) value and the public key(s) used, then the relying party could authenticate tokens without putting proportionate load on the API server. This would allow KSA tokens to be used as a general authentication mechanism, including to services outside the cluster or in other clusters.\n\nOpenID Connect defines a discovery mechanism that, given an issuer URL, allows a client to discover the rest of the issuer metadata, including the key set. Providing an OIDC-compatible discovery document would allow flexibility in how relying parties authenticate KSA tokens; they can use existing OIDC authenticators in their language/framework of choice, without Kubernetes-specific or provider-specific logic."
+    },
+    {
+      "id": "F017",
+      "format": "text",
+      "text": "Some workloads that may be running without seccomp may break with seccomp enabled by default. All workloads would have to be tested in a staging/test environment to ensure there are no breakages. Seccomp could either be turned off or custom profiles could be created for such workloads.\n\nThe configuration possibilities of container runtimes differ in conjunction with seccomp. For example: **containerd** can only use the internal default profile for `RuntimeDefault` can use a different profile for empty (unconfined) workloads via the `unset_seccomp_profile` option **CRI-O** can specify a different `RuntimeDefault` profile via the `seccomp_profile` option can use `RuntimeDefault` for empty (unconfined) workloads via `seccomp_use_default_when_empty`\n\nThis can result in a behavioral change when doing cluster upgrades while runtime administrates may have to take action if they enable the feature."
+    },
+    {
+      "id": "F018",
+      "format": "text",
+      "text": "We introduce a feature gate as well as corresponding kubelet flag that enables a seccomp for all workloads by default. There are a few options for what should be the default seccomp profile.\n\nThe most preferred solution is to promote the `RuntimeDefault` profile (previously the `runtime/default` annotation) to the new default one.\n\nContainer runtimes already have their own defined default profiles, which get referenced via the `RuntimeDefault` one. This means we now promote this profile to the new default. Every workload created will then get the `RuntimeDefault` (`SeccompProfileTypeRuntimeDefault`) as `SeccompProfile.type` value for the `PodSecurityContext` as well as the `SecurityContext` for every container.\n\nThe advantages of using the `RuntimeDefault` profiles are that there is no need for shipping an additional seccomp profile. The overall version skew handling in conjunction with runtime versions and the kubelet is easier, because container runtimes already support `RuntimeDefault` from the introduction of the seccomp feature.\n\nFor alternative proposals please refer to the Alternatives section."
+    },
+    {
+      "id": "F019",
+      "format": "text",
+      "text": "Vast majority (95%+) of hand written validation are replaced with declarative validation. The remaining hand written rules will primarily be rules that _should not_ be published as part of the API, usually because server side state is involved in the validation decision. `types.go` files become the de-facto IDL of Kubernetes for native types. It is worthing noting that `+enum` support, `+default` support and similar enhancements all moved our API development forward in this direction. This enhancement is an attempt to continue that story arc. API Validations and Defaults are readable and manageable. The IDL should be a joy to use for API authors, reviewers and maintainers. Common Complex relationships have simple-to-express idioms in the IDL. CRDs and native types are validated and published in OpenAPI in a consistent and uniform way. Improvement we make to CEL to enable declarative validation of native types will be made available to CRD authors and vis-versa. No change to error message structure for clients. Difference to clients is limited to minimal changes to error detail strings."
+    },
+    {
+      "id": "F020",
+      "format": "text",
+      "text": "Kubernetes workloads can consume a variety of services from a variety of producers. They have a native identity (KSA), presented in a widely-compatible format (JWT); but only an API server can authenticate the KSA token, since only the API server has access to the public key verifying the signature. If services want to authenticate workloads using KSAs, today, the API server must serve every authentication request (i.e. `TokenReview`).\n\nWhen authenticating across clusters, i.e. from within a cluster to somewhere else, credential management must use a separate system. Someone has to provision an identity; provision credentials; grant the workload access to the credentials; and consider: Did I delete ephemeral traces of the credential (e.g. files on my local disk)? How securely is the credential stored? Is the storage system hardened? Are the ACLs restricted? How much damage can be caused by an exploit of the workload? Could that compromise a credential with an extended validity period? How often do the keys expire? How often do I rotate them?\n\nIf services (other than the API server) could authenticate KSA tokens directly: The API server wouldn't have to scale with the data-plane (i.e. authentication) load. Workloads could use native credentials to authenticate to services outside of the cluster."
+    },
+    {
+      "id": "F021",
+      "format": "text",
+      "text": "**General-purpose field selection or opting out of other fields** (though the API design is intended to be extensible to support this in the future without a redesign). **Opting out of fields in the request body of write operations.** This KEP drops fields from API *responses* (including responses to write operations like PUT/POST/PATCH), not from request bodies. `kube-controller-manager` and `kube-scheduler` already send objects without `managedFields` on PUT (due to informer transforms). This is safe because the field manager falls back to the stored object's `managedFields` when the request has none."
+    },
+    {
+      "id": "F022",
+      "format": "text",
+      "text": "Node preparation to setup disks for an environment including, but not limited to: partitioning, RAID, and formatting. Allow pods to release their local volume bindings and lose that volume's data during failure conditions, such as node, storage or scheduling failures, where the volume is not accessible for some user-configurable time. Dynamic provisioning of local volumes. Provide data availability for a local volume beyond its local node. Support the use of HostPath volumes and Local PVs on the same volume."
+    },
+    {
+      "id": "F023",
+      "format": "text",
+      "text": "A super user with write permissions to Node and Pod API objects and read permissions to Pod logs to make the API server exfiltrate data at ` where all the bracketed parameters were under their control. This is ability is already present for someone with full API control via an APIService configured to point to a service with `insecureSkipTLSVerify:true`, with a similar restriction on the path of requests sent to it (must have a leading `/apis/<group>/<version>` path prefix). This could affect the only scenarios I can really think of are: unsecured kubelets from another cluster (or kubelets from another cluster using the same CA) a non-kubelet endpoint that ignored the specified path and served something confidential (and was unsecured or honored the CA that signed the apiserver's cert) Both scenarios are pretty unlikely.\n\nTrying to restrict the insecureSkipTLSVerify option to ignoring only the expiry date requires reimplementing the TLS handshake with a custom method to get the serving cert pull the notAfter to find a time when the cert was valid construct a set of custom verify options at that time to verify the signature and hostname The risk in doing that is greater than the additional benefit."
+    },
+    {
+      "id": "F024",
+      "format": "text",
+      "text": "This proposal aims at allowing Pod resource requests & limits to be updated in-place, without a need to restart the Pod or its Containers.\n\nThe **core idea** behind the proposal is to make PodSpec mutable with regards to Resources, denoting **desired** resources. Additionally, PodStatus is extended to provide information about **actual** resources applied to the Pod and its Containers.\n\nThis document builds upon [proposal for live and in-place vertical scaling][] and [Vertical Resources Scaling in Kubernetes][].\n\n[proposal for live and in-place vertical scaling]:\n\n[Vertical Resources Scaling in Kubernetes]:\n\nThis proposal also aims to improve the Container Runtime Interface (CRI) APIs for managing a Container's CPU and memory resource configurations on the runtime. It seeks to extend UpdateContainerResources CRI API such that it works for Windows, and other future runtimes besides Linux. It also seeks to extend ContainerStatus CRI API to allow Kubelet to discover the current resources configured on a Container."
+    },
+    {
+      "id": "F025",
+      "format": "text",
+      "text": "**Performance**: Today, when the kube-apiserver is restarted in a cluster and a LIST secret call is made (this applies to all resources encrypted at rest, which secrets tend to always be part of), due to the serial processing of LIST requests and the data encryption key (DEK) cache being empty, the initialization of informers may take significant time as a result of the large number of consecutive trips to the KMS plugin -> external KMS for all the DEKs that have been generated so far."
+    },
+    {
+      "id": "F026",
+      "format": "text",
+      "text": "Allow pods to mount any local block or filesystem based volume. Allow pods to mount dedicated local disks, or channeled partitions as volumes for IOPS isolation. Allow pods do access local volumes without root privileges. Allow pods to access local volumes without needing to understand the storage layout on every node. Persist local volumes and provide data gravity for pods. Any pod using the local volume will be scheduled to the same node that the local volume is on. Allow pods to specify local storage as part of a Deployment or StatefulSet. Allow administrators to set up and configure local volumes with simple methods. Do not require administrators to manage the local volumes once provisioned for a node."
+    },
+    {
+      "id": "F027",
+      "format": "text",
+      "text": "**Pod-level Aware Hint Generation:** The CPU and Memory managers, acting as hint providers for the Topology Manager, will be updated to recognize and use `pod.spec.resources`. When the scope is `pod`, they will generate a single hint for the entire pod's resource budget. When the scope is `container`, they will continue to generate hints on a per-container basis. **Implement Hybrid Allocation Logic:** The CPU and Memory managers will implement a hybrid allocation strategy that is determined by the Topology Manager's scope: **Pod Scope:** The Topology Manager will perform a NUMA alignment for the entire pod based on `pod.spec.resources`, respecting the `topology-manager-policy`, which may result in a single or multi-NUMA node allocation. The resulting pod-wide allocation is then partitioned by the CPU and Memory managers, exclusive slices are carved out for `Guaranteed` containers, while the remainder forms a shared pool for all other containers. This enables a single pod to host a mix of containers with and without dedicated resource guarantees. **Container Scope:** The existing per-container allocation logic will be preserved. This logic will be enhanced to support pods that achieve a `Guaranteed` QoS class via `pod.spec.resources`, enabling a powerful mixed-model: individual containers that are `Guaranteed` can receive exclusive, NUMA-aligned resources, while other containers in the same pod can run in the node's shared pool, with their overall resource consumption enforced by the pod's `pod.spec.resources` budget."
+    },
+    {
+      "id": "F028",
+      "format": "text",
+      "text": "Allow (authorized) systems to discover the information they need to authenticate KSA tokens. Attempt compatibility with OIDC: common libraries that authenticate OIDC tokens should be able to authenticate KSA tokens. Support authentication when the API server is not directly reachable by the relying party. e.g.: a cloud-based service authenticating an API server that doesn't have a public Internet address.\n\nNote that the API server has a very different flow from OIDC with respect to generating tokens. As such, our goal is OIDC *compatibility*."
+    },
+    {
+      "id": "F029",
+      "format": "text",
+      "text": "Resources allocated to a Pod's Container(s) can require a change for various reasons: load handled by the Pod has increased significantly, and current resources are not sufficient, load has decreased significantly, and allocated resources are unused, resources have simply been set improperly.\n\nCurrently, changing resource allocation requires the Pod to be recreated since the PodSpec's Container Resources is immutable.\n\nWhile many stateless workloads are designed to withstand such a disruption, some are more sensitive, especially when using low number of Pod replicas.\n\nMoreover, for stateful or batch workloads, Pod restart is a serious disruption, resulting in lower availability or higher cost of running.\n\nAllowing Resources to be changed without recreating the Pod or restarting the Containers addresses this issue directly.\n\nAdditionally, In-Place Pod Vertical Scaling feature relies on Container Runtime Interface (CRI) to update CPU and/or memory requests/limits for a Pod's Container(s).\n\nThe current CRI API set has a few drawbacks that need to be addressed: UpdateContainerResources CRI API takes a parameter that describes Container resources to update for Linux Containers, and this may not work for Windows Containers or other potential non-Linux runtimes in the future. There is no CRI mechanism that lets Kubelet query and discover the CPU and memory limits configured on a Container from the Container runtime. The expected behavior from a runtime that handles UpdateContainerResources CRI API is not very well defined or documented."
+    },
+    {
+      "id": "F030",
+      "format": "text",
+      "text": "Kubernetes drops support for gitRepo volume types by removing the in-tree driver that actually mounts the volume in the pod. In this case we will still keep the gitRepo volume in the API. Pods with gitRepo volumes will be admitted by kube-apiserver however, kubelet will fail to run them with an appropriate error message.\n\nThis removal is similar to removal of support for glusterfs which was deprecated in v1.25 and removed in v1.26."
+    },
+    {
+      "id": "F031",
+      "format": "text",
+      "text": "Pod Security Policy is deprecated as of Kubernetes v1.21. There were numerous problems with PSP that lead to the decision to deprecate it, rather than promote it to GA, including: Policy authorization model - Policies are bound to the requesting user OR the pod’s service account Granting permission to the user is intuitive, but breaks controllers Dual model weakens security Rollout challenges - PSP fails closed in the absence of policy The feature can never be enabled by default Need 100% coverage before rolling out (and no dry-run / audit mode) Leads to insufficient test coverage Inconsistent & unbounded API - Can lead to confusion and errors, and highlights lack of flexibility API has grown organically and has many internal inconsistencies (usability challenge) Unclear how to decide what should be part of PSP (e.g. fine-grained volume restrictions) Doesn’t compose well Mutation priority can be unexpected\n\nHowever, we still feel that Kubernetes should include a mechanism to prevent privilege escalation through the create-pod permission."
+    },
+    {
+      "id": "F032",
+      "format": "text",
+      "text": "This KEP proposes extending the Kubelet's Topology, CPU, and Memory Managers to support pod-level resource specifications. This enhancement evolves the resource managers from a strictly per-container allocation model to a pod-centric one, that enables them to use `pod.spec.resources` to perform NUMA alignment for the pod as a whole, and introduces a partitioning scheme to manage resources for containers within that pod-level grouping. This change introduces a more flexible and powerful resource management model, particularly for performance-sensitive workloads."
+    },
+    {
+      "id": "F033",
+      "format": "text",
+      "text": "The biggest risk is in breaking users. Despite being deprecated for years, there may be some users who are still using it and their workloads would be broken when their clusters are upgraded.\n\nWe plan to mitigate the risk by: Allowing users to opt-in to re-enabling the driver for 3 versions to give them enough time to fix workloads Announcing the change via release notes, updates to the gitRepo documentation and publishing kubernetes release blog for this feature so that customers are aware and can take action before they upgrade We will update the gitRepo volume documentation to say it say that the driver has been disabled by default and add information about alternative approaches. We will also document how users can turn on the gitRepo volume driver however, we will add a warning educating users on why they shouldn't do that."
+    },
+    {
+      "id": "F034",
+      "format": "text",
+      "text": "`metadata.managedFields` is used by the API server for Server-Side Apply (SSA) conflict resolution. However, the vast majority of Kubernetes clients do not actively process this data. Many core components, such as `kube-controller-manager` and `kube-scheduler`, currently use client-side transforms to drop managed fields to save memory.\n\nAs documented in the Server-Side Apply KEP, `managedFields` can represent up to **60% of the total size** of an object. The actual overhead varies with the number of field managers and the fields they touch — objects managed by multiple controllers, webhooks, and users in production clusters carry proportionally larger `managedFields`. Reducing this overhead is important for supporting larger resource sizes as a scalability dimension.\n\nRelying on client-side transforms still incurs significant system-wide costs: **API Server CPU:** The API server still performs expensive serialization of `managedFields`, even when the client will immediately discard it. **Network Overhead:** `managedFields` payloads significantly increase transfer time during LIST and WATCH operations. This contributes to request timeouts and limits the API server's ability to handle large resources (see #134375). **Client-side GC:** Clients must allocate structural objects (string headers, maps, and slice backing arrays) for `managedFields` before discarding them, adding unnecessary memory pressure and GC overhead."
+    },
+    {
+      "id": "F035",
+      "format": "text",
+      "text": "In PodLogOptions, add a `InsecureSkipTLSVerifyBackend bool`\n\nThe streamer for logs already prevents redirects (see , so an evil kubelet intercepting this traffic cannot redirect the kube-apiserver to use its high powered credentials for a nefarious purpose. The `LocationStreamer` can take an additional argument and the `LogLocation`'s `NodeTransport` can actually produce a purpose built transport for insecure connections.\n\nTo make this easier to use, we can add an `--insecure-skip-tls-verify-backend` flag to `kubectl log` which plumbs the option. This part of the KEP is a nice to have, since the kube-apiserver owns the backing capability which has general utility."
+    },
+    {
+      "id": "F036",
+      "format": "text",
+      "text": "With this enhancement, Kubernetes Developers will declare validation rules using IDL tags in the `types.go` files that to define the Kubernetes native API types. For example:\n\nIn this example, both `+validationRule`, `+minimum` and `+maximum` are IDL tags.\n\nThe declarative validation rules will be used by the kube-apiserver to validate API requests.\n\nThe declarative validation rules will also be included in the published OpenAPI:\n\nIt is important to note that the declarative validation will use the same set of validation options available today for CRDs. namely: JSON Schema value validations (e.g. `format`, `maxItems`) CEL Validation Rules (e.g. `self.replicas <= self.maxReplicas`) Relevant merge strategy declarations (e.g. `listType=set`)"
+    }
+  ]
+}

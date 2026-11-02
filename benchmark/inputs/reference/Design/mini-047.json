@@ -1,0 +1,366 @@
+{
+  "task_id": "mini-047",
+  "records": [
+    {
+      "id": "F001",
+      "path": [
+        "sig-api-machinery",
+        "3156-http3"
+      ],
+      "content_sha256": "c21efcc28c35cd4a000831e3154476368a667d00853c4fa77b86fac130b5afee",
+      "source_native_id": "keps/sig-api-machinery/3156-http3#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F002",
+      "path": [
+        "sig-node",
+        "4438-container-restart-termination"
+      ],
+      "content_sha256": "5bb8968a4be81a81651aaaeb688b0389b20a8fd4d8ef95ee67da249dfcad391b",
+      "source_native_id": "keps/sig-node/4438-container-restart-termination#excerpt-1",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F003",
+      "path": [
+        "sig-instrumentation",
+        "4827-component-statusz"
+      ],
+      "content_sha256": "221203004d074e7ad47661612d0d129f61a8a435f782349be0a746758d8f8465",
+      "source_native_id": "keps/sig-instrumentation/4827-component-statusz#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F004",
+      "path": [
+        "sig-api-machinery",
+        "3156-http3"
+      ],
+      "content_sha256": "eabdf36a2aac556766fcad2e847240f0cd922b945c3ef9cdecb658aca1182ffa",
+      "source_native_id": "keps/sig-api-machinery/3156-http3#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F005",
+      "path": [
+        "sig-instrumentation",
+        "3498-extending-stability"
+      ],
+      "content_sha256": "60c04a519792fcd6c0d7a349f0295b6314197172ccfd9050d34913db2b3d9e5b",
+      "source_native_id": "keps/sig-instrumentation/3498-extending-stability#excerpt-3",
+      "source_heading": "design details"
+    },
+    {
+      "id": "F006",
+      "path": [
+        "sig-api-machinery",
+        "1693-warnings"
+      ],
+      "content_sha256": "f5a94480c7d58721b3d3e4832001a4f4bc1e2101c2a2ec92a9b6e4784791ee5f",
+      "source_native_id": "keps/sig-api-machinery/1693-warnings#excerpt-3",
+      "source_heading": "risks and mitigations"
+    },
+    {
+      "id": "F007",
+      "path": [
+        "sig-cli",
+        "2206-openapi-features-in-kustomize"
+      ],
+      "content_sha256": "46b0676f6c6cf7509665ed6e8f39bf90226bb21762df31a95e7b108d5403ede9",
+      "source_native_id": "keps/sig-cli/2206-openapi-features-in-kustomize#excerpt-2",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F008",
+      "path": [
+        "sig-cli",
+        "2299-kustomize-plugin-composition"
+      ],
+      "content_sha256": "d0c356656484847198151483695d9f64261c2705ee4193ae3a35d62b0f92ef6e",
+      "source_native_id": "keps/sig-cli/2299-kustomize-plugin-composition#excerpt-2",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F009",
+      "path": [
+        "sig-cli",
+        "2299-kustomize-plugin-composition"
+      ],
+      "content_sha256": "fd2c2b2c5b2e9d3383fda7da00d8574d7037e302edbbfb6caca1201023e886d8",
+      "source_native_id": "keps/sig-cli/2299-kustomize-plugin-composition#excerpt-1",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F010",
+      "path": [
+        "sig-cli",
+        "2384-kustomize-file-processing-integration"
+      ],
+      "content_sha256": "a26842b41478af8755f23ed270efca6a8504af535203a4b453121b662615ed13",
+      "source_native_id": "keps/sig-cli/2384-kustomize-file-processing-integration#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F011",
+      "path": [
+        "sig-node",
+        "4438-container-restart-termination"
+      ],
+      "content_sha256": "7d66bc9411f93c119d8de44a39a2c03bf7b951d3e00ce1af6bcec5719877fef2",
+      "source_native_id": "keps/sig-node/4438-container-restart-termination#excerpt-3",
+      "source_heading": "risks and mitigations"
+    },
+    {
+      "id": "F012",
+      "path": [
+        "sig-cli",
+        "2206-openapi-features-in-kustomize"
+      ],
+      "content_sha256": "69bc8389dbb45c809d0860e1a43dacabdef79b3893020075f47bb8701f009dfc",
+      "source_native_id": "keps/sig-cli/2206-openapi-features-in-kustomize#excerpt-3",
+      "source_heading": "design details"
+    },
+    {
+      "id": "F013",
+      "path": [
+        "sig-node",
+        "4438-container-restart-termination"
+      ],
+      "content_sha256": "0bc339106e56edad55312180452e55e4e641b1069849b07aa95626ce734518cd",
+      "source_native_id": "keps/sig-node/4438-container-restart-termination#excerpt-2",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F014",
+      "path": [
+        "sig-node",
+        "5593-configure-the-max-crashloopbackoff-delay"
+      ],
+      "content_sha256": "e44a7f03a615692a2b6f14f2e96086dedb6b1a37671a0a2487fd5977f2a89f13",
+      "source_native_id": "keps/sig-node/5593-configure-the-max-crashloopbackoff-delay#excerpt-1",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F015",
+      "path": [
+        "sig-cli",
+        "2384-kustomize-file-processing-integration"
+      ],
+      "content_sha256": "5c37d2d012c4c5f1dffdc8e4d7d26e4bde3dd9e64b0747e8d0fbf378e3cb752d",
+      "source_native_id": "keps/sig-cli/2384-kustomize-file-processing-integration#excerpt-3",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F016",
+      "path": [
+        "sig-cli",
+        "2384-kustomize-file-processing-integration"
+      ],
+      "content_sha256": "63b07b036b2046a6bb014eb892c8494434c307a9375598b6e9ceacd9a828be28",
+      "source_native_id": "keps/sig-cli/2384-kustomize-file-processing-integration#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F017",
+      "path": [
+        "sig-instrumentation",
+        "1206-metrics-overhaul"
+      ],
+      "content_sha256": "892bc2d8e8dabf3d0317bc7a4496a0113d42beea1dfc11532fd4b09187b92d87",
+      "source_native_id": "keps/sig-instrumentation/1206-metrics-overhaul#excerpt-3",
+      "source_heading": "risks and mitigations"
+    },
+    {
+      "id": "F018",
+      "path": [
+        "sig-node",
+        "5593-configure-the-max-crashloopbackoff-delay"
+      ],
+      "content_sha256": "4781a68d9432230229ce97b5e70c183d19336327563e10d92612c97398220ac0",
+      "source_native_id": "keps/sig-node/5593-configure-the-max-crashloopbackoff-delay#excerpt-3",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F019",
+      "path": [
+        "sig-api-machinery",
+        "1693-warnings"
+      ],
+      "content_sha256": "aeb26d0e4babef5cbc384eff1ba03e9d1973f877b851346ea51a5e87013a84da",
+      "source_native_id": "keps/sig-api-machinery/1693-warnings#excerpt-1",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F020",
+      "path": [
+        "sig-api-machinery",
+        "4020-unknown-version-interoperability-proxy"
+      ],
+      "content_sha256": "7139460f18b1aa6f68fa1f766ffcf326d2ec7388311bb757b25491fff02d3d9c",
+      "source_native_id": "keps/sig-api-machinery/4020-unknown-version-interoperability-proxy#excerpt-3",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F021",
+      "path": [
+        "sig-instrumentation",
+        "4827-component-statusz"
+      ],
+      "content_sha256": "c1a99da337f6fd3139f86a00f090e0a82d52be934034c8c5a867081a618b4f4d",
+      "source_native_id": "keps/sig-instrumentation/4827-component-statusz#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F022",
+      "path": [
+        "sig-api-machinery",
+        "4020-unknown-version-interoperability-proxy"
+      ],
+      "content_sha256": "52e31558477754f57a49fe430e67783bbb7e49a84b6b31795cae4dd6d77f53cf",
+      "source_native_id": "keps/sig-api-machinery/4020-unknown-version-interoperability-proxy#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F023",
+      "path": [
+        "sig-node",
+        "4639-oci-volume-source"
+      ],
+      "content_sha256": "41febee87a74418599c010d4b275996f8c79665e2e846a1e904afba8e30f803a",
+      "source_native_id": "keps/sig-node/4639-oci-volume-source#excerpt-3",
+      "source_heading": "risks and mitigations"
+    },
+    {
+      "id": "F024",
+      "path": [
+        "sig-api-machinery",
+        "4020-unknown-version-interoperability-proxy"
+      ],
+      "content_sha256": "eb9e8042fab0e0a40e8176b6a4f46d9374cc52b333954059c6445dd98e01482b",
+      "source_native_id": "keps/sig-api-machinery/4020-unknown-version-interoperability-proxy#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F025",
+      "path": [
+        "sig-node",
+        "4639-oci-volume-source"
+      ],
+      "content_sha256": "e699dc6d2307a14dd451e537b4823243464273a366634858c7926cd59fe5fb47",
+      "source_native_id": "keps/sig-node/4639-oci-volume-source#excerpt-2",
+      "source_heading": "design details"
+    },
+    {
+      "id": "F026",
+      "path": [
+        "sig-cli",
+        "2206-openapi-features-in-kustomize"
+      ],
+      "content_sha256": "ccee7dca4d944fe915a47db42220f42d867fbbeeef9fbd25867b275a735b88d9",
+      "source_native_id": "keps/sig-cli/2206-openapi-features-in-kustomize#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F027",
+      "path": [
+        "sig-instrumentation",
+        "1206-metrics-overhaul"
+      ],
+      "content_sha256": "2eef3d189f622f13f11cf3bc8dee9f41c075b8162636405edd9b5c524db14919",
+      "source_native_id": "keps/sig-instrumentation/1206-metrics-overhaul#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F028",
+      "path": [
+        "sig-instrumentation",
+        "4827-component-statusz"
+      ],
+      "content_sha256": "b211de98c3eee559309b7941cc9c744cd8d604b433e5e54990668383f319049e",
+      "source_native_id": "keps/sig-instrumentation/4827-component-statusz#excerpt-3",
+      "source_heading": "non-goals"
+    },
+    {
+      "id": "F029",
+      "path": [
+        "sig-node",
+        "4639-oci-volume-source"
+      ],
+      "content_sha256": "bf30a40a41094347a3c6476ae266e759fe62e7f31eb325569e52d10b5385c70c",
+      "source_native_id": "keps/sig-node/4639-oci-volume-source#excerpt-1",
+      "source_heading": "non-goals"
+    },
+    {
+      "id": "F030",
+      "path": [
+        "sig-cli",
+        "2299-kustomize-plugin-composition"
+      ],
+      "content_sha256": "dee7ca443b2a6efc846a4911d567389d6111a2f422dbcf7eae0447e5c813ca8d",
+      "source_native_id": "keps/sig-cli/2299-kustomize-plugin-composition#excerpt-3",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F031",
+      "path": [
+        "sig-api-machinery",
+        "1693-warnings"
+      ],
+      "content_sha256": "5534fb45c355b93525b82e0bce2dbcbb0643aae0345d3e1c2adb30c7ab7760f9",
+      "source_native_id": "keps/sig-api-machinery/1693-warnings#excerpt-2",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F032",
+      "path": [
+        "sig-instrumentation",
+        "3498-extending-stability"
+      ],
+      "content_sha256": "ba1253ac0a0c23a17f4b6e84efac55225b852e642b696fff312bc8bb25433cce",
+      "source_native_id": "keps/sig-instrumentation/3498-extending-stability#excerpt-2",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F033",
+      "path": [
+        "sig-api-machinery",
+        "3156-http3"
+      ],
+      "content_sha256": "07874f8b6d43d3adfb66c5676a82cba24623d2352d04c8c9c908de6e999a4aa8",
+      "source_native_id": "keps/sig-api-machinery/3156-http3#excerpt-3",
+      "source_heading": "risks and mitigations"
+    },
+    {
+      "id": "F034",
+      "path": [
+        "sig-instrumentation",
+        "3498-extending-stability"
+      ],
+      "content_sha256": "8528160531144d5e4e1551b51d5869d3a1a6da4e3cacbf86aaf265349ac48dba",
+      "source_native_id": "keps/sig-instrumentation/3498-extending-stability#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F035",
+      "path": [
+        "sig-node",
+        "5593-configure-the-max-crashloopbackoff-delay"
+      ],
+      "content_sha256": "f308d6d9bb8dfe346ed471db24581ac3f232c495dc20e5488887db17a6578d01",
+      "source_native_id": "keps/sig-node/5593-configure-the-max-crashloopbackoff-delay#excerpt-2",
+      "source_heading": "non-goals"
+    },
+    {
+      "id": "F036",
+      "path": [
+        "sig-instrumentation",
+        "1206-metrics-overhaul"
+      ],
+      "content_sha256": "f71703d347908e62c0bdb55f1f289f1b8dcfc7dadb5a155bf2c0a41cc9b53a60",
+      "source_native_id": "keps/sig-instrumentation/1206-metrics-overhaul#excerpt-2",
+      "source_heading": "motivation"
+    }
+  ],
+  "reference_scope": "Source-derived group/proposal hierarchy for a development-only difficulty and cost pilot."
+}

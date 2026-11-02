@@ -1,0 +1,255 @@
+{
+  "task_id": "ami/mini-034",
+  "records": [
+    {
+      "id": "F001",
+      "format": "text",
+      "text": "The control will be the approx."
+    },
+    {
+      "id": "F002",
+      "format": "text",
+      "text": "For pricing reasons they eliminate the turbo button."
+    },
+    {
+      "id": "F003",
+      "format": "text",
+      "text": "What sort of power supply to use since the LCD screen requires a large amount of power."
+    },
+    {
+      "id": "F004",
+      "format": "text",
+      "text": "The remote will only be used for televisions."
+    },
+    {
+      "id": "F005",
+      "format": "text",
+      "text": "Will be made of plastic."
+    },
+    {
+      "id": "F006",
+      "format": "text",
+      "text": "The marketing expert indicated that an ideal remote would include an LCD screen, would not be too small in size, and is easy to use."
+    },
+    {
+      "id": "F007",
+      "format": "text",
+      "text": "The team will not pay any attention to teletext."
+    },
+    {
+      "id": "F008",
+      "format": "text",
+      "text": "The remote will have buttons within the LCD display for power, volume selection, channel selection, digits from zero to nine, mute, a menu for teletext, a battery indicator, to access double digits, screen settings, channel settings, and audio settings."
+    },
+    {
+      "id": "F009",
+      "format": "text",
+      "text": "They rate each criteria on a scale of 0 (true) to 7 (false): how fancy it is, how handy it is, how functional, how cool it is, whether they would spend twenty five euro for it, and whether they would change their current remote for this one."
+    },
+    {
+      "id": "F010",
+      "format": "text",
+      "text": "Infared port on top of banana as well as bottom front of base station."
+    },
+    {
+      "id": "F011",
+      "format": "text",
+      "text": "For pricing reasons they had to use a regular chip instead of advanced, single curve instead of double, rechargable batteries instead of solar cells, and eliminate the turbo button."
+    },
+    {
+      "id": "F012",
+      "format": "text",
+      "text": "Three push buttons."
+    },
+    {
+      "id": "F013",
+      "format": "text",
+      "text": "The project manager opened the meeting and then the industrial designer discussed the interior workings of a remote along with his personal preferences for the appearance of a remote."
+    },
+    {
+      "id": "F014",
+      "format": "text",
+      "text": "They eliminate the turbo button and give the remote a single curve because of budget restrictions."
+    },
+    {
+      "id": "F015",
+      "format": "text",
+      "text": "The product needs to reach a new market with customers under forty."
+    },
+    {
+      "id": "F016",
+      "format": "text",
+      "text": "The corporate image must be recognizable in the product."
+    },
+    {
+      "id": "F017",
+      "format": "text",
+      "text": "The remote will go into standby when idle."
+    },
+    {
+      "id": "F018",
+      "format": "text",
+      "text": "The remote will feature an LCD screen."
+    },
+    {
+      "id": "F019",
+      "format": "text",
+      "text": "Will contain a teletext button, when pressed teletext appears and channel selector can be used to navigate through the teletext."
+    },
+    {
+      "id": "F020",
+      "format": "text",
+      "text": "Whether to implement speech recognition."
+    },
+    {
+      "id": "F021",
+      "format": "text",
+      "text": "For pricing reasons the remote will have a single, not double curve."
+    },
+    {
+      "id": "F022",
+      "format": "text",
+      "text": "The volume scroll wheel will be on the left, channel scroll on the right."
+    },
+    {
+      "id": "F023",
+      "format": "text",
+      "text": "The project manager goes through the minutes of the last meeting."
+    },
+    {
+      "id": "F024",
+      "format": "text",
+      "text": "The LCD screen will have a separate menu for teletext."
+    },
+    {
+      "id": "F025",
+      "format": "text",
+      "text": "In doing this, they decide against solar cells and go with the rechargable batteries."
+    },
+    {
+      "id": "F026",
+      "format": "text",
+      "text": "They keep the regular chip, stick with plastic, put two scroll wheels and three push buttons, and make it a special shade of yellow."
+    },
+    {
+      "id": "F027",
+      "format": "text",
+      "text": "If consumers over forty will want a remote with an LCD screen."
+    },
+    {
+      "id": "F028",
+      "format": "text",
+      "text": "Where consumers will place the charger."
+    },
+    {
+      "id": "F029",
+      "format": "text",
+      "text": "The remote will allow users to have the possibility to enlarge the buttons."
+    },
+    {
+      "id": "F030",
+      "format": "text",
+      "text": "The marketing expert discussed the functional requirements of a remote and user tendencies in using remotes."
+    },
+    {
+      "id": "F031",
+      "format": "text",
+      "text": "What to do if people forget to recharge the batteries in their remote."
+    },
+    {
+      "id": "F032",
+      "format": "text",
+      "text": "The user interface designer discussed the technical functions of a remote and indicated that a user centered approach to designing the interface would be preferable."
+    },
+    {
+      "id": "F033",
+      "format": "text",
+      "text": "Whether the remote should feature a regular power button or if the power button should be integrated with the LCD display."
+    },
+    {
+      "id": "F034",
+      "format": "text",
+      "text": "How much an LCD screen costs."
+    },
+    {
+      "id": "F035",
+      "format": "text",
+      "text": "They go through the evaulations, using the a list of criteria made by the marketing expert."
+    },
+    {
+      "id": "F036",
+      "format": "text",
+      "text": "Weight of an actual banana but a special shade of yellow."
+    },
+    {
+      "id": "F037",
+      "format": "text",
+      "text": "For pricing reasons eliminate solar cells - use rechargable batteries as power source, base station used for battery-charging which should last 8-10 hours depending on frequency of use."
+    },
+    {
+      "id": "F038",
+      "format": "text",
+      "text": "Whether to include buttons for teletext."
+    },
+    {
+      "id": "F039",
+      "format": "text",
+      "text": "The remote will be capable of speech recognition if there is enough money left in the team's budget."
+    },
+    {
+      "id": "F040",
+      "format": "text",
+      "text": "They briefly evaulate the project process and close the meeting."
+    },
+    {
+      "id": "F041",
+      "format": "text",
+      "text": "For pricing reasons they will use a regular chip for the control rather than advanced one."
+    },
+    {
+      "id": "F042",
+      "format": "text",
+      "text": "The LCD screen will have a low battery indicator."
+    },
+    {
+      "id": "F043",
+      "format": "text",
+      "text": "The remote will shut down when the television shuts down."
+    },
+    {
+      "id": "F044",
+      "format": "text",
+      "text": "The remote will have a rechargeable battery which comes with a charger."
+    },
+    {
+      "id": "F045",
+      "format": "text",
+      "text": "The remote will have a general menu with the most used functions."
+    },
+    {
+      "id": "F046",
+      "format": "text",
+      "text": "They have the prototype presentation and talk about the final design, features, and power source, type of chip and weight of the remote."
+    },
+    {
+      "id": "F047",
+      "format": "text",
+      "text": "The project manager briefed the team on some new requirements and led them in a discussion in which the team discussed their target group and made decisions on the appearance and functions of their upcoming product."
+    },
+    {
+      "id": "F048",
+      "format": "text",
+      "text": "It will be shaped like a banana, with an base station resembling a banana leaf for it to sit on."
+    },
+    {
+      "id": "F049",
+      "format": "text",
+      "text": "Next they do a cost estimate for production."
+    },
+    {
+      "id": "F050",
+      "format": "text",
+      "text": "The remote will be button-less."
+    }
+  ]
+}

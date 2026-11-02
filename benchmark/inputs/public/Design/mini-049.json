@@ -1,0 +1,185 @@
+{
+  "task_id": "mini-049",
+  "records": [
+    {
+      "id": "F001",
+      "format": "text",
+      "text": "Provide a CSI-spec-level mechanism for drivers to report per-volume health from the controller, per-volume health from the node (including for volumes that have not been successfully published), and overall storage-backend health from a node. Surface those reports on stable Kubernetes API status fields: controller-side volume health on `PersistentVolumeClaim.Status.HealthStatus`, node-side per-volume health on `Pod.Status.VolumeHealth`, and node-side backend health on `CSINode.Status.StorageHealth`. Define a small, machine-parseable error vocabulary (`Inaccessible`, `DataLoss`, `Degraded`, `StorageUnreachable`, `StorageDegraded`) that admits driver-specific elaboration via `reason` and `message`. The vocabulary is intentionally extensible: future CSI spec revisions MAY add values, drivers that adopt a newer spec MAY report them alongside existing ones, and COs MUST tolerate values they do not recognize. A CO that does not recognize a value SHOULD surface it for observability and MUST NOT misclassify it as healthy. Make health reporting opt-in per driver (via CSI capabilities) and per cluster (via the `CSIVolumeHealth` feature gate). A driver that implements no health capability is not probed and incurs no cost. Keep ownership consistent with the existing Node Authorizer model: nodes never write PVC status."
+    },
+    {
+      "id": "F002",
+      "format": "text",
+      "text": "We propose to label all namespaces, by default, with a reserved label of “kubernetes.io/metadata.name” and set it to the namespace's name. This will allow any resource with a `namespaceSelector` field (such as NetworkPolicy, MutatingWebhookConfiguration etc) to select (or exclude with `notIn`) these namespaces by explicitly matching on the namespace's name with traditional label selector mechanisms. If this label is missing, it is added by the apiserver as a default. If this label is deleted, it is added by the apiserver as a default. defaults.go mutates namespaces on read, to always have the label `kubernetes.io/metadata.name=obj.Name`, this effectively means a mutation would be an allowed no-op, since the apiserver would always overwrite the value of this field. api clients always see this default label, because of this mutation."
+    },
+    {
+      "id": "F003",
+      "format": "text",
+      "text": "This KEP proposes adding file-based manifests to the kube-apiserver to configure admission webhooks and policies on startup. These policies would exist outside of the Kubernetes API, enabling operators and platforms to implement admission controls that: Are guaranteed to be active before the API server begins processing requests Cannot be bypassed or modified through the Kubernetes API Can protect API-based admission control resources themselves (ValidatingAdmissionPolicy, MutatingAdmissionPolicy, ValidatingWebhookConfiguration, MutatingWebhookConfiguration, etc.)\n\nThis is achieved by augmenting the `AdmissionConfiguration` schema to include paths to manifest files containing webhook and policy configurations that are loaded at API server startup and watched for changes at runtime.\n\nFor beta, this KEP also proposes excluding the same set of authentication and authorization virtual resources from `ValidatingAdmissionWebhook` and `MutatingAdmissionWebhook` that `ValidatingAdmissionPolicy` and `MutatingAdmissionPolicy` already exclude. See Webhook Virtual Resource Exclusion for details."
+    },
+    {
+      "id": "F004",
+      "format": "text",
+      "text": "Namespaces are not guaranteed to have any 'identifying' labels by the Kubernetes API. This means that to select a namespace by name, on would have to use a field selector. This encumberance makes it hard to write default NetworkPolicies, and also makes its tricky to create other kinds of \"label-driven\" namespace functionality in the K8s api.\n\nThe idea of this KEP is to propose that namespaces are always ensured, by the API server, to have a *immutable label matching the metadata.name of the namespace*, which thus allows one to build label selectors to include/exclude namespaces by name, without having write access to a namespace (which is required to label it manually).\n\nThis was initially envisioned as a workaround to a limitation in the network policy API, but has emerged as a potential to other problems which may be solved by default namespace labels."
+    },
+    {
+      "id": "F005",
+      "format": "text",
+      "text": "This KEP proposes adding an opt-in mechanism for CSI drivers to receive service account tokens through the dedicated `secrets` field in `NodePublishVolumeRequest` instead of the `volume_context` field. A new field in the `CSIDriver` spec will allow drivers to explicitly opt into using the secrets field for improved security and proper handling of sensitive information. The default behavior will remain unchanged (tokens in volume context) to maintain backward compatibility."
+    },
+    {
+      "id": "F006",
+      "format": "text",
+      "text": "Introduce a new field on PVCs called `DataSourceRef`. This new field operates like `DataSource` except that it never ignores input -- contents are always accepted or the entire PVC is rejected if the contents are deemed invalid. Deprecate the `DataSource` field once `DataSourceRef` reaches GA, but continue to support it in a backwards-compatible way, never removing it. In particular: If `DataSource` and `DataSourceRef` are both unset; accept If `DataSource` is set valid (PVC or VolumeSnapshot) AND `DataSourceRef` is not set; set `DataSourceRef` from `DataSource` If `DataSource` is set valid AND `DataSourceRef` is set the same; accept If `DataSource` is set valid AND `DataSourceRef` is set differently; reject If `DataSource` is set invalid (anything but PVC or VolumeSnapshot) and `DataSourceRef` is not set; wipe `DataSource` (as today) If `DataSource` is set invalid and `DataSourceRef` is set; reject If `DataSource` is not set and `DataSourceRef` is set invalid (any core object other than PVC); reject If `DataSource` is not set and `DataSourceRef` is set valid (PVC or any non-core object); set `DataSource` from `DataSourceRef` and accept\n\nNote that in the last case, we allow setting the CRD data sources, which enables volume populators to work."
+    },
+    {
+      "id": "F007",
+      "format": "text",
+      "text": "Extending the allowed set of bind options beyond `noexec`, `nodev`, and `nosuid` in this KEP. Adding a new permitted value is an API and validation change and would require a separate KEP. Supporting this feature on platforms that don't support Unix-style mount flags. Replacing or modifying the existing `mountOptions` field on PersistentVolume specs (which controls filesystem-level mount options applied by CSI drivers at the storage layer). Deprecating or replacing the existing `ReadOnly` boolean on `VolumeMount`. While `ro` is conceptually a bind mount option, unifying it into `bindMountOptions` is out of scope for this KEP."
+    },
+    {
+      "id": "F008",
+      "format": "text",
+      "text": "Kubernetes workloads can consume a variety of services from a variety of producers. They have a native identity (KSA), presented in a widely-compatible format (JWT); but only an API server can authenticate the KSA token, since only the API server has access to the public key verifying the signature. If services want to authenticate workloads using KSAs, today, the API server must serve every authentication request (i.e. `TokenReview`).\n\nWhen authenticating across clusters, i.e. from within a cluster to somewhere else, credential management must use a separate system. Someone has to provision an identity; provision credentials; grant the workload access to the credentials; and consider: Did I delete ephemeral traces of the credential (e.g. files on my local disk)? How securely is the credential stored? Is the storage system hardened? Are the ACLs restricted? How much damage can be caused by an exploit of the workload? Could that compromise a credential with an extended validity period? How often do the keys expire? How often do I rotate them?\n\nIf services (other than the API server) could authenticate KSA tokens directly: The API server wouldn't have to scale with the data-plane (i.e. authentication) load. Workloads could use native credentials to authenticate to services outside of the cluster."
+    },
+    {
+      "id": "F009",
+      "format": "text",
+      "text": "There is growing interest in using different runtimes within a cluster. [Sandboxes][] are the primary motivator for this right now, with both Kata containers and gVisor looking to integrate with Kubernetes. Other runtime models such as Windows containers or even remote runtimes will also require support in the future. RuntimeClass provides a way to select between different runtimes configured in the cluster and surface their properties (both to the cluster & the user).\n\nIn addition to selecting the runtime to use, supporting multiple runtimes raises other problems to the control plane level, including: accounting for runtime overhead, scheduling to nodes that support the runtime, and surfacing which optional features are supported by different runtimes. See RuntimeClass Scheduling for information about scheduling.\n\n[Sandboxes]:"
+    },
+    {
+      "id": "F010",
+      "format": "text",
+      "text": "In Kubernetes, Kubelet is a per-node daemon that manages the pods on the node, driving the pod states to match their pod specifications (specs). To achieve this, Kubelet needs to react to changes in both (1) pod specs and (2) the container states. For the former, Kubelet watches the pod specs changes from multiple sources; for the latter, Kubelet polls the container runtime periodically for the latest states for all containers. the current hardcoded default value is 1s.\n\nPolling incurs non-negligible overhead as the number of pods/containers increases, and is exacerbated by Kubelet's parallelism -- one worker (goroutine) per pod, which queries the container runtime individually. Periodic, concurrent, large number of requests causes high CPU usage spikes (even when there is no spec/state change), poor performance, and reliability problems due to overwhelmed container runtime. Ultimately, it limits Kubelet's scalability."
+    },
+    {
+      "id": "F011",
+      "format": "text",
+      "text": "Today, most policy enforcement in Kubernetes is implemented through: `MutatingAdmissionWebhook` and `ValidatingAdmissionWebhook` plugins using webhook configurations `ValidatingAdmissionPolicy` (VAP) and `MutatingAdmissionPolicy` (MAP) for CEL-based policies\n\nThese admission controls are registered by creating API objects (`MutatingWebhookConfiguration`, `ValidatingWebhookConfiguration`, `ValidatingAdmissionPolicy`, `MutatingAdmissionPolicy`, and their binding resources). This creates several gaps: Bootstrap gap: Policy enforcement is not active until these objects are created and picked up by the dynamic admission controller. This creates a window during initial cluster setup where policies are not yet enforced. Self-protection gap: Cluster administrators cannot protect webhook and policy configurations from deletion or modification, as these objects are not themselves subject to webhook admission (to prevent circular dependencies). A malicious or misconfigured actor with sufficient privileges can delete critical admission policies. Etcd dependency: Current admission configurations depend on etcd availability. If etcd is unavailable or corrupted, admission policies may not be loaded correctly.\n\nThis KEP aims to address these issues by providing a file-based mechanism for configuring admission controls that operates independently of the Kubernetes API."
+    },
+    {
+      "id": "F012",
+      "format": "text",
+      "text": "Define a configuration file format for configuring Kubernetes API Server Authorization chain. Allow ordered definition of authorization modes. Allow definition of multiple webhooks in the authorization chain while all other types of authorizers should at most be specified once. Allow resource/user based pre-filtering of webhooks using CEL to prevent unnecessary invocations. Enable user to define the policy when a webhook can't be reached due to network errors etc. Enable automatic reload of the configuration."
+    },
+    {
+      "id": "F013",
+      "format": "text",
+      "text": "In Kubernetes 1.12, we added the `DataSource` field to the PVC spec. The field was implemented as a `TypedLocalObjectReference` to give flexibility in the future about what objects could be data sources for new volumes. Since then, we have allowed only two things to be the source of a new volume -- existing PVCs (indicating a user's intent to clone the volume) and snapshots (indicating the user's intent to restore a snapshot)."
+    },
+    {
+      "id": "F014",
+      "format": "text",
+      "text": "This KEP defines reporting, not reaction. Kubernetes will not start gating scheduling, admission, or volume reconciliation on health values. Future KEPs may layer behavior on top (a CSIDriver opt-in to prevent pod scheduling on `Inaccessible` volumes is a natural next step), but they are out of scope here.\n\nThe error vocabulary is also deliberately small. It does not cover storage-backend specifics like multipath loss, capacity exhaustion, or disk-level performance degradation. Those signals belong in the `reason` field, where drivers can name them precisely without forcing every CO to learn a new enum value.\n\nIn-tree volume plugins are out of scope; this design applies only to CSI drivers."
+    },
+    {
+      "id": "F015",
+      "format": "text",
+      "text": "Add an opt-in mechanism for CSI drivers to receive service account tokens through the secrets field in `NodePublishVolumeRequest` Improve security by providing a proper way to handle sensitive token information for drivers that opt-in Maintain complete backward compatibility by keeping volume context as the default behavior Reduce the need for driver-specific security workarounds for drivers that choose to opt-in"
+    },
+    {
+      "id": "F016",
+      "format": "text",
+      "text": "**Risk:** New token generation and validation could suffer a performance difference due to communication over a socket and a potential remote RPC call (will vary for different signer implementations).\n\n**Mitigation:** Performance overhead will be benchmarked and documented for integrators. **Risk:** Signing and verifying tokens over a grpc API carries the risk of a server side request forgery, where a malicious client could generate tokens.\n\n**Mitigation:** The API will only be accessible over a unix socket protected by standard file permissions; This is already done for other sensitive integrations like KMS. Documentation will be added to ensure that distributions limit the socket to privileged or specific uids. **Risk:** With an external signer, token headers and claims can diverge from that in existing JWTs as signed by kube-apiserver.\n\n**Mitigation:** External signers will only return signature and header while kube-apiserver will assemble the JWT. This will allow kube-apiserver to validate the header and control the claims."
+    },
+    {
+      "id": "F017",
+      "format": "text",
+      "text": "The purpose of this KEP is to outline changes to the Kubelet and Container Runtime Interface (CRI) that update the way the Kubelet updates changes to pod state to a List/Watch model that polls less frequently reducing overhead. Specifically, the Kubelet will listen for gRPC server streaming events from the CRI implementation for events required for generating pod lifecycle events.\n\nThe overarching goal of this effort is to reduce the Kubelet and CRI implementation's steady state CPU usage."
+    },
+    {
+      "id": "F018",
+      "format": "text",
+      "text": "Ease of rotation. At present, kube-apiserver loads service account keys at process start time and the keys remain the same for the life-time of the process. Thus, rotating keys require a kube-apiserver to restart. External key management eliminates the need to restart. Enhanced security. kube-apiserver loads service account keys from a file on the disk. This means anyone with privileged access to the kube-apiserver configuration / filesystem could exfiltrate signing material. An external signer that never returns signing material would mitigate this risk."
+    },
+    {
+      "id": "F019",
+      "format": "text",
+      "text": "Allow (authorized) systems to discover the information they need to authenticate KSA tokens. Attempt compatibility with OIDC: common libraries that authenticate OIDC tokens should be able to authenticate KSA tokens. Support authentication when the API server is not directly reachable by the relying party. e.g.: a cloud-based service authenticating an API server that doesn't have a public Internet address.\n\nNote that the API server has a very different flow from OIDC with respect to generating tokens. As such, our goal is OIDC *compatibility*."
+    },
+    {
+      "id": "F020",
+      "format": "text",
+      "text": "This KEP introduces a `bindMountOptions` field on `volumeMounts` in the pod spec so users can apply security-related bind mount flags such as `noexec`, `nodev`, and `nosuid` to any volume type. Today, volume mounts inside containers do not carry `noexec`, `nosuid`, or `nodev` flags by default, which can undermine security for containers that rely on read-only root filesystems or need to meet hardening standards. By adding configurable (opt-in) `bindMountOptions` to volume mounts, users can restrict a mount to be writable for data only (e.g. `noexec`), block setuid/setgid binaries (`nosuid`), and prevent use of device files (`nodev`), in any combination, in a native and declarative way. Because the field is on `volumeMounts`, it applies to all volume types (emptyDir, PersistentVolumes, CSI, projected, etc.) and provides per-container granularity, i.e., different containers in the same pod can mount the same volume with different options."
+    },
+    {
+      "id": "F021",
+      "format": "text",
+      "text": "Build a comprehensive in-tree policy framework. We believe the ecosystem is best equipped to explore and develop policy frameworks. We're focusing on building an extensible enforcement point into admission control that can be used to build policy frameworks. Examples of what policy frameworks might do beyond this enhancement might do: Auditing already written resources Building out libraries for code reuse Validating Kubernetes resource YAML files adhere to a policy in a CI/CD pipeline Mutation support. While we believe this enhancement could be extended in the future to support mutations, we believe it is best handled as a separate enhancement. That said, we need to keep mutation in mind in this KEP to ensure we design it in such a way that we don't obviously paint ourselves into a corner where mutation would be difficult to introduce later. Full feature parity with validating admission webhooks. For example, this enhancement is not expected to ever support making requests to external systems. Replace the admission controllers compiled into the API server. Static or on-initialization specification of admission config. This is a needed feature but should be solved in a general way and not in this KEP (xref:"
+    },
+    {
+      "id": "F022",
+      "format": "text",
+      "text": "This proposal aims to replace the periodic polling with a pod lifecycle event watcher. Currently, the Kubelet calls into three CRI calls of the form `List*`: ListContainers, ListPodSandbox. Each of these is used to populate the Kubelet's perspective of the state of the node. As the number of pods on a node increases, the amount of time the Kubelet and CRI implementation takes in generating and reading this list increases linearly."
+    },
+    {
+      "id": "F023",
+      "format": "text",
+      "text": "The primary goal of this KEP is to increase the security of Kubernetes workloads by allowing security-related bind mount options on volume mounts. Currently, volumes are bind-mounted into containers without `noexec`, `nosuid`, or `nodev` flags. This default can undermine security, for example, with `noexec` missing, an attacker can use any writable volume (emptyDir, PersistentVolume, projected, etc.) to download, `chmod +x`, and execute arbitrary binaries even when the container has a read-only root filesystem (`readOnlyRootFilesystem: true`). Supporting `noexec`, `nodev`, and `nosuid` gives users a native way to harden volume mounts to match security benchmarks and policy.\n\nThe gap is most visible with emptyDir volumes, which are the most common writable volume type and have been the subject of multiple security findings: Issue #48912: Recognized security gap - the inability to set mount options on `emptyDir` was flagged in an audit but remains unresolved as of 2026. Issue #119627: Kubernetes 1.24 Security Audit (Finding NCC-E003660-7HM) - external auditors specifically noted that the inability to mount `emptyDir` with `noexec` represents a security failure.\n\nHowever, the same gap applies to all volume types. PersistentVolumes have a `mountOptions` field, but those options are filesystem-level flags applied by the CSI driver at the node - they do not reliably translate into bind mount flags inside the container. There is currently no mechanism to set `noexec`, `nosuid`, or `nodev` on the bind mount that the container runtime creates for any volume type."
+    },
+    {
+      "id": "F024",
+      "format": "text",
+      "text": "Provide an alternative to webhooks for the vast majority of validating admission use cases. Provide the in-tree extensions needed to build policy frameworks for Kubernetes, again without requiring webhooks for the vast majority of use cases. Make good use of CEL type checking. This becomes complicated when considering that CRD schemas can be changed at any time and that not all fields of built in types exist in an older Kubernetes version. Provide a polyfill implementation that is supported by the Kubernetes org to provide this enhancement functionality to Kubernetes versions where this enhancement is not available. Provide core functionality as a library so that use cases like GitOps, CI/CD pipelines, and auditing can run the same CEL validation checks that the API server does."
+    },
+    {
+      "id": "F025",
+      "format": "text",
+      "text": "**Scope creep.** RuntimeClass has a fairly broad charter, but it should not become a default dumping ground for every new feature exposed by the node. For each feature, careful consideration should be made about whether it belongs on the Pod, Node, RuntimeClass, or some other resource. The non-goals should be kept in mind when considering RuntimeClass features. **Becoming a general policy mechanism.** RuntimeClass should not be used a replacement for PodSecurityPolicy."
+    },
+    {
+      "id": "F026",
+      "format": "text",
+      "text": "Currently, when the `TokenRequests` field is set in the `CSIDriver` spec, service account tokens are generated by the kubelet and passed to CSI drivers as part of the volume attributes map with the key `csi.storage.k8s.io/serviceAccount.tokens`. These tokens could be used for workload identity in cloud providers, particularly in the Secrets Store CSI Driver where they access external secret stores.\n\nHowever, including sensitive service account tokens in the volume context map alongside non-sensitive information (such as pod name, namespace, service account name) is inappropriate. The volume context is not designed for sensitive data, and this approach has led to security issues: Security vulnerabilities: This approach led to CVE-2023-2878 in the Secrets Store CSI Driver and CVE-2024-3744 in the Azure File CSI Driver where service account tokens were logged as part of GRPC requests. Insufficient protection: The protosanitizer tool used by CSI drivers doesn't consider volume context as \"secret\", so tokens were logged without sanitization. Driver-specific workarounds: Each driver must implement custom logic to handle token sanitization, creating inconsistency and potential security gaps.\n\nThe CSI specification provides a dedicated `secrets` field in `NodePublishVolumeRequest` that is more appropriate for sensitive information like service account tokens."
+    },
+    {
+      "id": "F027",
+      "format": "text",
+      "text": "Guarantee enforcement from startup: File-configured admission policies and webhooks MUST be active before the API server begins processing requests. There must be no gap during startup when requests are handled but admission controls are not yet active. Isolated universe: Manifest-based admission control exists in a tightly scoped and isolated universe. It may not reference API resources, nor vice-versa."
+    },
+    {
+      "id": "F028",
+      "format": "text",
+      "text": "Don't break any existing behavior, even obviously unintentional behavior that currently works. Enable users to create pre-populated volumes in a manner consistent with current practice Enable developers to innovate with new an interesting data sources Minimize change to existing workflows and breaking existing tools with new behavior Ensure that users continue to get accurate error messages and feedback about volume creation progress, whether using existing methods of volume creation or specifying a data source associated with a volume populator. Maintain existing pattern of allowing things to happen out of order. As long as there's a chance things will succeed in the future, just provide a status update and retry again later."
+    },
+    {
+      "id": "F029",
+      "format": "text",
+      "text": "The Kubernetes API server generates (signs) JSON Web Tokens that are meant to authenticate Kubernetes service accounts (KSA). The API server can indeed authenticate these tokens, but in general, no other system can: there is no standard way to get the public portion of the keypair used to sign KSA tokens. Systems (\"relying parties\") that want to authenticate KSA tokens must either send them back to the API server (via `TokenReview`) or use some provider-specific method to get the authentication key.\n\nIf a relying party could obtain trusted metadata about the service account token provider, in particular the issuer (`iss`) value and the public key(s) used, then the relying party could authenticate tokens without putting proportionate load on the API server. This would allow KSA tokens to be used as a general authentication mechanism, including to services outside the cluster or in other clusters.\n\nOpenID Connect defines a discovery mechanism that, given an issuer URL, allows a client to discover the rest of the issuer metadata, including the key set. Providing an OIDC-compatible discovery document would allow flexibility in how relying parties authenticate KSA tokens; they can use existing OIDC authenticators in their language/framework of choice, without Kubernetes-specific or provider-specific logic."
+    },
+    {
+      "id": "F030",
+      "format": "text",
+      "text": "Service account keys are used by kube-apiserver for JWT signing and authentication. Keys are stored on the disk and are loaded by kube-apiserver during process start time. Key management for service account keys is entirely within the cluster and is less flexible in that the signing keys remain the same for the lifetime of the process. This KEP proposes updates that will allow Kubernetes distributions to integrate with key management solutions of their choice (eg: HSMs, cloud KMSes)."
+    },
+    {
+      "id": "F031",
+      "format": "text",
+      "text": "Replace path to kubeconfig file for webhooks by allowing auth configuration within the new file structure Allow ordering of super user authorizer (always allow user group; `system:masters`) so that it can be moved from the beginning of the auth chain. Deciding whether ABAC should be continued to be used by the users.\n\n> Note: The above may be revisited in future alpha iterations of this KEP or as a separate KEP (for e.g., the superuser authorizer)"
+    },
+    {
+      "id": "F032",
+      "format": "text",
+      "text": "Today, `kube-apiserver` allows one to configure the authorization chain using a set of command line flags of the format `--authorization-*`. And cluster administrators can only enable one webhook as a part of the authorization chain using the `--authorization-modes` flag. This limits admins from creating authorization chains with multiple webhooks that validate requests in a certain order. This proposal makes the case for a more structured config to define the authorization chain for `kube-apiserver` and allowing multiple webhooks with well-defined parameters and enabling fine grained control like explicit Deny authorizer."
+    },
+    {
+      "id": "F033",
+      "format": "text",
+      "text": "In , we discussed several ways to implement network policies that select namespaces by name, rather than by relying on labels which may be unknown, or uneditable by people writing policies, or untrustworthy.\n\nThis was inspired by a broad community ask to target namespaces in this manner, as evidenced by issues such as kubernetes #88253, and the larger set of user feedback obtained in user stories.\n\nIt’s also worth noting that there are at least 2 other NamespaceSelector APIs in k/k - Validating and Mutating webhooks. They will inevitably need similar API evolution, but we don't need to do that as part of this KEP.\n\nIt turns out that alternate solutions: Break the old API in fundamental ways that are questionable in terms of cost/benefit, add nesting complexity to the network policy API, wherein certain “subsets” of the API were not usable together. This is not “bad”, but it is suboptimal and introduces redundant semantics. This is avoidable if we could assume, in all cases, that namespaces have a default label, thereby leveraging existing functionalities offered by label selectors.\n\nThere may also be many other usecases where the security or permissions boundary might be conveniently defined in terms of a namepsace name, and that such a namespace definition would be most easily referenced by a default label."
+    },
+    {
+      "id": "F034",
+      "format": "text",
+      "text": "The CSI spec gains four RPCs, the Kubernetes API gains three optional status fields, and the kubelet and apiserver gain one feature gate. That is the entire user-visible surface. The controller plugin learns to answer either \"give me all volumes that currently have adverse conditions\" (paginated, via `ControllerListVolumeHealth`) or \"what's the condition of *this* volume\" (via `ControllerGetVolumeHealth`)."
+    },
+    {
+      "id": "F035",
+      "format": "text",
+      "text": "This KEP will lower the infrastructure barrier to enforcing customizable policies as well as providing primitives that help the community establish and adhere to best practices of both K8s and its extensions. Currently the way custom policies are enforced are via admission webhooks. Admission webhooks are extremely flexible, but have a few drawbacks as compared to in-process policy enforcement: They require building infrastructure to host the admission webhook."
+    },
+    {
+      "id": "F036",
+      "format": "text",
+      "text": "As a cluster operator, I want to provide multiple runtime options to support a wide variety of workloads. Examples include native linux containers, \"sandboxed\" containers, and windows containers. As a cluster operator, I want to provide stable rolling upgrades of runtimes. For example, rolling out an update with backwards incompatible changes or previously unsupported features. As an application developer, I want to select the runtime that best fits my workload. As an application developer, I don't want to study the nitty-gritty details of different runtime implementations, but rather choose from pre-configured classes. As an application developer, I want my application to be portable across clusters that use similar but different variants of a \"class\" of runtimes."
+    }
+  ]
+}

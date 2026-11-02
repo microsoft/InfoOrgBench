@@ -1,0 +1,319 @@
+{
+  "assignments": [
+    {
+      "id": "F001",
+      "path": [
+        "ABFS_DelegationToken_NPE",
+        "test_setup_teardown"
+      ]
+    },
+    {
+      "id": "F002",
+      "path": [
+        "FS_Capabilities",
+        "capability_interface"
+      ]
+    },
+    {
+      "id": "F003",
+      "path": [
+        "Azure_China",
+        "aad_authentication"
+      ]
+    },
+    {
+      "id": "F004",
+      "path": [
+        "ABFS_Idempotency",
+        "rename_sharedkey"
+      ]
+    },
+    {
+      "id": "F005",
+      "path": [
+        "Admin_Maintenance",
+        "process_notes"
+      ]
+    },
+    {
+      "id": "F006",
+      "path": [
+        "ABFS_ReadPerformance",
+        "seek_strategy"
+      ]
+    },
+    {
+      "id": "F007",
+      "path": [
+        "Admin_Maintenance",
+        "process_notes"
+      ]
+    },
+    {
+      "id": "F008",
+      "path": [
+        "Admin_Maintenance",
+        "process_notes"
+      ]
+    },
+    {
+      "id": "F009",
+      "path": [
+        "DistCP_Preservation",
+        "preserve_attributes"
+      ]
+    },
+    {
+      "id": "F010",
+      "path": [
+        "FS_Capabilities",
+        "capability_interface"
+      ]
+    },
+    {
+      "id": "F011",
+      "path": [
+        "ABFS_ReadPerformance",
+        "seek_strategy"
+      ]
+    },
+    {
+      "id": "F012",
+      "path": [
+        "FS_Capabilities",
+        "capability_interface"
+      ]
+    },
+    {
+      "id": "F013",
+      "path": [
+        "S3A_Credentials",
+        "assumed_role"
+      ]
+    },
+    {
+      "id": "F014",
+      "path": [
+        "FS_Capabilities",
+        "capability_interface"
+      ]
+    },
+    {
+      "id": "F015",
+      "path": [
+        "ABFS_AuthInstance",
+        "test_authentication"
+      ]
+    },
+    {
+      "id": "F016",
+      "path": [
+        "Azure_China",
+        "aad_authentication"
+      ]
+    },
+    {
+      "id": "F017",
+      "path": [
+        "ABFS_Rename",
+        "idempotency_with_uuid"
+      ]
+    },
+    {
+      "id": "F018",
+      "path": [
+        "FS_Capabilities",
+        "capability_interface"
+      ]
+    },
+    {
+      "id": "F019",
+      "path": [
+        "Admin_Maintenance",
+        "process_notes"
+      ]
+    },
+    {
+      "id": "F020",
+      "path": [
+        "ABFS_DelegationToken_NPE",
+        "test_setup_teardown"
+      ]
+    },
+    {
+      "id": "F021",
+      "path": [
+        "ABFS_AuthInstance",
+        "test_authentication"
+      ]
+    },
+    {
+      "id": "F022",
+      "path": [
+        "Admin_Maintenance",
+        "process_notes"
+      ]
+    },
+    {
+      "id": "F023",
+      "path": [
+        "ABFS_ReadPerformance",
+        "seek_strategy"
+      ]
+    },
+    {
+      "id": "F024",
+      "path": [
+        "ABFS_DelegationToken_NPE",
+        "test_setup_teardown"
+      ]
+    },
+    {
+      "id": "F025",
+      "path": [
+        "FS_Capabilities",
+        "capability_interface"
+      ]
+    },
+    {
+      "id": "F026",
+      "path": [
+        "ABFS_HttpMetrics",
+        "send_recv_timing"
+      ]
+    },
+    {
+      "id": "F027",
+      "path": [
+        "DistCP_Preservation",
+        "preserve_attributes"
+      ]
+    },
+    {
+      "id": "F028",
+      "path": [
+        "FS_Capabilities",
+        "capability_interface"
+      ]
+    },
+    {
+      "id": "F029",
+      "path": [
+        "FS_Capabilities",
+        "capability_interface"
+      ]
+    },
+    {
+      "id": "F030",
+      "path": [
+        "FS_Capabilities",
+        "capability_interface"
+      ]
+    },
+    {
+      "id": "F031",
+      "path": [
+        "FS_Capabilities",
+        "capability_interface"
+      ]
+    },
+    {
+      "id": "F032",
+      "path": [
+        "ABFS_ReadPerformance",
+        "seek_strategy"
+      ]
+    },
+    {
+      "id": "F033",
+      "path": [
+        "ABFS_DelegationToken_NPE",
+        "test_setup_teardown"
+      ]
+    },
+    {
+      "id": "F034",
+      "path": [
+        "Admin_Maintenance",
+        "process_notes"
+      ]
+    },
+    {
+      "id": "F035",
+      "path": [
+        "ABFS_Idempotency",
+        "rename_sharedkey"
+      ]
+    },
+    {
+      "id": "F036",
+      "path": [
+        "S3Guard",
+        "uploads_command"
+      ]
+    },
+    {
+      "id": "F037",
+      "path": [
+        "ABFS_ReadPerformance",
+        "seek_strategy"
+      ]
+    },
+    {
+      "id": "F038",
+      "path": [
+        "S3A_SDK_Migration",
+        "header_processing"
+      ]
+    },
+    {
+      "id": "F039",
+      "path": [
+        "Azure_China",
+        "aad_authentication"
+      ]
+    },
+    {
+      "id": "F040",
+      "path": [
+        "ABFS_HttpMetrics",
+        "send_recv_timing"
+      ]
+    },
+    {
+      "id": "F041",
+      "path": [
+        "S3Guard",
+        "uploads_command"
+      ]
+    },
+    {
+      "id": "F042",
+      "path": [
+        "ABFS_HttpMetrics",
+        "send_recv_timing"
+      ]
+    },
+    {
+      "id": "F043",
+      "path": [
+        "Admin_Maintenance",
+        "process_notes"
+      ]
+    },
+    {
+      "id": "F044",
+      "path": [
+        "ABFS_HttpMetrics",
+        "send_recv_timing"
+      ]
+    },
+    {
+      "id": "F045",
+      "path": [
+        "ABFS_DelegationToken_NPE",
+        "test_setup_teardown"
+      ]
+    }
+  ]
+}

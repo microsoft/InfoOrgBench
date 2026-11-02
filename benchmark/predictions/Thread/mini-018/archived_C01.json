@@ -1,0 +1,305 @@
+{
+  "assignments": [
+    {
+      "id": "F001",
+      "path": [
+        "S3A-skip-optimization",
+        "lazy-seek-implementation"
+      ]
+    },
+    {
+      "id": "F002",
+      "path": [
+        "S3A-skip-optimization",
+        "lazy-seek-implementation"
+      ]
+    },
+    {
+      "id": "F003",
+      "path": [
+        "ABFS-unbuffer",
+        "unbuffer-implementation"
+      ]
+    },
+    {
+      "id": "F004",
+      "path": [
+        "S3A-skip-optimization",
+        "lazy-seek-implementation"
+      ]
+    },
+    {
+      "id": "F005",
+      "path": [
+        "ABFS-unbuffer",
+        "unbuffer-implementation"
+      ]
+    },
+    {
+      "id": "F006",
+      "path": [
+        "administration",
+        "version-updates"
+      ]
+    },
+    {
+      "id": "F007",
+      "path": [
+        "ABFS-unbuffer",
+        "discussion-notes"
+      ]
+    },
+    {
+      "id": "F008",
+      "path": [
+        "S3A-yarn-logging",
+        "log-collection"
+      ]
+    },
+    {
+      "id": "F009",
+      "path": [
+        "S3A-skip-optimization",
+        "lazy-seek-implementation"
+      ]
+    },
+    {
+      "id": "F010",
+      "path": [
+        "S3A-concurrent-ops",
+        "parallel-rename-timeout"
+      ]
+    },
+    {
+      "id": "F011",
+      "path": [
+        "ABFS-auth-tests",
+        "abfs-client-fix"
+      ]
+    },
+    {
+      "id": "F012",
+      "path": [
+        "ABFS-token",
+        "getaccesstoken-retry"
+      ]
+    },
+    {
+      "id": "F013",
+      "path": [
+        "S3A-ssl-issues",
+        "dot-bucket-names"
+      ]
+    },
+    {
+      "id": "F014",
+      "path": [
+        "ABFS-unbuffer",
+        "discussion-notes"
+      ]
+    },
+    {
+      "id": "F015",
+      "path": [
+        "S3A-skip-optimization",
+        "lazy-seek-implementation"
+      ]
+    },
+    {
+      "id": "F016",
+      "path": [
+        "S3A-skip-optimization",
+        "lazy-seek-implementation"
+      ]
+    },
+    {
+      "id": "F017",
+      "path": [
+        "ABFS-unbuffer",
+        "unbuffer-implementation"
+      ]
+    },
+    {
+      "id": "F018",
+      "path": [
+        "administration",
+        "misc-notes"
+      ]
+    },
+    {
+      "id": "F019",
+      "path": [
+        "ABFS-unbuffer",
+        "unbuffer-implementation"
+      ]
+    },
+    {
+      "id": "F020",
+      "path": [
+        "S3A-concurrent-ops",
+        "parallel-rename-timeout"
+      ]
+    },
+    {
+      "id": "F021",
+      "path": [
+        "administration",
+        "version-updates"
+      ]
+    },
+    {
+      "id": "F022",
+      "path": [
+        "ABFS-unbuffer",
+        "discussion-notes"
+      ]
+    },
+    {
+      "id": "F023",
+      "path": [
+        "ABFS-auth-tests",
+        "abfs-client-fix"
+      ]
+    },
+    {
+      "id": "F024",
+      "path": [
+        "ABFS-unbuffer",
+        "unbuffer-implementation"
+      ]
+    },
+    {
+      "id": "F025",
+      "path": [
+        "S3A-ssl-issues",
+        "dot-bucket-names"
+      ]
+    },
+    {
+      "id": "F026",
+      "path": [
+        "administration",
+        "misc-notes"
+      ]
+    },
+    {
+      "id": "F027",
+      "path": [
+        "administration",
+        "version-updates"
+      ]
+    },
+    {
+      "id": "F028",
+      "path": [
+        "S3A-skip-optimization",
+        "lazy-seek-implementation"
+      ]
+    },
+    {
+      "id": "F029",
+      "path": [
+        "administration",
+        "misc-notes"
+      ]
+    },
+    {
+      "id": "F030",
+      "path": [
+        "S3A-skip-optimization",
+        "lazy-seek-implementation"
+      ]
+    },
+    {
+      "id": "F031",
+      "path": [
+        "ABFS-idempotency",
+        "sharedkey-auth-fix"
+      ]
+    },
+    {
+      "id": "F032",
+      "path": [
+        "ABFS-unbuffer",
+        "unbuffer-implementation"
+      ]
+    },
+    {
+      "id": "F033",
+      "path": [
+        "ABFS-auth-tests",
+        "abfs-client-fix"
+      ]
+    },
+    {
+      "id": "F034",
+      "path": [
+        "administration",
+        "version-updates"
+      ]
+    },
+    {
+      "id": "F035",
+      "path": [
+        "S3A-ssl-issues",
+        "dot-bucket-names"
+      ]
+    },
+    {
+      "id": "F036",
+      "path": [
+        "ABFS-throttling",
+        "auth-error-counting"
+      ]
+    },
+    {
+      "id": "F037",
+      "path": [
+        "ABFS-retry-policy",
+        "configurable-retry-count"
+      ]
+    },
+    {
+      "id": "F038",
+      "path": [
+        "S3A-skip-optimization",
+        "lazy-seek-implementation"
+      ]
+    },
+    {
+      "id": "F039",
+      "path": [
+        "S3A-ssl-issues",
+        "dot-bucket-names"
+      ]
+    },
+    {
+      "id": "F040",
+      "path": [
+        "S3A-skip-optimization",
+        "lazy-seek-implementation"
+      ]
+    },
+    {
+      "id": "F041",
+      "path": [
+        "administration",
+        "version-updates"
+      ]
+    },
+    {
+      "id": "F042",
+      "path": [
+        "S3A-ssl-issues",
+        "dot-bucket-names"
+      ]
+    },
+    {
+      "id": "F043",
+      "path": [
+        "S3A-ssl-issues",
+        "dot-bucket-names"
+      ]
+    }
+  ]
+}

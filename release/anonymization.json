@@ -1,0 +1,52 @@
+{
+  "branch": "anonymous-review",
+  "replace": {
+    "README.md": "release/anonymous/README.md",
+    "LICENSE": "release/anonymous/LICENSE"
+  },
+  "include": [
+    ".gitleaks.toml",
+    "NOTICE.md",
+    "benchmark/*",
+    "docs/THREAD-DATA.md",
+    "licenses/*"
+  ],
+  "upstream_text_patterns": [
+    "benchmark/inputs/*"
+  ],
+  "anonymous_github_terms": [
+    "jou2024",
+    "microsoft/InfoOrgBench"
+  ],
+  "private_terms_file": ".release-denylist",
+  "identity_patterns": [
+    "Microsoft",
+    "microsoft\\.com",
+    "github\\.com/microsoft",
+    "aka\\.ms",
+    "jou2024",
+    "Redmond"
+  ],
+  "software_archive": [
+    "README.md",
+    "LICENSE",
+    "NOTICE.md",
+    "licenses/*",
+    "benchmark/engine/*",
+    "benchmark/algorithm-source/*",
+    "benchmark/replay.py",
+    "benchmark/manifest.json",
+    "benchmark/requirements-paper-pilot.txt",
+    ".gitleaks.toml",
+    "benchmark/build_thread.py",
+    "docs/THREAD-DATA.md"
+  ],
+  "data_archive": [
+    "benchmark/inputs/*",
+    "benchmark/predictions/*",
+    "benchmark/saved-results.json",
+    "benchmark/study-provenance.json",
+    "benchmark/sources/*",
+    "benchmark/inputs/README.md"
+  ]
+}

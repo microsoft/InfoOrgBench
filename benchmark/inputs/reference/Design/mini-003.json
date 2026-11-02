@@ -1,0 +1,366 @@
+{
+  "task_id": "mini-003",
+  "records": [
+    {
+      "id": "F001",
+      "path": [
+        "sig-storage",
+        "554-maximum-volume-count"
+      ],
+      "content_sha256": "399803e89a3811e3825fc6662d1b4799b539b74649b44924b53180594b80ffbf",
+      "source_native_id": "keps/sig-storage/554-maximum-volume-count#excerpt-3",
+      "source_heading": "non-goals"
+    },
+    {
+      "id": "F002",
+      "path": [
+        "sig-scheduling",
+        "1819-scheduler-extender"
+      ],
+      "content_sha256": "0b1b1ef02c7eb2f83c39e223c2637296c5537849a3137ccc11be9d8569be0ce8",
+      "source_native_id": "keps/sig-scheduling/1819-scheduler-extender#excerpt-3",
+      "source_heading": "design details"
+    },
+    {
+      "id": "F003",
+      "path": [
+        "sig-scheduling",
+        "4816-dra-prioritized-list"
+      ],
+      "content_sha256": "d5c76d549eadb933e4394d5fde7d9c2070b6ba0905feecd0a4f3e3213ca0f850",
+      "source_native_id": "keps/sig-scheduling/4816-dra-prioritized-list#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F004",
+      "path": [
+        "sig-autoscaling",
+        "5325-hpa-pod-selection-accuracy"
+      ],
+      "content_sha256": "c04214f359dd9e27a5b151250b843372f06b012bc3bfe0644f201c27c3850534",
+      "source_native_id": "keps/sig-autoscaling/5325-hpa-pod-selection-accuracy#excerpt-2",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F005",
+      "path": [
+        "sig-autoscaling",
+        "4951-configurable-hpa-tolerance"
+      ],
+      "content_sha256": "ee2f5c06e2aaa13acc7ca9cae02d2aaaf447befa42e797a74cda1e39cbf609c4",
+      "source_native_id": "keps/sig-autoscaling/4951-configurable-hpa-tolerance#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F006",
+      "path": [
+        "sig-scheduling",
+        "4816-dra-prioritized-list"
+      ],
+      "content_sha256": "7b1c8e46ad22f66ee568f69078dbcedf6752d53315ab12cf8d54dbe2c1023245",
+      "source_native_id": "keps/sig-scheduling/4816-dra-prioritized-list#excerpt-3",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F007",
+      "path": [
+        "sig-autoscaling",
+        "117-hpa-metrics-specificity"
+      ],
+      "content_sha256": "0b2e07d257782f6e0c970d0e230097be748bc09d87b557c6cc2522028178b191",
+      "source_native_id": "keps/sig-autoscaling/117-hpa-metrics-specificity#excerpt-3",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F008",
+      "path": [
+        "sig-scheduling",
+        "4816-dra-prioritized-list"
+      ],
+      "content_sha256": "09c122a3b9f2a5ace077ec11f442653cda6a5f7076339706bc8b379351c5982a",
+      "source_native_id": "keps/sig-scheduling/4816-dra-prioritized-list#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F009",
+      "path": [
+        "sig-storage",
+        "3751-volume-attributes-class"
+      ],
+      "content_sha256": "3035a5e5cb4ee2ad2f661884d5dc65715a0939a35806830d929cdea85913e082",
+      "source_native_id": "keps/sig-storage/3751-volume-attributes-class#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F010",
+      "path": [
+        "sig-api-machinery",
+        "6164-internal-type-elimination"
+      ],
+      "content_sha256": "bf7c7898cd2d16c581ad135406c937e400c8befa5bca25f6328575caf188a172",
+      "source_native_id": "keps/sig-api-machinery/6164-internal-type-elimination#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F011",
+      "path": [
+        "sig-autoscaling",
+        "4951-configurable-hpa-tolerance"
+      ],
+      "content_sha256": "01043e03cf78b3f58912d3f406824756f627b686e0975c3d0b3648c898a51db6",
+      "source_native_id": "keps/sig-autoscaling/4951-configurable-hpa-tolerance#excerpt-2",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F012",
+      "path": [
+        "sig-api-machinery",
+        "575-crd-defaulting"
+      ],
+      "content_sha256": "df5b7842f9e146691df31722312af06e24b364090b9c18bd3b45fad3bd4a777c",
+      "source_native_id": "keps/sig-api-machinery/575-crd-defaulting#excerpt-3",
+      "source_heading": "non-goals"
+    },
+    {
+      "id": "F013",
+      "path": [
+        "sig-storage",
+        "3751-volume-attributes-class"
+      ],
+      "content_sha256": "d24f9e4a6457102ba64cef0c1fb27890909471b6bba844bcfebbed65947e59da",
+      "source_native_id": "keps/sig-storage/3751-volume-attributes-class#excerpt-3",
+      "source_heading": "non-goals"
+    },
+    {
+      "id": "F014",
+      "path": [
+        "sig-api-machinery",
+        "2887-openapi-enum-types"
+      ],
+      "content_sha256": "f3b01223d8fdf1f64d3c0918a21343619bc51a9c914948e81f93d70a14392fdb",
+      "source_native_id": "keps/sig-api-machinery/2887-openapi-enum-types#excerpt-1",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F015",
+      "path": [
+        "sig-storage",
+        "3762-persistent-volume-last-phase-transition-time"
+      ],
+      "content_sha256": "a77b7bf7c4370e15162c438be715d8d5a447595bdf532438b68c8e192740ae59",
+      "source_native_id": "keps/sig-storage/3762-persistent-volume-last-phase-transition-time#excerpt-1",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F016",
+      "path": [
+        "sig-scheduling",
+        "1819-scheduler-extender"
+      ],
+      "content_sha256": "7c50bd56f78f644496caef2c89418602653275faeac85c46126813e877788430",
+      "source_native_id": "keps/sig-scheduling/1819-scheduler-extender#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F017",
+      "path": [
+        "sig-storage",
+        "3762-persistent-volume-last-phase-transition-time"
+      ],
+      "content_sha256": "1e5ccee62a74b701832552c63f1459d919aa55881a2e2146846b3a406a118a4c",
+      "source_native_id": "keps/sig-storage/3762-persistent-volume-last-phase-transition-time#excerpt-3",
+      "source_heading": "design details"
+    },
+    {
+      "id": "F018",
+      "path": [
+        "sig-storage",
+        "554-maximum-volume-count"
+      ],
+      "content_sha256": "328cf41f5c3a9e5ebe37003246d49577af2371c060778e4dfbe17390e6f0f02f",
+      "source_native_id": "keps/sig-storage/554-maximum-volume-count#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F019",
+      "path": [
+        "sig-autoscaling",
+        "5325-hpa-pod-selection-accuracy"
+      ],
+      "content_sha256": "202da788aacb7d85d13768685a400b9c6a2c1596e6fe19bba8b0078c4afea888",
+      "source_native_id": "keps/sig-autoscaling/5325-hpa-pod-selection-accuracy#excerpt-3",
+      "source_heading": "design details"
+    },
+    {
+      "id": "F020",
+      "path": [
+        "sig-scheduling",
+        "6080-dra-derived-attributes"
+      ],
+      "content_sha256": "fe565b67e32dfb2a9c9cf84fc548b591f2d10b24ab677f146245c6abade307e2",
+      "source_native_id": "keps/sig-scheduling/6080-dra-derived-attributes#excerpt-3",
+      "source_heading": "risks and mitigations"
+    },
+    {
+      "id": "F021",
+      "path": [
+        "sig-api-machinery",
+        "575-crd-defaulting"
+      ],
+      "content_sha256": "6cf8761ca684064186f99f42c560905fe1696d41d193aaf798af8c1676692589",
+      "source_native_id": "keps/sig-api-machinery/575-crd-defaulting#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F022",
+      "path": [
+        "sig-scheduling",
+        "1819-scheduler-extender"
+      ],
+      "content_sha256": "8765f52dd3cefa0b74016b11ea92aab4b38fcf6bb7d4bac50dfefa3c03f2087e",
+      "source_native_id": "keps/sig-scheduling/1819-scheduler-extender#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F023",
+      "path": [
+        "sig-api-machinery",
+        "6164-internal-type-elimination"
+      ],
+      "content_sha256": "828b4c84bc89da2f539e6b7532a5e1af205aef3ea4f5842f61316d722e17f7c0",
+      "source_native_id": "keps/sig-api-machinery/6164-internal-type-elimination#excerpt-3",
+      "source_heading": "risks and mitigations"
+    },
+    {
+      "id": "F024",
+      "path": [
+        "sig-api-machinery",
+        "6164-internal-type-elimination"
+      ],
+      "content_sha256": "92e425378f7f15af4aeede3ff638b4f578d89aa01986ec971520dda31421bf1c",
+      "source_native_id": "keps/sig-api-machinery/6164-internal-type-elimination#excerpt-2",
+      "source_heading": "non-goals"
+    },
+    {
+      "id": "F025",
+      "path": [
+        "sig-autoscaling",
+        "117-hpa-metrics-specificity"
+      ],
+      "content_sha256": "ce1eaed0adea676337d61168507e08a4faf07cdb682f2990f9a9dcbc2bba5327",
+      "source_native_id": "keps/sig-autoscaling/117-hpa-metrics-specificity#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F026",
+      "path": [
+        "sig-api-machinery",
+        "2887-openapi-enum-types"
+      ],
+      "content_sha256": "f08712e5e88fd473f2d5bab5ecc8ce49a0f7e859126187732de245998e0d671e",
+      "source_native_id": "keps/sig-api-machinery/2887-openapi-enum-types#excerpt-2",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F027",
+      "path": [
+        "sig-scheduling",
+        "6080-dra-derived-attributes"
+      ],
+      "content_sha256": "19ec7cbab517eba3681face1b7432dcf70e13265869cbdf80a3b25794464fe30",
+      "source_native_id": "keps/sig-scheduling/6080-dra-derived-attributes#excerpt-2",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F028",
+      "path": [
+        "sig-api-machinery",
+        "575-crd-defaulting"
+      ],
+      "content_sha256": "268f2a7330abcec1b4560dd322b579f34424bf5e1bd8b5f09a26117612cfa202",
+      "source_native_id": "keps/sig-api-machinery/575-crd-defaulting#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F029",
+      "path": [
+        "sig-api-machinery",
+        "2887-openapi-enum-types"
+      ],
+      "content_sha256": "293914ce755a70d13fed4b23dc57ae91654e57196d3e63d381aaf972d1a4fc08",
+      "source_native_id": "keps/sig-api-machinery/2887-openapi-enum-types#excerpt-3",
+      "source_heading": "risks and mitigations"
+    },
+    {
+      "id": "F030",
+      "path": [
+        "sig-autoscaling",
+        "117-hpa-metrics-specificity"
+      ],
+      "content_sha256": "b4d53c506d963e7656da2055b6fad0de17b4e09f4c80553849828f65e38e7533",
+      "source_native_id": "keps/sig-autoscaling/117-hpa-metrics-specificity#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F031",
+      "path": [
+        "sig-storage",
+        "554-maximum-volume-count"
+      ],
+      "content_sha256": "afb57fe03a32e28445fab606202a30a54cd3b979a640001828dce437e289f441",
+      "source_native_id": "keps/sig-storage/554-maximum-volume-count#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F032",
+      "path": [
+        "sig-storage",
+        "3762-persistent-volume-last-phase-transition-time"
+      ],
+      "content_sha256": "23a6408b7af3c482619f8bde1a2b9657119d345b96597a7c7ae421d9d320db3a",
+      "source_native_id": "keps/sig-storage/3762-persistent-volume-last-phase-transition-time#excerpt-2",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F033",
+      "path": [
+        "sig-autoscaling",
+        "4951-configurable-hpa-tolerance"
+      ],
+      "content_sha256": "dba411b92ab3f6f0d5c5e66ccf3ad76c78c26dd414e1f64620f9e7bcc1b4cf4e",
+      "source_native_id": "keps/sig-autoscaling/4951-configurable-hpa-tolerance#excerpt-3",
+      "source_heading": "design details"
+    },
+    {
+      "id": "F034",
+      "path": [
+        "sig-autoscaling",
+        "5325-hpa-pod-selection-accuracy"
+      ],
+      "content_sha256": "5f17548a704571b0968d51446643ca6d41bb076e7fa58fdcdc81e5f6241f4db2",
+      "source_native_id": "keps/sig-autoscaling/5325-hpa-pod-selection-accuracy#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F035",
+      "path": [
+        "sig-scheduling",
+        "6080-dra-derived-attributes"
+      ],
+      "content_sha256": "a61bc759c9ffb76a8b20f64b4d54e35dd1f731f65f6c7b6f3dca76494d83e906",
+      "source_native_id": "keps/sig-scheduling/6080-dra-derived-attributes#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F036",
+      "path": [
+        "sig-storage",
+        "3751-volume-attributes-class"
+      ],
+      "content_sha256": "de0549b4029b1a671cce64abc2d22a99eae973e8554d8b9bf3bfe0f974c8f71f",
+      "source_native_id": "keps/sig-storage/3751-volume-attributes-class#excerpt-2",
+      "source_heading": "motivation"
+    }
+  ],
+  "reference_scope": "Source-derived group/proposal hierarchy for a development-only difficulty and cost pilot."
+}

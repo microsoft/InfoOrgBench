@@ -1,0 +1,185 @@
+{
+  "task_id": "mini-022",
+  "records": [
+    {
+      "id": "F001",
+      "format": "text",
+      "text": "Offer guaranteed memory (and hugepages) allocation over a minimum number of NUMA nodes for containers (within a pod). Guaranteeing the affinity of memory and hugepages to the same NUMA node for the whole group of containers (within a pod). This is a long-term goal which will be achieved along with PR #1752 and the implementation of `hintprovider.GetPodLevelTopologyHints()` API in the *Memory Manager*."
+    },
+    {
+      "id": "F002",
+      "format": "text",
+      "text": "Introduce an optional `DefaultUser` field to atomic write volume API objects. Atomic write volumes include ConfigMap, Secret, DownwardAPI and Projected volumes. Introduce an optional `User` field to atomic write volume types child items API objects. This allows users to define file owner UID per item that takes precedence over the volume level `DefaultUser` field. When writing files into the atomic write volumes, Kubelet configures their file owner UID according to the `DefaultUser` and `User` fields."
+    },
+    {
+      "id": "F003",
+      "format": "text",
+      "text": "We propose to add a new field to the existing [`HPAScalingRules`][] object: `tolerance`: (float) the minimum change (from 1.0) in the desired-to-actual metrics ratio for the horizontal pod autoscaler to consider scaling. Must be greater than or equal to 0.\n\nThe `tolerance` field is optional, and when not specified the HPA will continue to use the value of the global `--horizontal-pod-autoscaler-tolerance` as the tolerance for scaling calculations.\n\nSince there are separate `HPAScalingRules` objects defined for an HPA's `spec.behavior.scaleUp` and `spec.behavior.scaleDown`, it is possible to specify different `tolerance` values for scaling up vs. scaling down.\n\n[HPAScalingRules]:"
+    },
+    {
+      "id": "F004",
+      "format": "text",
+      "text": "The `HorizontalPodAutoscaler` API is updated to add a new `tolerance` field to the `HPAScalingRules` object:\n\nThis new tolerance will be used in the autoscaling controller [replica_calculator.go][]. The current logic is:\n\nIt will be replaced by:\n\nSince the added field is optional and its omission does not change the existing autoscaling behavior, this feature will only be added to the latest stable API version `pkg/apis/autoscaling/v2`. Older versions (i.e. `v1`, `v2beta1`, `v2beta2`) will not include the new field, but converters will be updated where needed to comply with [round-trip requirements][].\n\nThe feature presented in this KEP only allows users to tune an existing parameter, and as such doesn't require any new HPA Events or modify any Status. The validation logic will be updated to ensure that the `tolerance` field cannot be set to a negative value.\n\n[replica_calculator.go]: [round-trip requirements]:"
+    },
+    {
+      "id": "F005",
+      "format": "text",
+      "text": "MUST use a pruning set identification algorithm that remains accurate regardless of what has changed between the previous and current sets MUST use a pruning set identification algorithm that scales to thousands of resources across hundreds of types MUST natively support custom resources MUST provide a way to accurately preview which objects will be deleted MUST support namespaced and non-namespaced resources; SHOULD support them within the same operation SHOULD use a low-level \"plumbing\" object grouping mechanism over which more sophisticated abstractions can be built by \"porcelain\" tooling. SHOULD allow for listing of grouping objects themselves"
+    },
+    {
+      "id": "F006",
+      "format": "text",
+      "text": "We will introduce new declarative APIs called EvictionRequest and Eviction, whose purpose is to coordinate the eviction of a pod from a node. They create a contract between the eviction requester, the pod, and the responder (described later). The contract is enforced by the eviction request controller, the API definition and validation.\n\nPods will carry a new field `.spec.evictionResponders`, which specifies a list of responders involved in their lifecycle. This would allow multiple actors to take an action before the pod is terminated. Only one responder may progress with the eviction at a time. The responder with the index 0 is executed first. If there is no responder, or the last responder has finished without terminating the pod, the imperative eviction responder controller will attempt to evict the pod using the existing API-initiated eviction.\n\nMultiple requesters can request the eviction of the same pod by creating EvictionRequest objects. They can optionally withdraw their request in certain scenarios (EvictionRequest Cancellation Examples).\n\nWe can think of EvictionRequest and Eviction as a managed and safer alternative to eviction. For instance, it can be used to scale up a workload before terminating the pods. See the Pod Surge Example based on the EvictionRequest Process.\n\nThe following items provide further information on the evolution and adoption of this feature: Follow-up Design Details for Kubernetes Workloads Future Improvements Adoption"
+    },
+    {
+      "id": "F007",
+      "format": "text",
+      "text": "Kustomize's extension story MUST be consistent between standalone Kustomize and kustomize-in-kubectl. For example, if any flags are used to enable or configure Kustomize, the usage of those flags must be identical in both the standalone and embedded distributions. Plugin configuration MUST be fully declarative. Plugin usage MUST NOT require out-of-band imperative installation steps. Kustomize SHOULD support declarative configuration of a set of trusted plugins. (See the [Catalog KEP]) Kustomize SHOULD provide an API that enables plugins to be orchestrated on equal footing with built-in transformers, including with respect to ordering. (See the [Composition KEP]) Kustomize SHOULD provide an API that facilitates sane layering in plugin-centric workflows where the plugin configuration itself must be manipulated. (See the [Composition KEP]) As a measure of plugin UX, Kustomize itself SHOULD be able to convert existing transformers (e.g. the Helm transformer) to \"official\" plugins without significantly degrading the user experience."
+    },
+    {
+      "id": "F008",
+      "format": "text",
+      "text": "Latency-sensitive applications want to have exclusive CPU allocation to enable better isolation to meet application's latency and performance requirements. The static policy of the CPUManager already allows to prevent virtual CPU sharing. However, for some classes of these latency-sensitive applications running on simultaneous multithreading (SMT) enabled system, it is also beneficial to consider thread-level allocation, to avoid physical CPU sharing and prevent possible interferences caused by noisy neighborhoods."
+    },
+    {
+      "id": "F009",
+      "format": "text",
+      "text": "When creating objects with `kubectl apply`, it is frequently desired to make changes to the config that remove objects and then re-apply and have those objects deleted. Since Kubernetes v1.5, an alpha-stage `--prune` flag exists to support this workflow: it deletes objects previously applied that no longer exist in the source config. However, the current implementation has fundamental design flaws that limit its performance and lead to surprising behaviours. This KEP proposes a safer and more performant implementation for this feature as a second, independent alpha. The new implementation is based on a low-level concept called \"ApplySet\" that other, higher-level ecosystem tooling can build on top of to enhance their own higher-level object groupings with improved interoperability."
+    },
+    {
+      "id": "F010",
+      "format": "text",
+      "text": "We propose to add a new flag in Kubelet called `CPUManagerPolicyOptions` in the kubelet config or command line argument called `cpumanager-policy-options` which allows the user to specify the CPU Manager policy option. add a new cpu manager option called `full-pcpus-only`; if present, this option will enable further refinements of the existing static policy.\n\nThe static policy allocates CPUs using a topology-aware best-fit allocation. This enhancement wants to provide stronger guarantees by restricting the allocation of threads. The aim is to achieve the isolation for workloads managed by Kubernetes. The other part of isolation is (as of now) not managed by Kubernetes, as described in Explicitly Reserved CPU List and Static policy.\n\nLet's summarize the key properties of the `full-pcpus-only` option: Preserve all the properties of the `static` policy. Never allocate less than a physical-cpu worth amount of cores. With this requirement enforced, the CPUManager allocation algorithm will guarantee avoidance of physical core sharing. Should the node not have enough free physical cores, the Pod will be put in Failed state, with `SMTAlignmentError` as reason."
+    },
+    {
+      "id": "F011",
+      "format": "text",
+      "text": "We propose adding a new field to the HPA specification called `SelectionStrategy` that allows users to specify how pods should be selected for metric collection: If set to `LabelSelector` (default): Uses the current behavior of selecting all pods that match the target workload's label selector. If set to `OwnerReference`: Only selects pods that are owned by the target workload through owner references.\n\nThis enumerated type allows for future extension with additional selection strategies if needed, such as `Annotations` etc."
+    },
+    {
+      "id": "F012",
+      "format": "text",
+      "text": "The Horizontal Pod Autoscaler (HPA) has a critical limitation in its pod selection mechanism: it collects metrics from all pods that match the target workload's label selector. This can lead to incorrect scaling decisions when unrelated pods (such as Jobs, CronJobs, or other Deployments) happen to share the same labels.\n\nThis often results in unexpected behavior such as: HPAs stuck at maxReplicas despite low actual usage in the target workload Unnecessary scaling events triggered by temporary workloads Unpredictable scaling behavior that's difficult to diagnose\n\nThis proposal adds a parameter to HPAs which ensures the HPA only considers pods that are actually owned by the target workload, through owner references, rather than all pods matching the label selector."
+    },
+    {
+      "id": "F013",
+      "format": "text",
+      "text": "[Horizontal Pod Autoscaler][] (HPA) regularly estimates how many replicas a given Deployment (or other resource with a `/scale` subresource) should instantiate. HPAs define one (or more) metrics (e.g. CPU utilization) on which autoscaling is based. The number of replicas is derived from the ratio between the *expected* and *current* value of this metric ([Algorithm details][]).\n\nFor example, for a workload with 100 `currentReplicas` and a usage ratio (`currentMetricValue`/`desiredMetricValue`) of 1.07, the calculated `desiredReplicas` would be 107 (100 * 1.07).\n\nHowever, to avoid flapping, scaling actions are skipped if the usage ratio is approximately 1, within a globally-configurable *tolerance*, set to 10% by default. In the example above, no scaling action would take place, since the ratio is within this tolerance.\n\nThis proposal adds a parameter to HPAs allowing users to configure this tolerance per HPA resource. For the example above, we could configure the tolerance in the workload's HPA to 5%, which would allow the scale-up to 107 replicas to proceed.\n\n[Horizontal Pod Autoscaler]: [Algorithm details]:"
+    },
+    {
+      "id": "F014",
+      "format": "text",
+      "text": "We acknowledge few drawbacks of the proposed approach: pods that are rejected due to an AdmissionError do not get automatically rescheduled. Workloads which wants to make sure to be rescheduled need to use extra kubernetes facilities, for example Deployments. pods might have to overallocate resources.\n\nWe evaluated possible alternatives to the extra admission control, but we eventually discarded all of them. We document them in this section."
+    },
+    {
+      "id": "F015",
+      "format": "text",
+      "text": "The CSIDriver objects will need to be redeployed after this field is introduced if the desired behavior is modified. If a cluster enables the `CSIVolumeFSGroupPolicy` feature gate and then this feature gate is disabled, such as due to an upgrade or downgrade, then the cluster will revert to the current behavior of examining volumes and attempting to apply volume ownerships and permissions based on the defined `fsGroup`."
+    },
+    {
+      "id": "F016",
+      "format": "text",
+      "text": "Make any change to the Configuration Functions Specification, a low-level spec shared with other orchestrators such as kpt. No such changes are required by this KEP. Create a catalog of \"official\" plugins. Although such a thing would be a natural extension to this KEP, it is out of scope. Convert currently compiled in transformers to plugins. Although this KEP should make this possible, the work to do so is out of scope."
+    },
+    {
+      "id": "F017",
+      "format": "text",
+      "text": "Many Kubectl commands make requests to specific Resource endpoints. The request bodies are populated by flags provided by the user.\n\nExamples: `create <resource>` `set <field> <resource>` `logs`\n\nAlthough these commands are compiled into the kubectl binary, their workflow is similar to a form on a webpage and could be complete driven by the server providing the client with the request (endpoint + body) and a set of flags to populate the request body.\n\nPublishing commands as data from the server addresses cli integration with API extensions as well as client-server version skew.\n\n**Note:** No server-side changes are required for this, all Request and Response template expansion is performed on the client side."
+    },
+    {
+      "id": "F018",
+      "format": "text",
+      "text": "PersistentVolumeClaims can accumulate over time in a cluster. When applications are deleted or migrated, their associated PVCs may be left behind, consuming storage resources and incurring costs. It'd be helpful for cluster admins to identify how long a PVC has been sitting unused, to then clean up unutilized storage. Currently, Kubernetes provides no mechanism to determine when a PVC was last actively used by a workload.\n\nOnly Kubernetes has accurate knowledge of when a PVC is mounted by a Pod, making this the ideal place to track usage."
+    },
+    {
+      "id": "F019",
+      "format": "text",
+      "text": "As `ScaledToZero` is no explicit property, applying a new Deployment with `replicas: 0` and HPA `minReplicas: 0` can be confusing as the Deployment will never scale.\n\nThis needs should be documented and is detectable by looking at the existing `ScalingActive` condition.\n\nIn the future pausing the HPA can become an explicit feature and the implicit pausing via `replicas: 0` can be deprecate to remove this confusing."
+    },
+    {
+      "id": "F020",
+      "format": "text",
+      "text": "Currently volume permission and ownership change is examined for every volume. If the PodSecurityPolicy's `fsGroup` is defined, `fsType` is defined, and the PersistentVolumes's `accessModes` is RWO, then we will attempt to modify the volume ownership and permissions.\n\nAs part of this proposal we will change the algorithm that modifies volume ownership and permissions for CSIDrivers to check the new field, and skip volume ownership modifications if it is found to be `None`.\n\nWhen defining a `CSIDriver`, we propose that `CSIDriver.Spec` be expanded to include a new field entitled `CSIVolumeFSGroupPolicy` which can have following possible values: `ReadWriteOnceWithFSType` --> Current behavior. Attempt to modify the volume ownership and permissions to the defined `fsGroup` when the volume is mounted if accessModes is RWO. `None` --> New behavior. Attach the volume without attempting to modify volume ownership or permissions. `File` --> New behavior. Always attempt to apply the defined fsGroup to modify volume ownership and permissions regardless of fstype or access mode."
+    },
+    {
+      "id": "F021",
+      "format": "text",
+      "text": "[Horizontal Pod Autoscaler][] (HPA) automatically scales the number of pods in any resource which supports the `scale` subresource based on observed CPU or memory utilization (or, with custom metrics support, on some other application-provided metrics) from one to many replicas. This proposal adds support for scaling from zero to many replicas and back to zero for object and external metrics.\n\nScaling to zero is particularly effective for cost reduction when individual pods demand substantial resource requests, such as dedicated CPUs or GPUs. Since CPU and memory utilization can only be measured on running pods, scaling to zero will be limited to object and external metrics.\n\n[Horizontal Pod Autoscaler]:"
+    },
+    {
+      "id": "F022",
+      "format": "text",
+      "text": "This design does not support persistent volumes\n\nPersistent volumes may be shared across multiple pods and have an independent lifecycle.\n\nA design that covers both ephemeral and persistent volumes would introduces significant complexity regarding user namespaces, varying underlying storage capabilities and diverse CSI drivers implementation.\n\nTherefore, a simpler design that focus on ephemeral volumes is more feasible and maintainable. This design does not support all ephemeral volume types\n\nUnlike atomic write volumes, where individual data files are managed by kubelet, `emptyDir` provides an empty directory at the mount point. Therefore, any ownership configurations involve the mount point directory only.\n\nOther ephemeral volume types, i.e. image, CSI ephemeral and general ephemeral, each present different challenges and variances. These distinctions are significant enough to warrant a separate proposal."
+    },
+    {
+      "id": "F023",
+      "format": "text",
+      "text": "The *Memory Manager* is a new component in *kubelet* ecosystem proposed to enable the feature of guaranteed memory (and hugepages) allocation for pods in Guaranteed QoS class. The feature offers a couple of allocation strategies. The first one, the *single-NUMA* strategy, is intended for high-performance and performance-sensitive applications. Relevant user stories are illustrated in here for the *single-NUMA* strategy. The second one, the *multi-NUMA* strategy, complements the overall design while it overcomes the situation that cannot be managed with the *single-NUMA* strategy. Namely, whenever the amount of memory demanded by a pod is in the excess of a single NUMA node capacity, the guaranteed memory is provisioned across multiple NUMA nodes with the *multi-NUMA* strategy.\n\nIn both scenarios, the *Memory Manager* employs hint generation protocol to yield the most suitable NUMA affinity for a pod, and it feeds the central manager (*Topology Manager*) with those affinity hints. Moreover, *Memory Manager* ensures that the memory which a pod requests is allocated from a minimum number of NUMA nodes.\n\nThe up-to-date implementation of the *Memory Manager* is available through the link in Implementation History section. Technically, the *single-NUMA* strategy is a special case of the *multi-NUMA* strategy, and thus, no separate implementation was developed for them. Still, the proposal differentiates between the *single-NUMA* and the *multi-NUMA* strategies. First of all, it allows for a number of important use cases or situations to be discussed and contrasted."
+    },
+    {
+      "id": "F024",
+      "format": "text",
+      "text": "The *Memory Manager* is a new component of _kubelet_ ecosystem proposed to enable single-NUMA and multi-NUMA guaranteed memory allocation. Besides: *Memory Manager* is also a new hint provider for _Topology Manager_; The hints are intended to indicate preferred memory (and hugepages) affinity which pins the memory for a container either to a single or a group of NUMA nodes; By design, *Memory Manager* offers guaranteed memory allocation for pods in Guaranteed QoS class.\n\nThe next subsection introduces to the proposal by outlining its design."
+    },
+    {
+      "id": "F025",
+      "format": "text",
+      "text": "Changes required for this KEP: Add a new condition type constant to PVC condition types in `core/v1`:\n\nThe condition uses the following states:\n\nIn the PVC protection controller, add logic to set/update the `Unused` condition: The PVC Protection controller already watches Pod events and checks when a PVC transitions from \"in use\" to \"not in use\". The implementation extends this existing logic: When a Pod is deleted, the controller enqueues all the affected PVCs During sync, the controller checks if the PVC is still in use by a Pod Existing behavior: If it's not in use, and the `deletionTimestamp` is set, it proceeds with finalizer removal."
+    },
+    {
+      "id": "F026",
+      "format": "text",
+      "text": "Implement eviction request capabilities in Kubernetes workloads (ReplicaSet, Deployment, etc.). Implement eviction request capabilities for autoscaling, de/scheduling. Synchronizing of the eviction request status to the pod status. Introduce the eviction request concept for types other than pods. Synchronize almost all pod termination mechanisms (see #4 in the Motivation section), so that they do not terminate pods under EvictionRequest driven node maintenance. There may still be places (hard OOM) where this is not possible as described in New EvictionRequest Types and Synchronization of Pod Termination Mechanisms."
+    },
+    {
+      "id": "F027",
+      "format": "text",
+      "text": "Currently before bind mounting a CSI volume for a Pod, we use imprecise heuristics, such as presence of fsType on the PVC to determine if the volume supports fsGroup based permission change. These heuristics are known to be fragile, and cause problems with different storage types.\n\nTo solve this issue we will add a new field called `CSIDriver.Spec.FSGroupPolicy` that allows the driver to define if it supports volume ownership modifications via fsGroup."
+    },
+    {
+      "id": "F028",
+      "format": "text",
+      "text": "The HPA specification (v2) will be extended with a new field to control additional filtering of pods after the initial label selector matching:\n\nSince the added field is optional and its omission does not change the existing autoscaling behavior, this feature will only be added to the latest stable API version `pkg/apis/autoscaling/v2`. Older versions (i.e. `v1`, `v2beta1`, `v2beta2`) will not include the new field, but converters will be updated where needed to comply with [round-trip requirements][].\n\nPod Selection Process: Initial Label Selection (Always happens): The HPA first selects pods using the target workload's label selector This is the fundamental selection mechanism and remains unchanged Additional Filtering (Based on SelectionStrategy): `LabelSelector`(default): No additional filtering All pods that matched the label selector are used for metrics Maintains current behavior for backward compatibility `OwnerReference`: Further filters the label-selected pods Only keeps pods that are owned by the target workload through owner references Follows the ownership chain (e.g., Pods -> ReplicaSet -> Deployment) Excludes pods that matched labels but aren't in the ownership chain\n\nThe `HorizontalPodAutoscaler` API updated to add a new `SelectionStrategy` field to the `HorizontalPodAutoscalerSpec` object:\n\n[round-trip requirements]:"
+    },
+    {
+      "id": "F029",
+      "format": "text",
+      "text": "This KEP resolves a long-standing and recurring ask to configure atomic write volume files with proper ownerships. There have been several issue tickets since 2014, each with a lot of comments and reactions, demonstrating the strong requirements from the Kubernetes user base.\n\nMany popular software requires strict file ownerships, such as MongoDB replica set [key files][mongodb-key-files] and SSHD [host keys][sshd-host-keys]. The existing atomic write volume implementation creates files owned by root and therefore not satisfying such ownership requirements. A known workaround involves running an initContainers as root to perform chown.\n\nHowever, this workaround is not possible in clusters implementing the [restricted][restricted-policy] pod security standards policy that follow the current pod hardening best practices. The policy requires pods to run as non-root and drop all capabilities, therefore rending this workaround impossible. Moreover, even in less hardened clusters, the workaround creates unnecessary friction and maintenance overhead for the users.\n\n[mongodb-key-files]: [sshd-host-keys]: [restricted-policy]:"
+    },
+    {
+      "id": "F030",
+      "format": "text",
+      "text": "With the addition of scaling based on object and external metrics it became possible to automatically adjust the number of running replicas based on an application provided metric. A typical use-case case for this is scaling the number of queue consumers based on the length of the consumed queue.\n\nIn cases of a frequently idle queue or a less latency-sensitive workload, there is no need to keep one replica running at all times. Instead, you can dynamically scale to zero replicas, especially for workloads with high resource demands, such as those requiring GPUs. This approach not only reduces costs but also has significant energy-saving potential, particularly as GPU workloads become more prevalent. When replicas are scaled to zero, the HPA must also be capable of scaling back up as soon as messages become available."
+    },
+    {
+      "id": "F031",
+      "format": "text",
+      "text": "There are many issues with today's Eviction API and PodDisruptionBudgets that are of great concern to cluster administrators and application owners. These issues range from insufficient data safety, application availability, autoscaling to node draining issues.\n\nThis KEP proposes to add a new declarative EvictionRequest and Eviction API to manage the eviction of pods. Its mission is to allow for a cooperative termination of a pod, usually in order to run the pod on another node. If the owner of the pod does not cooperate, the eviction request will try to resort to a pod eviction (API-initiated Eviction).\n\nThese new APIs can be used to implement additional capabilities around node draining, pod descheduling, autoscaling, or as a general interface between applications and/or controllers. It would provide additional safety and observability guarantees and prevent bad practices as opposed to just using the current Eviction API endpoint and PodDisruptionBudgets."
+    },
+    {
+      "id": "F032",
+      "format": "text",
+      "text": "Add a new condition type `Unused` to the `PersistentVolumeClaim` status conditions. This condition is managed by the PVC protection controller (in kube-controller-manager) and reflects whether the PVC is currently referenced by any non-terminal Pod.\n\nWhen the last Pod referencing a PVC is deleted or reaches a terminal state, the condition is set to `Status=True` with `Reason=\"NoPodsUsingPVC\"` and `Message=\"No pods are currently referencing this PVC\"`. When a new Pod starts referencing the PVC, the condition is set to `Status=False` with `Reason=\"PodUsingPVC\"` and `Message=\"A pod is currently referencing this PVC\"`.\n\nThe `lastTransitionTime` of the condition indicates when the PVC last changed between used and unused states, providing the equivalent of an \"unused since\" timestamp."
+    },
+    {
+      "id": "F033",
+      "format": "text",
+      "text": "MUST NOT formalize the grouping of objects under management as an \"application\" or other high-level construct MUST NOT require users to manually/independently construct the grouping, which would be a significant reduction in UX compared to the current alpha MUST NOT require any particular CRDs to be installed MAY still have limited performance when used to manage thousands of resources of hundreds of types in a single operation (MUST NOT be expected to overcome performance limitations of issuing many individual deletion requests, for example)"
+    },
+    {
+      "id": "F034",
+      "format": "text",
+      "text": "This KEP proposes converging Kustomize's various alpha extension mechanisms into a single KRM-driven feature that has an enhanced story around plugin distribution, discovery and trust. A central goal of this KEP is to equip Kustomize with an extension story that will be acceptable for full inclusion in `kubectl kustomize`. This KEP provides an overarching vision that ties together several existing proposals that go into more detail on specific features this KEP considers important to plugin graduation."
+    },
+    {
+      "id": "F035",
+      "format": "text",
+      "text": "Define a format for publishing simple cli commands as data. CLI commands would be limited to: Sending one or more requests to Resource or SubResource Endpoints Populating requests from command line flags and arguments Writing output populated from the Responses\n\n**Proof of Concept:** cnctl\n\nInstructions to run PoC: `go run ./main.go` (no commands show up) `kubectl apply` the `cli_v1alpha1_clitestresource.yaml` (add the CRD with the commands) `go run ./main.go` (create command shows up) `go run ./main create deployment -h` (view create command help) `go run ./main create deploy --image nginx --name nginx` (create a deployment) `kubectl get deployments`"
+    },
+    {
+      "id": "F036",
+      "format": "text",
+      "text": "Kubectl provides a number of commands to simplify working with Kubernetes by making requests to Resources and SubResources. These requests are mostly static, with fields filled in by user supplied flags. Today the commands are compiled into the client, which as the following challenges: Extension APIs cannot be compiled into the client Version-Skewed clients (old client) may be missing commands for new APIs or send outdated requests Version-Skewed clients (new client) may have commands for APIs that are not present in the server or expose fields not present in older API versions"
+    }
+  ]
+}

@@ -1,0 +1,185 @@
+{
+  "task_id": "mini-041",
+  "records": [
+    {
+      "id": "F001",
+      "format": "text",
+      "text": "Currently, PID limiting in Kubernetes is configured globally at the node level via the kubelet's `podPidsLimit` setting. This creates challenges when different workloads on the same node have different PID requirements: **Infrastructure pods affected by low limits**: If a cluster administrator sets a low PID limit to protect against runaway processes, this limit applies equally to all pods on the node, including critical infrastructure pods that may legitimately need more PIDs. **Agent and sandbox workloads**: Modern workloads like AI agent runtimes (Agent Sandbox, OpenShell) and service mesh sidecars (Istio) often have specific PID requirements that differ from typical application pods. **No granular control**: Administrators cannot apply different PID limits to different types of workloads without node-level segregation, which is operationally expensive. **Pod-level resource model**: With the introduction of Pod-level resources in Kubernetes, PID limits logically belong alongside other Pod-level resource constraints."
+    },
+    {
+      "id": "F002",
+      "format": "text",
+      "text": "There are several implementations of Service Type=LoadBalancer API today that do not consume the node ports automatically allocated by Kubernetes. Some examples include but are not limited to: MetalLB kube-router\n\nThe drawbacks of allocating unused node ports are that: the number of load balancers is now limited to the number of available node ports. Less if each load balancer consumes multiple node ports. node ports are exposed for an LB even though they are not used -- unecessarily exposed ports can fail regulatory/compliance requirements\n\nFor clusters that have integrations for Service Type=LoadBalancer but don't require node ports should have the option to disable node port allocation."
+    },
+    {
+      "id": "F003",
+      "format": "text",
+      "text": "The primary risk associated with distributed tracing is DDOS. A user that can send a large number of sampled requests can cause the server to generate a large number of spans. This is mitigated by allowing respecting the incoming trace context for privileged (`system:master` and `system:monitoring` groups) users and by configuring the to `SamplingRatePerMillion` to a low value.\n\nThere is also a risk of memory usage incurred by storing spans prior to export. This is mitigated by limiting the number of spans that can be queued for export, and dropping spans if necessary to stay under that limit."
+    },
+    {
+      "id": "F004",
+      "format": "text",
+      "text": "In order to address the issue mentioned above, a new field `AllowDisruptionByPriorityGreaterThanOrEqual` will be added to `PriorityClass`. Users will be able to set this field to indicate that the PodDisruptionBudget of the pods associated with this priority class can only be violated during scheduler preemption by other pods with a priority value greater than or equal to AllowDisruptionByPriorityGreaterThanOrEqual."
+    },
+    {
+      "id": "F005",
+      "format": "text",
+      "text": "This proposal introduces an API to define constraints on a PodGroup (a collection of pods within a Workload) requiring it to be scheduled onto a specific subset of nodes or resources.\n\nWe support one type of constraints: **Topology Constraint (Node Label Co-location)**: Ensures all pods in a PodGroup are placed onto nodes sharing a common topological characteristic (e.g., same rack), defined by a specific node label.\n\nThe scheduler is extended to interpret these new PodGroup level scheduling constraints and similarly to scheduling pods on nodes (available scheduling options), find a \"Placement\" for this PodGroup among the feasible options (subsets of nodes) that satisfies them."
+    },
+    {
+      "id": "F006",
+      "format": "text",
+      "text": "This KEP is about moving External DNS out of the Kubernetes incubator. This section will cover the reasons why External DNS is useful and what the community would miss in case the project would be discontinued or moved under another organization. External DNS... Is the de facto solution to create DNS records for several Kubernetes resources. Is a vital component to achieve an experience close to a PaaS that many Kubernetes users try to replicate on top of Kubernetes, by allowing to automatically create DNS records for web applications."
+    },
+    {
+      "id": "F007",
+      "format": "text",
+      "text": "Since this feature is for diagnosing problems with the Kube-API Server, it is targeted at Cluster Operators and Cloud Vendors that manage kubernetes control-planes.\n\nFor the following use-cases, I can deploy an OpenTelemetry collector as a sidecar to the API Server. I can use the API Server's `--opentelemetry-config-file` flag with the default URL to make the API Server send its spans to the sidecar collector. Alternatively, I can point the API Server at an OpenTelemetry collector listening on a different port or URL if I need to."
+    },
+    {
+      "id": "F008",
+      "format": "text",
+      "text": "ExternalDNS started as a community project with the goal of unifying several existing projects that were trying to solve the same problem: create DNS records for Kubernetes resources on several DNS backends.\n\nWhen the project was proposed (see the original discussion), there were at least 3 existing implementations of the same functionality: Mate - DNS-controller from kops - Route53-kubernetes -\n\nExternalDNS’ goal from the beginning was to provide an officially supported solution to those problems.\n\nAfter two years of development, the project is still in the kubernetes-incubator.\n\nThe incubation has been officially discontinued and to quote @thockin \"Incubator projects should either become real projects in Kubernetes, shut themselves down, or move elsewhere\" (see original thread here).\n\nThis KEP proposes to move ExternalDNS to the main Kubernetes organization or kubernetes-sigs. The \"Proposal\" section details the reasons behind it."
+    },
+    {
+      "id": "F009",
+      "format": "text",
+      "text": "This design proposal suggests adding a field `AllowDisruptionByPriorityGreaterThanOrEqual` in the `PriorityClass` API to explicitly indicate that `PodDisruptionBudget` of the pods corresponding to this priorty class can only be violated by pods with the priority value greater than or equal to the value of `AllowDisruptionByPriorityGreaterThanOrEqual` during the scheduler preemption process, this proposal allows cluster administrators to define PriorityClasses that restrict PDB violations during preemption to satisfy the needs for high availability of services during scheduler preemption due to some reasons such as high availability of services("
+    },
+    {
+      "id": "F010",
+      "format": "text",
+      "text": "**Users expect to raise PID limits above node default** Risk: The \"lower value wins\" design means Pods can only restrict, not raise. Users may expect `pid: 8192` to override a node `podPidsLimit` of 4096. Mitigation: Clear documentation. The node admin retains control — raise `podPidsLimit` if workloads need more. **Interaction with existing PID exhaustion protections** Risk: A Pod could set a very low PID limit, making itself non-functional. Mitigation: API validation enforces a minimum of 128 and a maximum of 16384, so extremely low or high values are rejected. Even at the minimum (128), the pod has sufficient PIDs to function. **Version skew: apiserver accepts but kubelet ignores** Risk: If only apiserver enables the gate, users think their limit is enforced but kubelet applies the node default. Mitigation: Documented in Version Skew Strategy. Both components must enable the gate for enforcement."
+    },
+    {
+      "id": "F011",
+      "format": "text",
+      "text": "Along with metrics and logs, traces are a useful form of telemetry to aid with debugging incoming requests. The kubelet can make use of distributed tracing to improve the ease of use and enable easier analysis of trace data. Trace data is structured, providing the detail necessary to debug requests across service boundaries. As more core components are instrumented, Kubernetes becomes easier to monitor, manage, and troubleshoot."
+    },
+    {
+      "id": "F012",
+      "format": "text",
+      "text": "Take away responsibility to create pods from controllers. Bring fairness or multiple workload queues in kube-scheduler. Kueue and Volcano.sh will continue to provide this. Map all the declarative state and behaviors into `Workload` object. It is focused only on scheduling-related parts. Graduate the old model of using `Workload` API (without decoupled `PodGroup` object) to Beta.\n\nThe following are non-goals for this KEP but will probably soon appear to be goals for follow-up KEPs: Integrate cluster autoscaling with gang scheduling. Introduce a concept of `Reservation` that can be later consumed by pods. Workload-level preemption. Address resource contention between different schedulers (including possible deadlocks). Address the problem of premature preemptions in case the higher priority workloads does not eventually schedule.\n\nSee Future plans for more details."
+    },
+    {
+      "id": "F013",
+      "format": "text",
+      "text": "**Complexity:** This proposal adds significant logic to the kube-scheduler framework, specifically the \"Placement\" abstraction and the simulation loop (Phase 2). **Performance:** Generating and simulating a large number of Placements (e.g., every rack in a massive cluster) could be computationally expensive. **Mitigation:** Pre-filtering of Placements will be implemented to discard clearly infeasible Placements (insufficient total resources) before the expensive pod-level simulation."
+    },
+    {
+      "id": "F014",
+      "format": "text",
+      "text": "API changes to Service: Add a new field `spec.allocateLoadBalancerNodePorts: true|false`. `allocateLoadBalancerNodePorts` defaults to true, preserving existing behavior for Service Type=LoadBalancer. On create, if `allocateLoadBalancerNodePorts: false`, don't allocate node ports. On update, if `allocateLoadBalancerNodePorts: false` don't allocate new node ports but do not deallocate existing node ports if set. On update, set `nodePort: 0` (by removing the field) to deallocate a node port, a new port will not be re-allocated if `allocateLoadBalancerNodePorts: false`. On delete, node ports are deallocated regardless of `allocateLoadBalancerNodePorts`."
+    },
+    {
+      "id": "F015",
+      "format": "text",
+      "text": "There is growing interest in using different runtimes within a cluster. [Sandboxes][] are the primary motivator for this right now, with both Kata containers and gVisor looking to integrate with Kubernetes. Other runtime models such as Windows containers or even remote runtimes will also require support in the future. RuntimeClass provides a way to select between different runtimes configured in the cluster and surface their properties (both to the cluster & the user).\n\nIn addition to selecting the runtime to use, supporting multiple runtimes raises other problems to the control plane level, including: accounting for runtime overhead, scheduling to nodes that support the runtime, and surfacing which optional features are supported by different runtimes. See RuntimeClass Scheduling for information about scheduling.\n\n[Sandboxes]:"
+    },
+    {
+      "id": "F016",
+      "format": "text",
+      "text": "`PodDisruptionBudget` (PDB) is used to limit the number of concurrent disruptions that your application experiences, allowing for high availability. Users can set the field `.spec.maxUnavailable` or `.spec.minAvailable` to declare the current minimum availability or maximum unavailability to be maintained after eviction.\n\nHowever, there is currently an issue where the kube-scheduler does not strictly guarantee PDBs during the preemption process. The scheduler supports PDBs when preempting pods, but the adherence to PDBs is best effort. The scheduler attempts to select victims whose PDBs are not violated during preemption, but if no such victims are found, preemption will still take place, resulting in the removal of lower-priority pods despite their PDBs being violated.\n\nPodDisruptionBudgets (PDBs) are frequently used for stability and the possibility of violating a PDB during the preemption process is not acceptable for certain users. As such, it is beneficial to provide users with the option to choose if they want the PDB to be guaranteed during preemption or not."
+    },
+    {
+      "id": "F017",
+      "format": "text",
+      "text": "The following are risks that were identified: Low number of maintainers: we are currently facing issues keeping up with the number of pull requests and issues giving the low number of maintainers. The list of maintainers already shrunk from 8 maintainers to 4. Issues maintaining community contributed providers: we often lack access to external providers (i.e. InfoBlox, etc.) and this means that we cannot verify the implementations and/or run regression tests that go beyond unit testing."
+    },
+    {
+      "id": "F018",
+      "format": "text",
+      "text": "Along with metrics and logs, traces are a useful form of telemetry to aid with debugging incoming requests. The API Server currently uses a poor-man's form of tracing (see github.com/kubernetes/utils/trace), but we can make use of distributed tracing to improve the ease of use and enable easier analysis of trace data. Trace data is structured, providing the detail necessary to debug requests, and context propagation allows plugins, such as admission webhooks, to add to API Server requests."
+    },
+    {
+      "id": "F019",
+      "format": "text",
+      "text": "Increasing default frequency of NodeStatus updates may potentially break clients relying on frequent Node object updates. However, in non-managed solutions, customers will still be able to restore previous behavior by setting appropriate flag values. Thus, changing defaults to what we recommend is the path to go with.\n\nTo evaluate the risk of further reduction of NodeStatus updates, I went through couple thousands of files mentioning `LastHeartbeatTime` and `k8s` on github to understand the potential of breaking some system. There are couple places that are incompatible with node leases, but they would already be broken by current 1m frequency, e.g.: mesos status updater node cacher isk8salive node evictor node cleanup\n\nThat said, it sounds better to update the frequency before going to GA."
+    },
+    {
+      "id": "F020",
+      "format": "text",
+      "text": "**Scheduling Latency:** Evaluating multiple placements involves running filter/score plugins multiple times (multiple attempts to schedule a PodGroup considering all topology options). **Mitigation:** Implement early placement rejection optimization to stop feasibility checks for placements which cannot fit gang scheduled PodGroups. **Complexity of Pod Group Scheduling:** Scheduling heterogeneous Pod Groups can be complex. **Mitigation:** We support only sequential processing of pods within a PodGroup, avoiding complex backtracking or parallel processing."
+    },
+    {
+      "id": "F021",
+      "format": "text",
+      "text": "While running different scalability tests we observed that in big enough clusters (more than 2000 nodes) with non-trivial number of images used by pods on all nodes (10-15), we were hitting etcd limits for its database size. That effectively means that etcd enters \"alert mode\" and stops accepting all write requests.\n\nThe underlying root cause is combination of: etcd keeping both current state and transaction log with copy-on-write node heartbeats being pontetially very large objects (note that images are only one potential problem, the second are volumes and customers want to mount 100+ volumes to a single node) - they may easily exceed 15kB; even though the patch send over network is small, in etcd we store the whole Node object Kubelet sending heartbeats every 10s\n\nThis proposal presents a proper solution for that problem.\n\nNote that currently (by default): Lack of NodeStatus update for `<node-monitor-grace-period>` (default: 40s) results in NodeController marking node as NotReady (pods are no longer scheduled on that node) Lack of NodeStatus updates for `<pod-eviction-timeout>` (default: 5m) results in NodeController starting pod evictions from that node\n\nWe would like to preserve that behavior."
+    },
+    {
+      "id": "F022",
+      "format": "text",
+      "text": "We propose introducing a new `Lease` built-in API in the newly create API group `coordination.k8s.io`. To make it easily reusable for other purposes it will be namespaced. Its schema will be as following:\n\nThe Spec is effectively of already existing (and thus proved) [LeaderElectionRecord][]. The only difference is using `MicroTime` instead of `Time` for better precision. That would hopefully allow us go get directly to Beta."
+    },
+    {
+      "id": "F023",
+      "format": "text",
+      "text": "Introduce a concept of a `Workload` as a primary building block for workload-aware scheduling vision Implement the first version of `Workload` API necessary as a mechanism for defining scheduling policies Introduce a concept of a `PodGroup` positioned as runtime counterparts for the Workload Ensure that decoupled model of `Workload` and `PodGroup` provide clear responsibility split, improved scalability and simplified lifecycle management Enhance status ownership by making `PodGroup` status track podGroup-level runtime state Enable automatic lifecycle management and resource cleanup for PodGroup objects through integration with Kubernetes garbage collection Ensuring that we can extend `Workload` API in backward compatible way toward north-star API Ensure the `Workload` API provides a clear integration path for true workload[^6] controllers, both built-in and third-party usable for both built-in and third-party workload controllers and APIs Implement first version of gang-scheduling in kube-scheduler supporting (potentially in non-optimal way) all existing scheduling features. Provide full backward compatibility for all existing scheduling features"
+    },
+    {
+      "id": "F024",
+      "format": "text",
+      "text": "Promote the `metrics.k8s.io` API to stable. The API has been in beta since v1.8 (approximately 7 years ago) without a formal graduation effort. Given this lengthy soak period, the API has proven stable in production environments worldwide — consumers such as the Horizontal Pod Autoscaler and `kubectl top` have relied on it for years. We believe it is now appropriate to formally graduate the API to stable."
+    },
+    {
+      "id": "F025",
+      "format": "text",
+      "text": "As a cluster operator, I want to provide multiple runtime options to support a wide variety of workloads. Examples include native linux containers, \"sandboxed\" containers, and windows containers. As a cluster operator, I want to provide stable rolling upgrades of runtimes. For example, rolling out an update with backwards incompatible changes or previously unsupported features. As an application developer, I want to select the runtime that best fits my workload. As an application developer, I don't want to study the nitty-gritty details of different runtime implementations, but rather choose from pre-configured classes. As an application developer, I want my application to be portable across clusters that use similar but different variants of a \"class\" of runtimes."
+    },
+    {
+      "id": "F026",
+      "format": "text",
+      "text": "**Scope creep.** RuntimeClass has a fairly broad charter, but it should not become a default dumping ground for every new feature exposed by the node. For each feature, careful consideration should be made about whether it belongs on the Pod, Node, RuntimeClass, or some other resource. The non-goals should be kept in mind when considering RuntimeClass features. **Becoming a general policy mechanism.** RuntimeClass should not be used a replacement for PodSecurityPolicy."
+    },
+    {
+      "id": "F027",
+      "format": "text",
+      "text": "Kubernetes's validation of IP addresses and CIDR strings (e.g. \"`192.168.0.0/24`\") in API fields has historically been too lax, accepting any string accepted by the underlying functions (`net.ParseIP` and `net.ParseCIDR`) even though in some cases these strings had ambiguous meanings that could lead to security problems. After [golang 1.17 changed the handling of IP addresses with leading \"0\"s] to avoid [CVE-2021-29923], there was consensus that we should eventually update API validation to be stricter as well, but we did not do this right away, because we didn't want to retroactively invalidate existing API objects. This KEP sets forth the plan for finally moving forward on that.\n\n[golang 1.17 changed the handling of IP addresses with leading \"0\"s]: [CVE-2021-29923]:"
+    },
+    {
+      "id": "F028",
+      "format": "text",
+      "text": "This Kubernetes Enhancement Proposal (KEP) is to enhance the kubelet to allow tracing gRPC and HTTP API requests. The kubelet is the integration point of a node's operating system and kubernetes. From control plane-node communication documentation, a primary communication path from the control plane to the nodes is from the apiserver to the kubelet process running on each node. The kubelet communicates with the container runtime over gRPC, where kubelet is the gRPC client and the Container Runtime Interface is the gRPC server. The CRI then sends the creation request to the container runtime installed on the node. Traces gathered from the kubelet will provide critical information to monitor and troubleshoot interactions at the node level. This KEP proposes using OpenTelemetry libraries, and exports in the OpenTelemetry format. This is in line with the API Server enhancement."
+    },
+    {
+      "id": "F029",
+      "format": "text",
+      "text": "Updating/replacing `netutils.ParseIPSloppy` and `netutils.ParseCIDRSloppy`. (There is a separate plan for this.) Providing `netip.Addr`/`netip.Prefix`-based utilities or increasing the usage of those types. (There is a separate plan for this.) Adding cluster-level warnings/logs/events when invalid IP/CIDR values are seen in old objects, so admins can ensure that they eventually get fixed. (This was originally listed as a Goal, but was not implemented.) Allowing immutable fields to be fixed if they are invalid."
+    },
+    {
+      "id": "F030",
+      "format": "text",
+      "text": "The proposal broadly entails two efforts: Introducing `metrics.k8s.io/v1` for the `k8s.io/metrics` package, and, Migrating in-house components and sub-projects to utilize the stable version.\n\nThe former will be a cosmetic change, essentially bumping `v1beta1` to `v1`. The `v1` API surface will be identical to `v1beta1`, with the only difference being the version name itself.\n\nThe latter will focus on utilizing the stable version in the `metrics.k8s.io`'s client, as well as `pkg/controller/podautoscaler` and `kubectl top`, which are currently on the latest beta version."
+    },
+    {
+      "id": "F031",
+      "format": "text",
+      "text": "Support for non-Linux operating systems (PID cgroup limits are Linux-specific) Support for cgroupsv1 (this enhancement targets cgroupsv2 only) Container-level PID limits (this KEP focuses on Pod-level limits only) Automatic PID limit calculation based on workload characteristics Changes to the existing node-level PID limiting mechanism In-place resize of PID limits (in-place resize currently supports only CPU and memory)"
+    },
+    {
+      "id": "F032",
+      "format": "text",
+      "text": "Add a new field `allocateLoadBalancerNodePorts` to `Service.Spec` that allows a user to opt out of node ports for Service Type=LoadBalancer. if `allocateLoadBalancerNodePort: true`, allocate node ports for Service Type=LB, this is the existing behavior today and will be the default value. if `allocateLoadBalancerNodePort: false`, stop allocating new node ports but don't deallocate existing node ports. if `allocateLoadBalancerNodePort: false`, and a user wants to disable node ports on existing Services, they need to remove the nodePort field explicitly.\n\nWhen a user relies on `kubectl apply` to fill in the node port field, the node port would never be deallocated since the existing node ports from the server will always be merged prior to update. A user must send an explicit update request for the Service using something like `kubectl edit svc` or building a controller to update all Services in a cluster."
+    },
+    {
+      "id": "F033",
+      "format": "text",
+      "text": "The kubelet generates and exports spans for reconcile loops it initiates and for incoming/outgoing requests to the kubelet's authenticated http servers, as well as the CRI, CNI, and CSI interfaces. An example of a reconcile loop is the creation of a pod. Pod creation involves pulling the image, creating the pod sandbox and creating the container. With stateful workloads, attachment and mounting of volumes referred by a pod might be included. Trace data can be used to diagnose latency within such flows."
+    },
+    {
+      "id": "F034",
+      "format": "text",
+      "text": "Update the validation of all IP-valued and CIDR-valued API fields in core (`k8s.io/api`) types to require stricter validation, to avoid potential security problems with ambiguously-parsable IPs/CIDRs. Don't require pre-existing invalid fields to be fixed on unrelated updates. E.g., if an existing Service has `clusterIP: 172.030.099.099`, allow a user to change the Service's `selector` without being forced to fix the bad `clusterIP` at the same time. This will initially be behind a feature gate. Before that, do a few releases where IP/CIDR values that would be invalid according to the new rules cause apiserver warnings. (This is [already done for IPs and CIDRs in Service].) For all new IP/CIDR-valued API fields, require that IPv6 addresses be in canonical form (e.g., `\"fc99::123\"`, not `\"FC99:0:0::0123\"`). (\"New fields\" here effectively means \"since v1.27\", because all of the IP/CIDR-valued fields added since then already had that validation requirement anyway.) For \"legacy\" fields, add apiserver warnings for IPv6 addresses in non-canonical form. Update the [CEL IP/CIDR validation helpers] to use the same code as the new core API validation. (The CEL helpers already have the correct semantics; this is just about not having two separate implementations.)\n\n[already done for IPs and CIDRs in Service]: [CEL IP/CIDR validation helpers]:"
+    },
+    {
+      "id": "F035",
+      "format": "text",
+      "text": "The `metrics.k8s.io` API provides resource metrics (CPU and memory) for nodes and pods in the cluster, in an implementation-agnostic manner. As a part of the aggregation layer, implementations instrumenting the API benefit from APIServer's authentication and authorization measures out-of-the-box.\n\nThe diagram below gives a general idea on the flow: The consumer, through the `metrics.k8s.io` client, sends a request. The format is dictated by `k8s.io/metrics/pkg/apis/metrics`: The responsible addon APIServer is identified based on the registered APIService object. For e.g., for metrics-server: The implementation collects resource metrics from each kubelet and returns `NodeMetrics` or `PodMetrics` objects. `PodMetrics` includes per-container breakdown via `ContainerMetrics`. The `v1` types are identical to `v1beta1` except for the version name:"
+    },
+    {
+      "id": "F036",
+      "format": "text",
+      "text": "In this KEP, kube-scheduler is modified to support gang scheduling[^1]. We focus on framework support and building blocks, not the ideal gang-scheduling algorithm - it can come as a follow-up. We start with simpler implementation of gang scheduling, kube-scheduler identifies pods that are in a group and waits until all pods reach the same stage of the scheduling/binding cycle before allowing any pods from the group to advance past that point."
+    }
+  ]
+}

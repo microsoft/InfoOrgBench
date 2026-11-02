@@ -1,0 +1,366 @@
+{
+  "task_id": "mini-037",
+  "records": [
+    {
+      "id": "F001",
+      "path": [
+        "sig-network",
+        "3726-standard-application-protocols"
+      ],
+      "content_sha256": "0452232530b832d538ebd94b10d882a98b66457235debc3b989564c6295fd38c",
+      "source_native_id": "keps/sig-network/3726-standard-application-protocols#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F002",
+      "path": [
+        "sig-api-machinery",
+        "4006-transition-spdy-to-websockets"
+      ],
+      "content_sha256": "c016de803a72886697be6f829c915458db35c6430007d2946e3b211ed16d9832",
+      "source_native_id": "keps/sig-api-machinery/4006-transition-spdy-to-websockets#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F003",
+      "path": [
+        "sig-node",
+        "4680-add-resource-health-to-pod-status"
+      ],
+      "content_sha256": "8b7fd211b65c011e7b54d48d7dfc8e49abb09e3fa951cde763352a1b0706b195",
+      "source_native_id": "keps/sig-node/4680-add-resource-health-to-pod-status#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F004",
+      "path": [
+        "sig-node",
+        "1797-configure-fqdn-as-hostname-for-pods"
+      ],
+      "content_sha256": "ae5937458c581a0a4f000b11a562b81ec67da14ef90d3026dd95b932d24b6092",
+      "source_native_id": "keps/sig-node/1797-configure-fqdn-as-hostname-for-pods#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F005",
+      "path": [
+        "sig-network",
+        "1024-nodelocal-cache-dns"
+      ],
+      "content_sha256": "f29bb63e00523cb0da9ed9b1a5d447385687c5a4a45c2e40d3c8d1c4aec5a010",
+      "source_native_id": "keps/sig-network/1024-nodelocal-cache-dns#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F006",
+      "path": [
+        "sig-windows",
+        "116-windows-node-support"
+      ],
+      "content_sha256": "ad3b2f7d72f656595a1b0ae927fad4183a0fb6351e8449e68cecff461f7a9074",
+      "source_native_id": "keps/sig-windows/116-windows-node-support#excerpt-3",
+      "source_heading": "risks and mitigations"
+    },
+    {
+      "id": "F007",
+      "path": [
+        "sig-network",
+        "2200-externalips-admission"
+      ],
+      "content_sha256": "95dd9c69d73df0af558fc0f6702c536d84109818e047fa14c6a5bd6b10056366",
+      "source_native_id": "keps/sig-network/2200-externalips-admission#excerpt-2",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F008",
+      "path": [
+        "sig-node",
+        "4680-add-resource-health-to-pod-status"
+      ],
+      "content_sha256": "014e29c5eb3ba3c4b4cf56caf674dd3f8afd05ca520cca553d7e6a71637d2b82",
+      "source_native_id": "keps/sig-node/4680-add-resource-health-to-pod-status#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F009",
+      "path": [
+        "sig-windows",
+        "5100-windows-dsr-and-overlay-support"
+      ],
+      "content_sha256": "c4b204086a075c78f014e3a9f682d921294e30e276cf3219694422dfca52ad04",
+      "source_native_id": "keps/sig-windows/5100-windows-dsr-and-overlay-support#excerpt-3",
+      "source_heading": "risks and mitigations"
+    },
+    {
+      "id": "F010",
+      "path": [
+        "sig-network",
+        "3726-standard-application-protocols"
+      ],
+      "content_sha256": "ffa30007f4bc2a71bd927021743fc170a9f6c6306dd62546e75d5f666fe3d1f9",
+      "source_native_id": "keps/sig-network/3726-standard-application-protocols#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F011",
+      "path": [
+        "sig-api-machinery",
+        "3156-http3"
+      ],
+      "content_sha256": "07874f8b6d43d3adfb66c5676a82cba24623d2352d04c8c9c908de6e999a4aa8",
+      "source_native_id": "keps/sig-api-machinery/3156-http3#excerpt-3",
+      "source_heading": "risks and mitigations"
+    },
+    {
+      "id": "F012",
+      "path": [
+        "sig-node",
+        "1797-configure-fqdn-as-hostname-for-pods"
+      ],
+      "content_sha256": "d0677a49c25cbbda6c6f9074140b445f3db5414468fed6af6d0ea4cf0b900ba1",
+      "source_native_id": "keps/sig-node/1797-configure-fqdn-as-hostname-for-pods#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F013",
+      "path": [
+        "sig-node",
+        "1797-configure-fqdn-as-hostname-for-pods"
+      ],
+      "content_sha256": "4687568c68327e56be451d9cc16aa15917609aeaa8697a36adf7d33a31957c9a",
+      "source_native_id": "keps/sig-node/1797-configure-fqdn-as-hostname-for-pods#excerpt-3",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F014",
+      "path": [
+        "sig-node",
+        "4680-add-resource-health-to-pod-status"
+      ],
+      "content_sha256": "bd4672cc27cf5b42c72c3d5d18203575e5be6e41951e71bc47d6c0c0e44bd319",
+      "source_native_id": "keps/sig-node/4680-add-resource-health-to-pod-status#excerpt-3",
+      "source_heading": "drawbacks"
+    },
+    {
+      "id": "F015",
+      "path": [
+        "sig-network",
+        "1024-nodelocal-cache-dns"
+      ],
+      "content_sha256": "1d645e6d3c193e7a605efafdf1e6839365ea4b835d6d118032be401834158c6b",
+      "source_native_id": "keps/sig-network/1024-nodelocal-cache-dns#excerpt-3",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F016",
+      "path": [
+        "sig-api-machinery",
+        "3157-watch-list"
+      ],
+      "content_sha256": "cd20ead009d4c4ac31e003ba86824930c0685c2f00871f3b8b94269c888ca6b6",
+      "source_native_id": "keps/sig-api-machinery/3157-watch-list#excerpt-1",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F017",
+      "path": [
+        "sig-api-machinery",
+        "3156-http3"
+      ],
+      "content_sha256": "eabdf36a2aac556766fcad2e847240f0cd922b945c3ef9cdecb658aca1182ffa",
+      "source_native_id": "keps/sig-api-machinery/3156-http3#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F018",
+      "path": [
+        "sig-network",
+        "1024-nodelocal-cache-dns"
+      ],
+      "content_sha256": "34ee63e6e1496fc56401eca2f6011c0d9d8e8e958955e73e994800d6979d3680",
+      "source_native_id": "keps/sig-network/1024-nodelocal-cache-dns#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F019",
+      "path": [
+        "sig-api-machinery",
+        "4006-transition-spdy-to-websockets"
+      ],
+      "content_sha256": "b76c65e3f761bc17a083577928df7b21cf680541360d76ff8e2a70f5f23ba541",
+      "source_native_id": "keps/sig-api-machinery/4006-transition-spdy-to-websockets#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F020",
+      "path": [
+        "sig-node",
+        "4540-strict-cpu-reservation"
+      ],
+      "content_sha256": "8e715b70235df0f667d2d71e8455eab7f15380840d0bcf5e8f79f49bb1e52dde",
+      "source_native_id": "keps/sig-node/4540-strict-cpu-reservation#excerpt-3",
+      "source_heading": "risks and mitigations"
+    },
+    {
+      "id": "F021",
+      "path": [
+        "sig-api-machinery",
+        "3156-http3"
+      ],
+      "content_sha256": "c21efcc28c35cd4a000831e3154476368a667d00853c4fa77b86fac130b5afee",
+      "source_native_id": "keps/sig-api-machinery/3156-http3#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F022",
+      "path": [
+        "sig-windows",
+        "2258-node-log-query"
+      ],
+      "content_sha256": "a9ffbf7cdaf4ea439573ee87dff0a3a8b2444344546ee3a4e5be9b58e3f5b3e0",
+      "source_native_id": "keps/sig-windows/2258-node-log-query#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F023",
+      "path": [
+        "sig-api-machinery",
+        "3157-watch-list"
+      ],
+      "content_sha256": "89db79a0fac6a0844496d2b8d3262a90c9caa661335c1e55c0ab880be0735d8f",
+      "source_native_id": "keps/sig-api-machinery/3157-watch-list#excerpt-2",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F024",
+      "path": [
+        "sig-windows",
+        "5100-windows-dsr-and-overlay-support"
+      ],
+      "content_sha256": "9e58349a8b2e7cda417a3096ae8829bbc200eb7deb890ec5e41bb001aa587d22",
+      "source_native_id": "keps/sig-windows/5100-windows-dsr-and-overlay-support#excerpt-1",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F025",
+      "path": [
+        "sig-windows",
+        "2258-node-log-query"
+      ],
+      "content_sha256": "7379871740882a3b43fb2398aee0531a4446db6da2f5951e4a16ee2ed653e0f6",
+      "source_native_id": "keps/sig-windows/2258-node-log-query#excerpt-3",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F026",
+      "path": [
+        "sig-windows",
+        "2258-node-log-query"
+      ],
+      "content_sha256": "3d87c8ddbe3f2c0ccec554f1d64ff24994b59a5635ce2aa75e402a5749a07527",
+      "source_native_id": "keps/sig-windows/2258-node-log-query#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F027",
+      "path": [
+        "sig-windows",
+        "5100-windows-dsr-and-overlay-support"
+      ],
+      "content_sha256": "debb8c43696a3854334b773361a6e8b4a0f3bdaabd4d94f0cad40922be1bb5af",
+      "source_native_id": "keps/sig-windows/5100-windows-dsr-and-overlay-support#excerpt-2",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F028",
+      "path": [
+        "sig-network",
+        "3726-standard-application-protocols"
+      ],
+      "content_sha256": "dc65f3dff42eb862b59e09403ad6150203fb92dd3540930a53865fcfbdb926a9",
+      "source_native_id": "keps/sig-network/3726-standard-application-protocols#excerpt-3",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F029",
+      "path": [
+        "sig-windows",
+        "116-windows-node-support"
+      ],
+      "content_sha256": "2b2dce9d8e625a28cf769d6bf56cb4ad6dc8fd5db20057ce4dd53897a7f4dfd6",
+      "source_native_id": "keps/sig-windows/116-windows-node-support#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F030",
+      "path": [
+        "sig-network",
+        "2200-externalips-admission"
+      ],
+      "content_sha256": "e1aea7a6a045e18b3a4417c82470ce4caf44c79732cd6965c53c8f69e7ae53d4",
+      "source_native_id": "keps/sig-network/2200-externalips-admission#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F031",
+      "path": [
+        "sig-windows",
+        "116-windows-node-support"
+      ],
+      "content_sha256": "2b143bb4a17aabe6592a628d1c1c6daaa6fead9747a65cd9ec59c2d62cc58545",
+      "source_native_id": "keps/sig-windows/116-windows-node-support#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F032",
+      "path": [
+        "sig-api-machinery",
+        "4006-transition-spdy-to-websockets"
+      ],
+      "content_sha256": "2e7b19e4f4cf5f08a03802b78bab544038e8700c6a57d1139ba1013bcfce8761",
+      "source_native_id": "keps/sig-api-machinery/4006-transition-spdy-to-websockets#excerpt-3",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F033",
+      "path": [
+        "sig-api-machinery",
+        "3157-watch-list"
+      ],
+      "content_sha256": "b020ef08456f7733589a831bc22745e10087334b3ec5a6ea5012fa421d351a5a",
+      "source_native_id": "keps/sig-api-machinery/3157-watch-list#excerpt-3",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F034",
+      "path": [
+        "sig-node",
+        "4540-strict-cpu-reservation"
+      ],
+      "content_sha256": "92c72545973f31aca5b5178de86968857dcc354f724ae57bbf22bc08b6c17425",
+      "source_native_id": "keps/sig-node/4540-strict-cpu-reservation#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F035",
+      "path": [
+        "sig-network",
+        "2200-externalips-admission"
+      ],
+      "content_sha256": "2ee8b0d3e7307e15f9a6296018ae027cb1618f7fd8828ee92cdfcbabf2a26853",
+      "source_native_id": "keps/sig-network/2200-externalips-admission#excerpt-3",
+      "source_heading": "design details"
+    },
+    {
+      "id": "F036",
+      "path": [
+        "sig-node",
+        "4540-strict-cpu-reservation"
+      ],
+      "content_sha256": "0aa97d449e4e491f222f9ae29779ff8abdc0fd3bdc67451858961b8be21893f2",
+      "source_native_id": "keps/sig-node/4540-strict-cpu-reservation#excerpt-2",
+      "source_heading": "motivation"
+    }
+  ],
+  "reference_scope": "Source-derived group/proposal hierarchy for a development-only difficulty and cost pilot."
+}

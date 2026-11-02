@@ -1,0 +1,305 @@
+{
+  "assignments": [
+    {
+      "id": "F001",
+      "path": [
+        "ABFS improvements",
+        "China authentication"
+      ]
+    },
+    {
+      "id": "F002",
+      "path": [
+        "ABFS improvements",
+        "HNS configuration"
+      ]
+    },
+    {
+      "id": "F003",
+      "path": [
+        "S3A improvements",
+        "SSL retry timeout"
+      ]
+    },
+    {
+      "id": "F004",
+      "path": [
+        "ABFS improvements",
+        "China authentication"
+      ]
+    },
+    {
+      "id": "F005",
+      "path": [
+        "S3A improvements",
+        "Delegation credential tests"
+      ]
+    },
+    {
+      "id": "F006",
+      "path": [
+        "S3A improvements",
+        "Upload listing details"
+      ]
+    },
+    {
+      "id": "F007",
+      "path": [
+        "S3A improvements",
+        "Lazy skip"
+      ]
+    },
+    {
+      "id": "F008",
+      "path": [
+        "ABFS improvements",
+        "HNS configuration"
+      ]
+    },
+    {
+      "id": "F009",
+      "path": [
+        "S3A improvements",
+        "Lazy skip"
+      ]
+    },
+    {
+      "id": "F010",
+      "path": [
+        "ABFS improvements",
+        "Filesystem existence backport"
+      ]
+    },
+    {
+      "id": "F011",
+      "path": [
+        "S3A improvements",
+        "Delegation credential tests"
+      ]
+    },
+    {
+      "id": "F012",
+      "path": [
+        "ABFS improvements",
+        "Filesystem existence backport"
+      ]
+    },
+    {
+      "id": "F013",
+      "path": [
+        "ABFS improvements",
+        "HNS configuration"
+      ]
+    },
+    {
+      "id": "F014",
+      "path": [
+        "S3A improvements",
+        "SSL retry timeout"
+      ]
+    },
+    {
+      "id": "F015",
+      "path": [
+        "S3A improvements",
+        "Lazy skip"
+      ]
+    },
+    {
+      "id": "F016",
+      "path": [
+        "S3A improvements",
+        "Lazy skip"
+      ]
+    },
+    {
+      "id": "F017",
+      "path": [
+        "S3A improvements",
+        "Lazy skip"
+      ]
+    },
+    {
+      "id": "F018",
+      "path": [
+        "S3A improvements",
+        "Read failure handling"
+      ]
+    },
+    {
+      "id": "F019",
+      "path": [
+        "S3A improvements",
+        "Lazy skip"
+      ]
+    },
+    {
+      "id": "F020",
+      "path": [
+        "S3A improvements",
+        "Lazy skip"
+      ]
+    },
+    {
+      "id": "F021",
+      "path": [
+        "S3A improvements",
+        "SSL retry timeout"
+      ]
+    },
+    {
+      "id": "F022",
+      "path": [
+        "S3A improvements",
+        "SSL retry timeout"
+      ]
+    },
+    {
+      "id": "F023",
+      "path": [
+        "ABFS improvements",
+        "HNS configuration"
+      ]
+    },
+    {
+      "id": "F024",
+      "path": [
+        "ABFS improvements",
+        "Filesystem existence backport"
+      ]
+    },
+    {
+      "id": "F025",
+      "path": [
+        "ABFS improvements",
+        "HNS configuration"
+      ]
+    },
+    {
+      "id": "F026",
+      "path": [
+        "ABFS improvements",
+        "Retry count backport"
+      ]
+    },
+    {
+      "id": "F027",
+      "path": [
+        "S3A improvements",
+        "Read failure handling"
+      ]
+    },
+    {
+      "id": "F028",
+      "path": [
+        "S3A improvements",
+        "SSL retry timeout"
+      ]
+    },
+    {
+      "id": "F029",
+      "path": [
+        "S3A improvements",
+        "SSL retry timeout"
+      ]
+    },
+    {
+      "id": "F030",
+      "path": [
+        "ABFS improvements",
+        "China authentication"
+      ]
+    },
+    {
+      "id": "F031",
+      "path": [
+        "ABFS improvements",
+        "China authentication"
+      ]
+    },
+    {
+      "id": "F032",
+      "path": [
+        "ABFS improvements",
+        "Authentication throttling"
+      ]
+    },
+    {
+      "id": "F033",
+      "path": [
+        "S3A improvements",
+        "Read failure handling"
+      ]
+    },
+    {
+      "id": "F034",
+      "path": [
+        "S3A improvements",
+        "Read failure handling"
+      ]
+    },
+    {
+      "id": "F035",
+      "path": [
+        "S3A improvements",
+        "Delegation credential tests"
+      ]
+    },
+    {
+      "id": "F036",
+      "path": [
+        "S3A improvements",
+        "Upload listing details"
+      ]
+    },
+    {
+      "id": "F037",
+      "path": [
+        "S3A improvements",
+        "Upload listing details"
+      ]
+    },
+    {
+      "id": "F038",
+      "path": [
+        "S3A improvements",
+        "SSL retry timeout"
+      ]
+    },
+    {
+      "id": "F039",
+      "path": [
+        "S3A improvements",
+        "Upload listing details"
+      ]
+    },
+    {
+      "id": "F040",
+      "path": [
+        "ABFS improvements",
+        "Authentication throttling"
+      ]
+    },
+    {
+      "id": "F041",
+      "path": [
+        "ABFS improvements",
+        "China authentication"
+      ]
+    },
+    {
+      "id": "F042",
+      "path": [
+        "ABFS improvements",
+        "Retry count backport"
+      ]
+    },
+    {
+      "id": "F043",
+      "path": [
+        "ABFS improvements",
+        "HNS configuration"
+      ]
+    }
+  ]
+}

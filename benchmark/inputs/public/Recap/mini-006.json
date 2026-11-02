@@ -1,0 +1,240 @@
+{
+  "task_id": "ami/mini-006",
+  "records": [
+    {
+      "id": "F001",
+      "format": "text",
+      "text": "The UI and ID presented a prototype drawing of the remote control design."
+    },
+    {
+      "id": "F002",
+      "format": "text",
+      "text": "In order for the cost to come down to the original budget of 12.50, they also had to replace the rubber of the buttons with plastic and not use a curved design."
+    },
+    {
+      "id": "F003",
+      "format": "text",
+      "text": "Locator will have a beep instead of a speaker."
+    },
+    {
+      "id": "F004",
+      "format": "text",
+      "text": "When rating whether the product is intuitive, the layout is different,a good technology but less standard."
+    },
+    {
+      "id": "F005",
+      "format": "text",
+      "text": "The delay in providing costs of components was criticised."
+    },
+    {
+      "id": "F006",
+      "format": "text",
+      "text": "After the costing, the original prototype was evaluated on a scale of 1(excellent)-7(very bad)."
+    },
+    {
+      "id": "F007",
+      "format": "text",
+      "text": "The project manager opens this detailed design meeting by going over the agenda."
+    },
+    {
+      "id": "F008",
+      "format": "text",
+      "text": "It would cost 22 euros."
+    },
+    {
+      "id": "F009",
+      "format": "text",
+      "text": "The team had to cut out some features in order to make the budget."
+    },
+    {
+      "id": "F010",
+      "format": "text",
+      "text": "They finish the meeting 5 minutes early and the project manager tells them what is left to complete."
+    },
+    {
+      "id": "F011",
+      "format": "text",
+      "text": "The idea to include a solar cell as a power source had to be abandoned, due to the escalated costs."
+    },
+    {
+      "id": "F012",
+      "format": "text",
+      "text": "The team thought all the changes to accommodate the budget requirements made a very dull device."
+    },
+    {
+      "id": "F013",
+      "format": "text",
+      "text": "They rate the product using a 7 point scale and come up with an average score of 6.5."
+    },
+    {
+      "id": "F014",
+      "format": "text",
+      "text": "The criteria used were fancifulness (2), technological innovation (2), ease of use (2.5), whether it is easy to find (1), sponginess (1.5), number of features (1)."
+    },
+    {
+      "id": "F015",
+      "format": "text",
+      "text": "The group goes on to calculate the production cost and finds they are over the budget."
+    },
+    {
+      "id": "F016",
+      "format": "text",
+      "text": "They have discussion and decide to eliminate the sample speaker locator and the scroll wheel inside."
+    },
+    {
+      "id": "F017",
+      "format": "text",
+      "text": "One way to compensate for the loss of features, but still attract their target group, would be to add more colour to the design."
+    },
+    {
+      "id": "F018",
+      "format": "text",
+      "text": "Finally, the team evaluated the project process in terms of creativity (choices too narrow), leadership and teamwork (happy with it, but they missed communicating in between meetings), and means (SMARTboard was not satisfactory, but the digital pens were alright, but not too useful)."
+    },
+    {
+      "id": "F019",
+      "format": "text",
+      "text": "It can be used as a normal remote, but the speech recognition also provides a more advanced alternative interface."
+    },
+    {
+      "id": "F020",
+      "format": "text",
+      "text": "The team discusses the project process- saying that they had to cut out some creativity in order to meet the budget because they had not known the cost of features beforehand."
+    },
+    {
+      "id": "F021",
+      "format": "text",
+      "text": "They demonstrate the remote components, showing how it flips open on the side and features a LCD and scroll inside."
+    },
+    {
+      "id": "F022",
+      "format": "text",
+      "text": "The device cannot be a hi-tech, innovative one any more."
+    },
+    {
+      "id": "F023",
+      "format": "text",
+      "text": "The same happened with the speech recognition."
+    },
+    {
+      "id": "F024",
+      "format": "text",
+      "text": "The rubber case is yellow with grey or black, with buttons either made of plastic or rubber."
+    },
+    {
+      "id": "F025",
+      "format": "text",
+      "text": "When rating the product on how well it matches the user's behavior, they found that the product is more convenient for right-handed people and less so for those who are left-handed."
+    },
+    {
+      "id": "F026",
+      "format": "text",
+      "text": "The remote will be black/yellow color and the shape of a banana."
+    },
+    {
+      "id": "F027",
+      "format": "text",
+      "text": "Corporate logo will be in grey."
+    },
+    {
+      "id": "F028",
+      "format": "text",
+      "text": "Has an on/off button, channel flipping, volume scroller on side."
+    },
+    {
+      "id": "F029",
+      "format": "text",
+      "text": "The marketing expert gives the product evaluation, which is based on the criteria of attractiveness, whether it matches operation behavior of the user, locatability, intuitiveness, ergonomic design, and how technologically innovative it is."
+    },
+    {
+      "id": "F030",
+      "format": "text",
+      "text": "The prototype proved extremely over budget."
+    },
+    {
+      "id": "F031",
+      "format": "text",
+      "text": "The prototype will have to be redesigned, so that it is compatible with the budget constraints.."
+    },
+    {
+      "id": "F032",
+      "format": "text",
+      "text": "Remote flips open on side."
+    },
+    {
+      "id": "F033",
+      "format": "text",
+      "text": "An extra button could activate/deactivate the voice recognition."
+    },
+    {
+      "id": "F034",
+      "format": "text",
+      "text": "The LCD will display the main menu, which offers various options."
+    },
+    {
+      "id": "F035",
+      "format": "text",
+      "text": "Single-curved surface."
+    },
+    {
+      "id": "F036",
+      "format": "text",
+      "text": "It could be more difficult to get used to."
+    },
+    {
+      "id": "F037",
+      "format": "text",
+      "text": "LCD and push buttons inside flip-open door."
+    },
+    {
+      "id": "F038",
+      "format": "text",
+      "text": "The speech recognition works as a finding mechanism as well."
+    },
+    {
+      "id": "F039",
+      "format": "text",
+      "text": "Remote uses one simple battery and an advanced chip."
+    },
+    {
+      "id": "F040",
+      "format": "text",
+      "text": "The prototype proved extremely over budget."
+    },
+    {
+      "id": "F041",
+      "format": "text",
+      "text": "The designers present the prototype, which they decided to make the color and shape of a banana."
+    },
+    {
+      "id": "F042",
+      "format": "text",
+      "text": "Rubber case material."
+    },
+    {
+      "id": "F043",
+      "format": "text",
+      "text": "They were satisfied with the leadership but felt rushed for time."
+    },
+    {
+      "id": "F044",
+      "format": "text",
+      "text": "The team needs to complete the final questionaire and meeting summary."
+    },
+    {
+      "id": "F045",
+      "format": "text",
+      "text": "The main contributing factors were the solar cell and speech recognition."
+    },
+    {
+      "id": "F046",
+      "format": "text",
+      "text": "It was suggested that they go for a completely simple design so as to maximise the profit, although this was not what was asked in the project requirements."
+    },
+    {
+      "id": "F047",
+      "format": "text",
+      "text": "This happened because they had not known beforehand the cost of such features."
+    }
+  ]
+}

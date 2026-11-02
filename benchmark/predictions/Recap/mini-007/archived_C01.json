@@ -1,0 +1,382 @@
+{
+  "assignments": [
+    {
+      "id": "F001",
+      "path": [
+        "Meeting1_Concept",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F002",
+      "path": [
+        "Meeting2_Refinement",
+        "Specifications"
+      ]
+    },
+    {
+      "id": "F003",
+      "path": [
+        "Meeting1_Concept",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F004",
+      "path": [
+        "Meeting2_Refinement",
+        "Specifications"
+      ]
+    },
+    {
+      "id": "F005",
+      "path": [
+        "Meeting1_Concept",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F006",
+      "path": [
+        "Meeting1_Concept",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F007",
+      "path": [
+        "Meeting1_Concept",
+        "Problems"
+      ]
+    },
+    {
+      "id": "F008",
+      "path": [
+        "Meeting2_Refinement",
+        "Presentations"
+      ]
+    },
+    {
+      "id": "F009",
+      "path": [
+        "Meeting1_Concept",
+        "Problems"
+      ]
+    },
+    {
+      "id": "F010",
+      "path": [
+        "Meeting2_Refinement",
+        "Specifications"
+      ]
+    },
+    {
+      "id": "F011",
+      "path": [
+        "Meeting2_Refinement",
+        "Specifications"
+      ]
+    },
+    {
+      "id": "F012",
+      "path": [
+        "Meeting2_Refinement",
+        "Specifications"
+      ]
+    },
+    {
+      "id": "F013",
+      "path": [
+        "Meeting2_Refinement",
+        "Presentations"
+      ]
+    },
+    {
+      "id": "F014",
+      "path": [
+        "Meeting2_Refinement",
+        "Presentations"
+      ]
+    },
+    {
+      "id": "F015",
+      "path": [
+        "Meeting2_Refinement",
+        "Specifications"
+      ]
+    },
+    {
+      "id": "F016",
+      "path": [
+        "Meeting2_Refinement",
+        "Design"
+      ]
+    },
+    {
+      "id": "F017",
+      "path": [
+        "Meeting2_Refinement",
+        "Specifications"
+      ]
+    },
+    {
+      "id": "F018",
+      "path": [
+        "Meeting2_Refinement",
+        "Presentations"
+      ]
+    },
+    {
+      "id": "F019",
+      "path": [
+        "Meeting2_Refinement",
+        "Specifications"
+      ]
+    },
+    {
+      "id": "F020",
+      "path": [
+        "Meeting1_Concept",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F021",
+      "path": [
+        "Meeting1_Concept",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F022",
+      "path": [
+        "Meeting2_Refinement",
+        "Specifications"
+      ]
+    },
+    {
+      "id": "F023",
+      "path": [
+        "Meeting1_Concept",
+        "Problems"
+      ]
+    },
+    {
+      "id": "F024",
+      "path": [
+        "Meeting2_Refinement",
+        "Presentations"
+      ]
+    },
+    {
+      "id": "F025",
+      "path": [
+        "Meeting2_Refinement",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F026",
+      "path": [
+        "Meeting2_Refinement",
+        "Specifications"
+      ]
+    },
+    {
+      "id": "F027",
+      "path": [
+        "Meeting2_Refinement",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F028",
+      "path": [
+        "Meeting2_Refinement",
+        "Presentations"
+      ]
+    },
+    {
+      "id": "F029",
+      "path": [
+        "Meeting1_Concept",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F030",
+      "path": [
+        "Meeting2_Refinement",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F031",
+      "path": [
+        "Meeting2_Refinement",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F032",
+      "path": [
+        "Meeting2_Refinement",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F033",
+      "path": [
+        "Meeting1_Concept",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F034",
+      "path": [
+        "Meeting2_Refinement",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F035",
+      "path": [
+        "Meeting2_Refinement",
+        "Specifications"
+      ]
+    },
+    {
+      "id": "F036",
+      "path": [
+        "Meeting2_Refinement",
+        "Design"
+      ]
+    },
+    {
+      "id": "F037",
+      "path": [
+        "Meeting1_Concept",
+        "Decisions"
+      ]
+    },
+    {
+      "id": "F038",
+      "path": [
+        "Meeting2_Refinement",
+        "Specifications"
+      ]
+    },
+    {
+      "id": "F039",
+      "path": [
+        "Meeting2_Refinement",
+        "Design"
+      ]
+    },
+    {
+      "id": "F040",
+      "path": [
+        "Meeting2_Refinement",
+        "Presentations"
+      ]
+    },
+    {
+      "id": "F041",
+      "path": [
+        "Meeting2_Refinement",
+        "Specifications"
+      ]
+    },
+    {
+      "id": "F042",
+      "path": [
+        "Meeting1_Concept",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F043",
+      "path": [
+        "Meeting1_Concept",
+        "Overview"
+      ]
+    },
+    {
+      "id": "F044",
+      "path": [
+        "Meeting2_Refinement",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F045",
+      "path": [
+        "Meeting2_Refinement",
+        "Specifications"
+      ]
+    },
+    {
+      "id": "F046",
+      "path": [
+        "Meeting2_Refinement",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F047",
+      "path": [
+        "Meeting2_Refinement",
+        "Specifications"
+      ]
+    },
+    {
+      "id": "F048",
+      "path": [
+        "Meeting2_Refinement",
+        "Specifications"
+      ]
+    },
+    {
+      "id": "F049",
+      "path": [
+        "Meeting2_Refinement",
+        "Specifications"
+      ]
+    },
+    {
+      "id": "F050",
+      "path": [
+        "Meeting2_Refinement",
+        "Specifications"
+      ]
+    },
+    {
+      "id": "F051",
+      "path": [
+        "Meeting2_Refinement",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F052",
+      "path": [
+        "Meeting2_Refinement",
+        "Actions"
+      ]
+    },
+    {
+      "id": "F053",
+      "path": [
+        "Meeting2_Refinement",
+        "Specifications"
+      ]
+    },
+    {
+      "id": "F054",
+      "path": [
+        "Meeting2_Refinement",
+        "Specifications"
+      ]
+    }
+  ]
+}

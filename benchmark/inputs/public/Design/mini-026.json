@@ -1,0 +1,185 @@
+{
+  "task_id": "mini-026",
+  "records": [
+    {
+      "id": "F001",
+      "format": "text",
+      "text": "Kubernetes should define a set of standard metrics that allow a user who works with the Kubernetes resource model to easily answer via instrumentation several important queries: What is the current remaining schedulable capacity of all my nodes Which components are using less than they request Which components on a node are the most likely to be evicted Which resources on my cluster are most contended Is a set of pods requesting more resources than any node has to offer\n\nWe should attempt to provide sufficient “out of the box” metrics for capacity planning for most cluster administrators, and present the resource model that Kubernetes uses for easy consumption. Integrations that extend the resource model with our supported pattern should also be visible in these metrics as the default resource model would interpret them.\n\nWe should use consistent terminology, patterns, and descriptions of resource request, consumption, and availability across our API, metrics, component code, and documentation to ensure Kubernetes admins see a coherent view of the Kubernetes resource model."
+    },
+    {
+      "id": "F002",
+      "format": "text",
+      "text": "Workloads that need to interact with DRA-allocated devices (like KubeVirt virtual machines) require access to device specific metadata such as PCIe bus addresses or mediated device UUIDs. Currently, to fetch attributes from allocated devices, users must: Go to `ResourceClaimStatus` to find the request and device name Look up the `ResourceSlice` with the device name to get attribute values\n\nThis complexity forces ecosystem projects like KubeVirt to build custom controllers that watch these objects and inject attributes via annotations/labels, leading to fragile, error-prone, and racy designs."
+    },
+    {
+      "id": "F003",
+      "format": "text",
+      "text": "The following are non-goals of this KEP: Solving use cases outside of the above-mentioned client authentication workflows. Implementing a specific flavor of request signing (like SigV4), or adding support for any hardware security module protocol directly in the Kubernetes client libraries. Defining any new mechanisms for validating request signatures server-side. This is because they can be validated by a front-proxy, which is already a feature of Kubernetes."
+    },
+    {
+      "id": "F004",
+      "format": "text",
+      "text": "Expose CPUSet assignments to containers via the downward API volume with `DownwardAPIAssignedResources` feature gate enabled: `assigned.cpuset`: the desired exclusive cpuset (Linux cpuset format, e.g. `0-3,7,12-15`). Empty string when no exclusive CPUs are assigned. Wait at least the configured `scale-delay-time` before applying the new cpuset configuration when a container scales down. The `scale-delay-time` option applies to the entire kubelet. Its value must be between 0s and 10s. Setting it to 0s preserves the existing behavior (no delay before applying the cpuset), whereas 10s is the maximum allowed value."
+    },
+    {
+      "id": "F005",
+      "format": "text",
+      "text": "Add native histogram support to the `component-base/metrics` package with: **Feature Gate**: A new `NativeHistograms` feature gate controlling whether K8s components expose metrics with native histogram format **Global Defaults**: Use sensible global defaults for native histogram configuration **Dual Exposition**: When enabled, expose both classic and native histogram formats\n\nThe control model is intentionally simple: K8s-side: Feature gate controls whether native histograms are exposed Prometheus-side: Per-job `scrape_native_histograms` (ref) controls what Prometheus ingests (Prometheus 3.x)"
+    },
+    {
+      "id": "F006",
+      "format": "text",
+      "text": "Structured config for OIDC authentication: noted in various contexts over the past few years. We want to migrate away from a flag-based config that is growing without bounds to a proper versioned config format. This would allow us to better support various features that have been requested. Support multiple ClientIDs Identify user by more JWT claims than just a single one Allow any claim from an ID token to be mapped to user info extra attributes Fail authentication unless user is a member of a specific set of groups Required claims does not support arrays Forward audiences to authorization via user info extra attributes"
+    },
+    {
+      "id": "F007",
+      "format": "text",
+      "text": "The kubelet generates and exports spans for reconcile loops it initiates and for incoming/outgoing requests to the kubelet's authenticated http servers, as well as the CRI, CNI, and CSI interfaces. An example of a reconcile loop is the creation of a pod. Pod creation involves pulling the image, creating the pod sandbox and creating the container. With stateful workloads, attachment and mounting of volumes referred by a pod might be included. Trace data can be used to diagnose latency within such flows."
+    },
+    {
+      "id": "F008",
+      "format": "text",
+      "text": "`metadata.managedFields` is used by the API server for Server-Side Apply (SSA) conflict resolution. However, the vast majority of Kubernetes clients do not actively process this data. Many core components, such as `kube-controller-manager` and `kube-scheduler`, currently use client-side transforms to drop managed fields to save memory.\n\nAs documented in the Server-Side Apply KEP, `managedFields` can represent up to **60% of the total size** of an object. The actual overhead varies with the number of field managers and the fields they touch — objects managed by multiple controllers, webhooks, and users in production clusters carry proportionally larger `managedFields`. Reducing this overhead is important for supporting larger resource sizes as a scalability dimension.\n\nRelying on client-side transforms still incurs significant system-wide costs: **API Server CPU:** The API server still performs expensive serialization of `managedFields`, even when the client will immediately discard it. **Network Overhead:** `managedFields` payloads significantly increase transfer time during LIST and WATCH operations. This contributes to request timeouts and limits the API server's ability to handle large resources (see #134375). **Client-side GC:** Clients must allocate structural objects (string headers, maps, and slice backing arrays) for `managedFields` before discarding them, adding unnecessary memory pressure and GC overhead."
+    },
+    {
+      "id": "F009",
+      "format": "text",
+      "text": "Along with metrics and logs, traces are a useful form of telemetry to aid with debugging incoming requests. The kubelet can make use of distributed tracing to improve the ease of use and enable easier analysis of trace data. Trace data is structured, providing the detail necessary to debug requests across service boundaries. As more core components are instrumented, Kubernetes becomes easier to monitor, manage, and troubleshoot."
+    },
+    {
+      "id": "F010",
+      "format": "text",
+      "text": "Scalability and performance of kube-apiserver is crucial for scalability of the whole Kubernetes cluster. Given that kube-apiserver is cpu-intensive process, scaling a single instance of it translates to optimizing amount of work is needed to process a request (cpu cycles and amount of allocated memory, as memory management is significant part of work done be kube-apiserver).\n\nThis proposal is aiming to significantly reduce amount of work spent on serializing objects as well as amount of allocated memory to process that."
+    },
+    {
+      "id": "F011",
+      "format": "text",
+      "text": "Reduce API server serialization CPU by eliminating the work of encoding `managedFields` for clients that do not need it. The savings are proportional to the `managedFields` share of each object, which varies by the number of field managers. Reduce network transfer sizes between the API server and clients proportionally to the `managedFields` overhead (up to 60% per the SSA KEP), unblocking support for larger resource sizes and reducing LIST/WATCH timeout risk. Reduce client-side memory allocations and GC overhead by eliminating the need to allocate and immediately discard `managedFields` data structures. Migrate in-tree clients (`kube-controller-manager`, `kube-scheduler`) from client-side informer transforms to server-side opt-out, moving the cost savings from the client to the entire request path."
+    },
+    {
+      "id": "F012",
+      "format": "text",
+      "text": "Running different types of scalability tests and analyzing large production clusters proves that large number of watches watching the same set of objects may cause significant load on kube-apiserver. An extreme example of it is [#75294][], where creation of a single large Endpoints object (almost 1MB of size, due to 5k pods backing it) in 5k-node cluster can completely overload kube-apiserver for 5 seconds.\n\nThe main reason for that is that for every watcher (Endpoints are being watched by kube-proxy running on every one) kube-apiserver independently serializes (which also requires deep-copy) every single object being send via this watch.\n\nWhile this problem is extremely visible for watch, the situation looks the same for regular GET/LIST operations - reading the same object N times will result in serializing that N times independently.\n\nThis proposal presents a solution for that problem.\n\n[#75294]:"
+    },
+    {
+      "id": "F013",
+      "format": "text",
+      "text": "With this enhancement, Kubernetes Developers will declare validation rules using Interface Definition Language (IDL) tags in the `types.go` files that define the Kubernetes native API types. For example:\n\nIn this example `+k8s:optional`, and `+k8s:minimum` are IDL tags.\n\nThe declarative validation IDL tags will be used to generate code via a new code generator - `validation-gen`. For the above IDL tags the generated code will look something like the snippet below (full file here)\n\nThis generated code will then be used in the kube-apiserver to validate API requests."
+    },
+    {
+      "id": "F014",
+      "format": "text",
+      "text": "A number of SSRF vulnerabilities have been discovered in Kubernetes recently, and I expect there to be more. Notable examples include: CVE-2020-8559: Client-side redirect CVE-2018-1002102: Unvalidated kubelet redirect\n\nIn both these cases, the potential of the vulnerability is greatly increased by the ability for an attacker to execute arbitrary commands specified by a URL parameter in a GET request. Removing this attacker capability will greatly reduce the impact of future vulnerabilities in which an attacker can control the URL of an authenticated request."
+    },
+    {
+      "id": "F015",
+      "format": "text",
+      "text": "**Specify a solution for pod-to-pod mTLS in core Kubernetes**: Pod-to-pod mTLS (aka service mesh) is a rapidly-evolving area. While all of the machinery described in this KEP is expected (and is designed to be) useful for service mesh implementations, it doesn't make sense to try and standardize pod-to-pod mTLS at the core Kubernetes layer today. **Support HSM-backed private keys**: In this proposal, private keys are contained to the node (held only in kubelet memory and tmpfs projected volumes), but they can still be extracted from a compromised workload (or compromised node)."
+    },
+    {
+      "id": "F016",
+      "format": "text",
+      "text": "The proposed changes are **breaking changes**. To mitigate breakage, requiring the new request parameter format will be protected by the `HardenedExecRequests` feature gate and rolled out gradually over a long period. In the interim, updated clients can use the new request format for immediate protection (unless we delay the GET request changes). Requiring POST for non-websocket exec requests is also a breaking change. See above."
+    },
+    {
+      "id": "F017",
+      "format": "text",
+      "text": "Do nothing - We're likely to see more vulnerabilities related to exec requests in the future, but it's possible that we won't. Drop support for websockets - If we dropped support for websockets, we could completely eliminate exec-via-GET, at the expense of dropping a supported feature. This is probably a non-starter. Verify ExecOptions for websockets through a sub-protocol - See 3. Require the websocket protocol for GET requests.."
+    },
+    {
+      "id": "F018",
+      "format": "text",
+      "text": "This enhancement proposal covers adding structured authentication configuration to the Kubernetes API server. Initially, only a `jwt` configuration will be supported, which will serve as the next iteration of the existing OIDC authenticator. OIDC authentication is an important part of Kubernetes, yet it has limitations in its current state. Below we will discuss that limitation and propose solutions."
+    },
+    {
+      "id": "F019",
+      "format": "text",
+      "text": "This proposal introduces a new option, `scale-delay-time`, in the CPU Manager static policy. The `scale-delay-time` option ensures the updated cpuset is not applied sooner than the specified delay after a container scale-down event.\n\nThis proposal also extends the downward API volume to expose the CPUs assigned to containers. This extension is controlled by the new `DownwardAPIAssignedResources` feature gate.\n\nTogether, these two features allow latency-sensitive applications to obtain the assigned cpuset in advance via the downward API. This enables workloads to prepare for CPU removal triggered by scale-down within the guaranteed delay window `scale-delay-time`. As a result, performance degradation caused by sudden CPU loss is avoided."
+    },
+    {
+      "id": "F020",
+      "format": "text",
+      "text": "**Scalability**: In the current design and draft implementation, kubelet holds the private keys for each pod on the node in memory. If kubelet restarts, then the private keys are lost, and kubelet will need to immediately generate new keys and request new certificates for each volume on the pod. If kubelet crashloops, this can generate high CertificateSigningRequest traffic on kube-apiserver. This can potentially be mitigated by giving kubelet the capability to read back the existing key from the projected volume on startup."
+    },
+    {
+      "id": "F021",
+      "format": "text",
+      "text": "Client authentication in Kubernetes can be achieved via one of a handful of mechanisms: by passing a bearer token directly to kubectl using the `--token` flag, by inserting a bearer token into the kubeconfig, by inserting a client certificate and key into the kubeconfig, or by defining an exec-based token plugin in the kubeconfig which supports calling an arbitrary binary which is expected to return a bearer token and/or client certificate/key. The client exec proxy adds an extension point for additional authentication mechanisms that are difficult to set up with the current architecture. Client request signing, and an external TLS certificate authenticator are two use cases that would benefit from this proposal."
+    },
+    {
+      "id": "F022",
+      "format": "text",
+      "text": "This proposal does not introduce any user-visible changes - the proposed changes are purely implementation details of kube-apiserver. First, we will extend [runtime.Encoder][] interface with the Identifier() method:\n\nWith that, we will introduce a new interface:\n\nWe will add support for `CacheableObject` for all existing Encoders. This is basically as simple as:\n\nNecessary generic tests will be created to ensure it is supported correctly."
+    },
+    {
+      "id": "F023",
+      "format": "text",
+      "text": "Eliminate 100% of existing hand-written validation. The goal is to drastically reduce the # of hand-written validation cases only to those that are extra-ordinary but not replace all hand-written validation. To convert validation into a full-featured scripted language It is not a goal of this KEP directly to publish validation rules to OpenAPI It is not a goal of this KEP to expose unenforced validation markers in CR schemas in CR openapi. It is not a goal of this KEP directly to have declarative defaults, only declarative validation rules. That is the goal of a TBD complementary KEP"
+    },
+    {
+      "id": "F024",
+      "format": "text",
+      "text": "This proposal introduces a new `scale-delay-time` option for the CPU Manager static policy. The option specifies the minimum delay before applying an updated cpuset when a container has its CPU allocation scaled down. During the delay window, the container continues to use the current cpuset for at least the configured `scale-delay-time`. This allows latency-sensitive workloads to monitor and prepare for the upcoming CPUSet change before CPU(s) are removed from the container. The minimum delay must be guaranteed at all times, including during kubelet restarts.\n\nThis proposal also extends the Downward API volume to expose CPU Manager cpuset information through a new `assigned.cpuset` resource field. During the delay window, `assigned.cpuset` exposes the desired cpuset so that workloads can prepare for the upcoming change. Exposition of new field is gated by the `DownwardAPIAssignedResources` feature gate.\n\nThis proposal does not require a handshake (acknowledgment) from the workload, because the `scale-delay-time` is configured based on the workload's needed reaction time, providing a guaranteed time window for the workload to react to the upcoming cpuset change."
+    },
+    {
+      "id": "F025",
+      "format": "text",
+      "text": "This KEP proposes exposing Dynamic Resource Allocation (DRA) device attributes to workloads via CDI (Container Device Interface) mounts. Drivers provide device metadata by populating a `Metadata` field in `PrepareResult` when returning from `PrepareResourceClaims`. The framework writes this metadata to per-request JSON files, which are mounted into containers via CDI. Containers only see metadata for the requests they reference (via `resources.claims[].request`), providing proper isolation when a claim has multiple requests used by different containers. Workloads like KubeVirt can read device metadata like PCIe bus address, or mediated device UUID, from standardized file paths without requiring custom controllers or Downward API changes."
+    },
+    {
+      "id": "F026",
+      "format": "text",
+      "text": "The goals of this KEP include: Defining a specification which enables Kubernetes clients to do arbitrary request modification before sending the request to the API server, via an extensible mechanism to support the following use cases: Client request signing. Using hardware protected keys for request signing or mTLS. Adding or manipulating arbitrary headers to the request. Defining a specification which would provide the ability for the client-side proxy server to be executed and communicated with according to configuration solely contained in a kubeconfig file. Defining a specification which is interoperable with an existing client-side proxy setup, e.g. a proxy configured with the HTTP_PROXY environment variable. Defining a specification for a client-side proxy server that is easy to secure without taking additional setup steps, by: Using a unix domain socket for the communication between the client and the proxy, secured with file permissions and TLS."
+    },
+    {
+      "id": "F027",
+      "format": "text",
+      "text": "Provide an easy way for DRA driver authors to make the attributes and other metadata discoverable inside the pods (specifically containers requesting devices). Minimize complexity and avoid modifications to core components like scheduler and kubelet to maintain system reliability and scalability Maintain full backward compatibility with existing DRA drivers and workloads Define a versioned JSON schema to ensure compatibility within versions and clear migration paths across versions Support metadata updates after NodePrepareResources so that drivers (e.g. network DRA) can update metadata from NRI hooks such as RunPodSandbox."
+    },
+    {
+      "id": "F028",
+      "format": "text",
+      "text": "Eliminate 90% of net-new hand-written validation within 5 kube releases (target start: v1.33) Convert 50% of existing hand-written validation within 5 kube releases (target start: v1.33) Migrate in such a way that if contributors lose steam and abandon this, we can roll it back relatively easily. `types.go` files become the de-facto IDL of Kubernetes for native types. It is worth noting that `+enum` support, `+default` support and similar enhancements all moved our API development forward in this direction."
+    },
+    {
+      "id": "F029",
+      "format": "text",
+      "text": "The current Prometheus metrics exposed by the cluster have gaps that make building accurate capacity alerts, dashboards, and ad-hoc queries more difficult than necessary and complicate the average user’s understanding of the resource model. The Kubernetes resource model is fundamental to capacity planning and error triage. It should be easy to visualize and alert on core usage and capacity through a simple set of metrics. Administrators and integrators should be able to easily graph and calculate the available and consumed resources within the cluster at any time."
+    },
+    {
+      "id": "F030",
+      "format": "text",
+      "text": "Kubernetes exposes hundreds of histogram metrics across its control plane components. These metrics are essential for monitoring cluster health, debugging performance issues, and ensuring service level objectives are met. However, classic Prometheus histograms have inherent limitations: **Storage overhead**: Each classic histogram creates multiple time series (one per bucket plus `_count` and `_sum`), leading to high storage costs at scale **Fixed bucket boundaries**: Predefined buckets may not align well with actual data distributions, causing accuracy issues and rendering bucket boundaries useless. For example, if a histogram uses default buckets like `[0.005, 0.01, 0.025, 0.05, 0.1, 0.25, 0.5, 1, 2.5, 5, 10]` seconds, a request completing in 1µs (0.000001s) falls into the same `le=\"0.005\"` bucket as a request completing in 4ms—a 4000x difference in latency becomes indistinguishable. Similarly, all requests between 1s and 2.5s are grouped together, hiding important performance variations\n\nPrometheus Native Histograms, introduced in Prometheus 2.40, address these limitations using exponential bucket boundaries with automatic adjustment. Kubernetes should support this modern, more efficient histogram format."
+    },
+    {
+      "id": "F031",
+      "format": "text",
+      "text": "This Kubernetes Enhancement Proposal (KEP) is to enhance the kubelet to allow tracing gRPC and HTTP API requests. The kubelet is the integration point of a node's operating system and kubernetes. From control plane-node communication documentation, a primary communication path from the control plane to the nodes is from the apiserver to the kubelet process running on each node. The kubelet communicates with the container runtime over gRPC, where kubelet is the gRPC client and the Container Runtime Interface is the gRPC server. The CRI then sends the creation request to the container runtime installed on the node. Traces gathered from the kubelet will provide critical information to monitor and troubleshoot interactions at the node level. This KEP proposes using OpenTelemetry libraries, and exports in the OpenTelemetry format. This is in line with the API Server enhancement."
+    },
+    {
+      "id": "F032",
+      "format": "text",
+      "text": "**General-purpose field selection or opting out of other fields** (though the API design is intended to be extensible to support this in the future without a redesign). **Opting out of fields in the request body of write operations.** This KEP drops fields from API *responses* (including responses to write operations like PUT/POST/PATCH), not from request bodies. `kube-controller-manager` and `kube-scheduler` already send objects without `managedFields` on PUT (due to informer transforms). This is safe because the field manager falls back to the stored object's `managedFields` when the request has none."
+    },
+    {
+      "id": "F033",
+      "format": "text",
+      "text": "This KEP proposes adding support for Prometheus Native Histograms to Kubernetes component metrics. Starting with Prometheus v3.8.0, native histograms are supported as a stable feature. Native histograms use exponential bucket boundaries instead of fixed boundaries, providing significant storage efficiency (~10x reduction in time series count per histogram), improved query performance, and finer-grained visibility into distributions while maintaining full backward compatibility with existing monitoring infrastructure through a dual exposition strategy.\n\nThe implementation introduces a feature gate (`NativeHistograms`) to provide safe rollout and rollback capabilities. When enabled, Kubernetes components will expose histogram metrics in both classic and native formats simultaneously (when requesting a format that supports Native Histograms, such as PrometheusProto), ensuring existing dashboards and alerts continue to function while users can migrate to native histograms at their own pace. Rollback is handled primarily through Prometheus-side configuration (for Prometheus 3.x users) or via the K8s feature gate."
+    },
+    {
+      "id": "F034",
+      "format": "text",
+      "text": "There are features users want to tune. We need to provide customization of the following: *Claims validation rules*: current OIDC provider supports only audience claim validation and only by exact values. *Claim mappings*: it is only possible to pick a single value from a single claim and prefix groups. This also serves to support the use of nested claims (i.e. not at the top level) *Use more than one OIDC provider*: the only option, for now, is to use an external OIDC provider that handles multiplexing support for multiple providers. This also serves to support the use of more than one client ID Change authenticator settings without restarting kube-apiserver. Support validation rules on the final user info object to allow infra providers to safely expose this functionality to customers Easy migration from existing OIDC flags Note: we intend to drop the `--oidc-signing-algs` flag because this configuration provides no benefit (we will always allow all asymmetric algorithms)"
+    },
+    {
+      "id": "F035",
+      "format": "text",
+      "text": "We considered extending `kube-state-metrics` to represent all of the data necessary to perform the pod resource lifecycle calculation as described above. The implementation would require a significant number of new metric cardinality, and would also require a very complex recording rule that would be difficult in some engines and likely not be completely accurate. Since we believe that metrics should be exposed that reflect the intent of the system, and this metric is extremely high value, and we desire to reuse the same logic that the underlying system relies on to minimize drift, we choose to bypass this approach for now."
+    },
+    {
+      "id": "F036",
+      "format": "text",
+      "text": "**Ensure that certificate issuance can be accomplished without relying on bearer tokens at any step**: One of the most significant benefits of mTLS authentication is that the credential is split into two pieces (private key and certificate), only one of which is ever transmitted to the counterparty (and thus subject to eavesdropping or theft by the counterparty). In order to preserve this guarantee, it's important that bearer tokens are not involved *at any step*, otherwise the security of the scheme devolves to just being a bearer token."
+    }
+  ]
+}

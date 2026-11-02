@@ -1,0 +1,361 @@
+{
+  "assignments": [
+    {
+      "id": "F001",
+      "path": [
+        "PR-6596-rate-limiting",
+        "test-failures"
+      ]
+    },
+    {
+      "id": "F002",
+      "path": [
+        "PR-6596-rate-limiting",
+        "pr-reviews"
+      ]
+    },
+    {
+      "id": "F003",
+      "path": [
+        "version-management",
+        "version-updates"
+      ]
+    },
+    {
+      "id": "F004",
+      "path": [
+        "PR-6596-rate-limiting",
+        "pr-reviews"
+      ]
+    },
+    {
+      "id": "F005",
+      "path": [
+        "version-management",
+        "version-updates"
+      ]
+    },
+    {
+      "id": "F006",
+      "path": [
+        "PR-6596-rate-limiting",
+        "pr-reviews"
+      ]
+    },
+    {
+      "id": "F007",
+      "path": [
+        "version-management",
+        "version-updates"
+      ]
+    },
+    {
+      "id": "F008",
+      "path": [
+        "ABFS-metrics",
+        "driver-metrics"
+      ]
+    },
+    {
+      "id": "F009",
+      "path": [
+        "S3A-metadata",
+        "header-processing"
+      ]
+    },
+    {
+      "id": "F010",
+      "path": [
+        "version-management",
+        "version-updates"
+      ]
+    },
+    {
+      "id": "F011",
+      "path": [
+        "PR-6596-rate-limiting",
+        "pr-reviews"
+      ]
+    },
+    {
+      "id": "F012",
+      "path": [
+        "PR-6596-rate-limiting",
+        "test-failures"
+      ]
+    },
+    {
+      "id": "F013",
+      "path": [
+        "code-review",
+        "implementation-notes"
+      ]
+    },
+    {
+      "id": "F014",
+      "path": [
+        "S3A-yarn",
+        "log-collection"
+      ]
+    },
+    {
+      "id": "F015",
+      "path": [
+        "S3A-path-style-access",
+        "virtual-host-issue"
+      ]
+    },
+    {
+      "id": "F016",
+      "path": [
+        "PR-6596-rate-limiting",
+        "pr-description"
+      ]
+    },
+    {
+      "id": "F017",
+      "path": [
+        "PR-6596-rate-limiting",
+        "test-failures"
+      ]
+    },
+    {
+      "id": "F018",
+      "path": [
+        "code-review",
+        "implementation-notes"
+      ]
+    },
+    {
+      "id": "F019",
+      "path": [
+        "ABFS-namespace",
+        "exception-handling"
+      ]
+    },
+    {
+      "id": "F020",
+      "path": [
+        "PR-6596-rate-limiting",
+        "pr-reviews"
+      ]
+    },
+    {
+      "id": "F021",
+      "path": [
+        "S3A-input-stream",
+        "read-retry-behavior"
+      ]
+    },
+    {
+      "id": "F022",
+      "path": [
+        "PR-6596-rate-limiting",
+        "implementation-discussion"
+      ]
+    },
+    {
+      "id": "F023",
+      "path": [
+        "S3A-dependencies",
+        "hdfs-client-dependency"
+      ]
+    },
+    {
+      "id": "F024",
+      "path": [
+        "S3A-input-stream",
+        "read-retry-behavior"
+      ]
+    },
+    {
+      "id": "F025",
+      "path": [
+        "S3A-credentials",
+        "aws-credentials-dt-enabled"
+      ]
+    },
+    {
+      "id": "F026",
+      "path": [
+        "version-management",
+        "version-updates"
+      ]
+    },
+    {
+      "id": "F027",
+      "path": [
+        "PR-6596-rate-limiting",
+        "pr-reviews"
+      ]
+    },
+    {
+      "id": "F028",
+      "path": [
+        "code-review",
+        "debugging-notes"
+      ]
+    },
+    {
+      "id": "F029",
+      "path": [
+        "code-review",
+        "pr-references"
+      ]
+    },
+    {
+      "id": "F030",
+      "path": [
+        "version-management",
+        "version-updates"
+      ]
+    },
+    {
+      "id": "F031",
+      "path": [
+        "code-review",
+        "debugging-notes"
+      ]
+    },
+    {
+      "id": "F032",
+      "path": [
+        "PR-6596-rate-limiting",
+        "pr-closure"
+      ]
+    },
+    {
+      "id": "F033",
+      "path": [
+        "S3A-path-style-access",
+        "virtual-host-issue"
+      ]
+    },
+    {
+      "id": "F034",
+      "path": [
+        "S3A-path-style-access",
+        "virtual-host-issue"
+      ]
+    },
+    {
+      "id": "F035",
+      "path": [
+        "version-management",
+        "version-updates"
+      ]
+    },
+    {
+      "id": "F036",
+      "path": [
+        "S3A-ssl-certificate",
+        "dot-bucket-names"
+      ]
+    },
+    {
+      "id": "F037",
+      "path": [
+        "S3A-ssl-certificate",
+        "dot-bucket-names"
+      ]
+    },
+    {
+      "id": "F038",
+      "path": [
+        "PR-6596-rate-limiting",
+        "test-failures"
+      ]
+    },
+    {
+      "id": "F039",
+      "path": [
+        "PR-6596-rate-limiting",
+        "implementation-discussion"
+      ]
+    },
+    {
+      "id": "F040",
+      "path": [
+        "ABFS-manifest-committer",
+        "rate-limiting"
+      ]
+    },
+    {
+      "id": "F041",
+      "path": [
+        "hadoop-contract-tests",
+        "methodPath-robustness"
+      ]
+    },
+    {
+      "id": "F042",
+      "path": [
+        "S3A-ssl-auth",
+        "ssl-retries"
+      ]
+    },
+    {
+      "id": "F043",
+      "path": [
+        "PR-6596-rate-limiting",
+        "test-failures"
+      ]
+    },
+    {
+      "id": "F044",
+      "path": [
+        "version-management",
+        "version-updates"
+      ]
+    },
+    {
+      "id": "F045",
+      "path": [
+        "S3A-credentials",
+        "assumed-role"
+      ]
+    },
+    {
+      "id": "F046",
+      "path": [
+        "S3A-bulk-delete",
+        "iceberg-validation"
+      ]
+    },
+    {
+      "id": "F047",
+      "path": [
+        "PR-6596-rate-limiting",
+        "implementation-discussion"
+      ]
+    },
+    {
+      "id": "F048",
+      "path": [
+        "PR-6596-rate-limiting",
+        "implementation-discussion"
+      ]
+    },
+    {
+      "id": "F049",
+      "path": [
+        "S3A-path-style-access",
+        "virtual-host-issue"
+      ]
+    },
+    {
+      "id": "F050",
+      "path": [
+        "shell-trash",
+        "object-store-trash"
+      ]
+    },
+    {
+      "id": "F051",
+      "path": [
+        "PR-6596-rate-limiting",
+        "pr-reviews"
+      ]
+    }
+  ]
+}

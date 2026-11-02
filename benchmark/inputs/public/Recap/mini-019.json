@@ -1,0 +1,290 @@
+{
+  "task_id": "ami/mini-019",
+  "records": [
+    {
+      "id": "F001",
+      "format": "text",
+      "text": "Consumers claim they would pay more for a remote with LCD screen, but adding the component might be too expensive."
+    },
+    {
+      "id": "F002",
+      "format": "text",
+      "text": "The user interface designer discussed the option to include speech recognition and which functions to include on the remote."
+    },
+    {
+      "id": "F003",
+      "format": "text",
+      "text": "Whether to implement an LCD screen on the remote."
+    },
+    {
+      "id": "F004",
+      "format": "text",
+      "text": "The team then discussed and made decisions regarding energy sources, speech recognition, LCD screens, chips, case materials and colors, case shape and orientation, and button orientation."
+    },
+    {
+      "id": "F005",
+      "format": "text",
+      "text": "The marketing expert discussed his personal preferences for the design of the remote and presented the results of trend-watching reports, which indicated that there is a need for products which are fancy, innovative, easy to use, in dark colors, in recognizable shapes, and in a familiar material like wood."
+    },
+    {
+      "id": "F006",
+      "format": "text",
+      "text": "He will also draw some ideas for the shape of the remote."
+    },
+    {
+      "id": "F007",
+      "format": "text",
+      "text": "Finally, they will try to think of a name for their product."
+    },
+    {
+      "id": "F008",
+      "format": "text",
+      "text": "It might be possible to use a charger for the remote."
+    },
+    {
+      "id": "F009",
+      "format": "text",
+      "text": "The remote will have a docking station."
+    },
+    {
+      "id": "F010",
+      "format": "text",
+      "text": "The concept of the design will be finalised in the next meeting."
+    },
+    {
+      "id": "F011",
+      "format": "text",
+      "text": "It may not be technically possible for a universal remote control to create menus for various advanced settings on the TV itself."
+    },
+    {
+      "id": "F012",
+      "format": "text",
+      "text": "The target group will be people below 40."
+    },
+    {
+      "id": "F013",
+      "format": "text",
+      "text": "Different TVs have different functions incorporated in their built-in menus, making it hard to know in advance which buttons you can do without on the remote."
+    },
+    {
+      "id": "F014",
+      "format": "text",
+      "text": "It would be a good idea to integrate a mechanism for finding the remote control, when the user loses it."
+    },
+    {
+      "id": "F015",
+      "format": "text",
+      "text": "The team members will look at the corporate website."
+    },
+    {
+      "id": "F016",
+      "format": "text",
+      "text": "It also transpires that remotes are easy to lose."
+    },
+    {
+      "id": "F017",
+      "format": "text",
+      "text": "Customers are willing to pay more for fancier looking remotes."
+    },
+    {
+      "id": "F018",
+      "format": "text",
+      "text": "The case will be single curved."
+    },
+    {
+      "id": "F019",
+      "format": "text",
+      "text": "Buttons should be made bigger, with clearly defined functions and of durable materials to avoid fading of the symbols."
+    },
+    {
+      "id": "F020",
+      "format": "text",
+      "text": "They like innovative technology like speech recognition and LCD screens."
+    },
+    {
+      "id": "F021",
+      "format": "text",
+      "text": "The industrial designer discussed which options he preferred for the remote in terms of energy sources, casing, case supplements, buttons, and chips."
+    },
+    {
+      "id": "F022",
+      "format": "text",
+      "text": "He will also check into the importance and possibility of using rechargeable batteries and a charger."
+    },
+    {
+      "id": "F023",
+      "format": "text",
+      "text": "There are some new requirements: the target group will be people below 40, the device will have to be for TV only, they should ignore the teletext function, and, also, the remote should be recognisable as a Real Reaction product."
+    },
+    {
+      "id": "F024",
+      "format": "text",
+      "text": "The industrial designer and user interface designer will work together"
+    },
+    {
+      "id": "F025",
+      "format": "text",
+      "text": "The remote will only be used for TV."
+    },
+    {
+      "id": "F026",
+      "format": "text",
+      "text": "The UI will present the user interface concept."
+    },
+    {
+      "id": "F027",
+      "format": "text",
+      "text": "The remote will have changeable case covers."
+    },
+    {
+      "id": "F028",
+      "format": "text",
+      "text": "Using wood for the case."
+    },
+    {
+      "id": "F029",
+      "format": "text",
+      "text": "The remote is going to be a universal one."
+    },
+    {
+      "id": "F030",
+      "format": "text",
+      "text": "The most used buttons are going to be placed on top."
+    },
+    {
+      "id": "F031",
+      "format": "text",
+      "text": "The remote will use an advanced chip."
+    },
+    {
+      "id": "F032",
+      "format": "text",
+      "text": "The user interface designer will continue with what he has been working on."
+    },
+    {
+      "id": "F033",
+      "format": "text",
+      "text": "They drew some of their ideas, and discussed the positioning of the buttons and the LCD."
+    },
+    {
+      "id": "F034",
+      "format": "text",
+      "text": "The ID will present the components concept."
+    },
+    {
+      "id": "F035",
+      "format": "text",
+      "text": "The marketing expert will need to find information on current trends and see into the financial issues concerning the integration of a charger."
+    },
+    {
+      "id": "F036",
+      "format": "text",
+      "text": "The function of the remote is relatively simple: by pressing a button a current is passed to the chip, and defines what signal is to be sent to the receiver (the TV) via infrared."
+    },
+    {
+      "id": "F037",
+      "format": "text",
+      "text": "The need for clarity of button functions was mentioned."
+    },
+    {
+      "id": "F038",
+      "format": "text",
+      "text": "The team also discussed extensively the positioning of various buttons."
+    },
+    {
+      "id": "F039",
+      "format": "text",
+      "text": "The remote will need to be different from those available in the market in terms of shape and colour."
+    },
+    {
+      "id": "F040",
+      "format": "text",
+      "text": "On the other hand, materials should be more durable."
+    },
+    {
+      "id": "F041",
+      "format": "text",
+      "text": "Because symbols may fade, the additional covers could include those."
+    },
+    {
+      "id": "F042",
+      "format": "text",
+      "text": "Symbols on remotes fade with time."
+    },
+    {
+      "id": "F043",
+      "format": "text",
+      "text": "Choosing between an LCD screen or speech recognition."
+    },
+    {
+      "id": "F044",
+      "format": "text",
+      "text": "The project manager opened the meeting and recapped the decisions made in the previous meeting."
+    },
+    {
+      "id": "F045",
+      "format": "text",
+      "text": "Everyone agreed that they need to incorporate a locating mechanism in their design, and that changeable covers could make appealing-looking remotes."
+    },
+    {
+      "id": "F046",
+      "format": "text",
+      "text": "The case covers will be available in wood or plastic."
+    },
+    {
+      "id": "F047",
+      "format": "text",
+      "text": "It is difficult to organise or limit the number of buttons in a way that makes the remote easier to use."
+    },
+    {
+      "id": "F048",
+      "format": "text",
+      "text": "The company colours and slogan will have to be shown on the device."
+    },
+    {
+      "id": "F049",
+      "format": "text",
+      "text": "The team will also examine whether they can use an LCD and/or speech recognition."
+    },
+    {
+      "id": "F050",
+      "format": "text",
+      "text": "Whether to use kinetic energy or a conventional battery with a docking station which recharges the remote."
+    },
+    {
+      "id": "F051",
+      "format": "text",
+      "text": "The important buttons will be on top."
+    },
+    {
+      "id": "F052",
+      "format": "text",
+      "text": "A button that sticks on the TV could be pressed to make the lost remote beep, and perhaps also light up."
+    },
+    {
+      "id": "F053",
+      "format": "text",
+      "text": "Speech recognition and LCD screens could be added to the remote control, but they might be too expensive for this project."
+    },
+    {
+      "id": "F054",
+      "format": "text",
+      "text": "The industrial designer wondered whether the remote should be universal or programmable."
+    },
+    {
+      "id": "F055",
+      "format": "text",
+      "text": "Using a charger for the remote may be too expensive."
+    },
+    {
+      "id": "F056",
+      "format": "text",
+      "text": "The remote will use a conventional battery and a docking station which recharges the battery."
+    },
+    {
+      "id": "F057",
+      "format": "text",
+      "text": "In the case where it is added, the issue would be whether to place it at the top or the bottom of the remote."
+    }
+  ]
+}

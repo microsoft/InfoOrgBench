@@ -1,0 +1,366 @@
+{
+  "task_id": "mini-029",
+  "records": [
+    {
+      "id": "F001",
+      "path": [
+        "sig-cli",
+        "491-kubectl-diff"
+      ],
+      "content_sha256": "fb279cef79fddd0335c8bc97f46ebf5d04e76c991a060a780e23d9eaa1ab0b04",
+      "source_native_id": "keps/sig-cli/491-kubectl-diff#excerpt-1",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F002",
+      "path": [
+        "sig-cli",
+        "491-kubectl-diff"
+      ],
+      "content_sha256": "1d7ed9150e972beaed6f21babefe6b6bb2247b6c9fe29f5459ccd365d2a430b0",
+      "source_native_id": "keps/sig-cli/491-kubectl-diff#excerpt-3",
+      "source_heading": "design details"
+    },
+    {
+      "id": "F003",
+      "path": [
+        "sig-cli",
+        "491-kubectl-diff"
+      ],
+      "content_sha256": "c7b6ad37a1756bd2f6f656a8dc7addbde6da584f4e07253984a78d8719b01bd6",
+      "source_native_id": "keps/sig-cli/491-kubectl-diff#excerpt-2",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F004",
+      "path": [
+        "sig-cli",
+        "2227-kubectl-default-container"
+      ],
+      "content_sha256": "b2e63551fb787f33874f284157124a7429aa9b201fe6c1d9413b97808aa08a20",
+      "source_native_id": "keps/sig-cli/2227-kubectl-default-container#excerpt-1",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F005",
+      "path": [
+        "sig-testing",
+        "3041-node-conformance-and-features"
+      ],
+      "content_sha256": "90441a9687ee4af42507bbb2cc1e01b77fffebd41d062df0dbb57f72311c7e69",
+      "source_native_id": "keps/sig-testing/3041-node-conformance-and-features#excerpt-3",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F006",
+      "path": [
+        "sig-testing",
+        "714-break-test-tarball"
+      ],
+      "content_sha256": "df6cbf5e5902540ca509451bebc189b276c7838afc770d1517631679851b43c1",
+      "source_native_id": "keps/sig-testing/714-break-test-tarball#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F007",
+      "path": [
+        "sig-testing",
+        "3041-node-conformance-and-features"
+      ],
+      "content_sha256": "578430c251a1d49a394e623a8b728a1e40ef6deb7299a345bdded18c5bce4fe3",
+      "source_native_id": "keps/sig-testing/3041-node-conformance-and-features#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F008",
+      "path": [
+        "sig-scheduling",
+        "5836-scheduler-preemption-for-ippr"
+      ],
+      "content_sha256": "1a8ba0f46a9c99c466f30e6266f5bd096754ebef68aff67475d8874ded4e0e61",
+      "source_native_id": "keps/sig-scheduling/5836-scheduler-preemption-for-ippr#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F009",
+      "path": [
+        "sig-scheduling",
+        "1819-scheduler-extender"
+      ],
+      "content_sha256": "8765f52dd3cefa0b74016b11ea92aab4b38fcf6bb7d4bac50dfefa3c03f2087e",
+      "source_native_id": "keps/sig-scheduling/1819-scheduler-extender#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F010",
+      "path": [
+        "sig-cli",
+        "2384-kustomize-file-processing-integration"
+      ],
+      "content_sha256": "a26842b41478af8755f23ed270efca6a8504af535203a4b453121b662615ed13",
+      "source_native_id": "keps/sig-cli/2384-kustomize-file-processing-integration#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F011",
+      "path": [
+        "sig-storage",
+        "5040-remove-gitrepo-driver"
+      ],
+      "content_sha256": "1270d6861cc886adfbafd3130f671719e7b12afda8b7203ed99da30de03b1d4d",
+      "source_native_id": "keps/sig-storage/5040-remove-gitrepo-driver#excerpt-2",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F012",
+      "path": [
+        "sig-storage",
+        "2268-non-graceful-shutdown"
+      ],
+      "content_sha256": "225a59540a61eb5be91d31ebc246d672c6674b0ce7cb57b14547880d5a903866",
+      "source_native_id": "keps/sig-storage/2268-non-graceful-shutdown#excerpt-2",
+      "source_heading": "goals"
+    },
+    {
+      "id": "F013",
+      "path": [
+        "sig-scheduling",
+        "5832-decouple-podgroup-api"
+      ],
+      "content_sha256": "1a8c1ea5b159d5e8f4f97e94be4f7eb295011ee861560be3fec309e9a4cb7899",
+      "source_native_id": "keps/sig-scheduling/5832-decouple-podgroup-api#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F014",
+      "path": [
+        "sig-scheduling",
+        "5836-scheduler-preemption-for-ippr"
+      ],
+      "content_sha256": "52982a73cc678966d7f61280839c780040f4fe3e76bbd30788d75e69e7481e37",
+      "source_native_id": "keps/sig-scheduling/5836-scheduler-preemption-for-ippr#excerpt-3",
+      "source_heading": "non-goals"
+    },
+    {
+      "id": "F015",
+      "path": [
+        "sig-cli",
+        "2384-kustomize-file-processing-integration"
+      ],
+      "content_sha256": "5c37d2d012c4c5f1dffdc8e4d7d26e4bde3dd9e64b0747e8d0fbf378e3cb752d",
+      "source_native_id": "keps/sig-cli/2384-kustomize-file-processing-integration#excerpt-3",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F016",
+      "path": [
+        "sig-testing",
+        "3041-node-conformance-and-features"
+      ],
+      "content_sha256": "d440ab29a2e6add1bc566fb39bf47d97311a5dd5523f59b18b2c46c9d625bf64",
+      "source_native_id": "keps/sig-testing/3041-node-conformance-and-features#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F017",
+      "path": [
+        "sig-storage",
+        "2317-fsgroup-on-mount"
+      ],
+      "content_sha256": "a5033f71120fbfa5d3c9ae6b3d0754fa68d6f045b51a1cbde467bc4c1c00c548",
+      "source_native_id": "keps/sig-storage/2317-fsgroup-on-mount#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F018",
+      "path": [
+        "sig-testing",
+        "2464-kubetest2-ci-migration"
+      ],
+      "content_sha256": "619b0036ac91599443d1872bd90d0d0d670445d7eb853584e5964b9dd21d97cd",
+      "source_native_id": "keps/sig-testing/2464-kubetest2-ci-migration#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F019",
+      "path": [
+        "sig-storage",
+        "2268-non-graceful-shutdown"
+      ],
+      "content_sha256": "1df606aef706f8004dd8cd4d4ade1edfbdc7da50ce1aae3318a41a6b227d21be",
+      "source_native_id": "keps/sig-storage/2268-non-graceful-shutdown#excerpt-3",
+      "source_heading": "non-goals"
+    },
+    {
+      "id": "F020",
+      "path": [
+        "sig-storage",
+        "2317-fsgroup-on-mount"
+      ],
+      "content_sha256": "7139d26a3eceaa1c0e7f7e8e9a856eb967c103fdd654e88bc68fc75db09d4af4",
+      "source_native_id": "keps/sig-storage/2317-fsgroup-on-mount#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F021",
+      "path": [
+        "sig-scheduling",
+        "1819-scheduler-extender"
+      ],
+      "content_sha256": "7c50bd56f78f644496caef2c89418602653275faeac85c46126813e877788430",
+      "source_native_id": "keps/sig-scheduling/1819-scheduler-extender#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F022",
+      "path": [
+        "sig-cli",
+        "2384-kustomize-file-processing-integration"
+      ],
+      "content_sha256": "63b07b036b2046a6bb014eb892c8494434c307a9375598b6e9ceacd9a828be28",
+      "source_native_id": "keps/sig-cli/2384-kustomize-file-processing-integration#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F023",
+      "path": [
+        "sig-cli",
+        "2227-kubectl-default-container"
+      ],
+      "content_sha256": "dde501bf35dbbc41ece9d20a97c02f79f4841e4e5fc889122bcf7ff530fe429f",
+      "source_native_id": "keps/sig-cli/2227-kubectl-default-container#excerpt-3",
+      "source_heading": "user stories"
+    },
+    {
+      "id": "F024",
+      "path": [
+        "sig-cli",
+        "2227-kubectl-default-container"
+      ],
+      "content_sha256": "7a878a19b771a6dcc86351d9b9a187545281e9ba6b41dc53099813713276d2e4",
+      "source_native_id": "keps/sig-cli/2227-kubectl-default-container#excerpt-2",
+      "source_heading": "design details"
+    },
+    {
+      "id": "F025",
+      "path": [
+        "sig-scheduling",
+        "5836-scheduler-preemption-for-ippr"
+      ],
+      "content_sha256": "b5615a2fae498e7c9c099f84ea086a5311ff709819cda19083753555e3f4b366",
+      "source_native_id": "keps/sig-scheduling/5836-scheduler-preemption-for-ippr#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F026",
+      "path": [
+        "sig-storage",
+        "5040-remove-gitrepo-driver"
+      ],
+      "content_sha256": "8d0f816fc5a31470df1a9effcaaa24104316cab646f36acb8cbdd9bab5b411f5",
+      "source_native_id": "keps/sig-storage/5040-remove-gitrepo-driver#excerpt-3",
+      "source_heading": "risks and mitigations"
+    },
+    {
+      "id": "F027",
+      "path": [
+        "sig-storage",
+        "2268-non-graceful-shutdown"
+      ],
+      "content_sha256": "29cb39776908943492ce19d069158d42e2acfb80722c8c4176997e369d07ef38",
+      "source_native_id": "keps/sig-storage/2268-non-graceful-shutdown#excerpt-1",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F028",
+      "path": [
+        "sig-testing",
+        "2464-kubetest2-ci-migration"
+      ],
+      "content_sha256": "fd0f63cd9bf06669f0af53f7a5b8f1639230860259c6882dca3e0daf86e8b7df",
+      "source_native_id": "keps/sig-testing/2464-kubetest2-ci-migration#excerpt-2",
+      "source_heading": "non-goals"
+    },
+    {
+      "id": "F029",
+      "path": [
+        "sig-testing",
+        "2464-kubetest2-ci-migration"
+      ],
+      "content_sha256": "fc3cfc922350ade8315545607060c1d822e9320d27090890364a233785526c10",
+      "source_native_id": "keps/sig-testing/2464-kubetest2-ci-migration#excerpt-3",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F030",
+      "path": [
+        "sig-scheduling",
+        "1819-scheduler-extender"
+      ],
+      "content_sha256": "0b1b1ef02c7eb2f83c39e223c2637296c5537849a3137ccc11be9d8569be0ce8",
+      "source_native_id": "keps/sig-scheduling/1819-scheduler-extender#excerpt-3",
+      "source_heading": "design details"
+    },
+    {
+      "id": "F031",
+      "path": [
+        "sig-storage",
+        "2317-fsgroup-on-mount"
+      ],
+      "content_sha256": "0a2908fe96c6bd2a73e998262e7f6e3de454178e9abf52ee6789991a85fc3b5e",
+      "source_native_id": "keps/sig-storage/2317-fsgroup-on-mount#excerpt-3",
+      "source_heading": "proposal"
+    },
+    {
+      "id": "F032",
+      "path": [
+        "sig-scheduling",
+        "5832-decouple-podgroup-api"
+      ],
+      "content_sha256": "4d3599d606e0c675c84095946ae1a6024d4b5354b7f3258a87794367cfcff14c",
+      "source_native_id": "keps/sig-scheduling/5832-decouple-podgroup-api#excerpt-3",
+      "source_heading": "risks and mitigations"
+    },
+    {
+      "id": "F033",
+      "path": [
+        "sig-testing",
+        "714-break-test-tarball"
+      ],
+      "content_sha256": "cfa9cee35dd7e23c6477faf13dae3ca463fdc3e7b75f8f2a2cb1312e22814549",
+      "source_native_id": "keps/sig-testing/714-break-test-tarball#excerpt-2",
+      "source_heading": "motivation"
+    },
+    {
+      "id": "F034",
+      "path": [
+        "sig-storage",
+        "5040-remove-gitrepo-driver"
+      ],
+      "content_sha256": "815d869b8b3cdafe181bc396351c1d140910ccef685ac80c4f050a3b6b5ce966",
+      "source_native_id": "keps/sig-storage/5040-remove-gitrepo-driver#excerpt-1",
+      "source_heading": "summary"
+    },
+    {
+      "id": "F035",
+      "path": [
+        "sig-testing",
+        "714-break-test-tarball"
+      ],
+      "content_sha256": "9c4bb35d46bea71bc9bc1c0b8e90f01702019a1b9bba61bc8ac63d0c651ba8b1",
+      "source_native_id": "keps/sig-testing/714-break-test-tarball#excerpt-3",
+      "source_heading": "non-goals"
+    },
+    {
+      "id": "F036",
+      "path": [
+        "sig-scheduling",
+        "5832-decouple-podgroup-api"
+      ],
+      "content_sha256": "55b4368d868a10fa57281989f6cd38e0b636ffd330f07cb2e09a65f32078b38c",
+      "source_native_id": "keps/sig-scheduling/5832-decouple-podgroup-api#excerpt-2",
+      "source_heading": "motivation"
+    }
+  ],
+  "reference_scope": "Source-derived group/proposal hierarchy for a development-only difficulty and cost pilot."
+}

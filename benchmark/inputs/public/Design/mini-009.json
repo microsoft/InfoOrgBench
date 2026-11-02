@@ -1,0 +1,185 @@
+{
+  "task_id": "mini-009",
+  "records": [
+    {
+      "id": "F001",
+      "format": "text",
+      "text": "Removing support for cleaning up other proxy modes has been suggested. For example, if a user wished to change proxy modes, rather than running `kube-proxy --cleanup`, users would be advised to restart the worker node. Continue to support automatic/implicit clean up of proxy rules by fixing any existing bugs where overlapping rules are removed. Though we can continue to support this, doing so correctly is not trivial. The overlapping rulesets between the existing proxy modes makes it difficult to fix this without adding more complexity to kube-proxy or changing the proxy rules in an incompatible way."
+    },
+    {
+      "id": "F002",
+      "format": "text",
+      "text": "A number of metrics that Kubernetes is instrumented with do not follow the official Kubernetes instrumentation guidelines. This is for a number of reasons, such as the metrics having been created before the instrumentation guidelines were put in place (around two years ago), and just missing it in code reviews. Beyond the Kubernetes instrumentation guidelines, there are several violations of the Prometheus instrumentation best practices."
+    },
+    {
+      "id": "F003",
+      "format": "text",
+      "text": "Provide a simple way for users to indicate their preference for keeping traffic in zone. Use the standard topology label `topology.kubernetes.io/zone` to derive the zones of nodes and endpoints. Use EndpointSlice hints as the primary mechanism for topology aware routing. Minimize churn of EndpointSlices while doing topology aware distribution. Minimize the number of new EndpointSlices required. Provide a simple API that requires minimal configuration for most users."
+    },
+    {
+      "id": "F004",
+      "format": "text",
+      "text": "The KEP targets a controller which allows for: Custom Resource metrics generation based on their schemata, using admission webhooks to avoid ingesting conflicting or bad configuration from managed resources, defining cluster-scoped managed resources (`ResourceMetricsMonitor`) that allows defining the collection configuration for generating metrics on-the-fly, accommodating for multiple configuration parsing techniques and expressions using turing-incomplete (or turing-complete if Go-bindings are available) languages, conforming to, improving on, and eventually deprecating the existing Custom Resource State API offered by Kube State Metrics without hindering the maintainability and the scalability of the controller."
+    },
+    {
+      "id": "F005",
+      "format": "text",
+      "text": "The controller offers a number of improvements over Kube State Metrics' Custom Resource State API, while maintaining a [3x faster] round trip time for metric generation. At its core, the controller relies on its managed resource, `ResourceMetricsMonitor` to fetch the metric generation configuration. Parts of the configuration may be defined using different `resolver`s, such as `unstructured` or `CEL`."
+    },
+    {
+      "id": "F006",
+      "format": "text",
+      "text": "The proposal targets the incubation and incorporation of a controller capable of essentially doing all that Kube State Metrics' Custom Resource State API offers, in addition to various benefits of its own owing to the controller lifecycle it is based upon.\n\nThe controller aims to replace the existing Kube State Metrics' Custom Resource State feature-set and be significantly much more maintainable and scalable than its predecessor while enabling the community the freedom to extend the supported set of DSLs to parse the configuration in a language that they are familiar with, instead of forcing them up a steep learning-curve for a self-defined DSL that they have to live with, as is the case with Kube State Metrics' Custom Resource State feature-set."
+    },
+    {
+      "id": "F007",
+      "format": "text",
+      "text": "The kube-scheduler configuration API `kubescheduler.config.k8s.io` was in alpha for several releases. We graduated it to beta in 1.19 as `v1beta1`. We introduced `v1beta2` and `v1beta3` in 1.22 and 1.23 respectively. And it was graduated to GA in 1.25 as `v1`. The `v1beta2` was marked as deprecated in 1.25 and will be removed in 1.28. `v1beta3` will be marked as deprecated in 1.26 and removed in 1.29."
+    },
+    {
+      "id": "F008",
+      "format": "text",
+      "text": "Changing the underlying build system. Both the make/shell-based build system and the Bazel-based build system will be affected, but users can continue to use their existing workflow. Removing cruft from the test tarballs. Likely, there are binaries and portable sources no longer being used anywhere, but we won't prune them with this effort. Changing what is released independent of the test tarball; i.e. whether we should make test binaries able to be downloaded directly from GCS."
+    },
+    {
+      "id": "F009",
+      "format": "text",
+      "text": "The document started as an analysis of whether `NodeFeature` label needs to be renamed to simply `Feature` as it carries an identical semantics kubernetes/kubernetes#94289, but looking into it, scope needed to be extended into other labels currently being used, see also this discussion.\n\nDocument proposes changes into `Feature` label description, and additional labels that will make it clearer for contributors how to apply these labels."
+    },
+    {
+      "id": "F010",
+      "format": "text",
+      "text": "Historically, kube-proxy has been built with a \"clean up\" functionality that allows it to find and remove any proxy rule that it created. This functionality runs in two steps. The first step requires an explicit request from the user by setting the `--cleanup` flag in which case kube-proxy would attempt to remove proxy rules associated with all its proxy modes and then exit. The second step is done automatically by kube-proxy on start-up in which kube-proxy would detect and remove any proxy rules associated with the proxy modes it was not currently using.\n\nWe've learned by now that trying to automatically clean up proxy rules is prone to bugs due to the complex dependency between all the proxy modes and the Linux kernel. There are overlapping proxy rules between the iptables and IPVS proxy modes which can result in connectivity issues during start-up as kube-proxy attempts to clean up these overlapping rules. In the worse case scenario, kube-proxy will flush active iptable chains every time it is restarted. This KEP aims to simplify this clean up logic, and as a result, make kube-proxy's behavior more predictable and safe."
+    },
+    {
+      "id": "F011",
+      "format": "text",
+      "text": "Risks include users upgrading Kubernetes, but not updating their usage of Kubernetes exposed metrics in alerting and dashboarding potentially causing incidents to go unnoticed.\n\nTo prevent this, we will implement recording rules for Prometheus that allow best effort backward compatibility as well as update uses of breaking metric usages in the Kubernetes monitoring mixin, a widely used collection of Prometheus alerts and Grafana dashboards for Kubernetes."
+    },
+    {
+      "id": "F012",
+      "format": "text",
+      "text": "There are a few ways to make API calls asynchronous. They are introduced below to facilitate discussion and identify the most suitable solution.\n\nThese questions have to be answered: 1) How to handle Pod rescheduling while waiting for the API call to complete 2) What component should handle the API calls\n\nAlso, races (collisions) between multiple API calls for a single object should be mitigated by the design.\n\nNote that this KEP focuses on making individual API calls asynchronous. Some procedures, such as the binding cycle or asynchronous preemption, will still be separate goroutines with the ability to wait for the (async) API calls to finish. This way, dependencies between calls that rely on each other won't need to be implemented."
+    },
+    {
+      "id": "F013",
+      "format": "text",
+      "text": "Support importing github.com/kubernetes/kubernetes as a library This has never been supported, and is orthogonal to the decision of maintaining duplicate build systems Code under kubernetes/kubernetes/src/staging/k8s.io/foo is intended to be imported as k8s.io/foo from the staged copies at github.com/kubernetes/foo; anything else is internal-only and not supported for import, bazel or otherwise. Removing Bazel from sub-projects other than the core repo Bazel comes with tradeoffs, each subproject can make its own decision in this regard. This KEP **only** covers the main Kubernetes repository, and nothing else. Improving the previously existing make build We should strongly consider improving the implementation and behavior of this build in the future, but this is largely orthogonal to whether we should consider maintaining two build systems. An anticipated outcome of this KEP is increased bandwidth available to improve our single build system."
+    },
+    {
+      "id": "F014",
+      "format": "text",
+      "text": "As the number of supported client, server, and node platforms has increased, the size of the test tarball has increased as well. As of Kubernetes v1.13.2, the official `kubernetes-test.tar.gz` is approximately 1.2GB; previous releases ranged from 1.3 - 1.5GB. Several years ago, there were complaints that the \"full\" `kubernetes.tar.gz` release tarball was too big at 1.4G. Many of the motivations for breaking up that tarball echo into this proposal.\n\nThe Bazel effort is another driving motivation. It's possible to build all release artifacts solely using Bazel, and there is progress being made on supporting cross-compilation of binary artifacts, but combining multiple target platforms in one Bazel call is currently not well-supported. Separating this tarball would make it easier to ensure that we can use Bazel t produce identical artifacts as the non-Bazel build."
+    },
+    {
+      "id": "F015",
+      "format": "text",
+      "text": "Prioritize high-importance updates (like binding) over low-importance ones if updates to the kube-apiserver get throttled. Change how the already asynchronous procedures, such as the binding cycle or asynchronous preemption goroutines, actually work. They should remain asynchronous and continue to wait for the API calls to finish before proceeding. Any further refinements to these stages could be added in future revisions of this KEP or in the separate ones."
+    },
+    {
+      "id": "F016",
+      "format": "text",
+      "text": "Split the special environment and feature development labels: Clarify the semantic of a `[Feature:]` label. Introduce the `[FeatureGate:]` label with the stage (`[Alpha]`, `[Beta]`, etc.) addition, replace tags like `[NodeAlphaFeature]`.\n\nClean up labels that means whether special environment is needed: Eliminate the `[NodeFeature:]` label by renaming to `[Feature:]` when applicable. Document the meaning of `[NodeConformance]` label. Remove the `[NodeSpecialFeature:]` label. Introduce the `[Environment:Foo]` label to indicate the special environment that is not a standard OSS test infrastructure machines needed to run the feature."
+    },
+    {
+      "id": "F017",
+      "format": "text",
+      "text": "At time of writing, Service name validation is stricter than most of the other Kubernetes resource names. By losening the validation of Services, it simplifies the Kubernetes code base slightly, by removing the `apimachineryvalidation.NameIsDNS1035Label` validation, which is only used by Service names.\n\nAdditionally, this change also allows users to name their Services with the same conventions as other of their resources, ie: Service names can now start with a digit."
+    },
+    {
+      "id": "F018",
+      "format": "text",
+      "text": "The Kubernetes release artifacts include a \"mondo\" test tarball which includes both \"portable\" test sources (such as shell scripts and image manifests) as well as platform-specific test binaries for all supported client, node, and server platforms.\n\nThis KEP proposes replacing the monolith test tarball with platform-specific tarballs, matching the existing pattern used for the client, node, and server tarballs."
+    },
+    {
+      "id": "F019",
+      "format": "text",
+      "text": "Scheduling performance is crucial. One of the bottlenecks is the API calls done during the scheduling cycle. The binding cycle is already asynchronous, but it would still be beneficial to re-evaluate whether the current model of busy-waiting goroutines is good long-term.\n\nMaking one universal approach for handling API calls in the kube-scheduler could allow these calls to be consistent and better control the number of dispatched goroutines. Already asynchronous calls could also be migrated to this approach."
+    },
+    {
+      "id": "F020",
+      "format": "text",
+      "text": "The new Event API makes all semantic information about events first-class fields, allowing better deduplication and querying. The API changes aim to: make it easy to list all interesting Events in common scenarios using kubectl: Listing Events mentioning given Pod, Listing Events emitted by a given component (e.g. Kubelet on a given machine, NodeController), make timestamps precise enough to allow better events correlation, update the field names to better indicate their function.\n\nIn addition, we will improve 'Event series' detection and send only 'series start' and 'series finish' Events, and add more aggressive backoff policy for Events.\n\nAfter the migration is done, users and administrators: will be able to better track interesting changes in the state of objects they're interested in, will be convinced that Events do not destabilize."
+    },
+    {
+      "id": "F021",
+      "format": "text",
+      "text": "Introduce a concept of a `Workload` as a primary building block for workload-aware scheduling vision Implement the first version of `Workload` API necessary as a mechanism for defining scheduling policies Introduce a concept of a `PodGroup` positioned as runtime counterparts for the Workload Ensure that decoupled model of `Workload` and `PodGroup` provide clear responsibility split, improved scalability and simplified lifecycle management Enhance status ownership by making `PodGroup` status track podGroup-level runtime state Enable automatic lifecycle management and resource cleanup for PodGroup objects through integration with Kubernetes garbage collection Ensuring that we can extend `Workload` API in backward compatible way toward north-star API Ensure the `Workload` API provides a clear integration path for true workload[^6] controllers, both built-in and third-party usable for both built-in and third-party workload controllers and APIs Implement first version of gang-scheduling in kube-scheduler supporting (potentially in non-optimal way) all existing scheduling features. Provide full backward compatibility for all existing scheduling features"
+    },
+    {
+      "id": "F022",
+      "format": "text",
+      "text": "Kubernetes clusters are increasingly deployed in multi-zone environments but unfortunately network routing has not caught up with that. This KEP proposes an automatic topology aware hinting mechanism that would provide a way for EndpointSlice producers to indicate where consumers should use specific endpoints. Even in scenarios where endpoints are not balanced evenly across zones, EndpointSlice producers could use these hints to allocate endpoints from zones with extra endpoints to zones with insufficient endpoints.\n\nThis would enable EndpointSlice consumers such as Kube-Proxy to implement simple topology aware routing. This proposal is currently focused on topology aware routing at zone level but could be expanded to include region.\n\nIn the short term, this is taking the place of two closely related KEPs that were never implemented. These KEPs relate to EndpointSlice subsetting and are still relevant, just deferred to a later point in time. This doc has more info on this transition."
+    },
+    {
+      "id": "F023",
+      "format": "text",
+      "text": "The make system works best from x86 (though it can cross compile all platforms), largely due to a [bug in the kube-cross image build] and some other small oversights. Improving the existing make system is an explicit non-goal of this KEP, but we support addressing these oversights, and expect the outcome of this KEP will naturally increase available bandwidth to do so. A few other issues related to CGO / $CC on non-amd64 build hosts have already received pull requests / fixes."
+    },
+    {
+      "id": "F024",
+      "format": "text",
+      "text": "For the development (main/master) branch only, **NOT** the existing release branches: Switch remaining CI usage (mostly a few presubmits) to use the make build. Most of CI already uses the make builds, excluding some presubmits, we will need to switch these (generally a flag flip in the CI configuration). Most of periodic testing consumes pre-uploaded binaries from the make builds, and does not build at all. These will require no changes. In areas where the make build generates fewer artifacts or exercises fewer paths than bazel, we will err on the side of parity with artifacts that end up in a kubernetes/kubernetes release Remove the bazel build and associated tooling. There are multiple scripts and LOTS of files related wholly to the bazel build in Kubernetes. Once we are confident that CI is no longer reliant on them we can remove these and relieving the maintenance toil.\n\nNo changes should be made to the release branches or their CI."
+    },
+    {
+      "id": "F025",
+      "format": "text",
+      "text": "Services are responsible for creating DNS records (ie: `<service-name>.<namespace>.svc.cluster.local>`). To confirm that downstream systems will support the new validation, we will conduct compatibility testing by: Verifying that DNS providers used in Kubernetes clusters can handle the new service name format. Running integration tests to ensure that dependent components such as Ingress controllers and service discovery mechanisms function correctly with the updated validation. The Ingress resource references Service and will also need a relaxed validation on its reference to the Service Downstream applications may perform validation on fields relating to Service names (ie: ingress-nginx and will also need updating."
+    },
+    {
+      "id": "F026",
+      "format": "text",
+      "text": "Tests have various clarifiers - they may be testing the feature that is currently in development and depends on feature gate, test may require a special environment, or test may only work with specific hardware. Today a few labels are used to represent the combination of these \"dimensions\", in most cases a single label `[Feature:]` is used.\n\nThe universal nature of a single `[Feature:]` label makes it hard to apply it consistently and query tests.\n\nThere are a few specific problems we saw recently: There is no way to disable tests for a specific feature gate (example where it’s needed: It is a \"feature\" guarded by feature gate, but not marked as \"feature\". There are no tests validating that k8s works with ALL beta feature gates disabled. Creating such test would be hard with today's test labeling. Some tests are degraded in how `[Feature]` and `[NodeFeature]` labels are applied (for example: labels that we apply heavily depend on the environment tests are running on. For example, is not marked as `Feature`, even though it depends on the environment - if `test-handler` is not installed, test will not succeed. Similar thing to AppArmor tests."
+    },
+    {
+      "id": "F027",
+      "format": "text",
+      "text": "Take away responsibility to create pods from controllers. Bring fairness or multiple workload queues in kube-scheduler. Kueue and Volcano.sh will continue to provide this. Map all the declarative state and behaviors into `Workload` object. It is focused only on scheduling-related parts. Graduate the old model of using `Workload` API (without decoupled `PodGroup` object) to Beta.\n\nThe following are non-goals for this KEP but will probably soon appear to be goals for follow-up KEPs: Integrate cluster autoscaling with gang scheduling. Introduce a concept of `Reservation` that can be later consumed by pods. Workload-level preemption. Address resource contention between different schedulers (including possible deadlocks). Address the problem of premature preemptions in case the higher priority workloads does not eventually schedule.\n\nSee Future plans for more details."
+    },
+    {
+      "id": "F028",
+      "format": "text",
+      "text": "There's a relatively wide agreement that current implementation of Events in Kubernetes is problematic. Events are supposed to give app developer insight into what's happening with his/her app. Important requirement for Event library is that it shouldn't cause/worsen performance problems in the cluster.\n\nThe problem is that neither of those requirements are actually met. Currently Events are extremely spammy (e.g. Event is emitted when Pod is unable to schedule every few seconds) with unclear semantics (e.g. Reason was understood by developers as \"reason for taking action\" or \"reason for emitting event\"). Also there are well known performance problems caused by Events (e.g. #47366, #47899) - Events can overload API server if there's something wrong with the cluster (e.g. some correlated crashloop on many Nodes, user created way more Pods than fit on the cluster which fail to schedule repeatedly). This was raised by the community on number of occasions."
+    },
+    {
+      "id": "F029",
+      "format": "text",
+      "text": "For the most part, `kubescheduler.config.k8s.io/v1beta1` will be a copy of `kubescheduler.config.k8s.io/v1alpha2`, with the following differences: [ ] `.bindTimeoutSeconds` will be an argument for `VolumeBinding` plugin. [ ] `.profiles[*].plugins.unreserve` will be removed. [ ] Embedded types of `RequestedToCapacityRatio` will include missing json tags and will be decoded with a case-sensitive decoder."
+    },
+    {
+      "id": "F030",
+      "format": "text",
+      "text": "Only clean up iptables and IPVS proxy rules if `--cleanup` is set. If `--cleanup` is not set, start kube-proxy without cleaning up any existing rules.\n\nFor example, remove code like this where kube-proxy attempts to clean up proxy rules in a proxy mode it is not using.\n\nWith proxy clean up always requiring an explicit request from the user, we will also recommend users to reboot their nodes if they choose to switch between proxy modes. This was always expected but not documented/vocalized well enough. The `--cleanup` flag should only be used in the event that a node reboot is not an option. Accompanying a proxy mode switch with a node reboot ensures that any state in the kernel associated with the previous proxy mode is cleared. This expectation should be well documented in the release notes, the Kubernetes docs, and in kube-proxy's help command."
+    },
+    {
+      "id": "F031",
+      "format": "text",
+      "text": "The KEP aims at fixing few issues in the current way Events are structured and implemented. This effort has two main goals - reduce the performance impact that Events have on the rest of the cluster and add more structure to the Event object which is the first and necessary step to make it possible to automate Event analysis.\n\nMost sections and design details are copied from the original design doc: Make Kubernetes Events Useful and Safe.\n\nThe new Event API has been promoted from v1beta1 to v1 in 1.19 and currently only scheduler was migrated to use it."
+    },
+    {
+      "id": "F032",
+      "format": "text",
+      "text": "In this KEP, kube-scheduler is modified to support gang scheduling[^1]. We focus on framework support and building blocks, not the ideal gang-scheduling algorithm - it can come as a follow-up. We start with simpler implementation of gang scheduling, kube-scheduler identifies pods that are in a group and waits until all pods reach the same stage of the scheduling/binding cycle before allowing any pods from the group to advance past that point."
+    },
+    {
+      "id": "F033",
+      "format": "text",
+      "text": "Introduce a new feature gate named RelaxedServiceNameValidation, which is disabled by default in alpha.\n\nWhen enabled, the feature gate will use the NameIsDNSLabel validation for new Services.\n\nSince the relaxed check allows previously invalid values, care must be taken to support cluster downgrades safely. To accomplish this, the validation will distinguish between new resources and updates to existing resources:\n\nWhen the feature gate is disabled: Creation of Services will use the previous `NameIsDNS1035Label()` validation for `.metadata.name` Updates of Services will no longer validate `metadata.name`, since the field is immutable, so the existing value can be assumed to be valid. Creation of Ingress will use the previous `NameIsDNS1035Label()` validation for `.spec.rules[].http.paths[].backend.service.name` Updates of Ingress will use the previous `NameIsDNS1035Label()` validation for `.spec.rules[].http.paths[].backend.service.name` if that field changes, otherwise, there is no validation\n\nWhen the feature gate is enabled: Creation of Services will use new `NameIsDNSLabel()` validation for `.metadata.name` Creation and update of Ingress will use the new `NameIsDNSLabel()` validation for `.spec.rules[].http.paths[].backend.service.name`"
+    },
+    {
+      "id": "F034",
+      "format": "text",
+      "text": "Kubernetes clusters are increasingly deployed in multi-zone environments. Network traffic is routed randomly to any endpoint matching a Service. Some users might want the traffic to stay in the same zone for the following reasons: Cost savings: Keeping traffic within a zone can limit cross-zone networking costs. Performance: Traffic within a zone usually has less latency and bandwidth constraints, having a better performance than traffic leaving the zone.\n\nIn this KEP we are going to focus on avoiding cross-zone traffic when in-zone endpoints would suffice. We're attempting to provide a simple and more automatic approach to topology aware routing. This API will still allow users to indicate that they prefer to keep traffic in the same zone if there's sufficient capacity. With this approach users won't have to configure anything by default for most use cases."
+    },
+    {
+      "id": "F035",
+      "format": "text",
+      "text": "This Kubernetes Enhancement Proposal (KEP) outlines the changes planned in the scope of an overhaul of all metrics instrumented in the main kubernetes/kubernetes repository. This is a living document and as existing metrics, that are planned to change are added to the scope, they will be added to this document. As this initiative is going to affect all current users of Kubernetes metrics, this document will also be a source for migration documentation coming out of this effort.\n\nThis KEP is targeted to land in Kubernetes 1.14. The aim is to get all changes into one Kubernetes minor release, to have only a migration be necessary. We are preparing a number of changes, but intend to only start merging them once the 1.14 development window opens."
+    },
+    {
+      "id": "F036",
+      "format": "text",
+      "text": "The `kubescheduler.config.k8s.io` API has been in alpha stage for several releases. In release 1.18, we introduced `v1alpha2`, including important changes such as: The removal of the old Policy API in favor of plugin configurations, that align with the new scheduler framework. The introduction of scheduling profiles, that allow a scheduler to appear as multiple schedulers under different configurations.\n\nA configuration API allows cluster administrators to build, validate and version their configurations in a more robust way than using command line flags.\n\nGraduating this API to Beta is a sign of its maturity that would encourage wider usage."
+    }
+  ]
+}

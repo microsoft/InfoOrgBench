@@ -1,0 +1,185 @@
+{
+  "task_id": "mini-050",
+  "records": [
+    {
+      "id": "F001",
+      "format": "text",
+      "text": "This effort is NOT intending to support fully user-specified configuration, to cap risk to node stability This effort is purposefully NOT implementing more complex heuristics by kubelet (e.g. system state, workload specific factors, or by detecting anomalous workload behavior) to focus on better benchmarking and observability and address common use cases with easily modelled changes first This effort is NOT changing the independent backoff curve for image pulls"
+    },
+    {
+      "id": "F002",
+      "format": "text",
+      "text": "See: [Metrics Stability Framework#Motivation] [Metrics Stability Migration#Motivation] [Metrics Validation and Verification#Motivation] [Metrics Stability to Beta#Motivation]\n\n[Metrics Stability Framework#Motivation]: kubernetes-control-plane-metrics-stability.md#motivation [Metrics Stability Migration#Motivation]: metrics-stability-migration.md#motivation [Metrics Validation and Verification#Motivation]: metrics-validation-and-verification.md#motivation [Metrics Stability to Beta#Motivation]: metrics-stability-to-beta.md#motivation"
+    },
+    {
+      "id": "F003",
+      "format": "text",
+      "text": "This KEP proposes adding topology support to volume snapshots in Kubernetes by extending the `VolumeSnapshotContentSpec` object with a `NodeAffinity` field and enforcing topology compatibility when restoring volumes from snapshots. Currently, volume snapshots lack any topology information, creating a gap that prevents topology-aware scheduling and features.\n\nThe enhancement has two parts. First, topology information will be added to volume snapshot contents by returning the topology in the CSI `CreateSnapshotResponse` and stored in the resulting `VolumeSnapshotContent`. Second, topology enforcement ensures that volumes restored from snapshots are provisioned in compatible topologies: For `WaitForFirstConsumer` volume binding: an out-of-tree scheduler plugin (in `kubernetes-sigs/scheduler-plugins`) will filter nodes whose topology is incompatible with the snapshot's `NodeAffinity`, ensuring the selected node leads to provisioning in a compatible topology. For `Immediate` volume binding: the external-provisioner will intersect the snapshot's `NodeAffinity` with the StorageClass's `AllowedTopologies` to select a compatible topology for provisioning.\n\nThis prevents provisioning failures or silent data inaccessibility regardless of volume binding mode."
+    },
+    {
+      "id": "F004",
+      "format": "text",
+      "text": "For every CRD that we serve, publish Paths (operations that we support on resource and subresources) and Definitions (for both CR object and CR list object) in OpenAPI documentation to fully demonstrate the existence of the API. For CRDs with schema defined, the CR object Definition should include both CRD schema and native Kubernetes ObjectMeta and TypeMeta properties. For CRDs without schema, the CR object definition will be as complete as possible while still maintaining compatibility with the openapi spec and with supported kubernetes components"
+    },
+    {
+      "id": "F005",
+      "format": "text",
+      "text": "This enhancement emerged from discussions in the 11/27/2025 Kubernetes CSI Implementation Meeting (see notes) around implementing cross-region snapshot cloning capabilities in Kubernetes. During the discussions, it became clear that topology support in snapshots is a prerequisite for a feature of this kind. Rather than implementing snapshot cloning without the proper topology foundations, it was decided to first establish topology for snapshots, creating a solid base for future enhancements.\n\nA PR for adding topology for snapshots to the CSI Spec was previously in review (Add Topology for Snapshot #274). At the time features such as cross region snapshot cloning or specifying snapshot final placement were not considered and as such there was no valid use case(s) to justify implementing this so further development/review was halted.\n\nWhile CSI volumes have comprehensive topology support, snapshots operate without any topology context. The lack of topology information in snapshots is the problem that this KEP addresses by establishing topology awareness as an optional capability of the volume snapshot."
+    },
+    {
+      "id": "F006",
+      "format": "text",
+      "text": "##### Client Hanging Indefinitely:\n\nWith the `timeout` filter enabled, it sends a `504 GatewayTimeout` response or an `error` to the client, if the request handler it is executing asynchronously does not return within the allotted deadline. If the client application does not enforce any client-side timeout, for example: not setting a timeout to the underlying `http.Client` or `http.Transport` object not setting a deadline to the `Context` object of an `http.Request`\n\n> It's worth noting that `client-go` does not enforce any global timeout by default."
+    },
+    {
+      "id": "F007",
+      "format": "text",
+      "text": "The `UserNamespacesHostNetworkSupport` feature integrates with the NodeDeclaredFeatures framework to ensure that Pods requiring the combination of `hostNetwork: true` and `hostUsers: false` are only scheduled onto nodes that explicitly declare support for this feature. The feature relies on the `UserNamespacesHostNetwork` field in CRI-API's `RuntimeFeatures` to determine whether the container runtime supports this combination."
+    },
+    {
+      "id": "F008",
+      "format": "text",
+      "text": "The `metrics.k8s.io` API provides resource metrics (CPU and memory) for nodes and pods in the cluster, in an implementation-agnostic manner. As a part of the aggregation layer, implementations instrumenting the API benefit from APIServer's authentication and authorization measures out-of-the-box.\n\nThe diagram below gives a general idea on the flow: The consumer, through the `metrics.k8s.io` client, sends a request. The format is dictated by `k8s.io/metrics/pkg/apis/metrics`: The responsible addon APIServer is identified based on the registered APIService object. For e.g., for metrics-server: The implementation collects resource metrics from each kubelet and returns `NodeMetrics` or `PodMetrics` objects. `PodMetrics` includes per-container breakdown via `ContainerMetrics`. The `v1` types are identical to `v1beta1` except for the version name:"
+    },
+    {
+      "id": "F009",
+      "format": "text",
+      "text": "When a volume is mounted on the node, we recursively change permissions of volume before bind mounting the volume inside container. The reason of doing this is to ensure that volumes are readable/writable by provided fsGroup.\n\nBut this presents following problems: An application(many popular databases) which is sensitive to permission bits changing underneath may refuse to start whenever volume being used inside pod gets mounted on different node. If volume has a large number of files, performing recursive `chown` and `chmod` could be slow and could cause timeout while starting the pod."
+    },
+    {
+      "id": "F010",
+      "format": "text",
+      "text": "Kubernetes currently does not support the use of swap memory on Linux, as it is difficult to provide guarantees and account for pod memory utilization when swap is involved. As part of Kubernetes’ earlier design, swap support was considered out of scope. However, there are a number of use cases that would benefit from Kubernetes nodes supporting swap. Hence, this proposal aims to add swap support to nodes in a controlled, predictable manner so that Kubernetes users can perform testing and provide data to continue building cluster capabilities on top of swap."
+    },
+    {
+      "id": "F011",
+      "format": "text",
+      "text": "Addressing non-Linux operating systems. Swap support will only be available for Linux. Provisioning swap. Swap must already be available on the system. Setting [swappiness]. This can already be set on a system-wide level outside of Kubernetes. Allocating swap on a per-workload basis with accounting (e.g. pod-level specification of swap), and/or APIs to customize and control the way kubelet calculates swap limits, grants swap access, etc. If desired, this should be designed and implemented as part of a follow-up KEP. This KEP is a prerequisite for that work. Hence, swap will be an overcommitted resource in the context of this KEP. Supporting zram, zswap, or other memory types like SGX EPC. These could be addressed in a follow-up KEP, and are out of scope. Use of swap for cgroupsv1. Add pod-level APIs to control swap configuration on a per-pod basis. Add scheduling mechanisms to target nodes with swap enabled/disabled or a certain swap configuration. Make the eviction manager swap-aware. The existing eviction hierarchy based on QoS tiers is preserved to ensure introduction of swap does not fundamentally change how Kubernetes handles node-pressure eviction.\n\n[swappiness]:"
+    },
+    {
+      "id": "F012",
+      "format": "text",
+      "text": "(Please note that when this KEP was started, the KEP process was much less well defined and we have been treating this as a requirements / mission statement document; KEPs have evolved into more than that.)\n\nA brief list of the changes: Apply will be moved to the control plane. The original design is in a google doc; joining the kubernetes-dev or kubernetes-announce list will grant permission to see it."
+    },
+    {
+      "id": "F013",
+      "format": "text",
+      "text": "Kubernetes#57291, with over 250 positive reactions and in the top five upvoted issues in k/k, covers a range of suggestions to change the rate of decay for the backoff delay or the criteria to restart the backoff counter, in some cases requesting to make this behavior tunable per node, per container, and/or per exit code. Anecdotally, there are use cases representative of some of Kubernetes' most rapidly growing workload types like gaming and AI/ML that would benefit from this behavior being different for varying types of containers."
+    },
+    {
+      "id": "F014",
+      "format": "text",
+      "text": "The proposal is to extend the scope of the on-going conversion of logging calls to structured logging by removing the dependency on the global klog logger. Like the conversion to structured logging, this activity can convert code incrementally over as many Kubernetes releases as necessary without affecting the usage of Kubernetes in the meantime. Log calls that were already converted to structured logging need to be updated to use a logger that gets passed into the function in one of two ways: as explicit parameter attached to a `context.Context`\n\nWhen a function already accepts a context parameter, then that will be used instead of adding a separate parameter."
+    },
+    {
+      "id": "F015",
+      "format": "text",
+      "text": "The proposal broadly entails two efforts: Introducing `metrics.k8s.io/v1` for the `k8s.io/metrics` package, and, Migrating in-house components and sub-projects to utilize the stable version.\n\nThe former will be a cosmetic change, essentially bumping `v1beta1` to `v1`. The `v1` API surface will be identical to `v1beta1`, with the only difference being the version name itself.\n\nThe latter will focus on utilizing the stable version in the `metrics.k8s.io`'s client, as well as `pkg/controller/podautoscaler` and `kubectl top`, which are currently on the latest beta version."
+    },
+    {
+      "id": "F016",
+      "format": "text",
+      "text": "Performance: OpenAPI aggregation has performed poorly in the past. Introducing aggregation that occurs on a higher frequency could cause performance issues in the apiserver. To mitigate this, improvements in OpenAPI merging are being made (both in terms of memory and CPU cost), and benchmarking will be done prior to merge to ensure we do not regress API server performance.\n\nCompatibility: some Kubernetes components (notably kubectl) perform client-side validation based on published openapi schemas. To ensure that publishing schemas for additional custom resources does not regress existing function, we will test creation of custom resources with and without validation with current and prior versions of kubectl.\n\nWe will add a feature gate CustomResourcePublishOpenAPI, which can be turned on to start CRD openapi creation & aggregation & publishing. The feature gate will be Alpha (defaulted to False) in 1.14, Beta (defaulted to True) in 1.15 and Stable in 1.16."
+    },
+    {
+      "id": "F017",
+      "format": "text",
+      "text": "Contextual logging replaces the global logger by passing a `logr.Logger` instance into functions via a `context.Context` or an explicit parameter, building on top of structured logging.\n\nIt enables the caller to: attach key/value pairs that get included in all log messages add names that describe which component or operation triggered a log messages reduce the amount of log messages emitted by a callee by changing the verbosity\n\nThis works without having to pass any additional information into the callees because the additional information or settings are stored in the modified logger instance that is passed to it.\n\nThird-party components that use Kubernetes packages like client-go are no longer forced to use klog. They can choose an arbitrary implementation of `logr.Logger` and configure it as desired.\n\nDuring unit testing, each test case can use its own logger to ensure that log output is associated with the test case."
+    },
+    {
+      "id": "F018",
+      "format": "text",
+      "text": "\"Apply\" is intended to allow users and systems to cooperatively determine the desired state of an object. The resulting system should: Be robust to changes made by other users, systems, defaulters (including mutating admission control webhooks), and object schema evolution. Be agnostic about prior steps in a CI/CD system (and not require such a system). Have low cognitive burden: For integrators: a single API concept supports all object types; integrators have to learn one thing total, not one thing per operation per api object. Client side logic should be kept to a minimum; CURL should be sufficient to use the apply feature. For users: looking at a config change, it should be intuitive what the system will do. The “magic” is easy to understand and invoke. Error messages should--to the extent possible--tell users why they had a conflict, not just what the conflict was. Error messages should be delivered at the earliest possible point of intervention.\n\nGoal: The control plane delivers a comprehensive solution.\n\nGoal: Apply can be called by non-go languages and non-kubectl clients. (e.g., via CURL.)"
+    },
+    {
+      "id": "F019",
+      "format": "text",
+      "text": "Add topology information to `VolumeSnapshotContent` objects via a mutable `NodeAffinity` field. Extend CSI spec to support optional topology fields in `CreateSnapshotRequest` and `CreateSnapshotResponse`. Provide an out-of-tree scheduler plugin (in `kubernetes-sigs/scheduler-plugins`) that enforces topology compatibility when scheduling pods with PVCs that reference a snapshot as their data source with `WaitForFirstConsumer` volume binding, ensuring the scheduler only selects nodes whose topology is compatible with the snapshot's `NodeAffinity`. Ensure the external-provisioner intersects the snapshot's `NodeAffinity` with `StorageClass.AllowedTopologies` when provisioning volumes from snapshot data sources with `Immediate` volume binding mode."
+    },
+    {
+      "id": "F020",
+      "format": "text",
+      "text": "Add a new condition type `Unused` to the `PersistentVolumeClaim` status conditions. This condition is managed by the PVC protection controller (in kube-controller-manager) and reflects whether the PVC is currently referenced by any non-terminal Pod.\n\nWhen the last Pod referencing a PVC is deleted or reaches a terminal state, the condition is set to `Status=True` with `Reason=\"NoPodsUsingPVC\"` and `Message=\"No pods are currently referencing this PVC\"`. When a new Pod starts referencing the PVC, the condition is set to `Status=False` with `Reason=\"PodUsingPVC\"` and `Message=\"A pod is currently referencing this PVC\"`.\n\nThe `lastTransitionTime` of the condition indicates when the PVC last changed between used and unused states, providing the equivalent of an \"unused since\" timestamp."
+    },
+    {
+      "id": "F021",
+      "format": "text",
+      "text": "WATCH requests are outside the scope of this proposal. Today, the `timeout` handler does not handle any long-running requests including WATCH, it only handles short (non long-running) requests. The scope of this proposal is the same, short (non long-running) requests only. Today, for any WATCH, if we inspect the context of the request, it would not have any deadline. if we want to enable read/write deadline for WATCH, then an orthogonal effort to wire the context of a WATCH request with a proper deadline is a prerequisite, and such effort is outside the scope of this proposal. All other long-running requests are also outside the scope of this proposal."
+    },
+    {
+      "id": "F022",
+      "format": "text",
+      "text": "Improve pod restart backoff logic to better match the actual load it creates and meet emerging use cases Quantify and expose risks to node stability resulting from decreased and/or hetereogeneous backoff configurations Empirically derive defaults and allowable thresholds that approximate current node stability Provide a simple UX that does not require changes for the majority of workloads Must work for Jobs and sidecar containers"
+    },
+    {
+      "id": "F023",
+      "format": "text",
+      "text": "A new feature flag `PerHandlerReadWriteTimeout` will be introduced, when enabled: On start-up, the kube-apiserver will not add the timeout filter to the request handler chain. To every incoming non long-running request, the kube-apiserver will apply a request-scoped read/write deadline. Use a synchronous finisher in place of the the asynchronous finisher that is used today in order to asynchronously execute the admission and storage handling of mutating request(s). On the other hand, the synchronous finisher will execute the request in the same goroutine.\n\nWe also need to maintain parity in terms of observability - the logs/metrics that are generated for requests that time out today, should also be available when this feature is enabled."
+    },
+    {
+      "id": "F024",
+      "format": "text",
+      "text": "This proposal covers the implementation of metrics stability in the kubernetes/kubernetes repo (and anywhere else that consumes `component-base/metrics`).\n\nHistorically, the implementation was split into four documents: Metrics Stability Framework Metrics Stability Migration Metrics Validation and Verification Metrics Stability to Beta\n\nThis document is not net new and ties the four together in order to document the lifecycle of this feature.\n\n[Metrics Stability Framework]: kubernetes-control-plane-metrics-stability.md [Metrics Stability Migration]: metrics-stability-migration.md [Metrics Validation and Verification]: metrics-validation-and-verification.md [Metrics Stability to Beta]: metrics-stability-to-beta.md"
+    },
+    {
+      "id": "F025",
+      "format": "text",
+      "text": "Remove direct log calls through the `k8s.io/klog` API and the hard dependency on the klog logging implementation from all packages. Grant the caller of a function control over logging inside that function, either by passing a logger into the function or by configuring the object that a method belongs to. Provide documentation and helper code for setting up logging in unit tests. Change as few exported APIs as possible."
+    },
+    {
+      "id": "F026",
+      "format": "text",
+      "text": "Currently before a volume is bind-mounted inside a container the permissions on that volume are changed recursively to the provided fsGroup value. This change in ownership can take an excessively long time to complete, especially for very large volumes (>=1TB) as well as a few other reasons detailed in Motivation. To solve this issue we will add a new field called `pod.Spec.SecurityContext.FSGroupChangePolicy` and allow the user to specify how they want the permission and ownership change for volumes used by pod to happen."
+    },
+    {
+      "id": "F027",
+      "format": "text",
+      "text": "PersistentVolumeClaims can accumulate over time in a cluster. When applications are deleted or migrated, their associated PVCs may be left behind, consuming storage resources and incurring costs. It'd be helpful for cluster admins to identify how long a PVC has been sitting unused, to then clean up unutilized storage. Currently, Kubernetes provides no mechanism to determine when a PVC was last actively used by a workload.\n\nOnly Kubernetes has accurate knowledge of when a PVC is mounted by a Pod, making this the ideal place to track usage."
+    },
+    {
+      "id": "F028",
+      "format": "text",
+      "text": "In some cases if user brings in a large enough volume from outside, the first time ownership and permission change still could take lot of time. On SELinux enabled distributions we will still do recursive chcon whenever applicable and handling that is outside the scope. This proposal does not attempt to fix two pods using same volume with conflicting fsgroup. `FSGroupChangePolicy` also will be only applicable to volume types which support setting fsgroup."
+    },
+    {
+      "id": "F029",
+      "format": "text",
+      "text": "Promote the `metrics.k8s.io` API to stable. The API has been in beta since v1.8 (approximately 7 years ago) without a formal graduation effort. Given this lengthy soak period, the API has proven stable in production environments worldwide — consumers such as the Horizontal Pod Autoscaler and `kubectl top` have relied on it for years. We believe it is now appropriate to formally graduate the API to stable."
+    },
+    {
+      "id": "F030",
+      "format": "text",
+      "text": "Changes required for this KEP: Add a new condition type constant to PVC condition types in `core/v1`:\n\nThe condition uses the following states:\n\nIn the PVC protection controller, add logic to set/update the `Unused` condition: The PVC Protection controller already watches Pod events and checks when a PVC transitions from \"in use\" to \"not in use\". The implementation extends this existing logic: When a Pod is deleted, the controller enqueues all the affected PVCs During sync, the controller checks if the PVC is still in use by a Pod Existing behavior: If it's not in use, and the `deletionTimestamp` is set, it proceeds with finalizer removal."
+    },
+    {
+      "id": "F031",
+      "format": "text",
+      "text": "We propose the introduction of a new feature gate named `UserNamespacesHostNetworkSupport`.\n\nWhen this feature gate is disabled (the default state), the kube-apiserver will maintain the current validation behavior, rejecting any Pod spec that includes both `spec.hostNetwork: true` and `spec.hostUsers: false`.\n\nWhen the `UserNamespacesHostNetworkSupport` feature gate is enabled, we will relax this validation check."
+    },
+    {
+      "id": "F032",
+      "format": "text",
+      "text": "We summarize the implementation plan as following: Add a feature gate `NodeSwap` to enable swap support. Leave the default value of kubelet flag `--fail-on-swap` to `true`, to avoid changing default behaviour. Introduce a new kubelet config parameter, `MemorySwap`, which configures how much swap Kubernetes workloads can use on the node. Introduce a new CRI parameter, `memory_swap_limit_in_bytes`. Ensure container runtimes are updated so they can make use of the new CRI configuration. Based on the behaviour set in the kubelet config, the kubelet will instruct the CRI on the amount of swap to allocate to each container. The container runtime will then write the swap settings to the container level cgroup. Add node stats to report swap usage."
+    },
+    {
+      "id": "F033",
+      "format": "text",
+      "text": "The primary motivation is to enhance the security of Kubernetes control plane components. Many control plane components, such as the `kube-apiserver` and `kube-controller-manager` often run as static Pods and are configured with `hostNetwork: true` to bind to node ports or interact directly with the host's network stack.\n\nCurrently, a validation rule in the kube-apiserver prevents the combination of `hostNetwork: true` and `hostUsers: false`. This KEP aims to remove that barrier."
+    },
+    {
+      "id": "F034",
+      "format": "text",
+      "text": "See: [Metrics Stability Framework#Proposal] [Metrics Stability Migration#General Migration Strategy] [Metrics Validation and Verification#Proposal] [Metrics Stability to Beta#Proposal]\n\n[Metrics Stability Framework#Proposal]: kubernetes-control-plane-metrics-stability.md#proposal [Metrics Stability Migration#General Migration Strategy]: metrics-stability-migration.md#general-migration-strategy [Metrics Validation and Verification#Proposal]: metrics-validation-and-verification.md#proposal [Metrics Stability to Beta#Proposal]: metrics-stability-to-beta.md#proposal"
+    },
+    {
+      "id": "F035",
+      "format": "text",
+      "text": "Example problems today: User does POST, then changes something and applies: surprise! User does an apply, then `kubectl edit`, then applies again: surprise! User does GET, edits locally, then apply: surprise! User tweaks some annotations, then applies: surprise! Alice applies something, then Bob applies something: surprise!\n\nWhy can't a smaller change fix the problems? Why hasn't it already been fixed? Too many components need to change to deliver a fix Organic evolution and lack of systematic approach It is hard to make fixes that cohere instead of interfere without a clear model of the feature Lack of API support meant client-side implementation The client sends a PATCH to the server, which necessitated strategic merge patch--as no patch format conveniently captures the data type that is actually needed. Tactical errors: SMP was not easy to version, fixing anything required client and server changes and a 2 release deprecation period. The implications of our schema were not understood, leading to bugs. e.g., non-positional lists, sets, undiscriminated unions, implicit context Complex and confusing defaulting behavior (e.g., Always pull policy from :latest) Non-declarative-friendly API behavior (e.g., selector updates)"
+    },
+    {
+      "id": "F036",
+      "format": "text",
+      "text": "In CustomResourceDefinition (CRD) we allow CRD author to define OpenAPI v3 schema, to enable server-side validation for CustomResources (CR). The validation schema format is compatible for creating OpenAPI documentation for CRs, which can be used by clients like kubectl to perform client-side validation (e.g. `kubectl create` and `kubectl apply`), schema explanation (`kubectl explain`), and client generation. This KEP proposes using the OpenAPI v3 schema to create and publish OpenAPI documentation for CRs."
+    }
+  ]
+}
