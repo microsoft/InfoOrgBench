@@ -87,7 +87,7 @@ runs. Regenerating the baselines also needs the packages pinned in
 | Material | Licence |
 | --- | --- |
 | Code (`benchmark/engine`, `benchmark/algorithm-source`, `benchmark/replay.py`, `tools`, `tests`) | MIT; see [LICENSE](LICENSE) |
-| References, baseline and model outputs, metrics and metadata authored for InfoOrgBench | Set by Microsoft's dataset review before release (proposed: MIT) |
+| References, baseline and model outputs, metrics and metadata authored for InfoOrgBench | MIT; see [LICENSE](LICENSE) |
 | Recap record text from the AMI Meeting Corpus (`benchmark/inputs/public/Recap/`) | CC BY 4.0 ([licence](https://creativecommons.org/licenses/by/4.0/)); © AMI Consortium |
 | Design record text from Kubernetes Enhancement Proposals (`benchmark/inputs/public/Design/`) | Apache-2.0; © The Kubernetes Authors |
 | Thread record text from the Apache Hadoop issue tracker | Not included. You download it from [Apache Jira](https://issues.apache.org/jira/projects/HADOOP) under the terms that apply there. |
@@ -139,6 +139,12 @@ For more information see the
 [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or
 contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any
 additional questions or comments.
+
+## Security
+
+Please do not report security vulnerabilities through public GitHub issues.
+See [SECURITY.md](SECURITY.md) for how to report them to the Microsoft
+Security Response Center (MSRC).
 
 ## Trademarks
 

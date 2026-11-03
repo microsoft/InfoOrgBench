@@ -61,7 +61,7 @@ al., 2021).
 ## Distribution and licence
 
 - Code: MIT. Data authored for InfoOrgBench (references, outputs, metrics,
-  metadata): set by Microsoft's dataset review before release; proposed MIT.
+  metadata): MIT.
   Recap text: CC BY 4.0 (AMI Consortium). Design text: Apache-2.0 (The
   Kubernetes Authors). Thread text: not distributed. Third-party text is not
   relicensed by InfoOrgBench. See the [README](../README.md#licensing) and

@@ -67,6 +67,7 @@ class ReleaseGateTests(unittest.TestCase):
         self.write("benchmark/inputs/public/Recap/mini-001.json", "{}")
         self.assertEqual(check_release.check(self.tmp), [])
         m = self.manifest()
+        m["approvals"]["dataset_review"]["status"] = "in_review"
         m["channels"]["anonymous_review"]["approved"] = True
         self.save(m)
         problems = check_release.check(self.tmp, channel="anonymous_review")
@@ -79,6 +80,11 @@ class ReleaseGateTests(unittest.TestCase):
 
     def test_pending_licence_blocks_channel(self):
         self.write("benchmark/predictions/Recap/mini-001/filed_flat.json", "{}")
+        m = self.manifest()
+        for comp in m["components"]:
+            if comp["id"] == "baseline-outputs-and-scores":
+                comp["license"] = "PENDING-CELA"
+        self.save(m)
         self.approve_all("public_github", decide_licences=False)
         problems = check_release.check(self.tmp, channel="public_github")
         self.assertIn("component baseline-outputs-and-scores: licence not yet decided in the dataset review", problems)
