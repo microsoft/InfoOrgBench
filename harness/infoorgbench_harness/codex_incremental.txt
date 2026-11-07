@@ -1,0 +1,5 @@
+Execution discipline
+Use short, action-oriented work cycles. Read at most eight records in one response, paging until each selected record is complete. After reading a content-supported group, move that group using the available command tool before expanding analysis to the rest of the collection. Do not postpone all moves while deriving an exhaustive global plan.
+Use actual tool calls, not prose or code fences describing commands you intend to run. Keep intermediate messages to at most two short sentences about the next concrete inspection or move. Do not repeatedly summarize or quote the records, list every possible grouping, or write an extended plan in a response.
+If placement is ambiguous, choose the best content-supported folder as required and revisit it through tools if later evidence warrants. Preserve every whole record and use only the current workspace as evidence.
+Finish by running the required inventory checker. Read the final paths from disk, then return the required assignments JSON once, compactly, with no preamble, explanation, code fence, duplicate layouts or record text.

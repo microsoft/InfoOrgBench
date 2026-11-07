@@ -1,0 +1,25 @@
+# Copyright (c) Microsoft Corporation.
+# Licensed under the MIT License.
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "infoorgbench-harness"
+version = "1.0.0"
+description = "Agent harnesses used in the InfoOrgBench evaluation"
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+authors = [{name = "Microsoft Corporation"}]
+dependencies = []
+
+[tool.setuptools]
+packages = ["infoorgbench_harness", "infoorgbench_harness.models"]
+include-package-data = true
+
+[tool.setuptools.data-files]
+"infoorgbench_harness/copilot" = ["copilot/endpoint.mjs", "copilot/package.json"]
+
+[tool.setuptools.package-data]
+infoorgbench_harness = ["*.txt", "*.mjs", "prompts/v2/*.md"]

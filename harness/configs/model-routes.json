@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "paper_models": [
+    "claude-haiku-4.5",
+    "claude-haiku-5.5",
+    "claude-sonnet-5.5",
+    "mai-code-1.1-flash",
+    "gpt-5.6-luna",
+    "gpt-5.6-terra",
+    "gpt-6-luna",
+    "gpt-6.1-sol",
+    "grok-4.7"
+  ],
+  "paper_wire_protocol": {
+    "claude-*": "anthropic-messages",
+    "*": "openai-responses"
+  },
+  "copilot_model_ids_are_plan_dependent": true,
+  "unavailable_paper_model": "Gemini 4 Argon"
+}

@@ -149,6 +149,11 @@ def check(root: Path, channel: str | None = None, report: dict | None = None) ->
 
     manifest = load_manifest(root)
     approvals = manifest.get("approvals", {})
+    proposed = root / "harness" / "MANIFEST-COMPONENTS.json"
+    proposed_present = proposed.is_file()
+    if proposed_present:
+        additions = json.loads(proposed.read_text(encoding="utf-8")).get("proposed_component_entries", [])
+        manifest = {**manifest, "components": [*manifest["components"], *additions]}
     components = components_from(manifest)
     for comp in components:
         if comp.license not in KNOWN_LICENSES:
@@ -192,6 +197,8 @@ def check(root: Path, channel: str | None = None, report: dict | None = None) ->
         report.update({c.id: {"files": counts.get(c.id, 0), "pending": pending(c, approvals)} for c in components})
 
     if channel:
+        if proposed_present:
+            problems.append("proposed component entries must be merged into release/manifest.json before channel release")
         info = manifest.get("channels", {}).get(channel)
         if info is None:
             problems.append(f"unknown channel {channel!r}")
