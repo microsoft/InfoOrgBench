@@ -62,6 +62,39 @@ class GatewayTests(unittest.TestCase):
         raised.exception.close()
         self.assertEqual(backend.calls, [])
 
+    def test_invalid_tool_call_returns_tool_error(self):
+        def handler(_name, _arguments):
+            raise ValueError("Read pages must contain 1 to 8000 characters")
+
+        with Gateway(FakeBackend(), tool_handler=handler) as gateway:
+            _, raw = self.post(gateway.base_url + "/tools/record_read", {"file_id": "F001"})
+        self.assertEqual(json.loads(json.loads(raw)["text"]), {"error": "Read pages must contain 1 to 8000 characters"})
+
+    def test_parallel_tool_calls_run_one_at_a_time(self):
+        import threading
+        import time
+
+        state = {"active": 0, "peak": 0}
+        guard = threading.Lock()
+
+        def handler(_name, _arguments):
+            with guard:
+                state["active"] += 1
+                state["peak"] = max(state["peak"], state["active"])
+            time.sleep(0.05)
+            with guard:
+                state["active"] -= 1
+            return {"ok": True}
+
+        with Gateway(FakeBackend(), tool_handler=handler) as gateway:
+            threads = [threading.Thread(target=self.post, args=(gateway.base_url + "/tools/record_move", {}))
+                       for _ in range(4)]
+            for thread in threads:
+                thread.start()
+            for thread in threads:
+                thread.join()
+        self.assertEqual(state["peak"], 1)
+
 
 if __name__ == "__main__":
     unittest.main()

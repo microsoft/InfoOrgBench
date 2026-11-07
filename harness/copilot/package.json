@@ -8,11 +8,11 @@
     "node": ">=22.13"
   },
   "dependencies": {
-    "@github/copilot": "1.0.105"
+    "@github/copilot": "1.0.67"
   },
   "infoorgbench": {
-    "copilotCliVersion": "1.0.105",
-    "copilotSdkVersion": "bundled-with-copilot-cli-1.0.105",
+    "copilotCliVersion": "1.0.67",
+    "copilotSdkVersion": "bundled-with-copilot-cli-1.0.67",
     "experimentalProviderEndpoint": true
   }
 }

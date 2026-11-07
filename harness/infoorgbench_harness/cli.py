@@ -27,6 +27,8 @@ PAPER_PROFILE = {"max_output_tokens": 128000, "request_seconds": 2400,
                  "decision_turns": None, "episode_seconds": None,
                  "episode_observed_token_stop": None, "reasoning_effort": "medium",
                  "incremental_protocol": True, "search_max_results": 40}
+# Provider output limits below the shared request. The paper's transport capped requests at these limits.
+MODEL_OUTPUT_LIMITS = {"claude-haiku-4.5": 64000}
 
 
 def repository_root():
@@ -111,6 +113,11 @@ def _settings(args):
     settings["request_seconds"] = args.request_seconds
     if args.model == "claude-haiku-4.5":
         settings["reasoning_effort"] = None
+    limit = MODEL_OUTPUT_LIMITS.get(args.model)
+    if limit is not None:
+        settings["max_output_tokens"] = min(settings["max_output_tokens"], limit)
+    if getattr(args, "max_output_tokens", None):
+        settings["max_output_tokens"] = args.max_output_tokens
     return settings
 
 
@@ -195,6 +202,8 @@ def parser():
     run.add_argument("--copilot-token-env", default=os.environ.get("INFOORGBENCH_COPILOT_TOKEN_ENV", "COPILOT_GITHUB_TOKEN"))
     run.add_argument("--transport-retries", type=int, default=int(os.environ.get("INFOORGBENCH_TRANSPORT_RETRIES", "0")))
     run.add_argument("--request-seconds", type=int, default=2400)
+    run.add_argument("--max-output-tokens", type=int,
+                     help="Override the per-response output cap (default 128,000, capped at known model limits)")
     score = commands.add_parser("score")
     score.add_argument("--run", type=Path, required=True)
     score.add_argument("--out", type=Path)

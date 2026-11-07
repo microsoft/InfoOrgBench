@@ -9,7 +9,30 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "harness"))
 
-from infoorgbench_harness.cli import load_tasks, score_run
+from infoorgbench_harness.cli import _settings, load_tasks, score_run
+from infoorgbench_harness.models.protocols import ANTHROPIC, CHAT, from_responses_request
+
+
+class HarnessSettingsTests(unittest.TestCase):
+    @staticmethod
+    def _args(model, max_output_tokens=None):
+        class Args:
+            request_seconds = 2400
+        args = Args()
+        args.model, args.max_output_tokens = model, max_output_tokens
+        return args
+
+    def test_output_cap_respects_known_model_limit(self):
+        self.assertEqual(_settings(self._args("claude-haiku-4.5"))["max_output_tokens"], 64000)
+        self.assertIsNone(_settings(self._args("claude-haiku-4.5"))["reasoning_effort"])
+        self.assertEqual(_settings(self._args("gpt-6.1-sol"))["max_output_tokens"], 128000)
+        self.assertEqual(_settings(self._args("gpt-6.1-sol", 8192))["max_output_tokens"], 8192)
+
+    def test_untyped_input_messages_are_translated(self):
+        body = {"model": "m", "input": [{"role": "user", "content": "Reply with OK."}], "max_output_tokens": 16}
+        for protocol in (ANTHROPIC, CHAT):
+            translated = from_responses_request(body, protocol)
+            self.assertEqual(len(translated["messages"]), 1, protocol)
 
 
 class HarnessCLITests(unittest.TestCase):

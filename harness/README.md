@@ -61,9 +61,15 @@ The version command must report `codex-cli 0.162.1`.
 
 ### Pi
 
+Pin every `@earendil-works` package to 1.1.0. Without the explicit pins, npm
+resolves the sibling packages to newer releases that the 1.1.0 agent cannot
+load.
+
 ```powershell
 npm install --prefix .\harness\.third-party\pi `
-  @earendil-works/pi-coding-agent@1.1.0 @earendil-works/pi-ai@1.1.0
+  @earendil-works/pi-coding-agent@1.1.0 @earendil-works/pi-ai@1.1.0 `
+  @earendil-works/pi-agent-core@1.1.0 @earendil-works/pi-codemode@1.1.0 `
+  @earendil-works/pi-mcp@1.1.0 @earendil-works/pi-tui@1.1.0 @earendil-works/chord@1.1.0
 $env:INFOORGBENCH_PI_ROOT = (Resolve-Path .\harness\.third-party\pi)
 ```
 
@@ -116,12 +122,21 @@ must be opted into. The helper keeps endpoint metadata and short-lived headers
 in memory, sends them only through a process pipe, refreshes before expiry and
 after HTTP 401 or 403, and never includes them in logs or receipts.
 
-Install the verified Copilot CLI build and sign in interactively:
+Install the Copilot CLI package whose bundled SDK and runtime were verified,
+either globally or in `harness/copilot` (`npm install` there uses the pinned
+version), and sign in interactively:
 
 ```powershell
-npm install -g @github/copilot@1.0.105
+npm install -g @github/copilot@1.0.67
 copilot
 ```
+
+The helper checks the version of the runtime bundled in that npm package. The
+CLI can update itself, so `copilot --version` may report a newer build; the
+check uses the bundled runtime, not that build. To try another version, set
+`INFOORGBENCH_COPILOT_ALLOW_UNVERIFIED=1` or point
+`INFOORGBENCH_COPILOT_RUNTIME` at a folder containing `copilot.exe` (or
+`copilot`) and `copilot-sdk/index.js`.
 
 A stored `github.com` login from GitHub CLI is also supported:
 

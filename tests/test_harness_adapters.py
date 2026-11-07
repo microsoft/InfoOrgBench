@@ -9,7 +9,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "harness"))
 
-from infoorgbench_harness.adapters import PINS, build_codex_invocation, build_dsh_patch, run_third_party
+from infoorgbench_harness.adapters import (PINS, build_codex_invocation, build_dsh_patch, codex_denied_roots,
+                                           run_third_party)
 from infoorgbench_harness.models.protocols import RESPONSES
 
 
@@ -26,6 +27,34 @@ class AdapterConfigurationTests(unittest.TestCase):
                       "features.multi_agent=false", "features.memories=false",
                       'wire_api="responses"', "request_max_retries=0", "stream_max_retries=0"):
             self.assertIn(value, rendered)
+
+    def test_codex_invocation_denies_evaluator_roots_and_network(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            repository = Path(temporary) / "repo"
+            for name in ("benchmark", "results"):
+                (repository / name).mkdir(parents=True)
+            workspace = Path(temporary) / "run" / "workspace"
+            workspace.mkdir(parents=True)
+            denied = codex_denied_roots(repository, workspace)
+            invocation = build_codex_invocation("codex", workspace, Path(temporary) / "run",
+                                                "http://127.0.0.1:1234/v1", "gpt-6.1-sol", "medium",
+                                                windows_sandbox="mxc", read_denied_roots=denied)
+        rendered = " ".join(invocation)
+        self.assertEqual(len(denied), 2)
+        self.assertIn('windows.sandbox="mxc"', rendered)
+        self.assertIn('default_permissions="task"', rendered)
+        self.assertIn("permissions.task.network.enabled=false", rendered)
+        self.assertIn('"deny"', rendered)
+        self.assertNotIn("workspace-write", rendered)
+
+    def test_codex_denied_roots_never_cover_the_workspace(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            repository = Path(temporary)
+            (repository / "benchmark").mkdir()
+            workspace = repository / "results" / "run" / "workspace"
+            workspace.mkdir(parents=True)
+            denied = codex_denied_roots(repository, workspace)
+        self.assertEqual([path.name for path in denied], ["benchmark"])
 
     def test_dsh_patch_disables_memory_telemetry_and_subagents(self):
         patch = build_dsh_patch(Path("workspace").resolve(), "http://127.0.0.1:1234/v1",

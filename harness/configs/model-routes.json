@@ -16,5 +16,9 @@
     "*": "openai-responses"
   },
   "copilot_model_ids_are_plan_dependent": true,
-  "unavailable_paper_model": "Gemini 4 Argon"
+  "unavailable_paper_model": "Gemini 4 Argon",
+  "max_output_tokens": {
+    "claude-haiku-4.5": 64000
+  },
+  "max_output_tokens_note": "The paper requested 128,000 output tokens per response; the transport capped requests at each model's provider limit, which is 64,000 for Claude Haiku 4.5."
 }

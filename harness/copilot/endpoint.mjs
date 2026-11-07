@@ -1,9 +1,9 @@
 // Copyright (c) Microsoft Corporation.
 // Licensed under the MIT License.
 import { createInterface } from "node:readline";
-import { existsSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 import { createRequire } from "node:module";
-import { execFileSync } from "node:child_process";
+import { execSync } from "node:child_process";
 import { dirname, join } from "node:path";
 import { pathToFileURL } from "node:url";
 
@@ -20,6 +20,8 @@ function platformPackage() {
   return `copilot-${process.platform}-${arch}`;
 }
 
+const VERIFIED_RUNTIME_VERSIONS = new Set(["1.0.67"]);
+
 function locateRuntime() {
   const candidates = [];
   if (process.env.INFOORGBENCH_COPILOT_RUNTIME) candidates.push(process.env.INFOORGBENCH_COPILOT_RUNTIME);
@@ -29,14 +31,21 @@ function locateRuntime() {
     candidates.push(join(packageRoot, "node_modules", "@github", platformPackage()));
   } catch {}
   try {
-    const globalRoot = execFileSync(process.platform === "win32" ? "npm.cmd" : "npm", ["root", "-g"],
-      { encoding: "utf8", stdio: ["ignore", "pipe", "ignore"] }).trim();
+    const globalRoot = execSync("npm root -g", { encoding: "utf8", stdio: ["ignore", "pipe", "ignore"] }).trim();
     candidates.push(join(globalRoot, "@github", "copilot", "node_modules", "@github", platformPackage()));
   } catch {}
   const found = candidates.find(path => existsSync(join(path, process.platform === "win32" ? "copilot.exe" : "copilot"))
     && existsSync(join(path, "copilot-sdk", "index.js")));
   if (!found) throw new Error("runtime_missing");
   return found;
+}
+
+function runtimeVersion(runtime) {
+  try {
+    return JSON.parse(readFileSync(join(runtime, "package.json"), "utf8")).version || null;
+  } catch {
+    return null;
+  }
 }
 
 function childEnvironment(tokenEnv) {
@@ -51,6 +60,10 @@ function childEnvironment(tokenEnv) {
 async function initialize(command) {
   if (initialized) throw new Error("already_initialized");
   const runtime = locateRuntime();
+  const version = runtimeVersion(runtime);
+  if (!VERIFIED_RUNTIME_VERSIONS.has(version) && process.env.INFOORGBENCH_COPILOT_ALLOW_UNVERIFIED !== "1") {
+    throw new Error("runtime_version_mismatch");
+  }
   const { CopilotClient } = await import(pathToFileURL(join(runtime, "copilot-sdk", "index.js")));
   const token = process.env[command.tokenEnv];
   client = new CopilotClient({
@@ -61,8 +74,6 @@ async function initialize(command) {
     env: childEnvironment(command.tokenEnv),
   });
   await client.start();
-  const status = await client.getStatus();
-  if (status?.version !== "1.0.105") throw new Error("runtime_version_mismatch");
   const auth = await client.getAuthStatus();
   if (!auth?.isAuthenticated) throw new Error("authentication_required");
   session = await client.createSession({
@@ -70,6 +81,7 @@ async function initialize(command) {
     onPermissionRequest: async () => ({ kind: "denied-interactively-by-user" }),
   });
   initialized = true;
+  return version;
 }
 
 async function close() {
@@ -87,8 +99,8 @@ for await (const line of input) {
   try {
     command = JSON.parse(line);
     if (command.command === "init") {
-      await initialize(command);
-      reply({ ok: true });
+      const runtimeVersion = await initialize(command);
+      reply({ ok: true, runtimeVersion });
     } else if (command.command === "endpoint" && initialized) {
       const endpoint = await session.rpc.provider.getEndpoint({ modelId: command.model });
       reply({ ok: true, endpoint });

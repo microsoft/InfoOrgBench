@@ -142,6 +142,8 @@ def from_responses_request(body: dict, protocol: str) -> dict:
     items = body.get("input", [])
     if isinstance(items, str):
         items = [_message_item("user", items)]
+    items = [{"type": "message", **item} if isinstance(item, dict) and "type" not in item and "role" in item else item
+             for item in items]
     if protocol == CHAT:
         messages = []
         if body.get("instructions"):

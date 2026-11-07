@@ -41,7 +41,13 @@ class _Handler(BaseHTTPRequestHandler):
                 if gateway.tool_handler is None:
                     self._send(404, "application/json", b'{"error":{"message":"tools disabled"}}')
                     return
-                result = gateway.tool_handler(tool.group(1), body)
+                try:
+                    # Record operations change one shared workspace, so parallel tool calls run one at a time.
+                    with gateway.tool_lock:
+                        result = gateway.tool_handler(tool.group(1), body)
+                except (ValueError, KeyError, TypeError, OSError) as error:
+                    # Invalid tool arguments go back to the model as a tool error, as in the paper's runs.
+                    result = {"error": str(error) or type(error).__name__}
                 payload = json.dumps({"text": json.dumps(result, ensure_ascii=False, separators=(",", ":"))},
                                      separators=(",", ":")).encode()
                 self._send(200, "application/json", payload)
@@ -80,6 +86,7 @@ class Gateway:
         self.requests = 0
         self.usage = {}
         self._usage_lock = threading.Lock()
+        self.tool_lock = threading.Lock()
 
     def record_usage(self, usage):
         with self._usage_lock:

@@ -51,7 +51,10 @@ class _EndpointPipe:
         except (BrokenPipeError, OSError, json.JSONDecodeError):
             raise TransportError("copilot_endpoint_helper_failed") from None
         if not isinstance(value, dict) or value.get("ok") is not True:
-            raise TransportError("copilot_endpoint_helper_failed")
+            code = value.get("code") if isinstance(value, dict) else None
+            known = {"runtime_missing", "runtime_version_mismatch", "authentication_required",
+                     "already_initialized", "invalid_command", "sdk_operation_failed"}
+            raise TransportError("copilot_endpoint_helper_failed" + (f":{code}" if code in known else ""))
         return value
 
     def close(self):
