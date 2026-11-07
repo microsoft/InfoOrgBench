@@ -12,7 +12,8 @@
   },
   "model_overrides": {
     "claude-haiku-4.5": {
-      "reasoning_effort": null
+      "reasoning_effort": null,
+      "max_output_tokens": 64000
     }
   }
 }

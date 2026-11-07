@@ -245,8 +245,35 @@ remove experiment bookkeeping and retained transcripts while preserving the
 model-visible request sequence and stopping behavior. The Codex and DSH
 adapters are rewritten around the public loopback gateway but retain their
 pinned native versions, prompt delivery, tools, permission settings, history,
-and limits. Only the model transport changed: the paper's earlier transport is
-replaced by Copilot provider endpoints or ordinary provider API keys.
+and limits. Record tool calls from Pi and Deep Agents are applied to the
+workspace one at a time, and invalid arguments return to the model as tool
+errors. For Codex these include the Windows `mxc` sandbox, read denial of
+the repository's `benchmark/` and `results/` folders and disabled network
+access. Only the model transport changed: the paper's earlier transport is
+replaced by Copilot provider endpoints or ordinary provider API keys. Requests
+for 128,000 output tokens are capped at a model's provider limit (64,000 for
+Claude Haiku 4.5), as the paper's transport did.
+
+## Verification
+
+On 2026-11-07 each harness completed Recap task `mini-001` through the GitHub
+Copilot backend, signed in as a github.com personal account whose Copilot
+entitlement comes from an organization seat. Each run produced a valid tree
+that the released scorer accepted:
+
+| Harness | Model | Upstream protocol | Structure Score |
+| --- | --- | --- | ---: |
+| ReAct-FC | GPT-6 Luna | Responses | 42.3 |
+| ReAct-FC | Claude Haiku 4.5 | Anthropic Messages | 29.1 |
+| Codex CLI 0.162.1 | GPT-6 Luna | Responses through the gateway | 22.0 |
+| Pi 1.1.0 | GPT-6 Luna | Responses through the gateway | 45.7 |
+| DeepSeek Harness 0.2.1-alpha.1 | GPT-6 Luna | Responses through the gateway | 39.3 |
+| Deep Agents 0.7.23 | Claude Haiku 4.5 | Anthropic Messages through the gateway | 33.2 |
+
+These are single-task checks of the software, not results. An individual
+Copilot Free or Pro plan was not tested. The provider API-key backends were
+tested against local mock servers for all three protocols, not against a
+live provider account.
 
 ## Limitations
 

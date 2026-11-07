@@ -52,12 +52,29 @@ in the catalog, rather than over valid outputs. Blank CSV fields were not
 recorded for that run. Thread tasks whose reference has no second level
 leave the level-1 counts blank.
 
+## Assignment trees
+
+[assignments/](assignments) holds the final trees of 5,368 of the 6,750
+outputs, and [rescore.py](rescore.py) rescores them with
+[benchmark/engine](../benchmark/engine) and compares each score with
+`per-task.csv`:
+
+```bash
+python results/rescore.py --reference-only-thread --require-thread
+```
+
+Every available output reproduces its per-task scores. The trees also give
+per-task scores for the two GPT-6 Luna systems that have only family scores in
+this ledger. For GPT-6 Luna with Codex they reproduce the Structure Score and
+folder economy of every family, but not the published pooled Triplet F1
+(Recap 43.1 rather than 44.9, Thread 48.6 rather than 59.8, Design 89.3
+rather than 91.2); the catalog value for that row appears to use a different
+Triplet F1 variant. [assignments/README.md](assignments/README.md) gives the
+coverage and the reasons for missing outputs.
+
 ## What is not included
 
-The final assignment trees for these systems are not included, except the
-200 outputs in [benchmark/predictions](../benchmark/predictions), which
-replay with [benchmark/replay.py](../benchmark/replay.py). Prompts,
-transcripts, tool-call logs, token usage and harness code are not included.
-Run names in `systems.json` identify the authors' runs; scores were taken
-from the result catalog at commit `2495ac1` of the authors' experiment
-repository.
+Transcripts, tool-call logs, token usage and source text are not included.
+The prompts and harness code are in [harness](../harness). Run names in
+`systems.json` identify the authors' runs; scores were taken from the result
+catalog at commit `2495ac1` of the authors' experiment repository.

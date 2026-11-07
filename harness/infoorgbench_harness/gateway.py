@@ -7,6 +7,7 @@ from __future__ import annotations
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 import json
 import re
+import sys
 import threading
 
 from .models.protocols import ANTHROPIC, CHAT, RESPONSES, decode_response, encode_response, merge_usage
@@ -73,6 +74,16 @@ class _Handler(BaseHTTPRequestHandler):
         self.wfile.write(payload)
 
 
+class _Server(ThreadingHTTPServer):
+    daemon_threads = True
+
+    def handle_error(self, request, client_address):
+        # A harness closing its connection early is not a gateway failure.
+        if isinstance(sys.exc_info()[1], (ConnectionResetError, ConnectionAbortedError, BrokenPipeError)):
+            return
+        super().handle_error(request, client_address)
+
+
 class Gateway:
     """A per-run server bound only to 127.0.0.1."""
 
@@ -102,7 +113,7 @@ class Gateway:
     def start(self):
         if self.server is not None:
             return self
-        self.server = ThreadingHTTPServer(("127.0.0.1", 0), _Handler)
+        self.server = _Server(("127.0.0.1", 0), _Handler)
         self.server.gateway = self
         self.thread = threading.Thread(target=self.server.serve_forever, daemon=True)
         self.thread.start()

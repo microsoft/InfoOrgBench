@@ -33,6 +33,8 @@ reference; folder names are not scored.
 | [benchmark/algorithm-source/](benchmark/algorithm-source) | Baseline predictors and fixed configurations |
 | [benchmark/replay.py](benchmark/replay.py) | Offline replay of every saved output |
 | [results/](results) | Scores and run settings of the paper's 45 systems, per task, with a script that reproduces the main results table |
+| [results/assignments/](results/assignments) and [results/rescore.py](results/rescore.py) | Final assignment trees of the paper's 45 systems (5,368 of 6,750 outputs) and a script that rescores them against the per-task scores |
+| [harness/](harness) | The ReAct-FC harness and adapters for Codex CLI, Pi, DeepSeek Harness and Deep Agents, with model access through GitHub Copilot or a provider API key |
 | [benchmark/manifest.json](benchmark/manifest.json) | SHA-256 of every file the replay reads |
 | [docs/DATASHEET.md](docs/DATASHEET.md) | Dataset documentation |
 | [docs/THREAD-DATA.md](docs/THREAD-DATA.md) | How to download the Jira issues and build the Thread packets |
@@ -54,8 +56,17 @@ reference; folder names are not scored.
 | 200 model outputs | Claude Haiku 4.5 and GPT-6.1 Sol, each with a ReAct function-calling harness, on the 50 Recap and 50 Thread tasks |
 
 Model outputs contain only the final assignment of each record ID to a folder
-path, including the folder labels the model wrote. Prompts, conversation
-transcripts, tool-call logs and token usage are not included.
+path, including the folder labels the model wrote. Conversation transcripts,
+tool-call logs and token usage are not included.
+
+The final assignment trees of the paper's 45 systems are in
+[results/assignments/](results/assignments): 5,368 of the 6,750 outputs, each
+rescored by [results/rescore.py](results/rescore.py) to the per-task scores in
+[results/per-task.csv](results/per-task.csv). The other outputs were not
+retained; [results/assignments/README.md](results/assignments/README.md) lists
+them with reasons. Thread folder labels that copied six or more consecutive
+words of Jira text were replaced with neutral names, which leaves every score
+unchanged.
 
 ## Replay the reported scores
 
@@ -107,11 +118,15 @@ changes we made and the full licence text.
   tasks in a family can share source documents. Rankings describe these
   tasks and do not by themselves establish differences on new sources.
 - All sources are public and may appear in model training data.
-- The 200 saved model outputs come from two of the paper's 45 systems:
-  Claude Haiku 4.5 and GPT-6.1 Sol, each with ReAct-FC, on Recap and Thread.
-  Per-task scores and run settings for all 45 systems are in
-  [results/](results). Prompts, transcripts, tool-call logs and harness code
-  are not included.
+- The 200 replayed model outputs in `benchmark/predictions/` come from two of
+  the paper's 45 systems: Claude Haiku 4.5 and GPT-6.1 Sol, each with
+  ReAct-FC, on Recap and Thread. Per-task scores and run settings for all 45
+  systems are in [results/](results), and 5,368 of their 6,750 final trees are
+  in [results/assignments/](results/assignments). Transcripts and tool-call
+  logs are not included.
+- [harness/](harness) reruns the systems with the paper's prompts, tools and
+  settings. Only the model transport differs from the original runs, and a
+  rerun is a new sample, not a replay of the published outputs.
 
 ## Release tooling
 

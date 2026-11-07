@@ -24,10 +24,12 @@ al., 2021).
   ([docs/THREAD-DATA.md](THREAD-DATA.md)). The repository holds only their
   references, source IDs and hashes.
 - **Saved outputs.** 1,500 deterministic baseline outputs, including 300
-  identifier-masked diagnostics on Thread, and 200 model outputs (Claude Haiku
-  4.5 and GPT-6.1 Sol on Recap and Thread). Each output is a list of record
-  IDs and folder paths. Folder labels in model outputs were written by the
-  models.
+  identifier-masked diagnostics on Thread, and 200 replayed model outputs
+  (Claude Haiku 4.5 and GPT-6.1 Sol on Recap and Thread). In addition,
+  `results/assignments/` holds 5,368 of the 6,750 final trees of the paper's 45
+  systems. Each output is a list of record IDs and folder paths. Folder labels
+  in model outputs were written by the models; Thread labels that copied six or
+  more consecutive words of Jira text were replaced with neutral names.
 - **What the references mean.** References record source membership. They
   are not a unique human-validated organization; other reasonable trees exist.
 - **Splits.** All 150 tasks are development tasks; there is no held-out split.
@@ -38,7 +40,8 @@ al., 2021).
   contributor names, handles and project e-mail addresses, is not distributed.
   Model outputs contain record IDs and model-written folder labels only; no
   label names a person.
-- **Excluded.** Prompts, transcripts and logs of model runs.
+- **Excluded.** Transcripts, tool-call logs and token usage of model runs.
+  The prompts are in `harness/`.
 
 ## Collection and preprocessing
 
