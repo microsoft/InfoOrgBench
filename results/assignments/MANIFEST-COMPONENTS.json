@@ -1,0 +1,34 @@
+{
+ "schema_version": 1,
+ "notes": "Proposed release/manifest.json component entries. Match these entries before the existing results-ledger component.",
+ "components": [
+  {
+   "id": "table3-assignment-release-code",
+   "description": "Rescorer, assignment documentation, proposed manifest entries, and structural release tests",
+   "patterns": [
+    "results/rescore.py",
+    "results/assignments/README.md",
+    "results/assignments/MANIFEST-COMPONENTS.json",
+    "tests/test_assignments.py"
+   ],
+   "origin": "microsoft",
+   "license": "MIT",
+   "requires": [
+    "release_registration",
+    "security_review"
+   ]
+  },
+  {
+   "id": "table3-assignment-outputs",
+   "description": "Recovered final assignment trees for the 45 systems in Table 3; record IDs and screened model-written folder labels only",
+   "patterns": [
+    "results/assignments/*.json"
+   ],
+   "origin": "third-party-model-output",
+   "license": "MIT",
+   "requires": [
+    "dataset_review"
+   ]
+  }
+ ]
+}
