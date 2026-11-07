@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "proposed_component_entries": [
+    {
+      "id": "agent-harnesses",
+      "description": "Public rerun harnesses, provider adapters, exact prompt resources and sanitized Table 3 configurations",
+      "patterns": [
+        "harness/*"
+      ],
+      "origin": "microsoft",
+      "license": "MIT",
+      "requires": [
+        "release_registration",
+        "security_review"
+      ]
+    }
+  ],
+  "note": "Merge these entries into release/manifest.json only after release review; this file does not alter the release manifest."
+}

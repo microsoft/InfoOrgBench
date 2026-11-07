@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "paper_profile": {
+    "max_output_tokens": 128000,
+    "request_seconds": 2400,
+    "decision_turns": null,
+    "episode_seconds": null,
+    "episode_observed_token_stop": null,
+    "reasoning_effort": "medium",
+    "incremental_protocol": true,
+    "search_max_results": 40
+  },
+  "model_overrides": {
+    "claude-haiku-4.5": {
+      "reasoning_effort": null
+    }
+  }
+}

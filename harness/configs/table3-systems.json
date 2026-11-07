@@ -1,0 +1,2590 @@
+{
+  "schema_version": 1,
+  "table": "Table 3",
+  "systems": [
+    {
+      "key": "claude-haiku-4-5__react-fc",
+      "model": "claude-haiku-4.5",
+      "harness": "react-fc",
+      "paper_settings": {
+        "max_output_tokens": 128000,
+        "request_seconds": 2400,
+        "decision_turns": null,
+        "episode_seconds": null,
+        "episode_observed_token_stop": null,
+        "reasoning_effort": null,
+        "incremental_protocol": true,
+        "search_max_results": 40
+      },
+      "families": {
+        "Recap": {
+          "task_version": "ami-mini.v1",
+          "prompt_version": "v2",
+          "prompt_family_version": "summary.v1"
+        },
+        "Thread": {
+          "task_version": "hadoop-jira-mini.v1",
+          "prompt_version": "v2",
+          "prompt_family_version": "issue.v1"
+        },
+        "Design": {
+          "task_version": "kubernetes-mini.v2",
+          "prompt_version": "v2.2",
+          "prompt_family_version": "design-sections.v1"
+        }
+      },
+      "recorded_source_settings": [
+        {
+          "family": "Design",
+          "field": "max_output_tokens",
+          "values": [
+            8192
+          ]
+        },
+        {
+          "family": "Design",
+          "field": "request_seconds",
+          "values": [
+            120
+          ]
+        },
+        {
+          "family": "Recap",
+          "field": "episode_seconds",
+          "values": [
+            300
+          ]
+        },
+        {
+          "family": "Recap",
+          "field": "max_output_tokens",
+          "values": [
+            64000,
+            8192
+          ]
+        },
+        {
+          "family": "Recap",
+          "field": "request_seconds",
+          "values": [
+            120,
+            300
+          ]
+        },
+        {
+          "family": "Thread",
+          "field": "episode_seconds",
+          "values": [
+            300
+          ]
+        },
+        {
+          "family": "Thread",
+          "field": "max_output_tokens",
+          "values": [
+            64000,
+            8192
+          ]
+        },
+        {
+          "family": "Thread",
+          "field": "request_seconds",
+          "values": [
+            120,
+            300
+          ]
+        }
+      ]
+    },
+    {
+      "key": "claude-haiku-4-5__pi",
+      "model": "claude-haiku-4.5",
+      "harness": "pi",
+      "paper_settings": {
+        "max_output_tokens": 128000,
+        "request_seconds": 2400,
+        "decision_turns": null,
+        "episode_seconds": null,
+        "episode_observed_token_stop": null,
+        "reasoning_effort": null,
+        "incremental_protocol": true,
+        "search_max_results": 40
+      },
+      "families": {
+        "Recap": {
+          "task_version": "ami-mini.v1",
+          "prompt_version": "v2",
+          "prompt_family_version": "summary.v1"
+        },
+        "Thread": {
+          "task_version": "hadoop-jira-mini.v1",
+          "prompt_version": "v2",
+          "prompt_family_version": "issue.v1"
+        },
+        "Design": {
+          "task_version": "kubernetes-mini.v2",
+          "prompt_version": "v2.2",
+          "prompt_family_version": "design-sections.v1"
+        }
+      },
+      "recorded_source_settings": [
+        {
+          "family": "All",
+          "field": "request_seconds",
+          "values": [
+            120
+          ]
+        }
+      ]
+    },
+    {
+      "key": "claude-haiku-4-5__deep-agents",
+      "model": "claude-haiku-4.5",
+      "harness": "deepagents",
+      "paper_settings": {
+        "max_output_tokens": 128000,
+        "request_seconds": 2400,
+        "decision_turns": null,
+        "episode_seconds": null,
+        "episode_observed_token_stop": null,
+        "reasoning_effort": null,
+        "incremental_protocol": true,
+        "search_max_results": 40
+      },
+      "families": {
+        "Recap": {
+          "task_version": "ami-mini.v1",
+          "prompt_version": "v2",
+          "prompt_family_version": "summary.v1"
+        },
+        "Thread": {
+          "task_version": "hadoop-jira-mini.v1",
+          "prompt_version": "v2",
+          "prompt_family_version": "issue.v1"
+        },
+        "Design": {
+          "task_version": "kubernetes-mini.v2",
+          "prompt_version": "v2.2",
+          "prompt_family_version": "design-sections.v1"
+        }
+      },
+      "recorded_source_settings": [
+        {
+          "family": "All",
+          "field": "request_seconds",
+          "values": [
+            120
+          ]
+        }
+      ]
+    },
+    {
+      "key": "claude-haiku-4-5__dsh",
+      "model": "claude-haiku-4.5",
+      "harness": "dsh",
+      "paper_settings": {
+        "max_output_tokens": 128000,
+        "request_seconds": 2400,
+        "decision_turns": null,
+        "episode_seconds": null,
+        "episode_observed_token_stop": null,
+        "reasoning_effort": null,
+        "incremental_protocol": true,
+        "search_max_results": 40
+      },
+      "families": {
+        "Recap": {
+          "task_version": "ami-mini.v1",
+          "prompt_version": "v2",
+          "prompt_family_version": "summary.v1"
+        },
+        "Thread": {
+          "task_version": "hadoop-jira-mini.v1",
+          "prompt_version": "v2",
+          "prompt_family_version": "issue.v1"
+        },
+        "Design": {
+          "task_version": "kubernetes-mini.v2",
+          "prompt_version": "v2.2",
+          "prompt_family_version": "design-sections.v1"
+        }
+      },
+      "recorded_source_settings": []
+    },
+    {
+      "key": "claude-haiku-4-5__codex",
+      "model": "claude-haiku-4.5",
+      "harness": "codex",
+      "paper_settings": {
+        "max_output_tokens": 128000,
+        "request_seconds": 2400,
+        "decision_turns": null,
+        "episode_seconds": null,
+        "episode_observed_token_stop": null,
+        "reasoning_effort": null,
+        "incremental_protocol": true,
+        "search_max_results": 40
+      },
+      "families": {
+        "Recap": {
+          "task_version": "ami-mini.v1",
+          "prompt_version": "v2",
+          "prompt_family_version": "summary.v1"
+        },
+        "Thread": {
+          "task_version": "hadoop-jira-mini.v1",
+          "prompt_version": "v2",
+          "prompt_family_version": "issue.v1"
+        },
+        "Design": {
+          "task_version": "kubernetes-mini.v2",
+          "prompt_version": "v2.2",
+          "prompt_family_version": "design-sections.v1"
+        }
+      },
+      "recorded_source_settings": [
+        {
+          "family": "Recap",
+          "field": "request_seconds",
+          "values": [
+            120
+          ]
+        },
+        {
+          "family": "Thread",
+          "field": "request_seconds",
+          "values": [
+            120
+          ]
+        }
+      ]
+    },
+    {
+      "key": "claude-haiku-5-5__react-fc",
+      "model": "claude-haiku-5.5",
+      "harness": "react-fc",
+      "paper_settings": {
+        "max_output_tokens": 128000,
+        "request_seconds": 2400,
+        "decision_turns": null,
+        "episode_seconds": null,
+        "episode_observed_token_stop": null,
+        "reasoning_effort": "medium",
+        "incremental_protocol": true,
+        "search_max_results": 40
+      },
+      "families": {
+        "Recap": {
+          "task_version": "ami-mini.v1",
+          "prompt_version": "v2",
+          "prompt_family_version": "summary.v1"
+        },
+        "Thread": {
+          "task_version": "hadoop-jira-mini.v1",
+          "prompt_version": "v2",
+          "prompt_family_version": "issue.v1"
+        },
+        "Design": {
+          "task_version": "kubernetes-mini.v2",
+          "prompt_version": "v2.2",
+          "prompt_family_version": "design-sections.v1"
+        }
+      },
+      "recorded_source_settings": [
+        {
+          "family": "Design",
+          "field": "max_output_tokens",
+          "values": [
+            128000
+          ]
+        },
+        {
+          "family": "Design",
+          "field": "reasoning_effort",
+          "values": [
+            "medium"
+          ]
+        },
+        {
+          "family": "Design",
+          "field": "request_seconds",
+          "values": [
+            600
+          ]
+        },
+        {
+          "family": "Recap",
+          "field": "decision_turns",
+          "values": [
+            16
+          ]
+        },
+        {
+          "family": "Recap",
+          "field": "episode_seconds",
+          "values": [
+            1200
+          ]
+        },
+        {
+          "family": "Recap",
+          "field": "max_output_tokens",
+          "values": [
+            128000
+          ]
+        },
+        {
+          "family": "Recap",
+          "field": "reasoning_effort",
+          "values": [
+            "medium"
+          ]
+        },
+        {
+          "family": "Recap",
+          "field": "request_seconds",
+          "values": [
+            600
+          ]
+        },
+        {
+          "family": "Thread",
+          "field": "decision_turns",
+          "values": [
+            16
+          ]
+        },
+        {
+          "family": "Thread",
+          "field": "episode_seconds",
+          "values": [
+            1200
+          ]
+        },
+        {
+          "family": "Thread",
+          "field": "max_output_tokens",
+          "values": [
+            128000
+          ]
+        },
+        {
+          "family": "Thread",
+          "field": "reasoning_effort",
+          "values": [
+            "medium"
+          ]
+        },
+        {
+          "family": "Thread",
+          "field": "request_seconds",
+          "values": [
+            600
+          ]
+        }
+      ]
+    },
+    {
+      "key": "claude-haiku-5-5__pi",
+      "model": "claude-haiku-5.5",
+      "harness": "pi",
+      "paper_settings": {
+        "max_output_tokens": 128000,
+        "request_seconds": 2400,
+        "decision_turns": null,
+        "episode_seconds": null,
+        "episode_observed_token_stop": null,
+        "reasoning_effort": "medium",
+        "incremental_protocol": true,
+        "search_max_results": 40
+      },
+      "families": {
+        "Recap": {
+          "task_version": "ami-mini.v1",
+          "prompt_version": "v2",
+          "prompt_family_version": "summary.v1"
+        },
+        "Thread": {
+          "task_version": "hadoop-jira-mini.v1",
+          "prompt_version": "v2",
+          "prompt_family_version": "issue.v1"
+        },
+        "Design": {
+          "task_version": "kubernetes-mini.v2",
+          "prompt_version": "v2.2",
+          "prompt_family_version": "design-sections.v1"
+        }
+      },
+      "recorded_source_settings": [
+        {
+          "family": "All",
+          "field": "request_seconds",
+          "values": [
+            120
+          ]
+        }
+      ]
+    },
+    {
+      "key": "claude-haiku-5-5__deep-agents",
+      "model": "claude-haiku-5.5",
+      "harness": "deepagents",
+      "paper_settings": {
+        "max_output_tokens": 128000,
+        "request_seconds": 2400,
+        "decision_turns": null,
+        "episode_seconds": null,
+        "episode_observed_token_stop": null,
+        "reasoning_effort": "medium",
+        "incremental_protocol": true,
+        "search_max_results": 40
+      },
+      "families": {
+        "Recap": {
+          "task_version": "ami-mini.v1",
+          "prompt_version": "v2",
+          "prompt_family_version": "summary.v1"
+        },
+        "Thread": {
+          "task_version": "hadoop-jira-mini.v1",
+          "prompt_version": "v2",
+          "prompt_family_version": "issue.v1"
+        },
+        "Design": {
+          "task_version": "kubernetes-mini.v2",
+          "prompt_version": "v2.2",
+          "prompt_family_version": "design-sections.v1"
+        }
+      },
+      "recorded_source_settings": [
+        {
+          "family": "All",
+          "field": "request_seconds",
+          "values": [
+            120
+          ]
+        }
+      ]
+    },
+    {
+      "key": "claude-haiku-5-5__dsh",
+      "model": "claude-haiku-5.5",
+      "harness": "dsh",
+      "paper_settings": {
+        "max_output_tokens": 128000,
+        "request_seconds": 2400,
+        "decision_turns": null,
+        "episode_seconds": null,
+        "episode_observed_token_stop": null,
+        "reasoning_effort": "medium",
+        "incremental_protocol": true,
+        "search_max_results": 40
+      },
+      "families": {
+        "Recap": {
+          "task_version": "ami-mini.v1",
+          "prompt_version": "v2",
+          "prompt_family_version": "summary.v1"
+        },
+        "Thread": {
+          "task_version": "hadoop-jira-mini.v1",
+          "prompt_version": "v2",
+          "prompt_family_version": "issue.v1"
+        },
+        "Design": {
+          "task_version": "kubernetes-mini.v2",
+          "prompt_version": "v2.2",
+          "prompt_family_version": "design-sections.v1"
+        }
+      },
+      "recorded_source_settings": [
+        {
+          "family": "Design",
+          "field": "max_output_tokens",
+          "values": [
+            128000
+          ]
+        },
+        {
+          "family": "Design",
+          "field": "request_seconds",
+          "values": [
+            600
+          ]
+        },
+        {
+          "family": "Recap",
+          "field": "episode_seconds",
+          "values": [
+            1200
+          ]
+        },
+        {
+          "family": "Recap",
+          "field": "max_output_tokens",
+          "values": [
+            128000
+          ]
+        },
+        {
+          "family": "Recap",
+          "field": "request_seconds",
+          "values": [
+            600
+          ]
+        },
+        {
+          "family": "Thread",
+          "field": "episode_seconds",
+          "values": [
+            1200
+          ]
+        },
+        {
+          "family": "Thread",
+          "field": "max_output_tokens",
+          "values": [
+            128000
+          ]
+        },
+        {
+          "family": "Thread",
+          "field": "request_seconds",
+          "values": [
+            600
+          ]
+        }
+      ]
+    },
+    {
+      "key": "claude-haiku-5-5__codex",
+      "model": "claude-haiku-5.5",
+      "harness": "codex",
+      "paper_settings": {
+        "max_output_tokens": 128000,
+        "request_seconds": 2400,
+        "decision_turns": null,
+        "episode_seconds": null,
+        "episode_observed_token_stop": null,
+        "reasoning_effort": "medium",
+        "incremental_protocol": true,
+        "search_max_results": 40
+      },
+      "families": {
+        "Recap": {
+          "task_version": "ami-mini.v1",
+          "prompt_version": "v2",
+          "prompt_family_version": "summary.v1"
+        },
+        "Thread": {
+          "task_version": "hadoop-jira-mini.v1",
+          "prompt_version": "v2",
+          "prompt_family_version": "issue.v1"
+        },
+        "Design": {
+          "task_version": "kubernetes-mini.v2",
+          "prompt_version": "v2.2",
+          "prompt_family_version": "design-sections.v1"
+        }
+      },
+      "recorded_source_settings": [
+        {
+          "family": "Design",
+          "field": "max_output_tokens",
+          "values": [
+            128000
+          ]
+        },
+        {
+          "family": "Design",
+          "field": "request_seconds",
+          "values": [
+            600
+          ]
+        },
+        {
+          "family": "Recap",
+          "field": "episode_seconds",
+          "values": [
+            1200
+          ]
+        },
+        {
+          "family": "Recap",
+          "field": "max_output_tokens",
+          "values": [
+            128000
+          ]
+        },
+        {
+          "family": "Recap",
+          "field": "request_seconds",
+          "values": [
+            600
+          ]
+        },
+        {
+          "family": "Thread",
+          "field": "episode_seconds",
+          "values": [
+            1200
+          ]
+        },
+        {
+          "family": "Thread",
+          "field": "max_output_tokens",
+          "values": [
+            128000
+          ]
+        },
+        {
+          "family": "Thread",
+          "field": "request_seconds",
+          "values": [
+            600
+          ]
+        }
+      ]
+    },
+    {
+      "key": "claude-sonnet-5-5__react-fc",
+      "model": "claude-sonnet-5.5",
+      "harness": "react-fc",
+      "paper_settings": {
+        "max_output_tokens": 128000,
+        "request_seconds": 2400,
+        "decision_turns": null,
+        "episode_seconds": null,
+        "episode_observed_token_stop": null,
+        "reasoning_effort": "medium",
+        "incremental_protocol": true,
+        "search_max_results": 40
+      },
+      "families": {
+        "Recap": {
+          "task_version": "ami-mini.v1",
+          "prompt_version": "v2",
+          "prompt_family_version": "summary.v1"
+        },
+        "Thread": {
+          "task_version": "hadoop-jira-mini.v1",
+          "prompt_version": "v2",
+          "prompt_family_version": "issue.v1"
+        },
+        "Design": {
+          "task_version": "kubernetes-mini.v2",
+          "prompt_version": "v2.2",
+          "prompt_family_version": "design-sections.v1"
+        }
+      },
+      "recorded_source_settings": [
+        {
+          "family": "All",
+          "field": "reasoning_effort",
+          "values": [
+            "medium"
+          ]
+        },
+        {
+          "family": "Design",
+          "field": "max_output_tokens",
+          "values": [
+            8192
+          ]
+        },
+        {
+          "family": "Design",
+          "field": "reasoning_effort",
+          "values": [
+            "medium"
+          ]
+        },
+        {
+          "family": "Design",
+          "field": "request_seconds",
+          "values": [
+            120
+          ]
+        },
+        {
+          "family": "Recap",
+          "field": "max_output_tokens",
+          "values": [
+            8192
+          ]
+        },
+        {
+          "family": "Recap",
+          "field": "reasoning_effort",
+          "values": [
+            "medium"
+          ]
+        },
+        {
+          "family": "Recap",
+          "field": "request_seconds",
+          "values": [
+            120
+          ]
+        },
+        {
+          "family": "Thread",
+          "field": "max_output_tokens",
+          "values": [
+            8192
+          ]
+        },
+        {
+          "family": "Thread",
+          "field": "reasoning_effort",
+          "values": [
+            "medium"
+          ]
+        },
+        {
+          "family": "Thread",
+          "field": "request_seconds",
+          "values": [
+            120
+          ]
+        }
+      ]
+    },
+    {
+      "key": "claude-sonnet-5-5__pi",
+      "model": "claude-sonnet-5.5",
+      "harness": "pi",
+      "paper_settings": {
+        "max_output_tokens": 128000,
+        "request_seconds": 2400,
+        "decision_turns": null,
+        "episode_seconds": null,
+        "episode_observed_token_stop": null,
+        "reasoning_effort": "medium",
+        "incremental_protocol": true,
+        "search_max_results": 40
+      },
+      "families": {
+        "Recap": {
+          "task_version": "ami-mini.v1",
+          "prompt_version": "v2",
+          "prompt_family_version": "summary.v1"
+        },
+        "Thread": {
+          "task_version": "hadoop-jira-mini.v1",
+          "prompt_version": "v2",
+          "prompt_family_version": "issue.v1"
+        },
+        "Design": {
+          "task_version": "kubernetes-mini.v2",
+          "prompt_version": "v2.2",
+          "prompt_family_version": "design-sections.v1"
+        }
+      },
+      "recorded_source_settings": [
+        {
+          "family": "All",
+          "field": "request_seconds",
+          "values": [
+            120
+          ]
+        }
+      ]
+    },
+    {
+      "key": "claude-sonnet-5-5__deep-agents",
+      "model": "claude-sonnet-5.5",
+      "harness": "deepagents",
+      "paper_settings": {
+        "max_output_tokens": 128000,
+        "request_seconds": 2400,
+        "decision_turns": null,
+        "episode_seconds": null,
+        "episode_observed_token_stop": null,
+        "reasoning_effort": "medium",
+        "incremental_protocol": true,
+        "search_max_results": 40
+      },
+      "families": {
+        "Recap": {
+          "task_version": "ami-mini.v1",
+          "prompt_version": "v2",
+          "prompt_family_version": "summary.v1"
+        },
+        "Thread": {
+          "task_version": "hadoop-jira-mini.v1",
+          "prompt_version": "v2",
+          "prompt_family_version": "issue.v1"
+        },
+        "Design": {
+          "task_version": "kubernetes-mini.v2",
+          "prompt_version": "v2.2",
+          "prompt_family_version": "design-sections.v1"
+        }
+      },
+      "recorded_source_settings": [
+        {
+          "family": "All",
+          "field": "request_seconds",
+          "values": [
+            120
+          ]
+        }
+      ]
+    },
+    {
+      "key": "claude-sonnet-5-5__dsh",
+      "model": "claude-sonnet-5.5",
+      "harness": "dsh",
+      "paper_settings": {
+        "max_output_tokens": 128000,
+        "request_seconds": 2400,
+        "decision_turns": null,
+        "episode_seconds": null,
+        "episode_observed_token_stop": null,
+        "reasoning_effort": "medium",
+        "incremental_protocol": true,
+        "search_max_results": 40
+      },
+      "families": {
+        "Recap": {
+          "task_version": "ami-mini.v1",
+          "prompt_version": "v2",
+          "prompt_family_version": "summary.v1"
+        },
+        "Thread": {
+          "task_version": "hadoop-jira-mini.v1",
+          "prompt_version": "v2",
+          "prompt_family_version": "issue.v1"
+        },
+        "Design": {
+          "task_version": "kubernetes-mini.v2",
+          "prompt_version": "v2.2",
+          "prompt_family_version": "design-sections.v1"
+        }
+      },
+      "recorded_source_settings": [
+        {
+          "family": "All",
+          "field": "max_output_tokens",
+          "values": [
+            8192
+          ]
+        },
+        {
+          "family": "All",
+          "field": "request_seconds",
+          "values": [
+            120,
+            180
+          ]
+        }
+      ]
+    },
+    {
+      "key": "claude-sonnet-5-5__codex",
+      "model": "claude-sonnet-5.5",
+      "harness": "codex",
+      "paper_settings": {
+        "max_output_tokens": 128000,
+        "request_seconds": 2400,
+        "decision_turns": null,
+        "episode_seconds": null,
+        "episode_observed_token_stop": null,
+        "reasoning_effort": "medium",
+        "incremental_protocol": true,
+        "search_max_results": 40
+      },
+      "families": {
+        "Recap": {
+          "task_version": "ami-mini.v1",
+          "prompt_version": "v2",
+          "prompt_family_version": "summary.v1"
+        },
+        "Thread": {
+          "task_version": "hadoop-jira-mini.v1",
+          "prompt_version": "v2",
+          "prompt_family_version": "issue.v1"
+        },
+        "Design": {
+          "task_version": "kubernetes-mini.v2",
+          "prompt_version": "v2.2",
+          "prompt_family_version": "design-sections.v1"
+        }
+      },
+      "recorded_source_settings": [
+        {
+          "family": "All",
+          "field": "reasoning_effort",
+          "values": [
+            "medium"
+          ]
+        },
+        {
+          "family": "All",
+          "field": "request_seconds",
+          "values": [
+            120,
+            300
+          ]
+        }
+      ]
+    },
+    {
+      "key": "mai-code-1-1-flash__react-fc",
+      "model": "mai-code-1.1-flash",
+      "harness": "react-fc",
+      "paper_settings": {
+        "max_output_tokens": 128000,
+        "request_seconds": 2400,
+        "decision_turns": null,
+        "episode_seconds": null,
+        "episode_observed_token_stop": null,
+        "reasoning_effort": "medium",
+        "incremental_protocol": true,
+        "search_max_results": 40
+      },
+      "families": {
+        "Recap": {
+          "task_version": "ami-mini.v1",
+          "prompt_version": "v2",
+          "prompt_family_version": "summary.v1"
+        },
+        "Thread": {
+          "task_version": "hadoop-jira-mini.v1",
+          "prompt_version": "v2",
+          "prompt_family_version": "issue.v1"
+        },
+        "Design": {
+          "task_version": "kubernetes-mini.v2",
+          "prompt_version": "v2.2",
+          "prompt_family_version": "design-sections.v1"
+        }
+      },
+      "recorded_source_settings": [
+        {
+          "family": "All",
+          "field": "episode_seconds",
+          "values": [
+            1200
+          ]
+        },
+        {
+          "family": "All",
+          "field": "max_output_tokens",
+          "values": [
+            8192
+          ]
+        },
+        {
+          "family": "All",
+          "field": "reasoning_effort",
+          "values": [
+            "medium"
+          ]
+        },
+        {
+          "family": "All",
+          "field": "request_seconds",
+          "values": [
+            120
+          ]
+        },
+        {
+          "family": "Design",
+          "field": "episode_seconds",
+          "values": [
+            300
+          ]
+        },
+        {
+          "family": "Design",
+          "field": "max_output_tokens",
+          "values": [
+            8192
+          ]
+        },
+        {
+          "family": "Design",
+          "field": "reasoning_effort",
+          "values": [
+            "medium"
+          ]
+        },
+        {
+          "family": "Design",
+          "field": "request_seconds",
+          "values": [
+            120
+          ]
+        },
+        {
+          "family": "Recap",
+          "field": "episode_seconds",
+          "values": [
+            1200
+          ]
+        },
+        {
+          "family": "Recap",
+          "field": "max_output_tokens",
+          "values": [
+            8192
+          ]
+        },
+        {
+          "family": "Recap",
+          "field": "reasoning_effort",
+          "values": [
+            "medium"
+          ]
+        },
+        {
+          "family": "Recap",
+          "field": "request_seconds",
+          "values": [
+            120,
+            600
+          ]
+        },
+        {
+          "family": "Thread",
+          "field": "episode_seconds",
+          "values": [
+            1200
+          ]
+        },
+        {
+          "family": "Thread",
+          "field": "max_output_tokens",
+          "values": [
+            8192
+          ]
+        },
+        {
+          "family": "Thread",
+          "field": "reasoning_effort",
+          "values": [
+            "medium"
+          ]
+        },
+        {
+          "family": "Thread",
+          "field": "request_seconds",
+          "values": [
+            120,
+            600
+          ]
+        }
+      ]
+    },
+    {
+      "key": "mai-code-1-1-flash__pi",
+      "model": "mai-code-1.1-flash",
+      "harness": "pi",
+      "paper_settings": {
+        "max_output_tokens": 128000,
+        "request_seconds": 2400,
+        "decision_turns": null,
+        "episode_seconds": null,
+        "episode_observed_token_stop": null,
+        "reasoning_effort": "medium",
+        "incremental_protocol": true,
+        "search_max_results": 40
+      },
+      "families": {
+        "Recap": {
+          "task_version": "ami-mini.v1",
+          "prompt_version": "v2",
+          "prompt_family_version": "summary.v1"
+        },
+        "Thread": {
+          "task_version": "hadoop-jira-mini.v1",
+          "prompt_version": "v2",
+          "prompt_family_version": "issue.v1"
+        },
+        "Design": {
+          "task_version": "kubernetes-mini.v2",
+          "prompt_version": "v2.2",
+          "prompt_family_version": "design-sections.v1"
+        }
+      },
+      "recorded_source_settings": [
+        {
+          "family": "All",
+          "field": "request_seconds",
+          "values": [
+            120
+          ]
+        }
+      ]
+    },
+    {
+      "key": "mai-code-1-1-flash__deep-agents",
+      "model": "mai-code-1.1-flash",
+      "harness": "deepagents",
+      "paper_settings": {
+        "max_output_tokens": 128000,
+        "request_seconds": 2400,
+        "decision_turns": null,
+        "episode_seconds": null,
+        "episode_observed_token_stop": null,
+        "reasoning_effort": "medium",
+        "incremental_protocol": true,
+        "search_max_results": 40
+      },
+      "families": {
+        "Recap": {
+          "task_version": "ami-mini.v1",
+          "prompt_version": "v2",
+          "prompt_family_version": "summary.v1"
+        },
+        "Thread": {
+          "task_version": "hadoop-jira-mini.v1",
+          "prompt_version": "v2",
+          "prompt_family_version": "issue.v1"
+        },
+        "Design": {
+          "task_version": "kubernetes-mini.v2",
+          "prompt_version": "v2.2",
+          "prompt_family_version": "design-sections.v1"
+        }
+      },
+      "recorded_source_settings": [
+        {
+          "family": "All",
+          "field": "request_seconds",
+          "values": [
+            120
+          ]
+        }
+      ]
+    },
+    {
+      "key": "mai-code-1-1-flash__dsh",
+      "model": "mai-code-1.1-flash",
+      "harness": "dsh",
+      "paper_settings": {
+        "max_output_tokens": 128000,
+        "request_seconds": 2400,
+        "decision_turns": null,
+        "episode_seconds": null,
+        "episode_observed_token_stop": null,
+        "reasoning_effort": "medium",
+        "incremental_protocol": true,
+        "search_max_results": 40
+      },
+      "families": {
+        "Recap": {
+          "task_version": "ami-mini.v1",
+          "prompt_version": "v2",
+          "prompt_family_version": "summary.v1"
+        },
+        "Thread": {
+          "task_version": "hadoop-jira-mini.v1",
+          "prompt_version": "v2",
+          "prompt_family_version": "issue.v1"
+        },
+        "Design": {
+          "task_version": "kubernetes-mini.v2",
+          "prompt_version": "v2.2",
+          "prompt_family_version": "design-sections.v1"
+        }
+      },
+      "recorded_source_settings": []
+    },
+    {
+      "key": "mai-code-1-1-flash__codex",
+      "model": "mai-code-1.1-flash",
+      "harness": "codex",
+      "paper_settings": {
+        "max_output_tokens": 128000,
+        "request_seconds": 2400,
+        "decision_turns": null,
+        "episode_seconds": null,
+        "episode_observed_token_stop": null,
+        "reasoning_effort": "medium",
+        "incremental_protocol": true,
+        "search_max_results": 40
+      },
+      "families": {
+        "Recap": {
+          "task_version": "ami-mini.v1",
+          "prompt_version": "v2",
+          "prompt_family_version": "summary.v1"
+        },
+        "Thread": {
+          "task_version": "hadoop-jira-mini.v1",
+          "prompt_version": "v2",
+          "prompt_family_version": "issue.v1"
+        },
+        "Design": {
+          "task_version": "kubernetes-mini.v2",
+          "prompt_version": "v2.2",
+          "prompt_family_version": "design-sections.v1"
+        }
+      },
+      "recorded_source_settings": [
+        {
+          "family": "Design",
+          "field": "request_seconds",
+          "values": [
+            120
+          ]
+        },
+        {
+          "family": "Recap",
+          "field": "request_seconds",
+          "values": [
+            120
+          ]
+        },
+        {
+          "family": "Thread",
+          "field": "request_seconds",
+          "values": [
+            120
+          ]
+        }
+      ]
+    },
+    {
+      "key": "grok-4-7__react-fc",
+      "model": "grok-4.7",
+      "harness": "react-fc",
+      "paper_settings": {
+        "max_output_tokens": 128000,
+        "request_seconds": 2400,
+        "decision_turns": null,
+        "episode_seconds": null,
+        "episode_observed_token_stop": null,
+        "reasoning_effort": "medium",
+        "incremental_protocol": true,
+        "search_max_results": 40
+      },
+      "families": {
+        "Recap": {
+          "task_version": "ami-mini.v1",
+          "prompt_version": "v2",
+          "prompt_family_version": "summary.v1"
+        },
+        "Thread": {
+          "task_version": "hadoop-jira-mini.v1",
+          "prompt_version": "v2",
+          "prompt_family_version": "issue.v1"
+        },
+        "Design": {
+          "task_version": "kubernetes-mini.v2",
+          "prompt_version": "v2.2",
+          "prompt_family_version": "design-sections.v1"
+        }
+      },
+      "recorded_source_settings": [
+        {
+          "family": "Design",
+          "field": "reasoning_effort",
+          "values": [
+            "medium"
+          ]
+        },
+        {
+          "family": "Recap",
+          "field": "decision_turns",
+          "values": [
+            16
+          ]
+        },
+        {
+          "family": "Recap",
+          "field": "episode_seconds",
+          "values": [
+            1200
+          ]
+        },
+        {
+          "family": "Recap",
+          "field": "max_output_tokens",
+          "values": [
+            128000
+          ]
+        },
+        {
+          "family": "Recap",
+          "field": "reasoning_effort",
+          "values": [
+            "medium"
+          ]
+        },
+        {
+          "family": "Recap",
+          "field": "request_seconds",
+          "values": [
+            600
+          ]
+        },
+        {
+          "family": "Thread",
+          "field": "reasoning_effort",
+          "values": [
+            "medium"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "grok-4-7__pi",
+      "model": "grok-4.7",
+      "harness": "pi",
+      "paper_settings": {
+        "max_output_tokens": 128000,
+        "request_seconds": 2400,
+        "decision_turns": null,
+        "episode_seconds": null,
+        "episode_observed_token_stop": null,
+        "reasoning_effort": "medium",
+        "incremental_protocol": true,
+        "search_max_results": 40
+      },
+      "families": {
+        "Recap": {
+          "task_version": "ami-mini.v1",
+          "prompt_version": "v2",
+          "prompt_family_version": "summary.v1"
+        },
+        "Thread": {
+          "task_version": "hadoop-jira-mini.v1",
+          "prompt_version": "v2",
+          "prompt_family_version": "issue.v1"
+        },
+        "Design": {
+          "task_version": "kubernetes-mini.v2",
+          "prompt_version": "v2.2",
+          "prompt_family_version": "design-sections.v1"
+        }
+      },
+      "recorded_source_settings": [
+        {
+          "family": "All",
+          "field": "request_seconds",
+          "values": [
+            120
+          ]
+        }
+      ]
+    },
+    {
+      "key": "grok-4-7__deep-agents",
+      "model": "grok-4.7",
+      "harness": "deepagents",
+      "paper_settings": {
+        "max_output_tokens": 128000,
+        "request_seconds": 2400,
+        "decision_turns": null,
+        "episode_seconds": null,
+        "episode_observed_token_stop": null,
+        "reasoning_effort": "medium",
+        "incremental_protocol": true,
+        "search_max_results": 40
+      },
+      "families": {
+        "Recap": {
+          "task_version": "ami-mini.v1",
+          "prompt_version": "v2",
+          "prompt_family_version": "summary.v1"
+        },
+        "Thread": {
+          "task_version": "hadoop-jira-mini.v1",
+          "prompt_version": "v2",
+          "prompt_family_version": "issue.v1"
+        },
+        "Design": {
+          "task_version": "kubernetes-mini.v2",
+          "prompt_version": "v2.2",
+          "prompt_family_version": "design-sections.v1"
+        }
+      },
+      "recorded_source_settings": []
+    },
+    {
+      "key": "grok-4-7__dsh",
+      "model": "grok-4.7",
+      "harness": "dsh",
+      "paper_settings": {
+        "max_output_tokens": 128000,
+        "request_seconds": 2400,
+        "decision_turns": null,
+        "episode_seconds": null,
+        "episode_observed_token_stop": null,
+        "reasoning_effort": "medium",
+        "incremental_protocol": true,
+        "search_max_results": 40
+      },
+      "families": {
+        "Recap": {
+          "task_version": "ami-mini.v1",
+          "prompt_version": "v2",
+          "prompt_family_version": "summary.v1"
+        },
+        "Thread": {
+          "task_version": "hadoop-jira-mini.v1",
+          "prompt_version": "v2",
+          "prompt_family_version": "issue.v1"
+        },
+        "Design": {
+          "task_version": "kubernetes-mini.v2",
+          "prompt_version": "v2.2",
+          "prompt_family_version": "design-sections.v1"
+        }
+      },
+      "recorded_source_settings": [
+        {
+          "family": "All",
+          "field": "decision_turns",
+          "values": [
+            16
+          ]
+        },
+        {
+          "family": "All",
+          "field": "episode_seconds",
+          "values": [
+            1200
+          ]
+        },
+        {
+          "family": "All",
+          "field": "max_output_tokens",
+          "values": [
+            64000
+          ]
+        },
+        {
+          "family": "All",
+          "field": "request_seconds",
+          "values": [
+            1200
+          ]
+        }
+      ]
+    },
+    {
+      "key": "grok-4-7__codex",
+      "model": "grok-4.7",
+      "harness": "codex",
+      "paper_settings": {
+        "max_output_tokens": 128000,
+        "request_seconds": 2400,
+        "decision_turns": null,
+        "episode_seconds": null,
+        "episode_observed_token_stop": null,
+        "reasoning_effort": "medium",
+        "incremental_protocol": true,
+        "search_max_results": 40
+      },
+      "families": {
+        "Recap": {
+          "task_version": "ami-mini.v1",
+          "prompt_version": "v2",
+          "prompt_family_version": "summary.v1"
+        },
+        "Thread": {
+          "task_version": "hadoop-jira-mini.v1",
+          "prompt_version": "v2",
+          "prompt_family_version": "issue.v1"
+        },
+        "Design": {
+          "task_version": "kubernetes-mini.v2",
+          "prompt_version": "v2.2",
+          "prompt_family_version": "design-sections.v1"
+        }
+      },
+      "recorded_source_settings": [
+        {
+          "family": "All",
+          "field": "decision_turns",
+          "values": [
+            16
+          ]
+        },
+        {
+          "family": "All",
+          "field": "episode_seconds",
+          "values": [
+            1200
+          ]
+        },
+        {
+          "family": "All",
+          "field": "max_output_tokens",
+          "values": [
+            64000
+          ]
+        },
+        {
+          "family": "All",
+          "field": "request_seconds",
+          "values": [
+            1200
+          ]
+        }
+      ]
+    },
+    {
+      "key": "gpt-5-6-luna__react-fc",
+      "model": "gpt-5.6-luna",
+      "harness": "react-fc",
+      "paper_settings": {
+        "max_output_tokens": 128000,
+        "request_seconds": 2400,
+        "decision_turns": null,
+        "episode_seconds": null,
+        "episode_observed_token_stop": null,
+        "reasoning_effort": "medium",
+        "incremental_protocol": true,
+        "search_max_results": 40
+      },
+      "families": {
+        "Recap": {
+          "task_version": "ami-mini.v1",
+          "prompt_version": "v2",
+          "prompt_family_version": "summary.v1"
+        },
+        "Thread": {
+          "task_version": "hadoop-jira-mini.v1",
+          "prompt_version": "v2",
+          "prompt_family_version": "issue.v1"
+        },
+        "Design": {
+          "task_version": "kubernetes-mini.v2",
+          "prompt_version": "v2.2",
+          "prompt_family_version": "design-sections.v1"
+        }
+      },
+      "recorded_source_settings": [
+        {
+          "family": "All",
+          "field": "reasoning_effort",
+          "values": [
+            "medium"
+          ]
+        },
+        {
+          "family": "Design",
+          "field": "max_output_tokens",
+          "values": [
+            8192
+          ]
+        },
+        {
+          "family": "Design",
+          "field": "reasoning_effort",
+          "values": [
+            "medium"
+          ]
+        },
+        {
+          "family": "Design",
+          "field": "request_seconds",
+          "values": [
+            120
+          ]
+        },
+        {
+          "family": "Recap",
+          "field": "max_output_tokens",
+          "values": [
+            8192
+          ]
+        },
+        {
+          "family": "Recap",
+          "field": "reasoning_effort",
+          "values": [
+            "medium"
+          ]
+        },
+        {
+          "family": "Recap",
+          "field": "request_seconds",
+          "values": [
+            120
+          ]
+        },
+        {
+          "family": "Thread",
+          "field": "max_output_tokens",
+          "values": [
+            8192
+          ]
+        },
+        {
+          "family": "Thread",
+          "field": "reasoning_effort",
+          "values": [
+            "medium"
+          ]
+        },
+        {
+          "family": "Thread",
+          "field": "request_seconds",
+          "values": [
+            120
+          ]
+        }
+      ]
+    },
+    {
+      "key": "gpt-5-6-luna__pi",
+      "model": "gpt-5.6-luna",
+      "harness": "pi",
+      "paper_settings": {
+        "max_output_tokens": 128000,
+        "request_seconds": 2400,
+        "decision_turns": null,
+        "episode_seconds": null,
+        "episode_observed_token_stop": null,
+        "reasoning_effort": "medium",
+        "incremental_protocol": true,
+        "search_max_results": 40
+      },
+      "families": {
+        "Recap": {
+          "task_version": "ami-mini.v1",
+          "prompt_version": "v2",
+          "prompt_family_version": "summary.v1"
+        },
+        "Thread": {
+          "task_version": "hadoop-jira-mini.v1",
+          "prompt_version": "v2",
+          "prompt_family_version": "issue.v1"
+        },
+        "Design": {
+          "task_version": "kubernetes-mini.v2",
+          "prompt_version": "v2.2",
+          "prompt_family_version": "design-sections.v1"
+        }
+      },
+      "recorded_source_settings": [
+        {
+          "family": "All",
+          "field": "request_seconds",
+          "values": [
+            120
+          ]
+        }
+      ]
+    },
+    {
+      "key": "gpt-5-6-luna__deep-agents",
+      "model": "gpt-5.6-luna",
+      "harness": "deepagents",
+      "paper_settings": {
+        "max_output_tokens": 128000,
+        "request_seconds": 2400,
+        "decision_turns": null,
+        "episode_seconds": null,
+        "episode_observed_token_stop": null,
+        "reasoning_effort": "medium",
+        "incremental_protocol": true,
+        "search_max_results": 40
+      },
+      "families": {
+        "Recap": {
+          "task_version": "ami-mini.v1",
+          "prompt_version": "v2",
+          "prompt_family_version": "summary.v1"
+        },
+        "Thread": {
+          "task_version": "hadoop-jira-mini.v1",
+          "prompt_version": "v2",
+          "prompt_family_version": "issue.v1"
+        },
+        "Design": {
+          "task_version": "kubernetes-mini.v2",
+          "prompt_version": "v2.2",
+          "prompt_family_version": "design-sections.v1"
+        }
+      },
+      "recorded_source_settings": [
+        {
+          "family": "All",
+          "field": "request_seconds",
+          "values": [
+            120
+          ]
+        }
+      ]
+    },
+    {
+      "key": "gpt-5-6-luna__dsh",
+      "model": "gpt-5.6-luna",
+      "harness": "dsh",
+      "paper_settings": {
+        "max_output_tokens": 128000,
+        "request_seconds": 2400,
+        "decision_turns": null,
+        "episode_seconds": null,
+        "episode_observed_token_stop": null,
+        "reasoning_effort": "medium",
+        "incremental_protocol": true,
+        "search_max_results": 40
+      },
+      "families": {
+        "Recap": {
+          "task_version": "ami-mini.v1",
+          "prompt_version": "v2",
+          "prompt_family_version": "summary.v1"
+        },
+        "Thread": {
+          "task_version": "hadoop-jira-mini.v1",
+          "prompt_version": "v2",
+          "prompt_family_version": "issue.v1"
+        },
+        "Design": {
+          "task_version": "kubernetes-mini.v2",
+          "prompt_version": "v2.2",
+          "prompt_family_version": "design-sections.v1"
+        }
+      },
+      "recorded_source_settings": [
+        {
+          "family": "All",
+          "field": "max_output_tokens",
+          "values": [
+            8192
+          ]
+        },
+        {
+          "family": "All",
+          "field": "request_seconds",
+          "values": [
+            120,
+            180
+          ]
+        }
+      ]
+    },
+    {
+      "key": "gpt-5-6-luna__codex",
+      "model": "gpt-5.6-luna",
+      "harness": "codex",
+      "paper_settings": {
+        "max_output_tokens": 128000,
+        "request_seconds": 2400,
+        "decision_turns": null,
+        "episode_seconds": null,
+        "episode_observed_token_stop": null,
+        "reasoning_effort": "medium",
+        "incremental_protocol": true,
+        "search_max_results": 40
+      },
+      "families": {
+        "Recap": {
+          "task_version": "ami-mini.v1",
+          "prompt_version": "v2",
+          "prompt_family_version": "summary.v1"
+        },
+        "Thread": {
+          "task_version": "hadoop-jira-mini.v1",
+          "prompt_version": "v2",
+          "prompt_family_version": "issue.v1"
+        },
+        "Design": {
+          "task_version": "kubernetes-mini.v2",
+          "prompt_version": "v2.2",
+          "prompt_family_version": "design-sections.v1"
+        }
+      },
+      "recorded_source_settings": [
+        {
+          "family": "All",
+          "field": "reasoning_effort",
+          "values": [
+            "medium"
+          ]
+        },
+        {
+          "family": "All",
+          "field": "request_seconds",
+          "values": [
+            300
+          ]
+        }
+      ]
+    },
+    {
+      "key": "gpt-5-6-terra__react-fc",
+      "model": "gpt-5.6-terra",
+      "harness": "react-fc",
+      "paper_settings": {
+        "max_output_tokens": 128000,
+        "request_seconds": 2400,
+        "decision_turns": null,
+        "episode_seconds": null,
+        "episode_observed_token_stop": null,
+        "reasoning_effort": "medium",
+        "incremental_protocol": true,
+        "search_max_results": 40
+      },
+      "families": {
+        "Recap": {
+          "task_version": "ami-mini.v1",
+          "prompt_version": "v2",
+          "prompt_family_version": "summary.v1"
+        },
+        "Thread": {
+          "task_version": "hadoop-jira-mini.v1",
+          "prompt_version": "v2",
+          "prompt_family_version": "issue.v1"
+        },
+        "Design": {
+          "task_version": "kubernetes-mini.v2",
+          "prompt_version": "v2.2",
+          "prompt_family_version": "design-sections.v1"
+        }
+      },
+      "recorded_source_settings": [
+        {
+          "family": "Design",
+          "field": "max_output_tokens",
+          "values": [
+            8192
+          ]
+        },
+        {
+          "family": "Design",
+          "field": "reasoning_effort",
+          "values": [
+            "medium"
+          ]
+        },
+        {
+          "family": "Design",
+          "field": "request_seconds",
+          "values": [
+            120
+          ]
+        },
+        {
+          "family": "Recap",
+          "field": "decision_turns",
+          "values": [
+            16
+          ]
+        },
+        {
+          "family": "Recap",
+          "field": "episode_seconds",
+          "values": [
+            1200
+          ]
+        },
+        {
+          "family": "Recap",
+          "field": "max_output_tokens",
+          "values": [
+            8192
+          ]
+        },
+        {
+          "family": "Recap",
+          "field": "reasoning_effort",
+          "values": [
+            "medium"
+          ]
+        },
+        {
+          "family": "Recap",
+          "field": "request_seconds",
+          "values": [
+            120
+          ]
+        },
+        {
+          "family": "Thread",
+          "field": "decision_turns",
+          "values": [
+            16
+          ]
+        },
+        {
+          "family": "Thread",
+          "field": "episode_seconds",
+          "values": [
+            1200
+          ]
+        },
+        {
+          "family": "Thread",
+          "field": "max_output_tokens",
+          "values": [
+            8192
+          ]
+        },
+        {
+          "family": "Thread",
+          "field": "reasoning_effort",
+          "values": [
+            "medium"
+          ]
+        },
+        {
+          "family": "Thread",
+          "field": "request_seconds",
+          "values": [
+            120
+          ]
+        }
+      ]
+    },
+    {
+      "key": "gpt-5-6-terra__pi",
+      "model": "gpt-5.6-terra",
+      "harness": "pi",
+      "paper_settings": {
+        "max_output_tokens": 128000,
+        "request_seconds": 2400,
+        "decision_turns": null,
+        "episode_seconds": null,
+        "episode_observed_token_stop": null,
+        "reasoning_effort": "medium",
+        "incremental_protocol": true,
+        "search_max_results": 40
+      },
+      "families": {
+        "Recap": {
+          "task_version": "ami-mini.v1",
+          "prompt_version": "v2",
+          "prompt_family_version": "summary.v1"
+        },
+        "Thread": {
+          "task_version": "hadoop-jira-mini.v1",
+          "prompt_version": "v2",
+          "prompt_family_version": "issue.v1"
+        },
+        "Design": {
+          "task_version": "kubernetes-mini.v2",
+          "prompt_version": "v2.2",
+          "prompt_family_version": "design-sections.v1"
+        }
+      },
+      "recorded_source_settings": [
+        {
+          "family": "All",
+          "field": "request_seconds",
+          "values": [
+            120
+          ]
+        }
+      ]
+    },
+    {
+      "key": "gpt-5-6-terra__deep-agents",
+      "model": "gpt-5.6-terra",
+      "harness": "deepagents",
+      "paper_settings": {
+        "max_output_tokens": 128000,
+        "request_seconds": 2400,
+        "decision_turns": null,
+        "episode_seconds": null,
+        "episode_observed_token_stop": null,
+        "reasoning_effort": "medium",
+        "incremental_protocol": true,
+        "search_max_results": 40
+      },
+      "families": {
+        "Recap": {
+          "task_version": "ami-mini.v1",
+          "prompt_version": "v2",
+          "prompt_family_version": "summary.v1"
+        },
+        "Thread": {
+          "task_version": "hadoop-jira-mini.v1",
+          "prompt_version": "v2",
+          "prompt_family_version": "issue.v1"
+        },
+        "Design": {
+          "task_version": "kubernetes-mini.v2",
+          "prompt_version": "v2.2",
+          "prompt_family_version": "design-sections.v1"
+        }
+      },
+      "recorded_source_settings": [
+        {
+          "family": "All",
+          "field": "request_seconds",
+          "values": [
+            120
+          ]
+        }
+      ]
+    },
+    {
+      "key": "gpt-5-6-terra__dsh",
+      "model": "gpt-5.6-terra",
+      "harness": "dsh",
+      "paper_settings": {
+        "max_output_tokens": 128000,
+        "request_seconds": 2400,
+        "decision_turns": null,
+        "episode_seconds": null,
+        "episode_observed_token_stop": null,
+        "reasoning_effort": "medium",
+        "incremental_protocol": true,
+        "search_max_results": 40
+      },
+      "families": {
+        "Recap": {
+          "task_version": "ami-mini.v1",
+          "prompt_version": "v2",
+          "prompt_family_version": "summary.v1"
+        },
+        "Thread": {
+          "task_version": "hadoop-jira-mini.v1",
+          "prompt_version": "v2",
+          "prompt_family_version": "issue.v1"
+        },
+        "Design": {
+          "task_version": "kubernetes-mini.v2",
+          "prompt_version": "v2.2",
+          "prompt_family_version": "design-sections.v1"
+        }
+      },
+      "recorded_source_settings": []
+    },
+    {
+      "key": "gpt-5-6-terra__codex",
+      "model": "gpt-5.6-terra",
+      "harness": "codex",
+      "paper_settings": {
+        "max_output_tokens": 128000,
+        "request_seconds": 2400,
+        "decision_turns": null,
+        "episode_seconds": null,
+        "episode_observed_token_stop": null,
+        "reasoning_effort": "medium",
+        "incremental_protocol": true,
+        "search_max_results": 40
+      },
+      "families": {
+        "Recap": {
+          "task_version": "ami-mini.v1",
+          "prompt_version": "v2",
+          "prompt_family_version": "summary.v1"
+        },
+        "Thread": {
+          "task_version": "hadoop-jira-mini.v1",
+          "prompt_version": "v2",
+          "prompt_family_version": "issue.v1"
+        },
+        "Design": {
+          "task_version": "kubernetes-mini.v2",
+          "prompt_version": "v2.2",
+          "prompt_family_version": "design-sections.v1"
+        }
+      },
+      "recorded_source_settings": [
+        {
+          "family": "Design",
+          "field": "request_seconds",
+          "values": [
+            120
+          ]
+        },
+        {
+          "family": "Recap",
+          "field": "episode_seconds",
+          "values": [
+            1200
+          ]
+        },
+        {
+          "family": "Recap",
+          "field": "max_output_tokens",
+          "values": [
+            8192
+          ]
+        },
+        {
+          "family": "Recap",
+          "field": "request_seconds",
+          "values": [
+            120
+          ]
+        },
+        {
+          "family": "Thread",
+          "field": "episode_seconds",
+          "values": [
+            1200
+          ]
+        },
+        {
+          "family": "Thread",
+          "field": "max_output_tokens",
+          "values": [
+            8192
+          ]
+        },
+        {
+          "family": "Thread",
+          "field": "request_seconds",
+          "values": [
+            120
+          ]
+        }
+      ]
+    },
+    {
+      "key": "gpt-6-luna__react-fc",
+      "model": "gpt-6-luna",
+      "harness": "react-fc",
+      "paper_settings": {
+        "max_output_tokens": 128000,
+        "request_seconds": 2400,
+        "decision_turns": null,
+        "episode_seconds": null,
+        "episode_observed_token_stop": null,
+        "reasoning_effort": "medium",
+        "incremental_protocol": true,
+        "search_max_results": 40
+      },
+      "families": {
+        "Recap": {
+          "task_version": "ami-mini.v1",
+          "prompt_version": "v2",
+          "prompt_family_version": "summary.v1"
+        },
+        "Thread": {
+          "task_version": "hadoop-jira-mini.v1",
+          "prompt_version": "v2",
+          "prompt_family_version": "issue.v1"
+        },
+        "Design": {
+          "task_version": "kubernetes-mini.v2",
+          "prompt_version": "v2.2",
+          "prompt_family_version": "design-sections.v1"
+        }
+      },
+      "recorded_source_settings": [
+        {
+          "family": "All",
+          "field": "request_seconds",
+          "values": [
+            120,
+            300
+          ]
+        }
+      ]
+    },
+    {
+      "key": "gpt-6-luna__pi",
+      "model": "gpt-6-luna",
+      "harness": "pi",
+      "paper_settings": {
+        "max_output_tokens": 128000,
+        "request_seconds": 2400,
+        "decision_turns": null,
+        "episode_seconds": null,
+        "episode_observed_token_stop": null,
+        "reasoning_effort": "medium",
+        "incremental_protocol": true,
+        "search_max_results": 40
+      },
+      "families": {
+        "Recap": {
+          "task_version": "ami-mini.v1",
+          "prompt_version": "v2",
+          "prompt_family_version": "summary.v1"
+        },
+        "Thread": {
+          "task_version": "hadoop-jira-mini.v1",
+          "prompt_version": "v2",
+          "prompt_family_version": "issue.v1"
+        },
+        "Design": {
+          "task_version": "kubernetes-mini.v2",
+          "prompt_version": "v2.2",
+          "prompt_family_version": "design-sections.v1"
+        }
+      },
+      "recorded_source_settings": [
+        {
+          "family": "All",
+          "field": "request_seconds",
+          "values": [
+            120
+          ]
+        }
+      ]
+    },
+    {
+      "key": "gpt-6-luna__deep-agents",
+      "model": "gpt-6-luna",
+      "harness": "deepagents",
+      "paper_settings": {
+        "max_output_tokens": 128000,
+        "request_seconds": 2400,
+        "decision_turns": null,
+        "episode_seconds": null,
+        "episode_observed_token_stop": null,
+        "reasoning_effort": "medium",
+        "incremental_protocol": true,
+        "search_max_results": 40
+      },
+      "families": {
+        "Recap": {
+          "task_version": "ami-mini.v1",
+          "prompt_version": "v2",
+          "prompt_family_version": "summary.v1"
+        },
+        "Thread": {
+          "task_version": "hadoop-jira-mini.v1",
+          "prompt_version": "v2",
+          "prompt_family_version": "issue.v1"
+        },
+        "Design": {
+          "task_version": "kubernetes-mini.v2",
+          "prompt_version": "v2.2",
+          "prompt_family_version": "design-sections.v1"
+        }
+      },
+      "recorded_source_settings": [
+        {
+          "family": "All",
+          "field": "request_seconds",
+          "values": [
+            120
+          ]
+        }
+      ]
+    },
+    {
+      "key": "gpt-6-luna__dsh",
+      "model": "gpt-6-luna",
+      "harness": "dsh",
+      "paper_settings": {
+        "max_output_tokens": 128000,
+        "request_seconds": 2400,
+        "decision_turns": null,
+        "episode_seconds": null,
+        "episode_observed_token_stop": null,
+        "reasoning_effort": "medium",
+        "incremental_protocol": true,
+        "search_max_results": 40
+      },
+      "families": {
+        "Recap": {
+          "task_version": "ami-mini.v1",
+          "prompt_version": "v2",
+          "prompt_family_version": "summary.v1"
+        },
+        "Thread": {
+          "task_version": "hadoop-jira-mini.v1",
+          "prompt_version": "v2",
+          "prompt_family_version": "issue.v1"
+        },
+        "Design": {
+          "task_version": "kubernetes-mini.v2",
+          "prompt_version": "v2.2",
+          "prompt_family_version": "design-sections.v1"
+        }
+      },
+      "recorded_source_settings": [
+        {
+          "family": "All",
+          "field": "max_output_tokens",
+          "values": [
+            8192
+          ]
+        },
+        {
+          "family": "All",
+          "field": "request_seconds",
+          "values": [
+            120,
+            180
+          ]
+        }
+      ]
+    },
+    {
+      "key": "gpt-6-luna__codex",
+      "model": "gpt-6-luna",
+      "harness": "codex",
+      "paper_settings": {
+        "max_output_tokens": 128000,
+        "request_seconds": 2400,
+        "decision_turns": null,
+        "episode_seconds": null,
+        "episode_observed_token_stop": null,
+        "reasoning_effort": "medium",
+        "incremental_protocol": true,
+        "search_max_results": 40
+      },
+      "families": {
+        "Recap": {
+          "task_version": "ami-mini.v1",
+          "prompt_version": "v2",
+          "prompt_family_version": "summary.v1"
+        },
+        "Thread": {
+          "task_version": "hadoop-jira-mini.v1",
+          "prompt_version": "v2",
+          "prompt_family_version": "issue.v1"
+        },
+        "Design": {
+          "task_version": "kubernetes-mini.v2",
+          "prompt_version": "v2.2",
+          "prompt_family_version": "design-sections.v1"
+        }
+      },
+      "recorded_source_settings": []
+    },
+    {
+      "key": "gpt-6-1-sol__react-fc",
+      "model": "gpt-6.1-sol",
+      "harness": "react-fc",
+      "paper_settings": {
+        "max_output_tokens": 128000,
+        "request_seconds": 2400,
+        "decision_turns": null,
+        "episode_seconds": null,
+        "episode_observed_token_stop": null,
+        "reasoning_effort": "medium",
+        "incremental_protocol": true,
+        "search_max_results": 40
+      },
+      "families": {
+        "Recap": {
+          "task_version": "ami-mini.v1",
+          "prompt_version": "v2",
+          "prompt_family_version": "summary.v1"
+        },
+        "Thread": {
+          "task_version": "hadoop-jira-mini.v1",
+          "prompt_version": "v2",
+          "prompt_family_version": "issue.v1"
+        },
+        "Design": {
+          "task_version": "kubernetes-mini.v2",
+          "prompt_version": "v2.2",
+          "prompt_family_version": "design-sections.v1"
+        }
+      },
+      "recorded_source_settings": []
+    },
+    {
+      "key": "gpt-6-1-sol__pi",
+      "model": "gpt-6.1-sol",
+      "harness": "pi",
+      "paper_settings": {
+        "max_output_tokens": 128000,
+        "request_seconds": 2400,
+        "decision_turns": null,
+        "episode_seconds": null,
+        "episode_observed_token_stop": null,
+        "reasoning_effort": "medium",
+        "incremental_protocol": true,
+        "search_max_results": 40
+      },
+      "families": {
+        "Recap": {
+          "task_version": "ami-mini.v1",
+          "prompt_version": "v2",
+          "prompt_family_version": "summary.v1"
+        },
+        "Thread": {
+          "task_version": "hadoop-jira-mini.v1",
+          "prompt_version": "v2",
+          "prompt_family_version": "issue.v1"
+        },
+        "Design": {
+          "task_version": "kubernetes-mini.v2",
+          "prompt_version": "v2.2",
+          "prompt_family_version": "design-sections.v1"
+        }
+      },
+      "recorded_source_settings": [
+        {
+          "family": "All",
+          "field": "request_seconds",
+          "values": [
+            120
+          ]
+        }
+      ]
+    },
+    {
+      "key": "gpt-6-1-sol__deep-agents",
+      "model": "gpt-6.1-sol",
+      "harness": "deepagents",
+      "paper_settings": {
+        "max_output_tokens": 128000,
+        "request_seconds": 2400,
+        "decision_turns": null,
+        "episode_seconds": null,
+        "episode_observed_token_stop": null,
+        "reasoning_effort": "medium",
+        "incremental_protocol": true,
+        "search_max_results": 40
+      },
+      "families": {
+        "Recap": {
+          "task_version": "ami-mini.v1",
+          "prompt_version": "v2",
+          "prompt_family_version": "summary.v1"
+        },
+        "Thread": {
+          "task_version": "hadoop-jira-mini.v1",
+          "prompt_version": "v2",
+          "prompt_family_version": "issue.v1"
+        },
+        "Design": {
+          "task_version": "kubernetes-mini.v2",
+          "prompt_version": "v2.2",
+          "prompt_family_version": "design-sections.v1"
+        }
+      },
+      "recorded_source_settings": [
+        {
+          "family": "All",
+          "field": "request_seconds",
+          "values": [
+            120
+          ]
+        }
+      ]
+    },
+    {
+      "key": "gpt-6-1-sol__dsh",
+      "model": "gpt-6.1-sol",
+      "harness": "dsh",
+      "paper_settings": {
+        "max_output_tokens": 128000,
+        "request_seconds": 2400,
+        "decision_turns": null,
+        "episode_seconds": null,
+        "episode_observed_token_stop": null,
+        "reasoning_effort": "medium",
+        "incremental_protocol": true,
+        "search_max_results": 40
+      },
+      "families": {
+        "Recap": {
+          "task_version": "ami-mini.v1",
+          "prompt_version": "v2",
+          "prompt_family_version": "summary.v1"
+        },
+        "Thread": {
+          "task_version": "hadoop-jira-mini.v1",
+          "prompt_version": "v2",
+          "prompt_family_version": "issue.v1"
+        },
+        "Design": {
+          "task_version": "kubernetes-mini.v2",
+          "prompt_version": "v2.2",
+          "prompt_family_version": "design-sections.v1"
+        }
+      },
+      "recorded_source_settings": [
+        {
+          "family": "All",
+          "field": "max_output_tokens",
+          "values": [
+            128000
+          ]
+        },
+        {
+          "family": "All",
+          "field": "request_seconds",
+          "values": [
+            2400
+          ]
+        },
+        {
+          "family": "Design",
+          "field": "max_output_tokens",
+          "values": [
+            32768
+          ]
+        },
+        {
+          "family": "Design",
+          "field": "request_seconds",
+          "values": [
+            900,
+            960
+          ]
+        },
+        {
+          "family": "Recap",
+          "field": "max_output_tokens",
+          "values": [
+            32768
+          ]
+        },
+        {
+          "family": "Recap",
+          "field": "request_seconds",
+          "values": [
+            900,
+            960
+          ]
+        },
+        {
+          "family": "Thread",
+          "field": "max_output_tokens",
+          "values": [
+            32768
+          ]
+        },
+        {
+          "family": "Thread",
+          "field": "request_seconds",
+          "values": [
+            900,
+            960
+          ]
+        }
+      ]
+    },
+    {
+      "key": "gpt-6-1-sol__codex",
+      "model": "gpt-6.1-sol",
+      "harness": "codex",
+      "paper_settings": {
+        "max_output_tokens": 128000,
+        "request_seconds": 2400,
+        "decision_turns": null,
+        "episode_seconds": null,
+        "episode_observed_token_stop": null,
+        "reasoning_effort": "medium",
+        "incremental_protocol": true,
+        "search_max_results": 40
+      },
+      "families": {
+        "Recap": {
+          "task_version": "ami-mini.v1",
+          "prompt_version": "v2",
+          "prompt_family_version": "summary.v1"
+        },
+        "Thread": {
+          "task_version": "hadoop-jira-mini.v1",
+          "prompt_version": "v2",
+          "prompt_family_version": "issue.v1"
+        },
+        "Design": {
+          "task_version": "kubernetes-mini.v2",
+          "prompt_version": "v2.2",
+          "prompt_family_version": "design-sections.v1"
+        }
+      },
+      "recorded_source_settings": []
+    }
+  ],
+  "notes": [
+    "paper_settings are the shared settings reported in Appendix C and are the public rerun defaults.",
+    "recorded_source_settings retain the settings enumerated by the released result ledger, including source-run variation."
+  ]
+}
