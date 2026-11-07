@@ -53,9 +53,9 @@ al., 2021).
 
 - **Intended.** Evaluating agents and harnesses on hierarchical organization
   with content preservation.
-- **Not recommended.** Claims about human-preferred organization, or ranking
-  models from these 150 development tasks alone. These are guidance, not
-  restrictions on reuse.
+- **Not recommended.** Claims about human-preferred organization, or
+  generalizing rankings on these 150 development tasks to new sources
+  without further evidence. These are guidance, not restrictions on reuse.
 - **Exposure.** All sources are public and may appear in model training data.
 
 ## Distribution and licence

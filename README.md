@@ -32,6 +32,7 @@ reference; folder names are not scored.
 | [benchmark/engine/](benchmark/engine) | Scorer |
 | [benchmark/algorithm-source/](benchmark/algorithm-source) | Baseline predictors and fixed configurations |
 | [benchmark/replay.py](benchmark/replay.py) | Offline replay of every saved output |
+| [results/](results) | Scores and run settings of the paper's 45 systems, per task, with a script that reproduces the main results table |
 | [benchmark/manifest.json](benchmark/manifest.json) | SHA-256 of every file the replay reads |
 | [docs/DATASHEET.md](docs/DATASHEET.md) | Dataset documentation |
 | [docs/THREAD-DATA.md](docs/THREAD-DATA.md) | How to download the Jira issues and build the Thread packets |
@@ -102,11 +103,15 @@ changes we made and the full licence text.
   a hierarchy while keeping every record unchanged.
 - References record source membership. They are not a unique human-validated
   organization, so other reasonable trees exist.
-- All 150 tasks are development tasks; there is no held-out split. We
-  advise against ranking models from these tasks alone.
+- All 150 tasks are development tasks; there is no held-out split, and
+  tasks in a family can share source documents. Rankings describe these
+  tasks and do not by themselves establish differences on new sources.
 - All sources are public and may appear in model training data.
-- Model outputs are final assignments from selected runs, not a controlled
-  comparison. Prompts, transcripts and logs are not included.
+- The 200 saved model outputs come from two of the paper's 45 systems:
+  Claude Haiku 4.5 and GPT-6.1 Sol, each with ReAct-FC, on Recap and Thread.
+  Per-task scores and run settings for all 45 systems are in
+  [results/](results). Prompts, transcripts, tool-call logs and harness code
+  are not included.
 
 ## Release tooling
 

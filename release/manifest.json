@@ -94,6 +94,32 @@
       ]
     },
     {
+      "id": "results-ledger-code",
+      "description": "Checker for the main results ledger and its documentation",
+      "patterns": [
+        "results/*.py",
+        "results/README.md"
+      ],
+      "origin": "microsoft",
+      "license": "MIT",
+      "requires": [
+        "release_registration",
+        "security_review"
+      ]
+    },
+    {
+      "id": "results-ledger",
+      "description": "Per-task scores, per-level triple counts and run settings of the paper's 45 systems (Table 3), with the printed table values; scores, model and run names only, no record text or model outputs",
+      "patterns": [
+        "results/*"
+      ],
+      "origin": "microsoft",
+      "license": "MIT",
+      "requires": [
+        "dataset_review"
+      ]
+    },
+    {
       "id": "benchmark-code",
       "description": "Scorer, baselines, configurations, replay script and file manifest",
       "patterns": [
