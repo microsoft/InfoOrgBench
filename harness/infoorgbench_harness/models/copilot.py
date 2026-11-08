@@ -24,7 +24,7 @@ def _helper_environment(token_env, source=None):
     exact = {"PATH", "PATHEXT", "SYSTEMROOT", "SYSTEMDRIVE", "WINDIR", "COMSPEC",
              "TEMP", "TMP", "OS", "NUMBER_OF_PROCESSORS", "HOME", "USERPROFILE",
              "APPDATA", "LOCALAPPDATA", "INFOORGBENCH_COPILOT_RUNTIME",
-             "INFOORGBENCH_COPILOT_ALLOW_UNVERIFIED"}
+             "INFOORGBENCH_COPILOT_ALLOW_UNVERIFIED", "NPM_CONFIG_PREFIX"}
     return {key: value for key, value in source.items()
             if key != token_env and (key.upper() in exact or key.upper().startswith("PROCESSOR_")
             or key.upper() == "LANG" or key.upper().startswith("LC_"))}

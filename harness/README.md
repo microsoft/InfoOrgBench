@@ -286,24 +286,25 @@ Claude Haiku 4.5), as the paper's transport did.
 
 ## Verification
 
-On 2026-11-07 each harness completed Recap task `mini-001` through the GitHub
-Copilot backend, signed in as a github.com personal account whose Copilot
-entitlement comes from an organization seat. Each run produced a valid tree
-that the released scorer accepted:
+On 2026-11-08, after the security changes above, each harness completed Recap
+task `mini-001` through the GitHub Copilot backend, signed in as a github.com
+personal account whose Copilot entitlement comes from an organization seat.
+Each run produced a valid tree that the released scorer accepted, and no
+receipt contained a credential or endpoint:
 
 | Harness | Model | Upstream protocol | Structure Score |
 | --- | --- | --- | ---: |
-| ReAct-FC | GPT-6 Luna | Responses | 42.3 |
-| ReAct-FC | Claude Haiku 4.5 | Anthropic Messages | 29.1 |
-| Codex CLI 0.162.1 | GPT-6 Luna | Responses through the gateway | 22.0 |
-| Pi 1.1.0 | GPT-6 Luna | Responses through the gateway | 45.7 |
-| DeepSeek Harness 0.2.1-alpha.1 | GPT-6 Luna | Responses through the gateway | 39.3 |
-| Deep Agents 0.7.23 | Claude Haiku 4.5 | Anthropic Messages through the gateway | 33.2 |
+| ReAct-FC | GPT-6 Luna | Responses | 43.7 |
+| ReAct-FC | Claude Haiku 4.5 | Anthropic Messages | 34.6 |
+| Codex CLI 0.162.1 | GPT-6 Luna | Responses through the gateway | 29.1 |
+| Pi 1.1.0 | GPT-6 Luna | Responses through the gateway | 64.9 |
+| DeepSeek Harness 0.2.1-alpha.1 | GPT-6 Luna | Responses through the gateway | 38.3 |
+| Deep Agents 0.7.23 | Claude Haiku 4.5 | Anthropic Messages through the gateway | 39.9 |
 
-These are single-task checks of the software, not results. An individual
-Copilot Free or Pro plan was not tested. The provider API-key backends were
-tested against local mock servers for all three protocols, not against a
-live provider account.
+These are single-task checks of the software, not results; scores of one task
+vary between runs. An individual Copilot Free or Pro plan was not tested. The
+provider API-key backends were tested against local mock servers for all
+three protocols, not against a live provider account.
 
 ## Limitations
 

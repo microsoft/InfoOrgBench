@@ -160,21 +160,26 @@ class CopilotBackendTests(unittest.TestCase):
 
     def test_helper_process_environment_is_allowlisted(self):
         source = {"PATH": "bin", "SYSTEMROOT": "system", "USERPROFILE": "profile",
+                  "NPM_CONFIG_PREFIX": "prefix", "NPM_CONFIG__AUTHTOKEN": "secret",
                   "COPILOT_GITHUB_TOKEN": "secret", "OPENAI_API_KEY": "secret",
                   "AWS_SECRET_ACCESS_KEY": "secret", "DATABASE_URL": "secret"}
         env = _helper_environment("COPILOT_GITHUB_TOKEN", source)
-        self.assertEqual(env, {"PATH": "bin", "SYSTEMROOT": "system", "USERPROFILE": "profile"})
+        self.assertEqual(env, {"PATH": "bin", "SYSTEMROOT": "system", "USERPROFILE": "profile",
+                               "NPM_CONFIG_PREFIX": "prefix"})
 
     @unittest.skipUnless(shutil.which("node"), "Node is not installed")
     def test_node_helper_child_environments_exclude_all_secrets(self):
         helper = ROOT / "harness" / "copilot" / "endpoint.mjs"
         env = {"PATH": os.environ.get("PATH", ""), "SYSTEMROOT": os.environ.get("SYSTEMROOT", ""),
+               "NPM_CONFIG_PREFIX": "prefix", "NPM_CONFIG__AUTHTOKEN": "secret",
                "COPILOT_GITHUB_TOKEN": "secret", "OPENAI_API_KEY": "secret",
                "AWS_SECRET_ACCESS_KEY": "secret", "DATABASE_URL": "secret"}
         value = json.loads(subprocess.run([shutil.which("node"), str(helper), "--test-environments"],
                                           capture_output=True, text=True, check=True, env=env).stdout)
+        self.assertIn("NPM_CONFIG_PREFIX", value["npm"])
+        self.assertNotIn("NPM_CONFIG_PREFIX", value["runtime"])
         for names in value.values():
-            for secret_name in ("COPILOT_GITHUB_TOKEN", "OPENAI_API_KEY",
+            for secret_name in ("COPILOT_GITHUB_TOKEN", "OPENAI_API_KEY", "NPM_CONFIG__AUTHTOKEN",
                                 "AWS_SECRET_ACCESS_KEY", "DATABASE_URL"):
                 self.assertNotIn(secret_name, names)
 

@@ -60,7 +60,12 @@ function allowlistedEnvironment(source = process.env) {
 }
 
 function npmEnvironment() {
-  return allowlistedEnvironment();
+  // npm reads a user-configured global prefix from this variable; other npm_config_* values may hold tokens.
+  const env = allowlistedEnvironment();
+  for (const [key, value] of Object.entries(process.env)) {
+    if (key.toUpperCase() === "NPM_CONFIG_PREFIX") env[key] = value;
+  }
+  return env;
 }
 
 function childEnvironment() {
