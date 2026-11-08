@@ -97,6 +97,29 @@ class FullReactFCEpisodeTests(unittest.TestCase):
         finally:
             os.environ.clear(); os.environ.update(old)
 
+    def test_incomplete_response_is_processed_like_original_h0(self):
+        class IncompleteBackend:
+            protocol = RESPONSES
+
+            def request(self, _protocol, body):
+                response = {"id": "r", "object": "response", "model": body["model"], "status": "incomplete",
+                            "incomplete_details": {"reason": "max_output_tokens"},
+                            "output": [{"type": "message", "role": "assistant",
+                                        "content": [{"type": "output_text", "text": "partial"}]}],
+                            "usage": {"input_tokens": 1, "output_tokens": 1, "total_tokens": 2}}
+                return encode_response(response, RESPONSES, stream=True)
+
+        packet = {"task_id": "synthetic", "records": [{"id": "F001", "format": "text", "text": "one"}]}
+        with tempfile.TemporaryDirectory() as work:
+            result = run_episode(packet, family="Recap", model="test-model", backend=IncompleteBackend(),
+                                 settings={"max_output_tokens": 100, "reasoning_effort": None,
+                                           "request_seconds": 10, "decision_turns": None,
+                                           "episode_seconds": None, "episode_observed_token_stop": None},
+                                 workspace_root=Path(work) / "workspace")
+        self.assertEqual(result["status"], "completed")
+        self.assertEqual(result["stop_reason"], "model_final_response")
+        self.assertEqual(result["pending_ids"], ["F001"])
+
     def test_transport_failure_still_captures_authoritative_state(self):
         class FailingBackend:
             protocol = RESPONSES

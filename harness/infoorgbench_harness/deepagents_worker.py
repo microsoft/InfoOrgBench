@@ -4,6 +4,7 @@
 
 from importlib.metadata import version
 import json
+import os
 from pathlib import Path
 import sys
 from urllib.request import Request, urlopen
@@ -20,7 +21,7 @@ def build_model(config):
     from langchain_openai import ChatOpenAI
 
     selected = config["model"]
-    common = {"model": selected["id"], "api_key": "local-capability-only",
+    common = {"model": selected["id"], "api_key": os.environ["INFOORGBENCH_GATEWAY_TOKEN"],
               "base_url": config["endpoint"], "streaming": True,
               "max_retries": 0, "timeout": config.get("requestSeconds", 120),
               "profile": {"max_input_tokens": selected["contextWindow"],
@@ -60,7 +61,8 @@ def run(config):
         def handler(_name=row["name"], **arguments):
             request = Request(config["endpoint"] + "/tools/" + _name,
                               data=json.dumps(arguments).encode("utf-8"),
-                              headers={"Content-Type": "application/json"})
+                              headers={"Content-Type": "application/json",
+                                       "Authorization": "Bearer " + os.environ["INFOORGBENCH_GATEWAY_TOKEN"]})
             with urlopen(request, timeout=30) as response:
                 return json.loads(response.read())["text"]
         tools.append(StructuredTool(name=row["name"], description=row["description"],

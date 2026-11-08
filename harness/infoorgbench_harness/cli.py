@@ -146,7 +146,8 @@ def run_command(args):
                 else:
                     result = run_third_party(packet, harness=args.harness, family=args.family,
                                              model=args.model, backend=backend, settings=settings,
-                                             run_root=task_runtime)
+                                             run_root=task_runtime,
+                                             codex_extra_denied_roots=args.codex_deny_root)
                 prediction = {"assignments": result["assignments"]}
                 target = destination / args.family / (task_name + ".json")
                 target.parent.mkdir(parents=True, exist_ok=True)
@@ -202,6 +203,8 @@ def parser():
     run.add_argument("--copilot-token-env", default=os.environ.get("INFOORGBENCH_COPILOT_TOKEN_ENV", "COPILOT_GITHUB_TOKEN"))
     run.add_argument("--transport-retries", type=int, default=int(os.environ.get("INFOORGBENCH_TRANSPORT_RETRIES", "0")))
     run.add_argument("--request-seconds", type=int, default=2400)
+    run.add_argument("--codex-deny-root", type=Path, action="append", default=[],
+                     help="Additional existing host path to deny Codex; may be repeated")
     run.add_argument("--max-output-tokens", type=int,
                      help="Override the per-response output cap (default 128,000, capped at known model limits)")
     score = commands.add_parser("score")

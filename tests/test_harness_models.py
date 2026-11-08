@@ -52,6 +52,43 @@ class ProtocolTranslationTests(unittest.TestCase):
         restored = to_responses_request(anthropic, ANTHROPIC)
         self.assertTrue(any(x.get("type") == "function_call" for x in restored["input"]))
 
+    def test_responses_reasoning_maps_to_anthropic_adaptive_thinking(self):
+        mapped = from_responses_request(self.request, ANTHROPIC)
+        self.assertEqual(mapped["thinking"], {"type": "adaptive"})
+        self.assertEqual(mapped["output_config"], {"effort": "medium"})
+        restored = to_responses_request(mapped, ANTHROPIC)
+        self.assertEqual(restored["reasoning"], {"effort": "medium"})
+        self.assertEqual(restored["input"], [item for item in self.request["input"]
+                                              if item.get("type") != "reasoning"])
+
+    def test_chat_and_anthropic_truncation_map_to_canonical_incomplete(self):
+        chat = {"id": "c", "model": "m", "choices": [{"message": {"role": "assistant", "content": "partial"},
+                 "finish_reason": "length"}], "usage": {"prompt_tokens": 2, "completion_tokens": 3}}
+        decoded_chat = decode_response(json.dumps(chat).encode(), CHAT)
+        self.assertEqual(decoded_chat["status"], "incomplete")
+        self.assertEqual(decoded_chat["incomplete_details"], {"reason": "max_output_tokens"})
+        anthropic = {"id": "a", "model": "m", "content": [{"type": "text", "text": "partial"}],
+                     "stop_reason": "max_tokens", "usage": {"input_tokens": 2, "output_tokens": 3}}
+        decoded_anthropic = decode_response(json.dumps(anthropic).encode(), ANTHROPIC)
+        self.assertEqual(decoded_anthropic["status"], "incomplete")
+        self.assertEqual(decoded_anthropic["incomplete_details"], {"reason": "max_output_tokens"})
+
+    def test_incomplete_status_survives_all_sse_encodings(self):
+        response = {"id": "r", "object": "response", "model": "m", "status": "incomplete",
+                    "incomplete_details": {"reason": "max_output_tokens"},
+                    "output": [{"type": "message", "role": "assistant",
+                                "content": [{"type": "output_text", "text": "partial"}]}],
+                    "usage": {"input_tokens": 2, "output_tokens": 3, "total_tokens": 5}}
+        for protocol in (RESPONSES, CHAT, ANTHROPIC):
+            with self.subTest(protocol=protocol):
+                raw, content_type = encode_response(response, protocol, stream=True)
+                marker = {RESPONSES: b"response.incomplete", CHAT: b'"finish_reason":"length"',
+                          ANTHROPIC: b'"stop_reason":"max_tokens"'}[protocol]
+                self.assertIn(marker, raw)
+                decoded = decode_response(raw, protocol, content_type)
+                self.assertEqual(decoded["status"], "incomplete")
+                self.assertEqual(decoded["incomplete_details"], {"reason": "max_output_tokens"})
+
     def test_stream_encoders_decode_to_same_responses_items(self):
         response = {
             "id": "r1", "object": "response", "model": "model-a", "status": "completed",

@@ -12,28 +12,34 @@ import re
 import subprocess
 import sys
 from urllib.error import HTTPError, URLError
-from urllib.parse import urlparse
-from urllib.request import Request, urlopen
+from urllib.request import Request
 
-from .http import TransportError, _join_url, _read_bounded
-from .protocols import ANTHROPIC, CHAT, RESPONSES, from_responses_request, to_responses_request
+from .http import (TransportError, _join_url, _open_no_redirect, _read_bounded,
+                   _upstream_request_body, _validate_model_base_url)
+from .protocols import ANTHROPIC, CHAT, RESPONSES
 
 
-def _helper_environment(token_env):
-    suffixes = ("_API_KEY", "_TOKEN", "_SECRET", "_PASSWORD", "_CREDENTIAL", "_CREDENTIALS")
-    return {key: value for key, value in os.environ.items()
-            if key == token_env or not key.upper().endswith(suffixes)}
+def _helper_environment(token_env, source=None):
+    source = os.environ if source is None else source
+    exact = {"PATH", "PATHEXT", "SYSTEMROOT", "SYSTEMDRIVE", "WINDIR", "COMSPEC",
+             "TEMP", "TMP", "OS", "NUMBER_OF_PROCESSORS", "HOME", "USERPROFILE",
+             "APPDATA", "LOCALAPPDATA", "INFOORGBENCH_COPILOT_RUNTIME",
+             "INFOORGBENCH_COPILOT_ALLOW_UNVERIFIED"}
+    return {key: value for key, value in source.items()
+            if key != token_env and (key.upper() in exact or key.upper().startswith("PROCESSOR_")
+            or key.upper() == "LANG" or key.upper().startswith("LC_"))}
 
 
 class _EndpointPipe:
     def __init__(self, command, *, token_env, working_directory):
         if not re.fullmatch(r"[A-Z_][A-Z0-9_]*", token_env):
             raise ValueError("Copilot token environment name is invalid")
+        token = os.environ.get(token_env)
         self.process = subprocess.Popen([str(part) for part in command], stdin=subprocess.PIPE, stdout=subprocess.PIPE,
                                         stderr=subprocess.DEVNULL, text=True, encoding="utf-8", bufsize=1,
                                         env=_helper_environment(token_env))
         try:
-            self.rpc({"command": "init", "tokenEnv": token_env,
+            self.rpc({"command": "init", "gitHubToken": token,
                       "workingDirectory": str(Path(working_directory).resolve())})
         except Exception:
             self.process.kill()
@@ -139,10 +145,10 @@ class CopilotBackend:
             endpoint = value.get("endpoint")
             if not isinstance(endpoint, dict) or not isinstance(endpoint.get("baseUrl"), str):
                 raise TransportError("copilot_endpoint_helper_failed")
-            parsed = urlparse(endpoint["baseUrl"])
-            if (parsed.username or parsed.password
-                    or (parsed.scheme != "https" and not (parsed.scheme == "http" and parsed.hostname == "127.0.0.1"))):
-                raise TransportError("copilot_unsafe_endpoint")
+            try:
+                _validate_model_base_url(endpoint["baseUrl"])
+            except ValueError:
+                raise TransportError("copilot_unsafe_endpoint") from None
             self.endpoint, self.model = endpoint, model
             self.protocol = _protocol(endpoint)
             self.refreshes += 1
@@ -170,15 +176,13 @@ class CopilotBackend:
     def _send(self, source_protocol, body, endpoint):
         protocol = _protocol(endpoint)
         self.protocol = protocol
-        canonical = to_responses_request(body, source_protocol)
-        canonical["store"] = False
-        upstream = from_responses_request(canonical, protocol)
+        upstream = _upstream_request_body(source_protocol, body, protocol)
         suffix = {RESPONSES: "/responses", CHAT: "/chat/completions", ANTHROPIC: "/v1/messages"}[protocol]
         payload = json.dumps(upstream, ensure_ascii=False, separators=(",", ":")).encode()
         try:
             request = Request(_join_url(endpoint["baseUrl"], suffix), data=payload, method="POST",
                               headers=self._headers(endpoint))
-            with urlopen(request, timeout=self.timeout_seconds) as response:
+            with _open_no_redirect(request, self.timeout_seconds) as response:
                 return _read_bounded(response), response.headers.get("Content-Type", "application/json").split(";", 1)[0]
         except HTTPError as error:
             status = error.code

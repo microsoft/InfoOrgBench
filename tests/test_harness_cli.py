@@ -9,7 +9,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "harness"))
 
-from infoorgbench_harness.cli import _settings, load_tasks, score_run
+from infoorgbench_harness.cli import _settings, load_tasks, parser, score_run
 from infoorgbench_harness.models.protocols import ANTHROPIC, CHAT, from_responses_request
 
 
@@ -46,6 +46,12 @@ class HarnessCLITests(unittest.TestCase):
             self.skipTest("Thread packets are already materialized")
         with self.assertRaisesRegex(FileNotFoundError, "benchmark.build_thread"):
             load_tasks(ROOT, "Thread", ["mini-001"])
+
+    def test_codex_deny_root_is_repeatable(self):
+        args = parser().parse_args(["run", "--harness", "codex", "--model", "m", "--backend", "copilot",
+                                    "--family", "Recap", "--out", "run", "--codex-deny-root", "one",
+                                    "--codex-deny-root", "two"])
+        self.assertEqual(args.codex_deny_root, [Path("one"), Path("two")])
 
     def test_scores_release_format_prediction_with_benchmark_engine(self):
         reference = json.loads((ROOT / "benchmark" / "inputs" / "reference" / "Recap" / "mini-001.json").read_text(encoding="utf-8"))

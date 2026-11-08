@@ -31,7 +31,8 @@ function locateRuntime() {
     candidates.push(join(packageRoot, "node_modules", "@github", platformPackage()));
   } catch {}
   try {
-    const globalRoot = execSync("npm root -g", { encoding: "utf8", stdio: ["ignore", "pipe", "ignore"] }).trim();
+    const globalRoot = execSync("npm root -g", { encoding: "utf8", stdio: ["ignore", "pipe", "ignore"],
+      env: npmEnvironment() }).trim();
     candidates.push(join(globalRoot, "@github", "copilot", "node_modules", "@github", platformPackage()));
   } catch {}
   const found = candidates.find(path => existsSync(join(path, process.platform === "win32" ? "copilot.exe" : "copilot"))
@@ -48,11 +49,22 @@ function runtimeVersion(runtime) {
   }
 }
 
-function childEnvironment(tokenEnv) {
-  const blocked = new Set(["COPILOT_GITHUB_TOKEN", "GH_TOKEN", "GITHUB_TOKEN", tokenEnv]);
-  const secretName = /(?:_API_KEY|_TOKEN|_SECRET|_PASSWORD|_CREDENTIALS?)$/;
-  const env = Object.fromEntries(Object.entries(process.env).filter(([key]) =>
-    !blocked.has(key) && !key.startsWith("COPILOT_PROVIDER_") && !secretName.test(key)));
+const SYSTEM_NAMES = new Set(["PATH", "PATHEXT", "SYSTEMROOT", "SYSTEMDRIVE", "WINDIR", "COMSPEC",
+  "TEMP", "TMP", "OS", "NUMBER_OF_PROCESSORS", "HOME", "USERPROFILE", "APPDATA", "LOCALAPPDATA"]);
+
+function allowlistedEnvironment(source = process.env) {
+  return Object.fromEntries(Object.entries(source).filter(([key]) => {
+    const upper = key.toUpperCase();
+    return SYSTEM_NAMES.has(upper) || upper.startsWith("PROCESSOR_") || upper === "LANG" || upper.startsWith("LC_");
+  }));
+}
+
+function npmEnvironment() {
+  return allowlistedEnvironment();
+}
+
+function childEnvironment() {
+  const env = allowlistedEnvironment();
   env.COPILOT_ALLOW_GET_PROVIDER_ENDPOINT = "true";
   return env;
 }
@@ -65,13 +77,13 @@ async function initialize(command) {
     throw new Error("runtime_version_mismatch");
   }
   const { CopilotClient } = await import(pathToFileURL(join(runtime, "copilot-sdk", "index.js")));
-  const token = process.env[command.tokenEnv];
+  const token = command.gitHubToken;
   client = new CopilotClient({
     cliPath: join(runtime, process.platform === "win32" ? "copilot.exe" : "copilot"),
     workingDirectory: command.workingDirectory,
     logLevel: "none",
     ...(token ? { gitHubToken: token, useLoggedInUser: false } : { useLoggedInUser: true }),
-    env: childEnvironment(command.tokenEnv),
+    env: childEnvironment(),
   });
   await client.start();
   const auth = await client.getAuthStatus();
@@ -91,6 +103,11 @@ async function close() {
   } finally {
     if (client) await client.stop().catch(() => {});
   }
+}
+
+if (process.argv.includes("--test-environments")) {
+  reply({ npm: Object.keys(npmEnvironment()).sort(), runtime: Object.keys(childEnvironment()).sort() });
+  process.exit(0);
 }
 
 const input = createInterface({ input: process.stdin, crlfDelay: Infinity });

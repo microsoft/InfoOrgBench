@@ -29,9 +29,11 @@ class FakeBackend:
 
 
 class GatewayTests(unittest.TestCase):
-    def post(self, url, body):
-        request = urllib.request.Request(url, data=json.dumps(body).encode(), method="POST",
-                                         headers={"Content-Type": "application/json"})
+    def post(self, url, body, token=None, content_type="application/json", api_key=False):
+        headers = {"Content-Type": content_type}
+        if token:
+            headers["x-api-key" if api_key else "Authorization"] = token if api_key else "Bearer " + token
+        request = urllib.request.Request(url, data=json.dumps(body).encode(), method="POST", headers=headers)
         with urllib.request.urlopen(request, timeout=5) as response:
             return response.headers.get_content_type(), response.read()
 
@@ -39,7 +41,7 @@ class GatewayTests(unittest.TestCase):
         backend = FakeBackend()
         with Gateway(backend) as gateway:
             body = {"model": "m", "input": "hello", "stream": True, "store": False}
-            content_type, raw = self.post(gateway.base_url + "/responses", body)
+            content_type, raw = self.post(gateway.base_url + "/responses", body, gateway.token)
         self.assertEqual(backend.calls, [(RESPONSES, body)])
         self.assertEqual(content_type, "text/event-stream")
         self.assertIn(b"response.completed", raw)
@@ -48,7 +50,7 @@ class GatewayTests(unittest.TestCase):
         backend = FakeBackend()
         with Gateway(backend) as gateway:
             content_type, raw = self.post(gateway.base_url + "/chat/completions", {
-                "model": "m", "messages": [{"role": "user", "content": "hello"}], "stream": True})
+                "model": "m", "messages": [{"role": "user", "content": "hello"}], "stream": True}, gateway.token)
         self.assertEqual(backend.calls[0][0], CHAT)
         self.assertEqual(content_type, "text/event-stream")
         self.assertTrue(raw.rstrip().endswith(b"data: [DONE]"))
@@ -57,17 +59,62 @@ class GatewayTests(unittest.TestCase):
         backend = FakeBackend()
         with Gateway(backend, expected_model="sealed") as gateway:
             with self.assertRaises(urllib.error.HTTPError) as raised:
-                self.post(gateway.base_url + "/responses", {"model": "other", "input": "x"})
+                self.post(gateway.base_url + "/responses", {"model": "other", "input": "x"}, gateway.token)
         self.assertEqual(raised.exception.code, 400)
         raised.exception.close()
         self.assertEqual(backend.calls, [])
+
+    def test_gateway_rejects_missing_authentication_before_forwarding(self):
+        backend = FakeBackend()
+        with Gateway(backend) as gateway:
+            with self.assertRaises(urllib.error.HTTPError) as raised:
+                self.post(gateway.base_url + "/responses", {"model": "m", "input": "secret body"})
+        self.assertEqual(raised.exception.code, 401)
+        raised.exception.close()
+        self.assertEqual(backend.calls, [])
+
+    def test_gateway_accepts_x_api_key_and_requires_json(self):
+        backend = FakeBackend()
+        with Gateway(backend) as gateway:
+            _, raw = self.post(gateway.base_url + "/responses", {"model": "m", "input": "x"},
+                               gateway.token, api_key=True)
+            self.assertIn(b'"status":"completed"', raw)
+            with self.assertRaises(urllib.error.HTTPError) as raised:
+                self.post(gateway.base_url + "/responses", {"model": "m"}, gateway.token,
+                          content_type="text/plain")
+        self.assertEqual(raised.exception.code, 415)
+        raised.exception.close()
+
+    def test_gateway_bounds_concurrent_requests(self):
+        import threading
+        import time
+
+        entered = threading.Event()
+        release = threading.Event()
+
+        def handler(_name, _arguments):
+            entered.set()
+            release.wait(5)
+            return {"ok": True}
+
+        with Gateway(FakeBackend(), tool_handler=handler, max_concurrent_requests=1) as gateway:
+            first = threading.Thread(target=self.post,
+                                     args=(gateway.base_url + "/tools/record_move", {}, gateway.token))
+            first.start()
+            self.assertTrue(entered.wait(2))
+            with self.assertRaises(urllib.error.HTTPError) as raised:
+                self.post(gateway.base_url + "/tools/record_move", {}, gateway.token)
+            self.assertEqual(raised.exception.code, 503)
+            raised.exception.close()
+            release.set()
+            first.join(5)
 
     def test_invalid_tool_call_returns_tool_error(self):
         def handler(_name, _arguments):
             raise ValueError("Read pages must contain 1 to 8000 characters")
 
         with Gateway(FakeBackend(), tool_handler=handler) as gateway:
-            _, raw = self.post(gateway.base_url + "/tools/record_read", {"file_id": "F001"})
+            _, raw = self.post(gateway.base_url + "/tools/record_read", {"file_id": "F001"}, gateway.token)
         self.assertEqual(json.loads(json.loads(raw)["text"]), {"error": "Read pages must contain 1 to 8000 characters"})
 
     def test_parallel_tool_calls_run_one_at_a_time(self):
@@ -87,7 +134,7 @@ class GatewayTests(unittest.TestCase):
             return {"ok": True}
 
         with Gateway(FakeBackend(), tool_handler=handler) as gateway:
-            threads = [threading.Thread(target=self.post, args=(gateway.base_url + "/tools/record_move", {}))
+            threads = [threading.Thread(target=self.post, args=(gateway.base_url + "/tools/record_move", {}, gateway.token))
                        for _ in range(4)]
             for thread in threads:
                 thread.start()

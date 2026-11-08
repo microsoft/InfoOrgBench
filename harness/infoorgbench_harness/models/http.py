@@ -4,19 +4,64 @@
 
 from __future__ import annotations
 
+import copy
 from datetime import datetime, timezone
 from email.utils import parsedate_to_datetime
+import ipaddress
 import json
 import os
 import time
 from urllib.error import HTTPError, URLError
 from urllib.parse import urlsplit, urlunsplit
-from urllib.request import Request, urlopen
+from urllib.request import HTTPRedirectHandler, Request, build_opener
 
 from .protocols import ANTHROPIC, CHAT, RESPONSES, from_responses_request, to_responses_request
 
 
 MAX_RESPONSE_BYTES = 64_000_000
+
+
+class _NoRedirect(HTTPRedirectHandler):
+    def redirect_request(self, req, fp, code, msg, headers, newurl):
+        return None
+
+
+_NO_REDIRECT_OPENER = build_opener(_NoRedirect)
+
+
+def _open_no_redirect(request, timeout):
+    return _NO_REDIRECT_OPENER.open(request, timeout=timeout)
+
+
+def _is_loopback_host(host):
+    if not host:
+        return False
+    if host.lower() == "localhost":
+        return True
+    try:
+        return ipaddress.ip_address(host).is_loopback
+    except ValueError:
+        return False
+
+
+def _validate_model_base_url(base_url):
+    parsed = urlsplit(base_url)
+    if parsed.scheme not in {"http", "https"} or not parsed.netloc or parsed.username or parsed.password:
+        raise ValueError("Provider base URL must be HTTP(S) without URL credentials")
+    if parsed.scheme == "http" and not _is_loopback_host(parsed.hostname):
+        raise ValueError("Plain HTTP model endpoints must use a loopback host")
+    return parsed
+
+
+def _upstream_request_body(source_protocol, body, upstream_protocol):
+    if source_protocol == upstream_protocol:
+        upstream = copy.deepcopy(body)
+        if upstream_protocol == RESPONSES:
+            upstream["store"] = False
+        return upstream
+    canonical = to_responses_request(body, source_protocol)
+    canonical["store"] = False
+    return from_responses_request(canonical, upstream_protocol)
 
 
 class TransportError(RuntimeError):
@@ -78,9 +123,7 @@ class ProviderBackend:
         self.name = name
         self.protocol = protocol
         self.base_url = base_url or default_url
-        parsed = urlsplit(self.base_url)
-        if parsed.scheme not in {"http", "https"} or not parsed.netloc or parsed.username or parsed.password:
-            raise ValueError("Provider base URL must be HTTP(S) without URL credentials")
+        _validate_model_base_url(self.base_url)
         self.key_env = key_env or default_env
         self.timeout_seconds = timeout_seconds
         self.transport_retries = transport_retries
@@ -106,15 +149,13 @@ class ProviderBackend:
         return headers
 
     def request(self, source_protocol, body):
-        canonical = to_responses_request(body, source_protocol)
-        canonical["store"] = False
-        upstream = from_responses_request(canonical, self.protocol)
+        upstream = _upstream_request_body(source_protocol, body, self.protocol)
         payload = json.dumps(upstream, ensure_ascii=False, separators=(",", ":")).encode()
         url = _join_url(self.base_url, self.SUFFIXES[self.protocol])
         for attempt in range(self.transport_retries + 1):
             try:
                 request = Request(url, data=payload, method="POST", headers=self._headers())
-                with urlopen(request, timeout=self.timeout_seconds) as response:
+                with _open_no_redirect(request, self.timeout_seconds) as response:
                     content_type = response.headers.get("Content-Type", "application/json").split(";", 1)[0]
                     return _read_bounded(response), content_type
             except HTTPError as error:

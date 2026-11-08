@@ -5,6 +5,8 @@ import csv
 import importlib.util
 import io
 import json
+import shutil
+import tempfile
 import unittest
 from pathlib import Path
 
@@ -25,6 +27,22 @@ class ResultsLedgerTest(unittest.TestCase):
             status = load_checker().main()
         self.assertEqual(status, 0, out.getvalue())
         self.assertIn("562/562 matched", out.getvalue())
+
+    def test_truncated_published_table_fails(self):
+        checker = load_checker()
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            for name in ("systems.json", "per-task.csv", "table3-published.json"):
+                shutil.copyfile(RESULTS / name, root / name)
+            published = json.loads((root / "table3-published.json").read_text(encoding="utf-8"))
+            published["rows"] = published["rows"][:-1]
+            (root / "table3-published.json").write_text(json.dumps(published), encoding="utf-8")
+            checker.ROOT = root
+            out = io.StringIO()
+            with contextlib.redirect_stdout(out):
+                status = checker.main()
+        self.assertEqual(status, 1, out.getvalue())
+        self.assertIn("published row count", out.getvalue())
 
     def test_ledger_covers_45_systems_and_6750_task_rows(self):
         systems = json.loads((RESULTS / "systems.json").read_text(encoding="utf-8"))

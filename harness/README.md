@@ -29,6 +29,27 @@ search, apps, memories, and multi-agent operation are disabled. All harnesses
 use a new workspace for each task. The independently captured final filesystem,
 not the model's final declaration, determines the prediction.
 
+### Host-access boundary
+
+Codex and DSH run model-controlled shells. As in the paper, their sandbox
+allows host reads outside the writable task workspace. This release denies the
+benchmark, result ledger, common credential/configuration locations, and
+network access to Codex, and gives every child process a strict environment
+allowlist. These controls do not establish complete host isolation. Run Codex
+and DSH in a disposable virtual machine, container, or dedicated user account
+that contains no credentials or unrelated private files.
+
+Codex additionally denies existing locations such as `.ssh`, `.aws`, `.azure`,
+`.config/gh`, `.copilot`, `.docker`, `.kube`, `.git-credentials`, `.npmrc`,
+`.netrc`, and the GitHub CLI configuration directory. Add site-specific paths
+with a repeatable option:
+
+```powershell
+python -m infoorgbench_harness run --harness codex --model gpt-6.1-sol `
+  --backend copilot --family Recap --tasks mini-001 --out .\run-codex `
+  --codex-deny-root D:\sensitive --codex-deny-root D:\other-private-data
+```
+
 The shared paper profile has medium reasoning effort, 128,000 maximum output
 tokens per response, a 2,400-second request timeout, and no episode-time,
 decision-turn, or cumulative-token limit. Claude Haiku 4.5 omits the reasoning
@@ -97,19 +118,28 @@ python -m pip install `
 
 ## Model backends
 
-Every harness uses a loopback gateway at `127.0.0.1`. The gateway exposes
-OpenAI Responses, OpenAI Chat Completions, and Anthropic Messages, including
-SSE responses. It passes a request through when the client and upstream use
-the same protocol and translates it otherwise. Codex always uses Responses.
+Every harness uses a loopback gateway at `127.0.0.1`. Each run receives a
+random in-memory bearer token. The gateway authenticates model and record-tool
+requests before reading their bodies, accepts JSON only, limits request size,
+read time and concurrency, and never writes the token to receipts or logs. The
+gateway exposes OpenAI Responses, OpenAI Chat Completions, and Anthropic
+Messages, including SSE responses. It passes a request through unchanged when
+the client and upstream use the same protocol, except for required storage
+controls, and translates it otherwise. Codex always uses Responses.
 The paper runs used Anthropic Messages for Claude models and Responses for the
 other released models. Pi and Deep Agents retain that selection at their
-client boundary. DSH uses its Responses adapter.
+client boundary. DSH uses its Responses adapter. Responses reasoning effort
+maps to Anthropic adaptive thinking plus `output_config.effort`. Chat `length`
+and Anthropic `max_tokens` stops remain incomplete responses and are captured
+with the same final-state behavior as the original ReAct-FC runtime.
 
 The gateway is the default reproducible path. A third-party harness can instead
 use its documented native provider-key configuration, but that changes the
 released adapter boundary and must be reported as a different condition.
 
-No inference request is retried by default. `--transport-retries 1` enables one
+Provider base URLs must use HTTPS; plain HTTP is accepted only on loopback.
+Model transports reject redirects rather than forwarding credentials to a new
+location. No inference request is retried by default. `--transport-retries 1` enables one
 small retry for a connection failure or a provider refusal that reports no
 completed inference; `Retry-After` is honored. Provider-reported usage is
 included in the content-free receipt.

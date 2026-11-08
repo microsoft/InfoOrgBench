@@ -36,6 +36,23 @@ class _WireServer(BaseHTTPRequestHandler):
         self.wfile.write(raw)
 
 
+class _RedirectServer(BaseHTTPRequestHandler):
+    destination_hits = 0
+
+    def log_message(self, _format, *_args):
+        return
+
+    def do_POST(self):
+        if self.path == "/destination":
+            self.__class__.destination_hits += 1
+            self.send_response(200)
+        else:
+            self.send_response(307)
+            self.send_header("Location", f"http://127.0.0.1:{self.server.server_port}/destination")
+        self.send_header("Content-Length", "0")
+        self.end_headers()
+
+
 class ProviderBackendTests(unittest.TestCase):
     def test_all_provider_protocols_accept_responses_and_return_sse(self):
         previous = dict(os.environ)
@@ -65,6 +82,53 @@ class ProviderBackendTests(unittest.TestCase):
                         self.assertIs(_WireServer.seen[0][2]["store"], False)
         finally:
             os.environ.clear(); os.environ.update(previous)
+
+    def test_plain_http_requires_loopback(self):
+        with self.assertRaisesRegex(ValueError, "loopback"):
+            ProviderBackend("openai", base_url="http://example.test/v1", key_env="TEST_OPENAI_KEY")
+
+    def test_model_requests_do_not_follow_redirects(self):
+        previous = os.environ.get("TEST_OPENAI_KEY")
+        os.environ["TEST_OPENAI_KEY"] = "test-only-key"
+        _RedirectServer.destination_hits = 0
+        server = ThreadingHTTPServer(("127.0.0.1", 0), _RedirectServer)
+        thread = threading.Thread(target=server.serve_forever, daemon=True)
+        thread.start()
+        try:
+            backend = ProviderBackend("openai", base_url=f"http://127.0.0.1:{server.server_port}",
+                                      key_env="TEST_OPENAI_KEY")
+            with self.assertRaisesRegex(Exception, "provider_http_error") as raised:
+                backend.request(RESPONSES, {"model": "m", "input": "x"})
+            self.assertEqual(raised.exception.http_status, 307)
+            self.assertEqual(_RedirectServer.destination_hits, 0)
+        finally:
+            server.shutdown(); server.server_close(); thread.join(timeout=5)
+            if previous is None:
+                os.environ.pop("TEST_OPENAI_KEY", None)
+            else:
+                os.environ["TEST_OPENAI_KEY"] = previous
+
+    def test_anthropic_same_protocol_request_is_true_pass_through(self):
+        previous = os.environ.get("TEST_ANTHROPIC_KEY")
+        os.environ["TEST_ANTHROPIC_KEY"] = "test-only-key"
+        _WireServer.protocol, _WireServer.seen = ANTHROPIC, []
+        server = ThreadingHTTPServer(("127.0.0.1", 0), _WireServer)
+        thread = threading.Thread(target=server.serve_forever, daemon=True)
+        thread.start()
+        body = {"model": "claude", "messages": [{"role": "user", "content": "x"}],
+                "max_tokens": 32, "stream": True, "thinking": {"type": "adaptive"},
+                "output_config": {"effort": "medium"}}
+        try:
+            backend = ProviderBackend("anthropic", base_url=f"http://127.0.0.1:{server.server_port}",
+                                      key_env="TEST_ANTHROPIC_KEY")
+            backend.request(ANTHROPIC, body)
+        finally:
+            server.shutdown(); server.server_close(); thread.join(timeout=5)
+            if previous is None:
+                os.environ.pop("TEST_ANTHROPIC_KEY", None)
+            else:
+                os.environ["TEST_ANTHROPIC_KEY"] = previous
+        self.assertEqual(_WireServer.seen[0][2], body)
 
     def test_base_url_cannot_contain_credentials(self):
         with self.assertRaises(ValueError):

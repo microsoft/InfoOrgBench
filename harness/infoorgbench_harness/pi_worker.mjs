@@ -26,7 +26,7 @@ const compat = config.model.api === "anthropic-messages"
        supportsDeveloperRole: false, supportsStore: false, maxTokensField: "max_tokens"}
     : {supportsDeveloperRole: true};
 await writeFile(modelsPath, JSON.stringify({providers: {pilot: {
-  baseUrl: config.endpoint, api: config.model.api, apiKey: "local-capability-only",
+  baseUrl: config.endpoint, api: config.model.api, apiKey: process.env.INFOORGBENCH_GATEWAY_TOKEN,
   models: [{id: config.model.id, name: config.model.name, reasoning: config.model.reasoning,
     input: ["text"], cost: {input: 0, output: 0, cacheRead: 0, cacheWrite: 0},
     contextWindow: config.model.contextWindow, maxTokens: config.model.maxTokens, compat}]
@@ -40,7 +40,8 @@ const tools = config.tools.map(row => ({
   name: row.name, label: row.name, description: row.description, parameters: schema(row.parameters),
   execute: async (_id, args) => {
     const response = await fetch(`${config.endpoint}/tools/${row.name}`, {
-      method: "POST", headers: {"Content-Type": "application/json"}, body: JSON.stringify(args),
+      method: "POST", headers: {"Content-Type": "application/json",
+        "Authorization": `Bearer ${process.env.INFOORGBENCH_GATEWAY_TOKEN}`}, body: JSON.stringify(args),
     });
     const result = await response.json();
     if (!response.ok) throw new Error(JSON.stringify(result));

@@ -1,12 +1,14 @@
 # Copyright (c) Microsoft Corporation.
 # Licensed under the MIT License.
-"""Loopback gateway for Responses, Chat Completions, and Anthropic Messages."""
+"""Authenticated loopback gateway for three provider protocols."""
 
 from __future__ import annotations
 
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 import json
 import re
+import secrets
+import socket
 import sys
 import threading
 
@@ -25,34 +27,68 @@ class _Handler(BaseHTTPRequestHandler):
 
     def do_POST(self):
         gateway = self.server.gateway
+        if not gateway.request_slots.acquire(blocking=False):
+            self._send(503, "application/json", b'{"error":{"message":"gateway concurrency limit"}}', close=True)
+            return
+        try:
+            self.connection.settimeout(gateway.read_timeout_seconds)
+            self._handle_authenticated(gateway)
+        except (socket.timeout, TimeoutError):
+            self._send(408, "application/json", b'{"error":{"message":"request body timeout"}}', close=True)
+        finally:
+            gateway.request_slots.release()
+
+    def _handle_authenticated(self, gateway):
+        authorization = self.headers.get("Authorization", "")
+        api_key = self.headers.get("x-api-key", "")
+        authorized = ((authorization.startswith("Bearer ")
+                       and secrets.compare_digest(authorization[7:], gateway.token))
+                      or secrets.compare_digest(api_key, gateway.token))
+        if not authorized:
+            self._send(401, "application/json", b'{"error":{"message":"authentication required"}}', close=True)
+            return
+        if self.headers.get_content_type().lower() != "application/json":
+            self._send(415, "application/json", b'{"error":{"message":"application/json required"}}', close=True)
+            return
         protocol = _PATHS.get(self.path.rstrip("/") or "/")
         tool = re.fullmatch(r"(?:/v1)?/tools/([A-Za-z][A-Za-z0-9_-]*)", self.path)
         if protocol is None and not tool:
-            self._send(404, "application/json", b'{"error":{"message":"not found"}}')
+            self._send(404, "application/json", b'{"error":{"message":"not found"}}', close=True)
+            return
+        raw_length = self.headers.get("Content-Length")
+        if raw_length is None:
+            self._send(411, "application/json", b'{"error":{"message":"content length required"}}', close=True)
             return
         try:
-            length = int(self.headers.get("Content-Length", "0"))
-            if length < 0 or length > gateway.max_request_bytes:
-                raise ValueError("request exceeds gateway bound")
+            length = int(raw_length)
+        except ValueError:
+            self._send(400, "application/json", b'{"error":{"message":"invalid content length"}}', close=True)
+            return
+        if length < 0 or length > gateway.max_request_bytes:
+            self._send(413, "application/json", b'{"error":{"message":"request exceeds gateway bound"}}', close=True)
+            return
+        try:
             body = json.loads(self.rfile.read(length))
-            if protocol is not None and gateway.expected_model is not None and body.get("model") != gateway.expected_model:
-                self._send(400, "application/json", b'{"error":{"message":"model differs from sealed run"}}')
+        except (UnicodeDecodeError, json.JSONDecodeError):
+            self._send(400, "application/json", b'{"error":{"message":"invalid JSON"}}')
+            return
+        if protocol is not None and gateway.expected_model is not None and body.get("model") != gateway.expected_model:
+            self._send(400, "application/json", b'{"error":{"message":"model differs from sealed run"}}')
+            return
+        if tool:
+            if gateway.tool_handler is None:
+                self._send(404, "application/json", b'{"error":{"message":"tools disabled"}}')
                 return
-            if tool:
-                if gateway.tool_handler is None:
-                    self._send(404, "application/json", b'{"error":{"message":"tools disabled"}}')
-                    return
-                try:
-                    # Record operations change one shared workspace, so parallel tool calls run one at a time.
-                    with gateway.tool_lock:
-                        result = gateway.tool_handler(tool.group(1), body)
-                except (ValueError, KeyError, TypeError, OSError) as error:
-                    # Invalid tool arguments go back to the model as a tool error, as in the paper's runs.
-                    result = {"error": str(error) or type(error).__name__}
-                payload = json.dumps({"text": json.dumps(result, ensure_ascii=False, separators=(",", ":"))},
-                                     separators=(",", ":")).encode()
-                self._send(200, "application/json", payload)
-                return
+            try:
+                with gateway.tool_lock:
+                    result = gateway.tool_handler(tool.group(1), body)
+            except (ValueError, KeyError, TypeError, OSError) as error:
+                result = {"error": str(error) or type(error).__name__}
+            payload = json.dumps({"text": json.dumps(result, ensure_ascii=False, separators=(",", ":"))},
+                                 separators=(",", ":")).encode()
+            self._send(200, "application/json", payload)
+            return
+        try:
             raw, content_type = gateway.backend.request(protocol, body)
             response = decode_response(raw, gateway.backend.protocol, content_type)
             gateway.record_usage(response.get("usage", {}))
@@ -65,11 +101,14 @@ class _Handler(BaseHTTPRequestHandler):
                                  separators=(",", ":")).encode()
             self._send(status if isinstance(status, int) else 502, "application/json", payload)
 
-    def _send(self, status, content_type, payload):
+    def _send(self, status, content_type, payload, *, close=False):
         self.send_response(status)
         self.send_header("Content-Type", content_type)
         self.send_header("Content-Length", str(len(payload)))
         self.send_header("Cache-Control", "no-store")
+        if close:
+            self.send_header("Connection", "close")
+            self.close_connection = True
         self.end_headers()
         self.wfile.write(payload)
 
@@ -78,26 +117,34 @@ class _Server(ThreadingHTTPServer):
     daemon_threads = True
 
     def handle_error(self, request, client_address):
-        # A harness closing its connection early is not a gateway failure.
         if isinstance(sys.exc_info()[1], (ConnectionResetError, ConnectionAbortedError, BrokenPipeError)):
             return
         super().handle_error(request, client_address)
 
 
 class Gateway:
-    """A per-run server bound only to 127.0.0.1."""
+    """A per-run authenticated server bound only to 127.0.0.1."""
 
-    def __init__(self, backend, *, tool_handler=None, expected_model=None, max_request_bytes=32_000_000):
+    def __init__(self, backend, *, tool_handler=None, expected_model=None, max_request_bytes=32_000_000,
+                 read_timeout_seconds=30, max_concurrent_requests=16):
+        if type(max_concurrent_requests) is not int or max_concurrent_requests < 1:
+            raise ValueError("Gateway concurrency must be a positive integer")
+        if type(read_timeout_seconds) not in (int, float) or read_timeout_seconds <= 0:
+            raise ValueError("Gateway read timeout must be positive")
         self.backend = backend
         self.tool_handler = tool_handler
         self.expected_model = expected_model
         self.max_request_bytes = max_request_bytes
+        self.read_timeout_seconds = read_timeout_seconds
+        self.max_concurrent_requests = max_concurrent_requests
+        self.token = secrets.token_urlsafe(32)
         self.server = None
         self.thread = None
         self.requests = 0
         self.usage = {}
         self._usage_lock = threading.Lock()
         self.tool_lock = threading.Lock()
+        self.request_slots = threading.BoundedSemaphore(max_concurrent_requests)
 
     def record_usage(self, usage):
         with self._usage_lock:
@@ -126,6 +173,7 @@ class Gateway:
             self.thread.join(timeout=5)
             self.server = None
             self.thread = None
+        self.token = ""
 
     def __enter__(self):
         return self.start()

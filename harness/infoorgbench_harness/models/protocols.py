@@ -189,6 +189,7 @@ def from_responses_request(body: dict, protocol: str) -> dict:
               "max_tokens": body.get("max_output_tokens", 8192), "stream": body.get("stream", False)}
     effort = body.get("reasoning", {}).get("effort")
     if effort:
+        result["thinking"] = {"type": "adaptive"}
         result["output_config"] = {"effort": effort}
     return result
 
@@ -251,10 +252,15 @@ def decode_response(raw: bytes, protocol: str, content_type: str = "application/
         raise ValueError("Provider stream contained a provider error")
     if protocol == RESPONSES:
         if streamed:
-            completed = [event.get("response") for event in events if event.get("type") == "response.completed"]
-            if not completed:
-                raise ValueError("Responses stream ended without response.completed")
-            return completed[-1]
+            terminal = [(event.get("type"), event.get("response")) for event in events
+                        if event.get("type") in {"response.completed", "response.incomplete"}]
+            if len(terminal) != 1 or not isinstance(terminal[0][1], dict):
+                raise ValueError("Responses stream requires exactly one terminal response")
+            event_type, response = terminal[0]
+            expected_status = "incomplete" if event_type == "response.incomplete" else "completed"
+            if response.get("status") != expected_status:
+                raise ValueError("Responses terminal event and status differ")
+            return response
         return json.loads(raw)
     if protocol == CHAT:
         if streamed:
@@ -264,9 +270,11 @@ def decode_response(raw: bytes, protocol: str, content_type: str = "application/
             content = ""
             calls = {}
             usage = {}
+            finish_reason = None
             for event in events:
                 usage.update(event.get("usage") or {})
                 for choice in event.get("choices", []):
+                    finish_reason = choice.get("finish_reason") or finish_reason
                     delta = choice.get("delta", {})
                     content += delta.get("content") or ""
                     for call in delta.get("tool_calls", []):
@@ -278,7 +286,9 @@ def decode_response(raw: bytes, protocol: str, content_type: str = "application/
         else:
             data = json.loads(raw)
             model, usage = data.get("model"), data.get("usage", {})
-            message = data.get("choices", [{}])[0].get("message", {})
+            choice = data.get("choices", [{}])[0]
+            message = choice.get("message", {})
+            finish_reason = choice.get("finish_reason")
             content = message.get("content") or ""
             calls = {index: {"id": call.get("id"), "name": call.get("function", {}).get("name", ""),
                              "arguments": call.get("function", {}).get("arguments", "")}
@@ -287,7 +297,10 @@ def decode_response(raw: bytes, protocol: str, content_type: str = "application/
                    "arguments": call["arguments"] or "{}"} for _, call in sorted(calls.items())]
         if content:
             output.append({"type": "message", "role": "assistant", "content": [{"type": "output_text", "text": content}]})
-        return {"id": "translated", "object": "response", "model": model, "status": "completed",
+        incomplete = finish_reason == "length"
+        return {"id": "translated", "object": "response", "model": model,
+                "status": "incomplete" if incomplete else "completed",
+                **({"incomplete_details": {"reason": "max_output_tokens"}} if incomplete else {}),
                 "output": output, "usage": _canonical_usage(usage)}
     if protocol != ANTHROPIC:
         raise ValueError("Unsupported model protocol")
@@ -296,8 +309,9 @@ def decode_response(raw: bytes, protocol: str, content_type: str = "application/
     if not streamed:
         data = json.loads(raw)
         model, content, usage = data.get("model"), data.get("content", []), data.get("usage", {})
+        stop_reason = data.get("stop_reason")
     else:
-        model, usage, blocks = None, {}, {}
+        model, usage, blocks, stop_reason = None, {}, {}, None
         for event in events:
             kind = event.get("type")
             if kind == "message_start":
@@ -312,6 +326,7 @@ def decode_response(raw: bytes, protocol: str, content_type: str = "application/
                 block["partial_json"] = block.get("partial_json", "") + delta.get("partial_json", "")
             elif kind == "message_delta":
                 usage.update(event.get("usage") or {})
+                stop_reason = event.get("delta", {}).get("stop_reason") or stop_reason
         content = []
         for _, block in sorted(blocks.items()):
             if block.get("type") == "tool_use":
@@ -328,7 +343,10 @@ def decode_response(raw: bytes, protocol: str, content_type: str = "application/
         elif part.get("type") == "tool_use":
             output.append({"type": "function_call", "call_id": part.get("id"), "name": part.get("name"),
                            "arguments": json.dumps(part.get("input", {}), separators=(",", ":"))})
-    return {"id": "translated", "object": "response", "model": model, "status": "completed",
+    incomplete = stop_reason == "max_tokens"
+    return {"id": "translated", "object": "response", "model": model,
+            "status": "incomplete" if incomplete else "completed",
+            **({"incomplete_details": {"reason": "max_output_tokens"}} if incomplete else {}),
             "output": output, "usage": _canonical_usage(usage)}
 
 
@@ -341,7 +359,8 @@ def encode_response(response: dict, protocol: str, stream: bool = False) -> tupl
     """Encode canonical Responses output for a client protocol."""
     if protocol == RESPONSES:
         if stream:
-            return _sse({"type": "response.completed", "response": response}), "text/event-stream"
+            event_type = "response.incomplete" if response.get("status") == "incomplete" else "response.completed"
+            return _sse({"type": event_type, "response": response}), "text/event-stream"
         return json.dumps(response, separators=(",", ":")).encode(), "application/json"
     text = "".join(part.get("text", "") for item in response.get("output", []) if item.get("type") == "message"
                    for part in item.get("content", []) if part.get("type") == "output_text")
@@ -352,16 +371,18 @@ def encode_response(response: dict, protocol: str, stream: bool = False) -> tupl
             "name": item.get("name"), "arguments": item.get("arguments", "{}")}}
                       for index, item in enumerate(calls)]
         message = {"role": "assistant", "content": text or None, "tool_calls": tool_calls}
+        finish_reason = ("length" if response.get("status") == "incomplete"
+                         else "tool_calls" if calls else "stop")
         chat_usage = {"prompt_tokens": usage["input_tokens"], "completion_tokens": usage["output_tokens"],
                       "total_tokens": usage["total_tokens"]}
         if stream:
             chunk = {"id": response.get("id", "translated"), "object": "chat.completion.chunk",
                      "model": response.get("model"), "choices": [{"index": 0, "delta": message,
-                     "finish_reason": "tool_calls" if calls else "stop"}], "usage": chat_usage}
+                     "finish_reason": finish_reason}], "usage": chat_usage}
             return _sse(chunk) + b"data: [DONE]\n\n", "text/event-stream"
         value = {"id": response.get("id", "translated"), "object": "chat.completion", "model": response.get("model"),
                  "choices": [{"index": 0, "message": message,
-                              "finish_reason": "tool_calls" if calls else "stop"}], "usage": chat_usage}
+                              "finish_reason": finish_reason}], "usage": chat_usage}
         return json.dumps(value, separators=(",", ":")).encode(), "application/json"
     if protocol != ANTHROPIC:
         raise ValueError("Unsupported model protocol")
@@ -378,9 +399,11 @@ def encode_response(response: dict, protocol: str, stream: bool = False) -> tupl
                 arguments = {}
             content.append({"type": "tool_use", "id": item.get("call_id"), "name": item.get("name"), "input": arguments})
     anthropic_usage = {"input_tokens": usage["input_tokens"], "output_tokens": usage["output_tokens"]}
+    stop_reason = ("max_tokens" if response.get("status") == "incomplete"
+                   else "tool_use" if calls else "end_turn")
     message = {"id": response.get("id", "translated"), "type": "message", "role": "assistant",
                "model": response.get("model"), "content": content,
-               "stop_reason": "tool_use" if calls else "end_turn", "usage": anthropic_usage}
+               "stop_reason": stop_reason, "usage": anthropic_usage}
     if not stream:
         return json.dumps(message, separators=(",", ":")).encode(), "application/json"
     raw = _sse({"type": "message_start", "message": {**message, "content": [], "stop_reason": None}}, "message_start")
