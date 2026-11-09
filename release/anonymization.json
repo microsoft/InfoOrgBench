@@ -37,6 +37,7 @@
     "benchmark/engine/*",
     "benchmark/algorithm-source/*",
     "benchmark/replay.py",
+    "benchmark/run_task.py",
     "benchmark/manifest.json",
     "benchmark/requirements-paper-pilot.txt",
     ".gitleaks.toml",

@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="430" viewBox="0 0 1280 430" role="img" aria-label="Parent-level error rates exceed leaf-level error rates in every family">
+<title>Parent-level error rates exceed leaf-level error rates in every family</title>
+<rect x="1" y="1" width="1278" height="428" rx="16" fill="#151b23" stroke="#3d444d" stroke-width="1.2"/>
+<text x="28" y="44" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans',Helvetica,Arial,sans-serif" font-size="21" font-weight="700" fill="#f0f6fc" text-anchor="start">Share of record relations placed wrong, by hierarchy level</text>
+<text x="28" y="70" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans',Helvetica,Arial,sans-serif" font-size="16" font-weight="400" fill="#9198a1" text-anchor="start">Median over systems with per-level data.  In parentheses: outputs with at least one error at that level.</text>
+<path d="M104 330.0 H1190" stroke="#262c36" stroke-width="1.5"/>
+<text x="94" y="335.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans',Helvetica,Arial,sans-serif" font-size="14" font-weight="400" fill="#9198a1" text-anchor="end">0%</text>
+<path d="M104 270.0 H1190" stroke="#262c36" stroke-width="1.5"/>
+<text x="94" y="275.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans',Helvetica,Arial,sans-serif" font-size="14" font-weight="400" fill="#9198a1" text-anchor="end">20%</text>
+<path d="M104 210.0 H1190" stroke="#262c36" stroke-width="1.5"/>
+<text x="94" y="215.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans',Helvetica,Arial,sans-serif" font-size="14" font-weight="400" fill="#9198a1" text-anchor="end">40%</text>
+<path d="M104 150.0 H1190" stroke="#262c36" stroke-width="1.5"/>
+<text x="94" y="155.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans',Helvetica,Arial,sans-serif" font-size="14" font-weight="400" fill="#9198a1" text-anchor="end">60%</text>
+<path d="M104 90.0 H1190" stroke="#262c36" stroke-width="1.5"/>
+<text x="94" y="95.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans',Helvetica,Arial,sans-serif" font-size="14" font-weight="400" fill="#9198a1" text-anchor="end">80%</text>
+<rect x="196.0" y="223.59" width="96" height="106.41" rx="0" fill="#f85149" stroke="none" stroke-width="1"/>
+<rect x="196.0" y="141.57000000000002" width="96" height="82.01999999999998" rx="0" fill="#656c76" stroke="none" stroke-width="1"/>
+<text x="244.0" y="133.57000000000002" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans',Helvetica,Arial,sans-serif" font-size="18" font-weight="700" fill="#f0f6fc" text-anchor="middle">63%</text>
+<text x="244.0" y="111.57000000000002" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans',Helvetica,Arial,sans-serif" font-size="14" font-weight="400" fill="#9198a1" text-anchor="middle">(97%)</text>
+<text x="244.0" y="354" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans',Helvetica,Arial,sans-serif" font-size="15" font-weight="500" fill="#f0f6fc" text-anchor="middle">parent</text>
+<text x="244.0" y="373" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans',Helvetica,Arial,sans-serif" font-size="15" font-weight="400" fill="#9198a1" text-anchor="middle">meeting</text>
+<rect x="308.0" y="222.42000000000002" width="96" height="107.58" rx="0" fill="#f85149" stroke="none" stroke-width="1"/>
+<rect x="308.0" y="169.38" width="96" height="53.04" rx="0" fill="#656c76" stroke="none" stroke-width="1"/>
+<text x="356.0" y="161.38" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans',Helvetica,Arial,sans-serif" font-size="18" font-weight="700" fill="#f0f6fc" text-anchor="middle">54%</text>
+<text x="356.0" y="139.38" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans',Helvetica,Arial,sans-serif" font-size="14" font-weight="400" fill="#9198a1" text-anchor="middle">(100%)</text>
+<text x="356.0" y="354" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans',Helvetica,Arial,sans-serif" font-size="15" font-weight="500" fill="#f0f6fc" text-anchor="middle">leaf</text>
+<text x="356.0" y="373" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans',Helvetica,Arial,sans-serif" font-size="15" font-weight="400" fill="#9198a1" text-anchor="middle">section</text>
+<text x="300" y="406" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans',Helvetica,Arial,sans-serif" font-size="19" font-weight="800" fill="#2dd4bf" text-anchor="middle">Recap</text>
+<rect x="536.0" y="308.67" width="96" height="21.33" rx="0" fill="#f85149" stroke="none" stroke-width="1"/>
+<rect x="536.0" y="146.79000000000002" width="96" height="161.88" rx="0" fill="#656c76" stroke="none" stroke-width="1"/>
+<text x="584.0" y="138.79000000000002" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans',Helvetica,Arial,sans-serif" font-size="18" font-weight="700" fill="#f0f6fc" text-anchor="middle">61%</text>
+<text x="584.0" y="116.79000000000002" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans',Helvetica,Arial,sans-serif" font-size="14" font-weight="400" fill="#9198a1" text-anchor="middle">(97%)</text>
+<text x="584.0" y="354" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans',Helvetica,Arial,sans-serif" font-size="15" font-weight="500" fill="#f0f6fc" text-anchor="middle">parent</text>
+<text x="584.0" y="373" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans',Helvetica,Arial,sans-serif" font-size="15" font-weight="400" fill="#9198a1" text-anchor="middle">issue</text>
+<rect x="648.0" y="302.31" width="96" height="27.689999999999998" rx="0" fill="#f85149" stroke="none" stroke-width="1"/>
+<rect x="648.0" y="235.2" width="96" height="67.11" rx="0" fill="#656c76" stroke="none" stroke-width="1"/>
+<text x="696.0" y="227.2" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans',Helvetica,Arial,sans-serif" font-size="18" font-weight="700" fill="#f0f6fc" text-anchor="middle">32%</text>
+<text x="696.0" y="205.2" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans',Helvetica,Arial,sans-serif" font-size="14" font-weight="400" fill="#9198a1" text-anchor="middle">(97%)</text>
+<text x="696.0" y="354" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans',Helvetica,Arial,sans-serif" font-size="15" font-weight="500" fill="#f0f6fc" text-anchor="middle">leaf</text>
+<text x="696.0" y="373" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans',Helvetica,Arial,sans-serif" font-size="15" font-weight="400" fill="#9198a1" text-anchor="middle">subtask</text>
+<text x="640" y="406" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans',Helvetica,Arial,sans-serif" font-size="19" font-weight="800" fill="#ff922b" text-anchor="middle">Thread</text>
+<rect x="876.0" y="324.75" width="96" height="5.250000000000001" rx="0" fill="#f85149" stroke="none" stroke-width="1"/>
+<rect x="876.0" y="290.25" width="96" height="34.5" rx="0" fill="#656c76" stroke="none" stroke-width="1"/>
+<text x="924.0" y="282.25" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans',Helvetica,Arial,sans-serif" font-size="18" font-weight="700" fill="#f0f6fc" text-anchor="middle">13%</text>
+<text x="924.0" y="260.25" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans',Helvetica,Arial,sans-serif" font-size="14" font-weight="400" fill="#9198a1" text-anchor="middle">(72%)</text>
+<text x="924.0" y="354" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans',Helvetica,Arial,sans-serif" font-size="15" font-weight="500" fill="#f0f6fc" text-anchor="middle">parent</text>
+<text x="924.0" y="373" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans',Helvetica,Arial,sans-serif" font-size="15" font-weight="400" fill="#9198a1" text-anchor="middle">SIG</text>
+<rect x="988.0" y="329.34" width="96" height="0.66" rx="0" fill="#f85149" stroke="none" stroke-width="1"/>
+<rect x="988.0" y="325.56" width="96" height="3.7800000000000002" rx="0" fill="#656c76" stroke="none" stroke-width="1"/>
+<text x="1036.0" y="317.56" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans',Helvetica,Arial,sans-serif" font-size="18" font-weight="700" fill="#f0f6fc" text-anchor="middle">1%</text>
+<text x="1036.0" y="295.56" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans',Helvetica,Arial,sans-serif" font-size="14" font-weight="400" fill="#9198a1" text-anchor="middle">(28%)</text>
+<text x="1036.0" y="354" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans',Helvetica,Arial,sans-serif" font-size="15" font-weight="500" fill="#f0f6fc" text-anchor="middle">leaf</text>
+<text x="1036.0" y="373" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans',Helvetica,Arial,sans-serif" font-size="15" font-weight="400" fill="#9198a1" text-anchor="middle">KEP</text>
+<text x="980" y="406" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans',Helvetica,Arial,sans-serif" font-size="19" font-weight="800" fill="#b197fc" text-anchor="middle">Design</text>
+<rect x="820" y="104" width="16" height="16" rx="3" fill="#f85149" stroke="none" stroke-width="1"/>
+<text x="844" y="117" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans',Helvetica,Arial,sans-serif" font-size="15" font-weight="400" fill="#f0f6fc" text-anchor="start">conflicting: a different pair is grouped together</text>
+<rect x="820" y="132" width="16" height="16" rx="3" fill="#656c76" stroke="none" stroke-width="1"/>
+<text x="844" y="145" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans',Helvetica,Arial,sans-serif" font-size="15" font-weight="400" fill="#f0f6fc" text-anchor="start">unresolved: the three records are not separated</text>
+</svg>

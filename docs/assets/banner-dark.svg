@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="300" viewBox="0 0 1280 300" role="img" aria-label="InfoOrgBench: Can agents turn scattered information into coherent hierarchies?">
+<title>InfoOrgBench: Can agents turn scattered information into coherent hierarchies?</title>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0f1b33"/><stop offset="1" stop-color="#1c1533"/></linearGradient>
+<linearGradient id="word" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#4493f8"/><stop offset="1" stop-color="#ab7df8"/></linearGradient>
+</defs>
+<rect x="1" y="1" width="1278" height="298" rx="18" fill="url(#bg)" stroke="#3d444d" stroke-width="1.5"/>
+<rect x="49" y="83" width="26" height="18" rx="4" fill="#2dd4bf" stroke="none" stroke-width="1" transform="rotate(-12 62 92)" opacity="0.92"/>
+<rect x="91" y="61" width="26" height="18" rx="4" fill="#b197fc" stroke="none" stroke-width="1" transform="rotate(9 104 70)" opacity="0.92"/>
+<rect x="133" y="95" width="26" height="18" rx="4" fill="#ff922b" stroke="none" stroke-width="1" transform="rotate(-6 146 104)" opacity="0.92"/>
+<rect x="57" y="133" width="26" height="18" rx="4" fill="#ff922b" stroke="none" stroke-width="1" transform="rotate(14 70 142)" opacity="0.92"/>
+<rect x="103" y="141" width="26" height="18" rx="4" fill="#2dd4bf" stroke="none" stroke-width="1" transform="rotate(-10 116 150)" opacity="0.92"/>
+<rect x="147" y="151" width="26" height="18" rx="4" fill="#b197fc" stroke="none" stroke-width="1" transform="rotate(7 160 160)" opacity="0.92"/>
+<rect x="47" y="187" width="26" height="18" rx="4" fill="#b197fc" stroke="none" stroke-width="1" transform="rotate(-7 60 196)" opacity="0.92"/>
+<rect x="95" y="203" width="26" height="18" rx="4" fill="#ff922b" stroke="none" stroke-width="1" transform="rotate(12 108 212)" opacity="0.92"/>
+<rect x="141" y="205" width="26" height="18" rx="4" fill="#2dd4bf" stroke="none" stroke-width="1" transform="rotate(-15 154 214)" opacity="0.92"/>
+<path d="M198 150 L236 150 M226.0 156.0 L236 150 L226.0 144.0" fill="none" stroke="#9198a1" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="262" cy="150" r="13" fill="#4493f8"/>
+<path d="M275 150 H292 V86 H312" fill="none" stroke="#9198a1" stroke-width="3"/>
+<rect x="312" y="74" width="24" height="24" rx="6" fill="#0d1117" stroke="#2dd4bf" stroke-width="3"/>
+<path d="M336 86 H350" stroke="#9198a1" stroke-width="3"/>
+<rect x="352" y="77" width="26" height="18" rx="4" fill="#2dd4bf" stroke="none" stroke-width="1"/>
+<rect x="382" y="77" width="26" height="18" rx="4" fill="#2dd4bf" stroke="none" stroke-width="1"/>
+<rect x="412" y="77" width="26" height="18" rx="4" fill="#2dd4bf" stroke="none" stroke-width="1"/>
+<path d="M275 150 H292 V150 H312" fill="none" stroke="#9198a1" stroke-width="3"/>
+<rect x="312" y="138" width="24" height="24" rx="6" fill="#0d1117" stroke="#ff922b" stroke-width="3"/>
+<path d="M336 150 H350" stroke="#9198a1" stroke-width="3"/>
+<rect x="352" y="141" width="26" height="18" rx="4" fill="#ff922b" stroke="none" stroke-width="1"/>
+<rect x="382" y="141" width="26" height="18" rx="4" fill="#ff922b" stroke="none" stroke-width="1"/>
+<rect x="412" y="141" width="26" height="18" rx="4" fill="#ff922b" stroke="none" stroke-width="1"/>
+<path d="M275 150 H292 V214 H312" fill="none" stroke="#9198a1" stroke-width="3"/>
+<rect x="312" y="202" width="24" height="24" rx="6" fill="#0d1117" stroke="#b197fc" stroke-width="3"/>
+<path d="M336 214 H350" stroke="#9198a1" stroke-width="3"/>
+<rect x="352" y="205" width="26" height="18" rx="4" fill="#b197fc" stroke="none" stroke-width="1"/>
+<rect x="382" y="205" width="26" height="18" rx="4" fill="#b197fc" stroke="none" stroke-width="1"/>
+<rect x="412" y="205" width="26" height="18" rx="4" fill="#b197fc" stroke="none" stroke-width="1"/>
+<text x="470" y="150" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans',Helvetica,Arial,sans-serif" font-size="88" font-weight="800" letter-spacing="-2" fill="#f0f6fc">Info<tspan fill="url(#word)">Org</tspan>Bench</text>
+<text x="472" y="196" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans',Helvetica,Arial,sans-serif" font-size="25" font-weight="500" fill="#9198a1" text-anchor="start">Can agents turn scattered information into coherent hierarchies?</text>
+<rect x="472" y="222" width="118" height="34" rx="17" fill="#0d1117" stroke="#3d444d" stroke-width="1.2"/>
+<text x="531.0" y="245" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans',Helvetica,Arial,sans-serif" font-size="17" font-weight="600" fill="#f0f6fc" text-anchor="middle">150 tasks</text>
+<rect x="602" y="222" width="177" height="34" rx="17" fill="#0d1117" stroke="#3d444d" stroke-width="1.2"/>
+<text x="690.5" y="245" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans',Helvetica,Arial,sans-serif" font-size="17" font-weight="600" fill="#f0f6fc" text-anchor="middle">3 task families</text>
+<rect x="791" y="222" width="187" height="34" rx="17" fill="#0d1117" stroke="#3d444d" stroke-width="1.2"/>
+<text x="884.5" y="245" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans',Helvetica,Arial,sans-serif" font-size="17" font-weight="600" fill="#f0f6fc" text-anchor="middle">45 agent systems</text>
+<rect x="990" y="222" width="187" height="34" rx="17" fill="#0d1117" stroke="#3d444d" stroke-width="1.2"/>
+<text x="1083.5" y="245" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans',Helvetica,Arial,sans-serif" font-size="17" font-weight="600" fill="#f0f6fc" text-anchor="middle">LLM-free scoring</text>
+</svg>

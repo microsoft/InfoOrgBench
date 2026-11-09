@@ -1,0 +1,1180 @@
+{
+ "source": "InfoOrgBench paper: Table 3 (45 systems), Table 11 (model means), Table 12 (text-only baselines), Figure 2 and Table 13 (error rates by level). All scores are on a 0-100 scale.",
+ "families": [
+  "Recap",
+  "Thread",
+  "Design"
+ ],
+ "harnesses": [
+  "ReAct-FC",
+  "Pi",
+  "Deep Agents",
+  "DSH",
+  "Codex"
+ ],
+ "columns": {
+  "trip": "pooled Triplet F1",
+  "pen": "folder-economy penalty 100(1 - E), lower is better",
+  "score": "Structure Score"
+ },
+ "systems": [
+  {
+   "model": "Claude Haiku 4.5",
+   "harness": "ReAct-FC",
+   "Recap": {
+    "trip": 38.5,
+    "pen": 0.8,
+    "score": 40.8
+   },
+   "Thread": {
+    "trip": 42.1,
+    "pen": 9.9,
+    "score": 46.2
+   },
+   "Design": {
+    "trip": 76.0,
+    "pen": 2.9,
+    "score": 79.9
+   },
+   "Avg": {
+    "trip": 52.2,
+    "pen": 4.5,
+    "score": 55.6
+   }
+  },
+  {
+   "model": "Claude Haiku 4.5",
+   "harness": "Pi",
+   "Recap": {
+    "trip": 37.3,
+    "pen": 1.1,
+    "score": 39.8
+   },
+   "Thread": {
+    "trip": 50.6,
+    "pen": 7.0,
+    "score": 53.0
+   },
+   "Design": {
+    "trip": 78.4,
+    "pen": 2.6,
+    "score": 80.9
+   },
+   "Avg": {
+    "trip": 55.4,
+    "pen": 3.6,
+    "score": 57.9
+   }
+  },
+  {
+   "model": "Claude Haiku 4.5",
+   "harness": "Deep Agents",
+   "Recap": {
+    "trip": 37.5,
+    "pen": 1.0,
+    "score": 40.2
+   },
+   "Thread": {
+    "trip": 47.1,
+    "pen": 8.2,
+    "score": 50.7
+   },
+   "Design": {
+    "trip": 75.5,
+    "pen": 3.0,
+    "score": 79.0
+   },
+   "Avg": {
+    "trip": 53.4,
+    "pen": 4.1,
+    "score": 56.7
+   }
+  },
+  {
+   "model": "Claude Haiku 4.5",
+   "harness": "DSH",
+   "Recap": {
+    "trip": 33.9,
+    "pen": 0.9,
+    "score": 37.1
+   },
+   "Thread": {
+    "trip": 37.4,
+    "pen": 14.7,
+    "score": 46.8
+   },
+   "Design": {
+    "trip": 71.4,
+    "pen": 7.5,
+    "score": 74.7
+   },
+   "Avg": {
+    "trip": 47.6,
+    "pen": 7.7,
+    "score": 52.9
+   }
+  },
+  {
+   "model": "Claude Haiku 4.5",
+   "harness": "Codex",
+   "Recap": {
+    "trip": 35.1,
+    "pen": 0.9,
+    "score": 38.7
+   },
+   "Thread": {
+    "trip": 41.8,
+    "pen": 8.8,
+    "score": 43.9
+   },
+   "Design": {
+    "trip": 71.1,
+    "pen": 3.7,
+    "score": 74.9
+   },
+   "Avg": {
+    "trip": 49.3,
+    "pen": 4.5,
+    "score": 52.5
+   }
+  },
+  {
+   "model": "Claude Haiku 5.5",
+   "harness": "ReAct-FC",
+   "Recap": {
+    "trip": 39.0,
+    "pen": 1.6,
+    "score": 39.9
+   },
+   "Thread": {
+    "trip": 64.3,
+    "pen": 3.8,
+    "score": 65.1
+   },
+   "Design": {
+    "trip": 88.7,
+    "pen": 1.0,
+    "score": 90.0
+   },
+   "Avg": {
+    "trip": 64.0,
+    "pen": 2.1,
+    "score": 65.0
+   }
+  },
+  {
+   "model": "Claude Haiku 5.5",
+   "harness": "Pi",
+   "Recap": {
+    "trip": 35.9,
+    "pen": 1.3,
+    "score": 36.9
+   },
+   "Thread": {
+    "trip": 66.5,
+    "pen": 1.5,
+    "score": 66.8
+   },
+   "Design": {
+    "trip": 90.8,
+    "pen": 0.7,
+    "score": 92.0
+   },
+   "Avg": {
+    "trip": 64.4,
+    "pen": 1.2,
+    "score": 65.3
+   }
+  },
+  {
+   "model": "Claude Haiku 5.5",
+   "harness": "Deep Agents",
+   "Recap": {
+    "trip": 37.5,
+    "pen": 0.9,
+    "score": 40.2
+   },
+   "Thread": {
+    "trip": 68.7,
+    "pen": 2.1,
+    "score": 67.6
+   },
+   "Design": {
+    "trip": 91.1,
+    "pen": 0.9,
+    "score": 91.9
+   },
+   "Avg": {
+    "trip": 65.8,
+    "pen": 1.3,
+    "score": 66.5
+   }
+  },
+  {
+   "model": "Claude Haiku 5.5",
+   "harness": "DSH",
+   "Recap": {
+    "trip": 36.4,
+    "pen": 0.5,
+    "score": 42.8
+   },
+   "Thread": {
+    "trip": 62.8,
+    "pen": 2.7,
+    "score": 63.6
+   },
+   "Design": {
+    "trip": 90.1,
+    "pen": 0.9,
+    "score": 91.2
+   },
+   "Avg": {
+    "trip": 63.1,
+    "pen": 1.3,
+    "score": 65.9
+   }
+  },
+  {
+   "model": "Claude Haiku 5.5",
+   "harness": "Codex",
+   "Recap": {
+    "trip": 36.9,
+    "pen": 1.3,
+    "score": 40.1
+   },
+   "Thread": {
+    "trip": 65.2,
+    "pen": 2.1,
+    "score": 64.8
+   },
+   "Design": {
+    "trip": 93.6,
+    "pen": 0.6,
+    "score": 94.2
+   },
+   "Avg": {
+    "trip": 65.2,
+    "pen": 1.3,
+    "score": 66.3
+   }
+  },
+  {
+   "model": "Claude Sonnet 5.5",
+   "harness": "ReAct-FC",
+   "Recap": {
+    "trip": 50.5,
+    "pen": 1.1,
+    "score": 48.5
+   },
+   "Thread": {
+    "trip": 73.2,
+    "pen": 0.9,
+    "score": 73.5
+   },
+   "Design": {
+    "trip": 91.4,
+    "pen": 0.6,
+    "score": 92.9
+   },
+   "Avg": {
+    "trip": 71.7,
+    "pen": 0.9,
+    "score": 71.6
+   }
+  },
+  {
+   "model": "Claude Sonnet 5.5",
+   "harness": "Pi",
+   "Recap": {
+    "trip": 50.9,
+    "pen": 1.1,
+    "score": 48.9
+   },
+   "Thread": {
+    "trip": 72.4,
+    "pen": 0.7,
+    "score": 73.6
+   },
+   "Design": {
+    "trip": 91.3,
+    "pen": 0.6,
+    "score": 92.7
+   },
+   "Avg": {
+    "trip": 71.5,
+    "pen": 0.8,
+    "score": 71.7
+   }
+  },
+  {
+   "model": "Claude Sonnet 5.5",
+   "harness": "Deep Agents",
+   "Recap": {
+    "trip": 51.9,
+    "pen": 0.8,
+    "score": 50.3
+   },
+   "Thread": {
+    "trip": 73.6,
+    "pen": 0.5,
+    "score": 73.5
+   },
+   "Design": {
+    "trip": 92.2,
+    "pen": 0.8,
+    "score": 93.3
+   },
+   "Avg": {
+    "trip": 72.6,
+    "pen": 0.7,
+    "score": 72.4
+   }
+  },
+  {
+   "model": "Claude Sonnet 5.5",
+   "harness": "DSH",
+   "Recap": {
+    "trip": 49.6,
+    "pen": 1.0,
+    "score": 48.9
+   },
+   "Thread": {
+    "trip": 72.1,
+    "pen": 0.9,
+    "score": 72.4
+   },
+   "Design": {
+    "trip": 90.8,
+    "pen": 0.8,
+    "score": 92.0
+   },
+   "Avg": {
+    "trip": 70.8,
+    "pen": 0.9,
+    "score": 71.1
+   }
+  },
+  {
+   "model": "Claude Sonnet 5.5",
+   "harness": "Codex",
+   "Recap": {
+    "trip": 48.4,
+    "pen": 0.9,
+    "score": 47.5
+   },
+   "Thread": {
+    "trip": 70.9,
+    "pen": 1.2,
+    "score": 71.5
+   },
+   "Design": {
+    "trip": 90.9,
+    "pen": 0.7,
+    "score": 92.6
+   },
+   "Avg": {
+    "trip": 70.0,
+    "pen": 0.9,
+    "score": 70.5
+   }
+  },
+  {
+   "model": "MAI-Code-1.1-Flash",
+   "harness": "ReAct-FC",
+   "Recap": {
+    "trip": 36.7,
+    "pen": 1.1,
+    "score": 41.7
+   },
+   "Thread": {
+    "trip": 47.3,
+    "pen": 5.2,
+    "score": 47.2
+   },
+   "Design": {
+    "trip": 77.7,
+    "pen": 3.2,
+    "score": 79.3
+   },
+   "Avg": {
+    "trip": 53.9,
+    "pen": 3.2,
+    "score": 56.1
+   }
+  },
+  {
+   "model": "MAI-Code-1.1-Flash",
+   "harness": "Pi",
+   "Recap": {
+    "trip": 35.8,
+    "pen": 1.4,
+    "score": 39.8
+   },
+   "Thread": {
+    "trip": 54.7,
+    "pen": 6.1,
+    "score": 54.0
+   },
+   "Design": {
+    "trip": 77.1,
+    "pen": 3.8,
+    "score": 78.0
+   },
+   "Avg": {
+    "trip": 55.9,
+    "pen": 3.8,
+    "score": 57.3
+   }
+  },
+  {
+   "model": "MAI-Code-1.1-Flash",
+   "harness": "Deep Agents",
+   "Recap": {
+    "trip": 33.9,
+    "pen": 1.1,
+    "score": 37.6
+   },
+   "Thread": {
+    "trip": 53.5,
+    "pen": 6.3,
+    "score": 53.1
+   },
+   "Design": {
+    "trip": 76.8,
+    "pen": 3.9,
+    "score": 78.3
+   },
+   "Avg": {
+    "trip": 54.7,
+    "pen": 3.8,
+    "score": 56.3
+   }
+  },
+  {
+   "model": "MAI-Code-1.1-Flash",
+   "harness": "DSH",
+   "Recap": {
+    "trip": 35.8,
+    "pen": 0.6,
+    "score": 38.9
+   },
+   "Thread": {
+    "trip": 49.0,
+    "pen": 8.7,
+    "score": 51.9
+   },
+   "Design": {
+    "trip": 77.2,
+    "pen": 3.6,
+    "score": 79.3
+   },
+   "Avg": {
+    "trip": 54.0,
+    "pen": 4.3,
+    "score": 56.7
+   }
+  },
+  {
+   "model": "MAI-Code-1.1-Flash",
+   "harness": "Codex",
+   "Recap": {
+    "trip": 35.2,
+    "pen": 1.2,
+    "score": 36.8
+   },
+   "Thread": {
+    "trip": 48.4,
+    "pen": 8.2,
+    "score": 49.0
+   },
+   "Design": {
+    "trip": 73.2,
+    "pen": 3.6,
+    "score": 75.7
+   },
+   "Avg": {
+    "trip": 52.3,
+    "pen": 4.3,
+    "score": 53.8
+   }
+  },
+  {
+   "model": "Grok 4.7",
+   "harness": "ReAct-FC",
+   "Recap": {
+    "trip": 53.8,
+    "pen": 1.7,
+    "score": 51.0
+   },
+   "Thread": {
+    "trip": 56.1,
+    "pen": 8.0,
+    "score": 62.2
+   },
+   "Design": {
+    "trip": 91.6,
+    "pen": 0.8,
+    "score": 92.6
+   },
+   "Avg": {
+    "trip": 67.2,
+    "pen": 3.5,
+    "score": 68.6
+   }
+  },
+  {
+   "model": "Grok 4.7",
+   "harness": "Pi",
+   "Recap": {
+    "trip": 55.0,
+    "pen": 1.4,
+    "score": 53.2
+   },
+   "Thread": {
+    "trip": 57.6,
+    "pen": 7.9,
+    "score": 62.9
+   },
+   "Design": {
+    "trip": 92.1,
+    "pen": 0.6,
+    "score": 93.1
+   },
+   "Avg": {
+    "trip": 68.2,
+    "pen": 3.3,
+    "score": 69.7
+   }
+  },
+  {
+   "model": "Grok 4.7",
+   "harness": "Deep Agents",
+   "Recap": {
+    "trip": 55.8,
+    "pen": 1.8,
+    "score": 53.2
+   },
+   "Thread": {
+    "trip": 57.2,
+    "pen": 8.2,
+    "score": 62.8
+   },
+   "Design": {
+    "trip": 91.4,
+    "pen": 0.7,
+    "score": 92.4
+   },
+   "Avg": {
+    "trip": 68.1,
+    "pen": 3.6,
+    "score": 69.5
+   }
+  },
+  {
+   "model": "Grok 4.7",
+   "harness": "DSH",
+   "Recap": {
+    "trip": 56.1,
+    "pen": 1.5,
+    "score": 54.5
+   },
+   "Thread": {
+    "trip": 57.7,
+    "pen": 7.4,
+    "score": 63.0
+   },
+   "Design": {
+    "trip": 92.0,
+    "pen": 0.8,
+    "score": 92.9
+   },
+   "Avg": {
+    "trip": 68.6,
+    "pen": 3.2,
+    "score": 70.2
+   }
+  },
+  {
+   "model": "Grok 4.7",
+   "harness": "Codex",
+   "Recap": {
+    "trip": 56.6,
+    "pen": 1.6,
+    "score": 54.3
+   },
+   "Thread": {
+    "trip": 55.7,
+    "pen": 8.4,
+    "score": 61.6
+   },
+   "Design": {
+    "trip": 91.7,
+    "pen": 0.8,
+    "score": 92.6
+   },
+   "Avg": {
+    "trip": 68.0,
+    "pen": 3.6,
+    "score": 69.5
+   }
+  },
+  {
+   "model": "GPT-5.6 Luna",
+   "harness": "ReAct-FC",
+   "Recap": {
+    "trip": 35.8,
+    "pen": 1.2,
+    "score": 37.0
+   },
+   "Thread": {
+    "trip": 46.3,
+    "pen": 10.9,
+    "score": 51.0
+   },
+   "Design": {
+    "trip": 89.1,
+    "pen": 1.2,
+    "score": 90.3
+   },
+   "Avg": {
+    "trip": 57.1,
+    "pen": 4.4,
+    "score": 59.4
+   }
+  },
+  {
+   "model": "GPT-5.6 Luna",
+   "harness": "Pi",
+   "Recap": {
+    "trip": 35.5,
+    "pen": 1.3,
+    "score": 36.7
+   },
+   "Thread": {
+    "trip": 50.4,
+    "pen": 8.2,
+    "score": 54.7
+   },
+   "Design": {
+    "trip": 88.0,
+    "pen": 1.1,
+    "score": 89.4
+   },
+   "Avg": {
+    "trip": 57.9,
+    "pen": 3.6,
+    "score": 60.3
+   }
+  },
+  {
+   "model": "GPT-5.6 Luna",
+   "harness": "Deep Agents",
+   "Recap": {
+    "trip": 37.0,
+    "pen": 0.9,
+    "score": 38.5
+   },
+   "Thread": {
+    "trip": 50.6,
+    "pen": 8.3,
+    "score": 53.9
+   },
+   "Design": {
+    "trip": 86.8,
+    "pen": 1.3,
+    "score": 88.6
+   },
+   "Avg": {
+    "trip": 58.1,
+    "pen": 3.5,
+    "score": 60.3
+   }
+  },
+  {
+   "model": "GPT-5.6 Luna",
+   "harness": "DSH",
+   "Recap": {
+    "trip": 38.0,
+    "pen": 1.2,
+    "score": 40.3
+   },
+   "Thread": {
+    "trip": 47.4,
+    "pen": 10.2,
+    "score": 51.5
+   },
+   "Design": {
+    "trip": 86.5,
+    "pen": 1.4,
+    "score": 87.9
+   },
+   "Avg": {
+    "trip": 57.3,
+    "pen": 4.3,
+    "score": 59.9
+   }
+  },
+  {
+   "model": "GPT-5.6 Luna",
+   "harness": "Codex",
+   "Recap": {
+    "trip": 38.1,
+    "pen": 1.2,
+    "score": 40.3
+   },
+   "Thread": {
+    "trip": 47.2,
+    "pen": 10.1,
+    "score": 52.2
+   },
+   "Design": {
+    "trip": 86.0,
+    "pen": 1.3,
+    "score": 88.2
+   },
+   "Avg": {
+    "trip": 57.1,
+    "pen": 4.2,
+    "score": 60.2
+   }
+  },
+  {
+   "model": "GPT-5.6 Terra",
+   "harness": "ReAct-FC",
+   "Recap": {
+    "trip": 43.1,
+    "pen": 1.3,
+    "score": 43.6
+   },
+   "Thread": {
+    "trip": 54.2,
+    "pen": 8.2,
+    "score": 57.5
+   },
+   "Design": {
+    "trip": 91.1,
+    "pen": 0.8,
+    "score": 92.3
+   },
+   "Avg": {
+    "trip": 62.8,
+    "pen": 3.5,
+    "score": 64.5
+   }
+  },
+  {
+   "model": "GPT-5.6 Terra",
+   "harness": "Pi",
+   "Recap": {
+    "trip": 41.3,
+    "pen": 1.1,
+    "score": 42.9
+   },
+   "Thread": {
+    "trip": 61.5,
+    "pen": 4.8,
+    "score": 63.7
+   },
+   "Design": {
+    "trip": 89.2,
+    "pen": 0.9,
+    "score": 90.8
+   },
+   "Avg": {
+    "trip": 64.0,
+    "pen": 2.3,
+    "score": 65.8
+   }
+  },
+  {
+   "model": "GPT-5.6 Terra",
+   "harness": "Deep Agents",
+   "Recap": {
+    "trip": 42.7,
+    "pen": 1.2,
+    "score": 43.5
+   },
+   "Thread": {
+    "trip": 60.6,
+    "pen": 5.4,
+    "score": 62.3
+   },
+   "Design": {
+    "trip": 89.8,
+    "pen": 1.0,
+    "score": 90.9
+   },
+   "Avg": {
+    "trip": 64.4,
+    "pen": 2.5,
+    "score": 65.6
+   }
+  },
+  {
+   "model": "GPT-5.6 Terra",
+   "harness": "DSH",
+   "Recap": {
+    "trip": 40.6,
+    "pen": 1.4,
+    "score": 40.9
+   },
+   "Thread": {
+    "trip": 55.6,
+    "pen": 7.1,
+    "score": 58.3
+   },
+   "Design": {
+    "trip": 90.1,
+    "pen": 0.7,
+    "score": 91.4
+   },
+   "Avg": {
+    "trip": 62.1,
+    "pen": 3.1,
+    "score": 63.5
+   }
+  },
+  {
+   "model": "GPT-5.6 Terra",
+   "harness": "Codex",
+   "Recap": {
+    "trip": 41.4,
+    "pen": 1.2,
+    "score": 41.6
+   },
+   "Thread": {
+    "trip": 57.8,
+    "pen": 6.9,
+    "score": 59.6
+   },
+   "Design": {
+    "trip": 90.5,
+    "pen": 1.0,
+    "score": 92.0
+   },
+   "Avg": {
+    "trip": 63.2,
+    "pen": 3.0,
+    "score": 64.4
+   }
+  },
+  {
+   "model": "GPT-6 Luna",
+   "harness": "ReAct-FC",
+   "Recap": {
+    "trip": 40.4,
+    "pen": 1.4,
+    "score": 39.9
+   },
+   "Thread": {
+    "trip": 48.8,
+    "pen": 9.7,
+    "score": 53.7
+   },
+   "Design": {
+    "trip": 89.1,
+    "pen": 1.1,
+    "score": 89.9
+   },
+   "Avg": {
+    "trip": 59.4,
+    "pen": 4.0,
+    "score": 61.2
+   }
+  },
+  {
+   "model": "GPT-6 Luna",
+   "harness": "Pi",
+   "Recap": {
+    "trip": 41.3,
+    "pen": 1.2,
+    "score": 42.3
+   },
+   "Thread": {
+    "trip": 50.1,
+    "pen": 9.0,
+    "score": 55.3
+   },
+   "Design": {
+    "trip": 89.9,
+    "pen": 1.0,
+    "score": 90.5
+   },
+   "Avg": {
+    "trip": 60.4,
+    "pen": 3.8,
+    "score": 62.7
+   }
+  },
+  {
+   "model": "GPT-6 Luna",
+   "harness": "Deep Agents",
+   "Recap": {
+    "trip": 41.5,
+    "pen": 1.4,
+    "score": 42.3
+   },
+   "Thread": {
+    "trip": 50.8,
+    "pen": 8.8,
+    "score": 55.9
+   },
+   "Design": {
+    "trip": 90.6,
+    "pen": 1.0,
+    "score": 91.1
+   },
+   "Avg": {
+    "trip": 61.0,
+    "pen": 3.7,
+    "score": 63.1
+   }
+  },
+  {
+   "model": "GPT-6 Luna",
+   "harness": "DSH",
+   "Recap": {
+    "trip": 42.8,
+    "pen": 1.2,
+    "score": 43.8
+   },
+   "Thread": {
+    "trip": 47.6,
+    "pen": 9.3,
+    "score": 53.0
+   },
+   "Design": {
+    "trip": 89.5,
+    "pen": 1.1,
+    "score": 90.4
+   },
+   "Avg": {
+    "trip": 60.0,
+    "pen": 3.9,
+    "score": 62.4
+   }
+  },
+  {
+   "model": "GPT-6 Luna",
+   "harness": "Codex",
+   "Recap": {
+    "trip": 44.9,
+    "pen": 1.0,
+    "score": 44.5
+   },
+   "Thread": {
+    "trip": 59.8,
+    "pen": 9.7,
+    "score": 54.2
+   },
+   "Design": {
+    "trip": 91.2,
+    "pen": 1.1,
+    "score": 90.2
+   },
+   "Avg": {
+    "trip": 65.3,
+    "pen": 3.9,
+    "score": 63.0
+   }
+  },
+  {
+   "model": "GPT-6.1 Sol",
+   "harness": "ReAct-FC",
+   "Recap": {
+    "trip": 78.1,
+    "pen": 0.7,
+    "score": 74.1
+   },
+   "Thread": {
+    "trip": 78.1,
+    "pen": 0.6,
+    "score": 77.9
+   },
+   "Design": {
+    "trip": 94.9,
+    "pen": 0.3,
+    "score": 95.8
+   },
+   "Avg": {
+    "trip": 83.7,
+    "pen": 0.5,
+    "score": 82.6
+   }
+  },
+  {
+   "model": "GPT-6.1 Sol",
+   "harness": "Pi",
+   "Recap": {
+    "trip": 79.0,
+    "pen": 0.8,
+    "score": 75.5
+   },
+   "Thread": {
+    "trip": 76.6,
+    "pen": 0.6,
+    "score": 76.5
+   },
+   "Design": {
+    "trip": 94.6,
+    "pen": 0.2,
+    "score": 95.6
+   },
+   "Avg": {
+    "trip": 83.4,
+    "pen": 0.5,
+    "score": 82.5
+   }
+  },
+  {
+   "model": "GPT-6.1 Sol",
+   "harness": "Deep Agents",
+   "Recap": {
+    "trip": 79.8,
+    "pen": 0.9,
+    "score": 76.3
+   },
+   "Thread": {
+    "trip": 76.0,
+    "pen": 0.7,
+    "score": 76.3
+   },
+   "Design": {
+    "trip": 93.3,
+    "pen": 0.4,
+    "score": 94.6
+   },
+   "Avg": {
+    "trip": 83.0,
+    "pen": 0.6,
+    "score": 82.4
+   }
+  },
+  {
+   "model": "GPT-6.1 Sol",
+   "harness": "DSH",
+   "Recap": {
+    "trip": 81.4,
+    "pen": 0.8,
+    "score": 77.8
+   },
+   "Thread": {
+    "trip": 76.4,
+    "pen": 0.5,
+    "score": 76.6
+   },
+   "Design": {
+    "trip": 93.8,
+    "pen": 0.3,
+    "score": 95.2
+   },
+   "Avg": {
+    "trip": 83.9,
+    "pen": 0.5,
+    "score": 83.2
+   }
+  },
+  {
+   "model": "GPT-6.1 Sol",
+   "harness": "Codex",
+   "Recap": {
+    "trip": 73.8,
+    "pen": 0.8,
+    "score": 70.3
+   },
+   "Thread": {
+    "trip": 76.8,
+    "pen": 0.3,
+    "score": 77.2
+   },
+   "Design": {
+    "trip": 94.4,
+    "pen": 0.4,
+    "score": 95.4
+   },
+   "Avg": {
+    "trip": 81.7,
+    "pen": 0.5,
+    "score": 80.9
+   }
+  }
+ ],
+ "model_means": {
+  "GPT-6.1 Sol": 82.3,
+  "Claude Sonnet 5.5": 71.5,
+  "Grok 4.7": 69.5,
+  "Claude Haiku 5.5": 65.8,
+  "GPT-5.6 Terra": 64.7,
+  "GPT-6 Luna": 62.5,
+  "GPT-5.6 Luna": 60.0,
+  "MAI-Code-1.1-Flash": 56.0,
+  "Claude Haiku 4.5": 55.1
+ },
+ "baselines": {
+  "Filed flat": {
+   "Recap": 0.0,
+   "Thread": 0.0,
+   "Design": 0.0
+  },
+  "Fixed cuts": {
+   "Recap": 9.4,
+   "Thread": 16.6,
+   "Design": 45.9
+  },
+  "Random shape": {
+   "Recap": 18.5,
+   "Thread": 19.6,
+   "Design": 17.0
+  },
+  "Silhouette": {
+   "Recap": 26.9,
+   "Thread": 34.0,
+   "Design": 71.0
+  }
+ },
+ "level_errors": {
+  "note": "Median share of reference-resolved triples that outputs get wrong, over systems with per-level data (Recap 25, Thread 21, Design 25); any_error is the share of outputs with at least one error at that level.",
+  "Recap": {
+   "parent": {
+    "name": "meeting",
+    "conflicting": 0.3547,
+    "unresolved": 0.2734,
+    "any_error": 0.971
+   },
+   "leaf": {
+    "name": "section",
+    "conflicting": 0.3586,
+    "unresolved": 0.1768,
+    "any_error": 0.998
+   }
+  },
+  "Thread": {
+   "parent": {
+    "name": "issue",
+    "conflicting": 0.0711,
+    "unresolved": 0.5396,
+    "any_error": 0.968
+   },
+   "leaf": {
+    "name": "subtask",
+    "conflicting": 0.0923,
+    "unresolved": 0.2237,
+    "any_error": 0.973
+   }
+  },
+  "Design": {
+   "parent": {
+    "name": "SIG",
+    "conflicting": 0.0175,
+    "unresolved": 0.115,
+    "any_error": 0.715
+   },
+   "leaf": {
+    "name": "KEP",
+    "conflicting": 0.0022,
+    "unresolved": 0.0126,
+    "any_error": 0.28
+   }
+  }
+ }
+}

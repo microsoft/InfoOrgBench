@@ -18,6 +18,7 @@ while preserving every record unchanged.
 | `benchmark/engine/` | Scorer |
 | `benchmark/algorithm-source/` | Baseline predictors and fixed configurations |
 | `benchmark/replay.py` | Offline replay of every saved output |
+| `benchmark/run_task.py` | Prepare a task for any agent, then check and score its final folder tree |
 | `docs/THREAD-DATA.md` | How to download the Jira issues and build the Thread packets |
 | `results/` | Per-task scores and run settings of the paper's 45 systems, and `check_table3.py`, which reproduces the main results table |
 | `results/assignments/`, `results/rescore.py` | Final assignment trees of the 45 systems (5,368 of 6,750 outputs) and a script that rescores them against the per-task scores |

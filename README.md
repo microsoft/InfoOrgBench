@@ -1,144 +1,472 @@
-# InfoOrgBench
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="docs/assets/banner-dark.svg">
+    <img alt="InfoOrgBench: Can agents turn scattered information into coherent hierarchies?" src="docs/assets/banner-light.svg" width="100%">
+  </picture>
+</p>
 
-**InfoOrgBench** (Information Organization Benchmark) measures how agents
-organize a fixed set of records into a hierarchy while keeping every record
-unchanged. The scorer compares the final folder tree with a source-derived
-reference; folder names are not scored.
+<p align="center">
+  <a href="#citation"><img alt="Paper: coming soon" src="https://img.shields.io/badge/Paper-coming_soon-b31b1b?style=for-the-badge&logo=arxiv&logoColor=white"></a>
+  <a href="docs/DATASHEET.md"><img alt="Data: 150 tasks" src="https://img.shields.io/badge/Data-150_tasks-8250df?style=for-the-badge"></a>
+  <a href="#results"><img alt="Results: 45 agent systems" src="https://img.shields.io/badge/Results-45_systems-0e8a7e?style=for-the-badge"></a>
+  <a href="LICENSE"><img alt="Licence: MIT" src="https://img.shields.io/badge/Licence-MIT-0969da?style=for-the-badge"></a>
+</p>
 
-**Version:** 1.0.0 (release candidate)
+<p align="center">
+  <b>
+    <a href="#overview">Overview</a> &nbsp;·&nbsp;
+    <a href="#task-families">Tasks</a> &nbsp;·&nbsp;
+    <a href="#scoring">Scoring</a> &nbsp;·&nbsp;
+    <a href="#results">Results</a> &nbsp;·&nbsp;
+    <a href="#key-findings">Findings</a> &nbsp;·&nbsp;
+    <a href="#quick-start">Quick start</a> &nbsp;·&nbsp;
+    <a href="#whats-in-this-repository">Repository</a> &nbsp;·&nbsp;
+    <a href="#citation">Citation</a>
+  </b>
+</p>
 
-> [!NOTE]
-> **Licence scope.** The MIT licence in [LICENSE](LICENSE) covers the
-> InfoOrgBench code only. Text taken from other sources stays under its
-> original licence and is not relicensed: AMI meeting annotations under
-> CC BY 4.0 and Kubernetes Enhancement Proposals under Apache-2.0. Apache
-> Hadoop Jira text is not included; you download it yourself. See
-> [Licensing](#licensing) and [NOTICE.md](NOTICE.md).
+**InfoOrgBench** tests whether AI agents can turn scattered records, such as
+meeting notes, issue threads and design-document excerpts, into the folder
+hierarchy their sources record. An agent can keep every record and group
+related ones correctly, yet still file whole groups under the wrong parent.
+InfoOrgBench checks record preservation separately and scores agreement with
+the source hierarchy at every level, without an LLM judge.
 
-> [!IMPORTANT]
-> **Release candidate.** This repository is not yet public. Publication waits
-> for Microsoft's release and dataset reviews, tracked in
-> [release/manifest.json](release/manifest.json).
+**News.** November 2026: code, 150 tasks, the scorer, baselines, per-task
+results and final trees of the paper's 45 systems, and the agent harnesses are
+released. The paper link follows soon.
 
-## Contents
+## Overview
 
-| Path | Contents |
-| --- | --- |
-| [benchmark/inputs/public/](benchmark/inputs/public) | Task packets as given to agents: 50 Recap and 50 Design. The 50 Thread packets are built locally (see below). |
-| [benchmark/inputs/reference/](benchmark/inputs/reference) | Reference hierarchies for all 150 tasks, used only by the evaluator. They hold record IDs, source IDs and hashes, not record text. |
-| [benchmark/build_thread.py](benchmark/build_thread.py) and [benchmark/sources/hadoop-jira/](benchmark/sources/hadoop-jira) | Tool and issue list for building the Thread packets from Apache Hadoop Jira |
-| [benchmark/predictions/](benchmark/predictions) | 1,700 saved outputs: 1,500 deterministic baselines and 200 model outputs |
-| [benchmark/saved-results.json](benchmark/saved-results.json) | Expected metrics for every saved output |
-| [benchmark/engine/](benchmark/engine) | Scorer |
-| [benchmark/algorithm-source/](benchmark/algorithm-source) | Baseline predictors and fixed configurations |
-| [benchmark/replay.py](benchmark/replay.py) | Offline replay of every saved output |
-| [results/](results) | Scores and run settings of the paper's 45 systems, per task, with a script that reproduces the main results table |
-| [results/assignments/](results/assignments) and [results/rescore.py](results/rescore.py) | Final assignment trees of the paper's 45 systems (5,368 of 6,750 outputs) and a script that rescores them against the per-task scores |
-| [harness/](harness) | The ReAct-FC harness and adapters for Codex CLI, Pi, DeepSeek Harness and Deep Agents, with model access through GitHub Copilot or a provider API key |
-| [benchmark/manifest.json](benchmark/manifest.json) | SHA-256 of every file the replay reads |
-| [docs/DATASHEET.md](docs/DATASHEET.md) | Dataset documentation |
-| [docs/THREAD-DATA.md](docs/THREAD-DATA.md) | How to download the Jira issues and build the Thread packets |
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="docs/assets/overview-dark.svg">
+    <img alt="Agents see an inbox of records and move them into folders through harness tools. The evaluator compares the final tree with the hidden source hierarchy: in this Design example the agent keeps a proposal intact but files it under the wrong owning group, so the leaf-level relation agrees and the parent-level relation conflicts." src="docs/assets/overview-light.svg" width="100%">
+  </picture>
+</p>
 
-### Task families
+Agents see records with opaque IDs and an organizing criterion, and move them
+into folders. When they stop, the final files are captured and compared with
+the source hierarchy, which only the evaluator holds. In the example, the agent
+keeps a Kubernetes proposal (KEP) intact but files it under the wrong owning
+group (SIG).
 
-| Family | Source | Reference hierarchy | Released here |
-| --- | --- | --- | --- |
-| Recap | AMI Meeting Corpus manual annotations | Meeting, then summary section | Packets and references |
-| Design | Kubernetes Enhancement Proposals | Owning SIG, then proposal | Packets and references |
-| Thread | Apache Hadoop Jira | Parent issue, then subtask | References, issue list and build tool; you download the Jira text |
+<table>
+  <tr>
+    <td align="center" width="25%"><h3>150 tasks</h3>3 families, 6,657 records</td>
+    <td align="center" width="25%"><h3>Source hierarchies</h3>Hidden from the agent</td>
+    <td align="center" width="25%"><h3>Structure Score</h3>Per level, LLM-free</td>
+    <td align="center" width="25%"><h3>45 systems</h3>9 models × 5 harnesses</td>
+  </tr>
+</table>
 
-### Saved outputs
+## Task families
 
-| Outputs | Conditions |
-| --- | --- |
-| 1,200 baseline outputs | On each family: flat filing, fixed cut and silhouette clustering (50 each), plus random assignment into the silhouette-predicted shape with five seeds (250) |
-| 300 diagnostic outputs | On Thread only: silhouette clustering (50) and random shape assignment (250) with identifiers masked |
-| 200 model outputs | Claude Haiku 4.5 and GPT-6.1 Sol, each with a ReAct function-calling harness, on the 50 Recap and 50 Thread tasks |
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="docs/assets/families-dark.svg">
+    <img alt="Recap: AMI meeting summaries organized by meeting and summary section. Thread: Apache Hadoop Jira issues organized by parent issue and subtask. Design: Kubernetes Enhancement Proposal excerpts organized by owning SIG and proposal." src="docs/assets/families-light.svg" width="100%">
+  </picture>
+</p>
 
-Model outputs contain only the final assignment of each record ID to a folder
-path, including the folder labels the model wrote. Conversation transcripts,
-tool-call logs and token usage are not included.
+| Family | Records | Hierarchy | Records per task | Groups per task (parent, leaf) | Distinct parents, leaves |
+| --- | --- | --- | :---: | :---: | :---: |
+| **Recap** | AMI meeting-summary sentences | meeting → summary section | 40 to 60 | 2–4, 6–15 | 124 meetings, 450 sections |
+| **Thread** | Apache Hadoop Jira subtasks and comments | parent issue → subtask | 41 to 60 | 2–3, 3–17 | 3 issues, 42 subtasks |
+| **Design** | Kubernetes Enhancement Proposal excerpts | owning SIG → proposal | 36 | 4, 12 | 16 SIGs, 294 proposals |
 
-The final assignment trees of the paper's 45 systems are in
-[results/assignments/](results/assignments): 5,368 of the 6,750 outputs, each
-rescored by [results/rescore.py](results/rescore.py) to the per-task scores in
-[results/per-task.csv](results/per-task.csv). The other outputs were not
-retained; [results/assignments/README.md](results/assignments/README.md) lists
-them with reasons. Thread folder labels that copied six or more consecutive
-words of Jira text were replaced with neutral names, which leaves every score
-unchanged.
+**How tasks are built.** Each reference is the hierarchy recorded in the source:
+the meeting and summary section of each AMI sentence, the parent issue and
+subtask of each Jira record, and the owning SIG and proposal of each KEP
+excerpt. Records receive opaque IDs only after these relations are fixed.
+Design excerpts that name their SIG or proposal are rejected, so the owning
+group must be inferred from content. Every task file and reference is bound by
+a SHA-256 hash.
 
-## Replay the reported scores
+## Scoring
 
-Python 3.11 or newer is required. Replay uses only the standard library and
-needs no network access.
+- **Integrity.** Every record must appear exactly once with unchanged bytes.
+  Otherwise the output scores 0.
+- **Structure Score S = F1<sub>bal</sub> × E.** For every three records, the
+  hierarchy says which two belong closer together. Agreement with the source is
+  counted separately for parent-level and leaf-level relations, precision and
+  recall are averaged over the two levels, and F1<sub>bal</sub> combines them.
+  Folder names and order are ignored.
+- **Folder economy E** = 1 − 0.2 × (extra single-child folders) / (folders in
+  the output). It discourages wrapping each group in needless folders.
+
+The paper also reports pooled Triplet F1 and the economy penalty 100(1 − E).
+All scores are on a 0–100 scale.
+
+## Results
+
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="docs/assets/results-dark.svg">
+    <img alt="Structure Score of nine models across five harnesses and three text-only baselines. GPT-6.1 Sol leads every family: 74.8 on Recap, 76.9 on Thread, 95.3 on Design and 82.3 on average. The silhouette baseline scores 26.9, 34.0 and 71.0." src="docs/assets/results-light.svg" width="100%">
+  </picture>
+</p>
+
+Each model was run with five harnesses: ReAct-FC (our function-calling ReAct
+agent), OpenAI Codex CLI, DeepSeek Harness (DSH), Pi and LangChain Deep Agents.
+Columns give the mean Structure Score over the five harnesses; the text-only
+baselines cluster records by TF-IDF similarity without any model.
+
+| Model | Recap | Thread | Design | Average | Range over harnesses | Best harness |
+| --- | ---: | ---: | ---: | ---: | :---: | --- |
+| GPT-6.1 Sol | **74.8** | **76.9** | **95.3** | **82.3** | 80.9 to 83.2 | DSH (83.2) |
+| Claude Sonnet 5.5 | 48.8 | 72.9 | 92.7 | 71.5 | 70.5 to 72.4 | Deep Agents (72.4) |
+| Grok 4.7 | 53.2 | 62.5 | 92.7 | 69.5 | 68.6 to 70.2 | DSH (70.2) |
+| Claude Haiku 5.5 | 40.0 | 65.6 | 91.9 | 65.8 | 65.0 to 66.5 | Deep Agents (66.5) |
+| GPT-5.6 Terra | 42.5 | 60.3 | 91.5 | 64.7 | 63.5 to 65.8 | Pi (65.8) |
+| GPT-6 Luna | 42.6 | 54.4 | 90.4 | 62.5 | 61.2 to 63.1 | Deep Agents (63.1) |
+| GPT-5.6 Luna | 38.6 | 52.7 | 88.9 | 60.0 | 59.4 to 60.3 | Pi (60.3) |
+| MAI-Code-1.1-Flash | 39.0 | 51.0 | 78.1 | 56.0 | 53.8 to 57.3 | Pi (57.3) |
+| Claude Haiku 4.5 | 39.3 | 48.1 | 77.9 | 55.1 | 52.5 to 57.9 | Pi (57.9) |
+| *Silhouette clustering* | 26.9 | 34.0 | 71.0 | 44.0 | | |
+| *Random shape* | 18.5 | 19.6 | 17.0 | 18.4 | | |
+| *Fixed distance cuts* | 9.4 | 16.6 | 45.9 | 24.0 | | |
+
+Per-task scores and run settings of all 45 systems are in [results/](results);
+`python results/check_table3.py` recomputes every cell of the paper's table
+from them.
+
+<details>
+<summary><b>All 45 systems</b> (Structure Score per family; average pooled Triplet F1 and economy penalty)</summary>
+
+| Model | Harness | Recap | Thread | Design | Average | Avg. Triplet F1 | Avg. penalty |
+| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| GPT-6.1 Sol | ReAct-FC | 74.1 | **77.9** | **95.8** | 82.6 | 83.7 | 0.5 |
+| GPT-6.1 Sol | Pi | 75.5 | 76.5 | 95.6 | 82.5 | 83.4 | 0.5 |
+| GPT-6.1 Sol | Deep Agents | 76.3 | 76.3 | 94.6 | 82.4 | 83.0 | 0.6 |
+| GPT-6.1 Sol | DSH | **77.8** | 76.6 | 95.2 | **83.2** | 83.9 | 0.5 |
+| GPT-6.1 Sol | Codex | 70.3 | 77.2 | 95.4 | 80.9 | 81.7 | 0.5 |
+| Claude Sonnet 5.5 | ReAct-FC | 48.5 | 73.5 | 92.9 | 71.6 | 71.7 | 0.9 |
+| Claude Sonnet 5.5 | Pi | 48.9 | 73.6 | 92.7 | 71.7 | 71.5 | 0.8 |
+| Claude Sonnet 5.5 | Deep Agents | 50.3 | 73.5 | 93.3 | 72.4 | 72.6 | 0.7 |
+| Claude Sonnet 5.5 | DSH | 48.9 | 72.4 | 92.0 | 71.1 | 70.8 | 0.9 |
+| Claude Sonnet 5.5 | Codex | 47.5 | 71.5 | 92.6 | 70.5 | 70.0 | 0.9 |
+| Grok 4.7 | ReAct-FC | 51.0 | 62.2 | 92.6 | 68.6 | 67.2 | 3.5 |
+| Grok 4.7 | Pi | 53.2 | 62.9 | 93.1 | 69.7 | 68.2 | 3.3 |
+| Grok 4.7 | Deep Agents | 53.2 | 62.8 | 92.4 | 69.5 | 68.1 | 3.6 |
+| Grok 4.7 | DSH | 54.5 | 63.0 | 92.9 | 70.2 | 68.6 | 3.2 |
+| Grok 4.7 | Codex | 54.3 | 61.6 | 92.6 | 69.5 | 68.0 | 3.6 |
+| Claude Haiku 5.5 | ReAct-FC | 39.9 | 65.1 | 90.0 | 65.0 | 64.0 | 2.1 |
+| Claude Haiku 5.5 | Pi | 36.9 | 66.8 | 92.0 | 65.3 | 64.4 | 1.2 |
+| Claude Haiku 5.5 | Deep Agents | 40.2 | 67.6 | 91.9 | 66.5 | 65.8 | 1.3 |
+| Claude Haiku 5.5 | DSH | 42.8 | 63.6 | 91.2 | 65.9 | 63.1 | 1.3 |
+| Claude Haiku 5.5 | Codex | 40.1 | 64.8 | 94.2 | 66.3 | 65.2 | 1.3 |
+| GPT-5.6 Terra | ReAct-FC | 43.6 | 57.5 | 92.3 | 64.5 | 62.8 | 3.5 |
+| GPT-5.6 Terra | Pi | 42.9 | 63.7 | 90.8 | 65.8 | 64.0 | 2.3 |
+| GPT-5.6 Terra | Deep Agents | 43.5 | 62.3 | 90.9 | 65.6 | 64.4 | 2.5 |
+| GPT-5.6 Terra | DSH | 40.9 | 58.3 | 91.4 | 63.5 | 62.1 | 3.1 |
+| GPT-5.6 Terra | Codex | 41.6 | 59.6 | 92.0 | 64.4 | 63.2 | 3.0 |
+| GPT-6 Luna | ReAct-FC | 39.9 | 53.7 | 89.9 | 61.2 | 59.4 | 4.0 |
+| GPT-6 Luna | Pi | 42.3 | 55.3 | 90.5 | 62.7 | 60.4 | 3.8 |
+| GPT-6 Luna | Deep Agents | 42.3 | 55.9 | 91.1 | 63.1 | 61.0 | 3.7 |
+| GPT-6 Luna | DSH | 43.8 | 53.0 | 90.4 | 62.4 | 60.0 | 3.9 |
+| GPT-6 Luna | Codex | 44.5 | 54.2 | 90.2 | 63.0 | 65.3 | 3.9 |
+| GPT-5.6 Luna | ReAct-FC | 37.0 | 51.0 | 90.3 | 59.4 | 57.1 | 4.4 |
+| GPT-5.6 Luna | Pi | 36.7 | 54.7 | 89.4 | 60.3 | 57.9 | 3.6 |
+| GPT-5.6 Luna | Deep Agents | 38.5 | 53.9 | 88.6 | 60.3 | 58.1 | 3.5 |
+| GPT-5.6 Luna | DSH | 40.3 | 51.5 | 87.9 | 59.9 | 57.3 | 4.3 |
+| GPT-5.6 Luna | Codex | 40.3 | 52.2 | 88.2 | 60.2 | 57.1 | 4.2 |
+| MAI-Code-1.1-Flash | ReAct-FC | 41.7 | 47.2 | 79.3 | 56.1 | 53.9 | 3.2 |
+| MAI-Code-1.1-Flash | Pi | 39.8 | 54.0 | 78.0 | 57.3 | 55.9 | 3.8 |
+| MAI-Code-1.1-Flash | Deep Agents | 37.6 | 53.1 | 78.3 | 56.3 | 54.7 | 3.8 |
+| MAI-Code-1.1-Flash | DSH | 38.9 | 51.9 | 79.3 | 56.7 | 54.0 | 4.3 |
+| MAI-Code-1.1-Flash | Codex | 36.8 | 49.0 | 75.7 | 53.8 | 52.3 | 4.3 |
+| Claude Haiku 4.5 | ReAct-FC | 40.8 | 46.2 | 79.9 | 55.6 | 52.2 | 4.5 |
+| Claude Haiku 4.5 | Pi | 39.8 | 53.0 | 80.9 | 57.9 | 55.4 | 3.6 |
+| Claude Haiku 4.5 | Deep Agents | 40.2 | 50.7 | 79.0 | 56.7 | 53.4 | 4.1 |
+| Claude Haiku 4.5 | DSH | 37.1 | 46.8 | 74.7 | 52.9 | 47.6 | 7.7 |
+| Claude Haiku 4.5 | Codex | 38.7 | 43.9 | 74.9 | 52.5 | 49.3 | 4.5 |
+
+All models use medium reasoning effort, except Claude Haiku 4.5, which uses the
+provider default. Each system runs once per task.
+
+</details>
+
+## Key findings
+
+- **No system recovers the hierarchy reliably.** The best system, GPT-6.1 Sol
+  with DSH, averages 83.2. No system exceeds 78 on Recap or Thread, while the
+  best reaches 95.8 on Design.
+- **The model matters far more than the harness.** Model means span 27.2
+  points; the average effect of each harness is between −0.7 and +0.6 points,
+  about the size of run-to-run variation.
+- **Errors concentrate above the leaf level.** Parent-level relations go wrong
+  more often than leaf-level ones in every family (figure below).
+  - *Recap:* agents group notes by topic rather than by meeting; 54% of output
+    folders mix notes from different meetings.
+  - *Thread:* half of the outputs omit the parent-issue layer.
+  - *Design:* agents recover 96% of proposal groups; 596 of 1,250 outputs keep
+    every proposal intact but file some under the wrong SIG.
+- **More compute did not help the system we tested.** For GPT-5.6 Terra with
+  Codex, high reasoning effort changed the mean by −1.0 points, and combining
+  three runs without the reference changed it by −0.2 to +0.5 points.
+- **Exact trees are rare.** GPT-6.1 Sol with ReAct-FC reproduces the complete
+  reference in only 1 Recap and 2 Thread tasks out of 50 each.
+
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="docs/assets/errors-dark.svg">
+    <img alt="Share of record relations placed wrong. Recap: parent 63%, leaf 54%. Thread: parent 61%, leaf 32%. Design: parent 13%, leaf 1%. Recap errors are mostly conflicting, Thread errors mostly unresolved." src="docs/assets/errors-light.svg" width="100%">
+  </picture>
+</p>
+
+## Quick start
+
+You need Python 3.11 or newer and Git. The benchmark tools use only the
+standard library, so there is nothing else to install; the agent you evaluate
+is installed separately. Every command below works in bash and in PowerShell.
+
+### 1. Get the code
 
 ```bash
-cd benchmark
+git clone https://github.com/microsoft/InfoOrgBench.git
+cd InfoOrgBench/benchmark
+python run_task.py list
+```
+
+`list` shows the 50 tasks of each family. Recap and Design are ready to use;
+Thread first needs 42 public Jira issues saved by hand
+([step 4](#4-build-the-thread-tasks)).
+
+### 2. Run one task end to end
+
+**a. Prepare a run folder.** Keep it outside the repository, so the agent does
+not come across the reference files. This is not a sandbox: an agent with
+shell access can still read other files.
+
+```bash
+python run_task.py prepare Recap/mini-001 ../../runs/recap-001
+```
+
+```text
+runs/recap-001/
+├── TASK.md               instruction for the agent, worded as in the paper
+├── check_inventory.py    integrity check the agent can run (no answers inside)
+├── task.json             task ID and record hashes, used for scoring
+└── workspace/inbox/      F001.txt ... F051.txt, one file per record
+```
+
+**b. Let an agent organize the records.** Start any agent that can read and
+move files in `workspace/` and give it `TASK.md`. For example, with the
+[GitHub Copilot CLI](https://github.com/github/copilot-cli):
+
+```bash
+cd ../../runs/recap-001/workspace
+copilot --add-dir .. --allow-all-tools -p "Follow the instructions in ../TASK.md"
+cd ../../../InfoOrgBench/benchmark
+```
+
+Any other agent works the same way. To try the pipeline without an agent,
+move a few files into folders by hand.
+
+**c. Check the workspace** (optional). This reports missing, changed or
+unplaced files without judging the placements:
+
+```bash
+python run_task.py check ../../runs/recap-001
+```
+
+**d. Score it.**
+
+```bash
+python run_task.py score ../../runs/recap-001
+```
+
+Example output, from the released GPT-6.1 Sol output for this task; your
+agent's score will differ:
+
+```text
+Task Recap/mini-001: valid output
+  Structure Score        81.9
+  Pooled triplet F1      84.0
+  Folder-economy penalty 0.0
+  Parent-level recall    83.5
+  Leaf-level recall      80.4
+  Records left in inbox  0
+Saved ../../runs/recap-001/result.json
+```
+
+`result.json` keeps the metrics and `output.json` the captured folder tree.
+
+### 3. Evaluate an agent on a whole family
+
+A task pattern creates one run folder per task. Run your agent in each
+`workspace/`, then score and average them:
+
+```bash
+python run_task.py prepare "Design/*" ../../runs/design
+python run_task.py score "../../runs/design/*"
+python run_task.py summary "../../runs/design/*"
+```
+
+The script expands the quoted wildcards itself. The paper's family score is
+the mean over all 50 tasks, and its Average is the mean of the three family
+scores.
+
+### 4. Build the Thread tasks
+
+Jira text is not redistributed. Open the 42 links in
+[docs/THREAD-DATA.md](docs/THREAD-DATA.md) in a browser and save each page
+under the name shown, all in one folder (for example `../../thread-responses`).
+Then build the 50 Thread packets:
+
+```bash
+python build_thread.py --responses ../../thread-responses
+```
+
+### 5. Reproduce the saved scores
+
+`replay.py` re-scores all 1,700 saved outputs offline and compares every metric
+with [benchmark/saved-results.json](benchmark/saved-results.json) at a
+tolerance of 1e-12:
+
+```bash
 python -I -S -B replay.py --receipt replay-receipt.json
 ```
 
-Without the Thread packets, replay checks the 900 Recap and Design outputs and
-reports the 800 Thread outputs as skipped. To include Thread, first download
-the 42 Jira issues and build the packets as described in
-[docs/THREAD-DATA.md](docs/THREAD-DATA.md):
+It prints nothing until it finishes, which takes about 30 minutes for all
+1,700 outputs, and then prints a receipt like this (abridged):
 
-```bash
-python build_thread.py --responses <folder with HADOOP-*.json>
-python -I -S -B replay.py --require-thread --receipt replay-receipt.json
+```json
+{"passed": true, "outputs_replayed": 1700, "tasks": 150, "lambda_checks": 8500,
+ "metric_tolerance": 1e-12, "network_and_subprocesses_denied": true}
 ```
 
-Replay checks the SHA-256 of every file in `benchmark/manifest.json`, rescores
-the saved outputs and compares every metric with `saved-results.json` at a
-tolerance of 1e-12. Network access and child processes are blocked while it
-runs. Regenerating the baselines also needs the packages pinned in
-`benchmark/requirements-paper-pilot.txt`.
+Without the Thread packets, it checks the 900 Recap and Design outputs and
+skips the 800 Thread outputs; add `--require-thread` to insist on all 1,700.
+
+### 6. Rerun a system from the paper
+
+[harness/](harness) contains the paper's five harnesses (ReAct-FC, Codex CLI,
+Pi, DeepSeek Harness and Deep Agents) with the same prompts, tools and settings.
+Models are reached through your GitHub Copilot plan or a provider API key; the
+[harness guide](harness/README.md) covers installation and backends. From the
+repository root:
+
+```bash
+python -m pip install -e harness
+python -m infoorgbench_harness run --harness react-fc --model gpt-6.1-sol --backend copilot --family Recap --tasks mini-001 --out ../runs/reactfc-sol
+python -m infoorgbench_harness score --run ../runs/reactfc-sol --out ../runs/reactfc-sol/scores.json
+```
+
+A rerun is a new sample, not a replay of the published outputs.
+
+## What's in this repository
+
+The 1,700 saved outputs in [benchmark/predictions/](benchmark/predictions) are
+final folder trees that `replay.py` re-scores:
+
+| Outputs | What they are | Model and harness |
+| ---: | --- | --- |
+| 1,200 | Text-only baselines on every family: filed flat, fixed distance cuts and silhouette clustering (50 tasks each), and random shape with five seeds (250) | None |
+| 300 | Thread diagnostics: silhouette clustering (50) and random shape (250) with issue keys and other identifiers masked | None |
+| 100 | Recap and Thread, 50 tasks each | Claude Haiku 4.5 with ReAct-FC |
+| 100 | Recap and Thread, 50 tasks each | GPT-6.1 Sol with ReAct-FC |
+
+Results of all 45 systems are released as well:
+
+- [results/](results): per-task scores and run settings, with
+  `check_table3.py`, which reproduces the paper's main table.
+- [results/assignments/](results/assignments): final trees of 5,368 of the
+  6,750 system-task outputs; `results/rescore.py` re-scores each against
+  `results/per-task.csv`. The other outputs were not retained, and
+  [results/assignments/README.md](results/assignments/README.md) lists them
+  with reasons.
+- [harness/](harness): the agent harnesses and prompts used for these runs.
+
+Model outputs contain only the final folder path of each record ID, including
+the folder names the model wrote. Thread folder names that copied six or more
+consecutive words of Jira text were replaced with neutral names, which leaves
+every score unchanged. Transcripts, tool-call logs and token usage are not
+included.
+
+<details>
+<summary><b>Repository layout</b></summary>
+
+| Path | Contents |
+| --- | --- |
+| [benchmark/run_task.py](benchmark/run_task.py) | Prepare, check, score and summarize runs of any agent |
+| [benchmark/inputs/public/](benchmark/inputs/public) | Task packets given to agents: 50 Recap and 50 Design; Thread packets are built locally |
+| [benchmark/inputs/reference/](benchmark/inputs/reference) | Reference hierarchies for all 150 tasks: record IDs, source IDs and hashes, no record text |
+| [benchmark/build_thread.py](benchmark/build_thread.py), [benchmark/sources/hadoop-jira/](benchmark/sources/hadoop-jira) | Issue list and builder for the Thread packets |
+| [benchmark/predictions/](benchmark/predictions) | The 1,700 saved outputs |
+| [benchmark/saved-results.json](benchmark/saved-results.json) | Expected metrics for every saved output |
+| [benchmark/engine/](benchmark/engine) | Scorer |
+| [benchmark/algorithm-source/](benchmark/algorithm-source) | Baseline predictors and fixed configurations |
+| [benchmark/replay.py](benchmark/replay.py), [benchmark/manifest.json](benchmark/manifest.json) | Offline replay and the SHA-256 of every file it reads |
+| [results/](results) | Per-task scores and run settings of the 45 systems, and a script that reproduces the main table |
+| [results/assignments/](results/assignments), [results/rescore.py](results/rescore.py) | Final trees of 5,368 of the 45 systems' 6,750 outputs, and a script that re-scores them |
+| [harness/](harness) | ReAct-FC and adapters for Codex CLI, Pi, DeepSeek Harness and Deep Agents |
+| [docs/DATASHEET.md](docs/DATASHEET.md) | Dataset documentation |
+| [docs/THREAD-DATA.md](docs/THREAD-DATA.md) | How to download the Jira issues and build the Thread packets |
+| [docs/assets/](docs/assets) | README figures, the paper's result numbers and the script that draws the figures |
+| [tools/](tools) | Release checks |
+
+Regenerating the baselines also needs the packages pinned in
+[benchmark/requirements-paper-pilot.txt](benchmark/requirements-paper-pilot.txt).
+
+</details>
+
+<details>
+<summary><b>How InfoOrgBench differs from other benchmarks</b></summary>
+
+| Benchmark | Tasks | Agent actions | Works on files | No VM or service | Organizes items | Reference predates benchmark | LLM-free scoring |
+| --- | ---: | --- | :---: | :---: | :---: | :---: | :---: |
+| WebArena | 812 | Click, type | ✗ | ✗ | ✗ | ✗ | ✗ |
+| OSWorld | 369 | Mouse, keys | ✗ | ✗ | ✗ | ✗ | ✓ |
+| SWE-bench | 2,294 | Write patch | ✓ | ✗ | ✗ | ✓ | ✓ |
+| Workspace-Bench | 388 | Shell, files | ✓ | ✗ | ✗ | ✗ | ✗ |
+| HSCodeComp | 632 | Search | ✗ | ✓ | ✗ | ✗ | ✓ |
+| TExEval-2 | 24 | None | ✗ | ✓ | ✓ | ✓ | ✓ |
+| **InfoOrgBench** | 150 | Read, search, move | ✓ | ✓ | ✓ | ✓ | ✓ |
+
+</details>
 
 ## Licensing
 
 | Material | Licence |
 | --- | --- |
-| Code (`benchmark/engine`, `benchmark/algorithm-source`, `benchmark/replay.py`, `tools`, `tests`) | MIT; see [LICENSE](LICENSE) |
-| References, baseline and model outputs, metrics and metadata authored for InfoOrgBench | MIT; see [LICENSE](LICENSE) |
+| Code (`benchmark/engine`, `benchmark/algorithm-source`, `benchmark/*.py`, `harness`, `results/*.py`, `tools`, `tests`, `docs/assets`) | MIT; see [LICENSE](LICENSE). Separately installed harness runtimes keep their own terms. |
+| References, baseline and model outputs, results, metrics and metadata authored for InfoOrgBench | MIT; see [LICENSE](LICENSE) |
 | Recap record text from the AMI Meeting Corpus (`benchmark/inputs/public/Recap/`) | CC BY 4.0 ([licence](https://creativecommons.org/licenses/by/4.0/)); © AMI Consortium |
 | Design record text from Kubernetes Enhancement Proposals (`benchmark/inputs/public/Design/`) | Apache-2.0; © The Kubernetes Authors |
 | Thread record text from the Apache Hadoop issue tracker | Not included. You download it from [Apache Jira](https://issues.apache.org/jira/projects/HADOOP) under the terms that apply there. |
 
 Each source keeps its original licence, and the MIT licence does not apply to
-it. [NOTICE.md](NOTICE.md) gives each source's origin, attribution, the
-changes we made and the full licence text.
+it. [NOTICE.md](NOTICE.md) gives each source's origin, attribution, the changes
+we made and the full licence text.
 
 ## Intended use and limitations
 
 - Use InfoOrgBench to evaluate agents and harnesses on organizing records into
   a hierarchy while keeping every record unchanged.
-- References record source membership. They are not a unique human-validated
-  organization, so other reasonable trees exist.
-- All 150 tasks are development tasks; there is no held-out split, and
-  tasks in a family can share source documents. Rankings describe these
-  tasks and do not by themselves establish differences on new sources.
+- Scores measure agreement with the hierarchy recorded in the sources. Other
+  organizations of the same records can also be useful to people.
+- The 150 English tasks are development tasks with no held-out split, and tasks
+  within a family reuse source material; all Thread tasks draw on three parent
+  issues. Rankings describe these tasks and do not by themselves establish
+  differences on new sources.
 - All sources are public and may appear in model training data.
-- The 200 replayed model outputs in `benchmark/predictions/` come from two of
-  the paper's 45 systems: Claude Haiku 4.5 and GPT-6.1 Sol, each with
-  ReAct-FC, on Recap and Thread. Per-task scores and run settings for all 45
-  systems are in [results/](results), and 5,368 of their 6,750 final trees are
-  in [results/assignments/](results/assignments). Transcripts and tool-call
-  logs are not included.
-- [harness/](harness) reruns the systems with the paper's prompts, tools and
-  settings. Only the model transport differs from the original runs, and a
-  rerun is a new sample, not a replay of the published outputs.
-
-## Release tooling
-
-- `python tools/check_release.py` checks that every file belongs to a
-  component in [release/manifest.json](release/manifest.json) and that no
-  internal paths, addresses or credentials are present.
-- `python tools/build_anonymous.py --archives` builds the anonymized copy used
-  for double-blind review and verifies that replay still passes.
+- Each system ran once per task. Differences of about one point are within
+  run-to-run variation.
+- A rerun with [harness/](harness) is a new sample. Only the model transport
+  differs from the paper's runs.
 
 ## Citation
 
-A citation entry will be added when the accompanying paper is public.
+```bibtex
+@misc{ou2026infoorgbench,
+  title  = {InfoOrgBench: Can Agents Turn Scattered Information into Coherent Hierarchies?},
+  author = {Ou, Justice and Ma, Lanming and Zhang, Zijian and Zhao, Yilun},
+  year   = {2026},
+  url    = {https://github.com/microsoft/InfoOrgBench}
+}
+```
 
 ## Contributing
 
@@ -175,3 +503,5 @@ must follow
 Use of Microsoft trademarks or logos in modified versions of this project must
 not cause confusion or imply Microsoft sponsorship. Any use of third-party
 trademarks or logos are subject to those third-party's policies.
+
+<p align="right"><a href="#overview">Back to overview ↑</a></p>
