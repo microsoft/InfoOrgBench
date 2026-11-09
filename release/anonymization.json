@@ -9,7 +9,9 @@
     "NOTICE.md",
     "benchmark/*",
     "docs/THREAD-DATA.md",
-    "licenses/*"
+    "licenses/*",
+    "harness/*",
+    "results/*"
   ],
   "upstream_text_patterns": [
     "benchmark/inputs/*"
@@ -39,7 +41,9 @@
     "benchmark/requirements-paper-pilot.txt",
     ".gitleaks.toml",
     "benchmark/build_thread.py",
-    "docs/THREAD-DATA.md"
+    "docs/THREAD-DATA.md",
+    "harness/*",
+    "results/*.py"
   ],
   "data_archive": [
     "benchmark/inputs/*",
@@ -47,6 +51,10 @@
     "benchmark/saved-results.json",
     "benchmark/study-provenance.json",
     "benchmark/sources/*",
-    "benchmark/inputs/README.md"
+    "benchmark/inputs/README.md",
+    "results/README.md",
+    "results/*.json",
+    "results/*.csv",
+    "results/assignments/*"
   ]
 }

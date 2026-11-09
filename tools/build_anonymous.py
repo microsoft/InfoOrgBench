@@ -36,14 +36,20 @@ from check_release import list_files, load_denylist  # noqa: E402
 
 UPSTREAM_ALLOWED = {"Microsoft", "Redmond"}
 ZIP_TIME = (2026, 1, 1, 0, 0, 0)
-COPYRIGHT = b"# Copyright (c) Microsoft Corporation."
-ANON_COPYRIGHT = b"# Copyright (c) The InfoOrgBench authors."
+COPYRIGHT = b"Copyright (c) Microsoft Corporation."
+ANON_COPYRIGHT = b"Copyright (c) The InfoOrgBench authors."
+HEADER_PREFIXES = {".py": b"# ", ".toml": b"# ", ".mjs": b"// ", ".js": b"// "}
+PACKAGE_AUTHOR = b'authors = [{name = "Microsoft Corporation"}]'
+ANON_PACKAGE_AUTHOR = b'authors = [{name = "The InfoOrgBench authors"}]'
 
 
 def transform(dest: str, data: bytes) -> bytes:
-    """Neutralize the Microsoft copyright header in source files for the review copy."""
-    if dest.endswith(".py"):
-        return data.replace(COPYRIGHT, ANON_COPYRIGHT, 1)
+    """Neutralize the Microsoft copyright header and package author for the review copy."""
+    prefix = HEADER_PREFIXES.get(Path(dest).suffix)
+    if prefix is not None:
+        data = data.replace(prefix + COPYRIGHT, prefix + ANON_COPYRIGHT, 1)
+    if dest.endswith("pyproject.toml"):
+        data = data.replace(PACKAGE_AUTHOR, ANON_PACKAGE_AUTHOR, 1)
     return data
 
 

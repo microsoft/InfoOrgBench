@@ -26,7 +26,7 @@
     "security_review": {
       "description": "Secret scan, PoliCheck and fresh-history check before any external copy",
       "status": "approved",
-      "reference": "2026-11-03: PoliCheck 7.1.16.0 (en-US, severity 1-2) on the full tree: no severity 1 hits; 24 severity 2 hits triaged as false positives (literal 'ball') or unmodified third-party source text (AMI, Kubernetes); no hits in Microsoft-authored files. gitleaks 8.30.1 on all commits and the tree: no leaks. Single-commit history"
+      "reference": "2026-11-03: PoliCheck 7.1.16.0 (en-US, severity 1-2) on the full tree: no severity 1 hits; 24 severity 2 hits triaged as false positives (literal 'ball') or unmodified third-party source text (AMI, Kubernetes); no hits in Microsoft-authored files. gitleaks 8.30.1 on all commits and the tree: no leaks. Single-commit history 2026-11-08 rerun on the tree with results/, results/assignments/ and harness/ (2,084 files): PoliCheck 7.1.16.0 (scan ad8b4110-0fe9-4e86-9d3b-a19363db498e): no severity 1 hits; 52 severity 2 hits, all false positives (a literal object name in AMI text and in model-written folder labels, and this note) or unmodified third-party text. gitleaks 8.30.1 on the tree and all commits: no leaks, with allowlists scoped to the generic-api-key rule and checked with planted tokens."
     }
   },
   "components": [

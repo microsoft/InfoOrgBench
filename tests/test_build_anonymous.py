@@ -48,6 +48,26 @@ class AnonymizationTests(unittest.TestCase):
         build_anonymous.materialize(tree, out)
         self.assertIn("The InfoOrgBench authors", (out / "benchmark/engine/x.py").read_text(encoding="utf-8"))
 
+    def test_node_and_package_metadata_are_neutralized(self):
+        tree = self.tree({
+            "harness/copilot/endpoint.mjs": "// Copyright (c) Microsoft Corporation.\n// Licensed under the MIT License.\n",
+            "harness/pyproject.toml": "# Copyright (c) Microsoft Corporation.\n"
+                                      'authors = [{name = "Microsoft Corporation"}]\n'})
+        self.assertEqual(build_anonymous.verify(tree, CONFIG), [])
+        out = self.tmp / "out"
+        build_anonymous.materialize(tree, out)
+        for rel in tree:
+            text = (out / rel).read_text(encoding="utf-8")
+            self.assertNotIn("Microsoft", text)
+            self.assertIn("The InfoOrgBench authors", text)
+
+    def test_results_and_harness_are_in_the_review_copy(self):
+        tree = build_anonymous.plan(ROOT, CONFIG)
+        self.assertIn("results/check_table3.py", tree)
+        self.assertIn("results/rescore.py", tree)
+        self.assertIn("harness/README.md", tree)
+        self.assertTrue(any(path.startswith("results/assignments/") for path in tree))
+
     def test_identity_outside_upstream_text_is_rejected(self):
         tree = self.tree({"benchmark/engine/x.py": "# Maintained by Microsoft Research."})
         self.assertTrue(any("identity marker" in p for p in build_anonymous.verify(tree, CONFIG)))
