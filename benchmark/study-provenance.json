@@ -8,9 +8,25 @@
     "Design": "B03"
   },
   "source_rights": {
-    "Recap": "AMI manual annotations release 1.7, CC BY 4.0; selected source summary sentences.",
+    "Recap": "AMI Meeting Corpus manual annotations, release 1.6.2 (ami_public_manual_1.6.2.zip), CC BY 4.0; selected source summary sentences.",
     "Design": "Kubernetes Enhancement Proposals, Apache-2.0; selected proposal excerpts."
   },
-  "publication": "Local review only. Original code license, source-attribution completeness and publication approval remain unresolved.",
-  "scope": "100 existing exposed tasks. Saved-output replay does not reconstruct historical model inference or certify source access."
+  "publication": "Released in this repository; see README.md, LICENSE and NOTICE.md.",
+  "scope": "Saved-output study of the 100 distributed Recap and Design tasks. Thread outputs in this repository are scored on packets rebuilt locally with build_thread.py. Saved-output replay checks scoring; it does not reconstruct model inference or certify source access.",
+  "corrections": [
+    {
+      "date": "2026-11-07",
+      "field": "source_rights.Recap",
+      "previous": "AMI manual annotations release 1.7",
+      "note": "The packets were built from ami_public_manual_1.6.2.zip, as NOTICE.md and docs/DATASHEET.md state."
+    },
+    {
+      "date": "2026-11-07",
+      "fields": [
+        "publication",
+        "scope"
+      ],
+      "note": "Replaced the pre-release status note and stated the study scope."
+    }
+  ]
 }

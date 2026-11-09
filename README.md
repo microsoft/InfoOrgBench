@@ -18,10 +18,25 @@ while preserving every record unchanged.
 | `benchmark/engine/` | Scorer |
 | `benchmark/algorithm-source/` | Baseline predictors and fixed configurations |
 | `benchmark/replay.py` | Offline replay of every saved output |
+| `benchmark/run_task.py` | Prepare a task for any agent, then check and score its final folder tree |
 | `docs/THREAD-DATA.md` | How to download the Jira issues and build the Thread packets |
+| `results/` | Per-task scores and run settings of the paper's 45 systems, and `check_table3.py`, which reproduces the main results table |
+| `results/assignments/`, `results/rescore.py` | Final assignment trees of the 45 systems (5,368 of 6,750 outputs) and a script that rescores them against the per-task scores |
+| `harness/` | The ReAct-FC harness and adapters for Codex CLI, Pi, DeepSeek Harness and Deep Agents, with model access through GitHub Copilot or a provider API key |
 
 Model outputs contain only record-to-folder assignments and the folder labels
-the models wrote. Prompts, transcripts and tool logs are not included.
+the models wrote; Thread labels that copied Jira text were replaced with
+neutral names. Transcripts and tool logs are not included. The prompts are in
+`harness/`.
+
+## Check the main results
+
+```bash
+python results/check_table3.py
+python results/rescore.py --reference-only-thread --require-thread
+```
+
+`results/assignments/README.md` lists the outputs that were not retained.
 
 ## Replay
 
@@ -48,7 +63,8 @@ baselines additionally needs the packages pinned in
 
 ## Licences
 
-The MIT licence in `LICENSE` covers the code only. Data authored for the
+The MIT licence in `LICENSE` covers the code only, including `harness/` and
+the scripts in `results/`. Data authored for the
 benchmark (references, outputs, metrics) carries the licence stated in the
 public release. Third-party text keeps its original licence and is not
 relicensed: AMI meeting annotations (Recap) under CC BY 4.0 and Kubernetes

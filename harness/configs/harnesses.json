@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "harnesses": {
+    "react-fc": {
+      "version": "1.0.0",
+      "implementation": "reference function-calling loop",
+      "tools": "five bounded record operations",
+      "history": "complete output items and tool results"
+    },
+    "codex": {
+      "version": "0.162.1",
+      "package": "@openai/codex",
+      "tools": "native command and file-edit tools",
+      "sandbox": "workspace-write; approval never; web, multi-agent, memory and apps disabled",
+      "history": "native conversation management and compaction"
+    },
+    "pi": {
+      "version": "1.1.0",
+      "package": "@earendil-works/pi-coding-agent",
+      "source_commit": "abe508e1b89912adde45528136c3221eb69acdd7",
+      "tools": "five bounded record operations named record_list, record_read, record_search, record_move and record_inventory",
+      "history": "fresh in-memory session; compaction, cache warming, skills and extensions disabled"
+    },
+    "dsh": {
+      "version": "0.2.1-alpha.1",
+      "source_commit": "5badb15009ae1756c3afe0ae0cef1faafc290ccc",
+      "tools": "native DSH tools",
+      "sandbox": "workspace-write; telemetry, memory and subagents disabled",
+      "history": "native DSH history policy"
+    },
+    "deepagents": {
+      "version": "0.7.23",
+      "packages": {
+        "langchain": "1.4.4",
+        "langchain-core": "1.6.9",
+        "langchain-openai": "1.7.0",
+        "langchain-anthropic": "1.7.5",
+        "langgraph": "1.2.14"
+      },
+      "tools": "five bounded record operations",
+      "history": "fresh native graph; summarization, built-in filesystem, shell, planning and subagents disabled"
+    }
+  }
+}
