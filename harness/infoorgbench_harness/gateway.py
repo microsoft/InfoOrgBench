@@ -11,6 +11,7 @@ import secrets
 import socket
 import sys
 import threading
+import time
 
 from .models.protocols import ANTHROPIC, CHAT, RESPONSES, decode_response, encode_response, merge_usage
 
@@ -111,6 +112,31 @@ class _Handler(BaseHTTPRequestHandler):
             self.close_connection = True
         self.end_headers()
         self.wfile.write(payload)
+        if close:
+            self._linger()
+
+    def _linger(self, seconds=1.0):
+        """Discard a bounded amount of unread request body before closing.
+
+        Closing a socket with unread input makes the OS send a TCP reset,
+        which can reach the client before it reads this response.
+        """
+        try:
+            self.wfile.flush()
+            self.connection.shutdown(socket.SHUT_WR)
+            deadline = time.monotonic() + seconds
+            limit = self.server.gateway.max_request_bytes
+            while limit > 0:
+                remaining = deadline - time.monotonic()
+                if remaining <= 0:
+                    break
+                self.connection.settimeout(remaining)
+                chunk = self.connection.recv(min(65536, limit))
+                if not chunk:
+                    break
+                limit -= len(chunk)
+        except OSError:
+            pass
 
 
 class _Server(ThreadingHTTPServer):
