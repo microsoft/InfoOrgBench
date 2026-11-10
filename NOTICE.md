@@ -1,9 +1,10 @@
 # NOTICES
 
 InfoOrgBench includes text from the third-party sources below. Each source
-keeps its original licence. The MIT licence in `LICENSE` covers only the
-InfoOrgBench code and does not relicense any of this material. You may reuse
-the third-party text under its own licence.
+keeps its original licence. The MIT licence in `LICENSE` covers the
+InfoOrgBench code and the data written for InfoOrgBench (references, outputs,
+scores and metadata); it does not relicense any of this material. You may
+reuse the third-party text under its own licence.
 
 ## 1. AMI Meeting Corpus manual annotations
 

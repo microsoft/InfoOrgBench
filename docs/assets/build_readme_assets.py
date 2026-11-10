@@ -110,7 +110,7 @@ def banner(t):
              f'fill="{t["text"]}">Info<tspan fill="url(#word)">Org</tspan>Bench</text>')
     b.append(text(472, 196, "Can agents turn scattered information into coherent hierarchies?", 25, t["muted"], 500))
     x = 472
-    for label in ("150 tasks", "3 task families", "45 agent systems", "LLM-free scoring"):
+    for label in ("150 tasks", "3 task families", "45 agent systems", "No LLM judge"):
         w = int(len(label) * 17 * 0.58) + 30
         b.append(rect(x, 222, w, 34, t["card"], t["border"], 17, 1.2))
         b.append(text(x + w / 2, 245, label, 17, t["text"], 600, "middle"))
@@ -211,7 +211,7 @@ def overview(t):
     b.append(arrow(1144, 366, 1144, 376, t["muted"]))
     b.append(rect(812, 380, 440, 198, t["card"], t["border"], 10, 1.2))
     b.append(text(830, 414, "Integrity:", 16, t["text"], 700))
-    b.append(text(918, 414, "each record once, intact (else S = 0)", 15, t["text"]))
+    b.append(text(918, 414, "every record kept once and unchanged", 15, t["text"]))
     b.append(f'<text x="830" y="450" font-family="{SANS}" font-size="16" fill="{t["text"]}"><tspan font-weight="700">'
              f'Structure Score:</tspan> S = F<tspan font-size="11" dy="4">1</tspan><tspan font-size="11" dy="-12">bal</tspan>'
              f'<tspan dy="8">(parent, leaf) × E</tspan></text>')
@@ -312,8 +312,8 @@ def results(t):
     label_end, col0, colw, barw = 236, 258, 250, 172
     top, row_h, gap = 112, 36, 40
     b = [rect(1, 1, W - 2, H - 2, t["panel"], t["border"], 16, 1.2)]
-    b.append(text(28, 46, "Structure Score (0-100) of nine models across five harnesses, with text-only baselines", 21, t["text"], 700))
-    b.append(text(28, 72, "Bar: mean over the five harnesses.  Line: lowest to highest harness.", 16, t["muted"]))
+    b.append(text(28, 46, "Structure Score (0 to 100) of nine models and three baselines", 21, t["text"], 700))
+    b.append(text(28, 72, "Each bar is a model's average over the five harnesses; the line runs from its lowest to its highest harness.", 16, t["muted"]))
     panels = list(FAMILIES) + ["Avg"]
     y_end = top + row_h * len(rows) + gap
     for j, name in enumerate(panels):
@@ -329,7 +329,7 @@ def results(t):
     for i, (label, cells, model) in enumerate(rows):
         if i == 9:
             b.append(f'<path d="M24 {y + 8} H{W - 24}" stroke="{t["border"]}" stroke-width="1.2" stroke-dasharray="4 5"/>')
-            b.append(text(label_end, y + 30, "Text-only baselines", 15, t["muted"], 600, "end", extra=' font-style="italic"'))
+            b.append(text(label_end, y + 30, "Baselines without a model", 15, t["muted"], 600, "end", extra=' font-style="italic"'))
             y += gap
         b.append(text(label_end, y + 23, label, 16, t["text"], 600 if model else 400, "end"))
         for j, name in enumerate(panels):
@@ -344,9 +344,8 @@ def results(t):
                          f'stroke="{t["range"]}" stroke-width="1.8"/>')
             b.append(text(end + 6, y + 25, f"{mean:.1f}", 14, t["text"], 700))
         y += row_h
-    b.append(text(28, H - 22, "Scores from the paper: Table 3 (45 systems), Table 11 (model means) and Table 12 (baselines). "
-                  "Each system runs once on each of the 150 tasks.", 15, t["muted"]))
-    return svg(W, H, b, "Structure Score of nine models and three text-only baselines on Recap, Thread and Design")
+    b.append(text(28, H - 22, "Scores from the paper's Tables 3, 11 and 12. Each system ran once on each of the 150 tasks.", 15, t["muted"]))
+    return svg(W, H, b, "Structure Score of nine models and three baselines without a language model on Recap, Thread and Design")
 
 
 # ---------------------------------------------------------------- error rates by level (paper Figure 2)
@@ -356,8 +355,8 @@ def errors(t):
     W, H = 1280, 430
     x_axis, y0, scale = 104, 330, 3.0  # 3 px per percentage point
     b = [rect(1, 1, W - 2, H - 2, t["panel"], t["border"], 16, 1.2)]
-    b.append(text(28, 44, "Share of record relations placed wrong, by hierarchy level", 21, t["text"], 700))
-    b.append(text(28, 70, "Median over systems with per-level data.  In parentheses: outputs with at least one error at that level.", 16, t["muted"]))
+    b.append(text(28, 44, "Share of record relations placed wrong, at each level of the hierarchy", 21, t["text"], 700))
+    b.append(text(28, 70, "Each bar is the median over systems with per-level data. In parentheses: the share of outputs with at least one error at that level.", 16, t["muted"]))
     for tick in range(0, 81, 20):
         y = y0 - tick * scale
         b.append(f'<path d="M{x_axis} {y} H1190" stroke="{t["faint"]}" stroke-width="1.5"/>')

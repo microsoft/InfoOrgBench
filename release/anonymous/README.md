@@ -63,10 +63,10 @@ baselines additionally needs the packages pinned in
 
 ## Licences
 
-The MIT licence in `LICENSE` covers the code only, including `harness/` and
-the scripts in `results/`. Data authored for the
-benchmark (references, outputs, metrics) carries the licence stated in the
-public release. Third-party text keeps its original licence and is not
-relicensed: AMI meeting annotations (Recap) under CC BY 4.0 and Kubernetes
-Enhancement Proposals (Design) under Apache-2.0. Apache Hadoop Jira text is not
-included. See `NOTICE.md` for origins, attribution, changes and licence texts.
+The MIT licence in `LICENSE` covers the code, including `harness/` and the
+scripts in `results/`, and the data written for the benchmark (references,
+outputs, scores and metadata). Third-party text keeps its original licence and
+is not relicensed: AMI meeting annotations (Recap) under CC BY 4.0 and
+Kubernetes Enhancement Proposals (Design) under Apache-2.0. Apache Hadoop Jira
+text is not included. See `NOTICE.md` for origins, attribution, changes and
+licence texts.
