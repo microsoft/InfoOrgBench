@@ -264,6 +264,49 @@ Each task prediction has the release format
 versions, hashes, settings, task status, and provider-reported usage. It omits
 prompts, record text, conversations, credentials, and endpoint metadata.
 
+## Agent Skills with Deep Agents and Codex
+
+The paper runs use no skills. To test an [Agent Skill](https://agentskills.io)
+with Deep Agents, pass a directory that contains its `SKILL.md`. The option
+can be repeated:
+
+```powershell
+python -m infoorgbench_harness fetch-skills --out .\.local\community-skills
+python -m infoorgbench_harness run `
+  --harness deepagents --model claude-sonnet-5.5 --backend copilot `
+  --family Recap --tasks mini-001 --out .\run-skill `
+  --skill .\.local\community-skills\composio-file-organizer\file-organizer `
+  --skill-mode pinned
+```
+
+The skill files are placed in the agent's in-memory Deep Agents state under
+`/skills/`, and no host path is exposed. With `--skill-mode available` (the
+default), the native skills middleware lists each skill's name and
+description, and `read_file` is enabled so the agent can open the skill files
+when it judges them relevant. With `--skill-mode pinned`, the body of each
+`SKILL.md` is added to the conversation before the first model call, as when
+a user invokes the skill by name, and `read_file` stays disabled. The receipt
+records the mode, each skill's name and SHA-256, and content-free episode
+counts: model turns, tool calls by name, and skill-file reads.
+
+`fetch-skills` downloads the community skills listed in
+[configs/community-skills.json](configs/community-skills.json), and one
+length-matched skill unrelated to organizing used as a control, at their
+pinned commits and checks each SHA-256. The manifest records how the skills were
+selected and why other candidates were excluded. Their text is not
+redistributed here. A run with a skill is a different condition from the
+Table 3 systems.
+
+`--skill` also works with `--harness codex`. The skill is installed in the
+run's isolated `$CODEX_HOME/skills`, where Codex lists it. In pinned mode,
+the body of `SKILL.md` is also appended to the prompt, in the same `<skill>`
+block that Deep Agents uses. Codex's `$name` mention cannot be used here
+because it invokes only skills whose names are plain identifiers. Codex
+prompts include the path of the Python interpreter for the inventory
+checker. Run Codex with an interpreter whose path passes the prompt check:
+for example, not a virtual environment inside a folder named after the
+benchmark.
+
 ## Relation to the paper runs
 
 The exact shared and family prompts, ReAct-FC system and incremental
@@ -277,7 +320,15 @@ adapters are rewritten around the public loopback gateway but retain their
 pinned native versions, prompt delivery, tools, permission settings, history,
 and limits. Record tool calls from Pi and Deep Agents are applied to the
 workspace one at a time, and invalid arguments return to the model as tool
-errors. For Codex these include the Windows `mxc` sandbox, read denial of
+errors. The Deep Agents worker also sends its record tool calls one at a
+time: the gateway refuses connections beyond its concurrency bound, so a
+model turn with more than 16 parallel record calls otherwise ended the
+episode with HTTP 503. Codex with a Claude model needed two gateway fixes.
+Codex sends its instructions as `developer` messages, which are now mapped to
+Anthropic system blocks. Translated Responses streams now announce each
+output item before the terminal event, because Codex builds its turn from
+those item events. Before these fixes, Codex with Claude failed on the first
+request or finished without acting. For Codex these include the Windows `mxc` sandbox, read denial of
 the repository's `benchmark/` and `results/` folders and disabled network
 access. Only the model transport changed: the paper's earlier transport is
 replaced by Copilot provider endpoints or ordinary provider API keys. Requests

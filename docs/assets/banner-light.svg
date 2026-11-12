@@ -36,12 +36,8 @@
 <rect x="412" y="205" width="26" height="18" rx="4" fill="#7048e8" stroke="none" stroke-width="1"/>
 <text x="470" y="150" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans',Helvetica,Arial,sans-serif" font-size="88" font-weight="800" letter-spacing="-2" fill="#1f2328">Info<tspan fill="url(#word)">Org</tspan>Bench</text>
 <text x="472" y="196" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans',Helvetica,Arial,sans-serif" font-size="25" font-weight="500" fill="#59636e" text-anchor="start">Can agents turn scattered information into coherent hierarchies?</text>
-<rect x="472" y="222" width="118" height="34" rx="17" fill="#ffffff" stroke="#d0d7de" stroke-width="1.2"/>
-<text x="531.0" y="245" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans',Helvetica,Arial,sans-serif" font-size="17" font-weight="600" fill="#1f2328" text-anchor="middle">150 tasks</text>
-<rect x="602" y="222" width="177" height="34" rx="17" fill="#ffffff" stroke="#d0d7de" stroke-width="1.2"/>
-<text x="690.5" y="245" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans',Helvetica,Arial,sans-serif" font-size="17" font-weight="600" fill="#1f2328" text-anchor="middle">3 task families</text>
-<rect x="791" y="222" width="187" height="34" rx="17" fill="#ffffff" stroke="#d0d7de" stroke-width="1.2"/>
-<text x="884.5" y="245" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans',Helvetica,Arial,sans-serif" font-size="17" font-weight="600" fill="#1f2328" text-anchor="middle">45 agent systems</text>
-<rect x="990" y="222" width="148" height="34" rx="17" fill="#ffffff" stroke="#d0d7de" stroke-width="1.2"/>
-<text x="1064.0" y="245" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans',Helvetica,Arial,sans-serif" font-size="17" font-weight="600" fill="#1f2328" text-anchor="middle">No LLM judge</text>
+<rect x="472" y="222" width="148" height="34" rx="17" fill="#ffffff" stroke="#d0d7de" stroke-width="1.2"/>
+<text x="546.0" y="245" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans',Helvetica,Arial,sans-serif" font-size="17" font-weight="600" fill="#1f2328" text-anchor="middle">3 × 50 Tasks</text>
+<rect x="632" y="222" width="246" height="34" rx="17" fill="#ffffff" stroke="#d0d7de" stroke-width="1.2"/>
+<text x="755.0" y="245" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans',Helvetica,Arial,sans-serif" font-size="17" font-weight="600" fill="#1f2328" text-anchor="middle">9 Models × 5 Harnesses</text>
 </svg>

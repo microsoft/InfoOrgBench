@@ -19,6 +19,7 @@ from .models.copilot import CopilotBackend
 from .models.http import ProviderBackend
 from .reactfc import run_episode
 from .receipts import make_receipt
+from .skills import SKILL_MODES, fetch_skills, load_skills, receipt_block
 
 FAMILIES = ("Recap", "Thread", "Design")
 HARNESSES = ("react-fc", "codex", "pi", "dsh", "deepagents")
@@ -123,6 +124,12 @@ def _settings(args):
 
 def run_command(args):
     root = repository_root()
+    skills = None
+    if args.skill:
+        if args.harness not in {"deepagents", "codex"}:
+            raise ValueError("--skill is supported only with --harness deepagents or codex")
+        skills = load_skills(args.skill, args.skill_mode)
+    skill_receipt = receipt_block(skills) if skills is not None else None
     destination = args.out.resolve()
     if destination.exists() and any(destination.iterdir()):
         raise FileExistsError("Output directory must be new or empty")
@@ -147,7 +154,8 @@ def run_command(args):
                     result = run_third_party(packet, harness=args.harness, family=args.family,
                                              model=args.model, backend=backend, settings=settings,
                                              run_root=task_runtime,
-                                             codex_extra_denied_roots=args.codex_deny_root)
+                                             codex_extra_denied_roots=args.codex_deny_root,
+                                             skills=skills)
                 prediction = {"assignments": result["assignments"]}
                 target = destination / args.family / (task_name + ".json")
                 target.parent.mkdir(parents=True, exist_ok=True)
@@ -160,7 +168,8 @@ def run_command(args):
                     hashes=hashes, usage=result.get("usage", {}), versions={
                         "package": __version__, "harness": "1.0.0" if args.harness == "react-fc" else PINS[args.harness],
                         "task": packet.get("task_version", "release-packet"),
-                        "protocol": manifest["prompt_version"], "family": manifest["family_version"]}))
+                        "protocol": manifest["prompt_version"], "family": manifest["family_version"]},
+                    skills=skill_receipt, agent_stats=result.get("agent_stats")))
                 if result["status"] == "stopped" or result["status"].startswith("failed:"):
                     failed = True
                     break
@@ -170,7 +179,7 @@ def run_command(args):
                     family=args.family, task_id=task_name, status="failed:" + type(error).__name__, settings=settings,
                     hashes={"packet_sha256": hashlib.sha256(json.dumps(packet, ensure_ascii=False, sort_keys=True,
                             separators=(",", ":")).encode()).hexdigest()}, usage={},
-                    versions={"package": __version__}))
+                    versions={"package": __version__}, skills=skill_receipt))
                 break
             finally:
                 shutil.rmtree(task_runtime, ignore_errors=True)
@@ -207,9 +216,18 @@ def parser():
                      help="Additional existing host path to deny Codex; may be repeated")
     run.add_argument("--max-output-tokens", type=int,
                      help="Override the per-response output cap (default 128,000, capped at known model limits)")
+    run.add_argument("--skill", type=Path, action="append", default=[],
+                     help="Deep Agents or Codex: a skill directory containing SKILL.md; may be repeated")
+    run.add_argument("--skill-mode", choices=SKILL_MODES, default="available",
+                     help="available: listed for the agent to open when relevant; "
+                          "pinned: SKILL.md is also added to the conversation before the first model call")
     score = commands.add_parser("score")
     score.add_argument("--run", type=Path, required=True)
     score.add_argument("--out", type=Path)
+    fetch = commands.add_parser("fetch-skills", help="Download community skills at pinned commits")
+    fetch.add_argument("--manifest", type=Path, default=Path(__file__).resolve().parents[1]
+                       / "configs" / "community-skills.json")
+    fetch.add_argument("--out", type=Path, required=True)
     return root
 
 
@@ -217,6 +235,8 @@ def main(argv=None):
     args = parser().parse_args(argv)
     if args.command == "run":
         result = run_command(args)
+    elif args.command == "fetch-skills":
+        result = {"skills": fetch_skills(args.manifest, args.out)}
     else:
         result = score_run(repository_root(), args.run.resolve())
         if args.out:

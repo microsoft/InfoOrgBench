@@ -168,9 +168,13 @@ def from_responses_request(body: dict, protocol: str) -> dict:
             result["reasoning_effort"] = body["reasoning"]["effort"]
         return result
     messages = []
+    system = [{"type": "text", "text": body["instructions"]}] if body.get("instructions") else []
     for item in items:
         kind = item.get("type")
-        if kind == "message":
+        if kind == "message" and item.get("role") in {"developer", "system"}:
+            # Anthropic Messages accepts only user and assistant turns; instructions belong in system.
+            system.append({"type": "text", "text": _text_content(item.get("content"))})
+        elif kind == "message":
             messages.append({"role": item.get("role"), "content": [{"type": "text", "text": _text_content(item.get("content"))}]})
         elif kind == "function_call":
             try:
@@ -183,7 +187,7 @@ def from_responses_request(body: dict, protocol: str) -> dict:
             messages.append({"role": "user", "content": [{"type": "tool_result", "tool_use_id": item.get("call_id"),
                                                               "content": str(item.get("output", ""))}]})
     result = {"model": body.get("model"), "messages": _merge_anthropic_messages(messages),
-              "system": ([{"type": "text", "text": body["instructions"]}] if body.get("instructions") else []),
+              "system": system,
               "tools": [{"name": tool.get("name"), "description": tool.get("description", ""),
                           "input_schema": tool.get("parameters", {})} for tool in body.get("tools", [])],
               "max_tokens": body.get("max_output_tokens", 8192), "stream": body.get("stream", False)}
@@ -360,7 +364,15 @@ def encode_response(response: dict, protocol: str, stream: bool = False) -> tupl
     if protocol == RESPONSES:
         if stream:
             event_type = "response.incomplete" if response.get("status") == "incomplete" else "response.completed"
-            return _sse({"type": event_type, "response": response}), "text/event-stream"
+            # Clients such as Codex build items from output_item events, not from the terminal response.
+            events = [{"type": "response.created", "response": {**response, "status": "in_progress", "output": []}}]
+            for index, item in enumerate(response.get("output", [])):
+                events.append({"type": "response.output_item.added", "output_index": index, "item": item})
+                events.append({"type": "response.output_item.done", "output_index": index, "item": item})
+            events.append({"type": event_type, "response": response})
+            payload = b"".join(_sse({**event, "sequence_number": number}, event["type"])
+                               for number, event in enumerate(events))
+            return payload, "text/event-stream"
         return json.dumps(response, separators=(",", ":")).encode(), "application/json"
     text = "".join(part.get("text", "") for item in response.get("output", []) if item.get("type") == "message"
                    for part in item.get("content", []) if part.get("type") == "output_text")

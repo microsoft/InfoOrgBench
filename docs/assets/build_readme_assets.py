@@ -110,7 +110,7 @@ def banner(t):
              f'fill="{t["text"]}">Info<tspan fill="url(#word)">Org</tspan>Bench</text>')
     b.append(text(472, 196, "Can agents turn scattered information into coherent hierarchies?", 25, t["muted"], 500))
     x = 472
-    for label in ("150 tasks", "3 task families", "45 agent systems", "No LLM judge"):
+    for label in ("3 × 50 Tasks", "9 Models × 5 Harnesses"):
         w = int(len(label) * 17 * 0.58) + 30
         b.append(rect(x, 222, w, 34, t["card"], t["border"], 17, 1.2))
         b.append(text(x + w / 2, 245, label, 17, t["text"], 600, "middle"))
@@ -248,34 +248,25 @@ def family_examples():
 
 
 def families(t):
-    W, H = 1280, 400
-    info = {
-        "Recap": ("AMI Meeting Corpus", "meeting summaries", "Meeting", "summary section", "40-60"),
-        "Thread": ("Apache Hadoop Jira", "issue threads", "Parent issue", "subtask", "41-60"),
-        "Design": ("Kubernetes KEPs", "design proposals", "Owning SIG", "proposal", "36"),
-    }
+    W, H = 1280, 292
+    hierarchy = {"Recap": "Meeting → Section", "Thread": "Issue → Subtask", "Design": "SIG → KEP"}
     examples = family_examples()
     b = [rect(1, 1, W - 2, H - 2, t["panel"], t["border"], 16, 1.2)]
     for i, fam in enumerate(FAMILIES):
         x = 24 + i * 418
         c = t[fam]
-        src, kind, top, leaf, recs = info[fam]
-        b.append(rect(x, 24, 396, 352, t["card"], t["border"], 12, 1.2))
+        b.append(rect(x, 24, 396, 244, t["card"], t["border"], 12, 1.2))
         b.append(rect(x, 24, 396, 8, c, "none", 4))
-        b.append(f'<text x="{x + 22}" y="72" font-family="{SANS}" font-size="19" font-weight="500" fill="{t["muted"]}">'
-                 f'<tspan font-size="30" font-weight="800" fill="{c}">{fam}</tspan><tspan dx="12">{kind}</tspan></text>')
-        b.append(text(x + 22, 104, f"Source: {src}", 18, t["text"], 500))
-        b.append(text(x + 22, 130, f"Hierarchy: {top} > {leaf}", 18, t["text"], 500))
-        b.append(text(x + 22, 156, f"50 tasks, {recs} records each", 18, t["text"], 500))
-        b.append(f'<path d="M{x + 22} 174 H{x + 374}" stroke="{t["faint"]}" stroke-width="2"/>')
+        b.append(f'<text x="{x + 22}" y="72" font-family="{SANS}" font-size="20" font-weight="600" fill="{t["muted"]}">'
+                 f'<tspan font-size="30" font-weight="800" fill="{c}">{fam}</tspan><tspan dx="14">{hierarchy[fam]}</tspan></text>')
+        b.append(f'<path d="M{x + 22} 92 H{x + 374}" stroke="{t["faint"]}" stroke-width="2"/>')
         task, tree = examples[fam]
         parent = sorted(tree, key=lambda p: (-len(tree[p]), p))[0]
         children = sorted(tree[parent].items(), key=lambda kv: (-kv[1], kv[0]))[:4]
-        b.append(text(x + 22, 202, f"Reference excerpt, {task}", 16, t["muted"], 500))
-        b.append(rect(x + 22, 215, 18, 18, c, "none", 4))
-        b.append(text(x + 50, 230, parent, 17, t["text"], 700, family=MONO))
+        b.append(rect(x + 22, 107, 18, 18, c, "none", 4))
+        b.append(text(x + 50, 122, parent, 17, t["text"], 700, family=MONO))
         for k, (child, n) in enumerate(children):
-            y = 266 + k * 30
+            y = 158 + k * 30
             b.append(f'<path d="M{x + 31} {y - 32 if k == 0 else y - 30} V{y - 5} H{x + 50}" fill="none" stroke="{t["border"]}" stroke-width="2"/>')
             label = child if len(child) <= 21 else child[:20] + "..."
             b.append(rect(x + 52, y - 13, 14, 14, t["card"], c, 3, 2))
@@ -308,12 +299,15 @@ def result_rows():
 
 def results(t):
     rows = result_rows()
-    W, H = 1280, 660
+    W, H = 1280, 596
     label_end, col0, colw, barw = 236, 258, 250, 172
-    top, row_h, gap = 112, 36, 40
+    top, row_h, gap = 88, 36, 40
     b = [rect(1, 1, W - 2, H - 2, t["panel"], t["border"], 16, 1.2)]
-    b.append(text(28, 46, "Structure Score (0 to 100) of nine models and three baselines", 21, t["text"], 700))
-    b.append(text(28, 72, "Each bar is a model's average over the five harnesses; the line runs from its lowest to its highest harness.", 16, t["muted"]))
+    b.append(text(28, 46, "Structure Score of 9 Models × 5 Harnesses", 21, t["text"], 700))
+    b.append(rect(842, 34, 28, 14, t["muted"], "none", 3, extra=' opacity="0.9"'))
+    b.append(text(878, 46, "Mean of 5 harnesses", 15, t["text"], 500))
+    b.append(f'<path d="M1052 41 H1088 M1052 35 V47 M1088 35 V47" stroke="{t["range"]}" stroke-width="1.8"/>')
+    b.append(text(1096, 46, "Harness range", 15, t["text"], 500))
     panels = list(FAMILIES) + ["Avg"]
     y_end = top + row_h * len(rows) + gap
     for j, name in enumerate(panels):
@@ -344,7 +338,6 @@ def results(t):
                          f'stroke="{t["range"]}" stroke-width="1.8"/>')
             b.append(text(end + 6, y + 25, f"{mean:.1f}", 14, t["text"], 700))
         y += row_h
-    b.append(text(28, H - 22, "Scores from the paper's Tables 3, 11 and 12. Each system ran once on each of the 150 tasks.", 15, t["muted"]))
     return svg(W, H, b, "Structure Score of nine models and three baselines without a language model on Recap, Thread and Design")
 
 
@@ -352,11 +345,10 @@ def results(t):
 
 def errors(t):
     data = PAPER["level_errors"]
-    W, H = 1280, 430
-    x_axis, y0, scale = 104, 330, 3.0  # 3 px per percentage point
+    W, H = 1280, 406
+    x_axis, y0, scale = 104, 306, 3.0  # 3 px per percentage point
     b = [rect(1, 1, W - 2, H - 2, t["panel"], t["border"], 16, 1.2)]
-    b.append(text(28, 44, "Share of record relations placed wrong, at each level of the hierarchy", 21, t["text"], 700))
-    b.append(text(28, 70, "Each bar is the median over systems with per-level data. In parentheses: the share of outputs with at least one error at that level.", 16, t["muted"]))
+    b.append(text(28, 44, "Relations Placed Wrong at Each Level (Median over Systems)", 21, t["text"], 700))
     for tick in range(0, 81, 20):
         y = y0 - tick * scale
         b.append(f'<path d="M{x_axis} {y} H1190" stroke="{t["faint"]}" stroke-width="1.5"/>')
@@ -376,14 +368,56 @@ def errors(t):
             b.append(text(x + 48, y0 + 43, cell["name"], 15, t["muted"], 400, "middle"))
         b.append(text(center, y0 + 76, fam, 19, t[fam], 800, "middle"))
     for k, (color, label) in enumerate(((t["bad"], "conflicting: a different pair is grouped together"),
-                                        (t["base"], "unresolved: the three records are not separated"))):
-        b.append(rect(820, 104 + k * 28, 16, 16, color, "none", 3))
-        b.append(text(844, 117 + k * 28, label, 15, t["text"]))
+                                        (t["base"], "unresolved: the 3 records are not separated"))):
+        b.append(rect(820, 76 + k * 28, 16, 16, color, "none", 3))
+        b.append(text(844, 89 + k * 28, label, 15, t["text"]))
+    b.append(text(820, 145, "(n%)", 14, t["muted"]))
+    b.append(text(860, 145, "outputs with ≥ 1 error at that level", 15, t["text"]))
     return svg(W, H, b, "Parent-level error rates exceed leaf-level error rates in every family")
 
 
+# ---------------------------------------------------------------- highlights (README overview)
+
+def highlights(t):
+    W, H, gap = 1280, 150, 20
+    cw = (W - 2 * gap) / 3
+    b = ["<defs>",
+         f'<linearGradient id="hbg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="{t["grad_a"]}"/>'
+         f'<stop offset="1" stop-color="{t["grad_b"]}"/></linearGradient>',
+         f'<linearGradient id="hword" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="{t["brand"]}"/>'
+         f'<stop offset="1" stop-color="{t["brand2"]}"/></linearGradient>',
+         "</defs>"]
+    # Each title is a list of (text, highlighted) parts.
+    titles = [[("3 × 50", True), (" Tasks", False)],
+              [("Every", True), (" Level Scored", False)],
+              [("9", True), (" Models × ", False), ("5", True), (" Harnesses", False)]]
+    for i, parts in enumerate(titles):
+        x = i * (cw + gap)
+        cx = round(x + cw / 2, 1)
+        b.append(rect(round(x + 1, 1), 1, round(cw - 2, 1), H - 2, "url(#hbg)", t["border"], 16, 1.2))
+        b.append(f'<circle cx="{cx}" cy="48" r="24" fill="{t["highlight"]}"/>')
+        if i == 0:
+            for k, fam in enumerate(FAMILIES):
+                b.append(rect(round(cx - 15 + k * 11, 1), 42 + (k % 2) * 4 - 2, 9, 9, t[fam], "none", 2))
+        elif i == 1:
+            b.append(f'<path d="M{cx} 41 V46 M{cx - 9} 51 V46 H{cx + 9} V51" fill="none" stroke="{t["brand"]}" '
+                     f'stroke-width="2.2"/>')
+            b.append(f'<circle cx="{cx}" cy="38" r="4" fill="{t["brand"]}"/>')
+            for dx in (-9, 9):
+                b.append(rect(cx + dx - 4, 52, 8, 8, t["brand"], "none", 2))
+        else:
+            for row in range(3):
+                for col in range(3):
+                    b.append(f'<circle cx="{cx - 8 + col * 8}" cy="{40 + row * 8}" r="2.6" fill="{t["brand"]}"/>')
+        spans = "".join(f'<tspan fill="url(#hword)">{escape(s)}</tspan>' if hot else escape(s) for s, hot in parts)
+        b.append(f'<text x="{cx}" y="116" font-family="{SANS}" font-size="32" font-weight="800" '
+                 f'fill="{t["text"]}" text-anchor="middle">{spans}</text>')
+    return svg(W, H, b, "3 × 50 tasks. Every level scored. 9 models × 5 harnesses.")
+
+
 def main():
-    figures = {"banner": banner, "overview": overview, "families": families, "results": results, "errors": errors}
+    figures = {"banner": banner, "overview": overview, "highlights": highlights, "families": families,
+               "results": results, "errors": errors}
     for name, build in figures.items():
         for theme, palette in THEMES.items():
             path = OUT / f"{name}-{theme}.svg"

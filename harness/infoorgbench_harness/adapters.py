@@ -15,6 +15,7 @@ import sys
 from .gateway import Gateway
 from .prompt import render_packet
 from .record_tools import ADAPTER_INSTRUCTIONS, operate_record_tool, record_tool_schemas
+from .skills import install_codex_skills, worker_config as skill_worker_config
 from .workspace import Workspace
 
 PINS = {"codex": "0.162.1", "pi": "1.1.0", "dsh": "0.2.1-alpha.1", "deepagents": "0.7.23"}
@@ -175,7 +176,7 @@ def _verify_codex(binary):
         raise ValueError("Installed Codex CLI differs from the paper pin")
 
 
-def _run_codex(*, gateway, workspace, run_root, prompt, model, settings, extra_denied_roots=()):
+def _run_codex(*, gateway, workspace, run_root, prompt, model, settings, extra_denied_roots=(), skills=None):
     binary = os.environ.get("INFOORGBENCH_CODEX", "codex")
     _verify_codex(binary)
     from .cli import repository_root
@@ -187,10 +188,14 @@ def _run_codex(*, gateway, workspace, run_root, prompt, model, settings, extra_d
                                              extra_roots=extra_denied_roots))
     codex_home = Path(run_root) / "codex-home"
     codex_home.mkdir(parents=True, exist_ok=True)
+    if skills is not None:
+        pinned = install_codex_skills(skills, codex_home)
+        if pinned:
+            prompt = prompt + "\n\n" + pinned
     extra_env = {**_isolated_user_values(run_root), "CODEX_HOME": str(codex_home),
                  "INFOORGBENCH_GATEWAY_TOKEN": gateway.token}
     process = _run_process(invocation, include_user=True, extra_env=extra_env, input=prompt,
-                           text=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL,
+                           text=True, encoding="utf-8", stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL,
                            check=False)
     if process.returncode:
         raise RuntimeError("Codex CLI episode failed")
@@ -242,7 +247,7 @@ def _run_pi(*, gateway, workspace, run_root, prompt, model, settings):
     return json.loads((Path(run_root) / "worker-result.json").read_text(encoding="utf-8"))["final"]
 
 
-def _run_deepagents(*, gateway, workspace, run_root, prompt, model, settings):
+def _run_deepagents(*, gateway, workspace, run_root, prompt, model, settings, skills=None):
     expected = {"deepagents": "0.7.23", "langchain": "1.4.4", "langchain-core": "1.6.9",
                 "langchain-openai": "1.7.0", "langchain-anthropic": "1.7.5", "langgraph": "1.2.14"}
     for package, version in expected.items():
@@ -250,6 +255,8 @@ def _run_deepagents(*, gateway, workspace, run_root, prompt, model, settings):
             raise RuntimeError("Installed Deep Agents packages differ from the paper pins")
     config = _worker_config(workspace, gateway, prompt, model, settings, run_root)
     config["packages"] = expected
+    if skills is not None:
+        config["skills"] = skill_worker_config(skills)
     config_path = Path(run_root) / "worker.json"
     config_path.write_text(json.dumps(config), encoding="utf-8")
     worker = Path(__file__).with_name("deepagents_worker.py")
@@ -303,10 +310,12 @@ def _run_dsh(*, gateway, workspace, run_root, prompt, model, settings):
 
 
 def run_third_party(packet, *, harness, family, model, backend, settings, run_root,
-                    codex_extra_denied_roots=()):
+                    codex_extra_denied_roots=(), skills=None):
     """Run one native third-party harness, then independently capture the workspace."""
     if harness not in {"codex", "pi", "dsh", "deepagents"} or family not in _FAMILIES:
         raise ValueError("Unknown harness or family")
+    if skills is not None and harness not in {"deepagents", "codex"}:
+        raise ValueError("Skills are supported only for the Deep Agents and Codex harnesses")
     run_root = Path(run_root)
     run_root.mkdir(parents=True, exist_ok=False)
     workspace = Workspace(run_root / "workspace", packet["records"])
@@ -328,14 +337,21 @@ def run_third_party(packet, *, harness, family, model, backend, settings, run_ro
     with Gateway(backend, tool_handler=tool_handler, expected_model=model) as gateway:
         try:
             runner_options = {"extra_denied_roots": codex_extra_denied_roots} if harness == "codex" else {}
+            if skills is not None:
+                runner_options["skills"] = skills
             final_text = runners[harness](gateway=gateway, workspace=workspace, run_root=run_root,
                                           prompt=prompt, model=model, settings=settings, **runner_options)
         except Exception as error:
             failure_type = type(error).__name__
         usage = dict(gateway.usage)
         requests = gateway.requests
+    agent_stats = None
+    worker_result = run_root / "worker-result.json"
+    if harness == "deepagents" and failure_type is None and worker_result.is_file():
+        agent_stats = json.loads(worker_result.read_text(encoding="utf-8")).get("stats")
     capture = Workspace.capture(workspace.root, packet["records"])
     return {"status": "completed" if failure_type is None else "failed:" + failure_type,
             "error_type": failure_type, "assignments": capture["assignments"],
             "inventory_preserved": capture["inventory_preserved"], "pending_ids": capture["pending_ids"],
-            "usage": usage, "requests": requests, "prompt_manifest": manifest, "final_text": final_text}
+            "usage": usage, "requests": requests, "prompt_manifest": manifest, "final_text": final_text,
+            "agent_stats": agent_stats}

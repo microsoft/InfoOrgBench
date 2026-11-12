@@ -1,0 +1,74 @@
+{
+  "available-composio-file-organizer|claude-haiku-5.5": {
+    "folders": 2009,
+    "kebab_case_share": 0.928,
+    "digit_prefixed_share": 0.007,
+    "contains_space_share": 0.012
+  },
+  "control|claude-haiku-5.5": {
+    "folders": 2069,
+    "kebab_case_share": 0.939,
+    "digit_prefixed_share": 0.009,
+    "contains_space_share": 0.018
+  },
+  "pinned-claude-office-file-organizer|claude-haiku-5.5": {
+    "folders": 1965,
+    "kebab_case_share": 0.795,
+    "digit_prefixed_share": 0.006,
+    "contains_space_share": 0.02
+  },
+  "pinned-composio-file-organizer|claude-haiku-5.5": {
+    "folders": 2026,
+    "kebab_case_share": 0.928,
+    "digit_prefixed_share": 0.008,
+    "contains_space_share": 0.008
+  },
+  "pinned-composio-invoice-organizer|claude-haiku-5.5": {
+    "folders": 1976,
+    "kebab_case_share": 0.781,
+    "digit_prefixed_share": 0.007,
+    "contains_space_share": 0.067
+  },
+  "pinned-irrelevant-mcp-builder|claude-haiku-5.5": {
+    "folders": 1964,
+    "kebab_case_share": 0.903,
+    "digit_prefixed_share": 0.004,
+    "contains_space_share": 0.017
+  },
+  "available-composio-file-organizer|claude-sonnet-5.5": {
+    "folders": 1867,
+    "kebab_case_share": 0.485,
+    "digit_prefixed_share": 0.005,
+    "contains_space_share": 0.375
+  },
+  "control|claude-sonnet-5.5": {
+    "folders": 1879,
+    "kebab_case_share": 0.46,
+    "digit_prefixed_share": 0.007,
+    "contains_space_share": 0.393
+  },
+  "pinned-claude-office-file-organizer|claude-sonnet-5.5": {
+    "folders": 1859,
+    "kebab_case_share": 0.47,
+    "digit_prefixed_share": 0.005,
+    "contains_space_share": 0.364
+  },
+  "pinned-composio-file-organizer|claude-sonnet-5.5": {
+    "folders": 1871,
+    "kebab_case_share": 0.836,
+    "digit_prefixed_share": 0.024,
+    "contains_space_share": 0.11
+  },
+  "pinned-composio-invoice-organizer|claude-sonnet-5.5": {
+    "folders": 1857,
+    "kebab_case_share": 0.444,
+    "digit_prefixed_share": 0.006,
+    "contains_space_share": 0.407
+  },
+  "pinned-irrelevant-mcp-builder|claude-sonnet-5.5": {
+    "folders": 1839,
+    "kebab_case_share": 0.511,
+    "digit_prefixed_share": 0.007,
+    "contains_space_share": 0.339
+  }
+}
