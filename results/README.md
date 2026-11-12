@@ -33,8 +33,9 @@ per-task pooled triplet F1, the Structure Score is the mean of the 50
 per-task Structure Scores, and folder economy E is the mean over valid
 outputs. The table prints each value times 100 with one decimal, and the
 penalty column as 100(1 − E). The average is the mean of the three family
-cells. The scorer is in [benchmark/engine](../benchmark/engine); the
-equations are in the paper.
+cells. The scorer is in [benchmark/engine](../benchmark/engine), and
+[docs/EVALUATION.md](../docs/EVALUATION.md) explains every metric step by
+step.
 
 ## Coverage
 
@@ -46,7 +47,8 @@ equations are in the paper.
 
 The two GPT-6 Luna systems with ReAct-FC and Codex have family scores
 only, because their per-task score reports were not retained; the checker
-reports them as catalog-level checks. For Claude Haiku 4.5 with DSH, the
+compares them with the family scores in the authors' result catalog (see
+[What is not included](#what-is-not-included)). For Claude Haiku 4.5 with DSH, the
 Thread and Design folder-economy cells average over all outputs, as recorded
 in the catalog, rather than over valid outputs. Blank CSV fields were not
 recorded for that run. Thread tasks whose reference has no second level

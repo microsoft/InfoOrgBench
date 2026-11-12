@@ -91,21 +91,41 @@ every task file and reference.
 
 ## Scoring
 
-- **Integrity.** Every record must end up in exactly one folder with its bytes
-  unchanged. An output that loses, duplicates or edits a record scores 0.
-- **Structure Score.** For any 3 records, the source hierarchy says which
-  2 of them belong closer together. The score counts how often the output
-  agrees, separately for relations between parent groups and for relations
-  inside a parent. Precision and recall are averaged over these 2 levels and
-  combined into a level-balanced F1. Folder names and the order of folders do
-  not matter.
-- **Folder economy.** The F1 is multiplied by a factor
-  E = 1 − 0.2 × (extra single-child folders) / (folders in the output), which
-  lowers the score when an output wraps groups in folders that hold only one
-  item.
+An output scores 0 unless it keeps every record exactly once and unchanged.
+For a valid output, the **Structure Score** checks every set of 3 records: the
+source hierarchy says which 2 of them belong closer together, and the score
+measures how often the output's folders agree, both between parent groups and
+inside each parent group.
 
-The paper also reports the pooled Triplet F1 and the folder-economy penalty,
-100 × (1 − E). All scores are on a scale from 0 to 100.
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="docs/assets/metric-rule-dark.svg">
+    <img alt="Left: a source hierarchy with parent A holding leaf a1 (records x and y) and leaf a2 (record z), and parent B holding leaf b1 (record w). The triple x y | z is a leaf-level relation and x z | w is a parent-level relation. Right: for the triple x y | z, the output agrees if x and y share a folder apart from z, which counts as correct; it conflicts if x and z share a folder, which lowers precision and recall; and it leaves the triple unresolved if all 3 share one folder, which lowers recall only." src="docs/assets/metric-rule-light.svg" width="100%">
+  </picture>
+</p>
+
+```math
+S = F_1^{\text{bal}} \times E, \qquad F_1^{\text{bal}} = \frac{2 \bar P \bar R}{\bar P + \bar R}, \qquad E = 1 - 0.2 \times \frac{\text{extra single-child folders}}{\text{folders in the output}}
+```
+
+$`\bar P`$ and $`\bar R`$ are the precision and recall over these triples,
+averaged over the parent and leaf levels so that the many parent-level triples
+do not drown out the leaf level. E lowers the score a little when the output
+wraps single items in extra folders. Folder names and the order of folders do
+not matter, and scores run from 0 to 100. The example below shows how 4
+mistakes add up to a score of 57.8.
+
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="docs/assets/metric-example-dark.svg">
+    <img alt="Worked example from the paper. Source: parent A with leaves a1, a2 and a3; parent B with leaves b1 and b2; parent C with leaves c1 and c2; 2 records per leaf. Output: leaf a2 is filed under B, leaf a3 sits alone in a new parent D, leaves c1 and c2 are merged, and record z2 moves into the merged leaf. Parent level: 104 agreed, 42 conflicting and 94 unresolved triples, precision 0.54 and recall 0.43. Leaf level: 14, 2 and 4, precision 0.88 and recall 0.70. Level-balanced F1 is 0.63, folder economy is 0.92 and the Structure Score is 57.8." src="docs/assets/metric-example-light.svg" width="100%">
+  </picture>
+</p>
+
+**[How the Structure Score works →](docs/EVALUATION.md)** walks through each
+step as the paper defines it, with the formulas, edge cases and the other
+measures that the full results table reports (pooled Triplet F1 and the
+folder-economy penalty, 100 × (1 − E)).
 
 ## Results
 
@@ -574,8 +594,11 @@ included.
 | [harness/](harness) | ReAct-FC and the adapters for Codex CLI, Pi, DeepSeek Harness and Deep Agents |
 | [docs/DATASHEET.md](docs/DATASHEET.md) | Documentation of the dataset |
 | [docs/THREAD-DATA.md](docs/THREAD-DATA.md) | How to download the Jira issues and build the Thread tasks |
-| [docs/assets/](docs/assets) | The README figures, the paper's result numbers and the script that draws the figures |
-| [tools/](tools) | Checks run before each release |
+| [docs/EVALUATION.md](docs/EVALUATION.md) | How the Structure Score works, step by step, with a worked example |
+| [docs/assets/](docs/assets) | The figures in the README and in docs/EVALUATION.md |
+| [tests/](tests) | Unit tests; run them with `python -m unittest discover -s tests` |
+| [tools/check_release.py](tools/check_release.py), [release/](release) | The check run before each release: every file must belong to a component of the release manifest, and no file may contain secrets or internal text |
+| [tools/build_anonymous.py](tools/build_anonymous.py), [release/anonymous/](release/anonymous) | Builds the anonymous copy of this repository for double-blind review |
 | [harness/configs/community-skills.json](harness/configs/community-skills.json) | The community Agent Skills tested, pinned by commit and SHA-256, with the selection rule |
 | [results/agent-skills/](results/agent-skills) | Per-task scores of the Skills eval |
 | [tools/skill_study.py](tools/skill_study.py), [tools/skill_study_errors.py](tools/skill_study_errors.py) | Run and analyse the Skills eval |
@@ -605,8 +628,8 @@ Regenerating the baselines also needs the packages listed in
 
 | Material | Licence |
 | --- | --- |
-| Code (`benchmark/engine`, `benchmark/algorithm-source`, `benchmark/*.py`, `harness`, `results/*.py`, `tools`, `tests`, `docs/assets`) | MIT; see [LICENSE](LICENSE). Separately installed harness runtimes keep their own terms. |
-| References, baseline and model outputs, results, metrics and metadata authored for InfoOrgBench | MIT; see [LICENSE](LICENSE) |
+| Code (`benchmark/engine`, `benchmark/algorithm-source`, `benchmark/*.py`, `harness`, `results/*.py`, `tools`, `tests`) | MIT; see [LICENSE](LICENSE). Separately installed harness runtimes keep their own terms. |
+| References, baseline and model outputs, results, metrics, metadata, documentation and figures authored for InfoOrgBench | MIT; see [LICENSE](LICENSE) |
 | Recap record text from the AMI Meeting Corpus (`benchmark/inputs/public/Recap/`) | CC BY 4.0 ([licence](https://creativecommons.org/licenses/by/4.0/)); © AMI Consortium |
 | Design record text from Kubernetes Enhancement Proposals (`benchmark/inputs/public/Design/`) | Apache-2.0; © The Kubernetes Authors |
 | Thread record text from the Apache Hadoop issue tracker | Not included. You download it from [Apache Jira](https://issues.apache.org/jira/projects/HADOOP) under the terms that apply there. |
