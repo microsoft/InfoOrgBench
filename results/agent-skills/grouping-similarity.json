@@ -1,0 +1,110 @@
+[
+  {
+    "condition": "control",
+    "reference": "published",
+    "model": "claude-haiku-5.5",
+    "tasks": 150,
+    "mean_leaf_ari": 0.7044236328353342,
+    "mean_parent_ari": 0.5963961777240795,
+    "identical_partitions": 20
+  },
+  {
+    "condition": "control",
+    "reference": "published",
+    "model": "claude-sonnet-5.5",
+    "tasks": 148,
+    "mean_leaf_ari": 0.7840788043670108,
+    "mean_parent_ari": 0.6753161926057596,
+    "identical_partitions": 30
+  },
+  {
+    "condition": "pinned-composio-file-organizer",
+    "reference": "control",
+    "model": "claude-haiku-5.5",
+    "tasks": 150,
+    "mean_leaf_ari": 0.7477162812018808,
+    "mean_parent_ari": 0.6376783411898004,
+    "identical_partitions": 19
+  },
+  {
+    "condition": "pinned-composio-file-organizer",
+    "reference": "control",
+    "model": "claude-sonnet-5.5",
+    "tasks": 150,
+    "mean_leaf_ari": 0.8122475768036649,
+    "mean_parent_ari": 0.7069948976681935,
+    "identical_partitions": 31
+  },
+  {
+    "condition": "pinned-claude-office-file-organizer",
+    "reference": "control",
+    "model": "claude-haiku-5.5",
+    "tasks": 150,
+    "mean_leaf_ari": 0.7362308311798558,
+    "mean_parent_ari": 0.6327436306829423,
+    "identical_partitions": 15
+  },
+  {
+    "condition": "pinned-claude-office-file-organizer",
+    "reference": "control",
+    "model": "claude-sonnet-5.5",
+    "tasks": 150,
+    "mean_leaf_ari": 0.8185948002458019,
+    "mean_parent_ari": 0.7216785124622296,
+    "identical_partitions": 33
+  },
+  {
+    "condition": "pinned-composio-invoice-organizer",
+    "reference": "control",
+    "model": "claude-haiku-5.5",
+    "tasks": 150,
+    "mean_leaf_ari": 0.7375446872393667,
+    "mean_parent_ari": 0.6322386073361547,
+    "identical_partitions": 17
+  },
+  {
+    "condition": "pinned-composio-invoice-organizer",
+    "reference": "control",
+    "model": "claude-sonnet-5.5",
+    "tasks": 150,
+    "mean_leaf_ari": 0.8082823784503484,
+    "mean_parent_ari": 0.723233456090661,
+    "identical_partitions": 22
+  },
+  {
+    "condition": "available-composio-file-organizer",
+    "reference": "control",
+    "model": "claude-haiku-5.5",
+    "tasks": 150,
+    "mean_leaf_ari": 0.7328747535063542,
+    "mean_parent_ari": 0.6189323200446324,
+    "identical_partitions": 15
+  },
+  {
+    "condition": "available-composio-file-organizer",
+    "reference": "control",
+    "model": "claude-sonnet-5.5",
+    "tasks": 150,
+    "mean_leaf_ari": 0.8054691275274339,
+    "mean_parent_ari": 0.7150752762676396,
+    "identical_partitions": 31
+  },
+  {
+    "condition": "pinned-irrelevant-mcp-builder",
+    "reference": "control",
+    "model": "claude-haiku-5.5",
+    "tasks": 150,
+    "mean_leaf_ari": 0.7451573056459627,
+    "mean_parent_ari": 0.6445627512551484,
+    "identical_partitions": 23
+  },
+  {
+    "condition": "pinned-irrelevant-mcp-builder",
+    "reference": "control",
+    "model": "claude-sonnet-5.5",
+    "tasks": 150,
+    "mean_leaf_ari": 0.801480686677958,
+    "mean_parent_ari": 0.6962981097223684,
+    "identical_partitions": 30
+  }
+]

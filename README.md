@@ -21,6 +21,7 @@
     <a href="#results">Results</a> &nbsp;|&nbsp;
     <a href="#key-findings">Key findings</a> &nbsp;|&nbsp;
     <a href="#quick-start">Quick start</a> &nbsp;|&nbsp;
+    <a href="#do-agent-skills-help">Skills eval</a> &nbsp;|&nbsp;
     <a href="#citation">Citation</a>
   </b>
 </p>
@@ -33,10 +34,9 @@ parent. InfoOrgBench therefore checks separately that every record is kept,
 and then scores how well the folders match the source hierarchy at every level.
 No language model is used to judge the outputs.
 
-**News.** November 2026: the paper is on arXiv as
-[2611.10600](https://arxiv.org/abs/2611.10600). This repository releases the
-150 tasks, the scorer, the baselines, the per-task results and final folder
-trees of the paper's 45 systems, and the agent harnesses used to run them.
+🔥 **News, Nov 2026:** We put the 5 most popular organizing Agent Skills to the
+test, and none of them helped agents organize better!
+[Check out the Skills eval →](#do-agent-skills-help)
 
 ## Overview
 
@@ -55,14 +55,16 @@ excerpts of one Kubernetes Enhancement Proposal (KEP) together but files the
 proposal under the wrong owning group, a Kubernetes Special Interest Group
 (SIG).
 
-<table>
-  <tr>
-    <td align="center" width="25%"><h3>150 tasks</h3>in three families</td>
-    <td align="center" width="25%"><h3>Hidden answer</h3>the agent never sees it</td>
-    <td align="center" width="25%"><h3>Every level scored</h3>with no LLM judge</td>
-    <td align="center" width="25%"><h3>45 systems</h3>nine models, five harnesses</td>
-  </tr>
-</table>
+This repository releases the 150 tasks, the scorer, the baselines, the per-task
+results and final folder trees of the paper's 45 systems, and the agent
+harnesses used to run them.
+
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="docs/assets/highlights-dark.svg">
+    <img alt="3 × 50 tasks. Every level scored. 9 models × 5 harnesses." src="docs/assets/highlights-light.svg" width="100%">
+  </picture>
+</p>
 
 ## Task families
 
@@ -73,11 +75,11 @@ proposal under the wrong owning group, a Kubernetes Special Interest Group
   </picture>
 </p>
 
-| Family | Records | Hierarchy | Records per task | Groups per task (parents, leaves) | Different parents and leaves overall |
+| Family | Records | Hierarchy | Records per task | Groups per task | Groups overall |
 | --- | --- | --- | :---: | :---: | :---: |
-| **Recap** | Sentences from AMI meeting summaries | meeting, then summary section | 40 to 60 | 2 to 4 meetings, 6 to 15 sections | 124 meetings, 450 sections |
-| **Thread** | Apache Hadoop Jira subtasks and comments | parent issue, then subtask | 41 to 60 | 2 to 3 issues, 3 to 17 subtasks | 3 issues, 42 subtasks |
-| **Design** | Excerpts from Kubernetes Enhancement Proposals | owning SIG, then proposal | 36 | 4 SIGs, 12 proposals | 16 SIGs, 294 proposals |
+| **Recap** | Sentences from AMI meeting summaries | meeting → section | 40\~60 | 2\~4 meetings, 6\~15 sections | 124 meetings, 450 sections |
+| **Thread** | Apache Hadoop Jira subtasks and comments | issue → subtask | 41\~60 | 2\~3 issues, 3\~17 subtasks | 3 issues, 42 subtasks |
+| **Design** | Excerpts from Kubernetes Enhancement Proposals | SIG → proposal | 36 | 4 SIGs, 12 proposals | 16 SIGs, 294 proposals |
 
 **How the tasks are built.** Each reference is the hierarchy that the source
 already records: the meeting and summary section of each AMI sentence, the
@@ -89,49 +91,69 @@ every task file and reference.
 
 ## Scoring
 
-- **Integrity.** Every record must end up in exactly one folder with its bytes
-  unchanged. An output that loses, duplicates or edits a record scores 0.
-- **Structure Score.** For any three records, the source hierarchy says which
-  two of them belong closer together. The score counts how often the output
-  agrees, separately for relations between parent groups and for relations
-  inside a parent. Precision and recall are averaged over these two levels and
-  combined into a level-balanced F1. Folder names and the order of folders do
-  not matter.
-- **Folder economy.** The F1 is multiplied by a factor
-  E = 1 − 0.2 × (extra single-child folders) / (folders in the output), which
-  lowers the score when an output wraps groups in folders that hold only one
-  item.
+An output scores 0 unless it keeps every record exactly once and unchanged.
+For a valid output, the **Structure Score** checks every set of 3 records: the
+source hierarchy says which 2 of them belong closer together, and the score
+measures how often the output's folders agree, both between parent groups and
+inside each parent group.
 
-The paper also reports the pooled Triplet F1 and the folder-economy penalty,
-100 × (1 − E). All scores are on a scale from 0 to 100.
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="docs/assets/metric-rule-dark.svg">
+    <img alt="Left: a source hierarchy with parent A holding leaf a1 (records x and y) and leaf a2 (record z), and parent B holding leaf b1 (record w). The triple x y | z is a leaf-level relation and x z | w is a parent-level relation. Right: for the triple x y | z, the output agrees if x and y share a folder apart from z, which counts as correct; it conflicts if x and z share a folder, which lowers precision and recall; and it leaves the triple unresolved if all 3 share one folder, which lowers recall only." src="docs/assets/metric-rule-light.svg" width="100%">
+  </picture>
+</p>
+
+```math
+S = F_1^{\text{bal}} \times E, \qquad F_1^{\text{bal}} = \frac{2 \bar P \bar R}{\bar P + \bar R}, \qquad E = 1 - 0.2 \times \frac{\text{extra single-child folders}}{\text{folders in the output}}
+```
+
+$`\bar P`$ and $`\bar R`$ are the precision and recall over these triples,
+averaged over the parent and leaf levels so that the many parent-level triples
+do not drown out the leaf level. E lowers the score a little when the output
+wraps single items in extra folders. Folder names and the order of folders do
+not matter, and scores run from 0 to 100. The example below shows how 4
+mistakes add up to a score of 57.8.
+
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="docs/assets/metric-example-dark.svg">
+    <img alt="Worked example from the paper. Source: parent A with leaves a1, a2 and a3; parent B with leaves b1 and b2; parent C with leaves c1 and c2; 2 records per leaf. Output: leaf a2 is filed under B, leaf a3 sits alone in a new parent D, leaves c1 and c2 are merged, and record z2 moves into the merged leaf. Parent level: 104 agreed, 42 conflicting and 94 unresolved triples, precision 0.54 and recall 0.43. Leaf level: 14, 2 and 4, precision 0.88 and recall 0.70. Level-balanced F1 is 0.63, folder economy is 0.92 and the Structure Score is 57.8." src="docs/assets/metric-example-light.svg" width="100%">
+  </picture>
+</p>
+
+**[How the Structure Score works →](docs/EVALUATION.md)** walks through each
+step as the paper defines it, with the formulas, edge cases and the other
+measures that the full results table reports (pooled Triplet F1 and the
+folder-economy penalty, 100 × (1 − E)).
 
 ## Results
 
 <p align="center">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="docs/assets/results-dark.svg">
-    <img alt="Structure Score of nine models across five harnesses and three text-only baselines. GPT-6.1 Sol leads every family: 74.8 on Recap, 76.9 on Thread, 95.3 on Design and 82.3 on average. The silhouette baseline scores 26.9, 34.0 and 71.0." src="docs/assets/results-light.svg" width="100%">
+    <img alt="Structure Score of 9 models across 5 harnesses and 3 text-only baselines. GPT-6.1 Sol leads every family: 74.8 on Recap, 76.9 on Thread, 95.3 on Design and 82.3 on average. The silhouette baseline scores 26.9, 34.0 and 71.0." src="docs/assets/results-light.svg" width="100%">
   </picture>
 </p>
 
-Each model was run with five harnesses: ReAct-FC (our own function-calling
+Each model was run with 5 harnesses: ReAct-FC (our own function-calling
 agent loop), OpenAI Codex CLI, DeepSeek Harness (DSH), Pi and LangChain Deep
 Agents. The family columns give each model's average Structure Score over the
-five harnesses, and the last two columns show how much the harness changes it.
-The three baselines in italics use no language model: they cluster the records
+5 harnesses, and the last 2 columns show how much the harness changes it.
+The 3 baselines in italics use no language model: they cluster the records
 by word overlap (TF-IDF similarity).
 
-| Model | Recap | Thread | Design | Average | Lowest to highest harness | Best harness |
+| Model | Recap | Thread | Design | Average | Harness range | Best harness |
 | --- | ---: | ---: | ---: | ---: | :---: | --- |
-| GPT-6.1 Sol | **74.8** | **76.9** | **95.3** | **82.3** | 80.9 to 83.2 | DSH (83.2) |
-| Claude Sonnet 5.5 | 48.8 | 72.9 | 92.7 | 71.5 | 70.5 to 72.4 | Deep Agents (72.4) |
-| Grok 4.7 | 53.2 | 62.5 | 92.7 | 69.5 | 68.6 to 70.2 | DSH (70.2) |
-| Claude Haiku 5.5 | 40.0 | 65.6 | 91.9 | 65.8 | 65.0 to 66.5 | Deep Agents (66.5) |
-| GPT-5.6 Terra | 42.5 | 60.3 | 91.5 | 64.7 | 63.5 to 65.8 | Pi (65.8) |
-| GPT-6 Luna | 42.6 | 54.4 | 90.4 | 62.5 | 61.2 to 63.1 | Deep Agents (63.1) |
-| GPT-5.6 Luna | 38.6 | 52.7 | 88.9 | 60.0 | 59.4 to 60.3 | Pi (60.3) |
-| MAI-Code-1.1-Flash | 39.0 | 51.0 | 78.1 | 56.0 | 53.8 to 57.3 | Pi (57.3) |
-| Claude Haiku 4.5 | 39.3 | 48.1 | 77.9 | 55.1 | 52.5 to 57.9 | Pi (57.9) |
+| GPT-6.1 Sol | **74.8** | **76.9** | **95.3** | **82.3** | 80.9\~83.2 | DSH |
+| Claude Sonnet 5.5 | 48.8 | 72.9 | 92.7 | 71.5 | 70.5\~72.4 | Deep Agents |
+| Grok 4.7 | 53.2 | 62.5 | 92.7 | 69.5 | 68.6\~70.2 | DSH |
+| Claude Haiku 5.5 | 40.0 | 65.6 | 91.9 | 65.8 | 65.0\~66.5 | Deep Agents |
+| GPT-5.6 Terra | 42.5 | 60.3 | 91.5 | 64.7 | 63.5\~65.8 | Pi |
+| GPT-6 Luna | 42.6 | 54.4 | 90.4 | 62.5 | 61.2\~63.1 | Deep Agents |
+| GPT-5.6 Luna | 38.6 | 52.7 | 88.9 | 60.0 | 59.4\~60.3 | Pi |
+| MAI-Code-1.1-Flash | 39.0 | 51.0 | 78.1 | 56.0 | 53.8\~57.3 | Pi |
+| Claude Haiku 4.5 | 39.3 | 48.1 | 77.9 | 55.1 | 52.5\~57.9 | Pi |
 | *Silhouette clustering* | 26.9 | 34.0 | 71.0 | 44.0 | | |
 | *Random shape* | 18.5 | 19.6 | 17.0 | 18.4 | | |
 | *Fixed distance cuts* | 9.4 | 16.6 | 45.9 | 24.0 | | |
@@ -141,7 +163,7 @@ Running `python results/check_table3.py` recomputes every cell of the paper's
 main results table from them.
 
 <details>
-<summary><b>All 45 systems</b> (Structure Score per family, with the average pooled Triplet F1 and folder-economy penalty)</summary>
+<summary><b>All 45 systems</b></summary>
 
 | Model | Harness | Recap | Thread | Design | Average | Avg. Triplet F1 | Avg. penalty |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: |
@@ -202,12 +224,12 @@ provider's default setting. Each system ran once on every task.
   with DSH, averages 83.2 out of 100. No system scores above 78 on Recap or
   Thread, although the best system reaches 95.8 on Design.
 - **The model matters far more than the harness.** The average scores of the
-  nine models are up to 27.2 points apart. Changing the harness moves the
-  average score by less than one point (from −0.7 to +0.6), which is about as
-  much as the scores vary between two identical runs.
+  9 models are up to 27.2 points apart. Changing the harness moves the
+  average score by less than 1 point (from −0.7 to +0.6), which is about as
+  much as the scores vary between 2 identical runs.
 - **Most errors happen above the leaf level.** In every family, relations
   between parent groups go wrong more often than relations inside a group, as
-  the figure below shows.
+  the figure below shows (medians over the systems with per-level data).
   - *Recap:* agents group notes by topic rather than by meeting, so 54% of the
     output folders mix notes from different meetings.
   - *Thread:* half of the outputs leave out the parent-issue level.
@@ -215,7 +237,7 @@ provider's default setting. Each system ran once on every task.
     outputs keep every proposal together but file some under the wrong SIG.
 - **More computation did not help in our test.** For GPT-5.6 Terra with Codex,
   higher reasoning effort changed the average score by −1.0 points, and
-  combining three runs without looking at the reference changed it by −0.2 to
+  combining 3 runs without looking at the reference changed it by −0.2 to
   +0.5 points.
 - **Exact matches are rare.** GPT-6.1 Sol with ReAct-FC reproduces the complete
   reference hierarchy in only 1 Recap task and 2 Thread tasks out of 50 each.
@@ -319,7 +341,7 @@ python run_task.py summary "../../runs/design/*"
 
 The script expands the quoted wildcards itself, so the same commands work in
 every shell. In the paper, a family score is the average over all 50 tasks of
-that family, and the overall average is the mean of the three family scores.
+that family, and the overall average is the mean of the 3 family scores.
 
 ### 4. Build the Thread tasks
 
@@ -356,7 +378,7 @@ instead of skipping.
 
 ### 6. Rerun a system from the paper
 
-[harness/](harness) contains the paper's five harnesses (ReAct-FC, Codex CLI,
+[harness/](harness) contains the paper's 5 harnesses (ReAct-FC, Codex CLI,
 Pi, DeepSeek Harness and Deep Agents) with the same prompts, tools and settings.
 The models are reached through your own GitHub Copilot plan or a provider API
 key, and the [harness guide](harness/README.md) explains installation and
@@ -371,6 +393,157 @@ python -m infoorgbench_harness score --run ../runs/reactfc-sol --out ../runs/rea
 A rerun produces a new sample, so its scores will differ somewhat from the
 published ones.
 
+## Do Agent Skills help?
+
+People always have more files, notes and messages than they can keep
+organized, and many hand that job to an agent.
+[Agent Skills](https://agentskills.io) are a popular way to teach an agent
+such a job: a folder with a `SKILL.md` of instructions that harnesses such as
+Claude Code, Codex and Deep Agents load when needed. Organizing skills are
+installed thousands of times on [skills.sh](https://skills.sh), and many users
+expect them to make their harness better at organizing. Evaluations, however,
+come out much later than the skills, so whether they help is usually unknown.
+We ran the 5 most popular organizing skills on InfoOrgBench to find out.
+
+**None helped.** Each skill changed the Structure Score by at most 1 point
+out of 100, for current and older Claude models alike. Agents followed the
+skills' naming rules but grouped the records the same way as without a skill.
+
+### Setting
+
+| Skills | Models | Harness | Tasks |
+| --- | --- | --- | --- |
+| 5 most-installed organizing skills | Claude Haiku 5.5, Claude Sonnet 5.5 | Deep Agents | 150, 1 run each |
+
+**Which skills did we test?**
+
+| From | Skill | Installs |
+| --- | --- | ---: |
+| [ComposioHQ](https://github.com/ComposioHQ/awesome-claude-skills) | [file-organizer](https://github.com/ComposioHQ/awesome-claude-skills/tree/be2a406907dbc61b73e6827ded415c96139d13a2/file-organizer) | 7.3k |
+| | [invoice-organizer](https://github.com/ComposioHQ/awesome-claude-skills/tree/be2a406907dbc61b73e6827ded415c96139d13a2/invoice-organizer) | 5.4k |
+| [claude-office-skills](https://github.com/claude-office-skills/skills) | [File Organizer](https://github.com/claude-office-skills/skills/tree/9c4c7d5cd2813a8936bf2c9fdb174ea883b85a11/file-organizer) | 5.6k |
+| | [Invoice Organizer](https://github.com/claude-office-skills/skills/tree/9c4c7d5cd2813a8936bf2c9fdb174ea883b85a11/invoice-organizer) | 4.7k |
+| | [Email Classifier](https://github.com/claude-office-skills/skills/tree/9c4c7d5cd2813a8936bf2c9fdb174ea883b85a11/email-classifier) | 4.7k |
+
+Installs on skills.sh in November 2026. Each link opens the skill at the commit
+we tested.
+
+### Results
+
+**Does a skill help current models?** No.
+
+We loaded each skill before the agent started, as if the user had invoked it,
+so the agent saw it on every task. Claude Haiku 5.5 and Claude Sonnet 5.5 are a
+smaller and a larger current model, and Deep Agents, one of the paper's 5
+harnesses, loads skills natively. Each run is compared with the same agent
+without a skill. We also ran
+[mcp-builder](https://github.com/anthropics/skills/tree/2c5958ecac7cee2b583967a2c4981d0f4a75c579/skills/mcp-builder),
+a skill of the same length that has nothing to do with organizing, to separate
+a skill's advice from the extra prompt text.
+
+| From | Skill | Claude Haiku 5.5 | Claude Sonnet 5.5 |
+| --- | --- | ---: | ---: |
+| | *No skill (score)* | *64.9* | *71.9* |
+| ComposioHQ | file-organizer | −0.5 | −0.3 |
+| | invoice-organizer | −0.3 | −0.8 |
+| claude-office-skills | File Organizer | +0.8 | −0.3 |
+| | Invoice Organizer | −0.7 | +0.3 |
+| | Email Classifier | +0.3 | −0.6 |
+| anthropics | mcp-builder (unrelated) | +1.0 | +0.7 |
+
+Change in Structure Score against a no-skill run on the same day; none is
+statistically significant. The unrelated skill moved scores as much as the
+organizing skills did.
+
+**Does it help an older model?** No.
+
+A skill might matter more for a weaker model, so we also ran the top 2 skills
+with Claude Haiku 4.5.
+
+| From | Skill | Claude Haiku 4.5 |
+| --- | --- | ---: |
+| | *No skill (score)* | *54.4* |
+| ComposioHQ | file-organizer | +0.9 |
+| claude-office-skills | File Organizer | +1.0 |
+
+Neither change is statistically significant.
+
+**Does a skill help on the tasks where the agent uses it?** No.
+
+Usually a skill is only installed, and the agent decides whether to open it.
+We reran file-organizer this way.
+
+| ComposioHQ file-organizer, offered only | Claude Haiku 5.5 | Claude Sonnet 5.5 |
+| --- | ---: | ---: |
+| Tasks where the agent opened the skill | 60 of 150 | 14 of 150 |
+| Change on those tasks | +1.5 | −1.1 |
+| Change on the other tasks | 0.0 | +0.6 |
+
+The agent left the skill unopened in most tasks and opened it mostly on harder
+ones (no-skill scores of 59 and 62 on them, against 69 and 73 on the rest).
+None of the changes is statistically significant.
+
+**What did the skills change?** Folder names, not groupings.
+
+| Claude Sonnet 5.5 | No skill | With ComposioHQ file-organizer |
+| --- | ---: | ---: |
+| Folder names in lowercase-hyphen style | 46% | 84% |
+| Recap top folders that mix 2+ meetings | 77% | 76% |
+
+The skills teach housekeeping, such as folders by file type or date, naming
+rules and duplicates. InfoOrgBench asks the agent to work out which meeting,
+issue or SIG each record came from, and none of the skills covers that. No
+task type improved either, whether split by family, difficulty or task size.
+
+### Code
+
+- [harness/configs/community-skills.json](harness/configs/community-skills.json):
+  the skills tested, pinned by commit and SHA-256, with the selection rule.
+- [results/agent-skills/](results/agent-skills): per-task scores of every run.
+- [tools/skill_study.py](tools/skill_study.py): runs and analyses the
+  experiment.
+- [docs/AGENT-SKILLS.md](docs/AGENT-SKILLS.md): full report with statistics,
+  error analysis and limitations.
+
+### Try it
+
+Install the harness and Deep Agents as in [step 6](#6-rerun-a-system-from-the-paper)
+and the [harness guide](harness/README.md#deep-agents). Then run one family
+with and without a skill, and compare the scores:
+
+```bash
+python -m infoorgbench_harness fetch-skills --out ../skills
+python -m infoorgbench_harness run --harness deepagents --model claude-sonnet-5.5 --backend copilot --family Recap --out ../runs/no-skill
+python -m infoorgbench_harness run --harness deepagents --model claude-sonnet-5.5 --backend copilot --family Recap --skill ../skills/composio-file-organizer/file-organizer --skill-mode pinned --out ../runs/with-skill
+python -m infoorgbench_harness score --run ../runs/no-skill
+python -m infoorgbench_harness score --run ../runs/with-skill
+```
+
+Single tasks vary by several points between runs, so compare whole families.
+
+**Use your own skill.** A skill is a folder that contains a `SKILL.md`:
+
+```text
+my-skill/
+└── SKILL.md
+```
+
+```markdown
+---
+name: my-skill
+description: Organize records by the meeting, issue or project they came from.
+---
+
+Read every record before creating any folder. Note the source each record
+names, then build one top-level folder per source.
+```
+
+Pass the folder with `--skill ../my-skill`, and repeat `--skill` to load
+several. `--skill-mode pinned` loads the skill before the agent starts;
+`--skill-mode available` only lists it, and the agent decides. The
+[harness guide](harness/README.md#agent-skills-with-deep-agents-and-codex)
+explains both modes.
+
 ## What's in this repository
 
 The 1,700 saved outputs in [benchmark/predictions/](benchmark/predictions) are
@@ -378,8 +551,8 @@ final folder trees that `replay.py` scores again:
 
 | Outputs | What they are | Model and harness |
 | ---: | --- | --- |
-| 1,200 | Baselines without a language model, on every family: all records in one folder, fixed distance cuts and silhouette clustering (50 tasks each), and random trees of the silhouette shape with five seeds (250) | None |
-| 300 | Thread checks: silhouette clustering (50) and random trees (250) after masking issue keys and other identifiers | None |
+| 1,200 | Baselines on all 3 families: all records in one folder, fixed distance cuts, silhouette clustering (50 tasks each) and random trees (5 seeds × 50 tasks) | None |
+| 300 | Thread baselines with issue keys masked: silhouette clustering (50) and random trees (5 seeds × 50 tasks) | None |
 | 100 | Recap and Thread, 50 tasks each | Claude Haiku 4.5 with ReAct-FC |
 | 100 | Recap and Thread, 50 tasks each | GPT-6.1 Sol with ReAct-FC |
 
@@ -393,9 +566,11 @@ The results of all 45 systems are released as well:
   were not kept; [results/assignments/README.md](results/assignments/README.md)
   lists them and explains why.
 - [harness/](harness) holds the agent harnesses and prompts used for these runs.
+- [results/agent-skills/](results/agent-skills) holds the per-task scores of the
+  [Skills eval](#do-agent-skills-help).
 
 Model outputs contain only the final folder path of each record ID, including
-the folder names that the model chose. In Thread, folder names that copied six
+the folder names that the model chose. In Thread, folder names that copied 6
 or more consecutive words of Jira text were replaced with neutral names; this
 does not change any score. Transcripts, tool-call logs and token counts are not
 included.
@@ -419,8 +594,15 @@ included.
 | [harness/](harness) | ReAct-FC and the adapters for Codex CLI, Pi, DeepSeek Harness and Deep Agents |
 | [docs/DATASHEET.md](docs/DATASHEET.md) | Documentation of the dataset |
 | [docs/THREAD-DATA.md](docs/THREAD-DATA.md) | How to download the Jira issues and build the Thread tasks |
-| [docs/assets/](docs/assets) | The README figures, the paper's result numbers and the script that draws the figures |
-| [tools/](tools) | Checks run before each release |
+| [docs/EVALUATION.md](docs/EVALUATION.md) | How the Structure Score works, step by step, with a worked example |
+| [docs/assets/](docs/assets) | The figures in the README and in docs/EVALUATION.md |
+| [tests/](tests) | Unit tests; run them with `python -m unittest discover -s tests` |
+| [tools/check_release.py](tools/check_release.py), [release/](release) | The check run before each release: every file must belong to a component of the release manifest, and no file may contain secrets or internal text |
+| [tools/build_anonymous.py](tools/build_anonymous.py), [release/anonymous/](release/anonymous) | Builds the anonymous copy of this repository for double-blind review |
+| [harness/configs/community-skills.json](harness/configs/community-skills.json) | The community Agent Skills tested, pinned by commit and SHA-256, with the selection rule |
+| [results/agent-skills/](results/agent-skills) | Per-task scores of the Skills eval |
+| [tools/skill_study.py](tools/skill_study.py), [tools/skill_study_errors.py](tools/skill_study_errors.py) | Run and analyse the Skills eval |
+| [docs/AGENT-SKILLS.md](docs/AGENT-SKILLS.md) | Full report of the Skills eval |
 
 Regenerating the baselines also needs the packages listed in
 [benchmark/requirements-paper-pilot.txt](benchmark/requirements-paper-pilot.txt).
@@ -430,7 +612,7 @@ Regenerating the baselines also needs the packages listed in
 <details>
 <summary><b>How InfoOrgBench differs from other benchmarks</b></summary>
 
-| Benchmark | Tasks | Agent actions | Works on files | Needs no virtual machine or service | Organizes many items | Reference existed before the benchmark | Scored without a language model |
+| Benchmark | Tasks | Agent actions | Works on files | No VM or service | Organizes many items | Pre-existing reference | No LLM scoring |
 | --- | ---: | --- | :---: | :---: | :---: | :---: | :---: |
 | WebArena | 812 | Click, type | ✗ | ✗ | ✗ | ✗ | ✗ |
 | OSWorld | 369 | Mouse, keys | ✗ | ✗ | ✗ | ✗ | ✓ |
@@ -446,8 +628,8 @@ Regenerating the baselines also needs the packages listed in
 
 | Material | Licence |
 | --- | --- |
-| Code (`benchmark/engine`, `benchmark/algorithm-source`, `benchmark/*.py`, `harness`, `results/*.py`, `tools`, `tests`, `docs/assets`) | MIT; see [LICENSE](LICENSE). Separately installed harness runtimes keep their own terms. |
-| References, baseline and model outputs, results, metrics and metadata authored for InfoOrgBench | MIT; see [LICENSE](LICENSE) |
+| Code (`benchmark/engine`, `benchmark/algorithm-source`, `benchmark/*.py`, `harness`, `results/*.py`, `tools`, `tests`) | MIT; see [LICENSE](LICENSE). Separately installed harness runtimes keep their own terms. |
+| References, baseline and model outputs, results, metrics, metadata, documentation and figures authored for InfoOrgBench | MIT; see [LICENSE](LICENSE) |
 | Recap record text from the AMI Meeting Corpus (`benchmark/inputs/public/Recap/`) | CC BY 4.0 ([licence](https://creativecommons.org/licenses/by/4.0/)); © AMI Consortium |
 | Design record text from Kubernetes Enhancement Proposals (`benchmark/inputs/public/Design/`) | Apache-2.0; © The Kubernetes Authors |
 | Thread record text from the Apache Hadoop issue tracker | Not included. You download it from [Apache Jira](https://issues.apache.org/jira/projects/HADOOP) under the terms that apply there. |
@@ -464,10 +646,10 @@ we made and the full licence text.
   Other ways of organizing the same records can also be useful to people.
 - The 150 English tasks are development tasks without a held-out split, and
   tasks in the same family reuse source material; all Thread tasks draw on the
-  same three parent issues. Rankings on these tasks do not by themselves show
+  same 3 parent issues. Rankings on these tasks do not by themselves show
   that one system is better on new sources.
 - All sources are public and may have appeared in model training data.
-- Each system ran once on each task, and differences of about one point are
+- Each system ran once on each task, and differences of about 1 point are
   within the variation between repeated runs.
 - A rerun with [harness/](harness) produces a new sample. Only the connection
   to the model provider differs from the paper's runs.

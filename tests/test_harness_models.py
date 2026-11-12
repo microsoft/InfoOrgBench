@@ -52,6 +52,15 @@ class ProtocolTranslationTests(unittest.TestCase):
         restored = to_responses_request(anthropic, ANTHROPIC)
         self.assertTrue(any(x.get("type") == "function_call" for x in restored["input"]))
 
+    def test_responses_developer_messages_become_anthropic_system_blocks(self):
+        request = dict(self.request, input=[
+            {"type": "message", "role": "developer", "content": [{"type": "input_text", "text": "sandbox rules"}]},
+            *self.request["input"]])
+        anthropic = from_responses_request(request, ANTHROPIC)
+        self.assertEqual(anthropic["system"], [{"type": "text", "text": "system rules"},
+                                               {"type": "text", "text": "sandbox rules"}])
+        self.assertEqual({m["role"] for m in anthropic["messages"]}, {"user", "assistant"})
+
     def test_responses_reasoning_maps_to_anthropic_adaptive_thinking(self):
         mapped = from_responses_request(self.request, ANTHROPIC)
         self.assertEqual(mapped["thinking"], {"type": "adaptive"})
@@ -106,6 +115,17 @@ class ProtocolTranslationTests(unittest.TestCase):
                 self.assertEqual(decoded["usage"]["total_tokens"], 10)
                 self.assertEqual(decoded["output"][0]["name"], "check_inventory")
                 self.assertEqual(decoded["output"][1]["content"][0]["text"], "done")
+
+    def test_responses_stream_announces_each_output_item_before_terminal_event(self):
+        response = {"id": "r2", "object": "response", "model": "m", "status": "completed",
+                    "output": [{"type": "function_call", "call_id": "c3", "name": "exec_command", "arguments": "{}"}],
+                    "usage": {"input_tokens": 1, "output_tokens": 1, "total_tokens": 2}}
+        raw, content_type = encode_response(response, RESPONSES, stream=True)
+        events = [json.loads(line[6:]) for line in raw.decode().splitlines() if line.startswith("data: ")]
+        self.assertEqual([event["type"] for event in events], [
+            "response.created", "response.output_item.added", "response.output_item.done", "response.completed"])
+        self.assertEqual(events[2]["item"]["call_id"], "c3")
+        self.assertEqual(decode_response(raw, RESPONSES, content_type)["output"], response["output"])
 
     def test_anthropic_mixed_content_preserves_block_order(self):
         request = {"model": "m", "messages": [{"role": "assistant", "content": [

@@ -1,0 +1,926 @@
+{
+  "schema_version": 1,
+  "description": "Agent Skills experiment (not part of the paper). Structure Score on a 0-100 scale; differences are paired per task against the reference condition, averaged with equal family weights. Intervals: 95% percentile bootstrap over tasks stratified by family; p: two-sided sign-flip permutation test; p_holm: Holm correction within the pre-registered family.",
+  "conditions": {
+    "control|claude-haiku-5.5": {
+      "condition": "control",
+      "model": "claude-haiku-5.5",
+      "harness": "deepagents",
+      "stage": "1",
+      "usable": true,
+      "tasks": 150,
+      "structure_score": 64.8653,
+      "families": {
+        "Recap": 39.0111,
+        "Thread": 63.6675,
+        "Design": 91.9172
+      },
+      "valid_outputs": 150,
+      "tasks_with_pinned_skill": 0,
+      "tasks_reading_skill": 0
+    },
+    "control|claude-sonnet-5.5": {
+      "condition": "control",
+      "model": "claude-sonnet-5.5",
+      "harness": "deepagents",
+      "stage": "1",
+      "usable": true,
+      "tasks": 150,
+      "structure_score": 71.8517,
+      "families": {
+        "Recap": 48.295,
+        "Thread": 73.8821,
+        "Design": 93.3778
+      },
+      "valid_outputs": 150,
+      "tasks_with_pinned_skill": 0,
+      "tasks_reading_skill": 0
+    },
+    "control|claude-haiku-4.5": {
+      "condition": "control",
+      "model": "claude-haiku-4.5",
+      "harness": "deepagents",
+      "stage": "B",
+      "usable": true,
+      "tasks": 150,
+      "structure_score": 54.3834,
+      "families": {
+        "Recap": 38.0636,
+        "Thread": 46.5305,
+        "Design": 78.5562
+      },
+      "valid_outputs": 150,
+      "tasks_with_pinned_skill": 0,
+      "tasks_reading_skill": 0
+    },
+    "pinned-composio-file-organizer|claude-haiku-5.5": {
+      "condition": "pinned-composio-file-organizer",
+      "model": "claude-haiku-5.5",
+      "harness": "deepagents",
+      "stage": "1",
+      "usable": true,
+      "tasks": 150,
+      "structure_score": 64.3475,
+      "families": {
+        "Recap": 36.2072,
+        "Thread": 64.0468,
+        "Design": 92.7886
+      },
+      "valid_outputs": 150,
+      "tasks_with_pinned_skill": 150,
+      "tasks_reading_skill": 0
+    },
+    "pinned-composio-file-organizer|claude-sonnet-5.5": {
+      "condition": "pinned-composio-file-organizer",
+      "model": "claude-sonnet-5.5",
+      "harness": "deepagents",
+      "stage": "1",
+      "usable": true,
+      "tasks": 150,
+      "structure_score": 71.5176,
+      "families": {
+        "Recap": 46.8456,
+        "Thread": 73.9956,
+        "Design": 93.7117
+      },
+      "valid_outputs": 150,
+      "tasks_with_pinned_skill": 150,
+      "tasks_reading_skill": 0
+    },
+    "pinned-composio-file-organizer|claude-haiku-4.5": {
+      "condition": "pinned-composio-file-organizer",
+      "model": "claude-haiku-4.5",
+      "harness": "deepagents",
+      "stage": "B",
+      "usable": true,
+      "tasks": 150,
+      "structure_score": 55.2679,
+      "families": {
+        "Recap": 38.7368,
+        "Thread": 46.6318,
+        "Design": 80.4351
+      },
+      "valid_outputs": 150,
+      "tasks_with_pinned_skill": 150,
+      "tasks_reading_skill": 0
+    },
+    "pinned-claude-office-file-organizer|claude-haiku-5.5": {
+      "condition": "pinned-claude-office-file-organizer",
+      "model": "claude-haiku-5.5",
+      "harness": "deepagents",
+      "stage": "1",
+      "usable": true,
+      "tasks": 150,
+      "structure_score": 65.6756,
+      "families": {
+        "Recap": 38.7193,
+        "Thread": 66.3073,
+        "Design": 92.0002
+      },
+      "valid_outputs": 150,
+      "tasks_with_pinned_skill": 150,
+      "tasks_reading_skill": 0
+    },
+    "pinned-claude-office-file-organizer|claude-sonnet-5.5": {
+      "condition": "pinned-claude-office-file-organizer",
+      "model": "claude-sonnet-5.5",
+      "harness": "deepagents",
+      "stage": "1",
+      "usable": true,
+      "tasks": 150,
+      "structure_score": 71.555,
+      "families": {
+        "Recap": 47.8738,
+        "Thread": 73.3086,
+        "Design": 93.4825
+      },
+      "valid_outputs": 150,
+      "tasks_with_pinned_skill": 150,
+      "tasks_reading_skill": 0
+    },
+    "pinned-claude-office-file-organizer|claude-haiku-4.5": {
+      "condition": "pinned-claude-office-file-organizer",
+      "model": "claude-haiku-4.5",
+      "harness": "deepagents",
+      "stage": "B",
+      "usable": true,
+      "tasks": 150,
+      "structure_score": 55.3808,
+      "families": {
+        "Recap": 39.8406,
+        "Thread": 46.8123,
+        "Design": 79.4894
+      },
+      "valid_outputs": 150,
+      "tasks_with_pinned_skill": 150,
+      "tasks_reading_skill": 0
+    },
+    "pinned-composio-invoice-organizer|claude-haiku-5.5": {
+      "condition": "pinned-composio-invoice-organizer",
+      "model": "claude-haiku-5.5",
+      "harness": "deepagents",
+      "stage": "1",
+      "usable": true,
+      "tasks": 150,
+      "structure_score": 64.6174,
+      "families": {
+        "Recap": 38.8182,
+        "Thread": 64.2,
+        "Design": 90.8341
+      },
+      "valid_outputs": 150,
+      "tasks_with_pinned_skill": 150,
+      "tasks_reading_skill": 0
+    },
+    "pinned-composio-invoice-organizer|claude-sonnet-5.5": {
+      "condition": "pinned-composio-invoice-organizer",
+      "model": "claude-sonnet-5.5",
+      "harness": "deepagents",
+      "stage": "1",
+      "usable": true,
+      "tasks": 150,
+      "structure_score": 71.02,
+      "families": {
+        "Recap": 45.9318,
+        "Thread": 74.5688,
+        "Design": 92.5596
+      },
+      "valid_outputs": 150,
+      "tasks_with_pinned_skill": 150,
+      "tasks_reading_skill": 0
+    },
+    "available-composio-file-organizer|claude-haiku-5.5": {
+      "condition": "available-composio-file-organizer",
+      "model": "claude-haiku-5.5",
+      "harness": "deepagents",
+      "stage": "1",
+      "usable": true,
+      "tasks": 150,
+      "structure_score": 65.4662,
+      "families": {
+        "Recap": 39.7978,
+        "Thread": 64.8618,
+        "Design": 91.739
+      },
+      "valid_outputs": 150,
+      "tasks_with_pinned_skill": 0,
+      "tasks_reading_skill": 60
+    },
+    "available-composio-file-organizer|claude-sonnet-5.5": {
+      "condition": "available-composio-file-organizer",
+      "model": "claude-sonnet-5.5",
+      "harness": "deepagents",
+      "stage": "1",
+      "usable": true,
+      "tasks": 150,
+      "structure_score": 72.3074,
+      "families": {
+        "Recap": 49.3744,
+        "Thread": 73.923,
+        "Design": 93.6248
+      },
+      "valid_outputs": 150,
+      "tasks_with_pinned_skill": 0,
+      "tasks_reading_skill": 14
+    },
+    "pinned-irrelevant-mcp-builder|claude-haiku-5.5": {
+      "condition": "pinned-irrelevant-mcp-builder",
+      "model": "claude-haiku-5.5",
+      "harness": "deepagents",
+      "stage": "1",
+      "usable": true,
+      "tasks": 150,
+      "structure_score": 65.8563,
+      "families": {
+        "Recap": 40.4261,
+        "Thread": 65.4304,
+        "Design": 91.7125
+      },
+      "valid_outputs": 150,
+      "tasks_with_pinned_skill": 150,
+      "tasks_reading_skill": 0
+    },
+    "pinned-irrelevant-mcp-builder|claude-sonnet-5.5": {
+      "condition": "pinned-irrelevant-mcp-builder",
+      "model": "claude-sonnet-5.5",
+      "harness": "deepagents",
+      "stage": "1",
+      "usable": true,
+      "tasks": 150,
+      "structure_score": 72.5598,
+      "families": {
+        "Recap": 48.2749,
+        "Thread": 75.863,
+        "Design": 93.5416
+      },
+      "valid_outputs": 150,
+      "tasks_with_pinned_skill": 150,
+      "tasks_reading_skill": 0
+    },
+    "control-r2|claude-haiku-5.5": {
+      "condition": "control-r2",
+      "model": "claude-haiku-5.5",
+      "harness": "deepagents",
+      "stage": "A",
+      "usable": true,
+      "tasks": 150,
+      "structure_score": 65.1545,
+      "families": {
+        "Recap": 40.006,
+        "Thread": 64.0975,
+        "Design": 91.3599
+      },
+      "valid_outputs": 150,
+      "tasks_with_pinned_skill": 0,
+      "tasks_reading_skill": 0
+    },
+    "control-r2|claude-sonnet-5.5": {
+      "condition": "control-r2",
+      "model": "claude-sonnet-5.5",
+      "harness": "deepagents",
+      "stage": "A",
+      "usable": true,
+      "tasks": 150,
+      "structure_score": 71.8423,
+      "families": {
+        "Recap": 49.153,
+        "Thread": 73.0926,
+        "Design": 93.2813
+      },
+      "valid_outputs": 150,
+      "tasks_with_pinned_skill": 0,
+      "tasks_reading_skill": 0
+    },
+    "pinned-office-invoice-organizer|claude-haiku-5.5": {
+      "condition": "pinned-office-invoice-organizer",
+      "model": "claude-haiku-5.5",
+      "harness": "deepagents",
+      "stage": "A",
+      "usable": true,
+      "tasks": 150,
+      "structure_score": 64.5016,
+      "families": {
+        "Recap": 38.2245,
+        "Thread": 63.959,
+        "Design": 91.3215
+      },
+      "valid_outputs": 150,
+      "tasks_with_pinned_skill": 150,
+      "tasks_reading_skill": 0
+    },
+    "pinned-office-invoice-organizer|claude-sonnet-5.5": {
+      "condition": "pinned-office-invoice-organizer",
+      "model": "claude-sonnet-5.5",
+      "harness": "deepagents",
+      "stage": "A",
+      "usable": true,
+      "tasks": 150,
+      "structure_score": 72.1724,
+      "families": {
+        "Recap": 47.3583,
+        "Thread": 75.4924,
+        "Design": 93.6664
+      },
+      "valid_outputs": 150,
+      "tasks_with_pinned_skill": 150,
+      "tasks_reading_skill": 0
+    },
+    "pinned-office-email-classifier|claude-haiku-5.5": {
+      "condition": "pinned-office-email-classifier",
+      "model": "claude-haiku-5.5",
+      "harness": "deepagents",
+      "stage": "A",
+      "usable": true,
+      "tasks": 150,
+      "structure_score": 65.4107,
+      "families": {
+        "Recap": 38.7625,
+        "Thread": 65.5342,
+        "Design": 91.9355
+      },
+      "valid_outputs": 150,
+      "tasks_with_pinned_skill": 150,
+      "tasks_reading_skill": 0
+    },
+    "pinned-office-email-classifier|claude-sonnet-5.5": {
+      "condition": "pinned-office-email-classifier",
+      "model": "claude-sonnet-5.5",
+      "harness": "deepagents",
+      "stage": "A",
+      "usable": true,
+      "tasks": 150,
+      "structure_score": 71.2155,
+      "families": {
+        "Recap": 48.2251,
+        "Thread": 71.9666,
+        "Design": 93.4546
+      },
+      "valid_outputs": 150,
+      "tasks_with_pinned_skill": 150,
+      "tasks_reading_skill": 0
+    }
+  },
+  "comparisons": [
+    {
+      "condition": "pinned-composio-file-organizer",
+      "reference": "control",
+      "model": "claude-haiku-5.5",
+      "usable": true,
+      "preregistered_family": "round1",
+      "difference": -0.5177,
+      "ci95": [
+        -1.6582,
+        0.6238
+      ],
+      "p_value": 0.39378,
+      "p_holm": 1.0,
+      "families": {
+        "Recap": -2.8039,
+        "Thread": 0.3793,
+        "Design": 0.8713
+      }
+    },
+    {
+      "condition": "pinned-composio-file-organizer",
+      "reference": "control",
+      "model": "claude-sonnet-5.5",
+      "usable": true,
+      "preregistered_family": "round1",
+      "difference": -0.334,
+      "ci95": [
+        -1.5009,
+        0.8223
+      ],
+      "p_value": 0.56982,
+      "p_holm": 1.0,
+      "families": {
+        "Recap": -1.4495,
+        "Thread": 0.1135,
+        "Design": 0.3339
+      }
+    },
+    {
+      "condition": "pinned-composio-file-organizer",
+      "reference": "control",
+      "model": "claude-haiku-4.5",
+      "usable": true,
+      "preregistered_family": "stageB-haiku45",
+      "difference": 0.8845,
+      "ci95": [
+        -0.3452,
+        2.1044
+      ],
+      "p_value": 0.16589,
+      "p_holm": 0.22799,
+      "families": {
+        "Recap": 0.6732,
+        "Thread": 0.1012,
+        "Design": 1.8789
+      }
+    },
+    {
+      "condition": "pinned-claude-office-file-organizer",
+      "reference": "control",
+      "model": "claude-haiku-5.5",
+      "usable": true,
+      "preregistered_family": "round1",
+      "difference": 0.8104,
+      "ci95": [
+        -0.477,
+        2.0796
+      ],
+      "p_value": 0.22849,
+      "p_holm": 1.0,
+      "families": {
+        "Recap": -0.2918,
+        "Thread": 2.6398,
+        "Design": 0.083
+      }
+    },
+    {
+      "condition": "pinned-claude-office-file-organizer",
+      "reference": "control",
+      "model": "claude-sonnet-5.5",
+      "usable": true,
+      "preregistered_family": "round1",
+      "difference": -0.2967,
+      "ci95": [
+        -1.4846,
+        0.8881
+      ],
+      "p_value": 0.62997,
+      "p_holm": 1.0,
+      "families": {
+        "Recap": -0.4212,
+        "Thread": -0.5735,
+        "Design": 0.1047
+      }
+    },
+    {
+      "condition": "pinned-claude-office-file-organizer",
+      "reference": "control",
+      "model": "claude-haiku-4.5",
+      "usable": true,
+      "preregistered_family": "stageB-haiku45",
+      "difference": 0.9973,
+      "ci95": [
+        -0.2298,
+        2.2059
+      ],
+      "p_value": 0.11399,
+      "p_holm": 0.22799,
+      "families": {
+        "Recap": 1.777,
+        "Thread": 0.2818,
+        "Design": 0.9332
+      }
+    },
+    {
+      "condition": "pinned-composio-invoice-organizer",
+      "reference": "control",
+      "model": "claude-haiku-5.5",
+      "usable": true,
+      "preregistered_family": "round1",
+      "difference": -0.2478,
+      "ci95": [
+        -1.3148,
+        0.8826
+      ],
+      "p_value": 0.67302,
+      "p_holm": 1.0,
+      "families": {
+        "Recap": -0.1929,
+        "Thread": 0.5325,
+        "Design": -1.0831
+      }
+    },
+    {
+      "condition": "pinned-composio-invoice-organizer",
+      "reference": "control",
+      "model": "claude-sonnet-5.5",
+      "usable": true,
+      "preregistered_family": "round1",
+      "difference": -0.8316,
+      "ci95": [
+        -1.9745,
+        0.2869
+      ],
+      "p_value": 0.15974,
+      "p_holm": 0.95845,
+      "families": {
+        "Recap": -2.3633,
+        "Thread": 0.6866,
+        "Design": -0.8182
+      }
+    },
+    {
+      "condition": "available-composio-file-organizer",
+      "reference": "control",
+      "model": "claude-haiku-5.5",
+      "usable": true,
+      "preregistered_family": null,
+      "difference": 0.6009,
+      "ci95": [
+        -0.4716,
+        1.7504
+      ],
+      "p_value": 0.30043,
+      "p_holm": null,
+      "families": {
+        "Recap": 0.7867,
+        "Thread": 1.1943,
+        "Design": -0.1782
+      }
+    },
+    {
+      "condition": "available-composio-file-organizer",
+      "reference": "control",
+      "model": "claude-sonnet-5.5",
+      "usable": true,
+      "preregistered_family": null,
+      "difference": 0.4557,
+      "ci95": [
+        -0.686,
+        1.5944
+      ],
+      "p_value": 0.44228,
+      "p_holm": null,
+      "families": {
+        "Recap": 1.0794,
+        "Thread": 0.0409,
+        "Design": 0.247
+      }
+    },
+    {
+      "condition": "pinned-irrelevant-mcp-builder",
+      "reference": "control",
+      "model": "claude-haiku-5.5",
+      "usable": true,
+      "preregistered_family": null,
+      "difference": 0.991,
+      "ci95": [
+        -0.0775,
+        2.1037
+      ],
+      "p_value": 0.08005,
+      "p_holm": null,
+      "families": {
+        "Recap": 1.415,
+        "Thread": 1.7629,
+        "Design": -0.2048
+      }
+    },
+    {
+      "condition": "pinned-irrelevant-mcp-builder",
+      "reference": "control",
+      "model": "claude-sonnet-5.5",
+      "usable": true,
+      "preregistered_family": null,
+      "difference": 0.7082,
+      "ci95": [
+        -0.4795,
+        1.879
+      ],
+      "p_value": 0.24979,
+      "p_holm": null,
+      "families": {
+        "Recap": -0.0201,
+        "Thread": 1.9809,
+        "Design": 0.1638
+      }
+    },
+    {
+      "condition": "control-r2",
+      "reference": "control",
+      "model": "claude-haiku-5.5",
+      "usable": true,
+      "preregistered_family": null,
+      "difference": 0.2892,
+      "ci95": [
+        -0.8352,
+        1.4629
+      ],
+      "p_value": 0.62762,
+      "p_holm": null,
+      "families": {
+        "Recap": 0.9949,
+        "Thread": 0.43,
+        "Design": -0.5573
+      }
+    },
+    {
+      "condition": "control-r2",
+      "reference": "control",
+      "model": "claude-sonnet-5.5",
+      "usable": true,
+      "preregistered_family": null,
+      "difference": -0.0094,
+      "ci95": [
+        -1.1534,
+        1.1422
+      ],
+      "p_value": 0.9871,
+      "p_holm": null,
+      "families": {
+        "Recap": 0.858,
+        "Thread": -0.7896,
+        "Design": -0.0965
+      }
+    },
+    {
+      "condition": "pinned-office-invoice-organizer",
+      "reference": "control",
+      "model": "claude-haiku-5.5",
+      "usable": true,
+      "preregistered_family": null,
+      "difference": -0.3636,
+      "ci95": [
+        -1.5044,
+        0.7729
+      ],
+      "p_value": 0.53612,
+      "p_holm": null,
+      "families": {
+        "Recap": -0.7866,
+        "Thread": 0.2915,
+        "Design": -0.5957
+      }
+    },
+    {
+      "condition": "pinned-office-invoice-organizer",
+      "reference": "control",
+      "model": "claude-sonnet-5.5",
+      "usable": true,
+      "preregistered_family": null,
+      "difference": 0.3207,
+      "ci95": [
+        -0.948,
+        1.5684
+      ],
+      "p_value": 0.61677,
+      "p_holm": null,
+      "families": {
+        "Recap": -0.9367,
+        "Thread": 1.6103,
+        "Design": 0.2886
+      }
+    },
+    {
+      "condition": "pinned-office-email-classifier",
+      "reference": "control",
+      "model": "claude-haiku-5.5",
+      "usable": true,
+      "preregistered_family": null,
+      "difference": 0.5455,
+      "ci95": [
+        -0.636,
+        1.753
+      ],
+      "p_value": 0.38048,
+      "p_holm": null,
+      "families": {
+        "Recap": -0.2486,
+        "Thread": 1.8667,
+        "Design": 0.0183
+      }
+    },
+    {
+      "condition": "pinned-office-email-classifier",
+      "reference": "control",
+      "model": "claude-sonnet-5.5",
+      "usable": true,
+      "preregistered_family": null,
+      "difference": -0.6362,
+      "ci95": [
+        -1.8554,
+        0.6111
+      ],
+      "p_value": 0.32913,
+      "p_holm": null,
+      "families": {
+        "Recap": -0.0699,
+        "Thread": -1.9155,
+        "Design": 0.0768
+      }
+    },
+    {
+      "condition": "pinned-composio-file-organizer",
+      "reference": "pinned-irrelevant-mcp-builder",
+      "model": "claude-haiku-5.5",
+      "usable": true,
+      "preregistered_family": null,
+      "difference": -1.5088,
+      "ci95": [
+        -2.6821,
+        -0.4117
+      ],
+      "p_value": 0.01225,
+      "p_holm": null,
+      "families": {
+        "Recap": -4.2189,
+        "Thread": -1.3835,
+        "Design": 1.0761
+      }
+    },
+    {
+      "condition": "pinned-composio-file-organizer",
+      "reference": "pinned-irrelevant-mcp-builder",
+      "model": "claude-sonnet-5.5",
+      "usable": true,
+      "preregistered_family": null,
+      "difference": -1.0422,
+      "ci95": [
+        -2.1657,
+        0.1055
+      ],
+      "p_value": 0.0747,
+      "p_holm": null,
+      "families": {
+        "Recap": -1.4293,
+        "Thread": -1.8674,
+        "Design": 0.1701
+      }
+    },
+    {
+      "condition": "pinned-claude-office-file-organizer",
+      "reference": "pinned-irrelevant-mcp-builder",
+      "model": "claude-haiku-5.5",
+      "usable": true,
+      "preregistered_family": null,
+      "difference": -0.1807,
+      "ci95": [
+        -1.497,
+        1.1017
+      ],
+      "p_value": 0.78831,
+      "p_holm": null,
+      "families": {
+        "Recap": -1.7067,
+        "Thread": 0.877,
+        "Design": 0.2878
+      }
+    },
+    {
+      "condition": "pinned-claude-office-file-organizer",
+      "reference": "pinned-irrelevant-mcp-builder",
+      "model": "claude-sonnet-5.5",
+      "usable": true,
+      "preregistered_family": null,
+      "difference": -1.0049,
+      "ci95": [
+        -2.3075,
+        0.2651
+      ],
+      "p_value": 0.13284,
+      "p_holm": null,
+      "families": {
+        "Recap": -0.4011,
+        "Thread": -2.5544,
+        "Design": -0.0591
+      }
+    },
+    {
+      "condition": "pinned-composio-invoice-organizer",
+      "reference": "pinned-irrelevant-mcp-builder",
+      "model": "claude-haiku-5.5",
+      "usable": true,
+      "preregistered_family": null,
+      "difference": -1.2389,
+      "ci95": [
+        -2.3877,
+        -0.1395
+      ],
+      "p_value": 0.0318,
+      "p_holm": null,
+      "families": {
+        "Recap": -1.6079,
+        "Thread": -1.2304,
+        "Design": -0.8783
+      }
+    },
+    {
+      "condition": "pinned-composio-invoice-organizer",
+      "reference": "pinned-irrelevant-mcp-builder",
+      "model": "claude-sonnet-5.5",
+      "usable": true,
+      "preregistered_family": null,
+      "difference": -1.5398,
+      "ci95": [
+        -2.8199,
+        -0.2821
+      ],
+      "p_value": 0.01655,
+      "p_holm": null,
+      "families": {
+        "Recap": -2.3431,
+        "Thread": -1.2943,
+        "Design": -0.982
+      }
+    },
+    {
+      "condition": "pinned-office-invoice-organizer",
+      "reference": "control-r2",
+      "model": "claude-haiku-5.5",
+      "usable": true,
+      "preregistered_family": "round2",
+      "difference": -0.6528,
+      "ci95": [
+        -1.8041,
+        0.446
+      ],
+      "p_value": 0.26714,
+      "p_holm": 1.0,
+      "families": {
+        "Recap": -1.7816,
+        "Thread": -0.1385,
+        "Design": -0.0384
+      }
+    },
+    {
+      "condition": "pinned-office-invoice-organizer",
+      "reference": "control-r2",
+      "model": "claude-sonnet-5.5",
+      "usable": true,
+      "preregistered_family": "round2",
+      "difference": 0.3301,
+      "ci95": [
+        -0.9105,
+        1.6028
+      ],
+      "p_value": 0.62232,
+      "p_holm": 1.0,
+      "families": {
+        "Recap": -1.7947,
+        "Thread": 2.3999,
+        "Design": 0.3851
+      }
+    },
+    {
+      "condition": "pinned-office-email-classifier",
+      "reference": "control-r2",
+      "model": "claude-haiku-5.5",
+      "usable": true,
+      "preregistered_family": "round2",
+      "difference": 0.2563,
+      "ci95": [
+        -0.9194,
+        1.382
+      ],
+      "p_value": 0.66897,
+      "p_holm": 1.0,
+      "families": {
+        "Recap": -1.2435,
+        "Thread": 1.4367,
+        "Design": 0.5756
+      }
+    },
+    {
+      "condition": "pinned-office-email-classifier",
+      "reference": "control-r2",
+      "model": "claude-sonnet-5.5",
+      "usable": true,
+      "preregistered_family": "round2",
+      "difference": -0.6268,
+      "ci95": [
+        -1.8746,
+        0.6149
+      ],
+      "p_value": 0.33743,
+      "p_holm": 1.0,
+      "families": {
+        "Recap": -0.9279,
+        "Thread": -1.126,
+        "Design": 0.1734
+      }
+    }
+  ],
+  "published_check": {
+    "claude-haiku-5.5": {
+      "difference": -1.6781717908763334,
+      "ci95": [
+        -2.9784872139209853,
+        -0.47571077143421586
+      ],
+      "p_value": 0.010999450027498626,
+      "tasks": 150
+    },
+    "claude-sonnet-5.5": {
+      "difference": -0.527284280538388,
+      "ci95": [
+        -1.7747427024995677,
+        0.742699105243442
+      ],
+      "p_value": 0.4150292485375731,
+      "tasks": 150
+    },
+    "claude-haiku-4.5": {
+      "difference": -2.27187888158691,
+      "ci95": [
+        -3.698084608520137,
+        -0.8527965800869696
+      ],
+      "p_value": 0.00199990000499975,
+      "tasks": 150
+    }
+  }
+}

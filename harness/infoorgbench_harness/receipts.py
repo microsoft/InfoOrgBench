@@ -20,9 +20,10 @@ def _usage_value(value):
     return value if type(value) in (int, float) and value >= 0 else None
 
 
-def make_receipt(*, harness, model, backend, family, task_id, status, settings, hashes, usage, versions):
+def make_receipt(*, harness, model, backend, family, task_id, status, settings, hashes, usage, versions,
+                 skills=None, agent_stats=None):
     """Build a receipt containing settings and provider counts, never task or transport content."""
-    return {
+    receipt = {
         "schema_version": 1,
         "completed_at": datetime.now(timezone.utc).isoformat(),
         "harness": harness,
@@ -37,3 +38,15 @@ def make_receipt(*, harness, model, backend, family, task_id, status, settings, 
         "provider_reported_usage": {key: filtered for key, value in (usage or {}).items()
                                     if key in _ALLOWED_USAGE and (filtered := _usage_value(value)) is not None},
     }
+    if skills is not None:
+        receipt["skills"] = skills
+    if agent_stats is not None:
+        receipt["agent_stats"] = _counts(agent_stats)
+    return receipt
+
+
+def _counts(value):
+    """Keep only nested numeric counts, so episode statistics cannot carry content."""
+    if isinstance(value, dict):
+        return {str(key)[:64]: kept for key, item in value.items() if (kept := _counts(item)) is not None}
+    return value if type(value) is int and value >= 0 else None
