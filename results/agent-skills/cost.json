@@ -1,0 +1,997 @@
+{
+  "description": "Skills eval cost (not part of the paper). Final attempt of each task, Deep Agents only. tokens_read = input + cache write + cache read tokens as reported by the provider; usd uses the listed Anthropic API prices (https://platform.claude.com/docs/en/about-claude/pricing, retrieved 2026-11-12); seconds is wall-clock time per episode with up to 12 episodes running at once. relative = change of the summed metric against the same-day no-skill run, with a 95% bootstrap interval over tasks resampled within families.",
+  "prices_usd_per_million_tokens": {
+    "claude-haiku-5.5": {
+      "input_tokens": 0.1,
+      "cache_creation_input_tokens": 0.125,
+      "cache_read_input_tokens": 0.01,
+      "output_tokens": 0.5
+    },
+    "claude-sonnet-5.5": {
+      "input_tokens": 2.0,
+      "cache_creation_input_tokens": 2.5,
+      "cache_read_input_tokens": 0.1,
+      "output_tokens": 10.0
+    },
+    "claude-haiku-4.5": {
+      "input_tokens": 1.0,
+      "cache_creation_input_tokens": 1.25,
+      "cache_read_input_tokens": 0.1,
+      "output_tokens": 5.0
+    }
+  },
+  "conditions": {
+    "control|claude-haiku-5.5": {
+      "condition": "control",
+      "model": "claude-haiku-5.5",
+      "tasks": 150,
+      "per_task": {
+        "tokens_read": 120841.94,
+        "output_tokens": 12346.56,
+        "usd": 0.0111977886,
+        "model_turns": 5.966666666666667,
+        "seconds": 80.21066666666667
+      }
+    },
+    "control|claude-sonnet-5.5": {
+      "condition": "control",
+      "model": "claude-sonnet-5.5",
+      "tasks": 150,
+      "per_task": {
+        "tokens_read": 102516.42,
+        "output_tokens": 8171.886666666666,
+        "usd": 0.15352906333333335,
+        "model_turns": 6.573333333333333,
+        "seconds": 81.292
+      }
+    },
+    "control|claude-haiku-4.5": {
+      "condition": "control",
+      "model": "claude-haiku-4.5",
+      "tasks": 150,
+      "per_task": {
+        "tokens_read": 217885.85333333333,
+        "output_tokens": 7682.093333333333,
+        "usd": 0.094314186,
+        "model_turns": 12.253333333333334,
+        "seconds": 98.03800000000001
+      }
+    },
+    "pinned-composio-file-organizer|claude-haiku-5.5": {
+      "condition": "pinned-composio-file-organizer",
+      "model": "claude-haiku-5.5",
+      "tasks": 150,
+      "per_task": {
+        "tokens_read": 146461.47333333333,
+        "output_tokens": 12913.146666666667,
+        "usd": 0.0121550415,
+        "model_turns": 5.6466666666666665,
+        "seconds": 81.2
+      },
+      "reference": "control",
+      "extra_per_task": {
+        "tokens_read": 25619.533333333333,
+        "output_tokens": 566.5866666666667,
+        "usd": 0.0009572529,
+        "model_turns": -0.32,
+        "seconds": 0.9893333333333335
+      },
+      "relative": {
+        "tokens_read": {
+          "change": 0.21200862327544012,
+          "ci95": [
+            0.17571864267425985,
+            0.24888089108318967
+          ]
+        },
+        "output_tokens": {
+          "change": 0.045890245272097285,
+          "ci95": [
+            0.021800770571041017,
+            0.07076897782229485
+          ]
+        },
+        "usd": {
+          "change": 0.08548588781181321,
+          "ci95": [
+            0.06761928343984991,
+            0.10379868971694539
+          ]
+        },
+        "model_turns": {
+          "change": -0.05363128491620117,
+          "ci95": [
+            -0.07597765363128495,
+            -0.03054298642533937
+          ]
+        },
+        "seconds": {
+          "change": 0.012334186641843159,
+          "ci95": [
+            -0.0121404479949615,
+            0.03652612851172998
+          ]
+        }
+      }
+    },
+    "pinned-composio-file-organizer|claude-sonnet-5.5": {
+      "condition": "pinned-composio-file-organizer",
+      "model": "claude-sonnet-5.5",
+      "tasks": 150,
+      "per_task": {
+        "tokens_read": 136088.65333333332,
+        "output_tokens": 8125.22,
+        "usd": 0.16387136133333333,
+        "model_turns": 6.56,
+        "seconds": 81.14533333333333
+      },
+      "reference": "control",
+      "extra_per_task": {
+        "tokens_read": 33572.23333333333,
+        "output_tokens": -46.666666666666664,
+        "usd": 0.010342297999999998,
+        "model_turns": -0.013333333333333334,
+        "seconds": -0.14666666666666708
+      },
+      "relative": {
+        "tokens_read": {
+          "change": 0.3274815227973562,
+          "ci95": [
+            0.24525497202003943,
+            0.4061200150540827
+          ]
+        },
+        "output_tokens": {
+          "change": -0.005710635569264655,
+          "ci95": [
+            -0.018477625054709734,
+            0.0069385372905679255
+          ]
+        },
+        "usd": {
+          "change": 0.06736377970042962,
+          "ci95": [
+            0.04918768153192121,
+            0.08585858362184062
+          ]
+        },
+        "model_turns": {
+          "change": -0.0020283975659228792,
+          "ci95": [
+            -0.026838966202783254,
+            0.021105527638190846
+          ]
+        },
+        "seconds": {
+          "change": -0.0018041955748002714,
+          "ci95": [
+            -0.020644445893940322,
+            0.017440742443877832
+          ]
+        }
+      }
+    },
+    "pinned-composio-file-organizer|claude-haiku-4.5": {
+      "condition": "pinned-composio-file-organizer",
+      "model": "claude-haiku-4.5",
+      "tasks": 150,
+      "per_task": {
+        "tokens_read": 256175.02666666667,
+        "output_tokens": 7494.72,
+        "usd": 0.09333082933333334,
+        "model_turns": 12.226666666666667,
+        "seconds": 97.03333333333333
+      },
+      "reference": "control",
+      "extra_per_task": {
+        "tokens_read": 38289.17333333333,
+        "output_tokens": -187.37333333333333,
+        "usd": -0.0009833566666666664,
+        "model_turns": -0.02666666666666667,
+        "seconds": -1.0046666666666666
+      },
+      "relative": {
+        "tokens_read": {
+          "change": 0.1757304237405286,
+          "ci95": [
+            0.02207849143259777,
+            0.34086240471581064
+          ]
+        },
+        "output_tokens": {
+          "change": -0.02439092122459674,
+          "ci95": [
+            -0.07339747864155521,
+            0.02738024693362351
+          ]
+        },
+        "usd": {
+          "change": -0.010426391918037292,
+          "ci95": [
+            -0.058038816137869875,
+            0.038314899133698566
+          ]
+        },
+        "model_turns": {
+          "change": -0.0021762785636560977,
+          "ci95": [
+            -0.0698549167114455,
+            0.0716630196936543
+          ]
+        },
+        "seconds": {
+          "change": -0.01024772707181576,
+          "ci95": [
+            -0.05018249995013668,
+            0.031213063974893762
+          ]
+        }
+      }
+    },
+    "pinned-claude-office-file-organizer|claude-haiku-5.5": {
+      "condition": "pinned-claude-office-file-organizer",
+      "model": "claude-haiku-5.5",
+      "tasks": 150,
+      "per_task": {
+        "tokens_read": 139284.81333333332,
+        "output_tokens": 13049.32,
+        "usd": 0.012059979566666667,
+        "model_turns": 5.706666666666667,
+        "seconds": 81.646
+      },
+      "reference": "control",
+      "extra_per_task": {
+        "tokens_read": 18442.873333333333,
+        "output_tokens": 702.76,
+        "usd": 0.0008621909666666666,
+        "model_turns": -0.26,
+        "seconds": 1.4353333333333331
+      },
+      "relative": {
+        "tokens_read": {
+          "change": 0.15261980512174267,
+          "ci95": [
+            0.11401954275477899,
+            0.19226675226419832
+          ]
+        },
+        "output_tokens": {
+          "change": 0.056919498224606624,
+          "ci95": [
+            0.029067250025850422,
+            0.08540247600781425
+          ]
+        },
+        "usd": {
+          "change": 0.07699653900116199,
+          "ci95": [
+            0.05649909864334446,
+            0.09795897869117165
+          ]
+        },
+        "model_turns": {
+          "change": -0.04357541899441342,
+          "ci95": [
+            -0.06815642458100557,
+            -0.0182648401826484
+          ]
+        },
+        "seconds": {
+          "change": 0.017894544366501508,
+          "ci95": [
+            -0.007280059600932809,
+            0.0431239783259898
+          ]
+        }
+      }
+    },
+    "pinned-claude-office-file-organizer|claude-sonnet-5.5": {
+      "condition": "pinned-claude-office-file-organizer",
+      "model": "claude-sonnet-5.5",
+      "tasks": 150,
+      "per_task": {
+        "tokens_read": 126772.68666666666,
+        "output_tokens": 8112.746666666667,
+        "usd": 0.160101298,
+        "model_turns": 6.693333333333333,
+        "seconds": 80.64533333333333
+      },
+      "reference": "control",
+      "extra_per_task": {
+        "tokens_read": 24256.266666666666,
+        "output_tokens": -59.14,
+        "usd": 0.006572234666666666,
+        "model_turns": 0.12,
+        "seconds": -0.6466666666666672
+      },
+      "relative": {
+        "tokens_read": {
+          "change": 0.2366086005214254,
+          "ci95": [
+            0.16671876794503926,
+            0.3063203952523912
+          ]
+        },
+        "output_tokens": {
+          "change": -0.007237006876421037,
+          "ci95": [
+            -0.021862494666659238,
+            0.007623857233327369
+          ]
+        },
+        "usd": {
+          "change": 0.04280775589959407,
+          "ci95": [
+            0.024895316476711615,
+            0.062143123060246275
+          ]
+        },
+        "model_turns": {
+          "change": 0.018255578093306246,
+          "ci95": [
+            -0.006965174129353269,
+            0.04303278688524581
+          ]
+        },
+        "seconds": {
+          "change": -0.007954862307074095,
+          "ci95": [
+            -0.02723255491027321,
+            0.010741255462719534
+          ]
+        }
+      }
+    },
+    "pinned-claude-office-file-organizer|claude-haiku-4.5": {
+      "condition": "pinned-claude-office-file-organizer",
+      "model": "claude-haiku-4.5",
+      "tasks": 150,
+      "per_task": {
+        "tokens_read": 222706.16,
+        "output_tokens": 7433.153333333334,
+        "usd": 0.09485001933333333,
+        "model_turns": 11.673333333333334,
+        "seconds": 95.43
+      },
+      "reference": "control",
+      "extra_per_task": {
+        "tokens_read": 4820.306666666666,
+        "output_tokens": -248.94,
+        "usd": 0.0005358333333333331,
+        "model_turns": -0.58,
+        "seconds": -2.608
+      },
+      "relative": {
+        "tokens_read": {
+          "change": 0.022123082306276798,
+          "ci95": [
+            -0.10193925519872171,
+            0.16242684660393247
+          ]
+        },
+        "output_tokens": {
+          "change": -0.03240522982450966,
+          "ci95": [
+            -0.09364496235416808,
+            0.033291157382535186
+          ]
+        },
+        "usd": {
+          "change": 0.0056813651907394735,
+          "ci95": [
+            -0.042725295777908734,
+            0.057567874730639845
+          ]
+        },
+        "model_turns": {
+          "change": -0.047334058759521236,
+          "ci95": [
+            -0.11344537815126055,
+            0.025966532025389455
+          ]
+        },
+        "seconds": {
+          "change": -0.026601929863930396,
+          "ci95": [
+            -0.07519355464698452,
+            0.025508208868184612
+          ]
+        }
+      }
+    },
+    "pinned-composio-invoice-organizer|claude-haiku-5.5": {
+      "condition": "pinned-composio-invoice-organizer",
+      "model": "claude-haiku-5.5",
+      "tasks": 150,
+      "per_task": {
+        "tokens_read": 149094.72666666665,
+        "output_tokens": 12441.146666666667,
+        "usd": 0.0119154092,
+        "model_turns": 5.64,
+        "seconds": 79.01866666666666
+      },
+      "reference": "control",
+      "extra_per_task": {
+        "tokens_read": 28252.786666666667,
+        "output_tokens": 94.58666666666667,
+        "usd": 0.0007176206,
+        "model_turns": -0.32666666666666666,
+        "seconds": -1.191999999999999
+      },
+      "relative": {
+        "tokens_read": {
+          "change": 0.2337995125423067,
+          "ci95": [
+            0.19120593538035524,
+            0.2788258500359957
+          ]
+        },
+        "output_tokens": {
+          "change": 0.0076609733129444635,
+          "ci95": [
+            -0.01484751010135954,
+            0.03056465808475428
+          ]
+        },
+        "usd": {
+          "change": 0.06408592139344371,
+          "ci95": [
+            0.0457995774853186,
+            0.0826726686037147
+          ]
+        },
+        "model_turns": {
+          "change": -0.054748603351955305,
+          "ci95": [
+            -0.07880133185349614,
+            -0.030167597765363152
+          ]
+        },
+        "seconds": {
+          "change": -0.0148608663851858,
+          "ci95": [
+            -0.035697021219849745,
+            0.005566125909606701
+          ]
+        }
+      }
+    },
+    "pinned-composio-invoice-organizer|claude-sonnet-5.5": {
+      "condition": "pinned-composio-invoice-organizer",
+      "model": "claude-sonnet-5.5",
+      "tasks": 150,
+      "per_task": {
+        "tokens_read": 138908.79333333333,
+        "output_tokens": 8195.606666666667,
+        "usd": 0.165855438,
+        "model_turns": 6.54,
+        "seconds": 80.96933333333332
+      },
+      "reference": "control",
+      "extra_per_task": {
+        "tokens_read": 36392.37333333334,
+        "output_tokens": 23.72,
+        "usd": 0.012326374666666666,
+        "model_turns": -0.03333333333333333,
+        "seconds": -0.3226666666666667
+      },
+      "relative": {
+        "tokens_read": {
+          "change": 0.354990676940663,
+          "ci95": [
+            0.28599718084294623,
+            0.42387021089432664
+          ]
+        },
+        "output_tokens": {
+          "change": 0.00290263447934902,
+          "ci95": [
+            -0.008122187085853771,
+            0.014112011941816549
+          ]
+        },
+        "usd": {
+          "change": 0.08028691375459207,
+          "ci95": [
+            0.06437859933337187,
+            0.09705119833625808
+          ]
+        },
+        "model_turns": {
+          "change": -0.005070993914807254,
+          "ci95": [
+            -0.024340770791075106,
+            0.014403292181069949
+          ]
+        },
+        "seconds": {
+          "change": -0.003969230264560641,
+          "ci95": [
+            -0.02060201319436572,
+            0.013033355266487856
+          ]
+        }
+      }
+    },
+    "available-composio-file-organizer|claude-haiku-5.5": {
+      "condition": "available-composio-file-organizer",
+      "model": "claude-haiku-5.5",
+      "tasks": 150,
+      "per_task": {
+        "tokens_read": 139401.26,
+        "output_tokens": 12591.38,
+        "usd": 0.011774238166666668,
+        "model_turns": 5.96,
+        "seconds": 80.30933333333333
+      },
+      "reference": "control",
+      "extra_per_task": {
+        "tokens_read": 18559.32,
+        "output_tokens": 244.82,
+        "usd": 0.0005764495666666665,
+        "model_turns": -0.006666666666666667,
+        "seconds": 0.09866666666666689
+      },
+      "relative": {
+        "tokens_read": {
+          "change": 0.15358343303657662,
+          "ci95": [
+            0.1088175143401644,
+            0.20407100759399555
+          ]
+        },
+        "output_tokens": {
+          "change": 0.01982900500220297,
+          "ci95": [
+            -0.002788849119875314,
+            0.04291410855628808
+          ]
+        },
+        "usd": {
+          "change": 0.0514788756296638,
+          "ci95": [
+            0.03393356910046608,
+            0.0690288031342643
+          ]
+        },
+        "model_turns": {
+          "change": -0.0011173184357542443,
+          "ci95": [
+            -0.02663706992230852,
+            0.02564102564102555
+          ]
+        },
+        "seconds": {
+          "change": 0.0012300940855745068,
+          "ci95": [
+            -0.019962955340605104,
+            0.021158406155172838
+          ]
+        }
+      }
+    },
+    "available-composio-file-organizer|claude-sonnet-5.5": {
+      "condition": "available-composio-file-organizer",
+      "model": "claude-sonnet-5.5",
+      "tasks": 150,
+      "per_task": {
+        "tokens_read": 113605.06,
+        "output_tokens": 7774.053333333333,
+        "usd": 0.15025555399999999,
+        "model_turns": 6.773333333333333,
+        "seconds": 79.03133333333334
+      },
+      "reference": "control",
+      "extra_per_task": {
+        "tokens_read": 11088.64,
+        "output_tokens": -397.8333333333333,
+        "usd": -0.0032735093333333336,
+        "model_turns": 0.2,
+        "seconds": -2.2606666666666673
+      },
+      "relative": {
+        "tokens_read": {
+          "change": 0.10816452622906647,
+          "ci95": [
+            0.03961531865295553,
+            0.17363060590763446
+          ]
+        },
+        "output_tokens": {
+          "change": -0.04868316822798158,
+          "ci95": [
+            -0.06973884869263314,
+            -0.028396244523124392
+          ]
+        },
+        "usd": {
+          "change": -0.02132175669062797,
+          "ci95": [
+            -0.042022284021023815,
+            -0.001550693084308219
+          ]
+        },
+        "model_turns": {
+          "change": 0.030425963488843744,
+          "ci95": [
+            0.004945598417408492,
+            0.05646817248459968
+          ]
+        },
+        "seconds": {
+          "change": -0.027809214518853764,
+          "ci95": [
+            -0.047945707101530566,
+            -0.007687845687535222
+          ]
+        }
+      }
+    },
+    "pinned-irrelevant-mcp-builder|claude-haiku-5.5": {
+      "condition": "pinned-irrelevant-mcp-builder",
+      "model": "claude-haiku-5.5",
+      "tasks": 150,
+      "per_task": {
+        "tokens_read": 146356.02666666667,
+        "output_tokens": 12656.28,
+        "usd": 0.011975920066666666,
+        "model_turns": 5.746666666666667,
+        "seconds": 80.62866666666666
+      },
+      "reference": "control",
+      "extra_per_task": {
+        "tokens_read": 25514.086666666666,
+        "output_tokens": 309.72,
+        "usd": 0.0007781314666666666,
+        "model_turns": -0.22,
+        "seconds": 0.41800000000000065
+      },
+      "relative": {
+        "tokens_read": {
+          "change": 0.2111360233596602,
+          "ci95": [
+            0.17238688365030552,
+            0.25019132897493934
+          ]
+        },
+        "output_tokens": {
+          "change": 0.025085529896586634,
+          "ci95": [
+            0.0011299835903506583,
+            0.048730618504004175
+          ]
+        },
+        "usd": {
+          "change": 0.06948974431136046,
+          "ci95": [
+            0.05053329504275417,
+            0.08798401055167981
+          ]
+        },
+        "model_turns": {
+          "change": -0.036871508379888285,
+          "ci95": [
+            -0.06292134831460672,
+            -0.01103752759381893
+          ]
+        },
+        "seconds": {
+          "change": 0.00521127697064383,
+          "ci95": [
+            -0.017231358616907166,
+            0.027802966648087013
+          ]
+        }
+      }
+    },
+    "pinned-irrelevant-mcp-builder|claude-sonnet-5.5": {
+      "condition": "pinned-irrelevant-mcp-builder",
+      "model": "claude-sonnet-5.5",
+      "tasks": 150,
+      "per_task": {
+        "tokens_read": 145740.15333333332,
+        "output_tokens": 7927.013333333333,
+        "usd": 0.16257197,
+        "model_turns": 6.906666666666666,
+        "seconds": 80.18133333333334
+      },
+      "reference": "control",
+      "extra_per_task": {
+        "tokens_read": 43223.73333333333,
+        "output_tokens": -244.87333333333333,
+        "usd": 0.009042906666666664,
+        "model_turns": 0.3333333333333333,
+        "seconds": -1.1106666666666671
+      },
+      "relative": {
+        "tokens_read": {
+          "change": 0.42162741669415826,
+          "ci95": [
+            0.33501445642535255,
+            0.5092924527552263
+          ]
+        },
+        "output_tokens": {
+          "change": -0.029965336442094537,
+          "ci95": [
+            -0.05019840508596196,
+            -0.01068659436502839
+          ]
+        },
+        "usd": {
+          "change": 0.05890029203808278,
+          "ci95": [
+            0.03805857972495752,
+            0.07902401029319206
+          ]
+        },
+        "model_turns": {
+          "change": 0.05070993914807298,
+          "ci95": [
+            0.024096385542168752,
+            0.07644628099173545
+          ]
+        },
+        "seconds": {
+          "change": -0.01366268103462398,
+          "ci95": [
+            -0.03569965376798434,
+            0.007654509987900848
+          ]
+        }
+      }
+    },
+    "control-r2|claude-haiku-5.5": {
+      "condition": "control-r2",
+      "model": "claude-haiku-5.5",
+      "tasks": 150,
+      "per_task": {
+        "tokens_read": 119982.51333333334,
+        "output_tokens": 11909.64,
+        "usd": 0.010915102966666666,
+        "model_turns": 5.9,
+        "seconds": 78.04733333333334
+      }
+    },
+    "control-r2|claude-sonnet-5.5": {
+      "condition": "control-r2",
+      "model": "claude-sonnet-5.5",
+      "tasks": 150,
+      "per_task": {
+        "tokens_read": 99994.26666666666,
+        "output_tokens": 8123.72,
+        "usd": 0.151839188,
+        "model_turns": 6.566666666666666,
+        "seconds": 81.20533333333333
+      }
+    },
+    "pinned-office-invoice-organizer|claude-haiku-5.5": {
+      "condition": "pinned-office-invoice-organizer",
+      "model": "claude-haiku-5.5",
+      "tasks": 150,
+      "per_task": {
+        "tokens_read": 142718.52666666667,
+        "output_tokens": 12574.246666666666,
+        "usd": 0.011822796933333332,
+        "model_turns": 5.626666666666667,
+        "seconds": 81.11066666666667
+      },
+      "reference": "control-r2",
+      "extra_per_task": {
+        "tokens_read": 22736.013333333332,
+        "output_tokens": 664.6066666666667,
+        "usd": 0.0009076939666666666,
+        "model_turns": -0.2733333333333333,
+        "seconds": 3.063333333333333
+      },
+      "relative": {
+        "tokens_read": {
+          "change": 0.18949439132157986,
+          "ci95": [
+            0.14690754049906185,
+            0.23306590442443786
+          ]
+        },
+        "output_tokens": {
+          "change": 0.05580409371455963,
+          "ci95": [
+            0.029873801144378653,
+            0.08335167857543091
+          ]
+        },
+        "usd": {
+          "change": 0.0831594506656188,
+          "ci95": [
+            0.06327122012808872,
+            0.10364875222422487
+          ]
+        },
+        "model_turns": {
+          "change": -0.04632768361581918,
+          "ci95": [
+            -0.0699774266365688,
+            -0.0226757369614512
+          ]
+        },
+        "seconds": {
+          "change": 0.03924968608792945,
+          "ci95": [
+            0.01075341141257291,
+            0.06861180958987245
+          ]
+        }
+      }
+    },
+    "pinned-office-invoice-organizer|claude-sonnet-5.5": {
+      "condition": "pinned-office-invoice-organizer",
+      "model": "claude-sonnet-5.5",
+      "tasks": 150,
+      "per_task": {
+        "tokens_read": 137717.31333333332,
+        "output_tokens": 8146.566666666667,
+        "usd": 0.16226431933333332,
+        "model_turns": 6.846666666666667,
+        "seconds": 81.49066666666667
+      },
+      "reference": "control-r2",
+      "extra_per_task": {
+        "tokens_read": 37723.04666666667,
+        "output_tokens": 22.846666666666668,
+        "usd": 0.010425131333333332,
+        "model_turns": 0.28,
+        "seconds": 0.2853333333333327
+      },
+      "relative": {
+        "tokens_read": {
+          "change": 0.37725209578682506,
+          "ci95": [
+            0.3156332489645777,
+            0.44301591881020275
+          ]
+        },
+        "output_tokens": {
+          "change": 0.0028123404876911895,
+          "ci95": [
+            -0.014480771721361196,
+            0.019042867441847244
+          ]
+        },
+        "usd": {
+          "change": 0.06865902979758642,
+          "ci95": [
+            0.04965426819546992,
+            0.08917276912811656
+          ]
+        },
+        "model_turns": {
+          "change": 0.04263959390862948,
+          "ci95": [
+            0.018886679920477212,
+            0.06720160481444326
+          ]
+        },
+        "seconds": {
+          "change": 0.0035137265204256973,
+          "ci95": [
+            -0.014058359776243923,
+            0.01974289479573299
+          ]
+        }
+      }
+    },
+    "pinned-office-email-classifier|claude-haiku-5.5": {
+      "condition": "pinned-office-email-classifier",
+      "model": "claude-haiku-5.5",
+      "tasks": 150,
+      "per_task": {
+        "tokens_read": 138644.2,
+        "output_tokens": 12834.366666666667,
+        "usd": 0.011818959733333334,
+        "model_turns": 5.766666666666667,
+        "seconds": 82.64533333333333
+      },
+      "reference": "control-r2",
+      "extra_per_task": {
+        "tokens_read": 18661.68666666667,
+        "output_tokens": 924.7266666666667,
+        "usd": 0.0009038567666666668,
+        "model_turns": -0.13333333333333333,
+        "seconds": 4.598
+      },
+      "relative": {
+        "tokens_read": {
+          "change": 0.15553672071213498,
+          "ci95": [
+            0.1201427608192378,
+            0.19100960781050036
+          ]
+        },
+        "output_tokens": {
+          "change": 0.0776452240929757,
+          "ci95": [
+            0.05009411030922584,
+            0.10665159655301881
+          ]
+        },
+        "usd": {
+          "change": 0.08280790107312153,
+          "ci95": [
+            0.06213545097713391,
+            0.10405975798301892
+          ]
+        },
+        "model_turns": {
+          "change": -0.02259887005649719,
+          "ci95": [
+            -0.044792833146696576,
+            0.0
+          ]
+        },
+        "seconds": {
+          "change": 0.05891296734460272,
+          "ci95": [
+            0.030343464711893198,
+            0.08840190944696324
+          ]
+        }
+      }
+    },
+    "pinned-office-email-classifier|claude-sonnet-5.5": {
+      "condition": "pinned-office-email-classifier",
+      "model": "claude-sonnet-5.5",
+      "tasks": 150,
+      "per_task": {
+        "tokens_read": 128898.53333333334,
+        "output_tokens": 8209.306666666667,
+        "usd": 0.16106035466666666,
+        "model_turns": 6.8133333333333335,
+        "seconds": 82.94
+      },
+      "reference": "control-r2",
+      "extra_per_task": {
+        "tokens_read": 28904.266666666666,
+        "output_tokens": 85.58666666666667,
+        "usd": 0.009221166666666667,
+        "model_turns": 0.24666666666666667,
+        "seconds": 1.7346666666666661
+      },
+      "relative": {
+        "tokens_read": {
+          "change": 0.289059239396392,
+          "ci95": [
+            0.23424437693924616,
+            0.3499621330635374
+          ]
+        },
+        "output_tokens": {
+          "change": 0.010535403320974357,
+          "ci95": [
+            -0.005130149538401407,
+            0.025272194270509418
+          ]
+        },
+        "usd": {
+          "change": 0.060729820727615236,
+          "ci95": [
+            0.04325816555945328,
+            0.0793514972877607
+          ]
+        },
+        "model_turns": {
+          "change": 0.03756345177664966,
+          "ci95": [
+            0.016260162601626105,
+            0.059837728194726214
+          ]
+        },
+        "seconds": {
+          "change": 0.021361486930250972,
+          "ci95": [
+            0.0012610545670515005,
+            0.04305823674159259
+          ]
+        }
+      }
+    }
+  }
+}

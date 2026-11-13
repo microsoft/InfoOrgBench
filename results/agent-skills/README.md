@@ -9,9 +9,11 @@ settings only, with no record text, prompts or transcripts.
 | File | Contents |
 | --- | --- |
 | [summary.json](summary.json) | Family and average Structure Scores for each condition and model, paired differences with 95% intervals and p-values, and checks against the published runs |
-| [per-task.csv](per-task.csv) | One row per condition, model and task: score, validity, records left in the inbox, tool calls, model turns, skill reads and pinned-skill messages |
+| [per-task.csv](per-task.csv) | One row per condition, model and task: score, validity, records left in the inbox, tool calls, model turns, skill reads, pinned-skill messages, provider-reported tokens (uncached input, cache write, cache read, output) and seconds |
+| [cost.json](cost.json) | Tokens read, output tokens, API cost, model turns and time per task for each condition and model, with each skill's change against its same-day no-skill run and 95% intervals |
 | [folder-naming.json](folder-naming.json) | Share of folder names in lowercase-hyphen form, with digits and with spaces, for each round-1 condition |
 | [grouping-similarity.json](grouping-similarity.json) | Adjusted Rand index between each round-1 condition's partitions and the no-skill control's, and between the control and the published run |
 
 The scores can be recomputed with `python tools/skill_study.py analyze --out
-<run folder>` from the saved runs, which are not distributed.
+<run folder>`, and the costs with `python tools/skill_study.py cost --out
+<run folder>`, from the saved runs, which are not distributed.

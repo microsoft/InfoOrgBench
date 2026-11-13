@@ -406,8 +406,9 @@ come out much later than the skills, so whether they help is usually unknown.
 We ran the 5 most popular organizing skills on InfoOrgBench to find out.
 
 **None helped.** Each skill changed the Structure Score by at most 1 point
-out of 100, for current and older Claude models alike. Agents followed the
-skills' naming rules but grouped the records the same way as without a skill.
+out of 100, for current and older Claude models alike. With current models,
+each still made a task cost up to 9% more. Agents followed the skills' naming
+rules but grouped the records the same way as without a skill.
 
 ### Setting
 
@@ -482,6 +483,27 @@ We reran file-organizer this way.
 The agent left the skill unopened in most tasks and opened it mostly on harder
 ones (no-skill scores of 59 and 62 on them, against 69 and 73 on the rest).
 None of the changes is statistically significant.
+
+**Does a skill cost extra?** Yes, 4% to 9% more per task.
+
+The agent re-reads the skill on every model call, so each task reads more
+tokens. Most of them come from the prompt cache, which costs a tenth of the
+input price or less, so the cost rises less than the tokens.
+
+| From | Skill | Haiku 5.5 tokens | Haiku 5.5 cost | Sonnet 5.5 tokens | Sonnet 5.5 cost |
+| --- | --- | ---: | ---: | ---: | ---: |
+| | *No skill (per task)* | *121k* | *$0.011* | *103k* | *$0.154* |
+| ComposioHQ | file-organizer | +21% | +9% | +33% | +7% |
+| | invoice-organizer | +23% | +6% | +35% | +8% |
+| claude-office-skills | File Organizer | +15% | +8% | +24% | +4% |
+| | Invoice Organizer | +19% | +8% | +38% | +7% |
+| | Email Classifier | +16% | +8% | +29% | +6% |
+| anthropics | mcp-builder (unrelated) | +21% | +7% | +42% | +6% |
+
+Tokens the model reads per task, cached ones included, and the cost at
+Anthropic's [API prices](https://platform.claude.com/docs/en/about-claude/pricing)
+in November 2026, against a no-skill run on the same day. Model calls and time
+per task barely changed.
 
 **What did the skills change?** Folder names, not groupings.
 
