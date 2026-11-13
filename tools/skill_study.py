@@ -10,6 +10,7 @@ the attempt ledger stay under the ignored ``.local`` directory.
     python tools/skill_study.py run --out .local/skill-study --workers 10
     python tools/skill_study.py status --out .local/skill-study
     python tools/skill_study.py analyze --out .local/skill-study
+    python tools/skill_study.py cost --out .local/skill-study
 """
 
 from __future__ import annotations
@@ -70,6 +71,14 @@ HOLM_FAMILIES = (
     ("stageC-codex", CODEX[1:], "codex-control", ("claude-haiku-4.5",)),
 )
 PUBLISHED_CODEX = {"claude-haiku-4.5": "claude-haiku-4-5__codex"}
+# USD per million tokens: input, 5-minute cache write, cache read, output. From
+# https://platform.claude.com/docs/en/about-claude/pricing, retrieved 2026-11-12. Claude Haiku 5.5 uses
+# its tier for prompts up to 100,000 tokens; its other tier has the same ratios, so relative costs do not
+# depend on the tier.
+PRICES = {"claude-haiku-5.5": (0.10, 0.125, 0.01, 0.50),
+          "claude-sonnet-5.5": (2.00, 2.50, 0.10, 10.00),
+          "claude-haiku-4.5": (1.00, 1.25, 0.10, 5.00)}
+USAGE_KEYS = ("input_tokens", "cache_creation_input_tokens", "cache_read_input_tokens", "output_tokens")
 INFRA = re.compile(
     r"HTTP Error (?:408|429|5\d\d)|URLError|RemoteDisconnected|ConnectionResetError|ConnectionRefusedError|"
     r"APIConnectionError|APITimeoutError|RateLimitError|InternalServerError|ServiceUnavailableError|"
@@ -508,6 +517,81 @@ def command_similarity(args):
     (out / "grouping-similarity.json").write_text(json.dumps(summary, indent=2) + "\n", encoding="utf-8")
 
 
+def episode_usage(out, job):
+    """Provider-reported tokens, cost and time of a job's final attempt, or None if it has none."""
+    record = final_attempt(job_dir(out, job))
+    if record is None:
+        return None
+    path = job_dir(out, job) / ("attempt-%d" % record["attempt"]) / "out" / "receipt.json"
+    receipt = json.loads(path.read_text(encoding="utf-8"))["tasks"][0] if path.is_file() else {}
+    usage = receipt.get("provider_reported_usage") or {}
+    row = {key: usage.get(key) or 0 for key in USAGE_KEYS}
+    row["tokens_read"] = sum(row[key] for key in USAGE_KEYS[:3])
+    row["usd"] = sum(row[key] * price for key, price in zip(USAGE_KEYS, PRICES[job[1]])) / 1e6
+    row["model_turns"] = (receipt.get("agent_stats") or {}).get("model_turns") or 0
+    row["seconds"] = record["seconds"]
+    return row
+
+
+def relative_change(pairs, *, resamples=10000, seed=SEED):
+    """Change of the summed metric against its reference, with a 95% bootstrap interval over tasks by family."""
+    families = {}
+    for family, treated, reference in pairs:
+        families.setdefault(family, []).append((treated, reference))
+    rng = random.Random(seed)
+    boots = []
+    for _ in range(resamples):
+        sample = [rows[rng.randrange(len(rows))] for rows in families.values() for _ in rows]
+        boots.append(sum(t for t, _ in sample) / sum(r for _, r in sample) - 1)
+    boots.sort()
+    change = sum(t for _, t, _ in pairs) / sum(r for _, _, r in pairs) - 1
+    return {"change": change, "ci95": [boots[int(0.025 * resamples)], boots[int(0.975 * resamples) - 1]]}
+
+
+def command_cost(args):
+    """What each skill adds to tokens, API cost and time per task, against its same-day no-skill run."""
+    out = Path(args.out)
+    metrics = ("tokens_read", "output_tokens", "usd", "model_turns", "seconds")
+    episodes, usage_rows = {}, []
+    for condition in CONDITIONS:
+        if condition in CODEX:
+            continue
+        for model in ALL_MODELS:
+            for family in FAMILIES:
+                for task in TASKS:
+                    row = episode_usage(out, (condition, model, family, task))
+                    if row is not None:
+                        episodes[(condition, model, family, task)] = row
+                        usage_rows.append({"condition": condition, "model": model, "family": family, "task": task,
+                                           **{key: row[key] for key in USAGE_KEYS}, "seconds": row["seconds"]})
+    summary = {"prices_usd_per_million_tokens": {model: dict(zip(USAGE_KEYS, price)) for model, price in PRICES.items()},
+               "conditions": {}}
+    for condition in CONDITIONS:
+        for model in ALL_MODELS:
+            rows = {(f, t): r for (c, m, f, t), r in episodes.items() if c == condition and m == model}
+            if not rows:
+                continue
+            entry = {"condition": condition, "model": model, "tasks": len(rows),
+                     "per_task": {key: _mean([r[key] for r in rows.values()]) for key in metrics}}
+            if CONDITIONS[condition] is not None:
+                reference = "control-r2" if condition in ROUND2 else "control"
+                base = {(f, t): r for (c, m, f, t), r in episodes.items() if c == reference and m == model}
+                keys = [key for key in rows if key in base]
+                entry["reference"] = reference
+                entry["extra_per_task"] = {key: _mean([rows[k][key] - base[k][key] for k in keys]) for key in metrics}
+                entry["relative"] = {key: relative_change([(k[0], rows[k][key], base[k][key]) for k in keys])
+                                     for key in metrics}
+                print("%-38s %-18s tokens read %+6.1f%%  output %+5.1f%%  cost %+5.1f%% [%+.1f%%, %+.1f%%]  time %+5.1f%%" % (
+                    condition, model, *(100 * entry["relative"][key]["change"] for key in ("tokens_read", "output_tokens", "usd")),
+                    *(100 * value for value in entry["relative"]["usd"]["ci95"]), 100 * entry["relative"]["seconds"]["change"]))
+            summary["conditions"]["%s|%s" % (condition, model)] = entry
+    (out / "cost.json").write_text(json.dumps(summary, indent=2) + "\n", encoding="utf-8")
+    with open(out / "per-task-usage.csv", "w", encoding="utf-8", newline="") as handle:
+        writer = csv.DictWriter(handle, fieldnames=list(usage_rows[0]))
+        writer.writeheader()
+        writer.writerows(usage_rows)
+
+
 def command_watchdog(args):
     """Terminate Codex processes that stay alive after their turn has ended (see the protocol log)."""
     import signal
@@ -558,7 +642,7 @@ def main(argv=None):
     run.add_argument("--models", nargs="+", default=list(MODELS), choices=list(ALL_MODELS))
     run.add_argument("--limit", type=int)
     run.add_argument("--python", default=sys.executable)
-    for name in ("status", "analyze", "similarity"):
+    for name in ("status", "analyze", "similarity", "cost"):
         sub = commands.add_parser(name)
         sub.add_argument("--out", required=True)
     reclassify = commands.add_parser("reclassify")
@@ -570,7 +654,7 @@ def main(argv=None):
     watchdog.add_argument("--exit-when-idle", action="store_true")
     args = parser.parse_args(argv)
     {"run": command_run, "status": command_status, "analyze": command_analyze,
-     "similarity": command_similarity, "watchdog": command_watchdog,
+     "similarity": command_similarity, "cost": command_cost, "watchdog": command_watchdog,
      "reclassify": command_reclassify}[args.command](args)
 
 

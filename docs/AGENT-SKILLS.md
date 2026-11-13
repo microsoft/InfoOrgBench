@@ -4,8 +4,8 @@ This experiment was run after the paper and is not part of it. It asks whether
 popular community [Agent Skills](https://agentskills.io) for organizing files
 raise an agent's Structure Score on the 150 InfoOrgBench tasks. The
 [README](../README.md#do-agent-skills-help) gives the short version. This page
-gives the design, every estimate with its interval, the error analysis and the
-limitations. Per-task scores are in [results/agent-skills/](../results/agent-skills).
+gives the design, every estimate with its interval, the error analysis, the
+limitations and how to [test your own skill](#try-your-own-skill). Per-task scores are in [results/agent-skills/](../results/agent-skills).
 
 ## Answer
 
@@ -16,7 +16,9 @@ difference from a same-day run without a skill lay between −0.83 and
 Holm-adjusted p-value was at least 0.23. The intervals reach from
 −1.97 to +2.21, so changes of up to about 2 points in either
 direction cannot be excluded. The agents followed the skills' naming rules, but
-grouped the records about as they did without a skill.
+grouped the records about as they did without a skill. Each pinned skill still
+made a task cost 4% to 9% more at API prices with Claude Haiku 5.5
+and Claude Sonnet 5.5.
 
 ## Skills
 
@@ -178,6 +180,56 @@ harm the agent compared with no skill.
 | invoice-organizer (ComposioHQ) | Haiku 5.5 | −1.24 | [−2.39, −0.14] | 0.03 |
 | invoice-organizer (ComposioHQ) | Sonnet 5.5 | −1.54 | [−2.82, −0.28] | 0.02 |
 
+### Cost
+
+A skill is a few thousand tokens of text, but the agent re-reads it on every
+model call. Tokens read are the input tokens the provider reported for a task,
+including cache writes and cache reads. Costs use Anthropic's
+[API prices](https://platform.claude.com/docs/en/about-claude/pricing) on
+12 November 2026: $0.10 per million input tokens for Claude Haiku 5.5 (its
+tier for prompts up to 100,000 tokens), $2 for Claude Sonnet 5.5 and $1 for
+Claude Haiku 4.5. Cache writes cost 1.25×, output 5× and cache reads 0.1× the
+input price, or 0.05× for Sonnet 5.5. The runs went through the GitHub Copilot
+backend, so these are API-equivalent costs rather than what the study paid.
+Haiku 5.5's other price tier has the same ratios, so the changes do not depend
+on the tier.
+
+| Condition | Model | Tokens read per task | Change | API cost per task | Change | 95% interval |
+| --- | --- | ---: | ---: | ---: | ---: | :---: |
+| No skill | Haiku 5.5 | 120.8k | — | $0.0112 | — | — |
+| file-organizer (ComposioHQ) | Haiku 5.5 | 146.5k | +21.2% | $0.0122 | +8.5% | [+6.8%, +10.4%] |
+| invoice-organizer (ComposioHQ) | Haiku 5.5 | 149.1k | +23.4% | $0.0119 | +6.4% | [+4.6%, +8.3%] |
+| File Organizer (claude-office-skills) | Haiku 5.5 | 139.3k | +15.3% | $0.0121 | +7.7% | [+5.6%, +9.8%] |
+| file-organizer (ComposioHQ), offered only | Haiku 5.5 | 139.4k | +15.4% | $0.0118 | +5.1% | [+3.4%, +6.9%] |
+| mcp-builder (unrelated) | Haiku 5.5 | 146.4k | +21.1% | $0.0120 | +6.9% | [+5.1%, +8.8%] |
+| No skill, round 2 | Haiku 5.5 | 120.0k | — | $0.0109 | — | — |
+| Invoice Organizer (claude-office-skills) | Haiku 5.5 | 142.7k | +18.9% | $0.0118 | +8.3% | [+6.3%, +10.4%] |
+| Email Classifier (claude-office-skills) | Haiku 5.5 | 138.6k | +15.6% | $0.0118 | +8.3% | [+6.2%, +10.4%] |
+| No skill | Sonnet 5.5 | 102.5k | — | $0.1535 | — | — |
+| file-organizer (ComposioHQ) | Sonnet 5.5 | 136.1k | +32.7% | $0.1639 | +6.7% | [+4.9%, +8.6%] |
+| invoice-organizer (ComposioHQ) | Sonnet 5.5 | 138.9k | +35.5% | $0.1659 | +8.0% | [+6.4%, +9.7%] |
+| File Organizer (claude-office-skills) | Sonnet 5.5 | 126.8k | +23.7% | $0.1601 | +4.3% | [+2.5%, +6.2%] |
+| file-organizer (ComposioHQ), offered only | Sonnet 5.5 | 113.6k | +10.8% | $0.1503 | −2.1% | [−4.2%, −0.2%] |
+| mcp-builder (unrelated) | Sonnet 5.5 | 145.7k | +42.2% | $0.1626 | +5.9% | [+3.8%, +7.9%] |
+| No skill, round 2 | Sonnet 5.5 | 100.0k | — | $0.1518 | — | — |
+| Invoice Organizer (claude-office-skills) | Sonnet 5.5 | 137.7k | +37.7% | $0.1623 | +6.9% | [+5.0%, +8.9%] |
+| Email Classifier (claude-office-skills) | Sonnet 5.5 | 128.9k | +28.9% | $0.1611 | +6.1% | [+4.3%, +7.9%] |
+| No skill | Haiku 4.5 | 217.9k | — | $0.0943 | — | — |
+| file-organizer (ComposioHQ) | Haiku 4.5 | 256.2k | +17.6% | $0.0933 | −1.0% | [−5.8%, +3.8%] |
+| File Organizer (claude-office-skills) | Haiku 4.5 | 222.7k | +2.2% | $0.0949 | +0.6% | [−4.3%, +5.8%] |
+
+With a pinned organizing skill, Haiku 5.5 and Sonnet 5.5 read 15% to
+38% more tokens per task. Most of them came from the prompt cache, so the
+API cost rose by 4.3% to 8.5%, about as much as with the unrelated
+skill. For a run of all 150 tasks that is $0.99 to $1.85
+more with Sonnet 5.5 and $0.11 to $0.14 more with Haiku 5.5. Output tokens
+changed by −0.7% to +7.8%, model turns by −5.5% to +4.3% and time per
+task by −1.5% to +5.9%, with up to 12 episodes running at once. Claude Haiku 4.5
+makes about twice as many model calls per task; its cost changed by
+−1.0% and +0.6%, within run-to-run variation. When the skill was only
+offered, the cost changed by +5.1% for Haiku 5.5 and −2.1% for Sonnet 5.5, which
+opened the skill in only 14 tasks.
+
 ### What the skills changed
 
 - **Exposure.** Every pinned episode contained the skill text, 150 of 150 in
@@ -291,6 +343,47 @@ SkillsBench ([arXiv:2602.12670](https://arxiv.org/abs/2602.12670)) reported
 large gains, but from curated skills written for its tasks rather than from
 general community skills.
 
+## Try your own skill
+
+Install the harness and Deep Agents as in [step 6 of the quick start](../README.md#6-rerun-a-system-from-the-paper)
+and the [harness guide](../harness/README.md#deep-agents). Then run one family
+with and without a skill, and compare the scores:
+
+```bash
+python -m infoorgbench_harness fetch-skills --out ../skills
+python -m infoorgbench_harness run --harness deepagents --model claude-sonnet-5.5 --backend copilot --family Recap --out ../runs/no-skill
+python -m infoorgbench_harness run --harness deepagents --model claude-sonnet-5.5 --backend copilot --family Recap --skill ../skills/composio-file-organizer/file-organizer --skill-mode pinned --out ../runs/with-skill
+python -m infoorgbench_harness score --run ../runs/no-skill
+python -m infoorgbench_harness score --run ../runs/with-skill
+```
+
+Single tasks vary by several points between runs, so compare whole families.
+
+### Use your own skill
+
+A skill is a folder that contains a `SKILL.md`:
+
+```text
+my-skill/
+└── SKILL.md
+```
+
+```markdown
+---
+name: my-skill
+description: Organize records by the meeting, issue or project they came from.
+---
+
+Read every record before creating any folder. Note the source each record
+names, then build one top-level folder per source.
+```
+
+Pass the folder with `--skill ../my-skill`, and repeat `--skill` to load
+several. `--skill-mode pinned` loads the skill before the agent starts;
+`--skill-mode available` only lists it, and the agent decides. The
+[harness guide](../harness/README.md#agent-skills-with-deep-agents-and-codex)
+explains both modes.
+
 ## Reproduce
 
 Install the harness and Deep Agents as described in the
@@ -304,6 +397,7 @@ python tools/skill_study.py run --out .local/skill-study --conditions control-r2
 python tools/skill_study.py run --out .local/skill-study --models claude-haiku-4.5 --conditions control pinned-composio-file-organizer pinned-claude-office-file-organizer
 python tools/skill_study.py analyze --out .local/skill-study
 python tools/skill_study.py similarity --out .local/skill-study
+python tools/skill_study.py cost --out .local/skill-study
 python tools/skill_study_errors.py --out .local/skill-study
 ```
 
@@ -313,6 +407,7 @@ themselves (workspaces, logs and receipts) are not distributed.
 | File | Contents |
 | --- | --- |
 | [summary.json](../results/agent-skills/summary.json) | Family and average scores for each condition and model, paired differences with intervals and p-values, and the comparison with the paper's runs |
-| [per-task.csv](../results/agent-skills/per-task.csv) | One row per condition, model and task (3,150 rows): score, validity, records left in the inbox, tool calls, model turns and skill reads |
+| [per-task.csv](../results/agent-skills/per-task.csv) | One row per condition, model and task (3,150 rows): score, validity, records left in the inbox, tool calls, model turns, skill reads, tokens and seconds |
+| [cost.json](../results/agent-skills/cost.json) | Tokens, API cost, model turns and time per task for each condition, with each skill's change and its interval |
 | [folder-naming.json](../results/agent-skills/folder-naming.json) | Folder-name styles for each round-1 condition |
 | [grouping-similarity.json](../results/agent-skills/grouping-similarity.json) | Adjusted Rand index between each round-1 condition's groupings and those of the no-skill run |
