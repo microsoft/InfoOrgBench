@@ -35,8 +35,8 @@ and then scores how well the folders match the source hierarchy at every level.
 No language model is used to judge the outputs.
 
 🔥 **News, Nov 2026:** We put the 5 most popular organizing Agent Skills to the
-test, and none of them helped agents organize better!
-[Check out the Skills eval →](#do-agent-skills-help)
+test. None of them helped agents organize better, and each one made tasks up to
+9% more expensive! [Check out the Skills eval →](#do-agent-skills-help)
 
 ## Overview
 
@@ -405,10 +405,10 @@ expect them to make their harness better at organizing. Evaluations, however,
 come out much later than the skills, so whether they help is usually unknown.
 We ran the 5 most popular organizing skills on InfoOrgBench to find out.
 
-**None helped.** Each skill changed the Structure Score by at most 1 point
-out of 100, for current and older Claude models alike. With current models,
-each still made a task cost up to 9% more. Agents followed the skills' naming
-rules but grouped the records the same way as without a skill.
+**No gain, extra cost.** No skill changed the Structure Score by more than 1
+point out of 100, for current or older Claude models. With current models,
+every skill made each task 4% to 9% more expensive. Agents followed the
+skills' naming rules but grouped the records the same way as without a skill.
 
 ### Setting
 
@@ -431,7 +431,7 @@ we tested.
 
 ### Results
 
-**Does a skill help current models?** No.
+**Does a skill help current models?** No, and it costs more.
 
 We loaded each skill before the agent started, as if the user had invoked it,
 so the agent saw it on every task. Claude Haiku 5.5 and Claude Sonnet 5.5 are a
@@ -442,18 +442,22 @@ without a skill. We also ran
 a skill of the same length that has nothing to do with organizing, to separate
 a skill's advice from the extra prompt text.
 
-| From | Skill | Claude Haiku 5.5 | Claude Sonnet 5.5 |
-| --- | --- | ---: | ---: |
-| | *No skill (score)* | *64.9* | *71.9* |
-| ComposioHQ | file-organizer | −0.5 | −0.3 |
-| | invoice-organizer | −0.3 | −0.8 |
-| claude-office-skills | File Organizer | +0.8 | −0.3 |
-| | Invoice Organizer | −0.7 | +0.3 |
-| | Email Classifier | +0.3 | −0.6 |
-| anthropics | mcp-builder (unrelated) | +1.0 | +0.7 |
+| From | Skill | Haiku 5.5 score | Haiku 5.5 cost | Sonnet 5.5 score | Sonnet 5.5 cost |
+| --- | --- | ---: | ---: | ---: | ---: |
+| | *No skill* | *64.9* | *$0.011* | *71.9* | *$0.154* |
+| ComposioHQ | file-organizer | −0.5 | +9% | −0.3 | +7% |
+|  | invoice-organizer | −0.2 | +6% | −0.8 | +8% |
+| claude-office-skills | File Organizer | +0.8 | +8% | −0.3 | +4% |
+|  | Invoice Organizer | −0.7 | +8% | +0.3 | +7% |
+|  | Email Classifier | +0.3 | +8% | −0.6 | +6% |
+| anthropics | mcp-builder (unrelated) | +1.0 | +7% | +0.7 | +6% |
 
-Change in Structure Score against a no-skill run on the same day; none is
-statistically significant. The unrelated skill moved scores as much as the
+Change in Structure Score (points out of 100) and in cost per task, against a
+no-skill run on the same day. None of the score changes is statistically
+significant, and every cost increase is. The agent re-reads the skill on every
+model call; costs are at Anthropic's
+[API prices](https://platform.claude.com/docs/en/about-claude/pricing) in
+November 2026. The unrelated skill moved scores and costs as much as the
 organizing skills did.
 
 **Does it help an older model?** No.
@@ -484,27 +488,6 @@ The agent left the skill unopened in most tasks and opened it mostly on harder
 ones (no-skill scores of 59 and 62 on them, against 69 and 73 on the rest).
 None of the changes is statistically significant.
 
-**Does a skill cost extra?** Yes, 4% to 9% more per task.
-
-The agent re-reads the skill on every model call, so each task reads more
-tokens. Most of them come from the prompt cache, which costs a tenth of the
-input price or less, so the cost rises less than the tokens.
-
-| From | Skill | Haiku 5.5 tokens | Haiku 5.5 cost | Sonnet 5.5 tokens | Sonnet 5.5 cost |
-| --- | --- | ---: | ---: | ---: | ---: |
-| | *No skill (per task)* | *121k* | *$0.011* | *103k* | *$0.154* |
-| ComposioHQ | file-organizer | +21% | +9% | +33% | +7% |
-| | invoice-organizer | +23% | +6% | +35% | +8% |
-| claude-office-skills | File Organizer | +15% | +8% | +24% | +4% |
-| | Invoice Organizer | +19% | +8% | +38% | +7% |
-| | Email Classifier | +16% | +8% | +29% | +6% |
-| anthropics | mcp-builder (unrelated) | +21% | +7% | +42% | +6% |
-
-Tokens the model reads per task, cached ones included, and the cost at
-Anthropic's [API prices](https://platform.claude.com/docs/en/about-claude/pricing)
-in November 2026, against a no-skill run on the same day. Model calls and time
-per task barely changed.
-
 **What did the skills change?** Folder names, not groupings.
 
 | Claude Sonnet 5.5 | No skill | With ComposioHQ file-organizer |
@@ -517,54 +500,13 @@ rules and duplicates. InfoOrgBench asks the agent to work out which meeting,
 issue or SIG each record came from, and none of the skills covers that. No
 task type improved either, whether split by family, difficulty or task size.
 
-### Code
+### More
 
-- [harness/configs/community-skills.json](harness/configs/community-skills.json):
-  the skills tested, pinned by commit and SHA-256, with the selection rule.
-- [results/agent-skills/](results/agent-skills): per-task scores of every run.
-- [tools/skill_study.py](tools/skill_study.py): runs and analyses the
-  experiment.
-- [docs/AGENT-SKILLS.md](docs/AGENT-SKILLS.md): full report with statistics,
-  error analysis and limitations.
-
-### Try it
-
-Install the harness and Deep Agents as in [step 6](#6-rerun-a-system-from-the-paper)
-and the [harness guide](harness/README.md#deep-agents). Then run one family
-with and without a skill, and compare the scores:
-
-```bash
-python -m infoorgbench_harness fetch-skills --out ../skills
-python -m infoorgbench_harness run --harness deepagents --model claude-sonnet-5.5 --backend copilot --family Recap --out ../runs/no-skill
-python -m infoorgbench_harness run --harness deepagents --model claude-sonnet-5.5 --backend copilot --family Recap --skill ../skills/composio-file-organizer/file-organizer --skill-mode pinned --out ../runs/with-skill
-python -m infoorgbench_harness score --run ../runs/no-skill
-python -m infoorgbench_harness score --run ../runs/with-skill
-```
-
-Single tasks vary by several points between runs, so compare whole families.
-
-**Use your own skill.** A skill is a folder that contains a `SKILL.md`:
-
-```text
-my-skill/
-└── SKILL.md
-```
-
-```markdown
----
-name: my-skill
-description: Organize records by the meeting, issue or project they came from.
----
-
-Read every record before creating any folder. Note the source each record
-names, then build one top-level folder per source.
-```
-
-Pass the folder with `--skill ../my-skill`, and repeat `--skill` to load
-several. `--skill-mode pinned` loads the skill before the agent starts;
-`--skill-mode available` only lists it, and the agent decides. The
-[harness guide](harness/README.md#agent-skills-with-deep-agents-and-codex)
-explains both modes.
+The [Skills eval report](docs/AGENT-SKILLS.md) gives every estimate with its
+interval, the token and cost breakdown, the error analysis and the limitations.
+It also shows how to [test your own skill](docs/AGENT-SKILLS.md#try-your-own-skill)
+on InfoOrgBench. Per-task scores and costs are in
+[results/agent-skills/](results/agent-skills).
 
 ## What's in this repository
 
@@ -588,8 +530,8 @@ The results of all 45 systems are released as well:
   were not kept; [results/assignments/README.md](results/assignments/README.md)
   lists them and explains why.
 - [harness/](harness) holds the agent harnesses and prompts used for these runs.
-- [results/agent-skills/](results/agent-skills) holds the per-task scores of the
-  [Skills eval](#do-agent-skills-help).
+- [results/agent-skills/](results/agent-skills) holds the per-task scores and
+  costs of the [Skills eval](#do-agent-skills-help).
 
 Model outputs contain only the final folder path of each record ID, including
 the folder names that the model chose. In Thread, folder names that copied 6

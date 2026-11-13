@@ -4,8 +4,8 @@ This experiment was run after the paper and is not part of it. It asks whether
 popular community [Agent Skills](https://agentskills.io) for organizing files
 raise an agent's Structure Score on the 150 InfoOrgBench tasks. The
 [README](../README.md#do-agent-skills-help) gives the short version. This page
-gives the design, every estimate with its interval, the error analysis and the
-limitations. Per-task scores are in [results/agent-skills/](../results/agent-skills).
+gives the design, every estimate with its interval, the error analysis, the
+limitations and how to [test your own skill](#try-your-own-skill). Per-task scores are in [results/agent-skills/](../results/agent-skills).
 
 ## Answer
 
@@ -342,6 +342,47 @@ models a length-matched irrelevant skill reproduced most of the loss.
 SkillsBench ([arXiv:2602.12670](https://arxiv.org/abs/2602.12670)) reported
 large gains, but from curated skills written for its tasks rather than from
 general community skills.
+
+## Try your own skill
+
+Install the harness and Deep Agents as in [step 6 of the quick start](../README.md#6-rerun-a-system-from-the-paper)
+and the [harness guide](../harness/README.md#deep-agents). Then run one family
+with and without a skill, and compare the scores:
+
+```bash
+python -m infoorgbench_harness fetch-skills --out ../skills
+python -m infoorgbench_harness run --harness deepagents --model claude-sonnet-5.5 --backend copilot --family Recap --out ../runs/no-skill
+python -m infoorgbench_harness run --harness deepagents --model claude-sonnet-5.5 --backend copilot --family Recap --skill ../skills/composio-file-organizer/file-organizer --skill-mode pinned --out ../runs/with-skill
+python -m infoorgbench_harness score --run ../runs/no-skill
+python -m infoorgbench_harness score --run ../runs/with-skill
+```
+
+Single tasks vary by several points between runs, so compare whole families.
+
+### Use your own skill
+
+A skill is a folder that contains a `SKILL.md`:
+
+```text
+my-skill/
+└── SKILL.md
+```
+
+```markdown
+---
+name: my-skill
+description: Organize records by the meeting, issue or project they came from.
+---
+
+Read every record before creating any folder. Note the source each record
+names, then build one top-level folder per source.
+```
+
+Pass the folder with `--skill ../my-skill`, and repeat `--skill` to load
+several. `--skill-mode pinned` loads the skill before the agent starts;
+`--skill-mode available` only lists it, and the agent decides. The
+[harness guide](../harness/README.md#agent-skills-with-deep-agents-and-codex)
+explains both modes.
 
 ## Reproduce
 
